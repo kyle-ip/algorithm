@@ -46,18 +46,14 @@ public class LeetCode144 {
         List<Integer> result = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         while (root != null || !stack.isEmpty()) {
-            if (root != null) {
+            while (root != null) {
                 result.add(root.val);
+
+                // 入栈的目的是当弹出时指向右节点，此时左、中已遍历完
                 stack.push(root);
                 root = root.left;
-                // stack.push(left);
-                // root = root.left;
-            } else {
-                root = stack.pop().right;
-                // node = stack.pop();
-                // result.add(node.val);
-                // root = node.right;
             }
+            root = stack.pop().right;
         }
         return result;
     }
@@ -75,10 +71,11 @@ public class LeetCode144 {
         }
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
-
         while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
             result.add(node.val);
+
+            // 后进先出，先把右节点入栈，确保下次
             if (node.right!= null) {
                 stack.push(node.right);
             }

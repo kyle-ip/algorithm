@@ -1,4 +1,4 @@
-package com.ywh.algorithm.leetcode.easy;
+package com.ywh.algorithm.leetcode.medium;
 
 import java.util.*;
 
@@ -12,6 +12,8 @@ import java.util.*;
 public class LeetCode15 {
 
     /**
+     * 三层循环
+     *
      * Time: O(n^3), Space: O(n)
      *
      * @param nums
@@ -40,6 +42,8 @@ public class LeetCode15 {
     }
 
     /**
+     * 排序 + 双指针（注意每次成功判断后都要跳过重复值）
+     *
      * Time: O(n^2), Space: O(1)
      *
      * @param nums
@@ -48,48 +52,27 @@ public class LeetCode15 {
     public List<List<Integer>> threeNumSumToZeroOn2(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(nums);
-
-        int k = nums.length - 1;
-
-        while (k >= 2) {
-
-            // nums[k] 表示另外两数之和的相反数
-            // 外循环中只需要判断 nums[k] >= 0 的部分，毕竟三个正数之和不可能为0
-            if (nums[k] < 0) {
-                break;
-            }
-
-            // 每轮循环中左右指针在 0 ~ k-1 范围内取值
+        for (int k = nums.length - 1; k >= 2; k++) {
             int target = -nums[k], left = 0, right = k - 1;
-
             while (left < right) {
-                int sum = nums[left] + nums[right];
-
-                if (sum == target) {
+                if (nums[left] + nums[right] < target) {
+                    left++;
+                } else if (nums[left] + nums[right] > target) {
+                    right--;
+                } else {
                     result.add(Arrays.asList(nums[left], nums[right], nums[k]));
 
                     // 跳过重复值
-                    while (left < right && nums[left] == nums[left + 1]) {
-                        left++;
-                    }
-                    while (left < right && nums[right] == nums[right - 1]) {
-                        right--;
-                    }
-                } else if (sum < target){
-                    left++;
-                } else {
-                    right--;
+                    for (; left < right && nums[left] == nums[left + 1]; left++);
+                    for (; left < right && nums[right] == nums[right - 1]; right--);
                 }
             }
 
             // 跳过重复值
-            while (k >= 2 && nums[k - 1] == nums[k]) {
+            while (k >= 2 && nums[k] == nums[k - 1]) {
                 k--;
             }
-            k--;
         }
-
         return result;
-
     }
 }

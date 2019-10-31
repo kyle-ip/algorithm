@@ -16,6 +16,8 @@ public class LeetCode703 {
 
         /**
          * 优先级队列，默认即为最小堆，用于存放 Top K 元素
+         * poll、peek 方法总是返回最小值（即数据流中的）
+         *
          * TODO 自己实现最小堆
          */
         private Queue<Integer> minHeap = new PriorityQueue<>();
@@ -42,13 +44,12 @@ public class LeetCode703 {
          * @return
          */
         public int add(int val) {
-
             if (minHeap.size() < k) {
                 minHeap.add(val);
             }
-            // 每有新数字加入，即与 minHeap 中的最小元素对比
-            // 如果新数字比较大，则把 minHeap 中的最小元素删除，加入新数字
-            else if(val > minHeap.peek()) {
+            // 堆容量已满，与 minHeap 中的最小元素对比：
+            // 如果新数字比较大，则把 minHeap 中的最小元素删除，加入新数字，可确保当前堆中最小的元素为数据流中的第 k 大元素
+            else if(!minHeap.isEmpty() && val > minHeap.peek()) {
                 minHeap.poll();
                 minHeap.add(val);
             }
@@ -58,4 +59,7 @@ public class LeetCode703 {
         }
     }
 
+    // [1] 5 2
+    // 1 5 2 8 => (1) 5 [2] 8
+    // 5 2 8 9 => [5] (2) 8 9
 }

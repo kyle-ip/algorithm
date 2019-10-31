@@ -1,5 +1,7 @@
 package com.ywh.model;
 
+import java.util.Objects;
+
 /**
  * 单链表节点
  *
@@ -23,4 +25,21 @@ public class ListNode {
         this.next = next;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof ListNode)) {
+            return false;
+        }
+        ListNode listNode = (ListNode) o;
+        return val == listNode.val &&
+            next.equals(listNode.next);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(val, next);
+    }
 }
