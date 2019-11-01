@@ -1,8 +1,8 @@
 # algorithm
 
-[![Travis](C:\Project\cs-basic\algorithm\assets\language-[Java]-blue-1572612831302.svg)]()
-[![Travis](C:\Project\cs-basic\algorithm\assets\language-C-green-1572612831313.svg)]()
-[![Travis](C:\Project\cs-basic\algorithm\assets\language-Python-red-1572612831312.svg)]()
+[![Travis](.\assets\language-Java-blue.svg)]()
+[![Travis](.\assets\language-C-green.svg)]()
+[![Travis](.\assets\language-Python-red.svg)]()
 
 > since 2019-11-01 15:50
 
