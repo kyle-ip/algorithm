@@ -1,4 +1,4 @@
-package com.ywh.algorithm.leetcode.easy;
+package com.ywh.algorithm.leetcode.medium;
 
 /**
  * 买卖股票的最大利润

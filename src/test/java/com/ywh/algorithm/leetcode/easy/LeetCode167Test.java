@@ -1,6 +1,6 @@
 package com.ywh.algorithm.leetcode.easy;
 
-import com.ywh.algorithm.leetcode.easy.LeetCode167;
+import com.ywh.algorithm.leetcode.medium.LeetCode167;
 import com.ywh.algorithm.util.StringUtil;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;

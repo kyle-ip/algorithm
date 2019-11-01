@@ -1,7 +1,8 @@
-package com.ywh.algorithm.leetcode.medium;
+package com.ywh.algorithm.leetcode.easy;
 
-import java.util.PriorityQueue;
-import java.util.Queue;
+import com.ywh.model.TreeNode;
+
+import java.util.*;
 
 /**
  * 数据流中第 K 大的元素
@@ -62,4 +63,5 @@ public class LeetCode703 {
     // [1] 5 2
     // 1 5 2 8 => (1) 5 [2] 8
     // 5 2 8 9 => [5] (2) 8 9
+
 }

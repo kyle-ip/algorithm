@@ -1,4 +1,4 @@
-package com.ywh.algorithm.leetcode.easy;
+package com.ywh.algorithm.leetcode.medium;
 
 /**
  * 实现平方根函数

@@ -1,4 +1,4 @@
-package com.ywh.algorithm.leetcode.easy;
+package com.ywh.algorithm.leetcode.medium;
 
 /**
  * 缺失的数字

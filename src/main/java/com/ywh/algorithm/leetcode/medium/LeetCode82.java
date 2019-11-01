@@ -4,6 +4,7 @@ import com.ywh.model.ListNode;
 
 /**
  * 有序链表删除重复节点
+ * [链表]
  *
  * @author ywh
  * @since 2/16/2019

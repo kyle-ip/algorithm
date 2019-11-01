@@ -1,4 +1,4 @@
-package com.ywh.algorithm.leetcode.medium;
+package com.ywh.algorithm.leetcode.easy;
 
 import com.ywh.model.TreeNode;
 

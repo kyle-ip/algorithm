@@ -1,4 +1,4 @@
-package com.ywh.algorithm.leetcode.easy;
+package com.ywh.algorithm.leetcode.medium;
 
 /**
  * 连续子序列的最大和

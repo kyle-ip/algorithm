@@ -6,6 +6,7 @@ import java.util.Stack;
 
 /**
  * 判断二叉树是否相同
+ * [树] [栈]
  *
  * @author ywh
  * @since 2/14/2019
