@@ -16,7 +16,7 @@ import java.util.Queue;
 public class LeetCode215 {
 
     /**
-     * 排序返回后返回对应下标
+     * 排序后返回对应下标
      * Time: O(n*log(n)), Space: O(1)
      *
      * @param nums
