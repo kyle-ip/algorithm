@@ -81,7 +81,7 @@ public class LeetCode215 {
 
     /**
      * 快速选择法：
-     * 类似二分查找，每次使用 {@link #partition} 获取分区点的下标；
+     * 类似二分搜索，每次使用 {@link #partition} 获取分区点的下标；
      * 如果下标为 k - 1（比如 2），表示前面有 k - 1 个元素比它大（nums[0]、nums[1]）；
      * 所以下标为 pivot 的元素即为数组第 k（3）大元素
      *

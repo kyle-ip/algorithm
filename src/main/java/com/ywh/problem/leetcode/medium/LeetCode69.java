@@ -10,7 +10,7 @@ package com.ywh.problem.leetcode.medium;
 public class LeetCode69 {
 
     /**
-     * 二分查找法
+     * 二分搜索法
      * Time: O(log(n)), Space: O(1)
      *
      * @param n
