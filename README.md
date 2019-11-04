@@ -1,8 +1,8 @@
 # algorithm
 
-[![Travis](./assets/language-Java-yellow.svg)]()
-[![Travis](./assets/language-C-green.svg)]()
-[![Travis](./assets/language-Python-red.svg)]()
+[![Travis](https://img.shields.io/badge/language-Java-green.svg)]()
+[![Travis](https://img.shields.io/badge/language-C-yellow.svg)]()
+[![Travis](https://img.shields.io/badge/language-Python-red.svg)]()
 
 > since 2019-11-01 15:50
 
