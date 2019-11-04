@@ -1,3 +1,7 @@
 .idea/
-*algorithm.iml
-*target/
+java/algorithm.iml
+java/target/
+java/.classpath
+java/.factorypath
+java/.project
+java/.settings/
