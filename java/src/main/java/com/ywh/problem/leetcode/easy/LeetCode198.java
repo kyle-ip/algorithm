@@ -40,7 +40,7 @@ public class LeetCode198 {
         if (nums == null || nums.length == 0) {
             return 0;
         }
-        // x1 表示前一个，x0 表示前两个
+        // x1 表示上一次抢劫后的总获利，x0 表示上上一次抢劫后的总获利
         int x0 = 0, x1 = 0, cur;
         for (int num: nums) {
             cur = Math.max(x1, x0 + num);
