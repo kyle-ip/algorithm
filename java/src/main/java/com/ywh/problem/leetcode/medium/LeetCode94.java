@@ -8,7 +8,7 @@ import java.util.Stack;
 
 /**
  * 二叉树中序遍历
- * [哈希表] [栈] [树]
+ * [栈] [树]
  *
  * @author ywh
  * @since 2/20/2019

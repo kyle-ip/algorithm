@@ -75,7 +75,7 @@ public class LeetCode144 {
             TreeNode node = stack.pop();
             result.add(node.val);
 
-            // 后进先出，先把右节点入栈，确保下次
+            // 后进先出，先把右节点入栈，确保下次先处理左节点
             if (node.right!= null) {
                 stack.push(node.right);
             }
