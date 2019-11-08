@@ -10,23 +10,22 @@ import org.junit.jupiter.params.provider.CsvSource;
 class LeetCode125Test {
 
     @Test
-    @DisplayName("[true] 空字符串")
+    @DisplayName("测试空字符串")
     void testEmptyTrue() {
         Assertions.assertTrue(LeetCode125.isPalindrome(""));
     }
 
     @ParameterizedTest
-    @DisplayName("[true] 仅含字母数字的字符串")
+    @DisplayName("测试仅含字母数字的字符串")
     @CsvSource({
-        "AbccBa",
-        "ndu1221UDn"
+        "AbccBa", "ndu1221UDn"
     })
     void testAlphanumericTrue(String s) {
         Assertions.assertTrue(LeetCode125.isPalindrome(s));
     }
 
     @ParameterizedTest
-    @DisplayName("[false] 仅含字母数字的字符串")
+    @DisplayName("测试仅含字母数字的字符串")
     @CsvSource({
         "AbccBacfa"
     })
@@ -36,9 +35,10 @@ class LeetCode125Test {
 
 
     @ParameterizedTest
-    @DisplayName("[true] 一般字符串")
+    @DisplayName("[true] 测试一般字符串")
     @CsvSource({
-        " race a E-car "
+        " race a E-car ",
+
     })
     void testTrue(String s) {
         Assertions.assertTrue(LeetCode125.isPalindrome(s));

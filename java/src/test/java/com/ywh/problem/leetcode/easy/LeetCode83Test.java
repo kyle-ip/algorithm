@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.easy;
 
-import com.ywh.algorithm.util.LinkedListUtil;
+import com.ywh.util.*;
 import com.ywh.model.ListNode;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;

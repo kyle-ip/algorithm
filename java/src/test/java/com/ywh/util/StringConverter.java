@@ -1,4 +1,4 @@
-package com.ywh.algorithm.util;
+package com.ywh.util;
 
 import org.junit.jupiter.params.converter.SimpleArgumentConverter;
 
@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author ywh
  * @since 2/13/2019
  */
-public class ToStringConverter extends SimpleArgumentConverter {
+public class StringConverter extends SimpleArgumentConverter {
 
     @Override
     protected Object convert(Object source, Class<?> targetType) {

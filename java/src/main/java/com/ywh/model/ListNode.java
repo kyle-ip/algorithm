@@ -34,12 +34,33 @@ public class ListNode {
             return false;
         }
         ListNode listNode = (ListNode) o;
-        return val == listNode.val &&
-            next.equals(listNode.next);
+        ListNode cur1 = this, cur2 = listNode;
+        while (cur1 != null && cur2 != null) {
+            if (cur1.val != cur2.val) {
+                return false;
+            }
+            cur1 = cur1.next;
+            cur2 = cur2.next;
+        }
+        return cur1 == null && cur2 == null;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(val, next);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        ListNode cur = this;
+        while (cur != null) {
+            sb.append(cur.val);
+            if (cur.next != null) {
+                sb.append(",");
+            }
+            cur = cur.next;
+        }
+        return sb.toString();
     }
 }

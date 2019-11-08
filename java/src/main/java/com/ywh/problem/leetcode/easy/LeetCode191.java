@@ -22,7 +22,6 @@ public class LeetCode191 {
 
         // 循环，直到掩码为0
         while (mask != 0) {
-            System.out.println(mask);
             if ((n & mask) != 0) {
                 ++count;
             }

@@ -25,11 +25,12 @@ public class LeetCode26 {
         }
         int left = 1, right = 1;
         while (right < nums.length) {
-            if (nums[right] == nums[right - 1]) {
+            if (nums[right] != nums[right - 1]) {
                 nums[left++] = nums[right];
             }
             right++;
         }
+
         return left;
     }
 

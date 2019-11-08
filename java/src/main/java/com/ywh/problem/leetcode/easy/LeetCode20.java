@@ -27,15 +27,17 @@ public class LeetCode20 {
             if (s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{') {
                 stack.push(s.charAt(i));
             }
-            if (stack.isEmpty()) {
-                return false;
-            } else {
-                if (s.charAt(i) == ')' && stack.peek() != '('
-                    || s.charAt(i) == ']' && stack.peek() != '['
-                    || s.charAt(i) == '}' && stack.peek() != '{') {
+            else {
+                if (stack.isEmpty()) {
                     return false;
+                } else {
+                    if (s.charAt(i) == ')' && stack.peek() != '('
+                        || s.charAt(i) == ']' && stack.peek() != '['
+                        || s.charAt(i) == '}' && stack.peek() != '{') {
+                        return false;
+                    }
+                    stack.pop();
                 }
-                stack.pop();
             }
         }
         return stack.isEmpty();
@@ -57,10 +59,10 @@ public class LeetCode20 {
                     stack.push(')');
                     break;
                 case '[':
-                    stack.push('[');
+                    stack.push(']');
                     break;
                 case '{':
-                    stack.push('{');
+                    stack.push('}');
                     break;
                 default:
                     if (stack.isEmpty() || s.charAt(i) != stack.pop()) {

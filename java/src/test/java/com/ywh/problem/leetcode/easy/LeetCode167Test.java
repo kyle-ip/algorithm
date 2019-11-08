@@ -1,7 +1,7 @@
 package com.ywh.problem.leetcode.easy;
 
 import com.ywh.problem.leetcode.medium.LeetCode167;
-import com.ywh.algorithm.util.StringUtil;
+import com.ywh.util.StringUtil;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -23,14 +23,14 @@ class LeetCode167Test {
     @ParameterizedTest
     @DisplayName("[true] 有序数组中求和为给定值的两个数")
     @CsvSource({
-        "'[1, 2, 3, 6, 8, 11]', 10, '[2, 5]'",
+        "'1,2,3,6,8,11', 10, '2,5'",
     })
     void testGetTwoSumToTarget1(
         ArgumentsAccessor arguments
     ) {
-        int[] nums = StringUtil.stringToIntArray(arguments.getString(0));
+        int[] nums = StringUtil.strToIntArray(arguments.getString(0));
         int target = arguments.getInteger(1);
-        int[] expect = StringUtil.stringToIntArray(arguments.getString(2));
+        int[] expect = StringUtil.strToIntArray(arguments.getString(2));
         assertArrayEquals(expect, solution.getTwoSumToTarget(nums, target));
 
     }
