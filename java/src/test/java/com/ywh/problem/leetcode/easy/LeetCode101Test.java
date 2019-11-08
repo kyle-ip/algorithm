@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.easy;
 
 import com.ywh.model.TreeNode;
+import com.ywh.util.TreeUtil;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,18 +18,7 @@ class LeetCode101Test {
     @BeforeAll
     static void init() {
         solution = new LeetCode101();
-        root = new TreeNode(
-            new TreeNode(
-                new TreeNode(4),
-                new TreeNode(8),
-                2),
-            new TreeNode(
-                new TreeNode(8),
-                new TreeNode(4),
-                2),
-            1
-        );
-
+        root = TreeUtil.buildTree(1, 2, 2, 4, 8, 8, 4);
     }
 
     @Test
@@ -41,6 +31,5 @@ class LeetCode101Test {
     @DisplayName("[true] 测试迭代方法")
     void isSymmetricTreeIterative() {
         assertTrue(solution.isSymmetricTreeIterative(root));
-
     }
 }
