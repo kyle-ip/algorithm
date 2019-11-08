@@ -18,8 +18,11 @@ public class StringUtil {
      * @return
      */
     public static int[] strToIntArray(String str) {
-        if (str == null || str.length() == 0) {
+        if (str == null || str.length() == 0 || "[]".equals(str)) {
             return new int[]{};
+        }
+        if ("null".equals(str)) {
+            return null;
         }
         if (!str.contains(",")) {
             return new int[]{Integer.parseInt(str)};

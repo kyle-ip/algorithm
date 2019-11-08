@@ -10,6 +10,13 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.Assert.assertArrayEquals;
 
+/**
+ * 测试有序数组中求和为给定值的两个数
+ * {@link LeetCode167}
+ *
+ * @author ywh
+ * @since 2/13/2019
+ */
 @DisplayName("测试有序数组中求和为给定值的两个数")
 class LeetCode167Test {
 

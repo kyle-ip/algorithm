@@ -1,18 +1,27 @@
 package com.ywh.problem.leetcode.easy;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+/**
+ * 测试判断回文串
+ * {@link LeetCode125}
+ *
+ * @author ywh
+ * @since 2/13/2019
+ */
 @DisplayName("测试判断回文串")
 class LeetCode125Test {
 
     @Test
     @DisplayName("测试空字符串")
     void testEmptyTrue() {
-        Assertions.assertTrue(LeetCode125.isPalindrome(""));
+        assertTrue(LeetCode125.isPalindrome(""));
     }
 
     @ParameterizedTest
@@ -21,7 +30,7 @@ class LeetCode125Test {
         "AbccBa", "ndu1221UDn"
     })
     void testAlphanumericTrue(String s) {
-        Assertions.assertTrue(LeetCode125.isPalindrome(s));
+        assertTrue(LeetCode125.isPalindrome(s));
     }
 
     @ParameterizedTest
@@ -30,7 +39,7 @@ class LeetCode125Test {
         "AbccBacfa"
     })
     void testAlphanumericFalse(String s) {
-        Assertions.assertFalse(LeetCode125.isPalindrome(s));
+        assertFalse(LeetCode125.isPalindrome(s));
     }
 
 
@@ -41,7 +50,7 @@ class LeetCode125Test {
 
     })
     void testTrue(String s) {
-        Assertions.assertTrue(LeetCode125.isPalindrome(s));
+        assertTrue(LeetCode125.isPalindrome(s));
     }
 
     @ParameterizedTest
@@ -50,6 +59,6 @@ class LeetCode125Test {
         " race a car "
     })
     void testFalse(String s) {
-        Assertions.assertFalse(LeetCode125.isPalindrome(s));
+        assertFalse(LeetCode125.isPalindrome(s));
     }
 }

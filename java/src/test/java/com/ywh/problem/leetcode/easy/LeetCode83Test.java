@@ -8,8 +8,15 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.aggregator.ArgumentsAccessor;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * 测试有序链表去重
+ * {@link LeetCode83}
+ *
+ * @author ywh
+ * @since 2/16/2019
+ */
 @DisplayName("测试有序链表去重")
 class LeetCode83Test {
 

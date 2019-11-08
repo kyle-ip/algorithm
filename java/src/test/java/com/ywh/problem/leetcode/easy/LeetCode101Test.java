@@ -8,6 +8,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * 测试判断二叉树是否对称
+ * {@link LeetCode101}
+ *
+ * @author ywh
+ * @since 2/13/2019
+ */
 @DisplayName("测试判断二叉树是否对称")
 class LeetCode101Test {
 
@@ -22,13 +29,13 @@ class LeetCode101Test {
     }
 
     @Test
-    @DisplayName("[true] 测试递归方法")
+    @DisplayName("测试递归方法")
     void testIsSymmetricTreeRecursive() {
         assertTrue(solution.isSymmetricTreeRecursive(root));
     }
 
     @Test
-    @DisplayName("[true] 测试迭代方法")
+    @DisplayName("测试迭代方法")
     void isSymmetricTreeIterative() {
         assertTrue(solution.isSymmetricTreeIterative(root));
     }
