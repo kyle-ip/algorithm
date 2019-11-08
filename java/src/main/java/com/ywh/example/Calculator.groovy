@@ -2,8 +2,8 @@ package com.ywh.example
 
 class Calculator {
 
-    int add(int a, int b) {
-        return a + b;
+    static int add(int a, int b) {
+        return a + b
     }
 
 }
