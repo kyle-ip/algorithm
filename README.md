@@ -1,8 +1,8 @@
 # algorithm
 
-[![Java](C:\Project\cs-basic\algorithm\assets\language-Java-green.svg)]()
-[![C](C:\Project\cs-basic\algorithm\assets\language-C-yellow.svg)]()
-[![Python](C:\Project\cs-basic\algorithm\assets\language-Python-red.svg)]()
+[![Java](https://img.shields.io/badge/language-Java-green.svg)]()
+[![C](https://img.shields.io/badge/language-C-yellow.svg)]()
+[![Python](https://img.shields.io/badge/language-Python-red.svg)]()
 
 > since 2019-11-01 15:50
 
