@@ -2,6 +2,8 @@ package com.ywh.util;
 
 import com.ywh.model.TreeNode;
 
+import java.util.List;
+
 /**
  * @author ywh
  * @since 2019/11/8/008
@@ -39,7 +41,21 @@ public class TreeUtil {
         for (int i = 0; i < nums.length; ++i) {
             trees[i] = nums[i] == null ? null : new TreeNode(nums[i]);
         }
+        return buildTree(trees);
+    }
 
+    public static TreeNode buildTree(List<Integer> nums) {
+        if (nums == null || nums.size() == 0)  {
+            return null;
+        }
+        TreeNode[] trees = new TreeNode[nums.size()];
+        for (int i = 0; i < nums.size(); ++i) {
+            trees[i] = nums.get(i) == null ? null : new TreeNode(nums.get(i));
+        }
+        return buildTree(trees);
+    }
+
+    private static TreeNode buildTree(TreeNode[] trees) {
         int p = 1;
         for (TreeNode tree : trees) {
             if (tree != null) {

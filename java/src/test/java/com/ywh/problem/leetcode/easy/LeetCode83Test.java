@@ -37,7 +37,7 @@ class LeetCode83Test {
     })
     void testRemoveDuplicatesInSortedList(ArgumentsAccessor arguments) {
         ListNode l =  LinkedListUtil.strToList(arguments.getString(0));
-        ListNode expect = LinkedListUtil.strToList(arguments.getString(1));
-        assertEquals(expect, solution.removeDuplicatesInSortedList(l));
+        ListNode expected = LinkedListUtil.strToList(arguments.getString(1));
+        assertEquals(expected, solution.removeDuplicatesInSortedList(l));
     }
 }

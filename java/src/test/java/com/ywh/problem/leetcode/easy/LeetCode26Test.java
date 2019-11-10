@@ -35,11 +35,11 @@ class LeetCode26Test {
     })
     void testRemoveDuplicates(ArgumentsAccessor arguments) {
         int[] arr = StringUtil.strToIntArray(arguments.getString(0));
-        int expectLen = arguments.getInteger(1);
-        int[] expectArr = StringUtil.strToIntArray(arguments.getString(2));
+        int expectedLen = arguments.getInteger(1);
+        int[] expectedArr = StringUtil.strToIntArray(arguments.getString(2));
         int res = solution.removeDuplicates(arr);
 
-        assertEquals(expectLen, res);
-        assertEquals(StringUtil.intArrayToStr(expectArr), StringUtil.intArrayToStr(arr, res));
+        assertEquals(expectedLen, res);
+        assertEquals(StringUtil.intArrayToStr(expectedArr), StringUtil.intArrayToStr(arr, res));
     }
 }

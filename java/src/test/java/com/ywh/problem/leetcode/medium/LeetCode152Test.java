@@ -1,6 +1,5 @@
-package com.ywh.problem.leetcode.easy;
+package com.ywh.problem.leetcode.medium;
 
-import com.ywh.problem.leetcode.medium.LeetCode152;
 import com.ywh.util.StringUtil;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;

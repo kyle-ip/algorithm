@@ -37,8 +37,8 @@ class LeetCode7Test {
         ArgumentsAccessor arguments
     ) {
         int num = arguments.getInteger(0);
-        int expect = arguments.getInteger(1);
-        assertEquals(expect, solution.reverse(num));
+        int expected = arguments.getInteger(1);
+        assertEquals(expected, solution.reverse(num));
     }
 
 }

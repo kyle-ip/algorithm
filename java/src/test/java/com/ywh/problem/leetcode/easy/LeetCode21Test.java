@@ -37,7 +37,7 @@ class LeetCode21Test {
     void testMergeTwoSortedLists(ArgumentsAccessor arguments) {
         ListNode l1 = LinkedListUtil.strToList(arguments.getString(0));
         ListNode l2 = LinkedListUtil.strToList(arguments.getString(1));
-        ListNode expect = LinkedListUtil.strToList(arguments.getString(2));
-        assertEquals(expect, solution.mergeTwoSortedLists(l1, l2));
+        ListNode expected = LinkedListUtil.strToList(arguments.getString(2));
+        assertEquals(expected, solution.mergeTwoSortedLists(l1, l2));
     }
 }

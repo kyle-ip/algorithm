@@ -38,12 +38,11 @@ class LeetCode633Test {
         ArgumentsAccessor arguments
     ) {
         int num = arguments.getInteger(0);
-        boolean expect = arguments.getBoolean(1);
-        assertEquals(expect, solution.judgeSquareSum(num));
-        assertEquals(expect, solution.judgeSquareSumHashSet(num));
-        assertEquals(expect, solution.judgeSquareSumMath(num));
-        assertEquals(expect, solution.judgeSquareSumTwoPointer(num));
-//        solution.judgeSquareSum();
+        boolean expected = arguments.getBoolean(1);
+        assertEquals(expected, solution.judgeSquareSum(num));
+        assertEquals(expected, solution.judgeSquareSumHashSet(num));
+        assertEquals(expected, solution.judgeSquareSumMath(num));
+        assertEquals(expected, solution.judgeSquareSumTwoPointer(num));
     }
 
 }

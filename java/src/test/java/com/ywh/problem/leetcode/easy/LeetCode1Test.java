@@ -1,12 +1,11 @@
 package com.ywh.problem.leetcode.easy;
 
+import com.ywh.util.StringUtil;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.aggregator.ArgumentsAccessor;
 import org.junit.jupiter.params.provider.CsvSource;
-
-import com.ywh.util.*;
 
 import static org.junit.Assert.assertArrayEquals;
 
@@ -40,8 +39,8 @@ class LeetCode1Test {
     ) {
         int[] nums = StringUtil.strToIntArray(arguments.getString(0));
         int target = arguments.getInteger(1);
-        int[] expect = StringUtil.strToIntArray(arguments.getString(2));
-        assertArrayEquals(expect, solution.getTwoSumToTarget1(nums, target));
+        int[] expected = StringUtil.strToIntArray(arguments.getString(2));
+        assertArrayEquals(expected, solution.getTwoSumToTarget1(nums, target));
     }
 
     @ParameterizedTest
@@ -55,7 +54,7 @@ class LeetCode1Test {
     void testGetTwoSumToTarget2(ArgumentsAccessor arguments) {
         int[] nums = StringUtil.strToIntArray(arguments.getString(0));
         int target = arguments.getInteger(1);
-        int[] expect = StringUtil.strToIntArray(arguments.getString(2));
-        assertArrayEquals(expect, solution.getTwoSumToTarget2(nums, target));
+        int[] expected = StringUtil.strToIntArray(arguments.getString(2));
+        assertArrayEquals(expected, solution.getTwoSumToTarget2(nums, target));
     }
 }

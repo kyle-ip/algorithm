@@ -43,7 +43,7 @@ public class LeetCode94 {
         List<Integer> result = new ArrayList<>();
         while (root != null || !stack.isEmpty()) {
             if (root != null) {
-                stack.push(root.left);
+                stack.push(root);
                 root = root.left;
             } else {
                 root = stack.pop();

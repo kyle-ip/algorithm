@@ -36,8 +36,8 @@ class LeetCode9Test {
     })
     void testIsPalindromeString(ArgumentsAccessor arguments) {
         int num = arguments.getInteger(0);
-        boolean expect = arguments.getBoolean(1);
-        assertEquals(expect, solution.isPalindromeString(num));
+        boolean expected = arguments.getBoolean(1);
+        assertEquals(expected, solution.isPalindromeString(num));
     }
 
     @ParameterizedTest
@@ -50,7 +50,7 @@ class LeetCode9Test {
     })
     void testIsPalindrome(ArgumentsAccessor arguments) {
         int num = arguments.getInteger(0);
-        boolean expect = arguments.getBoolean(1);
-        assertEquals(expect, solution.isPalindrome(num));
+        boolean expected = arguments.getBoolean(1);
+        assertEquals(expected, solution.isPalindrome(num));
     }
 }

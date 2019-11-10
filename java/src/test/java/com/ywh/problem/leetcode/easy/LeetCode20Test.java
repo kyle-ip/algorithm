@@ -34,8 +34,8 @@ class LeetCode20Test {
     })
     void testIsValidBrackets(ArgumentsAccessor arguments) {
         String str = arguments.getString(0);
-        boolean expect = arguments.getBoolean(1);
-        assertEquals(expect, solution.isValidBrackets(str));
+        boolean expected = arguments.getBoolean(1);
+        assertEquals(expected, solution.isValidBrackets(str));
     }
 
     @ParameterizedTest
@@ -47,7 +47,7 @@ class LeetCode20Test {
     })
     void testIsValidBracketsShort(ArgumentsAccessor arguments) {
         String str = arguments.getString(0);
-        boolean expect = arguments.getBoolean(1);
-        assertEquals(expect, solution.isValidBracketsShort(str));
+        boolean expected = arguments.getBoolean(1);
+        assertEquals(expected, solution.isValidBracketsShort(str));
     }
 }

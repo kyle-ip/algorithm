@@ -30,8 +30,8 @@ class LeetCode557Test {
         "'I am busy.', 'I ma .ysub'"
     })
     void testReverseWords(ArgumentsAccessor arguments) {
-        String expect = arguments.getString(1);
+        String expected = arguments.getString(1);
         String actual = solution.reverseWords(arguments.getString(0));
-        assertEquals(expect, actual);
+        assertEquals(expected, actual);
     }
 }
