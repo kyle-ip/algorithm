@@ -145,8 +145,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 ## Usage
 
 ### Java
-This is a Maven Project. In base package, You can type the following command on the terminal to run test.
+This is a Maven Project. In base package, you can type the following command on the terminal to run test.
 ```bash
-mvn test -Dtest=LeetCode1Test
-mvn test
+mvn test [-Dtest=ClassName]
 ```
