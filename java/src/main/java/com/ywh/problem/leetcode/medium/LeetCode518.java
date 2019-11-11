@@ -98,11 +98,13 @@ public class LeetCode518 {
         // 逐个面值尝试：i - 1 表示当前面值，即第 i 个面值
         for (int i = 1; i <= coins.length; i++) {
 
-            // 凑成 1 ~ sum 的数值
+            // 表示单独用每个面值都尝试凑成 1 ~ sum 的数值
             for (int j = 1; j <= sum; j++) {
-                int useCurCoin = j >= coins[i - 1] ? d[j - coins[i - 1]] : 0;
 
-                // 两种情况：使用或不使用 coins[i - 1] 凑成 j
+                // d[j - coins[i - 1]] 表示使用 coins[i - 1] 后，凑成剩余数值的组合数量
+                // d[j]（更新前）表示不使用 coins[i - 1] 凑成 j 的组合数量
+                // 两者之和（使用或不使用 coins[i - 1] 凑成 j），为凑成 j 的总组合数
+                int useCurCoin = j >= coins[i - 1] ? d[j - coins[i - 1]] : 0;
                 d[j] = d[j] + useCurCoin;
             }
         }

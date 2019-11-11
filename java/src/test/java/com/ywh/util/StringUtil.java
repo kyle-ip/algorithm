@@ -100,4 +100,33 @@ public class StringUtil {
         }
         return res;
     }
+
+    /**
+     * 把字符串转成字符串数组
+     *
+     * @param str
+     * @return
+     */
+    public static List<String> strToStrList(String str) {
+        return strToStrList(str, "/");
+    }
+
+    /**
+     * 把字符串转成字符串数组
+     *
+     * @param str
+     * @param splitter
+     * @return
+     */
+    public static List<String> strToStrList(String str, String splitter) {
+        List<String> res = new ArrayList<>();
+        for (String s : str.split(splitter)) {
+            if ("null".equals(s)) {
+                res.add(null);
+            } else {
+                res.add(s);
+            }
+        }
+        return res;
+    }
 }

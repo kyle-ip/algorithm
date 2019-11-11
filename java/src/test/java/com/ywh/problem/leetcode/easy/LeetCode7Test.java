@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * 测试反转整数
+ * {@link LeetCode7}
  *
  * @author ywh
  * @since 09/11/2019
@@ -33,9 +34,7 @@ class LeetCode7Test {
         "0987, 789",
         "0, 0"
     })
-    void testGetTwoSumToTarget1(
-        ArgumentsAccessor arguments
-    ) {
+    void testGetTwoSumToTarget1(ArgumentsAccessor arguments) {
         int num = arguments.getInteger(0);
         int expected = arguments.getInteger(1);
         assertEquals(expected, solution.reverse(num));

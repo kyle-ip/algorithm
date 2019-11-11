@@ -30,6 +30,9 @@ public class LinkedListUtil {
         }
         ListNode dummy = new ListNode(), cur = dummy;
         for (String s : str.split(splitter)) {
+            if ("null".equals(s)) {
+                continue;
+            }
             cur.next = new ListNode(Integer.parseInt(s));
             cur = cur.next;
         }
