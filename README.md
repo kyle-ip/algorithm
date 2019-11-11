@@ -10,11 +10,15 @@
 
 ## Introduction
 
-Data Structure &amp; Algorithm Problems' Solutions (LeetCode), implemented in Java, C, Python.
+Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in Java, C, Python.
 
 
 
 ## LeetCode Algorithm
+
+> Solutions implemented in C, Python coming soon.
+
+
 
 | No.  | Title                                                        | Desc                               | Solution                                                     | Difficulty | Tags                       |
 | ---- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ | ---------- | -------------------------- |
@@ -136,4 +140,13 @@ Data Structure &amp; Algorithm Problems' Solutions (LeetCode), implemented in Ja
 | 771  | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | 石头中的珠宝数量                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode771.java) | Easy       | [哈希表]                   |
 | 876  | [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list) | 单链表中间节点                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode876.java) | Easy       | [链表]                     |
 
-> Solutions implemented in C, Python coming soon.
+
+
+## Usage
+
+### Java
+This is a Maven Project. In base package, You can type the following command on the terminal to run test.
+```bash
+mvn test -Dtest=LeetCode1Test
+mvn test
+```
