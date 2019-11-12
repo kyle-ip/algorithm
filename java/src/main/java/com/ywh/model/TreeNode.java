@@ -2,6 +2,8 @@ package com.ywh.model;
 
 import lombok.Data;
 
+import java.util.Objects;
+
 /**
  * 二叉树节点类
  *
@@ -27,4 +29,22 @@ public class TreeNode {
         this.val = val;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof TreeNode)) {
+            return false;
+        }
+        TreeNode node = (TreeNode) o;
+        return getVal() == node.getVal() &&
+            getLeft().equals(node.getLeft()) &&
+            getRight().equals(node.getRight());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getVal(), getLeft(), getRight());
+    }
 }

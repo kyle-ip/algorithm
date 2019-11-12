@@ -44,6 +44,24 @@ public class TreeUtil {
         return buildTree(trees);
     }
 
+    /**
+     * 在二叉树上寻找值为 val 的节点
+     *
+     * @param root
+     * @param val
+     * @return
+     */
+    public static TreeNode findTreeNode(TreeNode root, int val) {
+        if (root == null || root.val == val) {
+            return root;
+        }
+        TreeNode left = findTreeNode(root.left, val);
+        if (left != null) {
+            return left;
+        }
+        return findTreeNode(root.right, val);
+    }
+
     public static TreeNode buildTree(List<Integer> nums) {
         if (nums == null || nums.size() == 0)  {
             return null;
@@ -55,6 +73,11 @@ public class TreeUtil {
         return buildTree(trees);
     }
 
+    /**
+     *
+     * @param trees
+     * @return
+     */
     private static TreeNode buildTree(TreeNode[] trees) {
         int p = 1;
         for (TreeNode tree : trees) {
