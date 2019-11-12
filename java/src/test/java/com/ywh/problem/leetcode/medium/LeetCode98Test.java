@@ -30,7 +30,7 @@ class LeetCode98Test {
     @ParameterizedTest
     @DisplayName("测试每轮递归求最值解法")
     @CsvSource({
-        "'null', 'true'",
+        "null, 'true'",
         "'1', 'true'",
         "'4,2,6', 'true'",
         "'4,2,6,null,null,5,8', 'true'",
@@ -45,7 +45,7 @@ class LeetCode98Test {
     @ParameterizedTest
     @DisplayName("测试传递边界值解法")
     @CsvSource({
-        "'null', 'true'",
+        "null, 'true'",
         "'1', 'true'",
         "'4,2,6', 'true'",
         "'4,2,6,null,null,5,8', 'true'",

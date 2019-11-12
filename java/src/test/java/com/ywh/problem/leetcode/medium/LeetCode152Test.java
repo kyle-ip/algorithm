@@ -28,7 +28,7 @@ class LeetCode152Test {
     @ParameterizedTest
     @DisplayName("测试连续子序列的最大乘积")
     @CsvSource({
-        "'null', '0'",
+        "null, '0'",
         "'[]', '0'",
         "'2,3,-2,4,0,2,-1', '6'",
         "'-2,3,-2,4,2,-1', '96'",

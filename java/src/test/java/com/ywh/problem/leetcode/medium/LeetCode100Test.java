@@ -31,7 +31,7 @@ class LeetCode100Test {
     @ParameterizedTest
     @DisplayName("测试递归解法")
     @CsvSource({
-        "'null', 'null', 'true'",
+        "null, null, 'true'",
         "'4,2,6,null,null,5,8', '4,2,6,null,null,5,8', 'true'",
         "'4,2,6,null,null,3,8', '4,2,6,null,null,5,9', 'false'"
     })
@@ -45,7 +45,7 @@ class LeetCode100Test {
     @ParameterizedTest
     @DisplayName("测试迭代解法")
     @CsvSource({
-        "'null', 'null', 'true'",
+        "null, null, 'true'",
         "'4,2,6,null,null,5,8', '4,2,6,null,null,5,8', 'true'",
         "'4,2,6,null,null,3,8', '4,2,6,null,null,5,9', 'false'"
     })
