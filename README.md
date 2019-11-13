@@ -14,7 +14,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode Algorithm
+## LeetCode - Algorithm
 
 > Solutions implemented in C, Python coming soon.
 
@@ -141,6 +141,17 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 746  | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs) | 爬楼梯的最小代价                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode746.java) | Easy       | [数组] [动态规划]          |
 | 771  | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | 石头中的珠宝数量                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode771.java) | Easy       | [哈希表]                   |
 | 876  | [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list) | 单链表中间节点                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode876.java) | Easy       | [链表]                     |
+
+
+
+## Sorting Algorithm
+| No.  | Title                                                        | Desc       | Solution                                                     | Difficulty | Stability |
+| ---- | ------------------------------------------------------------ | ---------- | ------------------------------------------------------------ | ---------- | --------- |
+| 1    | [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort)     | 冒泡排序   | [Java](java/src/main/java/com/ywh/sorting/BubbleSort.java)   | Easy       | stable    |
+| 2    | [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) | 选择排序   | [Java](java/src/main/java/com/ywh/sorting/SelectionSort.java) | Easy       | unstable  |
+| 3    | [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) | 插入排序   | [Java](java/src/main/java/com/ywh/sorting/InsertionSort.java) | Easy       | stable    |
+| 4    | [Shell Sort](https://en.wikipedia.org/wiki/Shellsort)        | 希尔排序   | [Java](java/src/main/java/com/ywh/sorting/ShellSort.java)    | Easy       | unstable  |
+| 5    | [Cocktail Shaker Sort](https://en.wikipedia.org/wiki/Cocktail_shaker_sort) | 鸡尾酒排序 | [Java](java/src/main/java/com/ywh/sorting/CocktailShakerSort.java) | Easy       | stable    |
 
 
 

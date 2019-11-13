@@ -20,7 +20,7 @@ public class SelectionSort {
      *
      * @param arr
      */
-    public void sortMin(int[] arr) {
+    public void sort(int[] arr) {
         if (arr == null || arr.length == 0) {
             return;
         }
