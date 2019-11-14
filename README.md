@@ -6,8 +6,6 @@
 
 > since 2019-11-01 15:50
 
- [TOC] 
-
 ## Introduction
 
 Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in Java, C, Python.
