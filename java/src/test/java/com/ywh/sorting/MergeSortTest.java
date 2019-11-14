@@ -12,20 +12,20 @@ import java.util.Arrays;
 import static org.junit.Assert.assertArrayEquals;
 
 /**
- * 测试插入排序
- * {@link InsertionSort}
+ * 测试归并排序
+ * {@link MergeSort}
  *
  * @author ywh
- * @since 13/11/2019
+ * @since 14/11/2019
  */
-@DisplayName("测试插入排序")
-class InsertionSortTest {
+@DisplayName("测试归并排序")
+class MergeSortTest {
 
-    private static InsertionSort solution;
+    private static MergeSort solution;
 
     @BeforeAll
     static void init() {
-        solution = new InsertionSort();
+        solution = new MergeSort();
     }
 
     @ParameterizedTest
@@ -35,12 +35,28 @@ class InsertionSortTest {
         "9,8,7,6,5,4,3,2,1,0",
         "0"
     })
-    void testSort(ArgumentsAccessor arguments) {
+    void testSortIterative(ArgumentsAccessor arguments) {
         int[] nums = StringUtil.strToIntArray(arguments.getString(0));
         assert nums != null;
         int[] expected = nums.clone();
         Arrays.sort(expected);
-        solution.sort(nums);
+        solution.sortIterative(nums);
+        assertArrayEquals(expected, nums);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "5,2,7,9,0,6,3,1,4,8",
+        "1,1,1,1,1",
+        "9,8,7,6,5,4,3,2,1,0",
+        "0"
+    })
+    void testSortRecursive(ArgumentsAccessor arguments) {
+        int[] nums = StringUtil.strToIntArray(arguments.getString(0));
+        assert nums != null;
+        int[] expected = nums.clone();
+        Arrays.sort(expected);
+        solution.sortRecursive(nums);
         assertArrayEquals(expected, nums);
     }
 }

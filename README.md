@@ -6,7 +6,7 @@
 
 > since 2019-11-01 15:50
 
-
+ [TOC] 
 
 ## Introduction
 
@@ -145,13 +145,17 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 ## Sorting Algorithm
-| No.  | Title                                                        | Desc       | Solution                                                     | Difficulty | Stability |
-| ---- | ------------------------------------------------------------ | ---------- | ------------------------------------------------------------ | ---------- | --------- |
-| 1    | [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort)     | 冒泡排序   | [Java](java/src/main/java/com/ywh/sorting/BubbleSort.java)   | Easy       | stable    |
-| 2    | [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) | 选择排序   | [Java](java/src/main/java/com/ywh/sorting/SelectionSort.java) | Easy       | unstable  |
-| 3    | [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) | 插入排序   | [Java](java/src/main/java/com/ywh/sorting/InsertionSort.java) | Easy       | stable    |
-| 4    | [Shell Sort](https://en.wikipedia.org/wiki/Shellsort)        | 希尔排序   | [Java](java/src/main/java/com/ywh/sorting/ShellSort.java)    | Easy       | unstable  |
-| 5    | [Cocktail Shaker Sort](https://en.wikipedia.org/wiki/Cocktail_shaker_sort) | 鸡尾酒排序 | [Java](java/src/main/java/com/ywh/sorting/CocktailShakerSort.java) | Easy       | stable    |
+
+| No.  | Title                                                        | Desc       | Solution                                                     | Stability |
+| ---- | ------------------------------------------------------------ | ---------- | ------------------------------------------------------------ | --------- |
+| 1    | [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort)     | 冒泡排序   | [Java](java/src/main/java/com/ywh/sorting/BubbleSort.java)   | stable    |
+| 2    | [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) | 选择排序   | [Java](java/src/main/java/com/ywh/sorting/SelectionSort.java) | unstable  |
+| 3    | [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) | 插入排序   | [Java](java/src/main/java/com/ywh/sorting/InsertionSort.java) | stable    |
+| 4    | [Shell Sort](https://en.wikipedia.org/wiki/Shellsort)        | 希尔排序   | [Java](java/src/main/java/com/ywh/sorting/ShellSort.java)    | unstable  |
+| 5    | [Cocktail Shaker Sort](https://en.wikipedia.org/wiki/Cocktail_shaker_sort) | 鸡尾酒排序 | [Java](java/src/main/java/com/ywh/sorting/CocktailShakerSort.java) | stable    |
+| 6    | [Quick Sort](https://en.wikipedia.org/wiki/Quicksort)        | 快速排序   | [Java](java/src/main/java/com/ywh/sorting/QuickSort.java)    | unstable  |
+| 7    | [Heap Sort](https://en.wikipedia.org/wiki/Heapsort)          | 堆排序     | [Java](java/src/main/java/com/ywh/sorting/HeapSort.java)     | unstable  |
+| 8    | [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort)       | 归并排序   | [Java](java/src/main/java/com/ywh/sorting/MergeSort.java)    | stable    |
 
 
 

@@ -12,13 +12,13 @@ import java.util.Arrays;
 import static org.junit.Assert.assertArrayEquals;
 
 /**
- * 测试鸡尾酒排序法
+ * 测试鸡尾酒排序
  * {@link CocktailShakerSort}
  *
  * @author ywh
  * @since 13/11/2019
  */
-@DisplayName("测试鸡尾酒排序法")
+@DisplayName("测试鸡尾酒排序")
 class CocktailShakerSortTest {
 
     private static CocktailShakerSort solution;

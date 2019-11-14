@@ -12,13 +12,13 @@ import java.util.Arrays;
 import static org.junit.Assert.assertArrayEquals;
 
 /**
- * 测试冒泡排序法
+ * 测试冒泡排序
  * {@link BubbleSort}
  *
  * @author ywh
  * @since 13/11/2019
  */
-@DisplayName("测试冒泡排序法")
+@DisplayName("测试冒泡排序")
 class BubbleSortTest {
 
     private static BubbleSort solution;

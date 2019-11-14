@@ -12,13 +12,13 @@ import java.util.Arrays;
 import static org.junit.Assert.assertArrayEquals;
 
 /**
- * 测试选择排序法
+ * 测试选择排序
  * {@link SelectionSort}
  *
  * @author ywh
  * @since 13/11/2019
  */
-@DisplayName("测试选择排序法")
+@DisplayName("测试选择排序")
 class SelectionSortTest {
 
     private static SelectionSort solution;
@@ -29,7 +29,6 @@ class SelectionSortTest {
     }
 
     @ParameterizedTest
-    @DisplayName("测试选择排序法")
     @CsvSource({
         "5,2,7,9,0,6,3,1,4,8",
         "1,1,1,1,1",
@@ -46,7 +45,6 @@ class SelectionSortTest {
     }
 
     @ParameterizedTest
-    @DisplayName("测试选择排序法")
     @CsvSource({
         "5,2,7,9,0,6,3,1,4,8",
         "1,1,1,1,1",

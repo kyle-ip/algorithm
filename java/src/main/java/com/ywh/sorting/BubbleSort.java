@@ -1,7 +1,7 @@
 package com.ywh.sorting;
 
 /**
- * 冒泡排序法
+ * 冒泡排序
  * [排序] [稳定排序]
  *
  * @author ywh

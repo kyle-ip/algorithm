@@ -12,13 +12,13 @@ import java.util.Arrays;
 import static org.junit.Assert.assertArrayEquals;
 
 /**
- * 测试希尔排序法
+ * 测试希尔排序
  * {@link ShellSort}
  *
  * @author ywh
  * @since 13/11/2019
  */
-@DisplayName("测试希尔排序法")
+@DisplayName("测试希尔排序")
 class ShellSortTest {
 
     private static ShellSort solution;
