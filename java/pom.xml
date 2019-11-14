@@ -52,7 +52,6 @@
             <groupId>edu.princeton.cs</groupId>
             <artifactId>algs4</artifactId>
             <version>1.0.3</version>
-            <systemPath>${project.basedir}/lib/algs4-1.0.3.jar</systemPath>
         </dependency>
     </dependencies>
 
@@ -85,68 +84,11 @@
             </plugin>
         </plugins>
     </build>
-
-    <!--<build>-->
-        <!--<plugins>-->
-            <!--<plugin>-->
-                <!--<artifactId>maven-compiler-plugin</artifactId>-->
-                <!--<version>3.1</version>-->
-                <!--<configuration>-->
-                    <!--<source>${java.version}</source>-->
-                    <!--<target>${java.version}</target>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-        <!--</plugins>-->
-    <!--</build>-->
-
-    <!--<dependencies>-->
-
-        <!--<dependency>-->
-            <!--<groupId>org.junit.vintage</groupId>-->
-            <!--<artifactId>junit-vintage-engine</artifactId>-->
-            <!--<version>${junit.jupiter.version}</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>org.junit.jupiter</groupId>-->
-            <!--<artifactId>junit-jupiter-api</artifactId>-->
-            <!--<version>${junit.jupiter.version}</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>org.junit.jupiter</groupId>-->
-            <!--<artifactId>junit-jupiter-engine</artifactId>-->
-            <!--<version>${junit.jupiter.version}</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>org.junit.platform</groupId>-->
-            <!--<artifactId>junit-platform-launcher</artifactId>-->
-            <!--<version>${junit.platform.version}</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>org.junit.platform</groupId>-->
-            <!--<artifactId>junit-platform-runner</artifactId>-->
-            <!--<version>${junit.platform.version}</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
-
-
-        <!--<dependency>-->
-            <!--<groupId>aopalliance</groupId>-->
-            <!--<artifactId>aopalliance</artifactId>-->
-            <!--<version>1.0</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.junit.jupiter</groupId>-->
-            <!--<artifactId>junit-jupiter-params</artifactId>-->
-            <!--<version>${junit.jupiter.version}</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
-    <!--</dependencies>-->
+    <repositories>
+        <repository>
+            <id>local</id>
+            <url>file://${project.basedir}/lib</url>
+        </repository>
+    </repositories>
 
 </project>
