@@ -154,6 +154,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 6    | [Quick Sort](https://en.wikipedia.org/wiki/Quicksort)        | 快速排序   | [Java](java/src/main/java/com/ywh/sorting/QuickSort.java)    | unstable  |
 | 7    | [Heap Sort](https://en.wikipedia.org/wiki/Heapsort)          | 堆排序     | [Java](java/src/main/java/com/ywh/sorting/HeapSort.java)     | unstable  |
 | 8    | [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort)       | 归并排序   | [Java](java/src/main/java/com/ywh/sorting/MergeSort.java)    | stable    |
+| 9    | [Counting Sort](https://en.wikipedia.org/wiki/Counting_sort) | 计数排序   | [Java](java/src/main/java/com/ywh/sorting/CountingSort.java) | stable    |
 
 
 
