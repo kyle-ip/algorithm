@@ -48,11 +48,11 @@
             <version>1.18.4</version>
         </dependency>
 
-        <dependency>
-            <groupId>edu.princeton.cs</groupId>
-            <artifactId>algs4</artifactId>
-            <version>1.0.3</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>edu.princeton.cs</groupId>-->
+<!--            <artifactId>algs4</artifactId>-->
+<!--            <version>1.0.3</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <!--maven 依赖-->
