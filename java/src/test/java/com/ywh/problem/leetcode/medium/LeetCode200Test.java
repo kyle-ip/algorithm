@@ -35,7 +35,7 @@ class LeetCode200Test {
     @Test
     @DisplayName("测试输入：1")
     void testOne() {
-        char[][] grid = grid = new char[][]{
+        char[][] grid = new char[][]{
             {'0', '0', '0', '0', '0'},
             {'0', '0', '1', '0', '0'},
             {'0', '0', '0', '0', '0'}
@@ -46,7 +46,7 @@ class LeetCode200Test {
     @Test
     @DisplayName("测试输入")
     void testNormal() {
-        char[][] grid = grid = new char[][]{
+        char[][] grid = new char[][]{
             {'1', '1', '0', '0', '0'},
             {'1', '1', '0', '0', '0'},
             {'0', '0', '1', '0', '0'},

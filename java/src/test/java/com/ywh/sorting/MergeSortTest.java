@@ -30,9 +30,9 @@ class MergeSortTest {
 
     @ParameterizedTest
     @CsvSource({
-        "5,2,7,9,0,6,3,1,4,8",
-        "1,1,1,1,1",
-        "9,8,7,6,5,4,3,2,1,0",
+        "'5,2,7,9,0,6,3,1,4,8'",
+        "'1,1,1,1,1'",
+        "'9,8,7,6,5,4,3,2,1,0'",
         "0"
     })
     void testSortIterative(ArgumentsAccessor arguments) {
@@ -46,9 +46,9 @@ class MergeSortTest {
 
     @ParameterizedTest
     @CsvSource({
-        "5,2,7,9,0,6,3,1,4,8",
-        "1,1,1,1,1",
-        "9,8,7,6,5,4,3,2,1,0",
+        "'5,2,7,9,0,6,3,1,4,8'",
+        "'1,1,1,1,1'",
+        "'9,8,7,6,5,4,3,2,1,0'",
         "0"
     })
     void testSortRecursive(ArgumentsAccessor arguments) {

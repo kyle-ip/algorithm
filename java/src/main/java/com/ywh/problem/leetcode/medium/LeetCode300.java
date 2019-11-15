@@ -19,7 +19,7 @@ public class LeetCode300 {
      */
     public int lengthOfLISDP(int[] nums) {
         if (nums == null || nums.length == 0) {
-
+            return 0;
         }
         int n = nums.length, max = 1, cur;
 

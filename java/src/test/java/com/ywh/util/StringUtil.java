@@ -49,6 +49,7 @@ public class StringUtil {
         if ("null".equals(str)) {
             return null;
         }
+
         return Arrays
             .stream(str.split(","))
             .map(String::trim)

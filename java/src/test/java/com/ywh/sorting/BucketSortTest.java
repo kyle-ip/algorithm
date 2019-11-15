@@ -12,20 +12,20 @@ import java.util.Arrays;
 import static org.junit.Assert.assertArrayEquals;
 
 /**
- * 测试插入排序
- * {@link InsertionSort}
+ * 测试桶排序
+ * {@link BucketSort}
  *
  * @author ywh
- * @since 13/11/2019
+ * @since 15/11/2019
  */
-@DisplayName("测试插入排序")
-class InsertionSortTest {
+@DisplayName("测试桶排序")
+class BucketSortTest {
 
-    private static InsertionSort solution;
+    private static BucketSort solution;
 
     @BeforeAll
     static void init() {
-        solution = new InsertionSort();
+        solution = new BucketSort();
     }
 
     @ParameterizedTest

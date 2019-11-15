@@ -12,20 +12,20 @@ import java.util.Arrays;
 import static org.junit.Assert.assertArrayEquals;
 
 /**
- * 测试冒泡排序
- * {@link BubbleSort}
+ * 测试基数排序
+ * {@link RadixSort}
  *
  * @author ywh
- * @since 13/11/2019
+ * @since 15/11/2019
  */
-@DisplayName("测试冒泡排序")
-class BubbleSortTest {
+@DisplayName("测试基数排序")
+class RadixSortTest {
 
-    private static BubbleSort solution;
+    private static RadixSort solution;
 
     @BeforeAll
     static void init() {
-        solution = new BubbleSort();
+        solution = new RadixSort();
     }
 
     @ParameterizedTest
@@ -35,12 +35,12 @@ class BubbleSortTest {
         "'9,8,7,6,5,4,3,2,1,0'",
         "0"
     })
-    void testSort(ArgumentsAccessor arguments) {
+    void testSort8pass(ArgumentsAccessor arguments) {
         int[] nums = StringUtil.strToIntArray(arguments.getString(0));
         assert nums != null;
         int[] expected = nums.clone();
         Arrays.sort(expected);
-        solution.sort(nums);
+        solution.sort8pass(nums);
         assertArrayEquals(expected, nums);
     }
 
@@ -51,28 +51,12 @@ class BubbleSortTest {
         "'9,8,7,6,5,4,3,2,1,0'",
         "0"
     })
-    void testSortEarlyReturn(ArgumentsAccessor arguments) {
+    void testSort4pass(ArgumentsAccessor arguments) {
         int[] nums = StringUtil.strToIntArray(arguments.getString(0));
         assert nums != null;
         int[] expected = nums.clone();
         Arrays.sort(expected);
-        solution.sortEarlyReturn(nums);
-        assertArrayEquals(expected, nums);
-    }
-
-    @ParameterizedTest
-    @CsvSource({
-        "'5,2,7,9,0,6,3,1,4,8'",
-        "'1,1,1,1,1'",
-        "'9,8,7,6,5,4,3,2,1,0'",
-        "0"
-    })
-    void testSortSkip(ArgumentsAccessor arguments) {
-        int[] nums = StringUtil.strToIntArray(arguments.getString(0));
-        assert nums != null;
-        int[] expected = nums.clone();
-        Arrays.sort(expected);
-        solution.sortSkip(nums);
+        solution.sort4pass(nums);
         assertArrayEquals(expected, nums);
     }
 }

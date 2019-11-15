@@ -27,10 +27,13 @@ public class InsertionSort {
         if (arr == null || arr.length == 0) {
             return;
         }
+
+        // 对小数组排序效果非常好，当数组长度小于 47 时优于快速排序
         for (int i = 1; i < arr.length; i++) {
             int j = i - 1, cur = arr[i];
             while (j >= 0 && arr[j] > cur) {
                 arr[j + 1] = arr[j];
+                j--;
             }
             arr[j + 1] = cur;
         }

@@ -52,7 +52,7 @@ public class BubbleSort {
         if (arr == null || arr.length == 0) {
             return;
         }
-        for (int end = arr.length - 1; end > 0; end++) {
+        for (int end = arr.length - 1; end > 0; end--) {
 
             // 如果子循环中没有发生交换，表示排序已完成，直接返回
             boolean swapped = false;

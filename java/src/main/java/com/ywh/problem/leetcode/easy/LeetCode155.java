@@ -14,7 +14,7 @@ public class LeetCode155 {
     /**
      * 使用两个栈实现
      */
-    public class MinStackWithTwoStack {
+    public static class MinStackWithTwoStack {
 
         private Stack<Integer> stack = new Stack<>();
         private Stack<Integer> min = new Stack<>();
@@ -49,7 +49,7 @@ public class LeetCode155 {
     /**
      * 使用一个栈实现：每次入栈、需要更新最小值时则把上次的最小值和目标元素一并入栈，可记录每个阶段的最小值
      */
-    public class MinStackWithLinkedList {
+    public static class MinStackWithLinkedList {
 
         private Stack<Integer> stack = new Stack<>();
         private int min = Integer.MAX_VALUE;

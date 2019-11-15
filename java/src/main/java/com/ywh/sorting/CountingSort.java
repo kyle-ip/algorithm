@@ -9,7 +9,6 @@ package com.ywh.sorting;
  */
 public class CountingSort {
 
-
     /**
      * Time: O(n+k), Space: O(n+k)
      *
@@ -32,13 +31,14 @@ public class CountingSort {
             ++indexes[num - min];
         }
 
-        // 根据计数计算出每个元素的开始下标
+        // 计数数组转化为位置数组：根据计数计算出每个元素的开始下标
         for (int i = 0; i <= k; ++i) {
             int count = indexes[i];
             indexes[i] = start;
             start += count;
         }
 
+        // 填充结果数组
         for (int num : arr) {
             // 遍历数组元素，获取它在新数组的开始下标，填充到结果数组
             int startIdx = indexes[num - min];
@@ -47,6 +47,8 @@ public class CountingSort {
             // 填充后开始下标要右移，表示下一次填写的位置
             ++indexes[num - min];
         }
+
+        // 写回原数组
         System.arraycopy(tmp, 0, arr, 0, arr.length);
     }
 

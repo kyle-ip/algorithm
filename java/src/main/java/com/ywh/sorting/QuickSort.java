@@ -90,7 +90,7 @@ public class QuickSort {
             int k = hoarePartition(arr, low, high);
 
             // 由于最后落点不是基准值，所以递归要包含 k
-            hoareSort(arr, low, high);
+            hoareSort(arr, low, k);
             hoareSort(arr, k + 1, high);
         }
     }
