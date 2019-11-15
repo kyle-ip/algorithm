@@ -30,9 +30,9 @@ class CountingSortTest {
 
     @ParameterizedTest
     @CsvSource({
-        "5,2,7,9,0,6,3,-5,1,4,8,-5",
-        "1,1,1,1,1",
-        "9,8,-4,7,6,-1,5,4,3,2,1,0",
+        "'5,2,7,9,0,6,3,-5,1,4,8,-5'",
+        "'1,1,1,1,1'",
+        "'9,8,-4,7,6,-1,5,4,3,2,1,0'",
         "0"
     })
     void testSort(ArgumentsAccessor arguments) {
@@ -46,9 +46,9 @@ class CountingSortTest {
 
     @ParameterizedTest
     @CsvSource({
-        "5,2,7,9,0,6,3,-5,1,4,8,-5",
-        "1,1,1,1,1",
-        "9,8,-4,7,6,-1,5,4,3,2,1,0",
+        "'5,2,7,9,0,6,3,-5,1,4,8,-5'",
+        "'1,1,1,1,1'",
+        "'9,8,-4,7,6,-1,5,4,3,2,1,0'",
         "0"
     })
     void testSortLeft2Right(ArgumentsAccessor arguments) {
@@ -62,9 +62,9 @@ class CountingSortTest {
 
     @ParameterizedTest
     @CsvSource({
-        "5,2,7,9,0,6,3,-5,1,4,8,-5",
-        "1,1,1,1,1",
-        "9,8,-4,7,6,-1,5,4,3,2,1,0",
+        "'5,2,7,9,0,6,3,-5,1,4,8,-5'",
+        "'1,1,1,1,1'",
+        "'9,8,-4,7,6,-1,5,4,3,2,1,0'",
         "0"
     })
     void testSortRight2Left(ArgumentsAccessor arguments) {

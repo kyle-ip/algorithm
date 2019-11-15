@@ -30,33 +30,65 @@ class RadixSortTest {
 
     @ParameterizedTest
     @CsvSource({
-        "'5,2,7,9,0,6,3,1,4,8'",
+        "'5,2,7,9,0,6,3,-5,1,4,8,-5'",
         "'1,1,1,1,1'",
-        "'9,8,7,6,5,4,3,2,1,0'",
+        "'9,8,-4,7,6,-1,5,4,3,2,1,0'",
         "0"
     })
-    void testSort8pass(ArgumentsAccessor arguments) {
+    void testSort8passInBucket(ArgumentsAccessor arguments) {
         int[] nums = StringUtil.strToIntArray(arguments.getString(0));
         assert nums != null;
         int[] expected = nums.clone();
         Arrays.sort(expected);
-        solution.sort8pass(nums);
+        solution.sort8passInBucket(nums);
         assertArrayEquals(expected, nums);
     }
 
     @ParameterizedTest
     @CsvSource({
-        "'5,2,7,9,0,6,3,1,4,8'",
+        "'5,2,7,9,0,6,3,-5,1,4,8,-5'",
         "'1,1,1,1,1'",
-        "'9,8,7,6,5,4,3,2,1,0'",
+        "'9,8,-4,7,6,-1,5,4,3,2,1,0'",
         "0"
     })
-    void testSort4pass(ArgumentsAccessor arguments) {
+    void testSort4passInBucket(ArgumentsAccessor arguments) {
         int[] nums = StringUtil.strToIntArray(arguments.getString(0));
         assert nums != null;
         int[] expected = nums.clone();
         Arrays.sort(expected);
-        solution.sort4pass(nums);
+        solution.sort4passInBucket(nums);
+        assertArrayEquals(expected, nums);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "'5,2,7,9,0,6,3,-5,1,4,8,-5'",
+        "'1,1,1,1,1'",
+        "'9,8,-4,7,6,-1,5,4,3,2,1,0'",
+        "0"
+    })
+    void testSort8passInCounting(ArgumentsAccessor arguments) {
+        int[] nums = StringUtil.strToIntArray(arguments.getString(0));
+        assert nums != null;
+        int[] expected = nums.clone();
+        Arrays.sort(expected);
+        solution.sort8passInCounting(nums);
+        assertArrayEquals(expected, nums);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "'5,2,7,9,0,6,3,-5,1,4,8,-5'",
+        "'1,1,1,1,1'",
+        "'9,8,-4,7,6,-1,5,4,3,2,1,0'",
+        "0"
+    })
+    void testSort4passInCounting(ArgumentsAccessor arguments) {
+        int[] nums = StringUtil.strToIntArray(arguments.getString(0));
+        assert nums != null;
+        int[] expected = nums.clone();
+        Arrays.sort(expected);
+        solution.sort4passInCounting(nums);
         assertArrayEquals(expected, nums);
     }
 }

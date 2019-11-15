@@ -14,7 +14,6 @@ import java.util.List;
 public class RadixSort {
 
     /**
-     *
      * @param bucket
      */
     private void insertionSort(List<Integer> bucket) {
@@ -33,8 +32,8 @@ public class RadixSort {
 
     /**
      * TODO 基于桶排序的解法未完成
-     *
-     * 2 ^ bits 为基数，每次处理 bits 个二进制位（bits == 8 较优）
+     * <p>
+     * 2 ^ bits 为基数，每次处理 bits 个二进制位，共 趟基数排序（bits == 8 较优）
      * Time: O(32/b * n), Space: O(n + 2^b)
      *
      * @param arr  输入数组
@@ -42,11 +41,11 @@ public class RadixSort {
      * @param mask 掩码，每次右移 bits 个二进制位时，使用 mask 取出最低的 bits 位
      */
     private void sortInBucket(int[] arr, int bits, int mask) {
-
         if (arr == null || arr.length == 0) {
             return;
         }
-        int n = arr.length, cnt = 32 / bits, bucketCount = 1 << bits;
+        int cnt = 32 / bits, bucketCount = 1 << bits, n = arr.length;
+
         List<List<Integer>> buckets = new ArrayList<>(bucketCount);
         for (int i = 0; i < bucketCount; i++) {
             buckets.add(new ArrayList<>());
@@ -54,18 +53,17 @@ public class RadixSort {
 
         for (int d = 0; d < cnt; d++) {
 
-            int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
             // 计算取值范围
+            int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
             for (int num : arr) {
                 int lastNum = (num >> (bits * d)) & mask;
                 min = Math.min(lastNum, min);
                 max = Math.max(lastNum, max);
             }
 
-            // 取当前第 d 趟基数排序中各元素的最后一位，添加到各个桶中（注意，是使用最后一位计算桶，入桶的是原来的元素）
+            // 取当前第 d 趟基数排序中各元素的最后一位，添加到各个桶中（注意，是使用最后一位计算桶，入桶的还是原来的元素）
             for (int num : arr) {
-                int lastNum = (num >> (bits * d)) & mask;
-                int idx = (int) ((lastNum - min) / (max - min + 1.0) * bucketCount);
+                int idx = (num >> (bits * d)) & mask;
                 buckets.get(idx).add(num);
             }
 
@@ -75,9 +73,24 @@ public class RadixSort {
                 for (Integer num : bucket) {
                     arr[idx++] = num;
                 }
-            }
-        }
 
+                // 清零，供下次计数排序使用
+                bucket.clear();
+            }
+
+            int len = 0;
+            int[] tmp = new int[n];
+            for (; len < n && arr[len] >= 0; len++) ;
+
+            // [len, n] -> [0, n - len]
+            System.arraycopy(arr, len, tmp, 0, n - len);
+
+            // [0, len] -> [n - len, n]
+            System.arraycopy(arr, 0, tmp, n - len, len);
+
+            // [0, n] -> [0, n]
+            System.arraycopy(tmp, 0, arr, 0, n);
+        }
     }
 
     /**
@@ -133,14 +146,10 @@ public class RadixSort {
             tmp = t;
         }
 
-        // 二进制位的最高位表示符号（1 负 0 正）
+        // 二进制位的最高位表示符号（1 负 0 正），如果数组中存在负数，基数排序后会被排到数组的右边，先找到第一个负数的下标（同时是左边非负数子数组的长度）
         int len = 0;
-        for (; len < n; len++) {
-            // 如果有负数，会被排到数组的右边，先找到第一个负数的下标（同时是左边非负数子数组的长度）
-            if (arr[len] < 0) {
-                break;
-            }
-        }
+        for (; len < n && arr[len] >= 0; len++);
+
         // 把 arr 中从 len 开始、为 n - len（负数的个数）个元素拷贝到 tmp
         System.arraycopy(arr, len, tmp, 0, n - len);
 
@@ -152,13 +161,22 @@ public class RadixSort {
 
     }
 
-    public void sort4pass(int[] arr) {
+    public void sort4passInBucket(int[] arr) {
+        // 掩码用十六进制表示，最低八位为 1
+        sortInBucket(arr, 8, 0xff);
+    }
 
+    public void sort8passInBucket(int[] arr) {
+        // 最低四位为 1
+        sortInBucket(arr, 4, 0x0f);
+    }
+
+    public void sort4passInCounting(int[] arr) {
         // 掩码用十六进制表示，最低八位为 1
         sortInCounting(arr, 8, 0xff);
     }
 
-    public void sort8pass(int[] arr) {
+    public void sort8passInCounting(int[] arr) {
         // 最低四位为 1
         sortInCounting(arr, 4, 0x0f);
     }
