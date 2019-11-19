@@ -4,8 +4,6 @@ package com.ywh.problem.leetcode.medium;
  * 硬币面值组合问题
  * [动态规划]
  *
- * TODO 暂时未理解
- *
  * @author ywh
  * @since 2/22/2019
  */
@@ -64,12 +62,13 @@ public class LeetCode518 {
             d[i][0] = 1;
         }
 
-        // i - 1：当前面值，j：待凑成的数值
+        // i - 1：第 i 个面值，j：待凑成的数值
+        // 第一层循环表示逐个面值去试凑，第二层循环表示用这个面值凑成 1 ~ sum 元
         for (int i = 1; i <= coins.length; i++) {
             for (int j = 1; j <= sum; j++) {
 
-                // 使用当前面值 i 的组合数量：要求待凑成的数值 j 大于等于第 i - 1 个面值，否则不能使用当前面值，组合数量为 0
-                // j - coins[i - 1]：使用第 i - 1 个面值凑数，待凑数值 - coins[i - 1]
+                // 使用当前面值 i 的组合数量：要求待凑成的数值 j 大于等于第 i 个面值；否则不能使用当前面值，组合数量为 0
+                // j - coins[i - 1]：使用第 i 个面值凑数，凑 j - coins[i - 1] 元的组合数
                 int useCurCoin = j >= coins[i - 1] ? d[i][j - coins[i - 1]] : 0;
 
                 // 两种情况之和：是否使用第 i 种面值组成数值 j
@@ -92,20 +91,19 @@ public class LeetCode518 {
     public int numberOfCoinCombinationDPOsum(int sum, int[] coins) {
         int[] d = new int[sum + 1];
 
-        // d[j] 表示凑成数值 j 的组合数量
+        // d[j] 表示凑成数值 j 的组合数量（只有 1 种，即不取）
         d[0] = 1;
 
         // 逐个面值尝试：i - 1 表示当前面值，即第 i 个面值
-        for (int i = 1; i <= coins.length; i++) {
+        for (int coin : coins) {
 
             // 表示单独用每个面值都尝试凑成 1 ~ sum 的数值
             for (int j = 1; j <= sum; j++) {
 
-                // d[j - coins[i - 1]] 表示使用 coins[i - 1] 后，凑成剩余数值的组合数量
-                // d[j]（更新前）表示不使用 coins[i - 1] 凑成 j 的组合数量
-                // 两者之和（使用或不使用 coins[i - 1] 凑成 j），为凑成 j 的总组合数
-                int useCurCoin = j >= coins[i - 1] ? d[j - coins[i - 1]] : 0;
-                d[j] = d[j] + useCurCoin;
+                // d[j - coin] 表示使用 coin 后，凑成剩余数值的组合数量
+                // d[j]（更新前）表示不使用 coin 凑成 j 的组合数量
+                // 两者之和（使用或不使用 coin 凑成 j），为凑成 j 的总组合数
+                d[j] += j >= coin ? d[j - coin] : 0;
             }
         }
         return d[sum];

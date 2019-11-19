@@ -102,8 +102,18 @@ public class StringUtil {
         return res;
     }
 
+    public static String[] strToStrArray(String str) {
+        List<String> list = strToStrList(str);
+        if (list == null) {
+            return null;
+        }
+        String[] res = new String[list.size()];
+        list.toArray(res);
+        return res;
+    }
+
     /**
-     * 把字符串转成字符串数组
+     * 把字符串转成字符串列表
      *
      * @param str
      * @return
@@ -113,7 +123,7 @@ public class StringUtil {
     }
 
     /**
-     * 把字符串转成字符串数组
+     * 把字符串转成字符串列表
      *
      * @param str
      * @param splitter
@@ -123,10 +133,9 @@ public class StringUtil {
         List<String> res = new ArrayList<>();
         for (String s : str.split(splitter)) {
             if ("null".equals(s)) {
-                res.add(null);
-            } else {
-                res.add(s);
+                return null;
             }
+            res.add(s);
         }
         return res;
     }
