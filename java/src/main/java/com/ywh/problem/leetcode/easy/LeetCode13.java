@@ -33,10 +33,10 @@ public class LeetCode13 {
         // M, M, C, M, X, C, I, X
         int n = s.length();
         int result = MAPPING[s.charAt(n - 1)];
-        for (int i = n - 2; i >= 0; i++) {
+        for (int i = n - 2; i >= 0; i--) {
             int cur = MAPPING[s.charAt(i)];
             int right = MAPPING[s.charAt(i + 1)];
-            if (cur > right) {
+            if (cur >= right) {
                 result += cur;
             } else {
                 result -= cur;
