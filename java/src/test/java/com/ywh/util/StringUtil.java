@@ -131,11 +131,15 @@ public class StringUtil {
      */
     public static List<String> strToStrList(String str, String splitter) {
         List<String> res = new ArrayList<>();
+        if ("null".equals(str.split(splitter)[0])) {
+            return null;
+        }
         for (String s : str.split(splitter)) {
             if ("null".equals(s)) {
-                return null;
+                res.add(null);
+            } else {
+                res.add(s);
             }
-            res.add(s);
         }
         return res;
     }

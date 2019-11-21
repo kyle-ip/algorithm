@@ -36,7 +36,6 @@ class LeetCode23Test {
     @CsvSource({
         "'1,2,4/1,4,8/0,2', '0,1,1,2,2,4,4,8'",
         "'1,2,4/null/0,2', '0,1,2,2,4'",
-        "null, null"
     })
     void testMergeKSortedListsOneByOne(ArgumentsAccessor arguments) {
         List<ListNode> listNodeList = StringUtil
@@ -55,7 +54,6 @@ class LeetCode23Test {
     @CsvSource({
         "'1,2,4/1,4,8/0,2', '0,1,1,2,2,4,4,8'",
         "'1,2,4/null/0,2', '0,1,2,2,4'",
-        "null, null"
     })
     void testMergeKSortedListsDivideConquer(ArgumentsAccessor arguments) {
         List<ListNode> listNodeList = StringUtil
@@ -74,7 +72,6 @@ class LeetCode23Test {
     @CsvSource({
         "'1,2,4/1,4,8/0,2', '0,1,1,2,2,4,4,8'",
         "'1,2,4/null/0,2', '0,1,2,2,4'",
-        "null, null"
     })
     void testMergeKSortedListsMinHeap(ArgumentsAccessor arguments) {
         List<ListNode> listNodeList = StringUtil
