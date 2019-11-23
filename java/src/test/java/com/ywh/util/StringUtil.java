@@ -85,13 +85,42 @@ public class StringUtil {
         return sb.toString();
     }
 
+    /**
+     * 字符串转二维整型列表
+     *
+     * @param str
+     * @return
+     */
+    public static List<List<Integer>> strTo2DimIntList(String str) {
+        List<List<Integer>> res = new ArrayList<>();
+
+        if (str == null || str.length() == 0 || "null".equals(str)) {
+            return res;
+        }
+        for (String s : str.split("/")) {
+            if ("null".equals(s)) {
+                res.add(null);
+            } else if ("".equals(s)) {
+                res.add(new ArrayList<>());
+            } else {
+                res.add(strToIntList(s));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 字符串转整型列表
+     *
+     * @param str
+     * @return
+     */
     public static List<Integer> strToIntList(String str) {
         List<Integer> res = new ArrayList<>();
 
         if (str == null || str.length() == 0 || "null".equals(str)) {
             return res;
         }
-
         for (String s : str.split(",")) {
             if ("null".equals(s)) {
                 res.add(null);

@@ -54,7 +54,7 @@
             <scope>compile</scope>
         </dependency>
 
-        <!--        <dependency>-->
+<!--        <dependency>-->
 <!--            <groupId>edu.princeton.cs</groupId>-->
 <!--            <artifactId>algs4</artifactId>-->
 <!--            <version>1.0.3</version>-->
