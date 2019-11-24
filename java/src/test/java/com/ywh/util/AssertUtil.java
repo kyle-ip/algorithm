@@ -50,24 +50,19 @@ public class AssertUtil {
         }
     }
 
-//    public static <T> void assertListListUnorderUnorderEquals(List<List<T>> expecteds, List<List<T>> actuals) {
-//        if (expecteds != null && actuals != null) {
-//            Assert.assertEquals(expecteds.size(), actuals.size());
-//            Set<List<T>> set = new HashSet<>();
-//            for (List<T> actual : actuals) {
-//                set.add(sort(actual));
-//                for (List<T> expected : expecteds) {
-//                    Assert.assertEquals(expected.size(), actual.size());
-//                    String expectedStr = list2String(expected);
-//                    if (!set.contains(sort(actual))) {
-//                        throw new AssertionError("The following expected list is not in actual lists: " +
-//                        expectedStr);
-//                    }
-//                }
-//            }
-//
-//        } else if (expecteds != null || actuals != null) {
-//            throw new AssertionError("In expecteds and actuals, one if null but another is not null.");
-//        }
-//    }
+    public static <T> void assertIntListEquals(List<T> expecteds, List<T> actuals) {
+        if (expecteds == null && actuals == null) {
+            return;
+        }
+
+        if (expecteds == null || actuals == null) {
+            throw new AssertionError("In expecteds and actuals, one if null but another is not null.");
+        }
+        assertEquals(expecteds.size(), actuals.size());
+        for (int i = 0; i < expecteds.size(); i++) {
+            T expected = expecteds.get(i);
+            T actual = actuals.get(i);
+            assertEquals(expected, actual);
+        }
+    }
 }
