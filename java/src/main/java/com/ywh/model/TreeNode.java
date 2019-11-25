@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Objects;
 
 /**
- * 二叉树节点类
+ * 二叉树节点
  *
  * @author ywh
  * @since 2/13/2019

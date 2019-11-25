@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (131)
+## LeetCode - Algorithm (133)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -109,6 +109,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 202  | [Happy Number](https://leetcode.com/problems/happy-number)   | 快乐数                             | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode202.java) | Easy                                                         | [哈希表] [双指针] [数学]   |
 | 203  | [Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/) | 单链表删除数字                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode203.java) | Easy                                                         | [链表]                     |
 | 206  | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | 反转单链表                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode206.java) | Easy                                                         | [链表]                     |
+| 208  | [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree) | 实现前缀树                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode208.java) | Medium                                                       | [设计] [Trie]              |
 | 213  | [House Robber II](https://leetcode.com/problems/house-robber-ii) | 抢劫环形房子                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode213.java) | Medium                                                       | [动态规划]                 |
 | 215  | [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) | 数组中第 K 大的元素                | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode215.java) | Medium                                                       | [分治] [堆]                |
 | 221  | [Maximal Square](https://leetcode.com/problems/maximal-square) | 0/1 矩阵中的最大正方形             | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode221.java) | Medium                                                       | [动态规划] [数组] [栈]     |

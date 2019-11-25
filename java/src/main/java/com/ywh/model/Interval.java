@@ -1,6 +1,8 @@
 package com.ywh.model;
 
 /**
+ * 区间间隔
+ *
  * @author ywh
  * @since 2019/10/30
  */

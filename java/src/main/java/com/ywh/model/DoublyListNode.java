@@ -1,9 +1,8 @@
-package com.ywh.model;/**
- * @author yeyongkang
- * @since 2019/10/28
- */
+package com.ywh.model;
 
 /**
+ * 双向链表节点
+ *
  * @author ywh
  * @since 2019/10/28
  */
