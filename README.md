@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (133)
+## LeetCode - Algorithm (135)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -88,6 +88,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 125  | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | 回文字符串判断                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode125.java) | Easy                                                         | [双指针] [字符串]          |
 | 128  | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence) | 最长连续整数序列的长度             | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode128.java) | Hard                                                         | [排序] [哈希表]            |
 | 131  | [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning) | 回文分割                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode131.java) | Medium                                                       | [回溯]                     |
+| 153  | [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array) | 旋转有序数组的最小值               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode153.java) | Medium                                                       | [数组] [二分搜索]          |
 | 136  | [Single Number](https://leetcode.com/problems/single-number/) | 单身数字                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode136.java) | Medium                                                       | [哈希表] [位操作]          |
 | 139  | [Word Break](https://leetcode.com/problems/word-break/)      | 字符串分解                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode139.java) | Medium                                                       | [动态规划]                 |
 | 141  | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | 判断单链表是否有环                 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode141.java) | Medium                                                       | [链表] [双指针]            |
@@ -153,6 +154,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 746  | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs) | 爬楼梯的最小代价                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode746.java) | Easy                                                         | [数组] [动态规划]          |
 | 771  | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | 石头中的珠宝数量                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode771.java) | Easy                                                         | [哈希表]                   |
 | 876  | [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list) | 单链表中间节点                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode876.java) | Easy                                                         | [链表]                     |
+| 946  | [Validate Stack Sequences](https://leetcode.com/problems/validate-stack-sequences) | 验证入栈出栈序列                   | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode946.java) | Medium                                                       | [栈]                       |
 
 
 
