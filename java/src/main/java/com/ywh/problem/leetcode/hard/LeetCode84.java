@@ -66,7 +66,7 @@ public class LeetCode84 {
             // 获取当前高度（越界则定义为 0）
             int h = right == n? 0: heights[right];
 
-            // 栈不为空，且高度开始递减（当前高度大于栈顶元素高度）
+            // 栈不为空，且高度开始递减（当前高度小于栈顶元素高度）
             while (!stack.isEmpty() && h < heights[stack.peek()]) {
 
                 // 则栈顶为当前最大高度（弹出），下一个元素为左边界下标

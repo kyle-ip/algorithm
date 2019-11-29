@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (139)
+## LeetCode - Algorithm (142)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -44,12 +44,15 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 33   | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array) | 旋转有序数组的搜索                 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode33.java) | Medium     | [数组] [二分搜索]          |
 | 34   | [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array) | 有序数组中查找数字的开始和结束下标 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode34.java) | Medium     | [数组] [二分搜索]          |
 | 35   | [Search Insert Position](https://leetcode.com/problems/search-insert-position/) | 二分搜索插入位置                   | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode35.java) | Medium     | [二分搜索]                 |
+| 39   | [Combination Sum](https://leetcode.com/problems/combination-sum) | 求和为给定值的组合                 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode39.java) | Medium     | [数组] [回溯]              |
+| 45   | [Jump Game II](https://leetcode.com/problems/jump-game-ii)   | 跳完数组的最少跳数                 | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode45.java) | Hard       | [数组] [贪心]              |
 | 46   | [Permutations](https://leetcode.com/problems/permutations/)  | 数组的全排列                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode46.java) | Medium     | [回溯]                     |
 | 48   | [Rotate Image](https://leetcode.com/problems/rotate-image)   | 旋转二维数组                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode48.java) | Medium     | [数组]                     |
 | 49   | [Group Anagrams](https://leetcode.com/problems/anagrams/)    | 变位词分组                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode49.java) | Medium     | [哈希表] [字符串]          |
 | 50   | [Pow(x, n)](https://leetcode.com/problems/powx-n/)           | 数值的 n 次方                      | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode50.java) | Medium     | [数学] [二分搜索]          |
 | 53   | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | 连续子序列的最大和                 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode53.java) | Medium     | [动态规划] [分治] [数组]   |
 | 54   | [Spiral Matrix](https://leetcode.com/problems/spiral-matrix) | 矩阵的螺旋遍历                     | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode54.java) | Medium     | [数组]                     |
+| 55   | [Jump Game](https://leetcode.com/problems/jump-game)         | 跳数组                             | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode55.java) | Medium     | [数组] [贪心]              |
 | 56   | [Merge Intervals](https://leetcode.com/problems/merge-intervals/) | 区间合并                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode56.java) | Medium     | [数组] [排序]              |
 | 61   | [Rotate List](https://leetcode.com/problems/rotate-list/)    | 旋转单链表                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode61.java) | Medium     | [链表]                     |
 | 62   | [Unique Paths](https://leetcode.com/problems/unique-paths)   | 路径数量                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode62.java) | Medium     | [数组] [动态规划]          |

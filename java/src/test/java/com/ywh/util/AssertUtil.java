@@ -46,6 +46,8 @@ public class AssertUtil {
         for (int i = 0; i < expecteds.size(); i++) {
             List<T> expected = expecteds.get(i);
             List<T> actual = actuals.get(i);
+            expected.sort(Comparator.comparing(Object::toString));
+            actual.sort(Comparator.comparing(Object::toString));
             assertEquals(expected, actual);
         }
     }
