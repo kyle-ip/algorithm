@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (136)
+## LeetCode - Algorithm (139)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -42,8 +42,10 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 31   | [Next Permutation](https://leetcode.com/problems/next-permutation/) | 数组的下一个排列                   | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode31.java) | Medium     | [数组]                     |
 | 32   | [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses) | 有效括号的最大长度                 | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode32.java) | Hard       | [字符串] [动态规划]        |
 | 33   | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array) | 旋转有序数组的搜索                 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode33.java) | Medium     | [数组] [二分搜索]          |
+| 34   | [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array) | 有序数组中查找数字的开始和结束下标 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode34.java) | Medium     | [数组] [二分搜索]          |
 | 35   | [Search Insert Position](https://leetcode.com/problems/search-insert-position/) | 二分搜索插入位置                   | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode35.java) | Medium     | [二分搜索]                 |
 | 46   | [Permutations](https://leetcode.com/problems/permutations/)  | 数组的全排列                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode46.java) | Medium     | [回溯]                     |
+| 48   | [Rotate Image](https://leetcode.com/problems/rotate-image)   | 旋转二维数组                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode48.java) | Medium     | [数组]                     |
 | 49   | [Group Anagrams](https://leetcode.com/problems/anagrams/)    | 变位词分组                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode49.java) | Medium     | [哈希表] [字符串]          |
 | 50   | [Pow(x, n)](https://leetcode.com/problems/powx-n/)           | 数值的 n 次方                      | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode50.java) | Medium     | [数学] [二分搜索]          |
 | 53   | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | 连续子序列的最大和                 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode53.java) | Medium     | [动态规划] [分治] [数组]   |
