@@ -41,7 +41,7 @@ public class LeetCode191 {
      */
     public int numberOfOne(int n) {
 
-        // n & (n - 1) 的效果是把 n 的二进制表示中最低位的1消除：
+        // n & (n - 1) 的效果是把 n 的二进制表示中最低位的 1 消除：
         // 10：                  1010
         // 9：                   1001
         // 10 & 9 == 8：         1000
