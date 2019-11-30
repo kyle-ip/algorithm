@@ -74,7 +74,7 @@ public class LeetCode238 {
     public int[] productExceptSelfNotChangeInputO1(int[] nums) {
         // 在解法 2 的基础上，如果还不允许修改原数组，还可以只把数据存储在 output 中，不需要辅助空间
         // 第一次遍历，利用 output 记录从左到右的左累计乘积
-        int n = nums.length;
+        int n = nums.length, right = 1;
         int[] output = new int[n];
 
         // 第一个元素左边没有，因此累计为 1
@@ -85,7 +85,6 @@ public class LeetCode238 {
         }
 
         // 从最右边开始乘回去（右边累计乘积只需要一个变量即可），最后一个元素右边没有，因此累计为 1
-        int right = 1;
         for (int i = n - 1; i >= 0; i--) {
             output[i] *= right;
             right *= nums[i];
