@@ -1,4 +1,4 @@
-package com.ywh.problem.leetcode.medium;
+package com.ywh.problem.leetcode.easy;
 
 /**
  * 连续子序列的最大和
@@ -22,11 +22,11 @@ public class LeetCode53 {
      */
     public int maxSumOfSubArray(int[] nums) {
         int max = Integer.MIN_VALUE, cur = 0;
-        for (int i = 0; i < nums.length; i++) {
+        for (int num : nums) {
             if (cur > 0) {
-                cur += nums[i];
+                cur += num;
             } else {
-                cur = nums[i];
+                cur = num;
             }
             max = Math.max(cur, max);
         }
