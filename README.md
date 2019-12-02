@@ -170,7 +170,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 746  | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs) | 爬楼梯的最小代价                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode746.java) | Easy       | [Array] [Dynamic Programming]                      |
 | 771  | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | 石头中的珠宝数量                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode771.java) | Easy       | [Hash Table]                                       |
 | 876  | [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list) | 单链表中间节点                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode876.java) | Easy       | [Linked List]                                      |
-|      | [Surface Area of 3D Shapes](https://leetcode.com/problems/surface-area-of-3d-shapes) | 三维形体的表面积                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode892.java) | Easy       | [Geometry] [Math]                                  |
+| 892  | [Surface Area of 3D Shapes](https://leetcode.com/problems/surface-area-of-3d-shapes) | 三维形体的表面积                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode892.java) | Easy       | [Geometry] [Math]                                  |
 | 946  | [Validate Stack Sequences](https://leetcode.com/problems/validate-stack-sequences) | 验证入栈出栈序列                   | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode946.java) | Medium     | [Stack]                                            |
 
 
