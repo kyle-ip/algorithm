@@ -16,7 +16,7 @@ public class SelectionSort {
     }
 
     /**
-     * ime: O(n^2), Space: O(1)
+     * Time: O(n^2), Space: O(1)
      *
      * @param arr
      */

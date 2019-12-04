@@ -25,16 +25,11 @@ public class LeetCode1029 {
         int sum = 0, n = costs.length / 2;
 
         // 前一半选择去 A 城、后一半选择去 B 城
-        // 比如 [[10,20],[30,200],[400,50],[30,20]]，对于第一个差值为 -10（较小，会排在前面），表示去 A 城的成本比去 B 城高 -10，因此选去 A 城
+        // 比如 [[10,20],[30,200],[400,50],[30,20]]，对于第一个差值为 -10（较小，会被排在前面），表示去 A 城的成本比去 B 城高 -10（低 10），因此选择去 A 城
         for (int i = 0; i < n; ++i) {
             sum += costs[i][0] + costs[i + n][1];
         }
         return sum;
-    }
-
-    public static void main(String[] args) {
-        int[][] input = new int[][]{{10, 20}, {30, 200}, {400, 50}, {30, 20}};
-        System.out.println(twoCitySchedCost(input));
     }
 
 }
