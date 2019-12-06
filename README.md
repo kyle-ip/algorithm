@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (156)
+## LeetCode - Algorithm (158)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -127,6 +127,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 215  | [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) | 数组中第 K 大的元素                | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode215.java) | Medium     | [Divide and Conquer] [Heap]                        |
 | 221  | [Maximal Square](https://leetcode.com/problems/maximal-square) | 0/1 矩阵中的最大正方形             | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode221.java) | Medium     | [Dynamic Programming] [Array] [Stack]              |
 | 226  | [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) | 翻转二叉树                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode226.java) | Easy       | [Tree]                                             |
+| 231  | [Power of Two](https://leetcode.com/problems/power-of-two)   | 2 的幂                             | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode231.java) | Easy       | [Math] [Bit Manipulation]                          |
 | 232  | [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/) | 使用栈实现队列                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode232.java) | Easy       | [Stack] [Design]                                   |
 | 234  | [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) | 判断单链表是否为回文链表           | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode234.java) | Easy       | [Linked List] [Two Pointers]                       |
 | 235  | [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree) | 二叉搜索树中节点的最近公共祖先     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode235.java) | Easy       | [Tree]                                             |
@@ -146,6 +147,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 367  | [Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square) | 验证完全平方数                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode367.java) | Easy       | [Math] [Binary Search]                             |
 | 371  | [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/description/) | 不用 +/- 求两数之和                | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode371.java) | Easy       | [Bit Manipulation]                                 |
 | 384  | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/) | 随机洗牌                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode384.java) | Medium     | [Array]                                            |
+| 386  | [ Lexicographical Numbers](https://leetcode.com/problems/lexicographical-numbers) | 字典序排数                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode386.java) | Medium     | [DFS] [Tree]                                       |
 | 387  | [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/) | 第一个只出现一次的字符             | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode387.java) | Easy       | [String] [Hash Table]                              |
 | 409  | [Longest Palindrome](https://leetcode.com/problems/longest-palindrome/) | 最长回文串的长度                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode409.java) | Easy       | [Hash Table]                                       |
 | 415  | [Add Strings](https://leetcode.com/problems/add-strings)     | 字符串相加                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode415.java) | Easy       | [String]                                           |
