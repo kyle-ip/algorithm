@@ -19,21 +19,4 @@ public class UndirectedGraphNode {
         val = x;
         neighbors = new ArrayList<>();
     }
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) {
-//            return true;
-//        }
-//        if (!(o instanceof UndirectedGraphNode)) {
-//            return false;
-//        }
-//        UndirectedGraphNode that = (UndirectedGraphNode) o;
-//        return val == that.val && neighbors.equals(that.neighbors);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(val, neighbors);
-//    }
 }
