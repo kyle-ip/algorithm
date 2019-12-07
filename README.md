@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (158)
+## LeetCode - Algorithm (160)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -46,6 +46,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 33   | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array) | 旋转有序数组的搜索                 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode33.java) | Medium     | [Array] [Binary Search]                            |
 | 34   | [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array) | 有序数组中查找数字的开始和结束下标 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode34.java) | Medium     | [Array] [Binary Search]                            |
 | 35   | [Search Insert Position](https://leetcode.com/problems/search-insert-position/) | 二分搜索插入位置                   | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode35.java) | Medium     | [Binary Search]                                    |
+| 38   | [Count and Say](https://leetcode.com/problems/count-and-say) | 报数                               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode35.java) | Easy       | [String]                                           |
 | 39   | [Combination Sum](https://leetcode.com/problems/combination-sum) | 求和为给定值的组合                 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode39.java) | Medium     | [Array] [Backtracking]                             |
 | 45   | [Jump Game II](https://leetcode.com/problems/jump-game-ii)   | 跳完数组的最少跳数                 | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode45.java) | Hard       | [Array] [Greedy]                                   |
 | 46   | [Permutations](https://leetcode.com/problems/permutations/)  | 数组的全排列                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode46.java) | Medium     | [Backtracking]                                     |
@@ -157,6 +158,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 461  | [Hamming Distance](https://leetcode.com/problems/hamming-distance/) | 汉明距离                           | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode461.java) | Easy       | [Bit Manipulation]                                 |
 | 463  | [Island Perimeter](https://leetcode.com/problems/island-perimeter) | 岛屿的周长                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode463.java) | Easy       | [Hash Table]                                       |
 | 470  | [Implement Rand10() Using Rand7()](https://leetcode.com/problems/implement-rand10-using-rand7) | 用 rand7() 实现 rand10()           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode470.java) | Medium     | [Math] [Random]                                    |
+| 486  | [ Predict the Winner](https://leetcode.com/problems/predict-the-winner) | 预测赢家                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode486.java) | Medium     | [Minimax] [Dynamic Programming]                    |
 | 509  | [Fibonacci Number](https://leetcode.com/problems/fibonacci-number) | 第 n 个斐波那契数                  | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode509.java) | Easy       | [Array] [Dynamic Programming]                      |
 | 518  | [Coin Change 2](https://leetcode.com/problems/coin-change-2) | 硬币面值组合问题                   | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode518.java) | Medium     | [Dynamic Programming]                              |
 | 538  | [Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree) | 将二叉搜索树转为较大树             | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode538.java) | Easy       | [Tree]                                             |
