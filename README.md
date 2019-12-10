@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (159)
+## LeetCode - Algorithm (161)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -142,6 +142,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 283  | [Move Zeroes](https://leetcode.com/problems/move-zeroes/)    | 向后移动 0                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode283.java) | Easy       | [Array] [Two Pointers]                             |
 | 300  | [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence) | 最长递增子序列的长度               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode300.java) | Medium     | [Binary Search] [Dynamic Programming]              |
 | 322  | [Coin Change](https://leetcode.com/problems/coin-change)     | 最小硬币组合                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode322.java) | Medium     | [Dynamic Programming]                              |
+| 328  | [Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list) | 奇偶链表                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode328.java) | Medium     | [Linked List]                                      |
 | 338  | [Counting Bits](https://leetcode.com/problems/counting-bits) | 连续自然数二进制中 1 的个数        | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode338.java) | Medium     | [Dynamic Programming] [Bit Manipulation]           |
 | 344  | [Reverse String](https://leetcode.com/problems/reverse-string/) | 反转字符串                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode344.java) | Easy       | [String] [Two Pointers]                            |
 | 350  | [Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii) | 两个数组的交集                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode350.java) | Easy       | [Hash Table] [Two Pointers] [Sort]                 |
