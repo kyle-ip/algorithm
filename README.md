@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (162)
+## LeetCode - Algorithm (161)
 
 > Solutions implemented in C, Python coming soon.
 
