@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (161)
+## LeetCode - Algorithm (163)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -149,6 +149,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 350  | [Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii) | 两个数组的交集                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode350.java) | Easy       | [Hash Table] [Two Pointers] [Sort]                 |
 | 367  | [Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square) | 验证完全平方数                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode367.java) | Easy       | [Math] [Binary Search]                             |
 | 371  | [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/description/) | 不用 +/- 求两数之和                | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode371.java) | Easy       | [Bit Manipulation]                                 |
+| 380  | [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1) | 支持随机获取元素的集合             | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode380.java) | Medium     | [Design] [Hash Table] [Array]                      |
 | 384  | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/) | 随机洗牌                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode384.java) | Medium     | [Array]                                            |
 | 386  | [ Lexicographical Numbers](https://leetcode.com/problems/lexicographical-numbers) | 字典序排数                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode386.java) | Medium     | [DFS] [Tree]                                       |
 | 387  | [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/) | 第一个只出现一次的字符             | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode387.java) | Easy       | [String] [Hash Table]                              |
