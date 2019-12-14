@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (165)
+## LeetCode - Algorithm (166)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -76,6 +76,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 86   | [Partition List](https://leetcode.com/problems/partition-list/) | 链表划分                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode86.java) | Medium     | [Linked List] [Two Pointers]                       |
 | 88   | [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) | 合并两个有序数组                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode88.java) | Easy       | [Two Pointers] [Array]                             |
 | 91   | [Decode Ways](https://leetcode.com/problems/decode-ways)     | 解码方式                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode91.java) | Medium     | [String] [Dynamic Programming]                     |
+| 93   | [Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses) | 复原 IP 地址                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode93.java) | Medium     | [String] [Backtracking]                            |
 | 94   | [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) | 二叉树中序遍历                     | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode94.java) | Medium     | [Hash Table] [Stack] [Tree]                        |
 | 96   | [Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees) | 二叉搜索树的数量                   | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode96.java) | Medium     | [Dynamic Programming] [Tree] [Math]                |
 | 98   | [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree) | 检验二叉搜索树                     | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode98.java) | Medium     | [Tree] [DFS]                                       |
@@ -141,7 +142,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 263  | [Ugly Number](https://leetcode.com/problems/ugly-number/)    | 丑数                               | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode263.java) | Easy       | [Math]                                             |
 | 268  | [Missing Number](https://leetcode.com/problems/missing-number/) | 缺失的数字                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode268.java) | Medium     | [Array] [Math] [Bit Manipulation]                  |
 | 283  | [Move Zeroes](https://leetcode.com/problems/move-zeroes/)    | 向后移动 0                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode283.java) | Easy       | [Array] [Two Pointers]                             |
-| 287  | [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number) | 查找重复数字                       | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode287.java) | Medium     | [Array] [Two Pointers] [Binary Search]             |
+| 287  | [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number) | 查找重复数字                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode287.java) | Medium     | [Array] [Two Pointers] [Binary Search]             |
 | 300  | [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence) | 最长递增子序列的长度               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode300.java) | Medium     | [Binary Search] [Dynamic Programming]              |
 | 322  | [Coin Change](https://leetcode.com/problems/coin-change)     | 最小硬币组合                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode322.java) | Medium     | [Dynamic Programming]                              |
 | 326  | [Power of Three](https://leetcode.com/problems/power-of-three) | 3 的幂                             | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode326.java) | Easy       | [Math]                                             |
