@@ -10,7 +10,8 @@ package com.ywh.problem.leetcode.medium;
 public class LeetCode300 {
 
     /**
-     * 动态规划
+     * 动态规划解法
+     * TODO 暂时未理解
      *
      * Time: O(n^2), Space: O(n)
      *
@@ -35,8 +36,6 @@ public class LeetCode300 {
                 // 对于子数组，逐个元素判断：
                 // 如果小于上界，表示从 0 到 d[i] 有 cur = d[j] + 1 个元素递增，与 d[i] 取较大者；
                 // 如果大于上界，表示子数组本轮遍历不递增，设为 1
-
-                // TODO 暂时未理解
                 cur = nums[i] > nums[j]? d[j] + 1: 1;
                 d[i] = Math.max(d[i], cur);
             }

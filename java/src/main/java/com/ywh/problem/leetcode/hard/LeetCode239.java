@@ -79,6 +79,7 @@ public class LeetCode239 {
 
     /**
      * 使用两个分组辅助数组
+     * TODO 暂时未理解
      *
      * Time: O(n), Space: O(n)
      *
@@ -113,7 +114,6 @@ public class LeetCode239 {
         }
 
         for (int i = 0; i < n - k + 1; i++) {
-            // TODO 暂时未理解
             result[i] = Math.max(maxFromRight[i], maxFromLeft[i + k - 1]);
         }
         return result;
