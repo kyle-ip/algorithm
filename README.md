@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (167)
+## LeetCode - Algorithm (168)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -144,6 +144,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 268  | [Missing Number](https://leetcode.com/problems/missing-number/) | 缺失的数字                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode268.java) | Medium     | [Array] [Math] [Bit Manipulation]                  |
 | 283  | [Move Zeroes](https://leetcode.com/problems/move-zeroes/)    | 向后移动 0                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode283.java) | Easy       | [Array] [Two Pointers]                             |
 | 287  | [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number) | 查找重复数字                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode287.java) | Medium     | [Array] [Two Pointers] [Binary Search]             |
+| 295  | [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream) | 在数据流中查找中位数               | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode295.java) | Hard       | [Heap] [Design]                                    |
 | 300  | [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence) | 最长递增子序列的长度               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode300.java) | Medium     | [Binary Search] [Dynamic Programming]              |
 | 322  | [Coin Change](https://leetcode.com/problems/coin-change)     | 最小硬币组合                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode322.java) | Medium     | [Dynamic Programming]                              |
 | 326  | [Power of Three](https://leetcode.com/problems/power-of-three) | 3 的幂                             | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode326.java) | Easy       | [Math]                                             |

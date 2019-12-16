@@ -48,7 +48,8 @@ public class LeetCode703 {
                 minHeap.add(val);
             }
             // 堆容量已满，与 minHeap 中的最小元素对比：
-            // 如果新数字比较大，则把 minHeap 中的最小元素删除，加入新数字，可确保当前堆中最小的元素为数据流中的第 k 大元素
+            // 如果新数字比较大，则把 minHeap 中的最小元素删除，加入新数字
+            // 可确保当前堆中最小的元素为数据流中的第 k 大元素
             else if(!minHeap.isEmpty() && val > minHeap.peek()) {
                 minHeap.poll();
                 minHeap.add(val);
