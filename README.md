@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (169)
+## LeetCode - Algorithm (170)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -115,6 +115,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 153  | [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array) | 旋转有序数组的最小值               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode153.java) | Medium     | [Array] [Binary Search]                            |
 | 155  | [Min Stack](https://leetcode.com/problems/min-stack/)        | 带有 min 函数的栈带有 min 函数的栈 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode155.java) | Easy       | [Stack] [Design]                                   |
 | 160  | [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/) | 链表的相交节点                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode160.java) | Easy       | [Linked List]                                      |
+| 162  | [Find Peak Element](https://leetcode.com/problems/find-peak-element) | 查找数组的波峰                     | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode162.java) | Medium     | [Array] [Binary Search]                            |
 | 167  | [Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | 有序数组中求和为给定值的两个数     | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode167.java) | Medium     | [Two Pointers] [Array] [Binary Search]             |
 | 169  | [Majority Element](https://leetcode.com/problems/majority-element/) | 数组中超过一半的数字               | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode169.java) | Easy       | [Array] [Divide and Conquer] [Bit Manipulation]    |
 | 172  | [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes) | 阶乘末尾 0 的个数                  | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode172.java) | Easy       | [Math]                                             |
