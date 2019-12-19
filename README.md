@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (170)
+## LeetCode - Algorithm (171)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -47,6 +47,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 33   | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array) | 旋转有序数组的搜索                 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode33.java) | Medium     | [Array] [Binary Search]                            |
 | 34   | [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array) | 有序数组中查找数字的开始和结束下标 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode34.java) | Medium     | [Array] [Binary Search]                            |
 | 35   | [Search Insert Position](https://leetcode.com/problems/search-insert-position/) | 二分搜索插入位置                   | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode35.java) | Medium     | [Binary Search]                                    |
+| 36   | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku)   | 判断数独的有效性                   | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode36.java) | Medium     | [Hash Table]                                       |
 | 38   | [Count and Say](https://leetcode.com/problems/count-and-say) | 报数                               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode35.java) | Easy       | [String]                                           |
 | 39   | [Combination Sum](https://leetcode.com/problems/combination-sum) | 求和为给定值的组合                 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode39.java) | Medium     | [Array] [Backtracking]                             |
 | 45   | [Jump Game II](https://leetcode.com/problems/jump-game-ii)   | 跳完数组的最少跳数                 | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode45.java) | Hard       | [Array] [Greedy]                                   |
