@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (172)
+## LeetCode - Algorithm (173)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -105,6 +105,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 133  | [Clone Graph](https://leetcode.com/problems/clone-graph)     | 图的深拷贝                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode133.java) | Medium     | [Graph] [DFS] [BFS]                                      |
 | 153  | [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array) | 旋转有序数组的最小值               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode153.java) | Medium     | [Array] [Binary Search]                                  |
 | 136  | [Single Number](https://leetcode.com/problems/single-number/) | 单身数字                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode136.java) | Medium     | [Hash Table] [Bit Manipulation]                          |
+| 138  | [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer) | 含随机指针的链表拷贝               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode138.java) | Medium     | [Linked List] [Hash Table]                               |
 | 139  | [Word Break](https://leetcode.com/problems/word-break/)      | 字符串分解                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode139.java) | Medium     | [Dynamic Programming]                                    |
 | 141  | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | 判断单链表是否有环                 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode141.java) | Medium     | [Linked List] [Two Pointers]                             |
 | 142  | [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) | 单链表中圆环的开始节点             | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode142.java) | Medium     | [Linked List] [Two Pointers]                             |
