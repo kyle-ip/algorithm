@@ -84,13 +84,12 @@ public class LeetCode207 {
             graph.add(new LinkedList<>());
         }
 
-        // pair[1] 依赖 pair[0]：即上课程 pair[1] 之前需要先上课程 pair[0]
+        // pair[0] 依赖 pair[1]：即上课程 pair[0] 之前需要先上课程 pair[1]
         // 邻接表表示有向图，第一维指向第二维（pair[1] -> pair[0]）
         for (int[] pair : pairs) {
             graph.get(pair[1]).add(pair[0]);
         }
-        boolean[] checked = new boolean[n];
-        boolean[] visited = new boolean[n];
+        boolean[] checked = new boolean[n], visited = new boolean[n];
 
         // 遍历 n 个节点，如果该节点未检查过且有环，返回 false
         for (int i = 0; i < n; i++) {
