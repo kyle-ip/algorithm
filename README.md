@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (176)
+## LeetCode - Algorithm (177)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -63,6 +63,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 62   | [Unique Paths](https://leetcode.com/problems/unique-paths)   | 路径数量                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode62.java) | Medium                                                       | [Array] [Dynamic Programming]                            |
 | 63   | [Unique Paths II](https://leetcode.com/problems/unique-paths-ii) | 路径数量（含障碍物）               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode63.java) | Medium                                                       | [Array] [Dynamic Programming]                            |
 | 64   | [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) | 最小路径和                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode64.java) | Medium                                                       | [Array] [Dynamic Programming]                            |
+| 66   | [Plus One](https://leetcode.com/problems/plus-one)           | 数组加一                           | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode66.java) | Easy                                                         | [Array]                                                  |
 | 69   | [Sqrt(x)](https://leetcode.com/problems/sqrtx/)              | 实现平方根函数                     | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode69.java) | Medium                                                       | [Math] [Binary Search]                                   |
 | 70   | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | 爬楼梯方法数                       | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode70.java) | Easy                                                         | [Dynamic Programming]                                    |
 | 72   | [Edit Distance](https://leetcode.com/problems/edit-distance/) | 编辑距离                           | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode72.java) | Hard                                                         | [String] [Dynamic Programming]                           |
