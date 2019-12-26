@@ -29,10 +29,8 @@ public class LeetCode66 {
             return result;
         }
         // 否则在从右数起、第一个不为 9 的数字 + 1，返回原数组
-        else {
-            digits[p] += 1;
-            return digits;
-        }
+        digits[p] += 1;
+        return digits;
     }
 
 }
