@@ -27,7 +27,7 @@ public class LeetCode206 {
      * @return
      */
     public ListNode reverseList(ListNode head) {
-        ListNode pre = null, cur = head, next = null;
+        ListNode pre = null, cur = head, next;
         while (cur != null) {
             next = cur.next;
             cur.next = pre;

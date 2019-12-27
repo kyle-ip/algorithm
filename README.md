@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (178)
+## LeetCode - Algorithm (179)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -192,6 +192,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 703  | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream) | 数据流中第 K 大的元素              | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode703.java) | Easy       | [Heap]                                                   |
 | 704  | [Binary Search](https://leetcode.com/problems/binary-search) | 二分搜索                           | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode704.java) | Easy       | [Binary Search]                                          |
 | 746  | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs) | 爬楼梯的最小代价                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode746.java) | Easy       | [Array] [Dynamic Programming]                            |
+| 754  | [Reach a Number](https://leetcode.com/problems/reach-a-number) | 到达终点数字                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode754.java) | Medium     | [Math]                                                   |
 | 771  | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | 石头中的珠宝数量                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode771.java) | Easy       | [Hash Table]                                             |
 | 876  | [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list) | 单链表中间节点                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode876.java) | Easy       | [Linked List]                                            |
 | 892  | [Surface Area of 3D Shapes](https://leetcode.com/problems/surface-area-of-3d-shapes) | 三维形体的表面积                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode892.java) | Easy       | [Geometry] [Math]                                        |
