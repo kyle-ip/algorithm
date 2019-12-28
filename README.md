@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (179)
+## LeetCode - Algorithm (180)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -165,9 +165,10 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 371  | [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/description/) | 不用 +/- 求两数之和                | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode371.java) | Easy       | [Bit Manipulation]                                       |
 | 380  | [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1) | 支持随机获取元素的集合             | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode380.java) | Medium     | [Design] [Hash Table] [Array]                            |
 | 384  | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/) | 随机洗牌                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode384.java) | Medium     | [Array]                                                  |
-| 386  | [ Lexicographical Numbers](https://leetcode.com/problems/lexicographical-numbers) | 字典序排数                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode386.java) | Medium     | [DFS] [Tree]                                             |
+| 386  | [Lexicographical Numbers](https://leetcode.com/problems/lexicographical-numbers) | 字典序排数                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode386.java) | Medium     | [DFS] [Tree]                                             |
 | 387  | [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/) | 第一个只出现一次的字符             | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode387.java) | Easy       | [String] [Hash Table]                                    |
 | 409  | [Longest Palindrome](https://leetcode.com/problems/longest-palindrome/) | 最长回文串的长度                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode409.java) | Easy       | [Hash Table]                                             |
+| 414  | [Third Maximum Number](https://leetcode.com/problems/third-maximum-number) | 第三大的数                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode414.java) | Easy       | [Array]                                                  |
 | 415  | [Add Strings](https://leetcode.com/problems/add-strings)     | 字符串相加                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode415.java) | Easy       | [String]                                                 |
 | 443  | [String Compression](https://leetcode.com/problems/string-compression) | 压缩字符串                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode443.java) | Easy       | [String] [Two Pointers]                                  |
 | 448  | [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array) | 缺失的所有数字                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode448.java) | Easy       | [Array]                                                  |
