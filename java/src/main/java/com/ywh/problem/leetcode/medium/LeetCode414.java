@@ -15,15 +15,10 @@ public class LeetCode414 {
      * @param nums
      * @return
      */
-    public static int thirdMax(int[] nums) {
-        if (nums.length == 1) {
-            return nums[0];
-        }
-        if (nums.length == 2) {
-            return Math.max(nums[0], nums[1]);
-        }
-
+    public int thirdMax(int[] nums) {
         int first = Integer.MIN_VALUE, second = Integer.MIN_VALUE, third = Integer.MIN_VALUE;
+
+        // 处理数组中存在 Integer.MIN_VALUE 的情况
         boolean flag = true;
         int changeCount = 0;
         for (int num : nums) {
@@ -46,14 +41,6 @@ public class LeetCode414 {
             }
         }
         return changeCount >= 3 ? third : first;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = new int[]{1, 1, 2};
-        System.out.println(thirdMax(nums));
-        nums = new int[]{1, 2, Integer.MIN_VALUE};
-        System.out.println(thirdMax(nums));
-
     }
 
 }
