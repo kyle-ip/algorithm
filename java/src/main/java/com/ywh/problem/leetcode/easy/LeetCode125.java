@@ -17,7 +17,7 @@ public class LeetCode125 {
      * @param c 字符c
      * @return 判断结果
      */
-    private static boolean isUppercase(char c) {
+    private boolean isUppercase(char c) {
         return c >= 'A' && c <= 'Z';
     }
 
@@ -27,7 +27,7 @@ public class LeetCode125 {
      * @param c 字符c
      * @return 判断结果
      */
-    private static boolean isAlphabet(char c) {
+    private boolean isAlphabet(char c) {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
     }
 
@@ -37,7 +37,7 @@ public class LeetCode125 {
      * @param c
      * @return
      */
-    private static boolean isNumber(char c) {
+    private boolean isNumber(char c) {
         return c >= '0' && c <= '9';
     }
 
@@ -47,7 +47,7 @@ public class LeetCode125 {
      * @param c 字符c
      * @return 判断结果
      */
-    private static boolean isAlphanumeric(char c) {
+    private boolean isAlphanumeric(char c) {
         return isNumber(c) || isAlphabet(c);
     }
 
@@ -58,7 +58,7 @@ public class LeetCode125 {
      * @param b 字符b
      * @return 判断结果
      */
-    private static boolean isEqualIgnoreCase(char a, char b) {
+    private boolean isEqualIgnoreCase(char a, char b) {
         if (!isAlphanumeric(a) || !isAlphanumeric(b)) {
             return false;
         }
@@ -77,7 +77,7 @@ public class LeetCode125 {
      * @param s 字符串s
      * @return 判断结果
      */
-    public static boolean isPalindrome(String s) {
+    public boolean isPalindrome(String s) {
         if (s == null || s.length() == 0) {
             return true;
         }

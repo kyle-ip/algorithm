@@ -15,7 +15,7 @@ public class LeetCode8 {
      * @param c
      * @return
      */
-    private static boolean isNumber(char c) {
+    private boolean isNumber(char c) {
         return c >= '0' && c <= '9';
     }
 

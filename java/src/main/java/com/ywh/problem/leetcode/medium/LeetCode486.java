@@ -84,9 +84,4 @@ public class LeetCode486 {
         int right = turn * nums[end] + winner(nums, start, end - 1, -turn);
         return turn * Math.max(turn * left, turn * right);
     }
-
-    public static void main(String[] args) {
-        System.out.println(predictTheWinnerRecursive(new int[]{1, 5, 2}));
-        System.out.println(predictTheWinnerRecursive(new int[]{1, 5, 233, 7}));
-    }
 }

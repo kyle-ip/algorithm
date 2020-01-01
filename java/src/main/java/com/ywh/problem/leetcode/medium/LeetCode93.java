@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 复原IP地址
+ * 复原 IP 地址
  * [字符串] [回溯]
  *
  * @author ywh
@@ -107,9 +107,5 @@ public class LeetCode93 {
             }
         }
         return res;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(restoreIpAddresses("010010"));
     }
 }

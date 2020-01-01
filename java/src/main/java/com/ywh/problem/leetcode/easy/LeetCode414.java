@@ -1,4 +1,4 @@
-package com.ywh.problem.leetcode.medium;
+package com.ywh.problem.leetcode.easy;
 
 /**
  * 第三大的数
