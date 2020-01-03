@@ -51,7 +51,6 @@ public class LeetCode470Test {
 
         int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
         for (int i = 1; i <= 10; ++i) {
-            System.out.println(count[i]);
             max = Math.max(max, count[i]);
             min = Math.min(min, count[i]);
         }
