@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (185)
+## LeetCode - Algorithm (186)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -175,6 +175,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 409  | [Longest Palindrome](https://leetcode.com/problems/longest-palindrome/) | 最长回文串的长度                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode409.java) | Easy       | [Hash Table]                                             |
 | 414  | [Third Maximum Number](https://leetcode.com/problems/third-maximum-number) | 第三大的数                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode414.java) | Easy       | [Array]                                                  |
 | 415  | [Add Strings](https://leetcode.com/problems/add-strings)     | 字符串相加                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode415.java) | Easy       | [String]                                                 |
+| 437  | [Path Sum III](https://leetcode.com/problems/path-sum-iii)   | 二叉树中和为给定值的路径数量       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode437.java) | Medium     | [Tree]                                                   |
 | 443  | [String Compression](https://leetcode.com/problems/string-compression) | 压缩字符串                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode443.java) | Easy       | [String] [Two Pointers]                                  |
 | 448  | [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array) | 缺失的所有数字                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode448.java) | Easy       | [Array]                                                  |
 | 450  | [Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst) | 二叉搜索树中删除节点               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode450.java) | Medium     | [Tree]                                                   |
