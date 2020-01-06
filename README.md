@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (186)
+## LeetCode - Algorithm (187)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -59,6 +59,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 54   | [Spiral Matrix](https://leetcode.com/problems/spiral-matrix) | 矩阵的螺旋遍历                     | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode54.java) | Medium     | [Array]                                                  |
 | 55   | [Jump Game](https://leetcode.com/problems/jump-game)         | 跳数组                             | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode55.java) | Medium     | [Array] [Greedy]                                         |
 | 56   | [Merge Intervals](https://leetcode.com/problems/merge-intervals/) | 区间合并                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode56.java) | Medium     | [Array] [Sort]                                           |
+| 58   | [Length of Last Word](https://leetcode.com/problems/length-of-last-word) | 最后一个单词的长度                 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode58.java) | Easy       | [String]                                                 |
 | 61   | [Rotate List](https://leetcode.com/problems/rotate-list/)    | 旋转单链表                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode61.java) | Medium     | [Linked List]                                            |
 | 62   | [Unique Paths](https://leetcode.com/problems/unique-paths)   | 路径数量                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode62.java) | Medium     | [Array] [Dynamic Programming]                            |
 | 63   | [Unique Paths II](https://leetcode.com/problems/unique-paths-ii) | 路径数量（含障碍物）               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode63.java) | Medium     | [Array] [Dynamic Programming]                            |
