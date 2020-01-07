@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (187)
+## LeetCode - Algorithm (188)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -152,6 +152,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 238  | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self) | 除了自身元素的数组乘积             | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode238.java) | Medium     | [Array]                                                  |
 | 239  | [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum) | 滑动窗口中的最大值                 | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode239.java) | Hard       | [Heap]                                                   |
 | 240  | [Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/) | 行列递增的二维数组搜索             | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode240.java) | Medium     | [Binary Search] [Divide and Conquer]                     |
+| 255  | [Verify Preorder Sequence in Binary Search Tree](https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree) | 验证二叉搜索树的前序遍历序列       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode255.java) | Medium     | [Tree] [Stack] [Divide and Conquer]                      |
 | 263  | [Ugly Number](https://leetcode.com/problems/ugly-number/)    | 丑数                               | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode263.java) | Easy       | [Math]                                                   |
 | 268  | [Missing Number](https://leetcode.com/problems/missing-number/) | 缺失的数字                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode268.java) | Medium     | [Array] [Math] [Bit Manipulation]                        |
 | 283  | [Move Zeroes](https://leetcode.com/problems/move-zeroes/)    | 向后移动 0                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode283.java) | Easy       | [Array] [Two Pointers]                                   |
