@@ -1,4 +1,4 @@
-package com.ywh.problem.leetcode.medium;
+package com.ywh.problem.leetcode.easy;
 
 import com.ywh.model.OrderTreeNode;
 import com.ywh.model.TreeNode;
