@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (190)
+## LeetCode - Algorithm (191)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -135,6 +135,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 202  | [Happy Number](https://leetcode.com/problems/happy-number)   | 快乐数                             | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode202.java) | Easy       | [Hash Table] [Two Pointers] [Math]                       |
 | 203  | [Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/) | 单链表删除数字                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode203.java) | Easy       | [Linked List]                                            |
 | 204  | [Count Primes](https://leetcode.com/problems/count-primes)   | 质数的个数                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode204.java) | Medium     | [Math]                                                   |
+| 205 | [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings) | 同构字符串 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode204.java) | Easy | [String] |
 | 206  | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | 反转单链表                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode206.java) | Easy       | [Linked List]                                            |
 | 207  | [Course Schedule](https://leetcode.com/problems/course-schedule) | 课程安排                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode207.java) | Medium     | [Graph] [Backtracking] [Topological Sorting] [DFS] [BFS] |
 | 208  | [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree) | 实现前缀树                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode208.java) | Medium     | [Design] [Trie]                                          |
