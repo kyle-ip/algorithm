@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (191)
+## LeetCode - Algorithm (192)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -211,6 +211,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 945  | [ Minimum Increment to Make Array Unique](https://leetcode.com/problems/minimum-increment-to-make-array-unique) | 使数组唯一的最小增量               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode945.java) | Medium     | [Array]                                                  |
 | 946  | [Validate Stack Sequences](https://leetcode.com/problems/validate-stack-sequences) | 验证入栈出栈序列                   | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode946.java) | Medium     | [Stack]                                                  |
 | 1029 | [Two City Scheduling](https://leetcode.com/problems/two-city-scheduling) | 两地调度                           | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1029.java) | Easy       | [Greedy]                                                 |
+| 1304 | [Find N Unique Integers Sum up to Zero](https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero) | 和为零的 N 个唯一整数 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1304.java) | Easy | [Array] |
 
 
 
