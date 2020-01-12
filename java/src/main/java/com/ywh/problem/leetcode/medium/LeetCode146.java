@@ -1,4 +1,4 @@
-package com.ywh.problem.leetcode.hard;
+package com.ywh.problem.leetcode.medium;
 
 import com.ywh.model.DoublyListNode;
 
