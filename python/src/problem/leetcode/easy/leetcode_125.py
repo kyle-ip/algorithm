@@ -4,8 +4,9 @@ class Solution:
 
     def is_palindrome(self, s: str) -> bool:
         """
-        :type s: str
-        :rtype: bool
+        Time: O(n), Space: O(1)
+        :param s:
+        :return:
         """
         if not s:
             return True
