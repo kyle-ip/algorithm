@@ -1,10 +1,13 @@
 # coding=utf-8
-import typing
-
+from typing import List
 
 class Solution:
+    """
+    求和为给定值的两个数
+    """
 
-    def two_sum(self, nums: typing.List[int], target: int) -> typing.List[int]:
+    @staticmethod
+    def two_sum(nums: List[int], target: int) -> List[int]:
         """
         Time: O(n^2), Space: O(1)
         :param nums:
@@ -19,7 +22,7 @@ class Solution:
                 return [i, j]
         return []
 
-    def two_sum2(self, nums: typing.List[int], target: int) -> typing.List[int]:
+    def two_sum2(self, nums: List[int], target: int) -> List[int]:
         """
         Time: O(n), Space: O(n)
         :param nums:

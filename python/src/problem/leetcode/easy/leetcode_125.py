@@ -1,8 +1,12 @@
 # coding=utf-8
 
 class Solution:
+    """
+    回文字符串判断
+    """
 
-    def is_palindrome(self, s: str) -> bool:
+    @staticmethod
+    def is_palindrome(s: str) -> bool:
         """
         Time: O(n), Space: O(1)
         :param s:

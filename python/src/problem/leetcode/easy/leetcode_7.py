@@ -1,11 +1,13 @@
 # coding=utf-8
 
-import sys
-
 
 class Solution:
+    """
+    反转整数
+    """
 
-    def reverse(self, x: int) -> int:
+    @staticmethod
+    def reverse(x: int) -> int:
         """
         Time: O(k), Space: O(1)
         :param x:
@@ -27,4 +29,3 @@ class Solution:
             return -y
         else:
             return y
-
