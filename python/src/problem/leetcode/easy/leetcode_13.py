@@ -1,5 +1,6 @@
 # coding=utf-8
 
+
 class Solution:
     """
     罗马数字转阿拉伯数字
@@ -33,3 +34,4 @@ class Solution:
                 result -= cur
             i -= 1
         return result
+

@@ -1,6 +1,7 @@
 # coding=utf-8
 from typing import List
 
+
 class Solution:
     """
     字符串的最长公共前缀

@@ -1,5 +1,6 @@
 # coding=utf-8
 
+
 class Solution:
     """
     回文数字判断
@@ -23,7 +24,8 @@ class Solution:
             right -= 1
         return True
 
-    def is_palindrome2(self, x: int) -> bool:
+    @staticmethod
+    def is_palindrome2(x: int) -> bool:
         """
         Time: O(n), Space: O(1)
         :param x:

@@ -1,6 +1,7 @@
 # coding=utf-8
 from typing import List
 
+
 class Solution:
     """
     求和为给定值的两个数
@@ -22,7 +23,8 @@ class Solution:
                 return [i, j]
         return []
 
-    def two_sum2(self, nums: List[int], target: int) -> List[int]:
+    @staticmethod
+    def two_sum2(nums: List[int], target: int) -> List[int]:
         """
         Time: O(n), Space: O(n)
         :param nums:
