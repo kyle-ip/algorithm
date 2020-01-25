@@ -41,7 +41,7 @@ public class LeetCode104 {
         }
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
-        int depth = 1, size;
+        int depth = 0, size;
         while (!queue.isEmpty()) {
             size = queue.size();
             for (int i = 0; i < size; i++) {

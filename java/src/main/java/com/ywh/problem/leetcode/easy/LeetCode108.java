@@ -42,7 +42,7 @@ public class LeetCode108 {
         if (nums == null || nums.length == 0) {
             return null;
         }
-        return sortedArrayToBST(nums, 0, nums.length);
+        return sortedArrayToBST(nums, 0, nums.length - 1);
     }
 
     /**

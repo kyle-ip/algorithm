@@ -9,8 +9,6 @@ package com.ywh.problem.leetcode.easy;
  */
 public class LeetCode38 {
 
-
-
     /**
      * Time: O(1.3^n), Space: O(1.3^n)
      * Time: O(2^n), Space: O(2^n)
@@ -26,7 +24,7 @@ public class LeetCode38 {
         for (int i = 1; i < n; i++) {
             StringBuilder sb = new StringBuilder();
             for (int idx = 0, cnt = 1; idx < s.length(); ++idx) {
-                if (idx+1 < s.length() && s.charAt(idx) == s.charAt(idx+1)) {
+                if (idx + 1 < s.length() && s.charAt(idx) == s.charAt(idx + 1)) {
                     ++cnt;
                 } else {
                     sb.append(cnt).append(s.charAt(idx));

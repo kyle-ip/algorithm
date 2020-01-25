@@ -15,6 +15,7 @@ public class LeetCode100 {
 
     /**
      * 递归解法
+     * Time: O(n), Space: O(n)
      *
      * @param p
      * @param q
@@ -32,6 +33,7 @@ public class LeetCode100 {
 
     /**
      * 迭代解法
+     * Time: O(n), Space: O(n)
      *
      * @param p
      * @param q

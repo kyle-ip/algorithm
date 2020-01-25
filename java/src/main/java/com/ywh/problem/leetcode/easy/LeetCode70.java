@@ -30,7 +30,7 @@ public class LeetCode70 {
      */
     public int climbstairsIterative(int n) {
         int x0 = 1, x1 = 1, x2;
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i < n; i++) {
             x2 = x0 + x1;
             x0 = x1;
             x1 = x2;

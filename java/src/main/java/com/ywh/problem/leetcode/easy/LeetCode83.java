@@ -11,6 +11,12 @@ import com.ywh.model.ListNode;
  */
 public class LeetCode83 {
 
+    /**
+     * Time: O(n), Space: O(1)
+     *
+     * @param head
+     * @return
+     */
     public ListNode removeDuplicatesInSortedList(ListNode head) {
         if (head == null) {
             return null;
