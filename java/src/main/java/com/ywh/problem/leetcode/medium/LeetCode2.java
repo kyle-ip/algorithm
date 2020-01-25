@@ -20,10 +20,10 @@ public class LeetCode2 {
      * @return
      */
     public ListNode addTwoLinkedListNumbers(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(-1);
-        int carry = 0, sum;
-        while (l1 != null || l2 != null || carry > 0) {
-            sum = carry;
+        ListNode dummy = new ListNode(0), p = dummy;
+        int carry = 0;
+        while (l1 != null || l2 != null || carry != 0) {
+            int sum = carry;
             if (l1 != null) {
                 sum += l1.val;
                 l1 = l1.next;
@@ -32,7 +32,8 @@ public class LeetCode2 {
                 sum += l2.val;
                 l2 = l2.next;
             }
-            dummy.next = new ListNode(sum % 10);
+            p.next = new ListNode(sum % 10);
+            p = p.next;
             carry = sum / 10;
         }
         return dummy.next;
