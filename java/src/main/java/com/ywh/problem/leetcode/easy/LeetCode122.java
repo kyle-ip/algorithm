@@ -9,6 +9,12 @@ package com.ywh.problem.leetcode.easy;
  */
 public class LeetCode122 {
 
+    /**
+     * Time: O(n), Space: O(1)
+     *
+     * @param prices
+     * @return
+     */
     public int maxProfitLocalMaxMin(int[] prices) {
         if (prices == null || prices.length == 0) {
             return 0;
@@ -40,6 +46,8 @@ public class LeetCode122 {
      *
      * 1, 2, 4
      * 4 - 1 = (2 - 1) + (4 - 2)
+     *
+     * Time: O(n), Space: O(1)
      *
      * @param prices
      * @return

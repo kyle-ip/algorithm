@@ -21,7 +21,7 @@ public class LeetCode111 {
      * @param root
      * @return
      */
-    public int minDepth(TreeNode root) {
+    public int minDepthRecursive(TreeNode root) {
         // 空树为 0
         if (root == null) {
             return 0;
@@ -33,14 +33,14 @@ public class LeetCode111 {
         }
         // 只有左/右子树，则对右/左子树求深度
         if (root.left == null) {
-            return minDepth(root.right) + 1;
+            return minDepthRecursive(root.right) + 1;
         }
         if (root.right == null) {
-            return minDepth(root.left) + 1;
+            return minDepthRecursive(root.left) + 1;
         }
 
         // 左右子树都存在，取较小者
-        return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
+        return Math.min(minDepthRecursive(root.left), minDepthRecursive(root.right)) + 1;
     }
 
     /**

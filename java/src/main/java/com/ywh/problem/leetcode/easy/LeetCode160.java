@@ -55,7 +55,7 @@ public class LeetCode160 {
         for (ListNode pB = headB; pB != null; pB = pB.next, lenB++);
 
         ListNode pA = headA, pB = headB;
-        delta = lenA > lenB? lenA - lenB: lenB - lenA;
+        delta = Math.abs(lenA - lenB);
 
         for (int i = 0; lenA > lenB && i < delta; i++, pA = pA.next);
         for (int i = 0; lenB > lenA && i < delta; i++, pB = pB.next);
