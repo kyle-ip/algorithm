@@ -11,6 +11,13 @@ import com.ywh.model.ListNode;
  */
 public class LeetCode203 {
 
+    /**
+     * Time: O(n), Space: O(1)
+     *
+     * @param head
+     * @param val
+     * @return
+     */
     public ListNode remove(ListNode head, int val) {
 
         // 注意链表第一个元素也需要检查，所以需要在头部前创建一个辅助节点
