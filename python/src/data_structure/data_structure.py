@@ -3,9 +3,9 @@
 
 # Definition for singly-linked list.
 class ListNode(object):
-    def __init__(self, x):
+    def __init__(self, x, next=None):
         self.val = x
-        self.next = None
+        self.next = next
 
 
 class DoubleNode(object):
@@ -38,11 +38,13 @@ class TrieNode(object):
     def is_end(self):
         return self.end
 
+
 class RandomNode(object):
     def __init__(self, val, next, random):
         self.val = val
         self.next = next
         self.random = random
+
 
 class GraphNode(object):
     def __init__(self, val, neighbors):

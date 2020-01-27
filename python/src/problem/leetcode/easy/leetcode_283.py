@@ -4,23 +4,21 @@ from typing import List
 
 class Solution:
     """
-    打家劫舍
+    移动零
     """
 
-    def rob(self, nums: List[int]) -> int:
+    def move_zeroes(self, nums: List[int]) -> None:
         """
-
+        Time: O(n), Space: O(1)
         :param nums:
         :return:
         """
-
         if not nums or len(nums) == 0:
-            return 0
-
-        x0 = x1 = 0
-        for num in nums:
-            cur = max(x1, x0 + num)
-            x0 = x1
-            x1 = cur
-
-        return x1
+            return
+        slow = 0
+        for fast in range(len(nums)):
+            if nums[fast] != 0:
+                nums[slow] = nums[fast]
+                slow += 1
+        for i in range(slow, len(nums)):
+            nums[i] = 0

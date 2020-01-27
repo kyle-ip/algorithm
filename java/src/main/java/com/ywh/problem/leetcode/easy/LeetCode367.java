@@ -9,6 +9,12 @@ package com.ywh.problem.leetcode.easy;
  */
 public class LeetCode367 {
 
+    /**
+     * Time: O(log(n)), Space: O(1)
+     *
+     * @param num
+     * @return
+     */
     public boolean isPerfectSquareBinarySearch(int num) {
         long low = 0, high = num, mid;
         while (low <= high) {

@@ -10,7 +10,7 @@ package com.ywh.problem.leetcode.easy;
 public class LeetCode263 {
 
     public boolean isUglyNumber(int num) {
-        if (num < 0) {
+        if (num <= 0) {
             return false;
         }
         for(int n: new int[]{2, 3, 5}) {

@@ -4,23 +4,21 @@ from typing import List
 
 class Solution:
     """
-    打家劫舍
+    丑数
     """
 
-    def rob(self, nums: List[int]) -> int:
+    def is_ugly(self, num: int) -> bool:
         """
 
-        :param nums:
+        :param num:
         :return:
         """
 
-        if not nums or len(nums) == 0:
-            return 0
+        if num <= 0:
+            return False
 
-        x0 = x1 = 0
-        for num in nums:
-            cur = max(x1, x0 + num)
-            x0 = x1
-            x1 = cur
+        for i in [2, 3, 5]:
+            while num % i == 0:
+                num /= i
 
-        return x1
+        return num == 1

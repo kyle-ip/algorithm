@@ -11,7 +11,7 @@ package com.ywh.problem.leetcode.easy;
 public class LeetCode371 {
 
     public int getSumRecursive(int a, int b) {
-        return b == 0 ? a : getSumRecursive(a^b, (a&b)<<1);
+        return b == 0 ? a : getSumRecursive(a ^ b, (a & b) << 1);
     }
 
     /**
