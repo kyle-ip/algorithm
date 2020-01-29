@@ -14,7 +14,6 @@ class Solution:
                 counter[c] = 1
             else:
                 counter[c] += 1
-
         for i in range(len(s)):
             if counter[s[i]] == 1:
                 return i

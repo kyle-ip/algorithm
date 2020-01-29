@@ -54,13 +54,13 @@ public class LeetCode463 {
                 if (i - 1 >= 0 && grid[i - 1][j] == 1) {
                     perimeter -= 1;
                 }
-                if (i + 1 < n && grid[i + 1][j] == 1) {
+                if (i + 1 < m && grid[i + 1][j] == 1) {
                     perimeter -= 1;
                 }
                 if (j - 1 >= 0 && grid[i][j - 1] == 1) {
                     perimeter -= 1;
                 }
-                if (j + 1 < m && grid[i][j + 1] == 1) {
+                if (j + 1 < n && grid[i][j + 1] == 1) {
                     perimeter -= 1;
                 }
             }
