@@ -50,3 +50,15 @@ class GraphNode(object):
     def __init__(self, val, neighbors):
         self.val = val
         self.neighbors = neighbors
+
+
+class QuadTreeNode(object):
+    def __init__(self, val, is_leaf, top_left,
+                 top_right, bottom_left, bottom_right):
+        self.val = val
+        self.is_leaf = is_leaf
+        self.top_left = top_left
+        self.top_right = top_right
+        self.bottom_left = bottom_left
+        self.bottom_right = bottom_right
+
