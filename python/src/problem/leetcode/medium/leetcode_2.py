@@ -2,6 +2,7 @@
 
 from src.data_structure.data_structure import ListNode
 
+
 class Solution:
 
     def add_two_numbers(self, l1: ListNode, l2: ListNode) -> ListNode:
