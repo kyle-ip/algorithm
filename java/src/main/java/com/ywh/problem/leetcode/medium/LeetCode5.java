@@ -56,7 +56,12 @@ public class LeetCode5 {
         return right - left + 1;
     }
 
-
+    /**
+     * Time: O(n^2), Space: O(1)
+     *
+     * @param s
+     * @return
+     */
     public String longestPalindromeExpand(String s) {
         if (s == null || s.length() == 0) {
             return null;

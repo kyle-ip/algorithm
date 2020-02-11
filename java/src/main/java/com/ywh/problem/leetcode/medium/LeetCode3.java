@@ -1,6 +1,8 @@
 package com.ywh.problem.leetcode.medium;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 没有重复字符的最长子串长度
@@ -19,25 +21,38 @@ public class LeetCode3 {
      * @return
      */
     public int lengthOfLongestSubstring2N(String s) {
-        int left = 0, right = 0, maxLen = 0;
-
-        // 记录出现字符的次数的 Hash
-        int[] counts = new int[256];
-        for (; left < s.length(); left++) {
-            for (; right < s.length(); right++) {
-
-                // 区间中的字符重复出现在右端点，则退出内层循环；
-                if (counts[s.charAt(right)] != 0) {
-                    break;
-                }
-                counts[s.charAt(right)]++;
+        Set<Character> set = new HashSet<>();
+        int maxLen = 0, left = 0, right = 0;
+        while (left < s.length() && right < s.length()) {
+            if (!set.contains(s.charAt(right))){
+                set.add(s.charAt(right++));
+                maxLen = Math.max(maxLen, right - left);
             }
-            maxLen = Math.max(maxLen, right - left);
-
-            // 区间向前滑动，最左边的字符出现次数 - 1
-            counts[s.charAt(left)] -= 1;
+            else {
+                set.remove(s.charAt(left++));
+            }
         }
-        return 0;
+        return maxLen;
+
+//        int left = 0, right = 0, maxLen = 0;
+//
+//        // 记录出现字符的次数的 Hash
+//        int[] counts = new int[256];
+//        for (; left < s.length(); left++) {
+//            for (; right < s.length(); right++) {
+//
+//                // 区间中的字符重复出现在右端点，则退出内层循环；
+//                if (counts[s.charAt(right)] != 0) {
+//                    break;
+//                }
+//                counts[s.charAt(right)]++;
+//            }
+//            maxLen = Math.max(maxLen, right - left);
+//
+//            // 区间向前滑动，最左边的字符出现次数 - 1
+//            counts[s.charAt(left)] -= 1;
+//        }
+//        return maxLen;
     }
 
     /**
