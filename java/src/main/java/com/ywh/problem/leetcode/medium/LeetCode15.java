@@ -52,7 +52,11 @@ public class LeetCode15 {
     public List<List<Integer>> threeNumSumToZeroOn2(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(nums);
-        for (int k = nums.length - 1; k >= 2; k++) {
+        for (int k = nums.length - 1; k >= 2; k--) {
+            if (nums[k] < 0) {
+                break;
+            }
+
             int target = -nums[k], left = 0, right = k - 1;
             while (left < right) {
                 if (nums[left] + nums[right] < target) {
@@ -65,6 +69,8 @@ public class LeetCode15 {
                     // 跳过重复值
                     for (; left < right && nums[left] == nums[left + 1]; left++);
                     for (; left < right && nums[right] == nums[right - 1]; right--);
+                    left++;
+                    right--;
                 }
             }
 
