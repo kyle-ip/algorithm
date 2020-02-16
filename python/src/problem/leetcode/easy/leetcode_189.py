@@ -27,7 +27,7 @@ class Solution:
         :param k:
         :return:
         """
-        if not nums or len(nums) == 0 or k <= 0:
+        if not nums or k <= 0:
             return
 
         n, m = len(nums), k % len(nums)

@@ -14,7 +14,7 @@ class Solution:
         :return:
         """
 
-        if not nums or len(nums) == 0:
+        if not nums:
             return 0
 
         x0 = x1 = 0

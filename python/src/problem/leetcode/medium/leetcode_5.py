@@ -12,7 +12,7 @@ class Solution:
         :param s:
         :return:
         """
-        if not s or len(s) == 0:
+        if not s:
             return ""
         start = max_len = 0
         dp = [[False for _ in range(len(s))] for _ in range(len(s))]

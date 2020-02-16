@@ -14,7 +14,7 @@ class Solution:
         :return:
         """
 
-        if not grid or len(grid) == 0 or not grid[0] or len(grid[0]) == 0:
+        if not grid or not grid[0]:
             return 0
 
         m, n, perimeter = len(grid), len(grid[0]), 0

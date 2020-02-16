@@ -13,7 +13,7 @@ class Solution:
         :param nums:
         :return:
         """
-        if not nums or len(nums) == 0:
+        if not nums:
             return []
         res = []
         existed = [False for _ in range(len(nums) + 1)]

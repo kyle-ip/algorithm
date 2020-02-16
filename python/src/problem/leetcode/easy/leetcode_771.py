@@ -14,7 +14,7 @@ class Solution:
         :param S:
         :return:
         """
-        if not J or not S or len(J) == 0 or len(S) == 0:
+        if not J or not S:
             return 0
 
         hash = [False for _ in range(256)]

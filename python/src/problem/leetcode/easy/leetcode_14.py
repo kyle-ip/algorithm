@@ -14,7 +14,7 @@ class Solution:
         :param strs:
         :return:
         """
-        if not strs or len(strs) == 0:
+        if not strs:
             return ""
 
         first = strs[0]

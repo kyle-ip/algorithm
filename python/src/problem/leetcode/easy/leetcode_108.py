@@ -32,7 +32,7 @@ class Solution:
         :param nums:
         :return:
         """
-        if not nums or len(nums) == 0:
+        if not nums:
             return None
         return self.sorted_array_to_bst(nums, 0, len(nums) - 1)
 

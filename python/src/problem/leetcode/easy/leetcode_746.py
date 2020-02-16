@@ -16,7 +16,7 @@ class Solution:
         :return:
         """
 
-        if not cost or len(cost) == 0:
+        if not cost:
             return 0
 
         if len(cost) == 1:

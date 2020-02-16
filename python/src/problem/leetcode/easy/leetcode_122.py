@@ -13,7 +13,7 @@ class Solution:
         :param prices:
         :return:
         """
-        if not prices or len(prices) == 0:
+        if not prices:
             return 0
         profit = 0
         for i in range(1, len(prices)):
@@ -27,7 +27,7 @@ class Solution:
         :param prices:
         :return:
         """
-        if not prices or len(prices) == 0:
+        if not prices:
             return 0
 
         profit, i = 0, 0

@@ -17,7 +17,7 @@ class Solution:
         :return:
         """
 
-        if not nums or len(nums) == 0:
+        if not nums:
             return -1
 
         low, high = 0, len(nums) - 1

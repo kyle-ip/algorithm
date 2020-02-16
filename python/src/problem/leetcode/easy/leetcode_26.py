@@ -11,7 +11,7 @@ class Solution:
         :param nums:
         :return:
         """
-        if not nums or len(nums) == 0:
+        if not nums:
             return 0
         right = left = 1
         while right < len(nums):

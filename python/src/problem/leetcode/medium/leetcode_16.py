@@ -5,7 +5,7 @@ import sys
 
 class Solution:
     """
-    三数之和
+    求和最接近目标值的三个数
     """
 
     def three_sum_closest(self, nums: List[int], target: int) -> int:
