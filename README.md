@@ -225,7 +225,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## Sorting Algorithm
+## Sorting Algorithm (11)
 
 | No.  | Title                                                        | Desc       | Solution                                                     | Stability |
 | ---- | ------------------------------------------------------------ | ---------- | ------------------------------------------------------------ | --------- |
@@ -261,7 +261,7 @@ mvn test [-Dtest=ClassName]
 
 ## Sponsors
 
-Thanks JetBrains for providing [Free Open Source Licenses](https://www.jetbrains.com/community/opensource/). :heart:
+Thanks for JetBrains' support ([Free Open Source Licenses](https://www.jetbrains.com/community/opensource/)). :heart:
 
 [![](https://ywh-oss.oss-cn-shenzhen.aliyuncs.com/blog/jetbrains-variant-4.svg "JetBrains")](https://www.jetbrains.com/?from=algorithm)
 
