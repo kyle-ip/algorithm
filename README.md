@@ -259,11 +259,11 @@ mvn test [-Dtest=ClassName]
 
 
 
-## Sponsors
+## Thanks
 
 Thanks for JetBrains' support ([Free Open Source Licenses](https://www.jetbrains.com/community/opensource/)). :heart:
 
-[![](https://ywh-oss.oss-cn-shenzhen.aliyuncs.com/blog/jetbrains-variant-4.svg "JetBrains")](https://www.jetbrains.com/?from=algorithm)
+[![](https://ywh-oss.oss-cn-shenzhen.aliyuncs.com/blog/idea.svg "JetBrains")](https://www.jetbrains.com/?from=algorithm)
 
 
 
