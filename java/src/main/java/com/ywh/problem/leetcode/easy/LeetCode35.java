@@ -1,4 +1,4 @@
-package com.ywh.problem.leetcode.medium;
+package com.ywh.problem.leetcode.easy;
 
 /**
  * 二分搜索插入位置

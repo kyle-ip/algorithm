@@ -55,12 +55,4 @@ public class LeetCode205 {
         }
         return true;
     }
-
-    public static void main(String[] args) {
-        LeetCode205 s = new LeetCode205();
-        System.out.println(s.isIsomorphic("egg", "add"));
-        System.out.println(s.isIsomorphic("foo", "bar"));
-        System.out.println(s.isIsomorphic("paper", "title"));
-
-    }
 }
