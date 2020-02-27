@@ -28,6 +28,13 @@ public class LeetCode39 {
         }
     }
 
+    /**
+     * Time: O(n^(target/min)), Space: O(target/min)
+     *
+     * @param candidates
+     * @param target
+     * @return
+     */
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
         List<Integer> elem = new ArrayList<>();
@@ -55,6 +62,13 @@ public class LeetCode39 {
         }
     }
 
+    /**
+     * Time: O(n^(target/min)), Space: O(target/min)
+     * 
+     * @param candidates
+     * @param target
+     * @return
+     */
     public List<List<Integer>> combinationSumSort(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
         List<Integer> elem = new ArrayList<>();
