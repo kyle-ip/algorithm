@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (202)
+## LeetCode - Algorithm (203)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -146,6 +146,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 210  | [Course Schedule II](https://leetcode.com/problems/course-schedule-ii) | 上课顺序                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode210.java) | Medium     | [Graph] [Backtracking] [Topological Sorting] [DFS] [BFS] |
 | 213  | [House Robber II](https://leetcode.com/problems/house-robber-ii) | 抢劫环形房子                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode213.java) | Medium     | [Dynamic Programming]                                    |
 | 215  | [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) | 数组中第 K 大的元素                | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode215.java) | Medium     | [Divide and Conquer] [Heap]                              |
+| 217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/submissions/) | 存在重复元素 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode217.java) [Python](python/src/problem/leetcode/easy/leetcode_217.py) | Easy | [Array] [Hash Table] [Sorting] |
 | 218 | [The Skyline Problem](https://leetcode.com/problems/the-skyline-problem) | 寻找天际线 | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode218.java) | Hard | [Divide and Conquer] [Heap] [Segment Tree] |
 | 221  | [Maximal Square](https://leetcode.com/problems/maximal-square) | 0/1 矩阵中的最大正方形             | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode221.java) | Medium     | [Dynamic Programming] [Array] [Stack]                    |
 | 226  | [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) | 翻转二叉树                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode226.java) [Python](python/src/problem/leetcode/easy/leetcode_226.py) | Easy       | [Tree]                                                   |
