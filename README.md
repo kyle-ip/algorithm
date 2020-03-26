@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (203)
+## LeetCode - Algorithm (204)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -160,6 +160,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 238  | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self) | 除了自身元素的数组乘积             | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode238.java) | Medium     | [Array]                                                  |
 | 239  | [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum) | 滑动窗口中的最大值                 | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode239.java) | Hard       | [Heap]                                                   |
 | 240  | [Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/) | 行列递增的二维数组搜索             | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode240.java) | Medium     | [Binary Search] [Divide and Conquer]                     |
+| 242 | [Valid Anagram](https://leetcode.com/problems/valid-anagram/submissions/) | 变位词校验 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode242.java) [Python](python/src/problem/leetcode/easy/leetcode_242.py) | Easy | [String] [Sorting] [Hash Table] |
 | 255  | [Verify Preorder Sequence in Binary Search Tree](https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree) | 验证二叉搜索树的前序遍历序列       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode255.java) | Medium     | [Tree] [Stack] [Divide and Conquer]                      |
 | 260 | [Single Number III](https://leetcode.com/problems/single-number-iii) | 只出现一次的两个数字 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode260.java) | Medium | [Bit Manipulation] |
 | 257 | [Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths) | 二叉树的所有路径 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode257.java) [Python](python/src/problem/leetcode/easy/leetcode_257.py) | Easy | [Tree] |
