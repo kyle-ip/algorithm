@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (204)
+## LeetCode - Algorithm (205)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -40,6 +40,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 21   | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) | 合并两个有序链表                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode21.java) [Python](python/src/problem/leetcode/easy/leetcode_21.py) | Easy       | [Linked List]                                            |
 | 22   | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | 括号的合法排列                     | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode22.java) [Python](python/src/problem/leetcode/medium/leetcode_22.py) | Medium     | [String] [Backtracking]                                  |
 | 23   | [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists) | 合并 K 个有序链表                  | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode23.java) | Hard       | [Linked List] [Divide and Conquer] [Heap]                |
+| 24 | [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/) | 两两交换链表中的节点 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode24.java) [Python](python/src/problem/leetcode/medium/leetcode_24.py) | Medium | [Linked List] |
 | 26   | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array) | 移除有序数组中的重复元素           | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode26.java) [Python](python/src/problem/leetcode/easy/leetcode_26.py) | Easy       | [Two Pointers] [Array]                                   |
 | 28   | [Implement strStr()](https://leetcode.com/problems/implement-strstr/) | 实现 strstr                        | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode28.java) [Python](python/src/problem/leetcode/easy/leetcode_28.py) | Easy       | [Two Pointers] [String]                                  |
 | 31   | [Next Permutation](https://leetcode.com/problems/next-permutation/) | 数组的下一个排列                   | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode31.java) [Python](python/src/problem/leetcode/medium/leetcode_31.py) | Medium     | [Array]                                                  |
