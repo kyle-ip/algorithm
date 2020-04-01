@@ -55,13 +55,13 @@ public class LeetCode373 {
                 }
             }
         }
-        List<List<Integer>> res = new LinkedList<>();
+        List<List<Integer>> ret = new LinkedList<>();
         while (!maxHeap.isEmpty()) {
             Elem elem = maxHeap.poll();
-            res.add(0, Arrays.asList(nums1[elem.idx1], nums2[elem.idx2]));
+            ret.add(0, Arrays.asList(nums1[elem.idx1], nums2[elem.idx2]));
         }
 
-        return res;
+        return ret;
     }
 
     /**
@@ -78,7 +78,7 @@ public class LeetCode373 {
         if (nums1 == null || nums1.length == 0 || nums2 == null || nums2.length == 0 || k <= 0) {
             return new ArrayList<>();
         }
-        List<List<Integer>> res = new ArrayList<>();
+        List<List<Integer>> ret = new ArrayList<>();
 
         // 使用最小堆：每次从堆中取出的值即为最小值，直接加入结果集
         Queue<Elem> minHeap = new PriorityQueue<>();
@@ -89,7 +89,7 @@ public class LeetCode373 {
         }
         for (int i = 0; i < k && !minHeap.isEmpty(); i++) {
             Elem elem = minHeap.poll();
-            res.add(Arrays.asList(nums1[elem.idx1], nums2[elem.idx2]));
+            ret.add(Arrays.asList(nums1[elem.idx1], nums2[elem.idx2]));
             elem.idx2++;
             if (elem.idx2 < nums2.length) {
                 elem.sum = nums1[elem.idx1] + nums2[elem.idx2];
@@ -97,6 +97,6 @@ public class LeetCode373 {
             }
         }
 
-        return res;
+        return ret;
     }
 }

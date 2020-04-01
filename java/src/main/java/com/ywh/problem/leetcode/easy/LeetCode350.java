@@ -39,11 +39,11 @@ public class LeetCode350 {
             }
         }
 
-        int[] res = new int[list.size()];
+        int[] ret = new int[list.size()];
         for (int i = 0; i < list.size(); i++) {
-            res[i] = list.get(i);
+            ret[i] = list.get(i);
         }
-        return res;
+        return ret;
     }
 
     /**
@@ -70,10 +70,10 @@ public class LeetCode350 {
             }
         }
 
-        int[] res = new int[list.size()];
+        int[] ret = new int[list.size()];
         for (int i = 0; i < list.size(); i++) {
-            res[i] = list.get(i);
+            ret[i] = list.get(i);
         }
-        return res;
+        return ret;
     }
 }

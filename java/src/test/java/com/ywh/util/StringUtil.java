@@ -92,21 +92,21 @@ public class StringUtil {
      * @return
      */
     public static List<List<Integer>> strTo2DimIntList(String str) {
-        List<List<Integer>> res = new ArrayList<>();
+        List<List<Integer>> ret = new ArrayList<>();
 
         if (str == null || str.length() == 0 || "null".equals(str)) {
-            return res;
+            return ret;
         }
         for (String s : str.split("/")) {
             if ("null".equals(s)) {
-                res.add(null);
+                ret.add(null);
             } else if ("".equals(s)) {
-                res.add(new ArrayList<>());
+                ret.add(new ArrayList<>());
             } else {
-                res.add(strToIntList(s));
+                ret.add(strToIntList(s));
             }
         }
-        return res;
+        return ret;
     }
 
     /**
@@ -116,19 +116,19 @@ public class StringUtil {
      * @return
      */
     public static List<Integer> strToIntList(String str) {
-        List<Integer> res = new ArrayList<>();
+        List<Integer> ret = new ArrayList<>();
 
         if (str == null || str.length() == 0 || "null".equals(str)) {
-            return res;
+            return ret;
         }
         for (String s : str.split(",")) {
             if ("null".equals(s)) {
-                res.add(null);
+                ret.add(null);
             } else {
-                res.add(Integer.valueOf(s));
+                ret.add(Integer.valueOf(s));
             }
         }
-        return res;
+        return ret;
     }
 
     public static String[] strToStrArray(String str) {
@@ -136,9 +136,9 @@ public class StringUtil {
         if (list == null) {
             return null;
         }
-        String[] res = new String[list.size()];
-        list.toArray(res);
-        return res;
+        String[] ret = new String[list.size()];
+        list.toArray(ret);
+        return ret;
     }
 
     /**
@@ -159,17 +159,17 @@ public class StringUtil {
      * @return
      */
     public static List<String> strToStrList(String str, String splitter) {
-        List<String> res = new ArrayList<>();
+        List<String> ret = new ArrayList<>();
         if ("null".equals(str.split(splitter)[0])) {
             return null;
         }
         for (String s : str.split(splitter)) {
             if ("null".equals(s)) {
-                res.add(null);
+                ret.add(null);
             } else {
-                res.add(s);
+                ret.add(s);
             }
         }
-        return res;
+        return ret;
     }
 }

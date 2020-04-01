@@ -53,7 +53,7 @@ public class LeetCode386 {
      * @return
      */
     public List<Integer> lexicalOrder10WayTreePreorder(int n) {
-        List<Integer> res = new ArrayList<>();
+        List<Integer> ret = new ArrayList<>();
         Stack<Integer> tree = new Stack<>();
 
         // 填充十叉树的第一层（[1, n] 或 [1, 9]）
@@ -63,7 +63,7 @@ public class LeetCode386 {
 
         while (!tree.empty()) {
             int cur = tree.pop();
-            res.add(cur);
+            ret.add(cur);
 
             // 字典序：如处理 1 后，继续处理 10 ~ 19
             cur *= 10;
@@ -77,6 +77,6 @@ public class LeetCode386 {
                 }
             }
         }
-        return res;
+        return ret;
     }
 }

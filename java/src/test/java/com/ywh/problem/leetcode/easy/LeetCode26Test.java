@@ -37,9 +37,9 @@ class LeetCode26Test {
         int[] arr = StringUtil.strToIntArray(arguments.getString(0));
         int expectedLen = arguments.getInteger(1);
         int[] expectedArr = StringUtil.strToIntArray(arguments.getString(2));
-        int res = solution.removeDuplicates(arr);
+        int ret = solution.removeDuplicates(arr);
 
-        assertEquals(expectedLen, res);
-        assertEquals(StringUtil.intArrayToStr(expectedArr), StringUtil.intArrayToStr(arr, res));
+        assertEquals(expectedLen, ret);
+        assertEquals(StringUtil.intArrayToStr(expectedArr), StringUtil.intArrayToStr(arr, ret));
     }
 }

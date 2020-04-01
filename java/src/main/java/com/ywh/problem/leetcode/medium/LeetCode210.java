@@ -68,12 +68,12 @@ public class LeetCode210 {
         }
 
         // 按回溯的顺序，倒置即为排列
-        int[] res = new int[n];
+        int[] ret = new int[n];
         for (int v : order) {
-            res[--n] = v;
+            ret[--n] = v;
         }
 
-        return res;
+        return ret;
     }
 
     /**

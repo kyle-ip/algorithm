@@ -18,7 +18,7 @@ public class LeetCode415 {
      */
     public static String addStrings(String num1, String num2) {
         int i = num1.length() - 1, j = num1.length() - 1, k = Math.max(num1.length(), num2.length()), carry = 0;
-        char[] res = new char[k + 1];
+        char[] ret = new char[k + 1];
         while (i >= 0 || j >= 0 || carry > 0) {
             if (i >= 0) {
                 carry += num1.charAt(i--) - '0';
@@ -26,9 +26,9 @@ public class LeetCode415 {
             if (j >= 0) {
                 carry += num2.charAt(j--) - '0';
             }
-            res[k--] = (char) (carry % 10 + '0');
+            ret[k--] = (char) (carry % 10 + '0');
             carry /= 10;
         }
-        return String.valueOf(res).trim();
+        return String.valueOf(ret).trim();
     }
 }

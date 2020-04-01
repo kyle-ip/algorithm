@@ -19,22 +19,22 @@ public class LeetCode945 {
             count[i]++;
         }
         // 记录最小增量、每次出现重复时需要移动的次数
-        int res = 0, taken = 0;
+        int ret = 0, taken = 0;
         for (int i = 0; i < 100_000; i++) {
             // 如果当前元素出现超过 1 次
             if (count[i] >= 2) {
-                // 留下一个，剩余的 count[i] - 1 个需要递增，先从 res 中减去（留待有空位时再补上）
+                // 留下一个，剩余的 count[i] - 1 个需要递增，先从 ret 中减去（留待有空位时再补上）
                 taken += count[i] - 1;
-                res -= i * (count[i] - 1);
+                ret -= i * (count[i] - 1);
             }
             // 如果当前元素出现 0 次（可插入空位），且之前需要递增的元素还未处理完
             else if (taken > 0 && count[i] == 0) {
                 taken--;
-                res += i;
+                ret += i;
             }
         }
 
-        return 0;
+        return ret;
     }
 
     /**

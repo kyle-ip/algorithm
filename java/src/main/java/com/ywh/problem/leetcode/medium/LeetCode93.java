@@ -74,9 +74,9 @@ public class LeetCode93 {
      * @return
      */
     public static List<String> restoreIpAddressesBruteForce(String s) {
-        List<String> res = new ArrayList<>();
+        List<String> ret = new ArrayList<>();
         if (s.length() > 12 || s.length() < 4) {
-            return res;
+            return ret;
         }
 
         // 四层循环，每层循环的数字表示 ip 地址每截的长度（不含分隔符，长度之和为 s 的长度，最大值为 12）
@@ -101,11 +101,11 @@ public class LeetCode93 {
                             continue;
                         }
 
-                        res.add(ip);
+                        ret.add(ip);
                     }
                 }
             }
         }
-        return res;
+        return ret;
     }
 }

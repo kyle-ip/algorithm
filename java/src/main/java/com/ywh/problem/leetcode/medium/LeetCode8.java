@@ -27,7 +27,7 @@ public class LeetCode8 {
      * @return
      */
     public int string2Integer(String str) {
-        int start = 0, p = 0, length = str.length();
+        int start, p = 0, length = str.length();
         boolean negative = false;
 
         // 非数字

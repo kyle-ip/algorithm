@@ -13,23 +13,23 @@ public class LeetCode1304 {
         if (n < 1) {
             return new int[]{};
         }
-        int[] res = new int[n];
+        int[] ret = new int[n];
         for (int i = 0; i < n; i++) {
-            res[i] = i * 2 - n + 1;
+            ret[i] = i * 2 - n + 1;
         }
-        return res;
+        return ret;
     }
 
     public int[] sumZero2(int n) {
         if (n < 1) {
             return new int[]{};
         }
-        int[] res = new int[n];
+        int[] ret = new int[n];
         for (int i = 1; i <= Math.floor(n / 2.0); i++) {
-            res[i - 1] = i;
-            res[n - i] = -i;
+            ret[i - 1] = i;
+            ret[n - i] = -i;
         }
-        return res;
+        return ret;
     }
 
 
@@ -37,12 +37,12 @@ public class LeetCode1304 {
         if (n < 1) {
             return new int[]{};
         }
-        int[] res = new int[n];
+        int[] ret = new int[n];
         for (int i = 1; i < n; i++) {
-            res[i] = i;
+            ret[i] = i;
         }
-        res[0] = -n * (n - 1) / 2;
-        return res;
+        ret[0] = -n * (n - 1) / 2;
+        return ret;
     }
 
 }

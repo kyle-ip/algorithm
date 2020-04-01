@@ -36,8 +36,8 @@ public class LeetCode236 {
         }
 
         // 否则在 root 的左右子树继续查找
-        boolean res = search(root.left, node, path) || search(root.right, node, path);
-        if (res) {
+        boolean ret = search(root.left, node, path) || search(root.right, node, path);
+        if (ret) {
             return true;
         }
 
