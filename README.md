@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (205)
+## LeetCode - Algorithm (206)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -103,6 +103,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 116  | [Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node) | 树节点的 next 指针                 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode116.java) | Medium     | [Tree] [DFS] [BFS]                                       |
 | 118  | [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/) | 帕斯卡三角形                       | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode118.java) [Python](python/src/problem/leetcode/easy/leetcode_118.py) | Easy       | [Array]                                                  |
 | 119  | [Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/) | 帕斯卡三角形 2 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode119.java) [Python](python/src/problem/leetcode/easy/leetcode_119.py) | Easy | [Array] [Math] |
+| 120  | [Triangle](https://leetcode.com/problems/triangle/) | 三角形中的最小路径和 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode120.java) [Python](python/src/problem/leetcode/medium/leetcode_120.py) | Medium | [Array] [Dynamic Programming] |
 | 121  | [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | 买卖股票的最大利润                 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode121.java) | Medium     | [Array] [Dynamic Programming]                            |
 | 122  | [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii) | 不限次数的买卖股票的最大利润       | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode122.java) [Python](python/src/problem/leetcode/easy/leetcode_122.py) | Easy       | [Array] [Greedy]                                         |
 | 125  | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | 回文字符串判断                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode125.java) [Python](python/src/problem/leetcode/easy/leetcode_125.py) | Easy       | [Two Pointers] [String]                                  |
