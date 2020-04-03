@@ -9,7 +9,7 @@ class Solution:
 
     def remove_element(self, nums: List[int], val: int) -> int:
         """
-
+        Time: O(n), Space: O(1)
         :param nums:
         :param val:
         :return:

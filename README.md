@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (206)
+## LeetCode - Algorithm (207)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -40,6 +40,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 23   | [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists) | 合并 K 个有序链表                  | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode23.java) | Hard       | [Linked List] [Divide and Conquer] [Heap]                |
 | 24   | [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/) | 两两交换链表中的节点 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode24.java) [Python](python/src/problem/leetcode/medium/leetcode_24.py) | Medium | [Linked List] |
 | 26   | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array) | 移除有序数组中的重复元素           | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode26.java) [Python](python/src/problem/leetcode/easy/leetcode_26.py) | Easy       | [Two Pointers] [Array]                                   |
+| 27 | [Remove Element](https://leetcode.com/problems/remove-element) | 移除数组中指定数字 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode27.java) [Python](python/src/problem/leetcode/easy/leetcode_27.py) | Easy | [Two Pointers] [Array] |
 | 28   | [Implement strStr()](https://leetcode.com/problems/implement-strstr/) | 实现 strstr                        | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode28.java) [Python](python/src/problem/leetcode/easy/leetcode_28.py) | Easy       | [Two Pointers] [String]                                  |
 | 31   | [Next Permutation](https://leetcode.com/problems/next-permutation/) | 数组的下一个排列                   | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode31.java) [Python](python/src/problem/leetcode/medium/leetcode_31.py) | Medium     | [Array]                                                  |
 | 32   | [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses) | 有效括号的最大长度                 | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode32.java) | Hard       | [String] [Dynamic Programming]                           |
@@ -131,7 +132,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 168  | [Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title) | Excel 表格的列标题 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode168.java)  [Python](python/src/problem/leetcode/easy/leetcode_168.py) | Easy | [Math] |
 | 169  | [Majority Element](https://leetcode.com/problems/majority-element/) | 数组中超过一半的数字               | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode169.java)  [Python](python/src/problem/leetcode/easy/leetcode_169.py) | Easy       | [Array] [Divide and Conquer] [Bit Manipulation]          |
 | 171  | [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number) | Excel 表格的列编号                 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode171.java) [Python](python/src/problem/leetcode/easy/leetcode_171.py) | Easy       | [Math]                                                   |
-| 172  | [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes) | 阶乘末尾 0 的个数                  | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode172.java) | Easy       | [Math]                                                   |
+| 172  | [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes) | 阶乘末尾 0 的个数                  | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode172.java)[Python](python/src/problem/leetcode/easy/leetcode_172.py) | Easy       | [Math]                                                   |
 | 189  | [Rotate Array](https://leetcode.com/problems/rotate-array/)  | 旋转数组                           | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode189.java) [Python](python/src/problem/leetcode/easy/leetcode_189.py) | Easy       | [Array]                                                  |
 | 191  | [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) | 二进制中 1 的个数                  | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode191.java) [Python](python/src/problem/leetcode/easy/leetcode_191.py) | Easy       | [Bit Manipulation]                                       |
 | 198  | [House Robber](https://leetcode.com/problems/house-robber/)  | 抢劫连排房子                       | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode198.java) [Python](python/src/problem/leetcode/easy/leetcode_198.py) | Easy       | [Dynamic Programming]                                    |
