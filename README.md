@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (207)
+## LeetCode - Algorithm (209)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -66,6 +66,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 63   | [Unique Paths II](https://leetcode.com/problems/unique-paths-ii) | 路径数量（含障碍物）               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode63.java) | Medium     | [Array] [Dynamic Programming]                            |
 | 64   | [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) | 最小路径和                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode64.java) | Medium     | [Array] [Dynamic Programming]                            |
 | 66   | [Plus One](https://leetcode.com/problems/plus-one)           | 数组加一                           | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode66.java) [Python](python/src/problem/leetcode/easy/leetcode_66.py) | Easy       | [Array]                                                  |
+| 67 | [Add Binary](https://leetcode.com/problems/add-binary) | 二进制字符串求和 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode67.java) [Python](python/src/problem/leetcode/easy/leetcode_67.py) | Easy | [Math] [String] |
 | 69   | [Sqrt(x)](https://leetcode.com/problems/sqrtx/)              | 实现平方根函数                     | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode69.java) | Medium     | [Math] [Binary Search]                                   |
 | 70   | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | 爬楼梯方法数                       | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode70.java) [Python](python/src/problem/leetcode/easy/leetcode_70.py) | Easy       | [Dynamic Programming]                                    |
 | 72   | [Edit Distance](https://leetcode.com/problems/edit-distance/) | 编辑距离                           | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode72.java) | Hard       | [String] [Dynamic Programming]                           |
@@ -171,6 +172,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 287  | [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number) | 查找重复数字                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode287.java) | Medium     | [Array] [Two Pointers] [Binary Search]                   |
 | 295  | [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream) | 在数据流中查找中位数               | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode295.java) | Hard       | [Heap] [Design]                                          |
 | 300  | [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence) | 最长递增子序列的长度               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode300.java) | Medium     | [Binary Search] [Dynamic Programming]                    |
+| 303 | [Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable) | 不可变数组的区间和查询 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode303.java) [Python](python/src/problem/leetcode/easy/leetcode_303.py) | Easy | [Array] [Dynamic Programming] |
 | 310  | [Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees) | 高度最小的树 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode310.java) | Medium | [Graph] [BFS] [DFS] |
 | 322  | [Coin Change](https://leetcode.com/problems/coin-change)     | 最小硬币组合                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode322.java) | Medium     | [Dynamic Programming]                                    |
 | 326  | [Power of Three](https://leetcode.com/problems/power-of-three) | 3 的幂                             | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode326.java) [Python](python/src/problem/leetcode/easy/leetcode_326.py) | Easy       | [Math]                                                   |
