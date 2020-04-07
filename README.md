@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (210)
+## LeetCode - Algorithm (211)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -40,7 +40,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 23   | [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists) | 合并 K 个有序链表                  | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode23.java) | Hard       | [Linked List] [Divide and Conquer] [Heap]                |
 | 24   | [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/) | 两两交换链表中的节点 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode24.java) [Python](python/src/problem/leetcode/medium/leetcode_24.py) | Medium | [Linked List] |
 | 26   | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array) | 移除有序数组中的重复元素           | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode26.java) [Python](python/src/problem/leetcode/easy/leetcode_26.py) | Easy       | [Two Pointers] [Array]                                   |
-| 27 | [Remove Element](https://leetcode.com/problems/remove-element) | 移除数组中指定数字 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode27.java) [Python](python/src/problem/leetcode/easy/leetcode_27.py) | Easy | [Two Pointers] [Array] |
+| 27   | [Remove Element](https://leetcode.com/problems/remove-element) | 移除数组中指定数字 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode27.java) [Python](python/src/problem/leetcode/easy/leetcode_27.py) | Easy | [Two Pointers] [Array] |
 | 28   | [Implement strStr()](https://leetcode.com/problems/implement-strstr/) | 实现 strstr                        | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode28.java) [Python](python/src/problem/leetcode/easy/leetcode_28.py) | Easy       | [Two Pointers] [String]                                  |
 | 31   | [Next Permutation](https://leetcode.com/problems/next-permutation/) | 数组的下一个排列                   | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode31.java) [Python](python/src/problem/leetcode/medium/leetcode_31.py) | Medium     | [Array]                                                  |
 | 32   | [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses) | 有效括号的最大长度                 | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode32.java) | Hard       | [String] [Dynamic Programming]                           |
@@ -75,6 +75,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 74   | [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) | 二维数组的二分搜索                 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode74.java) | Medium     | [Array] [Binary Search]                                  |
 | 75   | [Sort Colors](https://leetcode.com/problems/sort-colors/)    | 荷兰国旗问题                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode75.java) | Medium     | [Array] [Two Pointers] [Sort]                            |
 | 76   | [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring) | 包含给定字符的最短子串 | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode76.java) | Hard | [Hash Table] [Two Pointers] [String] |
+| 77   | [Combinations](https://leetcode.com/problems/combinations) | 数字组合 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode77.java) [Python](python/src/problem/leetcode/medium/leetcode_77.py) | Medium | [Backtracking] |
 | 78   | [Subsets](https://leetcode.com/problems/subsets)             | 数组的子集                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode78.java) | Medium     | [Array] [Backtracking] [Bit Manipulation]                |
 | 79   | [Word Search](https://leetcode.com/problems/word-search/)    | 搜索单词                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode79.java) | Medium     | [Array] [Backtracking] [DFS]                             |
 | 82   | [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/) | 有序链表删除重复节点               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode82.java) | Medium     | [Linked List]                                            |
