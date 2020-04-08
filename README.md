@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (211)
+## LeetCode - Algorithm (212)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -175,6 +175,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 295  | [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream) | 在数据流中查找中位数               | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode295.java) | Hard       | [Heap] [Design]                                          |
 | 300  | [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence) | 最长递增子序列的长度               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode300.java) | Medium     | [Binary Search] [Dynamic Programming]                    |
 | 303  | [Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable) | 不可变数组的区间和查询 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode303.java) [Python](python/src/problem/leetcode/easy/leetcode_303.py) | Easy | [Array] [Dynamic Programming] |
+| 304  | [Range Sum Query 2D](https://leetcode.com/problems/range-sum-query-2d-immutable/submissions/) | 不可变矩阵的部分和查询 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode304.java) [Python](python/src/problem/leetcode/medium/leetcode_304.py) | Medium | [Array] [Dynamic Programming] |
 | 310  | [Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees) | 高度最小的树 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode310.java) | Medium | [Graph] [BFS] [DFS] |
 | 322  | [Coin Change](https://leetcode.com/problems/coin-change)     | 最小硬币组合                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode322.java) | Medium     | [Dynamic Programming]                                    |
 | 326  | [Power of Three](https://leetcode.com/problems/power-of-three) | 3 的幂                             | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode326.java) [Python](python/src/problem/leetcode/easy/leetcode_326.py) | Easy       | [Math]                                                   |

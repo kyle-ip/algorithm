@@ -1,7 +1,5 @@
 # coding=utf-8
 from typing import List
-from src.data_structure.data_structure import TreeNode
-
 
 class Solution:
     """
@@ -10,7 +8,7 @@ class Solution:
 
     def minimum_total(self, triangle: List[List[int]]) -> int:
         """
-
+        Time: O(n^2), Space: O(n)
         :param triangle:
         :return:
         """
