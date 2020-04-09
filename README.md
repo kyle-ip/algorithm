@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (212)
+## LeetCode - Algorithm (213)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -167,6 +167,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 242  | [Valid Anagram](https://leetcode.com/problems/valid-anagram/submissions/) | 变位词校验 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode242.java) [Python](python/src/problem/leetcode/easy/leetcode_242.py) | Easy | [String] [Sorting] [Hash Table] |
 | 255  | [Verify Preorder Sequence in Binary Search Tree](https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree) | 验证二叉搜索树的前序遍历序列       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode255.java) | Medium     | [Tree] [Stack] [Divide and Conquer]                      |
 | 257  | [Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths) | 二叉树的所有路径 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode257.java) [Python](python/src/problem/leetcode/easy/leetcode_257.py) | Easy | [Tree] |
+| 258  | [Paint House](https://leetcode.com/problems/paint-house) | 粉刷房子 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode258.java) [Python](python/src/problem/leetcode/easy/leetcode_258.py) | Easy | [Dynamic Programming] |
 | 260  | [Single Number III](https://leetcode.com/problems/single-number-iii) | 只出现一次的两个数字 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode260.java) | Medium | [Bit Manipulation] |
 | 263  | [Ugly Number](https://leetcode.com/problems/ugly-number/)    | 丑数                               | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode263.java) [Python](python/src/problem/leetcode/easy/leetcode_263.py) | Easy       | [Math]                                                   |
 | 268  | [Missing Number](https://leetcode.com/problems/missing-number/) | 缺失的数字                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode268.java) | Medium     | [Array] [Math] [Bit Manipulation]                        |
