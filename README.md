@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (214)
+## LeetCode - Algorithm (215)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -137,6 +137,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 171  | [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number) | Excel 表格的列编号                 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode171.java) [Python](python/src/problem/leetcode/easy/leetcode_171.py) | Easy       | [Math]                                                   |
 | 172  | [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes) | 阶乘末尾 0 的个数                  | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode172.java)[Python](python/src/problem/leetcode/easy/leetcode_172.py) | Easy       | [Math]                                                   |
 | 189  | [Rotate Array](https://leetcode.com/problems/rotate-array/)  | 旋转数组                           | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode189.java) [Python](python/src/problem/leetcode/easy/leetcode_189.py) | Easy       | [Array]                                                  |
+| 190  | [Reverse Bits](https://leetcode.com/problems/reverse-bits/) | 翻转整数的二进制位 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode190.java) [Python](python/src/problem/leetcode/easy/leetcode_190.py) | Easy | [Bit Manipulation] |
 | 191  | [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) | 二进制中 1 的个数                  | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode191.java) [Python](python/src/problem/leetcode/easy/leetcode_191.py) | Easy       | [Bit Manipulation]                                       |
 | 198  | [House Robber](https://leetcode.com/problems/house-robber/)  | 抢劫连排房子                       | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode198.java) [Python](python/src/problem/leetcode/easy/leetcode_198.py) | Easy       | [Dynamic Programming]                                    |
 | 200  | [Number of Islands](https://leetcode.com/problems/number-of-islands) | 小岛数量                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode200.java) | Medium     | [DFS] [BFS]                                              |
