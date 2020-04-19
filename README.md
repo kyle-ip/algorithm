@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (216)
+## LeetCode - Algorithm (217)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -134,6 +134,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 167  | [Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | 有序数组中求和为给定值的两个数     | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode167.java) | Medium     | [Two Pointers] [Array] [Binary Search]                   |
 | 168  | [Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title) | Excel 表格的列标题 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode168.java)  [Python](python/src/problem/leetcode/easy/leetcode_168.py) | Easy | [Math] |
 | 169  | [Majority Element](https://leetcode.com/problems/majority-element/) | 数组中超过一半的数字               | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode169.java)  [Python](python/src/problem/leetcode/easy/leetcode_169.py) | Easy       | [Array] [Divide and Conquer] [Bit Manipulation]          |
+| 170  | [Two Sum III - Data structure design](https://leetcode.com/problems/two-sum-iii-data-structure-design) | 设计一个类求和为给定值的两个数 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode170.java)  [Python](python/src/problem/leetcode/easy/leetcode_170.py) | Easy | [Design] [Hash Table] |
 | 171  | [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number) | Excel 表格的列编号                 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode171.java) [Python](python/src/problem/leetcode/easy/leetcode_171.py) | Easy       | [Math]                                                   |
 | 172  | [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes) | 阶乘末尾 0 的个数                  | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode172.java)[Python](python/src/problem/leetcode/easy/leetcode_172.py) | Easy       | [Math]                                                   |
 | 189  | [Rotate Array](https://leetcode.com/problems/rotate-array/)  | 旋转数组                           | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode189.java) [Python](python/src/problem/leetcode/easy/leetcode_189.py) | Easy       | [Array]                                                  |
