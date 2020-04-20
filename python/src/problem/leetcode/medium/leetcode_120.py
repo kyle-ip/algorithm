@@ -1,6 +1,7 @@
 # coding=utf-8
 from typing import List
 
+
 class Solution:
     """
     三角形中的最小路径和

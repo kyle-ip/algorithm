@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (217)
+## LeetCode - Algorithm (218)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -211,6 +211,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 486  | [ Predict the Winner](https://leetcode.com/problems/predict-the-winner) | 预测赢家                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode486.java) | Medium     | [Minimax] [Dynamic Programming]                          |
 | 509  | [Fibonacci Number](https://leetcode.com/problems/fibonacci-number) | 第 n 个斐波那契数                  | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode509.java) [Python](python/src/problem/leetcode/easy/leetcode_509.py) | Easy       | [Array] [Dynamic Programming]                            |
 | 518  | [Coin Change 2](https://leetcode.com/problems/coin-change-2) | 硬币面值组合问题                   | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode518.java) | Medium     | [Dynamic Programming]                                    |
+| 523  | [ Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum) | 子数组求和是否为 K 的整数倍 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode523.java) [Python](python/src/problem/leetcode/medium/leetcode_523.py) | Medium | [Math] |
 | 538  | [Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree) | 将二叉搜索树转为较大树             | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode538.java) [Python](python/src/problem/leetcode/easy/leetcode_538.py) | Easy       | [Tree]                                                   |
 | 540  | [Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array) | 有序数组中的单身数字               | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode540.java) | Medium     | [Bit Manipulation] [Binary Search]                       |
 | 543  | [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree) | 二叉树的直径                       | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode543.java) [Python](python/src/problem/leetcode/easy/leetcode_543.py) | Easy       | [Tree]                                                   |
