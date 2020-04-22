@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (218)
+## LeetCode - Algorithm (219)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -173,6 +173,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 260  | [Single Number III](https://leetcode.com/problems/single-number-iii) | 只出现一次的两个数字 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode260.java) | Medium | [Bit Manipulation] |
 | 263  | [Ugly Number](https://leetcode.com/problems/ugly-number/)    | 丑数                               | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode263.java) [Python](python/src/problem/leetcode/easy/leetcode_263.py) | Easy       | [Math]                                                   |
 | 268  | [Missing Number](https://leetcode.com/problems/missing-number/) | 缺失的数字                         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode268.java) | Medium     | [Array] [Math] [Bit Manipulation]                        |
+| 278  | [First Bad Version](https://leetcode.com/problems/first-bad-version) | 第一个出错的版本 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode278.java) [Python](python/src/problem/leetcode/easy/leetcode_278.py) | Easy | [Binary Search] |
 | 283  | [Move Zeroes](https://leetcode.com/problems/move-zeroes/)    | 向后移动 0                         | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode283.java) [Python](python/src/problem/leetcode/easy/leetcode_283.py) | Easy       | [Array] [Two Pointers]                                   |
 | 287  | [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number) | 查找重复数字                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode287.java) | Medium     | [Array] [Two Pointers] [Binary Search]                   |
 | 295  | [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream) | 在数据流中查找中位数               | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode295.java) | Hard       | [Heap] [Design]                                          |
