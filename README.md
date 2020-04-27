@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (219)
+## LeetCode - Algorithm (220)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -136,7 +136,8 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 169  | [Majority Element](https://leetcode.com/problems/majority-element/) | 数组中超过一半的数字               | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode169.java)  [Python](python/src/problem/leetcode/easy/leetcode_169.py) | Easy       | [Array] [Divide and Conquer] [Bit Manipulation]          |
 | 170  | [Two Sum III - Data structure design](https://leetcode.com/problems/two-sum-iii-data-structure-design) | 设计一个类求和为给定值的两个数 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode170.java)  [Python](python/src/problem/leetcode/easy/leetcode_170.py) | Easy | [Design] [Hash Table] |
 | 171  | [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number) | Excel 表格的列编号                 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode171.java) [Python](python/src/problem/leetcode/easy/leetcode_171.py) | Easy       | [Math]                                                   |
-| 172  | [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes) | 阶乘末尾 0 的个数                  | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode172.java)[Python](python/src/problem/leetcode/easy/leetcode_172.py) | Easy       | [Math]                                                   |
+| 172  | [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes) | 阶乘末尾 0 的个数                  | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode172.java) [Python](python/src/problem/leetcode/easy/leetcode_172.py) | Easy       | [Math]                                                   |
+| 179  | [Largest Number](https://leetcode.com/problems/largest-number/submissions/) | 拼接的最大数字 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode175.java) [Python](python/src/problem/leetcode/medium/leetcode_175.py) | Medium | [Sorting] |
 | 189  | [Rotate Array](https://leetcode.com/problems/rotate-array/)  | 旋转数组                           | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode189.java) [Python](python/src/problem/leetcode/easy/leetcode_189.py) | Easy       | [Array]                                                  |
 | 190  | [Reverse Bits](https://leetcode.com/problems/reverse-bits/) | 翻转整数的二进制位 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode190.java) [Python](python/src/problem/leetcode/easy/leetcode_190.py) | Easy | [Bit Manipulation] |
 | 191  | [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) | 二进制中 1 的个数                  | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode191.java) [Python](python/src/problem/leetcode/easy/leetcode_191.py) | Easy       | [Bit Manipulation]                                       |
