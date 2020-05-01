@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (220)
+## LeetCode - Algorithm (222)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -137,7 +137,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 170  | [Two Sum III - Data structure design](https://leetcode.com/problems/two-sum-iii-data-structure-design) | 设计一个类求和为给定值的两个数 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode170.java)  [Python](python/src/problem/leetcode/easy/leetcode_170.py) | Easy | [Design] [Hash Table] |
 | 171  | [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number) | Excel 表格的列编号                 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode171.java) [Python](python/src/problem/leetcode/easy/leetcode_171.py) | Easy       | [Math]                                                   |
 | 172  | [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes) | 阶乘末尾 0 的个数                  | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode172.java) [Python](python/src/problem/leetcode/easy/leetcode_172.py) | Easy       | [Math]                                                   |
-| 179  | [Largest Number](https://leetcode.com/problems/largest-number/submissions/) | 拼接的最大数字 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode175.java) [Python](python/src/problem/leetcode/medium/leetcode_175.py) | Medium | [Sorting] |
+| 179  | [Largest Number](https://leetcode.com/problems/largest-number/submissions/) | 拼接的最大数字 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode179.java) [Python](python/src/problem/leetcode/medium/leetcode_179.py) | Medium | [Sorting] |
 | 189  | [Rotate Array](https://leetcode.com/problems/rotate-array/)  | 旋转数组                           | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode189.java) [Python](python/src/problem/leetcode/easy/leetcode_189.py) | Easy       | [Array]                                                  |
 | 190  | [Reverse Bits](https://leetcode.com/problems/reverse-bits/) | 翻转整数的二进制位 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode190.java) [Python](python/src/problem/leetcode/easy/leetcode_190.py) | Easy | [Bit Manipulation] |
 | 191  | [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) | 二进制中 1 的个数                  | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode191.java) [Python](python/src/problem/leetcode/easy/leetcode_191.py) | Easy       | [Bit Manipulation]                                       |
@@ -228,6 +228,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 700  | [Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree) | 二叉搜索树中查找数字               | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode700.java) [Python](python/src/problem/leetcode/easy/leetcode_700.py) | Easy       | [Tree]                                                   |
 | 703  | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream) | 数据流中第 K 大的元素              | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode703.java) [Python](python/src/problem/leetcode/easy/leetcode_703.py) | Easy       | [Heap]                                                   |
 | 704  | [Binary Search](https://leetcode.com/problems/binary-search) | 二分搜索                           | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode704.java) [Python](python/src/problem/leetcode/easy/leetcode_704.py) | Easy       | [Binary Search]                                          |
+| 724  | [Find Pivot Index](https://leetcode.com/problems/find-pivot-index/submissions/) | 寻找数组的平衡点 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode724.java) [Python](python/src/problem/leetcode/easy/leetcode_724.py) | Easy | [Array] |
 | 746  | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs) | 爬楼梯的最小代价                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode746.java) [Python](python/src/problem/leetcode/easy/leetcode_746.py) | Easy       | [Array] [Dynamic Programming]                            |
 | 754  | [Reach a Number](https://leetcode.com/problems/reach-a-number) | 到达终点数字                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode754.java) | Medium     | [Math]                                                   |
 | 771  | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | 石头中的珠宝数量                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode771.java) [Python](python/src/problem/leetcode/easy/leetcode_771.py) | Easy       | [Hash Table]                                             |
