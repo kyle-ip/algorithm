@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode - Algorithm (224)
+## LeetCode - Algorithm (225)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -194,6 +194,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 369  | [Plus One Linked List](https://leetcode.com/problems/plus-one-linked-list) | 链表加一                           | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode369.java) | Medium     | [Linked List]                                            |
 | 371  | [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/description/) | 不用 +/- 求两数之和                | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode371.java) [Python](python/src/problem/leetcode/easy/leetcode_371.py) | Easy       | [Bit Manipulation]                                       |
 | 373  | [Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums) | 查找和最小的K对数字 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode373.java) | Medium | [Heap] |
+| 376  | [Wiggle Subsequence](https://leetcode.com/problems/wiggle-subsequence/submissions/) | 最长摆动子序列的长度 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode376.java) [Python](python/src/problem/leetcode/medium/leetcode_376.py) | Medium | [Dynamic Programming] [Greedy] |
 | 378  | [ Kth Smallest Element in a Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix) | 行列递增矩阵中第 K 小的元素        | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode378.java) | Medium     | [Heap] [Binary Search]                                   |
 | 380  | [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1) | 支持随机获取元素的集合             | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode380.java) | Medium     | [Design] [Hash Table] [Array]                            |
 | 382  | [Linked List Random Node](https://leetcode.com/problems/linked-list-random-node) | 链表随机节点                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode382.java) | Medium     | [Reservoir Sampling]                                     |
@@ -233,7 +234,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 746  | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs) | 爬楼梯的最小代价                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode746.java) [Python](python/src/problem/leetcode/easy/leetcode_746.py) | Easy       | [Array] [Dynamic Programming]                            |
 | 754  | [Reach a Number](https://leetcode.com/problems/reach-a-number) | 到达终点数字                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode754.java) | Medium     | [Math]                                                   |
 | 771  | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | 石头中的珠宝数量                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode771.java) [Python](python/src/problem/leetcode/easy/leetcode_771.py) | Easy       | [Hash Table]                                             |
-| 796  | [Rotate String](https://leetcode.com/problems/rotate-string/) | 旋转字符串 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode796.java) [Python](python/src/problem/leetcode/easy/leetcode_796.py) | Easy | [String] [Two Pointers] |
+| 796  | [Rotate String](https://leetcode.com/problems/rotate-string/) | 旋转字符串 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode796.java) | Easy | [String] [Two Pointers] |
 | 876  | [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list) | 单链表中间节点                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode876.java) [Python](python/src/problem/leetcode/easy/leetcode_876.py) | Easy       | [Linked List]                                            |
 | 892  | [Surface Area of 3D Shapes](https://leetcode.com/problems/surface-area-of-3d-shapes) | 三维形体的表面积                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode892.java) [Python](python/src/problem/leetcode/easy/leetcode_892.py) | Easy       | [Geometry] [Math]                                        |
 | 938  | [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/submissions/) | 二叉搜索树的区间和 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode938.java) [Python](python/src/problem/leetcode/easy/leetcode_938.py) | Easy | [Tree] |
