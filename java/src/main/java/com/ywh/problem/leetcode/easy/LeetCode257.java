@@ -20,7 +20,7 @@ public class LeetCode257 {
      * @param cur
      * @param list
      */
-    private void binaryTreePaths(TreeNode root, String cur, List<String> list) {
+    private void dfs(TreeNode root, String cur, List<String> list) {
         if (root == null) {
             return;
         }
@@ -28,24 +28,57 @@ public class LeetCode257 {
         if (root.left == null && root.right == null) {
             list.add(cur);
         }
-        binaryTreePaths(root.left, cur + "->", list);
-        binaryTreePaths(root.right, cur + "->", list);
+        dfs(root.left, cur + "->", list);
+        dfs(root.right, cur + "->", list);
 
     }
 
     /**
-     * Time: O(n), Space: O(n)
+     * Time: O(n^2), Space: O(n^2)
      *
      * @param root
      * @return
      */
-    public List<String> binaryTreePaths(TreeNode root) {
+    public List<String> dfs(TreeNode root) {
         List<String> list = new ArrayList<>();
         if (root == null) {
             return list;
         }
-        binaryTreePaths(root, "", list);
+        dfs(root, "", list);
         return list;
     }
 
+    /**
+     *
+     * @param root
+     * @param path
+     * @param result
+     */
+    private void dfs2(TreeNode root, StringBuilder path, List<String> result) {
+        if (root == null) {
+            return;
+        }
+        int len = path.length();
+        path.append(root.val);
+        if (root.left == null && root.right == null) {
+            result.add(path.toString());
+        } else {
+            path.append("->");
+            dfs2(root.left, path, result);
+            dfs2(root.right, path, result);
+        }
+        path.setLength(len);
+    }
+
+    /**
+     * Time: O(n*log(n)), Space: O(n)
+     *
+     * @param root
+     * @return
+     */
+    public List<String> binaryTreePaths2(TreeNode root) {
+        List<String> result = new ArrayList<>();
+        dfs2(root, new StringBuilder(), result);
+        return result;
+    }
 }

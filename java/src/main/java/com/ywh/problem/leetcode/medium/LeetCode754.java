@@ -3,7 +3,7 @@ package com.ywh.problem.leetcode.medium;
 /**
  * 到达终点数字
  * TODO 暂时未理解
- *
+ * <p>
  * [数学]
  *
  * @author ywh
@@ -39,5 +39,37 @@ public class LeetCode754 {
         } else {
             return k + 2;
         }
+    }
+
+    /**
+     * Time: O(n), Space: O(1)
+     *
+     * @param target
+     * @return
+     */
+    public int reachNumber2(int target) {
+        long t = Math.abs((long) target);
+        long n = 0, sum = 0;
+        while (sum < t || ((sum - t) & 1) == 1) {
+            ++n;
+            sum += n;
+        }
+        return (int) n;
+    }
+
+    /**
+     * Time: O(1), Space: O(1)
+     *
+     * @param target
+     * @return
+     */
+    public int reachNumberOpt(int target) {
+        long t = Math.abs((long) target);
+        int n = (int) Math.ceil((Math.sqrt(1 + 8 * t) - 1) / 2);
+        long sum = (long) (n + 1) * n / 2;
+        long diff = sum - t;
+        if ((diff & 1) == 0) return n;
+        else if ((n & 1) == 0) return n + 1;
+        else return n + 2;
     }
 }
