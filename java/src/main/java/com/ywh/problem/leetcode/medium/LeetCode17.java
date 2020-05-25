@@ -14,6 +14,9 @@ import java.util.List;
  */
 public class LeetCode17 {
 
+    /**
+     * 2 ~ 9
+     */
     private final String[] mapping = new String[]{
         "abc", "def", "ghi", "jkl",
         "mno", "pqrs", "tuv", "wxyz"
