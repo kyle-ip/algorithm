@@ -6,7 +6,7 @@ class BubbleSort(object):
 
     def sort(self, arr: List[int]):
         """
-
+        Time: O(n^2), Space: O(1)
         :param arr:
         :return:
         """
@@ -19,7 +19,7 @@ class BubbleSort(object):
 
     def sort2(self, arr: List[int]):
         """
-
+        Time: O(n^2), Space: O(1)
         :param arr:
         :return:
         """
@@ -37,7 +37,7 @@ class BubbleSort(object):
 
     def sort3(self, arr: List[int]):
         """
-
+        Time: O(n^2), Space: O(1)
         :param arr:
         :return:
         """
