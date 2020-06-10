@@ -2,7 +2,7 @@
 from typing import List
 
 
-class BubbleSort(object):
+class SelectionSort(object):
 
     def sort(self, arr: List[int]):
         """
