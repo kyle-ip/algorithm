@@ -16,6 +16,31 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 > Solutions implemented in C, Python coming soon.
 
+### Tags
+
+- Array
+- Hash Table
+- Linked List
+- Math
+- Two Pointers
+- String
+- Binary Search
+- Divide and Conquer
+- Dynamic Programming
+- Backtracking
+- Stack
+- Heap
+- Greedy
+- Sort
+- Bit Manipulation
+- Tree
+- DFS
+- BFS
+- Graph
+- Design
+- Trie
+- Queue
+
 | No.  | Title                                                        | Desc                               | Solution                                                     | Difficulty | Tags                                                     |
 | ---- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ | ---------- | -------------------------------------------------------- |
 | 1    | [Two Sum](https://leetcode.com/problems/two-sum/)            | 求和为给定值的两个数               | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1.java) [Python](python/src/problem/leetcode/easy/leetcode_1.py) | Easy       | [Array] [Hash Table] [Two Pointers]                      |
