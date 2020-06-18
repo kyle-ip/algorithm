@@ -59,16 +59,16 @@ public class CocktailShakerSort {
             swapped = false;
 
             for (int i = left; i < right; ++i) {
-                if (arr[i] > arr[i+1]) {
-                    swap(arr, i, i+1);
+                if (arr[i] > arr[i + 1]) {
+                    swap(arr, i, i + 1);
                     swapped = true;
                 }
             }
             --right;
 
             for (int i = right; i > left; --i) {
-                if (arr[i-1] > arr[i]) {
-                    swap(arr, i-1, i);
+                if (arr[i - 1] > arr[i]) {
+                    swap(arr, i - 1, i);
                     swapped = true;
                 }
             }
@@ -95,8 +95,8 @@ public class CocktailShakerSort {
         while (left < right) {
             newRight = left;
             for (int i = left; i < right; ++i) {
-                if (arr[i] > arr[i+1]) {
-                    swap(arr, i, i+1);
+                if (arr[i] > arr[i + 1]) {
+                    swap(arr, i, i + 1);
                     newRight = i;
                 }
             }
@@ -104,8 +104,8 @@ public class CocktailShakerSort {
 
             newLeft = right;
             for (int i = right; i > left; --i) {
-                if (arr[i-1] > arr[i]) {
-                    swap(arr, i-1, i);
+                if (arr[i - 1] > arr[i]) {
+                    swap(arr, i - 1, i);
                     newLeft = i;
                 }
             }
