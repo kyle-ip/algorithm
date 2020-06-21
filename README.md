@@ -279,7 +279,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 3    | [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) | 插入排序   | [Java](java/src/main/java/com/ywh/sorting/InsertionSort.java) [Python](python/src/algorithm/sorting/insertion_sort.py) | stable    |
 | 4    | [Shell Sort](https://en.wikipedia.org/wiki/Shellsort)        | 希尔排序   | [Java](java/src/main/java/com/ywh/sorting/ShellSort.java) [Python](python/src/algorithm/sorting/shell_sort.py)    | unstable  |
 | 5    | [Cocktail Shaker Sort](https://en.wikipedia.org/wiki/Cocktail_shaker_sort) | 鸡尾酒排序 | [Java](java/src/main/java/com/ywh/sorting/CocktailShakerSort.java) [Python](python/src/algorithm/sorting/cocktail_shaker_sort.py) | stable    |
-| 6    | [Quick Sort](https://en.wikipedia.org/wiki/Quicksort)        | 快速排序   | [Java](java/src/main/java/com/ywh/sorting/QuickSort.java)    | unstable  |
+| 6    | [Quick Sort](https://en.wikipedia.org/wiki/Quicksort)        | 快速排序   | [Java](java/src/main/java/com/ywh/sorting/QuickSort.java) [Python](python/src/algorithm/sorting/quick_sort.py)    | unstable  |
 | 7    | [Heap Sort](https://en.wikipedia.org/wiki/Heapsort)          | 堆排序     | [Java](java/src/main/java/com/ywh/sorting/HeapSort.java)     | unstable  |
 | 8    | [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort)       | 归并排序   | [Java](java/src/main/java/com/ywh/sorting/MergeSort.java)    | stable    |
 | 9    | [Counting Sort](https://en.wikipedia.org/wiki/Counting_sort) | 计数排序   | [Java](java/src/main/java/com/ywh/sorting/CountingSort.java) | stable    |
