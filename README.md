@@ -289,7 +289,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## Interview (1)
+## Interview (2)
 
 ### 《程序员代码面试指南》
 
@@ -298,9 +298,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | No.  | Title                      | Solution                                                     | Difficulty |
 | ---- | -------------------------- | ------------------------------------------------------------ | ---------- |
 | 1    | 设计一个有 getMin 功能的栈 | [Python](python/src/problem/interview/chapter1/get_min_stack.py) | 士         |
-
-
-
+| 2    | 用一个栈实现另一个栈的排序 | [Python](python/src/problem/interview/chapter1/sort_stack_by_stack.py) | 士         |
 
 
 ## Usage
