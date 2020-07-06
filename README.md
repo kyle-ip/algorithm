@@ -289,7 +289,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## Interview (3)
+## Interview (4)
 
 ### 《程序员代码面试指南》
 
@@ -299,7 +299,8 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | ---- | -------------------------- | ------------------------------------------------------------ | ---------- |
 | 1    | 设计一个有 getMin 功能的栈 | [Python](python/src/problem/interview/chapter1/get_min_stack.py) | 士         |
 | 2    | 用一个栈实现另一个栈的排序 | [Python](python/src/problem/interview/chapter1/sort_stack_by_stack.py) | 士         |
-| 4    | 生成窗口最大值数组| [Python](python/src/problem/interview/chapter1/get_max_window.py) | 尉         |
+| 4    | 猫狗队列 | [Python](python/src/problem/interview/chapter1/pet_queue.py) | 士         |
+| 5    | 生成窗口最大值数组 | [Python](python/src/problem/interview/chapter1/get_max_window.py) | 尉         |
 
 ## Usage
 
