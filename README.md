@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode (226)
+## LeetCode (227)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -257,6 +257,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 703  | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream) | 数据流中第 K 大的元素              | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode703.java) [Python](python/src/problem/leetcode/easy/leetcode_703.py) | Easy       | [Heap]                                                   |
 | 704  | [Binary Search](https://leetcode.com/problems/binary-search) | 二分搜索                           | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode704.java) [Python](python/src/problem/leetcode/easy/leetcode_704.py) | Easy       | [Binary Search]                                          |
 | 724  | [Find Pivot Index](https://leetcode.com/problems/find-pivot-index/submissions/) | 寻找数组的平衡点 | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode724.java) [Python](python/src/problem/leetcode/easy/leetcode_724.py) | Easy | [Array] |
+| 739  | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures) | 温度升高需要等待的天数 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode739.java) | Medium | [Array] [Stack] |
 | 746  | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs) | 爬楼梯的最小代价                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode746.java) [Python](python/src/problem/leetcode/easy/leetcode_746.py) | Easy       | [Array] [Dynamic Programming]                            |
 | 754  | [Reach a Number](https://leetcode.com/problems/reach-a-number) | 到达终点数字                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode754.java) | Medium     | [Math]                                                   |
 | 771  | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | 石头中的珠宝数量                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode771.java) [Python](python/src/problem/leetcode/easy/leetcode_771.py) | Easy       | [Hash Table]                                             |
