@@ -9,10 +9,10 @@ struct Object {
     int idx;
 };
 
-struct ListNode {
+typedef struct ListNode {
     int val;
     struct ListNode *next;
-};
+} ListNode;
 
 /**
  * 比较函数

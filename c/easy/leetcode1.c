@@ -1,7 +1,20 @@
+//
+// Created by ywh on 2020/7/20.
+//
+
 #include <stdio.h>
 #include <stdlib.h>
-#include "dataStructure.h"
+#include "../dataStructure.h"
 
+/**
+ * 求和为给定值的两个数
+ *
+ * @param nums
+ * @param numsSize
+ * @param target
+ * @param returnSize
+ * @return
+ */
 int *twoSum(int *nums, int numsSize, int target, int *returnSize) {
     struct Object *objs = malloc(numsSize * sizeof(*objs));
     for (int i = 0; i < numsSize; ++i) {
