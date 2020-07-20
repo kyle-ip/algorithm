@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.16)
+project(leetcode C)
+set(CMAKE_C_STANDARD 11)
+add_library(dataStructure dataStructure.c)
+add_library(leetcode1 leetcode1.c)
+add_library(leetcode2 leetcode2.c)
+add_executable(test test.c)
