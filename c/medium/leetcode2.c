@@ -14,8 +14,7 @@
  */
 struct ListNode *addTwoNumbers(struct ListNode *l1, struct ListNode *l2) {
     int carry = 0, sum;
-    struct ListNode dummy;
-    struct ListNode *cur = l1, *prev = &dummy;
+    struct ListNode dummy, *cur = l1, *prev = &dummy;
     dummy.next = cur;
     while (l1 || l2) {
         sum = 0;
