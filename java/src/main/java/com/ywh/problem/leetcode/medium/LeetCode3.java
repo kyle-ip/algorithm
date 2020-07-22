@@ -64,11 +64,16 @@ public class LeetCode3 {
      * @return
      */
     public int lengthOfLongestSubstring1N(String s) {
+        // 哈希表，key 为 s 中的字符，value 为下标
         int[] index = new int[256];
         Arrays.fill(index, -1);
         int maxLen = 0;
+        // 使用左右两个指针
         for (int left = 0, right = 0; right < s.length(); right++) {
+            // 左指针取“当前左指针”与“右指针所指字符最后一次出现的位置+1”的较大者（避免 left 的字符与 right 的字符重复）
+            // 即假设 right 现在所指的字符 c 此前最后一次出现的位置是 2，则把 left 定在 3，再与当前的 right 计算距离
             left = Math.max(index[s.charAt(right)] + 1, left);
+            // 最大长度取“当前最大长度”与“左右指针相隔距离”中的较大者
             maxLen = Math.max(maxLen, right - left + 1);
             index[s.charAt(right)] = right;
         }

@@ -21,13 +21,13 @@ public class LeetCode4 {
 
         // 总数为奇数
         if ((total & 1) == 1) {
-            return findKthSmallestInSortedArrays(nums1, nums2, total/2 + 1);
+            return findKthSmallestInSortedArrays(nums1, nums2, total / 2 + 1);
         }
         // 总数为偶数
         else {
             return (
-                findKthSmallestInSortedArrays(nums1, nums2, total/2)
-                    + findKthSmallestInSortedArrays(nums1, nums2, total/2 + 1)
+                findKthSmallestInSortedArrays(nums1, nums2, total / 2)
+                    + findKthSmallestInSortedArrays(nums1, nums2, total / 2 + 1)
             ) / 2;
         }
     }
@@ -37,7 +37,7 @@ public class LeetCode4 {
      * 每一步排除 k/2 个数，直到满足条件：
      * 1. k 减至 1，即第 1 小的数就是两个数组头部元素中的较小者；
      * 2. 把其中一个数组排除完，即第 k 小的数直接从剩余数组中取出即可。
-     *
+     * <p>
      * Time: O(log(k)) <= O(log(m+n)), Space: O(1)
      *
      * @param nums1
@@ -86,6 +86,32 @@ public class LeetCode4 {
                 len2 -= j;
                 k -= j;
             }
+        }
+    }
+
+    /**
+     * @param nums1
+     * @param nums2
+     * @return
+     */
+    public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
+        int i = 0, j = 0, k = 0, size = nums1.length + nums2.length, half = size / 2 + 1;
+        int[] nums = new int[size];
+        while (k < half) {
+            int n = 0;
+            if (i < nums1.length && j < nums2.length) {
+                n = (nums1[i] < nums2[j]) ? nums1[i++] : nums2[j++];
+            } else if (i < nums1.length) {
+                n = nums1[i++];
+            } else if (j < nums2.length) {
+                n = nums2[j++];
+            }
+            nums[k++] = n;
+        }
+        if (size % 2 == 1) {
+            return nums[k - 1];
+        } else {
+            return (nums[k - 1] + nums[k - 2]) / 2.0;
         }
     }
 }

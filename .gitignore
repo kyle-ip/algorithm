@@ -5,5 +5,8 @@ java/.classpath
 java/.factorypath
 java/.project
 java/.settings/
+c/cmake-build-debug/
+c/.idea
+python/.idea
 
 algs4-data/
