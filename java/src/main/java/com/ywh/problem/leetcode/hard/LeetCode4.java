@@ -52,10 +52,6 @@ public class LeetCode4 {
         int len1 = nums1.length, len2 = nums2.length, base1 = 0, base2 = 0;
 
         while (true) {
-            // k 减至 1，即第 1 小的数就是两个数组头部元素中的较小者
-            if (k == 1) {
-                return Math.min(nums1[base1], nums2[base2]);
-            }
 
             // 如果 len1 为 0，表示 nums1 的数已被排除完，直接返回 nums2 子数组的第 k-1 个，len2 同理
             if (len1 == 0) {
@@ -63,6 +59,11 @@ public class LeetCode4 {
             }
             if (len2 == 0) {
                 return nums1[base1 + k - 1];
+            }
+
+            // k 减至 1，即第 1 小的数就是两个数组头部元素中的较小者
+            if (k == 1) {
+                return Math.min(nums1[base1], nums2[base2]);
             }
 
             // 否则从 nums1 取出 k/2 小的元素、从 nums2 取出 k - k/2 小的元素来判断
@@ -90,28 +91,35 @@ public class LeetCode4 {
     }
 
     /**
+     * Time: O(m+n) Space: O(n)
+     *
      * @param nums1
      * @param nums2
      * @return
      */
     public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
-        int i = 0, j = 0, k = 0, size = nums1.length + nums2.length, half = size / 2 + 1;
-        int[] nums = new int[size];
-        while (k < half) {
+        int idx1 = 0, idx2 = 0, idx = 0, half = (nums1.length + nums2.length) / 2 + 1;
+        int[] nums = new int[half];
+        // 填充辅助数组
+        while (idx < half) {
             int n = 0;
-            if (i < nums1.length && j < nums2.length) {
-                n = (nums1[i] < nums2[j]) ? nums1[i++] : nums2[j++];
-            } else if (i < nums1.length) {
-                n = nums1[i++];
-            } else if (j < nums2.length) {
-                n = nums2[j++];
+            // 两个指针都没有走到尽头，则较小者指针向后移动
+            if (idx1 < nums1.length && idx2 < nums2.length) {
+                n = nums1[idx1] < nums2[idx2] ? nums1[idx1++] : nums2[idx2++];
             }
-            nums[k++] = n;
+            // 其中一个指针已走到尽头，另一个指针后移
+            else if (idx1 < nums1.length) {
+                n = nums1[idx1++];
+            } else if (idx2 < nums2.length) {
+                n = nums2[idx2++];
+            }
+            nums[idx++] = n;
         }
-        if (size % 2 == 1) {
-            return nums[k - 1];
+        // 两数组之和长度如果为奇数，返回最后一个元素；如果为偶数，则返回最后两个元素的平均数
+        if ((nums1.length + nums2.length) % 2 == 1) {
+            return nums[idx - 1];
         } else {
-            return (nums[k - 1] + nums[k - 2]) / 2.0;
+            return (nums[idx - 1] + nums[idx - 2]) / 2.0;
         }
     }
 }

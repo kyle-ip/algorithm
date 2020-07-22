@@ -22,6 +22,8 @@ public class LeetCode5 {
             return null;
         }
         int n = s.length(), start = 0, maxLen = 0;
+
+        // 二位数组，dp[i][j] 记录 i~j 是否为回文子串
         boolean[][] dp = new boolean[n][n];
         for (int i = n - 1; i >= 0; i--) {
             for (int j = i; j < n; j++) {
@@ -32,7 +34,6 @@ public class LeetCode5 {
                 } else {
                     dp[i][j] = s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1];
                 }
-
                 if (dp[i][j] && j - i + 1 > maxLen) {
                     maxLen = j - i + 1;
                     start = i;
