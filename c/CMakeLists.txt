@@ -5,8 +5,13 @@ add_library(dataStructure dataStructure.c)
 add_library(leetcode1 easy/leetcode1.c)
 add_library(leetcode2 medium/leetcode2.c)
 add_library(leetcode3 medium/leetcode3.c)
+add_library(leetcode4 hard/leetcode4.c)
+add_library(leetcode5 medium/leetcode5.c)
 add_library(leetcode7 easy/leetcode7.c)
+add_library(leetcode8 medium/leetcode8.c)
 add_library(leetcode9 easy/leetcode9.c)
 add_library(leetcode13 easy/leetcode13.c)
 add_library(leetcode14 easy/leetcode14.c)
+
+
 add_executable(test test.c)

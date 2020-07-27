@@ -53,8 +53,8 @@ public class LeetCode5 {
      * @return
      */
     private int expand(String s, int left, int right) {
-        for (; left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right); left--, right++);
-        return right - left + 1;
+        for (; left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right); left--, right++) ;
+        return (right - 1) - (left + 1) + 1;
     }
 
     /**

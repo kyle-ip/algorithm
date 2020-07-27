@@ -30,14 +30,12 @@ public class LeetCode8 {
         int start, p = 0, length = str.length();
         boolean negative = false;
 
-        // 非数字
-        while (p < length && !isNumber(str.charAt(p))) {
+        while (p < length && str.charAt(p) == ' ') {
             ++p;
         }
         if (p == length) {
             return 0;
         }
-
 
         // 正负号
         if (str.charAt(p) == '+') {
