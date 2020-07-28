@@ -13,7 +13,7 @@ public class LeetCode239 {
 
     /**
      * 暴力解法，每 k 个元素算依次最大值，填充到结果数组
-     * <p>
+     *
      * Time: O(k*n), Space: O(1)
      *
      * @param nums
@@ -25,7 +25,7 @@ public class LeetCode239 {
             return nums;
         }
         int n = nums.length;
-        int[] result = new int[n - k + 1];
+        int[] result = new int [n - k + 1];
         for (int left = 0; left < n - k + 1; left++) {
             int max = nums[left];
             for (int i = left; i < left + k; i++) {
@@ -39,7 +39,7 @@ public class LeetCode239 {
     /**
      * 使用大小为 k 的红黑树保存滑动窗口内的数字：
      * 取最大值、移除窗口最左边的值、加入新值的时间复杂度都为 O(log(k))
-     * <p>
+     *
      * Time: O(n*log(k)), Space: O(k)
      *
      * @param nums
@@ -56,7 +56,7 @@ public class LeetCode239 {
         for (int i = 0; i < k; i++) {
             map.put(nums[i], i);
         }
-        int[] result = new int[n - k + 1];
+        int [] result = new int[n - k + 1];
 
         // map 默认从小到大排序，因此取最后一个
         result[p++] = map.lastKey();
@@ -80,7 +80,7 @@ public class LeetCode239 {
     /**
      * 使用两个分组辅助数组
      * TODO 暂时未理解
-     * <p>
+     *
      * Time: O(n), Space: O(n)
      *
      * @param nums
@@ -107,10 +107,10 @@ public class LeetCode239 {
         // 从左到右、从右到左求分组长度为 k 的阶段最大值
         for (int i = 1, j = n - 2; i < n; i++, j--) {
             // 可以整除 k，表示分组内的第一个值，最大值为自身；否则与上一个最大值对比
-            maxFromLeft[i] = i % k == 0 ? nums[i] : Math.max(maxFromLeft[i - 1], nums[i]);
+            maxFromLeft[i] = i % k == 0? nums[i]: Math.max(maxFromLeft[i - 1], nums[i]);
 
             // 除以 k 余 k - 1，表示分组内最后一个值，最大值为自身；否则与上一个最大值对比
-            maxFromRight[j] = j % k == k - 1 ? nums[j] : Math.max(maxFromRight[j + 1], nums[j]);
+            maxFromRight[j] = j % k == k - 1? nums[j]: Math.max(maxFromRight[j + 1], nums[j]);
         }
 
         for (int i = 0; i < n - k + 1; i++) {
