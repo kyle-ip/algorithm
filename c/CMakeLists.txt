@@ -13,6 +13,6 @@ add_library(leetcode_9 easy/leetcode_9.c)
 add_library(leetcode_11 easy/leetcode_11.c)
 add_library(leetcode_13 easy/leetcode_13.c)
 add_library(leetcode_14 easy/leetcode_14.c)
-
+add_library(leetcode_15 medium/leetcode_15.c)
 
 add_executable(test test.c)

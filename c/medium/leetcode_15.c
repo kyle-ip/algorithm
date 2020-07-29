@@ -1,21 +1,36 @@
 /**
-/* Created by ywh on 29/07/2020.
+ * Created by ywh on 29/07/2020.
  */
+#include <stdio.h>
 #include <stdlib.h>
 
-static int compare(const void *a, const void *b)
-{
+/**
+ *
+ * @param a
+ * @param b
+ * @return
+ */
+static int compare(const void *a, const void *b) {
     return *(int *) a - *(int *) b;
 }
 
+/**
+ * 三数之和
+ *
+ * @param nums
+ * @param numsSize
+ * @param returnSize
+ * @param returnColumnSizes
+ * @return
+ */
 int **threeSum(int *nums, int numsSize, int *returnSize, int **returnColumnSizes) {
-    if (numsSize < 3) {
+    *returnSize = 0;
+    if (numsSize < 3 || returnSize == 0) {
         return NULL;
     }
     qsort(nums, numsSize, sizeof(*nums), compare);
     int **ret = (int **) malloc(sizeof(int *) * (numsSize) * (numsSize));
     *returnColumnSizes = (int *) malloc(sizeof(int) * (numsSize) * (numsSize));
-
     for (int k = numsSize - 1; k >= 2; k--) {
         if (nums[k] < 0) {
             break;
@@ -44,4 +59,19 @@ int **threeSum(int *nums, int numsSize, int *returnSize, int **returnColumnSizes
         }
     }
     return ret;
+}
+
+int main() {
+    int i, count;
+//    int nums[] = {-1, 0, 1, 2, -1, -4};
+    //int nums[] = { 0, 0, 0 };
+    //int nums[] = { -1, 0, 1, 0 };
+    int nums[] = {};
+    int **triplets, **returnColumnSizes;
+    triplets = threeSum(nums, sizeof(nums) / sizeof(*nums), &count, returnColumnSizes);
+
+    for (i = 0; i < count; i++) {
+        printf("%d %d %d\n", triplets[i][0], triplets[i][1], triplets[i][2]);
+    }
+    return 0;
 }
