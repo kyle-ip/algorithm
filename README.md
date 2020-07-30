@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode (227)
+## LeetCode (228)
 
 > Solutions implemented in C, Python coming soon.
 
@@ -48,6 +48,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 3    | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | 没有重复字符的最长子串长度         | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode3.java) [Python](python/src/problem/leetcode/medium/leetcode_3.py) [C](c/medium/leetcode_3.c) | Medium     | [Hash Table] [Two Pointers] [String]                     |
 | 4    | [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | 求两个有序数组的中位数             | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode4.java) [C](c/hard/leetcode_4.c) | Hard       | [Array] [Binary Search] [Divide and Conquer]             |
 | 5    | [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) | 最长回文子串                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode5.java) [Python](python/src/problem/leetcode/medium/leetcode_5.py) [C](c/medium/leetcode_5.c) | Medium     | [String] [Dynamic Programming]                           |
+| 6    | [Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion/) | Z 字形变换 | [C](c/medium/leetcode_6.c) | Medium | [String]                          |
 | 7    | [Reverse Integer](https://leetcode.com/problems/reverse-integer) | 反转整数                           | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode7.java) [Python](python/src/problem/leetcode/easy/leetcode_7.py) [C](c/easy/leetcode_7.c) | Easy       | [Math]                                                   |
 | 8    | [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) | 字符串转整数                       | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode8.java)  [C](c/medium/leetcode_8.c) | Medium     | [Math] [String]                                          |
 | 9    | [Palindrome Number](https://leetcode.com/problems/palindrome-number/) | 回文数字判断                       | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode9.java) [Python](python/src/problem/leetcode/easy/leetcode_9.py) [C](c/easy/leetcode_9.c)  | Easy       | [Math] [Two Pointers]                                    |
@@ -309,6 +310,15 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 This is a Maven Project. In base package, you can type the following command on the terminal to run test.
 ```bash
 mvn test [-Dtest=ClassName]
+```
+
+
+
+### C
+
+```shell
+mkdir build
+cd build && cmake ../
 ```
 
 
