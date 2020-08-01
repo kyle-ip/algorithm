@@ -10,7 +10,7 @@
  * @param b
  * @return
  */
-static int compare(const void *a, const void *b) {
+static int cmp(const void *a, const void *b) {
     return *(int *) a - *(int *) b;
 }
 
@@ -28,7 +28,7 @@ int **threeSum(int *nums, int numsSize, int *returnSize, int **returnColumnSizes
     if (numsSize < 3 || returnSize == 0) {
         return NULL;
     }
-    qsort(nums, numsSize, sizeof(*nums), compare);
+    qsort(nums, numsSize, sizeof(*nums), cmp);
     int **ret = (int **) malloc(sizeof(int *) * (numsSize) * (numsSize));
     *returnColumnSizes = (int *) malloc(sizeof(int) * (numsSize) * (numsSize));
     for (int k = numsSize - 1; k >= 2; k--) {

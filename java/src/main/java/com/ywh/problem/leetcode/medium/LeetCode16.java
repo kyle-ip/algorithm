@@ -19,28 +19,27 @@ public class LeetCode16 {
      * @return
      */
     public int threeSumClosest(int[] nums, int target) {
-        int result = Integer.MAX_VALUE;
+        int result = 0, min = Integer.MAX_VALUE;
         Arrays.sort(nums);
-        for (int k = nums.length - 1; k >= 2; k--) {
-            int left = 0, right = k - 1;
 
-            // 由于不能像 3sum、4sum 那样只考虑完全相等的组合（从而直接跳过不符合的值），而是要找到最接近，因此必须一步步移动比对
-            while (left < right) {
-                int sum = nums[left] + nums[right] + nums[k];
+        for (int k = nums.length-1; k >= 2; --k) {
+            int i = 0, j = k-1;
+            while (i < j) {
+                int sum = nums[i] + nums[j] + nums[k];
                 if (sum == target) {
-                    return target;
-                }
-                if (sum < target) {
-                    left++;
+                    return sum;
+                } else if (sum < target) {
+                    ++i;
                 } else {
-                    right--;
+                    --j;
                 }
-                if (Math.abs(target - sum) < Math.abs(target - result)) {
+                int diff = Math.abs(target - sum);
+                if (diff < min) {
                     result = sum;
+                    min = diff;
                 }
             }
         }
         return result;
     }
-
 }
