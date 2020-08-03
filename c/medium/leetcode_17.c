@@ -3,24 +3,8 @@
 //
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 
 const char *mapping[10] = {"", " ", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz",};
-
-/**
- *
- * @param str
- * @param c
- * @return
- */
-char *sadd(char *str, char c) {
-    char ca[2];
-    sprintf(ca, "%c", c);
-    char *ret = (char *) malloc(strlen(str) + 2);
-    strcpy(ret, str);
-    strcat(ret, ca);
-    return ret;
-}
 
 /**
  *
@@ -34,12 +18,9 @@ void combinations(const char *digits, int idx, char *str, char **ret, int *retSi
         strcpy(ret[(*retSize)++], str);
         return;
     }
-    // char -> int -> str: '2' -> "abc", '3' -> "def"...
-    const char *chars = mapping[(int) digits[idx] - 48];
+    const char *chars = mapping[digits[idx] - '0'];
     for (int i = 0; i < strlen(chars); i++) {
-        // str + c -> str: "ab" + 'b' -> "abb"
-        char ca[2];
-        sprintf(ca, "%c", chars[i]);
+        char ca[2] = {chars[i]};
         char *nextStr = (char *) malloc(strlen(str) + 2);
         strcpy(nextStr, str);
         strcat(nextStr, ca);
