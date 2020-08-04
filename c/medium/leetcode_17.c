@@ -29,6 +29,7 @@ void combinations(const char *digits, int idx, char *str, char **ret, int *retSi
 }
 
 /**
+ * 电话号码对应的字母组合
  *
  * @param digits
  * @param returnSize
@@ -51,8 +52,7 @@ char **letterCombinations(char *digits, int *returnSize) {
     }
     char **ret = (char **) malloc(sizeof(char *) * size);
     for (int i = 0; i < size; ++i) {
-        ret[i] = malloc(len + 1);
-        memset(ret[i], 0, len + 1);
+        memset(ret[i] = malloc(len + 1), 0, len + 1);   // ret[i] = malloc(len + 1);
     }
     combinations(digits, 0, "", ret, returnSize);
     return ret;
