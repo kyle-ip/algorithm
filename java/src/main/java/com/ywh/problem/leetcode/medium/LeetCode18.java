@@ -58,10 +58,10 @@ public class LeetCode18 {
                         right--;
                     }
                 }
-                for (; k >= 2 && nums[k - 1] == nums[k]; k--) ;
+                for (; k >= 2 && nums[k - 1] == nums[k]; k--) {}
                 k--;
             }
-            for (; p >= 3 && nums[p - 1] == nums[p]; p--) ;
+            for (; p >= 3 && nums[p - 1] == nums[p]; p--) {}
             p--;
         }
         return result;
