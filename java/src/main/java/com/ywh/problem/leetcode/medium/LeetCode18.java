@@ -21,15 +21,17 @@ public class LeetCode18 {
         Arrays.sort(nums);
 
         // 第 1 个数
-        for (int p = nums.length - 1; p >= 3; p--) {
+        int p = nums.length - 1;
+        while (p >= 3) {
 
             // 由于已排序，数字是从大到小遍历，当前元素的 4 倍小于 target，表示在更小的数中已无法找到四数之和为 target 的组合
-            if ( 4 * nums[p] < target) {
+            if (4 * nums[p] < target) {
                 break;
             }
 
             // 第 2 个数
-            for (int k = p - 1; k >= 2; k++) {
+            int k = p - 1;
+            while (k >= 2) {
 
                 // 与上同理，当前元素的 3 倍与第 1 个数之和小于 target，表示在更小的数中已无法找到四数之和为 target 的组合
                 if (3 * nums[k] + nums[p] < target) {
@@ -55,15 +57,12 @@ public class LeetCode18 {
                     } else {
                         right--;
                     }
-
                 }
-                while (k >= 2 && nums[k - 1] == nums[k]) {
-                    k--;
-                }
-                while (p >= 3 && nums[p - 1] == nums[p]) {
-                    p--;
-                }
+                for (; k >= 2 && nums[k - 1] == nums[k]; k--) {}
+                k--;
             }
+            for (; p >= 3 && nums[p - 1] == nums[p]; p--) {}
+            p--;
         }
         return result;
     }

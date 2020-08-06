@@ -25,7 +25,7 @@ public class LeetCode19 {
      */
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dummy = new ListNode(-1, head), fast = dummy, slow = dummy;
-        for (; fast != null && n > 0; n--, fast = fast.next);
+        for (; fast != null && n > 0; n--, fast = fast.next) {}
 
         // n 还没减完，fast 已到末尾，表示链表长度不够，返回第一个节点
         if (n > 0) {

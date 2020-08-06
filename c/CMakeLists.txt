@@ -16,5 +16,7 @@ add_library(leetcode_13 easy/leetcode_13.c)
 add_library(leetcode_14 easy/leetcode_14.c)
 add_library(leetcode_15 medium/leetcode_15.c)
 add_library(leetcode_16 medium/leetcode_16.c)
-
+add_library(leetcode_17 medium/leetcode_17.c)
+add_library(leetcode_18 medium/leetcode_18.c)
+add_library(leetcode_19 medium/leetcode_19.c)
 add_executable(test test.c)

@@ -16,6 +16,7 @@ static int compare(const void *a, const void *b) {
 }
 
 /**
+ * 求和最接近目标值的三个数
  *
  * @param nums
  * @param numsSize
