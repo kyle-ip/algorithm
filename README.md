@@ -14,8 +14,6 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 ## LeetCode (228)
 
-> Solutions implemented in C, Python coming soon.
-
 ### Tags
 
 - Array
