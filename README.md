@@ -59,7 +59,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 18   | [4Sum](https://leetcode.com/problems/4sum)                   | 相加等于目标值的四个数             | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode18.java) [Python](python/src/problem/leetcode/medium/leetcode_18.py) [C](c/medium/leetcode_18.c) | Medium     | [Two Pointers] [Array]                                   |
 | 19   | [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) | 移除单链表倒数第 n 个节点          | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode19.java) [Python](python/src/problem/leetcode/medium/leetcode_19.py) [C](c/medium/leetcode_19.c) | Medium | [Linked List] [Two Pointers]                             |
 | 20   | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | 有效的括号序列                     | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode20.java) [Python](python/src/problem/leetcode/easy/leetcode_20.py) [C](c/easy/leetcode_20.c) | Easy       | [String] [Stack]                                         |
-| 21   | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) | 合并两个有序链表                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode21.java) [Python](python/src/problem/leetcode/easy/leetcode_21.py) | Easy       | [Linked List]                                            |
+| 21   | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) | 合并两个有序链表                   | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode21.java) [Python](python/src/problem/leetcode/easy/leetcode_21.py) [C](c/easy/leetcode_21.c) | Easy       | [Linked List]                                            |
 | 22   | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | 括号的合法排列                     | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode22.java) [Python](python/src/problem/leetcode/medium/leetcode_22.py) | Medium     | [String] [Backtracking]                                  |
 | 23   | [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists) | 合并 K 个有序链表                  | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode23.java) | Hard       | [Linked List] [Divide and Conquer] [Heap]                |
 | 24   | [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/) | 两两交换链表中的节点 | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode24.java) [Python](python/src/problem/leetcode/medium/leetcode_24.py) | Medium | [Linked List] |
@@ -317,6 +317,7 @@ mvn test [-Dtest=ClassName]
 ```shell
 mkdir build
 cd build && cmake ../
+make
 ```
 
 
