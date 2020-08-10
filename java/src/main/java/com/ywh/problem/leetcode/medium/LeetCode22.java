@@ -30,9 +30,7 @@ public class LeetCode22 {
             if (right > left) {
                 generate(result, str + ")", left, right - 1);
             }
-
         }
-
     }
 
     /**
