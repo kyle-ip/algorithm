@@ -14,7 +14,7 @@
 struct ListNode *mergeTwoLists(struct ListNode *l1, struct ListNode *l2) {
     struct ListNode dummy, *p = &dummy;
     dummy.next = NULL;
-    while (l1 != NULL && l2 != NULL) {
+    while (l1 && l2) {
         if (l1->val < l2->val) {
             p->next = l1;
             l1 = l1->next;
@@ -24,10 +24,10 @@ struct ListNode *mergeTwoLists(struct ListNode *l1, struct ListNode *l2) {
         }
         p = p->next;
     }
-    if (l1 != NULL) {
+    if (l1) {
         p->next = l1;
     }
-    if (l2 != NULL) {
+    if (l2) {
         p->next = l2;
     }
     return dummy.next;
