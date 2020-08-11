@@ -35,6 +35,9 @@ void generate(char ** ret, int* returnSize, char * str, int left, int right) {
 }
 
 /**
+ * 括号的合法排列
+ *
+ * Time: O(4^n / sqrt(n)), Space: O(n)
  *
  * @param n
  * @param returnSize
