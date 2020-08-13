@@ -2,54 +2,96 @@
  * Created by ywh on 11/08/2020.
  */
 
-#include <string.h>
 #include <stdlib.h>
 #include "../dataStructure.h"
 
+
 /**
  *
- * @param l1
- * @param l2
+ * @param lists
+ * @param start
+ * @param end
  * @return
  */
-struct ListNode *mergeTwoLists(struct ListNode *l1, struct ListNode *l2) {
+struct ListNode *merge(struct ListNode **lists, int start, int end) {
+    if (start == end) {
+        return lists[start];
+    }
+    if (start > end) {
+        return NULL;
+    }
+    int mid = start + (end - start) / 2;
+    struct ListNode *left = merge(lists, start, mid), *right = merge(lists, mid + 1, end);
     struct ListNode dummy, *p = &dummy;
     dummy.next = NULL;
-    while (l1 && l2) {
-        if (l1->val < l2->val) {
-            p->next = l1;
-            l1 = l1->next;
+    for (; left && right; p = p->next) {
+        if (left->val < right->val) {
+            p->next = left;
+            left = left->next;
         } else {
-            p->next = l2;
-            l2 = l2->next;
+            p->next = right;
+            right = right->next;
         }
-        p = p->next;
     }
-    if (l1) {
-        p->next = l1;
+    if (left) {
+        p->next = left;
     }
-    if (l2) {
-        p->next = l2;
+    if (right) {
+        p->next = right;
     }
     return dummy.next;
 }
 
+
 /**
- * FIXME
+ * 合并 K 个排序链表
+ *
+ * Time: O(n*log(k)), Space: O(log(k))
  *
  * @param lists
  * @param listsSize
  * @return
  */
 struct ListNode *mergeKLists(struct ListNode **lists, int listsSize) {
-    if (lists == NULL) {
+    if (lists == NULL || listsSize == 0) {
         return NULL;
     }
-    struct ListNode ret, *p = &ret;
-    ret.next = NULL;
-    for (int i = 0; i < listsSize; i++) {
-        struct ListNode *tmp = mergeTwoLists(p, lists[i]);
-        memcpy(p, tmp, sizeof(ret));
+    return merge(lists, 0, listsSize - 1);
+}
+
+/**
+ * 合并 K 个排序链表
+ *
+ * Time: O(k*n), Space: O(1)
+ *
+ * @param lists
+ * @param listsSize
+ * @return
+ */
+struct ListNode *mergeKLists2(struct ListNode **lists, int listsSize) {
+    if (lists == NULL || listsSize == 0) {
+        return NULL;
     }
-    return p;
+    struct ListNode *left = NULL;
+    for (int i = 0; i < listsSize; i++) {
+        struct ListNode dummy, *p = &dummy, *right = lists[i];
+        dummy.next = NULL;
+        for (; left && right; p = p->next) {
+            if (left->val < right->val) {
+                p->next = left;
+                left = left->next;
+            } else {
+                p->next = right;
+                right = right->next;
+            }
+        }
+        if (left) {
+            p->next = left;
+        }
+        if (right) {
+            p->next = right;
+        }
+        left = dummy.next;
+    }
+    return left;
 }
