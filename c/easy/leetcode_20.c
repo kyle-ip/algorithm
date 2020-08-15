@@ -2,6 +2,9 @@
 // Created by ywh on 2020/8/7.
 //
 
+#include <string.h>
+#include <stdbool.h>
+
 bool isValid(char * s){
     if (s == NULL || strlen(s) == 0) {
         return 1;
