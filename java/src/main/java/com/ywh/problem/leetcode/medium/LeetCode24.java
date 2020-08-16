@@ -28,6 +28,8 @@ public class LeetCode24 {
     }
 
     /**
+     * 以 pre 为辅助，交换其下一个（first）和下下一个（second），每轮跳两个
+     *
      * Time: O(n), Space: O(1)
      *
      * @param head

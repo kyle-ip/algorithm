@@ -108,8 +108,3 @@ char *longestPalindrome3(char *s) {
     ret[maxLen] = '\0';
     return ret;
 }
-
-int main() {
-    printf("%s", longestPalindrome3("babad"));
-    return 0;
-}
