@@ -8,6 +8,7 @@
 #define max(a, b) ((a) > (b)? (a): (b))
 
 /**
+ * O(n^2), Space: O(n)
  *
  * @param s
  * @return

@@ -20,6 +20,8 @@ public class LeetCode8 {
     }
 
     /**
+     * Time: O(n), Space: O(1)
+     *
      * 依次判断空格、正负号、前导 0、长度；
      * 再逐位转换为 long 型，注意判断是否超出 int 的范围
      *

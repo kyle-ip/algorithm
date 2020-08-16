@@ -13,6 +13,13 @@ import java.util.List;
  */
 public class LeetCode18 {
 
+    /**
+     * Time: O(n^3), Space: O(1)
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> result = new ArrayList<>();
         if (nums == null || nums.length < 4) {
