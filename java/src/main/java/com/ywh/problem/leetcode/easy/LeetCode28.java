@@ -11,7 +11,7 @@ public class LeetCode28 {
 
     /**
      * BF 算法
-     * Time: O((n - m + 1)*m), Space: O(1)
+     * Time: O((n-m+1)*m), Space: O(1)
      *
      * @param haystack
      * @param needle

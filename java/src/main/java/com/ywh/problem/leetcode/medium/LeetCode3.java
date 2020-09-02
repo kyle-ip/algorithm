@@ -56,7 +56,7 @@ public class LeetCode3 {
     }
 
     /**
-     * 方法1的优化版本
+     * 方法 1 的优化版本
      * TODO 暂时未理解
      * Time: O(n), Space: O(m), m 是字符集大小
      *
