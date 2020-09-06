@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode (229)
+## LeetCode (231)
 
 ### Tags
 
@@ -74,7 +74,8 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 35   | [Search Insert Position](https://leetcode.com/problems/search-insert-position/) | 二分搜索插入位置                   | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode35.java) [Python](python/src/problem/leetcode/easy/leetcode_35.py) | Medium     | [Binary Search]                                          |
 | 36   | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku)   | 判断数独的有效性                   | Time: O(n^2)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode36.java) [Python](python/src/problem/leetcode/medium/leetcode_36.py) | Medium     | [Hash Table]                                             |
 | 38   | [Count and Say](https://leetcode.com/problems/count-and-say) | 报数                               | Time: O(1.3^n)<br />Space: O(1.3^n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode38.java) [Python](python/src/problem/leetcode/easy/leetcode_38.py) | Easy       | [String]                                                 |
-| 39   | [Combination Sum](https://leetcode.com/problems/combination-sum) | 求和为给定值的组合                 | Time: O(n^(target/min))<br />Space: O(target/min) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode39.java) [Python](python/src/problem/leetcode/medium/leetcode_39.py) | Medium     | [Array] [Backtracking]                                   |
+| 39   | [Combination Sum](https://leetcode.com/problems/combination-sum) | 组合总和             | Time: O(n^(target/min))<br />Space: O(target/min) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode39.java) [Python](python/src/problem/leetcode/medium/leetcode_39.py) | Medium     | [Array] [Backtracking]                                   |
+| 40 | [Combination Sum II](https://leetcode.com/problems/combination-sum-ii) | 组合总和 II | Time: O(n^(target/min))<br />Space: O(target/min) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode40.java) | Medium | [Array] [Backtracking] |
 | 42   | [ Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water) | 雨后盛水量 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode42.java) | Hard | [Array] [Two Pointers] [Stack] |
 | 45   | [Jump Game II](https://leetcode.com/problems/jump-game-ii)   | 跳完数组的最少跳数                 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode45.java) | Hard       | [Array] [Greedy]                                         |
 | 46   | [Permutations](https://leetcode.com/problems/permutations/)  | 数组的全排列                       | Time: O(n*n!)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode46.java) [Python](python/src/problem/leetcode/medium/leetcode_46.py) | Medium     | [Backtracking]                                           |
