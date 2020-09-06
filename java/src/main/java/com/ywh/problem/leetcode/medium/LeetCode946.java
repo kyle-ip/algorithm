@@ -30,7 +30,7 @@ public class LeetCode946 {
         // 用于记录出栈数组当前位置（验证时需要逐个比对）
         int idx = 0;
 
-        // 循环入栈数组，把元素压入辅助栈
+        // 循环入栈数组，把元素推入辅助栈
         for (int num : pushed) {
             stack.push(num);
 
