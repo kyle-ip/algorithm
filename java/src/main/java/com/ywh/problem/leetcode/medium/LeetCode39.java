@@ -2,10 +2,11 @@ package com.ywh.problem.leetcode.medium;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 求和为给定值的组合
+ * 组合总和
  * [数组] [回溯]
  *
  * @author ywh
@@ -13,7 +14,15 @@ import java.util.List;
  */
 public class LeetCode39 {
 
-    private void combSum(int[] nums, int target, int start, List<Integer> elem, List<List<Integer>> result) {
+    /**
+     *
+     * @param nums
+     * @param target
+     * @param start
+     * @param elem
+     * @param result
+     */
+    private void combSum(int[] nums, int target, int start, LinkedList<Integer> elem, List<List<Integer>> result) {
         if (target == 0) {
             result.add(new ArrayList<>(elem));
             return;
@@ -24,7 +33,7 @@ public class LeetCode39 {
         for (int i = start; i < nums.length; i++) {
             elem.add(nums[i]);
             combSum(nums, target - nums[i], i, elem, result);
-            elem.remove(elem.size() - 1);
+            elem.removeLast();
         }
     }
 
@@ -37,8 +46,7 @@ public class LeetCode39 {
      */
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
-        List<Integer> elem = new ArrayList<>();
-        combSum(candidates, target, 0, elem, result);
+        combSum(candidates, target, 0, new LinkedList<>(), result);
         return result;
     }
 
