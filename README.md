@@ -13,7 +13,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 ## LeetCode (232)
 
-| *Tags*        |                     |              |              |
+| Tags          |                     |              |              |
 | ------------- | ------------------- | ------------ | ------------ |
 | Binary Search | Math                | Two Pointers | String       |
 | Array         | Hash Table          | Linked List  | Stack        |
