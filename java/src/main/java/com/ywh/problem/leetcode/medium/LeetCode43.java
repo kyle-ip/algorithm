@@ -2,11 +2,49 @@ package com.ywh.problem.leetcode.medium;
 
 /**
  * 字符串相乘
+ * [数学] [字符串]
  *
  * @author ywh
  * @since 07/09/2020
  */
 public class LeetCode43 {
+
+    /**
+     * 精简写法
+     *
+     * Time: O(n^2), Space: O(1)
+     *
+     * @param num1
+     * @param num2
+     * @return
+     */
+    public String multiply2(String num1, String num2) {
+        int n1 = num1.length() - 1, n2 = num2.length() - 1;
+        if (n1 < 0 || n2 < 0) {
+            return "";
+        }
+        int[] mul = new int[n1 + n2 + 2];
+        for (int i = n1; i >= 0; --i) {
+            for (int j = n2; j >= 0; --j) {
+                int bitmul = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
+                // 先加低位判断是否有新的进位
+                bitmul += mul[i + j + 1];
+                mul[i + j] += bitmul / 10;
+                mul[i + j + 1] = bitmul % 10;
+            }
+        }
+
+        StringBuilder sb = new StringBuilder();
+        int i = 0;
+        // 去掉前导0
+        while (i < mul.length - 1 && mul[i] == 0) {
+            i++;
+        }
+        for (; i < mul.length; ++i) {
+            sb.append(mul[i]);
+        }
+        return sb.toString();
+    }
 
     /**
      * Time: O(n^2), Space: O(1)
