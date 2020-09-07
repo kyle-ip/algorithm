@@ -9,6 +9,11 @@ package com.ywh.problem.leetcode.hard;
  */
 public class LeetCode85 {
 
+    /**
+     *
+     * @param heights
+     * @return
+     */
     private int largestRectangleInHistogram(int[] heights) {
         if (heights == null || heights.length == 0) {
             return 0;

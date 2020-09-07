@@ -15,6 +15,12 @@ import java.util.Stack;
  */
 public class LeetCode543 {
 
+    /**
+     *
+     * @param root
+     * @param d
+     * @return
+     */
     private int maxDepth(TreeNode root, int[] d) {
         if (root == null) {
             return 0;

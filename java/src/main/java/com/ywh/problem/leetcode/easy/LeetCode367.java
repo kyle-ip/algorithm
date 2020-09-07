@@ -32,6 +32,12 @@ public class LeetCode367 {
         return false;
     }
 
+    /**
+     * Time: O(log(n)), Space: O(1)
+     *
+     * @param num
+     * @return
+     */
     public boolean isPerfectSquareNewton(int num) {
         long x = num;
         while (x * x > num) {

@@ -72,9 +72,4 @@ public class LeetCode523 {
         }
         return false;
     }
-
-    public static void main(String[] args) {
-        LeetCode523 l = new LeetCode523();
-        l.checkSubarraySumMod(new int[]{5, 0, 0}, 0);
-    }
 }

@@ -14,6 +14,12 @@ import com.ywh.problem.leetcode.easy.LeetCode66;
  */
 public class LeetCode369 {
 
+    /**
+     * Time: O(n), pace: O(1)
+     *
+     * @param head
+     * @return
+     */
     public ListNode plusOne(ListNode head) {
 
         // 先创建一个节点，初始值设为 1，置于 head 之前（用作可能表示的进位）

@@ -11,6 +11,11 @@ import java.util.Arrays;
  */
 public class LeetCode945 {
 
+    /**
+     *
+     * @param A
+     * @return
+     */
     public int minIncrementForUniqueHash(int[] A) {
         int[] count = new int[100_000];
 

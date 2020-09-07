@@ -16,7 +16,7 @@ import java.util.Stack;
 public class LeetCode94 {
 
     /**
-     * Time: O(n). Space: O(n)
+     * Time: O(n), Space: O(n)
      *
      * @param root
      * @return

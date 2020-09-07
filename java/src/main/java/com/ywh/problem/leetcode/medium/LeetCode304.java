@@ -18,6 +18,11 @@ public class LeetCode304 {
 
         private final int[][] prefixSum;
 
+        /**
+         * Time: O(m*n), Space: O(m*n)
+         *
+         * @param matrix
+         */
         public NumMatrixImmutable(int[][] matrix) {
             if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
                 prefixSum = new int[1][1];
@@ -35,6 +40,14 @@ public class LeetCode304 {
             }
         }
 
+        /**
+         *
+         * @param row1
+         * @param col1
+         * @param row2
+         * @param col2
+         * @return
+         */
         public int sumRegion(int row1, int col1, int row2, int col2) {
             // prefixSum[row1][col1] 重叠，被多算了一遍，要加上
             return prefixSum[row2 + 1][col2 + 1] - prefixSum[row2 + 1][col1] - prefixSum[row1][col2 + 1] + prefixSum[row1][col1];

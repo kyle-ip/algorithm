@@ -15,6 +15,8 @@ import java.util.List;
 public class LeetCode252 {
 
     /**
+     * Time: O(log(n)), Space: O(1)
+     *
      * @param intervals
      * @return
      */

@@ -14,6 +14,14 @@ import java.util.List;
  */
 public class LeetCode310 {
 
+    /**
+     *
+     * @param g
+     * @param visited
+     * @param node
+     * @param dist
+     * @param max
+     */
     private void dfs(List<List<Integer>> g, boolean[] visited, int node, int dist, int[] max) {
         visited[node] = true;
         if (dist > max[0]) {

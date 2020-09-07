@@ -39,6 +39,12 @@ public class LeetCode463 {
         return perimeter * 2;
     }
 
+    /**
+     * Time: O(n^2), Space: O(n^2)
+     *
+     * @param grid
+     * @return
+     */
     public static int islandPerimeter(int[][] grid) {
         if (grid == null || grid.length == 0 || grid[0] == null || grid[0].length == 0) {
             return 0;

@@ -9,6 +9,11 @@ package com.ywh.problem.leetcode.easy;
  */
 public class LeetCode443 {
 
+    /**
+     *
+     * @param chars
+     * @return
+     */
     public int compress(char[] chars) {
         if (chars == null || chars.length == 0) {
             return 0;

@@ -68,8 +68,12 @@ public class LeetCode754 {
         int n = (int) Math.ceil((Math.sqrt(1 + 8 * t) - 1) / 2);
         long sum = (long) (n + 1) * n / 2;
         long diff = sum - t;
-        if ((diff & 1) == 0) return n;
-        else if ((n & 1) == 0) return n + 1;
-        else return n + 2;
+        if ((diff & 1) == 0) {
+            return n;
+        } else if ((n & 1) == 0) {
+            return n + 1;
+        } else {
+            return n + 2;
+        }
     }
 }

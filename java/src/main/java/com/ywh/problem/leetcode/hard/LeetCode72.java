@@ -59,9 +59,9 @@ public class LeetCode72 {
 
         int m = s.length() + 1, n = t.length() + 1;
         int[] dp = new int[n];
-        for (int j = 0; j < n; ++j)
+        for (int j = 0; j < n; ++j) {
             dp[j] = j;
-
+        }
         for (int i = 1; i < m; ++i) {
 
             // 相当于解法 1 中的 dp[i - 1][j - 1]

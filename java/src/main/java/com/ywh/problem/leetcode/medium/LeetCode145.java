@@ -16,6 +16,11 @@ import java.util.Stack;
  */
 public class LeetCode145 {
 
+    /**
+     *
+     * @param root
+     * @param result
+     */
     private void postorder(TreeNode root, List<Integer> result) {
         if (root == null) {
             return;

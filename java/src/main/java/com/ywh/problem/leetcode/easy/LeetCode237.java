@@ -11,7 +11,6 @@ import com.ywh.model.ListNode;
  */
 public class LeetCode237 {
 
-
     /**
      * 把下一个节点的值复制过来、并把 next 域指向其下一个节点
      *

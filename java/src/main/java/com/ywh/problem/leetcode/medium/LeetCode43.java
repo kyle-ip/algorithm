@@ -96,9 +96,4 @@ public class LeetCode43 {
         }
         return ret;
     }
-
-    public static void main(String[] args) {
-        LeetCode43 l = new LeetCode43();
-        System.out.println(l.multiply("9123", "0"));
-    }
 }

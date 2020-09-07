@@ -8,6 +8,13 @@ package com.ywh.problem.leetcode.easy;
  * @since 2019/12/6/006
  */
 public class LeetCode231 {
+
+    /**
+     * Time: O(log(n)), Space: O(1)
+     *
+     * @param n
+     * @return
+     */
     public boolean isPowerOfTwoBruteForce(int n) {
         if (n <= 0) {
             return false;
@@ -18,6 +25,12 @@ public class LeetCode231 {
         return n == 1;
     }
 
+    /**
+     * Time: O(1), Space: O(1)
+     *
+     * @param n
+     * @return
+     */
     public boolean isPowerOfTwoBit(int n) {
         return n > 0 && (n & (n - 1)) == 0;
     }

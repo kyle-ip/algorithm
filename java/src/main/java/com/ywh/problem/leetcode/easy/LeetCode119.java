@@ -57,6 +57,8 @@ public class LeetCode119 {
     }
 
     /**
+     * Time: O(k^2), Space: O(k^2)
+     *
      * 逐行求解，参考 {@link LeetCode118}
      *
      * @param rowIndex

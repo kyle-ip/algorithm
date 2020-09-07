@@ -21,8 +21,7 @@ public class LeetCode218 {
      * @return
      */
     public List<int[]> skylineKeyPointsMaxHeap(int[][] buildings) {
-        List<int[]> result = new ArrayList<>();
-        List<int[]> height = new ArrayList<>();
+        List<int[]> result = new ArrayList<>(), height = new ArrayList<>();
         for (int[] b: buildings) {
             height.add(new int[]{b[0], -b[2]});
             height.add(new int[]{b[1], b[2]});

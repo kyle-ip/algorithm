@@ -11,6 +11,12 @@ import com.ywh.problem.leetcode.hard.LeetCode85;
  */
 public class LeetCode221 {
 
+    /**
+     * Time: O(m*n), Space: O(n)
+     *
+     * @param heights
+     * @return
+     */
     private int largestSquareLengthInHistogram(int[] heights) {
         if (heights == null || heights.length == 0) {
             return 0;

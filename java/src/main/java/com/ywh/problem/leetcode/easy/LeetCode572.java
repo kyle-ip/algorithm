@@ -36,7 +36,6 @@ public class LeetCode572 {
 
     /**
      * Time: O(m*n), Space: O(h)
-     * Time: O(m*n), Space: O(h)
      *
      * @param s
      * @param t
@@ -54,7 +53,7 @@ public class LeetCode572 {
             || isSubtree(s.right, t);
     }
 
-    private Map<TreeNode, Integer> map = new HashMap<>();
+    private final Map<TreeNode, Integer> map = new HashMap<>();
 
     /**
      * 计算二叉树 Hash 值

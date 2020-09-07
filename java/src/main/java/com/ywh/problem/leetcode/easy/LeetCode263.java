@@ -9,6 +9,11 @@ package com.ywh.problem.leetcode.easy;
  */
 public class LeetCode263 {
 
+    /**
+     *
+     * @param num
+     * @return
+     */
     public boolean isUglyNumber(int num) {
         if (num <= 0) {
             return false;

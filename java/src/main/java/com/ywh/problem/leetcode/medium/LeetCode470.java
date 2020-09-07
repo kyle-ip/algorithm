@@ -43,6 +43,10 @@ public class LeetCode470 {
         return x;
     }
 
+    /**
+     *
+     * @return
+     */
     public int rand10Opt() {
         int x = Integer.MAX_VALUE;
 

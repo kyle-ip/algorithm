@@ -14,7 +14,7 @@ import java.util.Set;
 public class LeetCode326 {
 
     /**
-     * Time: O(log_3(n)), Space: O(1)
+     * Time: O(log3(n)), Space: O(1)
      *
      * @param n
      * @return
@@ -32,7 +32,7 @@ public class LeetCode326 {
 
     /**
      * 3 ^ a <= y
-     * a <= log_3(y) = ln(y)/ln(3)
+     * a <= log3(y) = ln(y)/ln(3)
      * 其中 Math.log() 表示求自然对数，即 Math.log(Math.E) == 1.0
      * 当 y 取 Integer.MAX_VALUE（32 位整型可表示的最大值），以此求出 3 的幂，如果模 n == 0，则 n 也为 3 的幂
      *

@@ -13,6 +13,13 @@ import java.util.*;
  */
 public class LeetCode113 {
 
+    /**
+     *
+     * @param root
+     * @param sum
+     * @param elem
+     * @param result
+     */
     private void path(TreeNode root, int sum, List<Integer> elem, List<List<Integer>> result) {
         if (root == null) {
             return;

@@ -26,7 +26,7 @@ public class LeetCode633 {
     /**
      * 逐个判断差值是否平方数
      *
-     * Time: O(c ^ 1/2), Space: O(1)
+     * Time: O(c^(1/2)), Space: O(1)
      *
      * @param c
      * @return
@@ -44,7 +44,7 @@ public class LeetCode633 {
     /**
      * 哈希表
      *
-     * Time: O(c ^ 1/2), Space: O(c ^ 1/2)
+     * Time: O(c^(1/2)), Space: O(c^(1/2))
      *
      * @param c
      * @return
@@ -65,7 +65,7 @@ public class LeetCode633 {
     /**
      * 双指针
      *
-     * Time: O(c ^ 1/2), Space: O(1)
+     * Time: O(c^(1/2)), Space: O(1)
      *
      * @param c
      * @return
@@ -90,7 +90,7 @@ public class LeetCode633 {
      * 平方和定理：
      * 对于一个大于 1 的整数，当且仅当它的质因数分解中，所有形如 4k + 3 的质因数都是偶数次幂，才可以表示成两个完全平方数的和
      *
-     * Time: O(c ^ 1/2), Space: O(1)
+     * Time: O(c^(1/2)), Space: O(1)
      *
      * @param c
      * @return

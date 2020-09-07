@@ -9,6 +9,12 @@ package com.ywh.problem.leetcode.easy;
  */
 public class LeetCode509 {
 
+    /**
+     * Time: O(n), Space: O(n)
+     *
+     * @param n
+     * @return
+     */
     public int fibRecursive(int n) {
         if (n <= 0) {
             return 0;
@@ -19,15 +25,19 @@ public class LeetCode509 {
         return fibRecursive(n - 1) + fibRecursive(n - 2);
     }
 
+    /**
+     * Time: O(n), Space: O(n)
+     *
+     * @param n
+     * @return
+     */
     public int fibIterative1(int n) {
-
         if (n <= 0) {
             return 0;
         }
         if (n == 1) {
             return 1;
         }
-
         int[] dp = new int[n + 1];
         dp[0] = 0;
         dp[1] = 1;
@@ -37,6 +47,12 @@ public class LeetCode509 {
         return dp[n];
     }
 
+    /**
+     * Time: O(n), Space: O(1)
+     *
+     * @param n
+     * @return
+     */
     public int fibIterative2(int n) {
         if (n <= 0) {
             return 0;

@@ -1,7 +1,5 @@
 package com.ywh.problem.leetcode.easy;
 
-import java.util.Stack;
-
 /**
  * 二分搜索
  * [二分搜索]
@@ -36,6 +34,4 @@ public class LeetCode704 {
         }
         return -1;
     }
-
-
 }

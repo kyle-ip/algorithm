@@ -70,7 +70,9 @@ public class LeetCode255 {
      * @return
      */
     public boolean verifyPreorderStack(int[] preorder) {
-        if (preorder == null) return false;
+        if (preorder == null) {
+            return false;
+        }
 
         Stack<Integer> stack = new Stack<>();
         int lowerBound = Integer.MIN_VALUE;

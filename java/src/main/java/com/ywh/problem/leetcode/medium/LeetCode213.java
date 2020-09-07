@@ -11,6 +11,13 @@ import com.ywh.problem.leetcode.easy.LeetCode198;
  */
 public class LeetCode213 {
 
+    /**
+     *
+     * @param nums
+     * @param start
+     * @param end
+     * @return
+     */
     private int rob(int[] nums, int start, int end) {
         int prev2 = 0, prev1 = 0, cur;
         for (int i = start; i <= end; i++) {

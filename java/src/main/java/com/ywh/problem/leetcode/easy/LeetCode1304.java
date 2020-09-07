@@ -9,6 +9,12 @@ package com.ywh.problem.leetcode.easy;
  */
 public class LeetCode1304 {
 
+    /**
+     * Time: O(n), Space: O(1)
+     *
+     * @param n
+     * @return
+     */
     public int[] sumZero3(int n) {
         if (n < 1) {
             return new int[]{};
@@ -20,6 +26,12 @@ public class LeetCode1304 {
         return ret;
     }
 
+    /**
+     * Time: O(n), Space: O(1)
+     *
+     * @param n
+     * @return
+     */
     public int[] sumZero2(int n) {
         if (n < 1) {
             return new int[]{};
@@ -32,7 +44,12 @@ public class LeetCode1304 {
         return ret;
     }
 
-
+    /**
+     * Time: O(n), Space: O(1)
+     *
+     * @param n
+     * @return
+     */
     public int[] sumZero(int n) {
         if (n < 1) {
             return new int[]{};

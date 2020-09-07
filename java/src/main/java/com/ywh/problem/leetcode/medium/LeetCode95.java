@@ -58,7 +58,7 @@ public class LeetCode95 {
     }
 
     /**
-     * Time/Space: O(4^n / n^(3/2))     第 n 项卡特兰数
+     * Time: O(4^n / n^(3/2)), Space: O(4^n / n^(3/2))     第 n 项卡特兰数
      *
      * @param n
      * @return

@@ -16,6 +16,10 @@ public class LeetCode303 {
          */
         private final int[] prefixSum;
 
+        /**
+         *
+         * @param nums
+         */
         public NumArrayImmutable(int[] nums) {
             prefixSum = new int[nums.length + 1];
             for (int i = 1; i < prefixSum.length; i++) {
@@ -23,6 +27,12 @@ public class LeetCode303 {
             }
         }
 
+        /**
+         *
+         * @param i
+         * @param j
+         * @return
+         */
         public int sumRange(int i, int j) {
             return prefixSum[j + 1] - prefixSum[i];
         }
