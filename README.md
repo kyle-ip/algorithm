@@ -12,7 +12,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 
 
-## LeetCode (231)
+## LeetCode (232)
 
 ### Tags
 
@@ -76,7 +76,8 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 38   | [Count and Say](https://leetcode.com/problems/count-and-say) | 报数                               | Time: O(1.3^n)<br />Space: O(1.3^n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode38.java) [Python](python/src/problem/leetcode/easy/leetcode_38.py) | Easy       | [String]                                                 |
 | 39   | [Combination Sum](https://leetcode.com/problems/combination-sum) | 组合总和             | Time: O(n^(target/min))<br />Space: O(target/min) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode39.java) [Python](python/src/problem/leetcode/medium/leetcode_39.py) | Medium     | [Array] [Backtracking]                                   |
 | 40   | [Combination Sum II](https://leetcode.com/problems/combination-sum-ii) | 组合总和 II | Time: O(n^(target/min))<br />Space: O(target/min) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode40.java) | Medium | [Array] [Backtracking] |
-| 42   | [ Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water) | 雨后盛水量 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode42.java) | Hard | [Array] [Two Pointers] [Stack] |
+| 42   | [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water) | 雨后盛水量 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode42.java) | Hard | [Array] [Two Pointers] [Stack] |
+| 43   | [Submissions](https://leetcode-cn.com/problems/multiply-strings/submissions/) | 字符串相乘 | Time: O(n^2)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode43.java) | Medium | [Math] [String] |
 | 45   | [Jump Game II](https://leetcode.com/problems/jump-game-ii)   | 跳完数组的最少跳数                 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode45.java) | Hard       | [Array] [Greedy]                                         |
 | 46   | [Permutations](https://leetcode.com/problems/permutations/)  | 数组的全排列                       | Time: O(n*n!)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode46.java) [Python](python/src/problem/leetcode/medium/leetcode_46.py) | Medium     | [Backtracking]                                           |
 | 47   | [Permutations II](https://leetcode.com/problems/permutations-ii) | 包含重复元素的数组排列 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode47.java) [Python](python/src/problem/leetcode/medium/leetcode_47.py) | Medium | [Hash Table] [Backtracking] |
