@@ -35,24 +35,23 @@ public class LeetCode93 {
      * @param output
      */
     public static void backtrack(String s, int prevPos, int dots, List<String> segments, List<String> output) {
-        int maxPos = Math.min(s.length() - 1, prevPos + 4);
-        for (int currPos = prevPos + 1; currPos < maxPos; currPos++) {
+        for (int currPos = prevPos + 1; currPos < Math.min(s.length() - 1, prevPos + 4); currPos++) {
             String segment = s.substring(prevPos + 1, currPos + 1);
-            if (valid(segment)) {
-                segments.add(segment);
-                if (dots - 1 == 0) {
-                    String outputSegment = s.substring(currPos + 1);
-                    if (valid(outputSegment)) {
-                        segments.add(outputSegment);
-                        output.add(String.join(".", segments));
-                        segments.remove(segments.size() - 1);
-                    }
-                } else {
-                    backtrack(s, currPos, dots - 1, segments, output);
-                }
-                // removeLast
-                segments.remove(segments.size() - 1);
+            if (!valid(segment)) {
+                continue;
             }
+            segments.add(segment);
+            if (dots - 1 == 0) {
+                String outputSegment = s.substring(currPos + 1);
+                if (valid(outputSegment)) {
+                    segments.add(outputSegment);
+                    output.add(String.join(".", segments));
+                    segments.remove(segments.size() - 1);
+                }
+            } else {
+                backtrack(s, currPos, dots - 1, segments, output);
+            }
+            segments.remove(segments.size() - 1);
         }
     }
 
@@ -70,6 +69,8 @@ public class LeetCode93 {
     }
 
     /**
+     * Time: O(n^4), Space: O(1)
+     *
      * @param s
      * @return
      */
@@ -100,7 +101,6 @@ public class LeetCode93 {
                         if (ip.length() != s.length() + 3) {
                             continue;
                         }
-
                         ret.add(ip);
                     }
                 }

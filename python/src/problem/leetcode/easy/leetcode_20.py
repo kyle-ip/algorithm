@@ -52,3 +52,14 @@ class Solution:
 
             i += 1
         return len(stack) == 0
+
+    @staticmethod
+    def is_valid_brackets3(s: str) -> bool:
+        """
+        Time: O(n), Space: O(n)
+        :param s:
+        :return:
+        """
+        while '{}' in s or '()' in s or '[]' in s:
+            s = s.replace('{}', '').replace('[]', '').replace('()', '')
+        return s == ''
