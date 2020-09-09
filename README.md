@@ -9,9 +9,7 @@
 ## Introduction
 Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in Java, C, Python.
 
-
-
-## LeetCode (233)
+## LeetCode (234)
 
 | Tags          |                     |              |              |
 | ------------- | ------------------- | ------------ | ------------ |
@@ -250,6 +248,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 754  | [Reach a Number](https://leetcode.com/problems/reach-a-number) | 到达终点数字                       | Time: O(1)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode754.java) | Medium     | Math                                                   |
 | 771  | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | 石头中的珠宝数量                   | Time: O(m+n)<br />Space: O(k) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode771.java) [Python](python/src/problem/leetcode/easy/leetcode_771.py) | Easy       | Hash Table                                             |
 | 796  | [Rotate String](https://leetcode.com/problems/rotate-string/) | 旋转字符串 | Time: O(n^2)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode796.java) | Easy | String<br />Two Pointers |
+| 820  | [Short Encoding Of Words](https://leetcode.com/problems/short-encoding-of-words/) | 单词的压缩编码 | Time: O(∑wi)<br />Space: O(S*∑wi) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode820.java) | Medium | Trie<br />Hash Table |
 | 876  | [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list) | 单链表中间节点                     | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode876.java) [Python](python/src/problem/leetcode/easy/leetcode_876.py) | Easy       | Linked List                                            |
 | 892  | [Surface Area of 3D Shapes](https://leetcode.com/problems/surface-area-of-3d-shapes) | 三维形体的表面积                   | Time: O(n^2)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode892.java) [Python](python/src/problem/leetcode/easy/leetcode_892.py) | Easy       | Geometry<br />Math                                        |
 | 938  | [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/submissions/) | 二叉搜索树的区间和 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode938.java) [Python](python/src/problem/leetcode/easy/leetcode_938.py) | Easy | Tree |
