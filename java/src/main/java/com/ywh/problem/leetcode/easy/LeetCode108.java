@@ -6,7 +6,7 @@ import com.ywh.model.TreeNode;
 import java.util.Stack;
 
 /**
- * 用有序数组构建二叉搜索树
+ * 有序数组转换二叉搜索树
  * [树] [DFS]
  *
  * @author ywh

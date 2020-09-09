@@ -51,7 +51,7 @@ public class LeetCode218 {
 
     /**
      * TreeMap 的实现是红黑树，也就是一棵自平衡的排序二叉树
-     * 使用 TreeMap 做优化, 时间复杂度降到 O(nlogn)
+     * 使用 TreeMap 做优化, 时间复杂度降到 O(n*log(n))
      *
      * Time: O(nlog(n)), Space: O(n)
      *
