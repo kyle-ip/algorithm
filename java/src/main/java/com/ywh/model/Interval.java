@@ -9,6 +9,7 @@ package com.ywh.model;
 public class Interval {
 
     public int start;
+
     public int end;
 
     Interval() {
