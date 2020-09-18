@@ -9,7 +9,7 @@
 ## Introduction
 Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in Java, C, Python.
 
-## LeetCode (242)
+## LeetCode (243)
 
 | Tags          |                  |                     |                    |
 | ------------- | ---------------- | ------------------- | ------------------ |
@@ -79,7 +79,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 64   | [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) | 最小路径和                         | Time: O(m*n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode64.java) | Medium     | Array<br />Dynamic Programming                            |
 | 66   | [Plus One](https://leetcode.com/problems/plus-one)           | 数组加一                           | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode66.java) [Python](python/src/problem/leetcode/easy/leetcode_66.py) | Easy       | Array                                                  |
 | 67   | [Add Binary](https://leetcode.com/problems/add-binary) | 二进制字符串求和 | Time: O(max(m, n))<br />Space: O(max(m, n)) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode67.java) [Python](python/src/problem/leetcode/easy/leetcode_67.py) | Easy | Math<br />String |
-| 69   | [Sqrt(x)](https://leetcode.com/problems/sqrtx/)              | 实现平方根函数                     | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode69.java) | Medium     | Math<br />Binary Search                                   |
+| 69   | [Sqrt(x)](https://leetcode.com/problems/sqrtx/)              | 实现平方根函数                     | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode69.java) | Easy     | Math<br />Binary Search                                   |
 | 70   | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | 爬楼梯方法数                       | Time: O(n), Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode70.java) [Python](python/src/problem/leetcode/easy/leetcode_70.py) | Easy       | Dynamic Programming                                    |
 | 71   | [Simplify Path](https://leetcode-cn.com/problems/simplify-path/) | [简化路径](https://leetcode-cn.com/problems/simplify-path/) | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode71.java) | Medium | Stack<br />String |
 | 72   | [Edit Distance](https://leetcode.com/problems/edit-distance/) | 编辑距离                           | Time: O(m*n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode72.java) | Hard       | String<br />Dynamic Programming                           |
@@ -208,6 +208,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 | 338  | [Counting Bits](https://leetcode.com/problems/counting-bits) | 连续自然数二进制中 1 的个数        | Time: O(k)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode338.java) | Medium     | Dynamic Programming<br />Bit Manipulation                 |
 | 344  | [Reverse String](https://leetcode.com/problems/reverse-string/) | 反转字符串                         | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode344.java) [Python](python/src/problem/leetcode/easy/leetcode_344.py) | Easy       | String<br />Two Pointers                                  |
 | 347  | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements) | 前 K 个高频数字 | Time(avg): O(n)<br />Time(worst): O(n^2)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode347.java) | Medium | Hash Table<br />Heap<br />Sort |
+| 349 | [Intersection Of Two Arrays](https://leetcode-cn.com/problems/intersection-of-two-arrays/) | 两个数组的交集 | Time: O(m+n)<br />Space: O(m+n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode349.java) | Easy | Sorting<br />Hash Table<br />Two Pointers<br />Binary Search |
 | 350  | [Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii) | 两个数组的交集                     | Time: O(m+n)<br />Space: O(m+k) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode350.java) [Python](python/src/problem/leetcode/easy/leetcode_350.py) | Easy       | Hash Table<br />Two Pointers<br />Sort                       |
 | 367  | [Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square) | 验证完全平方数                     | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode367.java) [Python](python/src/problem/leetcode/easy/leetcode_367.py) | Easy       | Math<br />Binary Search                                   |
 | 369  | [Plus One Linked List](https://leetcode.com/problems/plus-one-linked-list) | 链表加一                           | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode369.java) | Medium     | Linked List                                            |
