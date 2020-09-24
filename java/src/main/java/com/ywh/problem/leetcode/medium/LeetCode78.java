@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 数组的子集
+ * 子集
  * [数组] [回溯] [位操作]
  *
  * @author ywh

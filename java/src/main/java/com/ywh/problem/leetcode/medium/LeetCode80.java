@@ -57,9 +57,4 @@ public class LeetCode80 {
         }
         return left;
     }
-
-    public static void main(String[] args) {
-        LeetCode80 l = new LeetCode80();
-        System.out.println(l.removeDuplicates(new int[]{1, 1, 1, 2, 2, 3}));
-    }
 }
