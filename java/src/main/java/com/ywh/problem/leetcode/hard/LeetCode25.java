@@ -1,4 +1,4 @@
-package com.ywh.problem.leetcode.medium;
+package com.ywh.problem.leetcode.hard;
 
 import com.ywh.model.ListNode;
 
