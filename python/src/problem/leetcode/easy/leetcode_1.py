@@ -1,7 +1,6 @@
 # coding=utf-8
 from typing import List
 
-
 class Solution:
     """
     求和为给定值的两个数
@@ -15,12 +14,10 @@ class Solution:
         :param target:
         :return:
         """
-
-        i = 0
-        while i < len(nums):
-            j = i + 1
-            if nums[i] + nums[j] == target:
-                return [i, j]
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
         return []
 
     @staticmethod
@@ -32,11 +29,9 @@ class Solution:
         :return:
         """
         cache = {}
-        i = 0
-        while i < len(nums):
+        for i in range(len(nums)):
             num2 = target - nums[i]
-            if num2 in cache.keys():
-                return [cache.get(num2), i]
+            if num2 in cache:
+                return [cache[num2], i]
             cache[nums[i]] = i
-            i += 1
         return []
