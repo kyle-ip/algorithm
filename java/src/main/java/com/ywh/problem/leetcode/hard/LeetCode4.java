@@ -98,24 +98,20 @@ public class LeetCode4 {
      * @return
      */
     public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
-        int idx1 = 0, idx2 = 0, idx = 0, half = (nums1.length + nums2.length) / 2 + 1;
+        int idx1 = 0, idx2 = 0, idx = 0, half = (nums1.length + nums2.length) / 2 + 1, num = 0;
         int[] nums = new int[half];
-        // 填充辅助数组
+        // 填充辅助数组：两个指针都没有走到尽头，则较小者指针向后移动；其中一个指针已走到尽头，则取另一个指针并后移。
         while (idx < half) {
-            int n = 0;
-            // 两个指针都没有走到尽头，则较小者指针向后移动
             if (idx1 < nums1.length && idx2 < nums2.length) {
-                n = nums1[idx1] < nums2[idx2] ? nums1[idx1++] : nums2[idx2++];
-            }
-            // 其中一个指针已走到尽头，另一个指针后移
-            else if (idx1 < nums1.length) {
-                n = nums1[idx1++];
+                num = nums1[idx1] < nums2[idx2] ? nums1[idx1++] : nums2[idx2++];
+            } else if (idx1 < nums1.length) {
+                num = nums1[idx1++];
             } else if (idx2 < nums2.length) {
-                n = nums2[idx2++];
+                num = nums2[idx2++];
             }
-            nums[idx++] = n;
+            nums[idx++] = num;
         }
-        // 两数组之和长度如果为奇数，返回最后一个元素；如果为偶数，则返回最后两个元素的平均数
+        // 两数组之和长度如果为奇数，返回最后一个元素；如果为偶数，则返回最后两个元素的平均数。
         if ((nums1.length + nums2.length) % 2 == 1) {
             return nums[idx - 1];
         } else {

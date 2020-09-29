@@ -2,8 +2,10 @@
 
 from src.data_structure.data_structure import ListNode
 
-
 class Solution:
+    """
+    求两个单链表之和
+    """
 
     def add_two_numbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         """
