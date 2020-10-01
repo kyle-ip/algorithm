@@ -28,6 +28,13 @@ public class LeetCode206 {
      */
     public ListNode reverseList(ListNode head) {
         ListNode pre = null, cur = head, next;
+
+        //       2
+        //   +--------+
+        //   ↓        |        1
+        // [pre] -> [cur] -> [next]
+        //            3        4
+        //          [pre]    [cur]
         while (cur != null) {
             next = cur.next;
             cur.next = pre;

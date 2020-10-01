@@ -23,15 +23,20 @@ public class LeetCode5 {
         }
         int n = s.length(), start = 0, maxLen = 0;
 
-        // 二位数组，dp[i][j] 记录 i~j 是否为回文子串
+        // 二维数组 dp[i][j] 记录 i~j 是否为回文子串。
         boolean[][] dp = new boolean[n][n];
         for (int i = n - 1; i >= 0; i--) {
             for (int j = i; j < n; j++) {
+                // 单个字符都是回文串：a
                 if (i == j) {
                     dp[i][j] = true;
-                } else if (i + 1 == j) {
+                }
+                // 两个字符，相同即为回文串：a, a
+                else if (i + 1 == j) {
                     dp[i][j] = s.charAt(i) == s.charAt(j);
-                } else {
+                }
+                // 两个以上的字符，只要边界相等且内部为回文串，整体即为回文串：a, [...], a，其中 [...] = b, b
+                else {
                     dp[i][j] = s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1];
                 }
                 if (dp[i][j] && j - i + 1 > maxLen) {
@@ -41,7 +46,6 @@ public class LeetCode5 {
             }
         }
         return s.substring(start, start + maxLen);
-
     }
 
     /**
@@ -68,9 +72,10 @@ public class LeetCode5 {
             return null;
         }
 
-        // 记录最大回文子串的开始位置和长度
+        // 记录最大回文子串的开始位置和长度。
         int start = 0, maxLen = 0;
         for (int i = 0; i < s.length(); i++) {
+            // 处理 a, b, b, a 和 a, b, a 两种回文串。
             int len = Math.max(expand(s, i, i), expand(s, i, i + 1));
             if (len > maxLen) {
                 maxLen = len;
