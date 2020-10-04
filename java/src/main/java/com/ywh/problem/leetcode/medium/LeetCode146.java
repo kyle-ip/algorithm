@@ -14,48 +14,56 @@ import java.util.Map;
  */
 public class LeetCode146 {
 
-    public class LRUCache {
+    public static class LRUCache {
 
-        // 使用双向链表（移动节点 O(1)）和哈希表（get、put 操作 O(1)）存储
-        // 头节点存放下次 put 操作时被淘汰的元素，其next 表示最近刚被使用、prev 表示最近最少使用
-        private DoublyListNode head = new DoublyListNode(-1, -1, null, null);
-        private final Map<Integer, DoublyListNode> map = new HashMap<>();
+        // 使用双向链表（移动节点 O(1)）和哈希表（get、put 操作 O(1)）存储。
+        // 头节点存放下次 put 操作时被淘汰的元素，其 next 表示最近刚被使用的，prev 表示 LRU。
+
+        /**        +----------------------------------+
+         *         ↓                                  ↓
+         *      [node0] <-> [node1] <-> [node2] <-> [node3]
+         * （最近刚被使用的）                   （head，存放 LRU）
+         */
+        private DoublyListNode head;
+        private final Map<Integer, DoublyListNode> map;
 
         /**
-         * 把节点移动到头节点
+         * 辅助方法，把节点移动到头节点。
          *
          * @param cur
          */
         private void move2Head(DoublyListNode cur) {
-            // 当前节点为头节点，头节点逆时针移动到上一个节点
+            // 当前节点为头节点，头节点移动到其上一个节点。
             if (cur == head) {
                 head = head.prev;
+                return;
             }
-            else {
-                // 取下节点
-                cur.prev.next = cur.next;
-                cur.next.prev = cur.prev;
+            // detach
+            cur.prev.next = cur.next;
+            cur.next.prev = cur.prev;
 
-                // 作为头节点的下一个节点
-                head.next = cur;
-                cur.prev = head;
-            }
+            // attach
+            cur.next = head.next;
+            cur.next.prev = cur;
+
+            head.next = cur;
+            cur.prev = head;
         }
 
         /**
-         * 构造方法，初始化链表
+         * 构造方法，初始化链表。
          *
          * @param capacity
          */
         public LRUCache(int capacity) {
+            head = new DoublyListNode(-1, -1, null, null);
+            map = new HashMap<>();
             DoublyListNode cur = head;
-            // 尾插法创建容量 - 1 个节点
-            for (int i = 0; i< capacity - 1; i++) {
-                cur.next = new DoublyListNode(-1, -1, cur, null);
+            // 尾插法创建容量 -1 个节点（因为 head 本身也用于存放数据）。
+            for (int i = 0; i < capacity - 1; i++) {
+                cur.next = new DoublyListNode(-1, -1, null, cur);
                 cur = cur.next;
             }
-
-            // 尾节点与头节点相连
             cur.next = head;
             head.prev = cur;
         }
@@ -67,17 +75,12 @@ public class LeetCode146 {
          * @return
          */
         public int get(int key) {
-            // 哈希表中不存在该 key 的节点，返回 -1
             if (!map.containsKey(key)) {
                 return -1;
-            } else {
-                // 从哈希表中取出节点
-                DoublyListNode cur = map.get(key);
-
-                // 把被访问的节点移动到 head 前面，表示最近被访问过
-                move2Head(cur);
-                return cur.val;
             }
+            DoublyListNode cur = map.get(key);
+            move2Head(cur);
+            return cur.val;
         }
 
         /**
@@ -87,26 +90,35 @@ public class LeetCode146 {
          * @param value
          */
         public void put(int key, int value) {
-
-            // 哈希表中已存在该 key，则更新节点的值，并移动到头部
+            DoublyListNode cur;
+            // 哈希表中已存在该 key，则更新节点的值，并移动到头部。
             if (map.containsKey(key)) {
-                DoublyListNode cur = map.get(key);
+                cur = map.get(key);
                 cur.val = value;
-                move2Head(cur);
-            } else {
-                // 头节点的值不为 -1，表示已经存储数据，则要先移除
-                if (head.val != -1) {
-                    map.remove(head.key);
-                }
-                // 头节点设值，并存储到哈希表中
-                head.key = key;
-                head.val = value;
-                map.put(key, head);
-
-                // 头节点移向上一个节点，即指向最久未使用节点
-                head = head.prev;
             }
+            // 否则把节点插入头部，头节点移向上一个节点，即指向 LRU。
+            else {
+                cur = head;
+                // 先清理哈希表中的旧值。
+                map.remove(cur.key);
+                cur.key = key;
+                cur.val = value;
+                map.put(key, cur);
+            }
+            move2Head(cur);
         }
     }
 
+    public static void main(String[] args) {
+        LRUCache cache = new LRUCache(2);
+        cache.put(1, 1);
+        cache.put(2, 2);
+        System.out.println(cache.get(1));
+        cache.put(3, 3);    // 该操作会使得关键字 2 作废
+        System.out.println(cache.get(2));       // 返回 -1 (未找到)
+        cache.put(4, 4);    // 该操作会使得关键字 1 作废
+        System.out.println(cache.get(1));       // 返回 -1 (未找到)
+        System.out.println(cache.get(3));       // 返回  3
+        System.out.println(cache.get(4));       // 返回  4
+    }
 }
