@@ -19,7 +19,7 @@ public class LeetCode146 {
         // 使用双向链表（移动节点 O(1)）和哈希表（get、put 操作 O(1)）存储
         // 头节点存放下次 put 操作时被淘汰的元素，其next 表示最近刚被使用、prev 表示最近最少使用
         private DoublyListNode head = new DoublyListNode(-1, -1, null, null);
-        private Map<Integer, DoublyListNode> map = new HashMap<>();
+        private final Map<Integer, DoublyListNode> map = new HashMap<>();
 
         /**
          * 把节点移动到头节点
@@ -67,7 +67,7 @@ public class LeetCode146 {
          * @return
          */
         public int get(int key) {
-            // 哈希表中不存在该 key 的节点，返回 - 1
+            // 哈希表中不存在该 key 的节点，返回 -1
             if (!map.containsKey(key)) {
                 return -1;
             } else {
