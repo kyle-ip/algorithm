@@ -3,7 +3,7 @@ package com.ywh.problem.leetcode.easy;
 import com.ywh.model.ListNode;
 
 /**
- * 反转单链表
+ * 反转链表
  * [链表]
  *
  * @author ywh

@@ -94,31 +94,17 @@ public class LeetCode146 {
             // 哈希表中已存在该 key，则更新节点的值，并移动到头部。
             if (map.containsKey(key)) {
                 cur = map.get(key);
-                cur.val = value;
             }
             // 否则把节点插入头部，头节点移向上一个节点，即指向 LRU。
             else {
                 cur = head;
                 // 先清理哈希表中的旧值。
                 map.remove(cur.key);
-                cur.key = key;
-                cur.val = value;
-                map.put(key, cur);
             }
+            cur.key = key;
+            cur.val = value;
+            map.put(key, cur);
             move2Head(cur);
         }
-    }
-
-    public static void main(String[] args) {
-        LRUCache cache = new LRUCache(2);
-        cache.put(1, 1);
-        cache.put(2, 2);
-        System.out.println(cache.get(1));
-        cache.put(3, 3);    // 该操作会使得关键字 2 作废
-        System.out.println(cache.get(2));       // 返回 -1 (未找到)
-        cache.put(4, 4);    // 该操作会使得关键字 1 作废
-        System.out.println(cache.get(1));       // 返回 -1 (未找到)
-        System.out.println(cache.get(3));       // 返回  3
-        System.out.println(cache.get(4));       // 返回  4
     }
 }
