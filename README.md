@@ -279,12 +279,12 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 | No.  | Title                                                        | Desc       | Solution                                                     | Stability |
 | ---- | ------------------------------------------------------------ | ---------- | ------------------------------------------------------------ | --------- |
-| 1    | [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort)     | 冒泡排序   | [Java](java/src/main/java/com/ywh/sorting/BubbleSort.java) [Python](python/src/algorithm/sorting/bubble_sort.py) | stable    |
-| 2    | [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) | 选择排序   | [Java](java/src/main/java/com/ywh/sorting/SelectionSort.java) [Python](python/src/algorithm/sorting/selection_sort.py) | unstable  |
-| 3    | [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) | 插入排序   | [Java](java/src/main/java/com/ywh/sorting/InsertionSort.java) [Python](python/src/algorithm/sorting/insertion_sort.py) | stable    |
-| 4    | [Shell Sort](https://en.wikipedia.org/wiki/Shellsort)        | 希尔排序   | [Java](java/src/main/java/com/ywh/sorting/ShellSort.java) [Python](python/src/algorithm/sorting/shell_sort.py) | unstable  |
-| 5    | [Cocktail Shaker Sort](https://en.wikipedia.org/wiki/Cocktail_shaker_sort) | 鸡尾酒排序 | [Java](java/src/main/java/com/ywh/sorting/CocktailShakerSort.java) [Python](python/src/algorithm/sorting/cocktail_shaker_sort.py) | stable    |
-| 6    | [Quick Sort](https://en.wikipedia.org/wiki/Quicksort)        | 快速排序   | [Java](java/src/main/java/com/ywh/sorting/QuickSort.java) [Python](python/src/algorithm/sorting/quick_sort.py) | unstable  |
+| 1    | [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort)     | 冒泡排序   | [Java](java/src/main/java/com/ywh/sorting/BubbleSort.java)<br />[Python](python/src/algorithm/sorting/bubble_sort.py) | stable    |
+| 2    | [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) | 选择排序   | [Java](java/src/main/java/com/ywh/sorting/SelectionSort.java)<br />[Python](python/src/algorithm/sorting/selection_sort.py) | unstable  |
+| 3    | [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) | 插入排序   | [Java](java/src/main/java/com/ywh/sorting/InsertionSort.java)<br />[Python](python/src/algorithm/sorting/insertion_sort.py) | stable    |
+| 4    | [Shell Sort](https://en.wikipedia.org/wiki/Shellsort)        | 希尔排序   | [Java](java/src/main/java/com/ywh/sorting/ShellSort.java)<br />[Python](python/src/algorithm/sorting/shell_sort.py) | unstable  |
+| 5    | [Cocktail Shaker Sort](https://en.wikipedia.org/wiki/Cocktail_shaker_sort) | 鸡尾酒排序 | [Java](java/src/main/java/com/ywh/sorting/CocktailShakerSort.java)<br />[Python](python/src/algorithm/sorting/cocktail_shaker_sort.py) | stable    |
+| 6    | [Quick Sort](https://en.wikipedia.org/wiki/Quicksort)        | 快速排序   | [Java](java/src/main/java/com/ywh/sorting/QuickSort.java)<br />[Python](python/src/algorithm/sorting/quick_sort.py) | unstable  |
 | 7    | [Heap Sort](https://en.wikipedia.org/wiki/Heapsort)          | 堆排序     | [Java](java/src/main/java/com/ywh/sorting/HeapSort.java)     | unstable  |
 | 8    | [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort)       | 归并排序   | [Java](java/src/main/java/com/ywh/sorting/MergeSort.java)    | stable    |
 | 9    | [Counting Sort](https://en.wikipedia.org/wiki/Counting_sort) | 计数排序   | [Java](java/src/main/java/com/ywh/sorting/CountingSort.java) | stable    |
@@ -297,14 +297,27 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 ### 《程序员代码面试指南》
 
-#### 栈和队列
+#### Stack & Queue
 
 | No.  | Title                      | Solution                                                     | Difficulty |
 | ---- | -------------------------- | ------------------------------------------------------------ | ---------- |
-| 1    | 设计一个有 getMin 功能的栈 | [Python](python/src/problem/interview/chapter1/get_min_stack.py) | 士         |
-| 2    | 用一个栈实现另一个栈的排序 | [Python](python/src/problem/interview/chapter1/sort_stack_by_stack.py) | 士         |
-| 4    | 猫狗队列 | [Python](python/src/problem/interview/chapter1/pet_queue.py) | 士         |
-| 5    | 生成窗口最大值数组 | [Python](python/src/problem/interview/chapter1/get_max_window.py) | 尉         |
+| 1    | 设计一个有 getMin 功能的栈 | [Python](python/src/problem/interview/chapter1/get_min_stack.py) | 1        |
+| 2    | 用一个栈实现另一个栈的排序 | [Python](python/src/problem/interview/chapter1/sort_stack_by_stack.py) | 1        |
+| 4    | 猫狗队列 | [Python](python/src/problem/interview/chapter1/pet_queue.py) | 1        |
+| 5    | 生成窗口最大值数组 | [Python](python/src/problem/interview/chapter1/get_max_window.py) | 2        |
+
+#### Linked List
+
+| No.  | Title                                 | Solution                                                     | Difficulty |
+| ---- | ------------------------------------- | ------------------------------------------------------------ | ---------- |
+| 1    | 打印两个有序链表的公共部分            | [Java](java/src/main/java/com/ywh/problem/interview/chapter2/RemoveLastKthNode.java) | 1          |
+| 2    | 在单链表和双链表中删除倒数第 k 个节点 | [Java](java/src/main/java/com/ywh/problem/interview/chapter2/RemoveLastKthNode.java) | 1          |
+| 3    | 删除链表的中间节点和 a/b 处的节点     | [Java](java/src/main/java/com/ywh/problem/interview/chapter2/RemoveByRatio.java) | 1          |
+| 4    | 反转单向和双向链表                    | [Java](java/src/main/java/com/ywh/problem/interview/chapter2/ReverseList.java) | 1          |
+
+#### 
+
+
 
 ## Usage
 
