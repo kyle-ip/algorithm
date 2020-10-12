@@ -26,18 +26,32 @@ public class LeetCode19 {
      */
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dummy = new ListNode(-1, head), fast = dummy, slow = dummy;
-        for (; fast != null && n > 0; n--, fast = fast.next) {}
+        for (; fast != null && n > 0; n--, fast = fast.next);
 
         // n 还没减完，fast 已到末尾，表示链表长度不够，返回第一个节点
         if (n > 0) {
             return dummy.next;
         }
 
-        // fast、slow 相隔 n 个节点，当 fast 定位最后一个节点，slow 定位到倒数第 n 个节点的前一个节点
+        // fast、slow 相隔 n 个节点，当 fast 定位最后一个节点，slow 定位到倒数第 n 个节点的前一个节点。
         while (fast != null && fast.next != null) {
             fast = fast.next;
             slow = slow.next;
         }
+
+        // when n == 4：
+
+        // step0:    slow/fast
+        //            dummy -> [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> null
+
+        // n           4       3      2      1      0
+        // step1:     slow                         fast
+        //           dummy -> [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> null
+
+        // step2:                    slow                         fast
+        //           dummy -> [ ] -> [ ] -> [x] -> [ ] -> [ ] -> [ ] -> null
+        //                            |             ↑
+        //                            +-------------+
         slow.next = slow.next.next;
         return dummy.next;
     }
