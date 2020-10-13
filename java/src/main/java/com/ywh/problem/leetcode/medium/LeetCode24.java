@@ -56,19 +56,23 @@ public class LeetCode24 {
     public ListNode swapPairsIterative(ListNode head) {
         ListNode dummy = new ListNode(0, head), pre = dummy;
         while (pre.next != null && pre.next.next != null) {
-            //      pre   first  second
-            //                     2
-            //           1      +---------------------+
-            //       +------ ---|-----------+         |
-            //       |          |           ↓         ↓
-            //      [pre] -> [first] -> [second] -> [   ] -> [   ] -> null
-            //                  ↑          |
-            //                  +----------+
-            //                       3
+            // 三步交换：
+            //                               2
+            //              1     +---------------------+
+            //         +----------|-----------+         |
+            //         |          |           ↓         ↓
+            //      [dummy] -> [first] -> [second] -> [   ] -> [   ] -> null    =>
+            //        pre         ↑          |
+            //                    +----------+
+            //                         3
             ListNode first = pre.next, second = pre.next.next;
             pre.next = second;
             first.next = second.next;
             second.next = first;
+
+            // 最后定位到待交换的两个节点前面：
+            //      [dummy] -> [second] -> [first] -> [   ] -> [   ] -> null
+            //                               pre
             pre = first;
         }
         return dummy.next;
