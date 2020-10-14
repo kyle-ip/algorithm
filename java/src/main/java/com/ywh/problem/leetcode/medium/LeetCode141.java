@@ -23,7 +23,7 @@ public class LeetCode141 {
      * @return
      */
     public boolean hasCycleWithTwoPointer(ListNode head) {
-        ListNode slow = head, fast = head;
+        ListNode fast = head, slow = head;
         while (fast != null && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;

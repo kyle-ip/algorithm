@@ -51,18 +51,13 @@ public class ReversePart {
         //       ↓             ↓
         //      [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> null
         //     node1                right
-        if (left == null) {
-            node1 = head;
-        }
 
         // 中间某段反转：
         //              +-------------+
         //              ↓             ↓
         //      [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> null
         //     left   node1                right
-        else {
-            node1 = left.next;
-        }
+        node1 = left == null? head: left.next;
 
         // 反转 node2 到 right 之间：
         //                 （待反转）
@@ -82,9 +77,9 @@ public class ReversePart {
         }
 
         //                 （已反转）
-        //              +-------------+
-        //              ↓             ↓
-        //      [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> null
+        //              +--------------------+
+        //              |                    ↓
+        //      [ ]    [ ] <- [ ] <- [ ]    [ ] -> [ ] -> null
         // left/head               node1 right/node2
         //      |                    ↑
         //      +--------------------+

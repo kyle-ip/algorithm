@@ -29,25 +29,49 @@ public class LeetCode148 {
      * @param end
      */
     private void quickSort(ListNode start, ListNode end) {
-        if (start == end || start.next == end) {
+        if (start == end) {
             return;
         }
 
-        int pivot = start.val;
-        ListNode left = start, right = start.next;
+        // 以 start 为 pivot：每轮循环后 left 指向 [start, right] 中最后一个比 start 小的元素。
 
-        // 由于 right 每遇到值比 pivot 小的节点都会与 left 的后一个元素（即一个比 pivot 大的值，把它换到右边去）交换
-        // （如果 right 和 left 仅相隔一个单位时，不发生交换）
-        // 因此最终 right 停止移动时，left 所指的位置，左边都小于等于 pivot，右边都小于 pivot
-        while (right != end) {
-            if (right.val <= pivot) {
+        // 1: right 比 start 小，移动 left。
+        //      [3] -> [1] -> [4] -> [2] -> [ ]
+        //     left   right
+
+        // 2: 交换 right、left 所指的值。
+        //            swap()
+        //              ↓
+        //      [3] -> [1] -> [4] -> [2] -> [ ]
+        //            right
+        //            left
+
+        // 3: right 比 start 大，跳过。
+        //      [3] -> [1] -> [4] -> [2] -> [ ]
+        //            left   right
+
+        // 4: right 比 start 小，移动 left（刚才被跳过，即移动后的 left 是比 start 大的），交换 right、left 所指的值。
+        //                      swap()
+        //                     +------+
+        //                     ↓      ↓
+        //      [3] -> [1] -> [4] -> [2] -> [ ]    =>    [3] -> [1] -> [2] -> [4] -> [ ]
+        //                   left   right                             left          right
+        ListNode left = start, right = start.next;
+        for (;right != end; right = right.next) {
+            if (right.val <= start.val) {
                 left = left.next;
                 swap(left, right);
             }
-            right = right.next;
         }
 
-        // 把 pivot 位置的值换到中间，使其左边节点的值都小于它，右边节点的值都大于它
+        // 5: right 停止移动时 left 所在的位置把 [start + 1, right) 分成两半，左边（包括 left 自身）都小于等于 start，右边都大于 start。
+        // 交换 start、left 所指的值，使 [start, right) 以 left 为界，左边都小于它，右边（包括 left 自身）都大于等于它。
+        //            swap()
+        //       +-------------+                                 分成两半
+        //       ↓             ↓                         |<-           ->|<-  ->|
+        //      [3] -> [1] -> [2] -> [4] -> [ ]    =>    [2] -> [1] -> [3] -> [4] -> [ ]
+        //                   left                                     left
+
         swap(start, left);
         quickSort(start, left);
         quickSort(left.next, end);
@@ -74,7 +98,7 @@ public class LeetCode148 {
      */
     private ListNode mergeTwoSortedLists(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(-1), cur = dummy;
-        while (l1 != null && l2 != null) {
+        for (;l1 != null && l2 != null; cur = cur.next) {
             if (l1.val < l2.val) {
                 cur.next = l1;
                 l1 = l1.next;
@@ -82,10 +106,9 @@ public class LeetCode148 {
                 cur.next = l2;
                 l2 = l2.next;
             }
-            cur = cur.next;
         }
         cur.next = l1 != null? l1: l2;
-        return null;
+        return dummy.next;
     }
 
     /**
@@ -96,24 +119,47 @@ public class LeetCode148 {
      * @return
      */
     public ListNode mergeSortList(ListNode head) {
-        // 如果传入空值或只有一个节点，则无需排序
+        // 如果传入空值或只有一个节点，则无需排序。
         if (head == null || head.next == null) {
             return head;
         }
 
-        // 左右两个指针，分别移动到链表的中点和终点
+        // 左右两个指针，分别移动到链表的中点和终点。
+        // 1:
+        //      [3] -> [1] -> [4] -> [2] -> null
+        //     fast
+        //     slow
+
+        // 2:
+        //      [3] -> [1] -> [4] -> [2] -> null
+        //                   fast
+        //            slow
         ListNode slow = head, fast = head, left, right;
         while (fast.next != null && fast.next.next != null) {
             fast = fast.next.next;
             slow = slow.next;
         }
 
-        // 把链表切分两段，递归调用划分
+        // 3: 以 slow 为界，把链表切分两段（slow 在左边），先递归处理右边。
+        //      (  left  )    (  right )
+        //      [3] -> [1] -> [4] -> [2] -> null
+        //            slow
         right = mergeSortList(slow.next);
+
+        // 4: 处理完右边后，要修改 slow 指向，断成两个链表。
+        //      (  left  )          (  right )
+        //      [3] -> [1] -> null, [2] -> [4] -> null
+        //     head   slow
         slow.next = null;
+
+        // 5: 处理左边，此后得到两个独立的有序链表。
+        //      (  left  )          (  right )
+        //      [1] -> [3] -> null, [2] -> [4] -> null
+        //     head   slow
         left = mergeSortList(head);
 
-        // 合并两个有序链表
+        // 6: 合并两个有序链表。
+        // [1] -> [3] -> null, [2] -> [4] -> null    =>    [1] -> [2] -> [3] -> [4] -> null
         return mergeTwoSortedLists(left, right);
     }
 }

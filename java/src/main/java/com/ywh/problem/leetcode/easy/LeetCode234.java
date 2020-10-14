@@ -16,7 +16,7 @@ public class LeetCode234 {
     /**
      * 两次遍历：
      * 第一次遍历使用辅助栈缓存元素；
-     * 第二次遍历时对比指针所指的值和从栈弹出的值（倒序输出）
+     * 第二次遍历时对比指针所指的值和从栈弹出的值（倒序输出）。
      * Time: O(n), Space: O(n)
      *
      * @param head
@@ -49,7 +49,6 @@ public class LeetCode234 {
      * @return
      */
     public boolean isPalindromeReverseList(ListNode head) {
-
         int len = 0;
         for (ListNode p = head; p != null; p = p.next, ++len);
 
@@ -61,11 +60,20 @@ public class LeetCode234 {
             cur = next;
         }
 
-        // 如果总长度是奇数，则跳过中间的值
-        // 从这一步起，pre 和 cur 分别指向断开的两个链表的头部
+        // before:
+        // [1] -> [2] -> [3] -> [2] -> [1] -> [null]         [1] -> [2] -> [3] -> [3] -> [2] -> [1] -> [null]
+
+        // after:
+        //        pre    cur                                               pre    cur
+        // [1] <- [2] -> [3] -> [2] -> [1] -> [null]         [1] <- [2] <- [3] -> [3] -> [2] -> [1] -> [null]
+
+        // 如果总长度是奇数，则跳过中间节点。从这一步起，pre 和 cur 分别指向断开的两个链表的头部：
+        //        pre           cur                                        pre    cur
+        // [1] <- [2] -> [3] -> [2] -> [1] -> [null]         [1] <- [2] <- [3] -> [3] -> [2] -> [1] -> [null]
         if (len % 2 == 1) {
             cur = cur.next;
         }
+
         for (; pre != null && cur != null; pre = pre.next, cur = cur.next) {
             if (pre.val != cur.val) {
                 return false;

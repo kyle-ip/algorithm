@@ -43,7 +43,7 @@ public class BubbleSort {
 
     /**
      * 提早返回
-     * <p>
+     *
      * Time: O(n^2), Space: O(1)
      *
      * @param arr
@@ -70,7 +70,7 @@ public class BubbleSort {
 
     /**
      * 跳过非必要的位置
-     * <p>
+     *
      * Time: O(n^2), Space: O(1)
      *
      * @param arr
