@@ -29,7 +29,7 @@ public class LeetCode24 {
         //                                      [1] -> [2] -> [3] -> [4] -> [6] -> [5] -> null
         // return: [6] ---------------------------------------------+
         //                                                          |
-        // 其上一层的栈帧：head == [4]                              |
+        // 其上一层的栈帧：head == [4]                                |
         // next = head.next => [4].next => [5]                      |
         // head.next => [4].next = f([5].next) => f([6]]) <---------+
         // next.next => [5].next => [4]
@@ -56,23 +56,18 @@ public class LeetCode24 {
     public ListNode swapPairsIterative(ListNode head) {
         ListNode dummy = new ListNode(0, head), pre = dummy;
         while (pre.next != null && pre.next.next != null) {
-            // 三步交换：
-            //                               2
-            //              1     +---------------------+
-            //         +----------|-----------+         |
-            //         |          |           ↓         ↓
-            //      [dummy] -> [first] -> [second] -> [   ] -> [   ] -> null    =>
-            //        pre         ↑          |
-            //                    +----------+
-            //                         3
+
+            //      三步交换：                         循环最后 pre 定位到 first 的位置：
+            //                     2
+            //           1  +-------------+
+            //       +------|------+      |      =>
+            //       |      |   3  ↓      ↓
+            //      [ ]    [ ] <- [ ]    [ ] ->       [ ] -> [ ] -> [ ] -> [ ]
+            //      pre   first  second                    second  first/pre
             ListNode first = pre.next, second = pre.next.next;
             pre.next = second;
             first.next = second.next;
             second.next = first;
-
-            // 最后定位到待交换的两个节点前面：
-            //      [dummy] -> [second] -> [first] -> [   ] -> [   ] -> null
-            //                               pre
             pre = first;
         }
         return dummy.next;
