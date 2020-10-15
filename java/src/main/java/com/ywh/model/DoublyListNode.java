@@ -18,6 +18,9 @@ public class DoublyListNode {
 
     public DoublyListNode(){}
 
+    public DoublyListNode(int val) {
+        this.val = val;
+    }
 
     public DoublyListNode(int key, int val, DoublyListNode next, DoublyListNode prev) {
         this.val = val;
