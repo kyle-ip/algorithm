@@ -56,13 +56,19 @@ public class LeetCode114 {
      * @param root
      */
     public void flattenReversePreorder(TreeNode root) {
+        //             [1]
+        //            /   \
+        //          [2]   [5]
+        //          / \     \
+        //        [3] [4]   [6]
+
         if (root == null) {
             return;
         }
         flattenReversePreorder(root.right);
         flattenReversePreorder(root.left);
 
-        // 一直递归，到底后设置右节点为上一个记录的节点，重新记录 prev
+        // 一直递归，到底后设置右节点为上一个记录的节点，重新记录 prev：
         root.left = null;
         root.right = prev;
         prev = root;

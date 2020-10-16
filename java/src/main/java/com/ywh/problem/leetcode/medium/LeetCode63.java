@@ -2,6 +2,7 @@ package com.ywh.problem.leetcode.medium;
 
 /**
  * 路径数量（含障碍物）
+ * 和 {@link LeetCode62} 类似，但要判断 grid[i][j] 是否为 1，如果为 1 表示无法到达这个位置，不统计。
  * [数组] [动态规划]
  *
  * @author ywh
@@ -44,15 +45,14 @@ public class LeetCode63 {
     public int uniquePathsWithObstaclesOn(int[][] grid) {
         int m = grid.length, n = grid[0].length;
         int[] dp = new int[n];
-        dp[0] = grid[0][0] == 1 ? 0 : 1;
-        for (int i = 0; i < m; i++) {
-            dp[0] = grid[i][0] == 1 ? 0 : dp[0];
+        dp[0] = grid[0][0] == 1? 0: 1;
+        for (int[] line : grid) {
+            // 注意此处要判断，如果当前行的第一位为 1，则到达这个位置的路径数量为 0，否则取上一次的值（上方的值）。
+            dp[0] = line[0] == 1? 0: dp[0];
             for (int j = 1; j < n; j++) {
-                // dp[j] 更新前可视为到达上方格子的路径数，而 dp[j - 1] 为到达左方各自的路径数
-                dp[j] = grid[i][j] == 1 ? 0 : dp[j] + dp[j - 1];
+                dp[j] = line[j] == 1? 0: dp[j] + dp[j - 1];
             }
         }
-
         return dp[n - 1];
     }
 }

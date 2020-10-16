@@ -18,11 +18,11 @@ public class LeetCode11 {
     public int maxWater(int[] height) {
         int left = 0, right = height.length - 1, max = 0, s;
         while (left < right) {
-            // 当前面积，左右高度中的较小者 * 左右距离
+            // 当前面积，左右高度中的较小者 * 左右距离。
             s = (right - left) * Math.min(height[left], height[right]);
             max = Math.max(max, s);
 
-            // 比较左右指针所指高度，固定较高的指针（宽度随指针移动变小、高度由于取决于原来的较小者只能不变或变小，面积必然变小，因此只能固定较高者）
+            // 比较左右指针所指高度，固定较高的指针：宽度随指针移动变小，要使乘积变大必然要选取最大的高度。
             if (height[left] < height[right]) {
                 left++;
             } else {

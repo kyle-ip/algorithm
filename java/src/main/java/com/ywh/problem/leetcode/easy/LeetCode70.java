@@ -19,6 +19,7 @@ public class LeetCode70 {
         if (n < 2) {
             return 1;
         }
+        // 到达 n，可以从 n - 1 爬一阶，也可以从 n - 2 爬两阶。
         return climbstairsRecursive(n - 1) + climbstairsRecursive(n - 2);
     }
 

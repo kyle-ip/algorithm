@@ -27,20 +27,25 @@ public class LeetCode82 {
         ListNode dummy = new ListNode(-1, head), left = dummy, right = dummy.next;
         while (right != null) {
 
-            // 右指针不断向右移动，直到与其下一个节点的值不同（跳过重复值）
+            // 右指针不断向右移动，直到与其下一个节点的值不同（跳过重复值）。
             while (right.next != null && right.val == right.next.val) {
                 right = right.next;
             }
-            // 左指针的 next 域不是右指针，表示相隔至少1个节点且两者之间都是重复元素，需要删除
+            // 左指针的 next 域不是右指针，表示（相隔至少 1 个节点）此时 [left, right] 都是重复值，保留一个 left 即可。
+            //  +--------------------+
+            //  |                    ↓
+            // [1] -> [1] -> [1] -> [2] -> ...
+            // left          right
             if (left.next != right) {
                 left.next = right.next;
             }
-            // 左指针的 next 域是右指针，则向前移动一位即可
+            // 左指针的 next 域是右指针，则向前移动一位。
+            // [1] -> [2] -> [3] -> [3] -> ...
+            //      left/right
             else {
                 left = right;
             }
-
-            // 每轮循环结束后，right 领先 left 一位
+            // 每轮循环结束后都让 right 领先 left 一位。
             right = left.next;
         }
         return dummy.next;

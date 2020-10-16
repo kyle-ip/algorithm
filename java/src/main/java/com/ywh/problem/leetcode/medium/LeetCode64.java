@@ -50,7 +50,6 @@ public class LeetCode64 {
     public int minSumOfPath1dArray(int[][] a) {
 
         // 省略入参判断
-
         int m = a.length, n = a[0].length;
         int[] dp = new int[n];
         dp[0] = a[0][0];

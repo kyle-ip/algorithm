@@ -1,5 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
+import java.util.Arrays;
+
 /**
  * 路径数量
  * [数组] [动态规划]
@@ -10,7 +12,7 @@ package com.ywh.problem.leetcode.medium;
 public class LeetCode62 {
 
     /**
-     * 动态规划，空间复杂度可优化为 O(min(m, n))，见 {@link LeetCode64}
+     * 动态规划
      *
      * Time: O(m*n), Space: O(m*n)
      *
@@ -22,12 +24,12 @@ public class LeetCode62 {
         if (m < 1 || n < 1) {
             return 0;
         }
-        int [][] dp = new int[m][n];
+        int[][] dp = new int[m][n];
         for (int i = 0; i < m; i++) {
             dp[i][0] = 1;
         }
         for (int j = 0; j < n; j++) {
-            dp[0][j] = 1;
+            dp[j][0] = 1;
         }
         for (int i = 1; i < m; i++) {
             for (int j = 1; j < n; j++) {
@@ -35,6 +37,33 @@ public class LeetCode62 {
             }
         }
         return dp[m - 1][n - 1];
+    }
+
+    /**
+     * 动态规划（空间优化）
+     *
+     * Time: O(m*n), Space: O(n)
+     *
+     * @param m
+     * @param n
+     * @return
+     */
+    public int uniquePathsDP2(int m, int n) {
+        if (m < 1 || n < 1) {
+            return 0;
+        }
+        int[] dp = new int[n];
+        Arrays.fill(dp, 1);
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                // [1] [2] <--- 更新前的 dp[j]，表示从到达 [2] 的路径数。
+                // [3] [4] <--- 更新后的 dp[j]，两者相加表示到达 [4] 的路径数（意思是从上边或左边到达都可以）。
+                //  ↑
+                //  +--- 更新后的 dp[j - 1]，表示从到达 [3] 的路径数。
+                dp[j] += dp[j - 1];
+            }
+        }
+        return dp[n - 1];
     }
 
     /**
@@ -58,13 +87,13 @@ public class LeetCode62 {
         int total = m + n - 2;
 
         // 避免乘法溢出
-        long result = 1;
+        long ret = 1;
 
         // C(b, a) == a/1 * (a-1)/2 * ... (a-b+1)/b
         for (int i = 0; i < small; i++) {
-            result = result * (total - i) / (i + 1);
+            ret = ret * (total - i) / (i + 1);
         }
-        return (int) result;
+        return (int) ret;
     }
 
 }
