@@ -17,7 +17,7 @@ public class LeetCode91 {
      * @return
      */
     private boolean isValidTwoDigit(char a, char b) {
-        return (a == '1' && b <= '9') || (a == '2' && b <= '6');
+        return (a == '1' && b >= '0' && b <= '9') || (a == '2' && b >= '0' && b <= '6');
     }
 
     /**
@@ -26,20 +26,23 @@ public class LeetCode91 {
      * @return
      */
     private int decode(char[] c, int i) {
+        // 正好用完所有字符，算一种。
         if (i == c.length) {
             return 1;
         }
+        // 越界，忽略这种情况。
         if (i > c.length) {
             return 0;
         }
 
-        // 解码方式数量
+        // 解码方式数量。
         int num = 0;
-        // 不为 0 的数字，解析为单个字符
+
+        // 不为 0 的数字，解析为单个字符：a -> 1。
         if (c[i] != '0') {
             num += decode(c, i + 1);
         }
-        // 连续的两个数字解析为单个字符
+        // 连续的两个数字解析为单个字符：ab -> 12。
         if (i + 1 < c.length && isValidTwoDigit(c[i], c[i + 1])) {
             num += decode(c, i + 2);
         }
@@ -48,6 +51,7 @@ public class LeetCode91 {
 
     /**
      * 递归解法
+     * Time: O(n), Space: O(n)
      *
      * @param s
      * @return
@@ -58,6 +62,8 @@ public class LeetCode91 {
 
     /**
      * 动态规划解法
+     * <p>
+     * Time: O(n), Space: O(n)
      *
      * @param s
      * @return
@@ -98,18 +104,28 @@ public class LeetCode91 {
      * @return
      */
     public int numberOfDecodingsDPO1(String s) {
-        int prev = 1, cur = s.charAt(0) != '0'? 1: 0, sum;
-        for (int i = 2; i <= s.length(); i++) {
-            sum = 0;
+        //      [1]    [0]    [5]    [9]    [2]
+        //     first  second third
+        // second：截至前一个位置的字符串的编码方式数量。
+        // first：截至前两个位置的字符串的编码方式数量。
+        int first = 1, second = s.charAt(0) != '0' ? 1 : 0;
+        for (int i = 2; i <= s.length(); ++i) {
+            int third = 0;
+
+            //      [1]    [1]    [5]    [9]    [2]
+            //     first  second   i
+
+            //      [1]    [0]    [5]    [9]    [2]
+            //     first  second   i
             if (s.charAt(i - 1) != '0') {
-                sum += cur;
+                third += second;
             }
             if (isValidTwoDigit(s.charAt(i - 2), s.charAt(i - 1))) {
-                sum += prev;
+                third += first;
             }
-            prev = cur;
-            cur = sum;
+            first = second;
+            second = third;
         }
-        return cur;
+        return second;
     }
 }
