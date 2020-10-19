@@ -10,6 +10,7 @@ package com.ywh.problem.leetcode.easy;
 public class LeetCode443 {
 
     /**
+     * Time: O(n^2), Space: O(1)
      *
      * @param chars
      * @return

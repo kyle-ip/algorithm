@@ -15,9 +15,11 @@ import java.util.Set;
 public class LeetCode141 {
 
     /**
+     * Time: O(n), Space: O(1)
+     *
      * 使用快慢两个指针，快指针每次移动两位、慢指针每次移动一位；
      * 如果链表成环，则快指针走完两圈时慢指针正好走完一圈、两指针在起点相遇；
-     * 如果链表不成环，则快指针必然率先到达终点
+     * 如果链表不成环，则快指针必然率先到达终点。
      *
      * @param head
      * @return
@@ -35,6 +37,8 @@ public class LeetCode141 {
     }
 
     /**
+     * Time: O(n), Space: O(n)
+     *
      * 使用 Hash 实现
      *
      * @param head

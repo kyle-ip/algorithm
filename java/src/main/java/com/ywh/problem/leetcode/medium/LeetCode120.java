@@ -41,8 +41,6 @@ public class LeetCode120 {
                 d[i][j] = Math.min(d[i - 1][j - 1], d[i - 1][j]) + a.get(i).get(j);
             }
         }
-
-        //
         int min = d[n - 1][0];
         for (int i = 1; i < n; ++i) {
             min = Math.min(min, d[n - 1][i]);
@@ -97,6 +95,11 @@ public class LeetCode120 {
         }
         for (int i = n - 2; i >= 0; i--) {
             for (int j = 0; j <= i; j++) {
+                // 第 i 行共有 i + 1 个元素，因此 j 的遍历范围是 [0, i]。
+                //      i         0
+                //               / \
+                //      i+1     1   3
+                //              j  j+1
                 d[i][j] = Math.min(d[i + 1][j], d[i + 1][j + 1]) + a.get(i).get(j);
             }
         }
@@ -111,15 +114,15 @@ public class LeetCode120 {
      */
     public int minimumTotalBottomUpOn(List<List<Integer>> a) {
         int n = a.size();
-        int[] d = new int[n];
+        int[] dp = new int[n];
         for (int j = 0; j < n; ++j) {
-            d[j] = a.get(n - 1).get(j);
+            dp[j] = a.get(n - 1).get(j);
         }
         for (int i = n - 2; i >= 0; --i) {
             for (int j = 0; j <= i; ++j) {
-                d[j] = Math.min(d[j], d[j + 1]) + a.get(i).get(j);
+                dp[j] = Math.min(dp[j], dp[j + 1]) + a.get(i).get(j);
             }
         }
-        return d[0];
+        return dp[0];
     }
 }

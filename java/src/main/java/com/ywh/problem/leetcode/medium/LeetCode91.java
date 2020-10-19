@@ -62,7 +62,7 @@ public class LeetCode91 {
 
     /**
      * 动态规划解法
-     * <p>
+     *
      * Time: O(n), Space: O(n)
      *
      * @param s
@@ -97,7 +97,7 @@ public class LeetCode91 {
 
     /**
      * 动态规划解法（优化存储空间）
-     * <p>
+     *
      * Time: O(n), Space: O(1)
      *
      * @param s
@@ -112,11 +112,11 @@ public class LeetCode91 {
         for (int i = 2; i <= s.length(); ++i) {
             int third = 0;
 
-            //      [1]    [1]    [5]    [9]    [2]
-            //     first  second   i
+            //      [1]    [1]    [i]    [9]    [2]
+            //     first  second third
 
-            //      [1]    [0]    [5]    [9]    [2]
-            //     first  second   i
+            //      [1]    [0]    [i]    [9]    [2]
+            //     first  second third
             if (s.charAt(i - 1) != '0') {
                 third += second;
             }

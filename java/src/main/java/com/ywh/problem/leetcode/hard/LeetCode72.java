@@ -47,9 +47,9 @@ public class LeetCode72 {
                 if (s.charAt(i - 1) == t.charAt(j - 1)) {
                     dp[i][j] = dp[i - 1][j - 1];
                 }
-                // 当前位置上的字符不相同
+                // 当前位置上的字符不相同。
                 else {
-                    // 从 s 到 t，共有三种变法：s 删去一个字符、t 删去一个字符、s 和 t 都删去一个字符，所以取前三种变法的最小值 + 1。
+                    // 从 s 到 t，共有三种变法：s 删去一个字符、t 删去一个字符、s 和 t 都删去一个字符，所以取三种变法的最小值 + 1。
                     // b a [b] -> c a [d]：
                     // b a -> c a       dp = 1  ✓  +1 = 2
                     // b a -> c a d     dp = 2
@@ -78,7 +78,7 @@ public class LeetCode72 {
             dp[j] = j;
         }
         for (int i = 1; i < m; ++i) {
-            // 即解法 1 中的 dp[i - 1][j - 1]
+            // 即解法 1 中的 dp[i - 1][j - 1]。
             int pre = dp[0];
             dp[0] = i;
             for (int j = 1; j < n; ++j) {

@@ -40,14 +40,19 @@ public class LeetCode198 {
         if (nums == null || nums.length == 0) {
             return 0;
         }
-        // x1 表示上一次抢劫后的总获利，x0 表示上上一次抢劫后的总获利
-        int x0 = 0, x1 = 0, cur;
+        // x1 表示上一次抢劫后的总获利，x0 表示上上一次抢劫后的总获利，sum 表示截至当前元素的总获利。
+        int x0 = 0, x1 = 0, sum = 0;
         for (int num: nums) {
-            cur = Math.max(x1, x0 + num);
+            // 当 num == 3：
+            //      +-------------->    5   √
+            //      |
+            // 1    5    3
+            // |         |
+            // +---------+--------->    4
+            sum = Math.max(x1, x0 + num);
             x0 = x1;
-            x1 = cur;
+            x1 = sum;
         }
-
-        return x1;
+        return sum;
     }
 }

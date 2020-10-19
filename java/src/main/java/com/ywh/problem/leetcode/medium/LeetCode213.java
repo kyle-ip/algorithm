@@ -19,18 +19,18 @@ public class LeetCode213 {
      * @return
      */
     private int rob(int[] nums, int start, int end) {
-        int prev2 = 0, prev1 = 0, cur;
+        int x0 = 0, x1 = 0, cur;
         for (int i = start; i <= end; i++) {
-            cur = Math.max(prev2 + nums[i], prev1);
-            prev2 = prev1;
-            prev1 = cur;
+            cur = Math.max(x0 + nums[i], x1);
+            x0 = x1;
+            x1 = cur;
         }
-        return prev1;
+        return x1;
     }
 
     /**
      * 区别于 {@link LeetCode198} ，头尾的两个房子不能同时抢；
-     * 因此需要去头抢一次、去尾墙一次，求两次较大者即可。
+     * 因此需要去头抢一次、去尾抢一次，求两次较大者即可。
      *
      * Time: O(n), Space: O(1)
      *
@@ -38,6 +38,7 @@ public class LeetCode213 {
      * @return
      */
     public int rob(int[] nums) {
+
         if (nums == null || nums.length == 0) {
             return 0;
         }
@@ -45,6 +46,12 @@ public class LeetCode213 {
         if (n == 1) {
             return nums[0];
         }
+        // 顺时针：
+        //     start                        start
+        //      [1]   5   4              1   [5]   4
+        //       3        2      或     [3]        2
+        //      [1]   6   6              1    6    6
+        //      end                     end
         return Math.max(rob(nums, 0, n - 2), rob(nums, 1, n - 1));
     }
 }

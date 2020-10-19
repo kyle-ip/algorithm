@@ -10,6 +10,7 @@ package com.ywh.problem.leetcode.easy;
 public class LeetCode263 {
 
     /**
+     * Time: O(log2(n)+log3(n)+log5(n)), Space: O(1)
      *
      * @param num
      * @return

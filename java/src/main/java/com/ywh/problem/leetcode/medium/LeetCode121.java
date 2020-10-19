@@ -41,11 +41,12 @@ public class LeetCode121 {
         }
         int max = 0, buy = prices[0];
         for (int price: prices) {
-
-            // 当天价格低于买入价，重置买入价；当天价格高于或等于买入价，最大收入取当前最大收入与当天价格和买入价差值的较大者
+            // 当天价格低于买入价，重置买入价。
             if (price < buy) {
                 buy = price;
-            } else {
+            }
+            // 当天价格高于买入价，最大收入取当前最大收入与当天价格和买入价差值的较大者
+            else {
                 max = Math.max(max, price - buy);
             }
         }

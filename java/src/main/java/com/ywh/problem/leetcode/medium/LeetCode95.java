@@ -42,19 +42,19 @@ public class LeetCode95 {
         if (low == high) {
             return Collections.singletonList(new TreeNode(low));
         }
-        List<TreeNode> result = new ArrayList<>();
-        // 遍历从 low 到 high
+        List<TreeNode> ret = new ArrayList<>();
+        // 遍历 [low, high]
         for (int i = low; i <= high; i++) {
-            // 递归调用自身，用 i 左/右边的数字生成左/右子树列表
-            List<TreeNode> leftList = genTrees(low, i - 1), rightList = genTrees(i + 1, high);
-            // 以 i 构造根节点，遍历左右子树列表，取出一棵左子树、一棵右子树，作为新根节点的左右子树
-            for (TreeNode left : leftList) {
-                for (TreeNode right : rightList) {
-                    result.add(new TreeNode(i, cloneTree(left), cloneTree(right)));
+            // 以 i 为根节点（的值），i 的左边为左子树、右边为右子树递归划分。
+            List<TreeNode> left = genTrees(low, i - 1), right = genTrees(i + 1, high);
+            // 遍历左右子树列表，取出一棵左子树、一棵右子树，组合成以 i 为根的新树，添加到结果集。
+            for (TreeNode l : left) {
+                for (TreeNode r : right) {
+                    ret.add(new TreeNode(i, cloneTree(l), cloneTree(r)));
                 }
             }
         }
-        return result;
+        return ret;
     }
 
     /**
