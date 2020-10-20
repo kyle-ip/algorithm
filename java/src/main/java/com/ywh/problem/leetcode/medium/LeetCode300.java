@@ -60,7 +60,7 @@ public class LeetCode300 {
         if (nums == null || nums.length == 0) {
             return 0;
         }
-        int n = nums.length, len = 0, pos = 0;
+        int n = nums.length, len = 0, pos;
         // 递增顺序数组
         int[] d = new int[n];
 

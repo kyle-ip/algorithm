@@ -1,7 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
 /**
- * 硬币面值组合问题
+ * 零钱兑换 II
  * [动态规划]
  *
  * @author ywh
@@ -27,11 +27,11 @@ public class LeetCode518 {
         if (sum < 0) {
             return 0;
         }
-        int result = 0;
+        int ret = 0;
         for (int i = start; i < coins.length; i++) {
-            result += coinCombination(coins, i, sum - coins[i]);
+            ret += coinCombination(coins, i, sum - coins[i]);
         }
-        return result;
+        return ret;
     }
 
     /**
@@ -81,7 +81,7 @@ public class LeetCode518 {
 
     /**
      * 动态规划解法（优化存储空间）
-     * <p>
+     *
      * Time: O(n*sum), Space: O(sum)
      *
      * @param sum
@@ -91,20 +91,14 @@ public class LeetCode518 {
     public int numberOfCoinCombinationDPOsum(int sum, int[] coins) {
         int[] d = new int[sum + 1];
 
-        // d[j] 表示凑成数值 j 的组合数量（只有 1 种，即不取）
+        // d[j] 表示凑成数值 j 的组合数量（其中 dp[0] 表示凑成 0 元的方法只有 1 种，即不取）。
         d[0] = 1;
 
-        // 逐个面值尝试：i - 1 表示当前面值，即第 i 个面值
+        // 尝试每个面值的硬币。
         for (int coin : coins) {
-
-            // 表示单独用每个面值都尝试凑成 1 ~ sum 的数值
-            for (int j = 1; j <= sum; j++) {
-
-                // d[j - coin] 表示使用 coin 后，凑成剩余数值的组合数量
-                // d[j]（更新前）表示不使用 coin 凑成 j 的组合数量
-                // 两者之和（使用或不使用 coin 凑成 j），为凑成 j 的总组合数
-                d[j] += j >= coin ? d[j - coin] : 0;
-            }
+            // 使用面值为 [coin, sum] 的硬币凑 sum：
+            // 比如现有 2 元硬币，凑成 10 - 2 == 8 元硬币的方法有 n 种，则凑成 10 元的硬币的方法也有 n 种。
+            for (int j = coin; j <= sum; d[j] += d[j - coin], j++);
         }
         return d[sum];
     }

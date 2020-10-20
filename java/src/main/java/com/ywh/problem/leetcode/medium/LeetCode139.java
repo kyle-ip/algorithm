@@ -32,7 +32,7 @@ public class LeetCode139 {
         Set<String> set = new HashSet<>(wordDict);
         for (int i = 1; i <= n; i++) {
             for (int j = i - 1; j >= 0; j--) {
-                // 如果从 j 到 i 的子串存在于集合，且从 0 到 j 的子串可完成分解，则认为从 0 到 i 的子串可完成分解。
+                // 如果 [j, i) 的子串存在于集合，且 [0, j) 的子串可完成分解，则认为 [0, i) 可完成分解。
                 // 而且从 0 到 i 已经找到一个合法的划分，因此还可以 break 内部循环。
                 //      a p p l e p e n a p p l e
                 //                j     i

@@ -47,8 +47,10 @@ public class LeetCode746 {
         if (cost.length == 1) {
             return cost[0];
         }
+        // 记录到达前两级、前一级、当前级的累计花费。
         int x0 = cost[0], x1 = cost[1], cur;
         for (int i = 2; i < cost.length; i++) {
+            // 取前两级和前一级中的花费较小者，与当前级花费相加，得到当前级累计花费。
             cur = Math.min(x0, x1) + cost[i];
             x0 = x1;
             x1 = cur;

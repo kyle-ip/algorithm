@@ -1,7 +1,9 @@
 package com.ywh.problem.leetcode.medium;
 
+import java.util.Arrays;
+
 /**
- * 最小硬币组合
+ * 零钱兑换
  * [动态规划]
  *
  * @author ywh
@@ -11,7 +13,7 @@ public class LeetCode322 {
 
     /**
      * DP 状态数组设计参考 {@link LeetCode518}
-     * <p>
+     *
      * Time: O(n*sum), Space: O(n*sum)
      *
      * @param coins
@@ -51,24 +53,20 @@ public class LeetCode322 {
      * @return
      */
     public int minCoinCombinationOsum(int[] coins, int sum) {
-        int[] d = new int[sum + 1];
+        int[] dp = new int[sum + 1];
 
-        // d[i] 凑成 i 元的最小硬币数，d[0] == 0，表示凑成 0 元的最小硬币数为 0
-        for (int i = 1; i <= sum; i++) {
-            d[i] = Integer.MAX_VALUE;
-        }
+        // d[i] 表示凑成 i 元的最小硬币数，其中 d[0] == 0 表示凑成 0 元的最小硬币数为 0，其余先初始化为 Integer.MAX_VALUE - 1
+        Arrays.fill(dp, 1, sum + 1, Integer.MAX_VALUE - 1);
+
+        // 遍历每种面值的硬币，用来凑 [0, sum] 元。
         for (int coin : coins) {
-
-            // 从当前硬币面值开始凑即可（用 5 元硬币凑 1 元无意义）
-            for (int j = coin; j <= sum; j++) {
-
-                // 表示不使用 coin 时，存在可凑成的最小硬币数
-                // 即每个值都是要从 d[0] 算起
-                if (d[j - coin] != Integer.MAX_VALUE) {
-                    d[j] = Math.min(d[j], d[j - coin] + 1);
-                }
-            }
+            // 从当前硬币面值开始凑（因为假设用 5 元硬币凑 1 元就无意义，所以至少凑 5 元），使用面值为 coin 的硬币凑 sum：
+            // 比如要用 2 元硬币凑 10 元，如果之前已经把凑成 10 - 2 == 8 元的最小硬币数算好，存在两种可能：
+            //      1. 使用这个硬币，加上之前凑的 8 元，刚好 10 元（硬币数 + 1）。
+            //      2. 不使用这个硬币，通过其他方法凑成的 10 元。
+            // 取其较小者即可。
+            for (int j = coin; j <= sum; dp[j] = Math.min(dp[j], dp[j - coin] + 1), j++);
         }
-        return d[sum] == Integer.MAX_VALUE ? -1 : d[sum];
+        return dp[sum] == Integer.MAX_VALUE - 1 ? -1 : dp[sum];
     }
 }
