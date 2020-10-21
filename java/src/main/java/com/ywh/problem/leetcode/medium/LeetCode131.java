@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 回文分割
+ * 分割回文串
  * [回溯]
  *
  * @author ywh
