@@ -1,4 +1,4 @@
-# algorithm
+# Algorithm
 
 [![Java](https://img.shields.io/badge/language-Java-green.svg)]()
 [![C](https://img.shields.io/badge/language-C-yellow.svg)]()
@@ -8,6 +8,8 @@
 
 ## Introduction
 Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in Java, C, Python.
+
+Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 ## LeetCode (254)
 
