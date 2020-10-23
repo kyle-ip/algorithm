@@ -26,7 +26,7 @@ public class LeetCode143 {
             return;
         }
 
-        // 使用数组缓存链表节点，随后可用索引访问。
+        // 使用数组缓存链表节点，随后可用下标访问。
         List<ListNode> list = new ArrayList<>();
         for (ListNode cur = head; cur != null; cur = cur.next) {
             list.add(cur);
