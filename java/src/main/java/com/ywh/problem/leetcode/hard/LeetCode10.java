@@ -1,7 +1,5 @@
 package com.ywh.problem.leetcode.hard;
 
-import java.util.Arrays;
-
 /**
  * 简易正则表达式匹配
  * [字符串] [动态规划]
@@ -11,51 +9,54 @@ import java.util.Arrays;
  */
 public class LeetCode10 {
 
+    private boolean isEqual(char sc, char pc) {
+        return sc == pc || pc == '.';
+    }
+
+
     /**
-     * Time: O(n^2) Space: O(n^2)
+     * Time: O(m*n) Space: O(m*n)
+     *
      * @param s
      * @param p
      * @return
      */
     public boolean isMatch(String s, String p) {
-        // dp[i][j] 表示 s 的前 i 个字符与 p 的前 j 个字符是否匹配（s 的前 0 个字符与 p 的前 0 个字符视为匹配）
 
-        // dp[i][j] = dp[i - 1][j - 1] || dp[i]  (s[i] == p[j])
-        // dp[i][j] = false              (s[i] != p[j])
-
-        // if (p[j] == '*')
-        // dp[i][j] = dp[i][j - 2]
-
+        // dp[i][j] 表示 s[0:i-1] 与 p[0:j-1] 是否匹配。
         boolean[][] dp = new boolean[s.length() + 1][p.length() + 1];
         dp[0][0] = true;
         for (int i = 0; i <= s.length(); ++i) {
             for (int j = 1; j <= p.length(); ++j) {
+                // j-1 的位置出现“*”
+                // s: a b c d
+                //          i
+                // p: a b c * d
+                //            j
                 if (p.charAt(j - 1) == '*') {
+                    // 使“*”前的“c”出现 0 次，则“a b c *” => “a b”。
+                    // 即 s[0:i-1] 与 p[0:j-1] 是否匹配取决于 s[0:i-1] 与 p[0:j-3] 是否匹配。
                     dp[i][j] = dp[i][j - 2];
-                    if (i > 0 && j > 1 &&
-                        (p.charAt(j - 2) == '.' || s.charAt(i - 1) == p.charAt(j - 2))) {
-                        //        ↓
-                        // p: a b c  *  [j]
-                        //           ↓
-                        // s: a b c [i]
-                        dp[i][j] = dp[i][j]
-                            //               ↓      （c 出现 0 次）
-                            // p: a b c  *  [j]
-                            //        ↓
-                            // s: a b c [i]
-                            || dp[i - 1][j];
+
+                    // s: a b [c] d             s: a b [c] d
+                    //            i      或                i
+                    // p: a b [.] * d           p: a b [c] * d
+                    //              j                        j
+
+                    if (i > 0 && isEqual(s.charAt(i - 1), p.charAt(j - 2))) {
+                        dp[i][j] = dp[i][j] || dp[i - 1][j];
                     }
                     //        ↓
                     // p: a b c  *  [j]
                     //           ↓
                     // s: a b d [i]
                 }
-                //        ↓                        ↓
-                // p: a b c [j]     or      p: a b . [j]
-                //        ↓                        ↓
-                // s: a b c [i]             s: a b c [i]
+                // s: a b [c] d            s: a b [c] d
+                //            i      或               i
+                // p: a b [.] d            p: a b [c] d
+                //            j                       j
                 else {
-                    if (i > 0 && (p.charAt(j - 1) == '.' || s.charAt(i - 1) == p.charAt(j - 1))) {
+                    if (i > 0 && isEqual(s.charAt(i - 1), p.charAt(j - 1))) {
                         dp[i][j] = dp[i - 1][j - 1];
                     }
                 }

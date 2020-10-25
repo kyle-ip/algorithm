@@ -28,12 +28,18 @@ public class LeetCode56 {
         intervals.sort(Comparator.comparingInt(a -> a.start));
         for (Interval interval: intervals) {
             int n = result.size();
-            // 当结果数组为空，或结果数组最后区间的右端点小于当前区间的左端点，区间直接加入结果数组
+            // 当结果数组为空，或结果数组最后区间的右端点小于当前区间的左端点，区间直接加入结果数组。
+            // [..., [3, 6]] <- [8, 9] => [..., [3, 6], [8, 9]]
             if (result.isEmpty() || result.get(n - 1).end < interval.start) {
                 result.add(interval);
             }
-            // 否则，当前区间的左端点包含在结果数组的最后区间内
-            // 此时比较右端点，如果当前区间的右端点大于结果数组最后区间的右端点，合并最后区间
+            // 否则当前区间的左端点包含在结果数组的最后区间内，此时如果当前区间的右端点大于结果数组最后区间的右端点，合并最后区间。
+            //           +----------+           x  x
+            //           ↓          |        3, 4, 6, 7
+            // [..., [3, 6]] <- [4, 7] => [..., [3, 7]]
+            //                                  x  x
+            //                               3, 4, 5, 6
+            // [..., [3, 6]] <- [4, 5] => [..., [3, 6]]
             else {
                 result.get(n - 1).end = Math.max(result.get(n - 1).end, interval.end);
             }
