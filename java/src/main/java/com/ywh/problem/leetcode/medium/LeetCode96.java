@@ -10,7 +10,7 @@ package com.ywh.problem.leetcode.medium;
 public class LeetCode96 {
 
     /**
-     * 动态规划
+     * 动态规划解法
      *
      * Time: O(n^2), Space: O(n)
      *
@@ -28,8 +28,7 @@ public class LeetCode96 {
         for (int i = 1; i <= n; ++i) {
             for (int j = 1; j <= i; ++j) {
                 // 以某个数字为根、其他数字为子树可生成的 BST 总数 = 左子树可生成 BST 个数 * 右子树可生成 BST 个数。
-                // 比如 i == 3，d[3] += d[0] * d[2] + d[1] * d[1] + d[2] * d[0]。
-                //表示作为左子树和作为右子树的情况）
+                // 比如 i == 3，d[3] += d[0] * d[2] + d[1] * d[1] + d[2] * d[0]，就表示 0+1+2、1+1+1、2+1+0 三种情况（左根右）。
                 // 有 n 个数字，则分别以这些数字为根，求和得到二叉搜索数量之和。
                 d[i] += d[j - 1] * d[i - j];
             }
@@ -38,7 +37,7 @@ public class LeetCode96 {
     }
 
     /**
-     * 第 n 项卡特兰数
+     * 数学解法：第 n 项卡特兰数
      *
      * Time: O(n), Space: O(1)
      *

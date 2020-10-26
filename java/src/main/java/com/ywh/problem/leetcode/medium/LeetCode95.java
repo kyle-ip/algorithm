@@ -16,7 +16,6 @@ import java.util.List;
 public class LeetCode95 {
 
     /**
-     * 拷贝一棵二叉树（使树相互独立、不共享节点）
      *
      * @param root
      * @return
@@ -29,13 +28,12 @@ public class LeetCode95 {
     }
 
     /**
-     * 输入两个整数，输出其之间的整数生成的二叉搜索树列表
      *
      * @param low
      * @param high
      * @return
      */
-    private List<TreeNode> genTrees(int low, int high) {
+    private List<TreeNode> generateTrees(int low, int high) {
         if (low > high) {
             return Collections.singletonList(null);
         }
@@ -43,11 +41,8 @@ public class LeetCode95 {
             return Collections.singletonList(new TreeNode(low));
         }
         List<TreeNode> ret = new ArrayList<>();
-        // 遍历 [low, high]
         for (int i = low; i <= high; i++) {
-            // 以 i 为根节点（的值），i 的左边为左子树、右边为右子树递归划分。
-            List<TreeNode> left = genTrees(low, i - 1), right = genTrees(i + 1, high);
-            // 遍历左右子树列表，取出一棵左子树、一棵右子树，组合成以 i 为根的新树，添加到结果集。
+            List<TreeNode> left = generateTrees(low, i - 1), right = generateTrees(i + 1, high);
             for (TreeNode l : left) {
                 for (TreeNode r : right) {
                     ret.add(new TreeNode(i, cloneTree(l), cloneTree(r)));
@@ -67,6 +62,6 @@ public class LeetCode95 {
         if (n < 1) {
             return Collections.emptyList();
         }
-        return genTrees(1, n);
+        return generateTrees(1, n);
     }
 }

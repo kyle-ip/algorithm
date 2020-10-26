@@ -15,7 +15,24 @@ import java.util.Stack;
  */
 public class LeetCode94 {
 
+    public void inorderTraversal(TreeNode root, List<Integer> ret) {
+        if (root == null) {
+            return;
+        }
+        inorderTraversal(root.left, ret);
+        ret.add(root.val);
+        inorderTraversal(root.right, ret);
+    }
+
+    public List<Integer> inorderTraversalRecursive2(TreeNode root) {
+        List<Integer> ret = new ArrayList<>();
+        inorderTraversal(root, ret);
+        return ret;
+    }
+
     /**
+     * 中序遍历即左根右
+     *
      * Time: O(n), Space: O(n)
      *
      * @param root
@@ -25,8 +42,11 @@ public class LeetCode94 {
         if (root == null) {
             return new ArrayList<>();
         }
+        // 取左子树的节点列表。
         List<Integer> left = inorderTraversalRecursive(root.left);
+        // 取右子树的节点列表
         List<Integer> right = inorderTraversalRecursive(root.right);
+        // 在左子树的节点后面添加根节点、再依次添加所有右子树的节点。
         left.add(root.val);
         left.addAll(right);
         return left;
@@ -39,18 +59,21 @@ public class LeetCode94 {
      * @return
      */
     public List<Integer> inorderTraversalIterative(TreeNode root) {
+
+
+
         Stack<TreeNode> stack = new Stack<>();
-        List<Integer> result = new ArrayList<>();
+        List<Integer> ret = new ArrayList<>();
         while (root != null || !stack.isEmpty()) {
             if (root != null) {
                 stack.push(root);
                 root = root.left;
             } else {
                 root = stack.pop();
-                result.add(root.val);
+                ret.add(root.val);
                 root = root.right;
             }
         }
-        return result;
+        return ret;
     }
 }

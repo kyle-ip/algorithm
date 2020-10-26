@@ -14,14 +14,14 @@ public class LeetCode120 {
     /**
      * 从上至下
      * (i-1, j-1)    (i-1, j)
-     *         (i, j)
+     * (i, j)
      * d[i][j] = min(d[i-1][j-1], d[i-1][j]) + a[i][j]      状态转移方程（到达 (i, j) 的最小路径和）
      * d[0][0] = a[0][0]                                    原点
      * d[i][0] = d[i-1][0] + a[i][0]                        左边
      * d[i][i] = d[i-1][i-1] + a[i][i]                      右边
-     *
+     * <p>
      * 最后处理最下面一层，n 个终点的 n 个最小路径和的最小值
-     *
+     * <p>
      * Time: O(n^2), Space: O(n^2)
      *
      * @param a
@@ -81,7 +81,7 @@ public class LeetCode120 {
      * d[i][j] = min(d[i+1][j], d[i+1][j+1]) + a[i][j]      状态转移方程（到达 (i, j) 的最小路径和）
      * ...
      * 最终返回 d[0][0] 即可
-     *
+     * <p>
      * Time: O(n^2), Space: O(n^2)
      *
      * @param a
@@ -107,6 +107,9 @@ public class LeetCode120 {
     }
 
     /**
+     *
+     * d[j] = min(d[j], d[j+1]) + a[i][j]
+     *
      * Time: O(n^2), Space: O(n)
      *
      * @param a
@@ -115,9 +118,7 @@ public class LeetCode120 {
     public int minimumTotalBottomUpOn(List<List<Integer>> a) {
         int n = a.size();
         int[] dp = new int[n];
-        for (int j = 0; j < n; ++j) {
-            dp[j] = a.get(n - 1).get(j);
-        }
+        for (int j = 0; j < n; dp[j] = a.get(n - 1).get(j++));
         for (int i = n - 2; i >= 0; --i) {
             for (int j = 0; j <= i; ++j) {
                 dp[j] = Math.min(dp[j], dp[j + 1]) + a.get(i).get(j);

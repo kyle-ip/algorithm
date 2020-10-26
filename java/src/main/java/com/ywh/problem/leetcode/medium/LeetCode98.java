@@ -11,28 +11,16 @@ import com.ywh.model.TreeNode;
  */
 public class LeetCode98 {
 
-    /**
-     * 二叉搜索树取最小节点
-     *
-     * @param root
-     * @return
-     */
-    private TreeNode min(TreeNode root) {
-        while (root.left != null) {
-            root = root.left;
+    private TreeNode max(TreeNode root) {
+        while (root.right != null) {
+            root = root.right;
         }
         return root;
     }
 
-    /**
-     * 二叉搜索树取最大节点
-     *
-     * @param root
-     * @return
-     */
-    private TreeNode max(TreeNode root) {
-        while (root.right != null) {
-            root = root.right;
+    private TreeNode min(TreeNode root) {
+        while (root.left != null) {
+            root = root.left;
         }
         return root;
     }
@@ -47,13 +35,9 @@ public class LeetCode98 {
         if (root == null) {
             return true;
         }
-
-        // 左子树为空或当前节点大于左子树的最大节点
         boolean leftValid = root.left == null || root.val > max(root.left).val;
-
-        // 右子树为空或当前节点小于右子树的最小节点
         boolean rightValid = root.right == null || root.val < min(root.right).val;
-        return leftValid && rightValid && isValidBST(root.left) && isValidBST(root.right);
+        return leftValid && rightValid && isValidBSTBound(root.left) && isValidBSTBound(root.right);
     }
 
     /**
@@ -79,15 +63,13 @@ public class LeetCode98 {
             return true;
         }
 
-        // 当前节点存在下/上界，且下/上界的值大于/小于等于当前节点值，返回错误
-        if ((lower != null && lower.val >= root.val)
-            || (upper != null && upper.val <= root.val)) {
+        // 当前节点存在下/上界，且下/上界的值大于/小于等于当前节点值，返回错误。
+        if ((lower != null && lower.val >= root.val) || (upper != null && upper.val <= root.val)) {
             return false;
         }
 
         // 对于左/右子树，下/上界为 root 的下/上界，上/下界为 root
-        return isValidBSTBound(root.left, lower, root)
-            && isValidBSTBound(root.right, root, upper);
+        return isValidBSTBound(root.left, lower, root) && isValidBSTBound(root.right, root, upper);
     }
 
 
