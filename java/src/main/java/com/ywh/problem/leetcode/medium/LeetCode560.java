@@ -39,9 +39,14 @@ public class LeetCode560 {
     }
 
     /**
-     * TODO 暂时未理解
+     * 参考 {@link LeetCode437}
      *
-     * sum(i~j) == sum(0~j) - sum(0~i-1) == s(j) - s(i-1)，前缀和之差
+     * 子数组之和转化为前缀和的差：
+     * sum(i~j) == sum(0~j) - sum(0~i-1) == k
+     * 降维表示：  s[j]       s[i-1]
+     * 长度为 k 的子数组之和可表示为：k == s[j] - s[i-1]
+     * 因为 s[j] - k == s[i-1]，可以 s[j] 为 key，其出现次数 cnt 为 value 存放在哈希表。
+     * 边界条件：当 i 取 0 时，sum(0~-1) == 0，s[-1] 前缀和为 0，因此需要把 key == 0，value == 1 事先存入哈希表。
      *
      * Time: O(n), Space: O(n)
      *
@@ -53,16 +58,23 @@ public class LeetCode560 {
         if (nums == null || nums.length == 0) {
             return 0;
         }
-        // 使用哈希表存放满足条件的前缀和出现的次数
-        Map<Integer, Integer> map = new HashMap<>();
+        //
 
-        // 累加和
-        int sum = 0, cnt = 0, sumCnt;
+        // key 为前缀和，value 为前缀和出现的次数。
+        Map<Integer, Integer> map = new HashMap<>(nums.length);
+        map.put(0, 1);
+
+        // sum 为前缀和，cnt 为满足条件的子数组数量。
+        int sum = 0, cnt = 0;
         for (int num : nums) {
             sum += num;
+
+            // cnt 加上 sum-k 在哈希表中出现的次数。
+            // 如果 sum-k 在哈希表中，表示满足条件的子数组之和已经出现过，其出现次数为 value，添加到 cnt 上。
             cnt += map.getOrDefault(sum - k, 0);
-            sumCnt = map.getOrDefault(sum, 0);
-            map.put(sum, sumCnt + 1);
+
+            // 更新 sum 在哈希表中出现的次数：当前前缀和（子数组之和）为 sum 要存放在哈希表中，如果已存在则数量 +1。
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
         return cnt;
     }
