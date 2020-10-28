@@ -1,4 +1,6 @@
-package com.ywh.model;
+package com.ywh.ds;
+
+import com.ywh.model.TrieNode;
 
 /**
  * @author ywh
