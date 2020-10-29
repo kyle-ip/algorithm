@@ -11,7 +11,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
-## LeetCode (256)
+## LeetCode (257)
 
 | Tags          |                  |                     |                    |
 | ------------- | ---------------- | ------------------- | ------------------ |
@@ -234,6 +234,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 384  | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/) | 随机洗牌                           | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode384.java) | Medium     | Array                                                  |
 | 386  | [Lexicographical Numbers](https://leetcode.com/problems/lexicographical-numbers) | 字典序排数                         | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode386.java) | Medium     | DFS<br />Tree                                             |
 | 387  | [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/) | 第一个只出现一次的字符             | Time: O(n)<br />Space: O(m) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode387.java) [Python](python/src/problem/leetcode/easy/leetcode_387.py) | Easy       | String<br />Hash Table                                    |
+| 399  | [Evaluate Division](https://leetcode-cn.com/problems/evaluate-division/submissions/) | 除法求值 | Time: O(m\*V)<br />Space: O(V+E) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode399.java) | Medium | Graph |
 | 409  | [Longest Palindrome](https://leetcode.com/problems/longest-palindrome/) | 最长回文串的长度                   | Time: O(n)<br />Space: O(m) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode409.java) [Python](python/src/problem/leetcode/easy/leetcode_409.py) | Easy       | Hash Table                                             |
 | 414  | [Third Maximum Number](https://leetcode.com/problems/third-maximum-number) | 第三大的数                         | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode414.java) [Python](python/src/problem/leetcode/easy/leetcode_414.py) | Easy       | Array                                                  |
 | 415  | [Add Strings](https://leetcode.com/problems/add-strings)     | 字符串相加                         | Time: O(m+n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode415.java) [Python](python/src/problem/leetcode/easy/leetcode_415.py) | Easy       | String                                                 |
