@@ -10,7 +10,7 @@ import lombok.Data;
  * @since 2020/10/28/028
  */
 @Data
-public class BST {
+public class BinarySearchTree {
 
     public TreeNode root;
 

@@ -93,10 +93,10 @@ public class LeetCode143 {
             return outTail;
         }
 
-        // 得到对应的尾节点，并且将头结点和尾节点之间的链表通过递归处理。
+        // 得到对应的尾节点，并且将头节点和尾节点之间的链表通过递归处理。
         ListNode tail = reorderListRecursive(head.next, len - 2);
 
-        // 中间链表的头结点。
+        // 中间链表的头节点。
         ListNode subHead = head.next;
         head.next = tail;
 

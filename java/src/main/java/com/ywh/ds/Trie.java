@@ -3,6 +3,8 @@ package com.ywh.ds;
 import com.ywh.model.TrieNode;
 
 /**
+ * 字典树
+ *
  * @author ywh
  * @since 2020/9/9/009
  */
