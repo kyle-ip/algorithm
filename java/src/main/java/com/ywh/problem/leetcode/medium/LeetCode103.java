@@ -21,9 +21,9 @@ public class LeetCode103 {
      * @return
      */
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        List<List<Integer>> result = new ArrayList<>();
+        List<List<Integer>> ret = new ArrayList<>();
         if (root == null) {
-            return result;
+            return ret;
         }
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
@@ -44,10 +44,10 @@ public class LeetCode103 {
             if (right2Left) {
                 Collections.reverse(elem);
             }
-            result.add(elem);
+            ret.add(elem);
             right2Left = !right2Left;
         }
-        return result;
+        return ret;
     }
 
     /**
@@ -57,9 +57,9 @@ public class LeetCode103 {
      * @return
      */
     public List<List<Integer>> zigzagLevelOrderV2(TreeNode root) {
-        List<List<Integer>> result = new ArrayList<>();
+        List<List<Integer>> ret = new ArrayList<>();
         if (root == null) {
-            return result;
+            return ret;
         }
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
@@ -81,9 +81,9 @@ public class LeetCode103 {
                     q.add(node.right);
                 }
             }
-            result.add(elem);
+            ret.add(elem);
             right2Left = !right2Left;
         }
-        return result;
+        return ret;
     }
 }

@@ -26,9 +26,10 @@ public class LeetCode100 {
             return true;
         }
         if (p == null || q == null) {
-            return  false;
+            return false;
         }
-        return p.val == q.val && isSameTreeRecursive(p.left, q.left) && isSameTreeRecursive(p.right, q.right);
+        return p.val == q.val && isSameTreeIterative(p.left, q.left) && isSameTreeIterative(p.right, q.right);
+
     }
 
     /**
@@ -44,7 +45,7 @@ public class LeetCode100 {
         stack.push(p);
         stack.push(q);
         while (!stack.isEmpty()) {
-            TreeNode l = stack.pop(), r = stack.pop();
+            TreeNode r = stack.pop(), l = stack.pop();
             if (l == null && r == null) {
                 continue;
             }

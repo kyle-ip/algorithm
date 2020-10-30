@@ -2,10 +2,7 @@ package com.ywh.problem.leetcode.easy;
 
 import com.ywh.model.TreeNode;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * 二叉树的层序遍历
@@ -24,12 +21,11 @@ public class LeetCode102 {
      */
     public List<List<Integer>> levelOrderTraversal(TreeNode root) {
         if (root == null) {
-            return new ArrayList<>();
+            return Collections.emptyList();
         }
-        List<List<Integer>> result = new ArrayList<>();
+        List<List<Integer>> ret = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
-
         while (!queue.isEmpty()) {
             List<Integer> elem = new ArrayList<>();
             for (int i = 0; i < queue.size(); i++) {
@@ -42,8 +38,8 @@ public class LeetCode102 {
                     queue.add(node.right);
                 }
             }
-            result.add(elem);
+            ret.add(elem);
         }
-        return result;
+        return ret;
     }
 }

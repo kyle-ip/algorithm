@@ -1,7 +1,5 @@
 package com.ywh.model;
 
-import com.ywh.ds.SkipList;
-
 /**
  * 跳表节点
  *

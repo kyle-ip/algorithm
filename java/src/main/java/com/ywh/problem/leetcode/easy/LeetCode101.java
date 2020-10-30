@@ -62,18 +62,20 @@ public class LeetCode101 {
         stack.push(root.right);
 
         while (!stack.isEmpty()) {
-            TreeNode right = stack.pop();
-            TreeNode left = stack.pop();
-            if (left == null && right == null) {
+            TreeNode r = stack.pop(), l = stack.pop();
+            if (l == null && r == null) {
                 continue;
             }
-            if (left == null || right == null || left.val != right.val) {
+            if (l == null || r == null || l.val != r.val) {
                 return false;
             }
-            stack.push(left.left);
-            stack.push(right.right);
-            stack.push(left.right);
-            stack.push(right.left);
+            // 比较左左和右右。
+            stack.push(l.left);
+            stack.push(r.right);
+
+            // 比较左右和右左。
+            stack.push(l.right);
+            stack.push(r.left);
         }
         return true;
     }

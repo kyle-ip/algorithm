@@ -71,6 +71,4 @@ public class LeetCode98 {
         // 对于左/右子树，下/上界为 root 的下/上界，上/下界为 root
         return isValidBSTBound(root.left, lower, root) && isValidBSTBound(root.right, root, upper);
     }
-
-
 }

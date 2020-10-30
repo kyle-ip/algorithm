@@ -31,8 +31,6 @@ public class LeetCode94 {
     }
 
     /**
-     * 中序遍历即左根右
-     *
      * Time: O(n), Space: O(n)
      *
      * @param root
@@ -59,11 +57,20 @@ public class LeetCode94 {
      * @return
      */
     public List<Integer> inorderTraversalIterative(TreeNode root) {
-
-
-
         Stack<TreeNode> stack = new Stack<>();
         List<Integer> ret = new ArrayList<>();
+
+        // 遍历路径：
+        //      1. 首先从 [3] 向左出发，一直到 [1] 的左孩子为空，沿途把经过的节点入栈：[3, 1]；
+        //      2. 直到遇到空节点，从栈中弹出 [1]，取出 [1] 的值后向右走到达 [2]；
+        //      3. 由于是递归结构，[2] 也可以视作根，此时处理与 1 相同。
+        //
+        //     [3]
+        //    /   \
+        // [1]     [4]
+        //    \
+        //     [2]
+
         while (root != null || !stack.isEmpty()) {
             if (root != null) {
                 stack.push(root);
