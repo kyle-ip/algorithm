@@ -21,7 +21,7 @@ public class LeetCode110 {
         if (root == null) {
             return 0;
         }
-        return Math.max(getHeight(root.left), getHeight(root.right));
+        return Math.max(getHeight(root.left), getHeight(root.right)) + 1;
     }
 
     /**
@@ -41,7 +41,6 @@ public class LeetCode110 {
     }
 
     /**
-     * TODO 了解为何返回 -1
      * Time: O(n), Space: O(n)
      *
      * @param root
@@ -51,21 +50,24 @@ public class LeetCode110 {
         return getHeightAndCheck(root) != -1;
     }
 
-    int getHeightAndCheck(TreeNode root) {
+    /**
+     * 求树的高度，如果不平衡，则在求高度过程中直接返回 -1。
+     *
+     * @param root
+     * @return
+     */
+    private int getHeightAndCheck(TreeNode root) {
         if (root == null) {
             return 0;
         }
-
         int leftHeight = getHeightAndCheck(root.left);
         if (leftHeight == -1) {
             return -1;
         }
-
         int rightHeight = getHeightAndCheck(root.right);
         if (rightHeight == -1) {
             return -1;
         }
-
         if (Math.abs(leftHeight - rightHeight) > 1) {
             return -1;
         }

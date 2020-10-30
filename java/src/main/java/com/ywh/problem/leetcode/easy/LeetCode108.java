@@ -14,23 +14,17 @@ import java.util.Stack;
  */
 public class LeetCode108 {
 
-    /**
-     *
-     * @param nums
-     * @param start
-     * @param end
-     * @return
-     */
     private TreeNode sortedArrayToBST(int[] nums, int start, int end) {
         if (start > end) {
             return null;
         }
-        int mid = start + (end - start) / 2;
-        TreeNode root = new TreeNode(nums[mid]);
-        root.left = sortedArrayToBST(nums, 0, mid - 1);
-        root.right = sortedArrayToBST(nums, mid + 1, end);
-        return root;
+        int mid = start + (start - end) >> 1;
+        return new TreeNode(nums[mid],
+            sortedArrayToBST(nums, start, mid - 1),
+            sortedArrayToBST(nums, mid + 1, end)
+        );
     }
+
 
     /**
      * Time: O(n), Space: O(log(n))

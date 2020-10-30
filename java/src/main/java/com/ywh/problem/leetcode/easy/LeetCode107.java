@@ -27,7 +27,7 @@ public class LeetCode107 {
             return new ArrayList<>();
         }
 
-        List<List<Integer>> result = new ArrayList<>();
+        List<List<Integer>> ret = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
 
@@ -47,16 +47,15 @@ public class LeetCode107 {
             }
 
             // 保存每行元素
-            result.add(elem);
+            ret.add(elem);
         }
 
         // 交换行（要求逆层序）
-        for (int i = 0; i < result.size(); i++) {
-            int j = result.size() - 1 - i;
-            List<Integer> elem = result.get(j);
-            result.set(j, result.get(i));
-            result.set(i, elem);
+        for (int i = 0, j = ret.size() - 1; i < j; i++, j--) {
+            List<Integer> elem = ret.get(j);
+            ret.set(j, ret.get(i));
+            ret.set(i, elem);
         }
-        return result;
+        return ret;
     }
 }

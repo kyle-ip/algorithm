@@ -1,9 +1,11 @@
 package com.ywh.problem.leetcode.medium;
 
+import com.ywh.model.ListNode;
 import com.ywh.model.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * 拍平二叉树
@@ -15,21 +17,6 @@ import java.util.List;
 public class LeetCode114 {
 
     /**
-     * 前序遍历
-     *
-     * @param root
-     * @param list
-     */
-    private void preorder(TreeNode root, List<TreeNode> list) {
-        if (root == null) {
-            return;
-        }
-        list.add(root);
-        preorder(root.left, list);
-        preorder(root.right, list);
-    }
-
-    /**
      * Time: O(n), Space: O(n)
      *
      * @param root
@@ -38,13 +25,35 @@ public class LeetCode114 {
         if (root == null) {
             return;
         }
-        List<TreeNode> list = new ArrayList<>();
-        preorder(root, list);
+        // 求树的先序遍历列表：
+        //         1
+        //        / \
+        //       2   5      [1, 2, 3, 4, 5, 6]
+        //      / \   \
+        //     3   4   6
+        Stack<TreeNode> stack = new Stack<>();
+        List<TreeNode> preorderList = new ArrayList<>();
         TreeNode cur = root;
-        for (int i = 1; i < list.size(); i++) {
-            cur.left = null;
-            cur.right = list.get(i);
-            cur = cur.right;
+        while (cur != null || !stack.isEmpty()) {
+            if (cur != null) {
+                preorderList.add(cur);
+                stack.push(cur);
+                cur = cur.left;
+            } else {
+                cur = stack.pop().right;
+            }
+        }
+        // 从第二个节点开始遍历该列表，逐个取出并插入到根节点的右边，且在遍历过程中把左节点置空。
+        //     1
+        //    / \
+        //   x   2
+        //      / \
+        //     x   3
+        //          ...
+        for (int i = 1; i < preorderList.size(); i++) {
+            root.left = null;
+            root.right = preorderList.get(i);
+            root = root.right;
         }
     }
 
@@ -58,9 +67,9 @@ public class LeetCode114 {
     public void flattenReversePreorder(TreeNode root) {
         //             [1]
         //            /   \
-        //          [2]   [5]
-        //          / \     \
-        //        [3] [4]   [6]
+        //         [2]     [5]
+        //        /   \       \
+        //     [3]     [4]     [6]
 
         if (root == null) {
             return;

@@ -48,19 +48,21 @@ public class LeetCode144 {
      * @return
      */
     public List<Integer> preorderTraversalIterative(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
+        List<Integer> ret = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         while (root != null || !stack.isEmpty()) {
-            while (root != null) {
-                result.add(root.val);
-
-                // 入栈的目的是当弹出时指向右节点，此时左、中已遍历完
+            // 一直往左走，沿途添加节点的值到结果集，并把节点入栈，直到遇到空节点。
+            if (root != null) {
+                ret.add(root.val);
                 stack.push(root);
                 root = root.left;
             }
-            root = stack.pop().right;
+            // 当根、左都已遍历完时弹出时根节点，指向右节点。
+            else {
+                root = stack.pop().right;
+            }
         }
-        return result;
+        return ret;
     }
 
     /**

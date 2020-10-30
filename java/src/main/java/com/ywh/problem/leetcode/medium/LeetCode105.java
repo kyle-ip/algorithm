@@ -15,12 +15,11 @@ import java.util.Map;
 public class LeetCode105 {
 
     /**
-     *
-     * @param pre       前序遍历数组
-     * @param preStart  前序遍历起始位置
-     * @param preEnd    前序遍历结束位置
-     * @param inStart   中序遍历起始位置
-     * @param inPos     中序遍历数字下标缓存
+     * @param pre      前序遍历数组
+     * @param preStart 前序遍历起始位置
+     * @param preEnd   前序遍历结束位置
+     * @param inStart  中序遍历起始位置
+     * @param inPos    中序遍历数字下标缓存
      * @return
      */
     private TreeNode buildTree(int[] pre, int preStart, int preEnd, int inStart, Map<Integer, Integer> inPos) {
@@ -35,22 +34,19 @@ public class LeetCode105 {
         if (preStart > preEnd) {
             return null;
         }
+
         // 通过前序遍历确定树的根节点的值，rootVal = pre[0]。
+        // 再根据根节点的值在中序遍历找到下标，rootIdx = inPos.get(rootVal)。
         // pre: [1], 2, 4, 8, 16
-        int rootVal = pre[preStart];
-
-        // 根据根节点的值，在中序遍历找到其下标，rootIdx = inPos.get(rootVal)。
         // in: (2), [1], (8, 4, 16)
-        int rootInIdx = inPos.get(rootVal);
+        int rootVal = pre[preStart], rootInIdx = inPos.get(rootVal);
 
-        // 由此可以在中序遍历中得出左右子树的节点个数（左子树 rootIdx - inStart），用于在前序遍历中划分：左子树 leftLen 个节点，剩余的属于右子树。
-        // 所以划分左右子树范围：左 [preStart+1:preStart+leftLen]，右 [preStart+leftLen:preEnd]，递归构造二叉树。
+        // 由中序遍历中根节点的下标可以得出应该划分给左子树和右子树的节点个数，左子树 rootInIdx - inStart 个，剩余给右子树。
+        // 因此在前序遍历中划分左右子树范围：左 [preStart+1:preStart+leftLen]，右 [preStart+leftLen:preEnd]。据此递归构造二叉树。
         // pre: [1], (2), (4, 8, 16)
         //           left   right
-
         int leftLen = rootInIdx - inStart;
-        return new TreeNode(
-            rootVal,
+        return new TreeNode(rootVal,
             buildTree(pre, preStart + 1, preStart + leftLen, inStart, inPos),
             buildTree(pre, preStart + leftLen + 1, preEnd, rootInIdx + 1, inPos)
         );

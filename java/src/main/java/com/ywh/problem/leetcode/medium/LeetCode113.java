@@ -18,9 +18,9 @@ public class LeetCode113 {
      * @param root
      * @param sum
      * @param elem
-     * @param result
+     * @param ret
      */
-    private void path(TreeNode root, int sum, List<Integer> elem, List<List<Integer>> result) {
+    private void path(TreeNode root, int sum, List<Integer> elem, List<List<Integer>> ret) {
         if (root == null) {
             return;
         }
@@ -29,12 +29,12 @@ public class LeetCode113 {
 
         // 路径和符合要求
         if (root.left == null && root.right == null && root.val == sum) {
-            result.add(new ArrayList<>(elem));
+            ret.add(new ArrayList<>(elem));
         }
 
         // 递归调用左右子树
-        path(root.left, sum - root.val, elem, result);
-        path(root.right, sum - root.val, elem, result);
+        path(root.left, sum - root.val, elem, ret);
+        path(root.right, sum - root.val, elem, ret);
 
         // 移除最后一个元素
         elem.remove(elem.size() - 1);
@@ -48,10 +48,10 @@ public class LeetCode113 {
      * @return
      */
     public List<List<Integer>> pathSumRecursive(TreeNode root, int sum) {
-        List<List<Integer>> result = new ArrayList<>();
+        List<List<Integer>> ret = new ArrayList<>();
         List<Integer> elem = new ArrayList<>();
-        path(root, sum, elem, result);
-        return null;
+        path(root, sum, elem, ret);
+        return ret;
     }
 
     /**

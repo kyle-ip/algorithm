@@ -23,11 +23,12 @@ public class LeetCode109 {
             return null;
         }
         ListNode mid = left, fast = left;
-        for (; fast != right && fast.next != right; mid = mid.next, fast = fast.next.next);
-        TreeNode root = new TreeNode(mid.val);
-        root.left = sortedListToBST(left, mid);
-        root.right = sortedListToBST(mid.next, right);
-        return root;
+        for (; fast != right && fast.next != right; mid = mid.next, fast = fast.next.next) {}
+        return new TreeNode(
+            mid.val,
+            sortedListToBST(left, mid),
+            sortedListToBST(mid.next, right)
+        );
     }
 
     /**

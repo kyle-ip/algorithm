@@ -28,8 +28,8 @@ public class LeetCode112 {
         if (root.left == null && root.right == null) {
             return sum == root.val;
         }
-        return hasPathSumRecursive(root.left, sum - root.val) || hasPathSumRecursive(root.right, sum - root.val);
-
+        return hasPathSumRecursive(root.left, sum - root.val)
+            || hasPathSumRecursive(root.right, sum - root.val);
     }
 
     /**
@@ -44,7 +44,7 @@ public class LeetCode112 {
             return false;
         }
 
-        // 使用两个栈，一个用于缓存节点，另一个用于缓存从根节点到当前节点的差值（给定值 - 路径和）
+        // 使用两个栈，一个用于缓存节点，另一个用于缓存从根节点到当前节点的差值（给定值 - 路径和）。
         Stack<TreeNode> stack = new Stack<>();
         Stack<Integer> sumStack = new Stack<>();
         stack.push(root);
@@ -67,7 +67,6 @@ public class LeetCode112 {
                 sumStack.push(s - n.val);
             }
         }
-
         return false;
     }
 }
