@@ -9,7 +9,7 @@ package com.ywh.problem.leetcode.medium;
  */
 public class LeetCode116 {
 
-    class Node {
+    static class Node {
         public int val;
 
         public Node left, right, next;
@@ -36,7 +36,6 @@ public class LeetCode116 {
             return root;
         }
         // 先连接左右子树：[6] -> [8]。
-        //          ...
         //     [2]
         //    /   \
         // [6] --> [8]
@@ -74,7 +73,6 @@ public class LeetCode116 {
             // [2]
             p = left;
             while (p != null) {
-
                 //     [2]
                 //    /   \
                 // [6] --> [8]

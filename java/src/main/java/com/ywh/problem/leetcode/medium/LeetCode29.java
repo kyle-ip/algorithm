@@ -34,8 +34,7 @@ public class LeetCode29 {
         while (dividend <= divisor) {
 
             // -3
-            int temp = divisor;
-            int c = 1;
+            int temp = divisor, c = 1;
 
             // dividend    temp    c    dividend - temp
             // -30         -3      1    -30 - (-3) == -27

@@ -113,7 +113,8 @@ public class BinarySearchTree {
             p = min;
             pP = minP;
         }
-        // 待删除节点 p 是叶子节点或仅有一个子节点：取其子节点 child，挂载到 p 的父节点 pP 上。
+        // 待删除节点 p 是叶子节点或仅有一个子节点：
+        // 取其子节点 child，挂载到 p 的父节点 pP 上。
         TreeNode child = p.left != null ? p.left : p.right;
         if (pP == null) {
             root = child;

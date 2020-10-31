@@ -47,20 +47,19 @@ public class LeetCode124 {
         int leftMax = Math.max(maxPathSumFrom(root.left), 0);
         int rightMax = Math.max(maxPathSumFrom(root.right), 0);
         return max(
-            root.val + leftMax + rightMax,
-            maxPathSumBruteForce(root.left),
-            maxPathSumBruteForce(root.right)
+                root.val + leftMax + rightMax,
+                maxPathSumBruteForce(root.left),
+                maxPathSumBruteForce(root.right)
         );
     }
 
     /**
-     *
      * @param root
      * @param max
      * @return
      */
-    private int maxPathSumFromRootAndCompute(TreeNode root, int[] max) {
-        //      -4
+    private int maxPathSumOn(TreeNode root, int[] max) {
+        //     -4
         //    /  \
         //   1    2
         //  / \
@@ -69,12 +68,13 @@ public class LeetCode124 {
         if (root == null) {
             return 0;
         }
-        // 取左边、右边的最大值，与当前值相加，得出路径和（最大值保存在 max）。
-        int leftMax = Math.max(maxPathSumFromRootAndCompute(root.left, max), 0);
-        int rightMax = Math.max(maxPathSumFromRootAndCompute(root.right, max), 0);
+        // 递归计算左右子节点的最大贡献值，在最大贡献值大于 0 时才会选取对应子节点。
+        int leftMax = Math.max(maxPathSumOn(root.left, max), 0), rightMax = Math.max(maxPathSumOn(root.right, max), 0);
+
+        // 更新答案：节点的最大路径和取决于该节点的值与该节点的左右子节点的最大贡献值。
         max[0] = Math.max(max[0], root.val + leftMax + rightMax);
 
-        // 返回较大的一条路径：
+        // 返回节点的最大贡献值：
         //   1
         //  / \
         // 4   8
@@ -92,7 +92,7 @@ public class LeetCode124 {
 
         // 数组便于传参。
         int[] max = new int[]{Integer.MIN_VALUE};
-        maxPathSumFromRootAndCompute(root, max);
+        maxPathSumOn(root, max);
         return max[0];
     }
 }

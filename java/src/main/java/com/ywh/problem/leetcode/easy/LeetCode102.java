@@ -28,7 +28,8 @@ public class LeetCode102 {
         queue.add(root);
         while (!queue.isEmpty()) {
             List<Integer> elem = new ArrayList<>();
-            for (int i = 0; i < queue.size(); i++) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
                 TreeNode node = queue.poll();
                 elem.add(node.val);
                 if (node.left != null) {

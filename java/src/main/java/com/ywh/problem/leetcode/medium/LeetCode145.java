@@ -42,6 +42,16 @@ public class LeetCode145 {
         return  result;
     }
 
+    public List<Integer> postorderTraversalRecursive2(TreeNode root) {
+        if (root == null) {
+            return new ArrayList<>();
+        }
+        List<Integer> left = postorderTraversalRecursive2(root.left), right = postorderTraversalRecursive2(root.right);
+        left.addAll(right);
+        left.add(root.val);
+        return left;
+    }
+
     /**
      * Time: O(n), Space: O(n)
      *
@@ -86,16 +96,16 @@ public class LeetCode145 {
      * @return
      */
     public List<Integer> postorderTraversalIterative2(TreeNode root) {
-        LinkedList<Integer> result = new LinkedList<>();
+        LinkedList<Integer> ret = new LinkedList<>();
         if (root == null) {
-            return result;
+            return ret;
         }
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
         while (!stack.empty()) {
             TreeNode node = stack.pop();
             // 使用链表插入元素到头部
-            result.addFirst(node.val);
+            ret.addFirst(node.val);
             if (node.left != null) {
                 stack.push(node.left);
             }
@@ -103,7 +113,7 @@ public class LeetCode145 {
                 stack.push(node.right);
             }
         }
-        return result;
+        return ret;
     }
 
 }

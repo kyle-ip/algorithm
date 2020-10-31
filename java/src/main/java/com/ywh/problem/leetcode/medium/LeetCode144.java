@@ -47,6 +47,22 @@ public class LeetCode144 {
      * @param root
      * @return
      */
+    public List<Integer> preorderTraversalRecursive2(TreeNode root) {
+        if (root == null) {
+            return new ArrayList<>();
+        }
+        List<Integer> left = preorderTraversalRecursive2(root.left), right = preorderTraversalIterative(root.right);
+        left.add(0, root.val);
+        left.addAll(right);
+        return left;
+    }
+
+    /**
+     * Time: O(n), Space: O(n)
+     *
+     * @param root
+     * @return
+     */
     public List<Integer> preorderTraversalIterative(TreeNode root) {
         List<Integer> ret = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
