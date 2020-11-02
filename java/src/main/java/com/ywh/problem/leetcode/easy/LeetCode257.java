@@ -52,21 +52,23 @@ public class LeetCode257 {
      *
      * @param root
      * @param path
-     * @param result
+     * @param ret
      */
-    private void dfs2(TreeNode root, StringBuilder path, List<String> result) {
+    private void dfs2(TreeNode root, StringBuilder path, List<String> ret) {
         if (root == null) {
             return;
         }
+        // 记录执行添加当前节点以及后续处理前的长度，以便回溯。
         int len = path.length();
         path.append(root.val);
         if (root.left == null && root.right == null) {
-            result.add(path.toString());
+            ret.add(path.toString());
         } else {
             path.append("->");
-            dfs2(root.left, path, result);
-            dfs2(root.right, path, result);
+            dfs2(root.left, path, ret);
+            dfs2(root.right, path, ret);
         }
+        // 回溯，确保在其他分支中以上步骤（->...）没有被重复执行。
         path.setLength(len);
     }
 
@@ -77,8 +79,8 @@ public class LeetCode257 {
      * @return
      */
     public List<String> binaryTreePaths2(TreeNode root) {
-        List<String> result = new ArrayList<>();
-        dfs2(root, new StringBuilder(), result);
-        return result;
+        List<String> ret = new ArrayList<>();
+        dfs2(root, new StringBuilder(), ret);
+        return ret;
     }
 }

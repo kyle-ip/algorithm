@@ -74,13 +74,7 @@ public class LeetCode236 {
 
 
     /**
-     * 如果当前节点为空，或者等于其中某个目标节点，返回当前节点；
-     * 否则递归到左右子树处理，返回值分别为 left 和 right；
-     * 如果 left 和 right 非空，说明在左右子树上各找到一个节点，于是当前的根节点就是最近公共祖先；
-     * 如果 left 和 right 其中一个为空，则返回非空的节点（表示两个节点都在这边）；
-     * 如果 left 和 right 都为空，返回空指针（表示在该子树上找不到节点）。
      *
-     * 如果 p 和 q 都在树中，则返回最近公共祖先；如果只有一个节点在树中，则返回该节点。
      *
      * Time: O(n), Space: O(n)
      *
@@ -90,15 +84,21 @@ public class LeetCode236 {
      * @return
      */
     public TreeNode lcaExtend(TreeNode root, TreeNode p, TreeNode q) {
-
+        // 如果当前节点为空，或者等于其中某个目标节点，返回当前节点.
+        // 如果 p 和 q 都在树中，则返回最近公共祖先；如果只有一个节点在树中，则返回该节点。
         if (root == null || root == p || root == q) {
             return root;
         }
-        TreeNode left = lcaExtend(root.left, p, q);
-        TreeNode right = lcaExtend(root.right, p, q);
+        // 否则递归到左右子树处理，返回值分别为 left 和 right。
+        TreeNode left = lcaExtend(root.left, p, q), right = lcaExtend(root.right, p, q);
+
+        // 如果 left 和 right 非空，说明在左右子树上各找到一个节点，于是当前的根节点就是最近公共祖先。
         if (left != null && right != null) {
             return root;
-        } else if (left != null) {
+        }
+        // 如果 left 和 right 其中一个为空，则返回非空的节点（表示两个节点都在同一边）。
+        // 如果 left 和 right 都为空，返回空指针（表示在该子树上找不到节点）。
+        else if (left != null) {
             return left;
         } else {
             return right;

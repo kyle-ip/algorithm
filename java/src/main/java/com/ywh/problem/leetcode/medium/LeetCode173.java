@@ -15,12 +15,12 @@ public class LeetCode173 {
     public class BSTIterator {
 
         /**
-         * 辅助栈，存放所有左边的元素
+         * 辅助栈（参考中序遍历 {@link LeetCode94}）
          */
         private final Stack<TreeNode> stack = new Stack<>();
 
         /**
-         * 把当前节点及其左节点迭代推入栈中
+         * 把当前节点及其左节点迭代推入栈中。
          *
          * @param node
          */
@@ -32,23 +32,11 @@ public class LeetCode173 {
         }
 
         /**
-         * 把根节点及其左节点迭代入栈
+         * 创建迭代器时把根节点及其左节点入栈。
          *
          * @param root
          */
         public BSTIterator(TreeNode root) {
-            pushLeft(root);
-        }
-
-        /**
-         * Time(avg): O(1), Space(avg): O(h)
-         *
-         * @return
-         */
-        public int next() {
-            // stack:
-            // [10, 5]
-
             // tree:
             //         10
             //        /  \
@@ -58,15 +46,28 @@ public class LeetCode173 {
             //        /
             //       6
 
-            // 从栈顶取出元素，即最左边的节点（5）。
-            TreeNode node = stack.pop();
-            // 对于最左边的节点的右节点，将其左节点迭代入栈（7、6，所以下次从 6 开始取）。
-            pushLeft(node.right);
-            // 返回最左边的节点（5）。
-            return node.val;
-
             // stack:
-            // [10, 7, 6]
+            // [10, 5]
+            pushLeft(root);
+        }
+
+        /**
+         * 从栈中取元素，每个元素出栈时，右节点及其左子树迭代入栈。
+         *
+         * Time(avg): O(1), Space(avg): O(h)
+         *
+         * @return
+         */
+        public int next() {
+
+            // 从栈顶取出元素，即最左边的节点 [5]，此时栈：[10]。
+            TreeNode node = stack.pop();
+
+            // 取该节点 [5] 的右节点 [7]，并将其左子树入栈 [7]、[6]，此时栈：[10, 7, 6]。
+            pushLeft(node.right);
+
+            // 返回节点 [5]。
+            return node.val;
         }
 
         /**

@@ -14,7 +14,7 @@ import java.util.*;
 public class LeetCode199 {
 
     /**
-     * 层序遍历，把每层最右边的值取出
+     * 层序遍历，把每层从右到左。
      *
      * Time: O(n), Space: O(n)
      *
@@ -29,13 +29,13 @@ public class LeetCode199 {
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
         while (!q.isEmpty()) {
-            // 取出队列头部元素（即每层最右边的值）
+            // 取出队列头部元素（即每层最右边的值）。
             ret.add(q.peek().val);
             int size = q.size();
             for (int i = 0; i < size; i++) {
                 TreeNode node = q.poll();
 
-                // 先进先出，所以先放右边
+                // 每次先放入右边。
                 if (node.right != null) {
                     q.add(node.right);
                 }

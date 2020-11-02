@@ -133,6 +133,11 @@ public class LeetCode255 {
         if (preorder == null) {
             return false;
         }
+        //     5
+        //    / \
+        //   2   6
+        //    \   \
+        //     4   7    5, 2, 4, 6, 7
         int lowerBound = Integer.MIN_VALUE, top = -1;
         for (int num : preorder) {
             if (num < lowerBound) {

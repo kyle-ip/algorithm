@@ -17,7 +17,7 @@ public class LeetCode208 {
      */
     public static class Trie {
 
-        private TrieNode root;
+        private final TrieNode root;
 
         public Trie() {
             this.root = new TrieNode();
@@ -74,8 +74,7 @@ public class LeetCode208 {
         private TrieNode searchEndNode(String str) {
             TrieNode cur = root;
             for (int i = 0; i < str.length() && cur != null; i++) {
-                int idx = str.charAt(i) - 'a';
-                cur = cur.children[idx];
+                cur = cur.children[str.charAt(i) - 'a'];
             }
             return cur;
         }
