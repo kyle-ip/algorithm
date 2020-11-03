@@ -17,8 +17,6 @@ public class LeetCode703 {
         /**
          * 优先级队列，默认即为最小堆，用于存放 Top K 元素
          * poll、peek 方法总是返回最小值（即数据流中的）
-         *
-         * TODO 自己实现最小堆
          */
         private Queue<Integer> minHeap = new PriorityQueue<>();
 

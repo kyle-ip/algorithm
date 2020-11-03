@@ -19,7 +19,7 @@ public class MergeSort {
                 arr[k] = tmp[i++];
             } else if (tmp[i] < tmp[j]) {
                 arr[k] = tmp[i++];
-            } else{
+            } else {
                 arr[k] = tmp[j++];
             }
         }
@@ -59,8 +59,7 @@ public class MergeSort {
         int[] tmp = new int[n];
         for (int len = 1; len < n; len *= 2) {
             for (int low = 0; low < n; low += 2 * len) {
-                int mid = Math.min(low+len-1, n-1);
-                int high = Math.min(low+2*len-1, n-1);
+                int mid = Math.min(low + len - 1, n - 1), high = Math.min(low + 2 * len - 1, n - 1);
                 merge(arr, low, mid, high, tmp);
             }
         }

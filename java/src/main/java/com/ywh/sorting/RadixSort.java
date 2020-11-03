@@ -32,7 +32,7 @@ public class RadixSort {
 
     /**
      * TODO 基于桶排序的解法未完成
-     *
+     * <p>
      * 2 ^ bits 为基数，每次处理 bits 个二进制位，共 趟基数排序（bits == 8 较优）
      * Time: O(32/b * n), Space: O(n + 2^b)
      *
@@ -148,7 +148,7 @@ public class RadixSort {
 
         // 二进制位的最高位表示符号（1 负 0 正），如果数组中存在负数，基数排序后会被排到数组的右边，先找到第一个负数的下标（同时是左边非负数子数组的长度）
         int len = 0;
-        for (; len < n && arr[len] >= 0; len++);
+        for (; len < n && arr[len] >= 0; len++) ;
 
         // 把 arr 中从 len 开始、为 n - len（负数的个数）个元素拷贝到 tmp
         System.arraycopy(arr, len, tmp, 0, n - len);

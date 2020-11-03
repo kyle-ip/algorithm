@@ -57,6 +57,7 @@ public class LeetCode295 {
      * @param num
      */
     public void addNumHeap(int num) {
+
         // 元素先放入最小堆
         minHeap.add(num);
 

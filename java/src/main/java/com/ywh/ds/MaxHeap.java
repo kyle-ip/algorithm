@@ -38,7 +38,10 @@ public class MaxHeap {
         if (count >= size) {
             throw new RuntimeException();
         }
+        // 把新增元素插入堆最后。
         a[++count] = val;
+
+        // 自底向上交换元素，直到满足大小关系。
         for (int i = count; i / 2 > 0 && a[i] > a[i / 2]; i /= 2) {
             swap(i, i / 2);
         }
@@ -53,6 +56,8 @@ public class MaxHeap {
         }
         // 把堆尾元素覆盖到堆顶，然后堆元素个数 -1。
         a[1] = a[count--];
+
+        // 自顶向下交换元素，直到满足大小关系。
         heapify(count, 1);
     }
 
@@ -83,8 +88,9 @@ public class MaxHeap {
             if (i * 2 + 1 <= n && a[maxPos] < a[i * 2 + 1]){
                 maxPos = i * 2 + 1;
             }
+            // 没有发生交换，已达到稳定状态，返回。
             if (maxPos == i) {
-                break;
+                return;
             }
             swap(i, maxPos);
             i = maxPos;
