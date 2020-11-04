@@ -42,7 +42,7 @@ public class LeetCode208 {
                 }
                 cur = cur.children[idx];
             }
-            cur.endOfWord = true;
+            cur.end = true;
         }
 
         /**
@@ -53,7 +53,7 @@ public class LeetCode208 {
          */
         public boolean search(String word) {
             TrieNode node = searchEndNode(word);
-            return node != null && node.endOfWord;
+            return node != null && node.end;
         }
 
         /**

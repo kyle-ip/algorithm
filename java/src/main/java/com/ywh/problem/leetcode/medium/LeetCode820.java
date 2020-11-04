@@ -75,7 +75,7 @@ public class LeetCode820 {
                 }
                 cur = cur.children[idx];
             }
-            cur.endOfWord = true;
+            cur.end = true;
             nodes.put(cur, i);
         }
         int ret = 0;
