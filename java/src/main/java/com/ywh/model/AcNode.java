@@ -30,7 +30,7 @@ public class AcNode {
      */
     public AcNode fail;
 
-    public AcNode() {
-
+    public AcNode(char data) {
+        this.data = data;
     }
 }
