@@ -34,13 +34,7 @@ public class LeetCode19 {
         }
 
         // fast、slow 相隔 n 个节点，当 fast 定位最后一个节点，slow 定位到倒数第 n 个节点的前一个节点。
-        while (fast != null && fast.next != null) {
-            fast = fast.next;
-            slow = slow.next;
-        }
-
         // when n == 4：
-
         // step0:    slow/fast
         //            dummy -> [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> null
 
@@ -48,7 +42,14 @@ public class LeetCode19 {
         // step1:     slow                         fast
         //           dummy -> [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> null
 
-        // step2:                    slow                         fast
+        // step2:                    slow                        fast
+        //           dummy -> [ ] -> [ ] -> [x] -> [ ] -> [ ] -> [ ] -> null
+        while (fast != null && fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        // step3:                    slow                        fast
         //           dummy -> [ ] -> [ ] -> [x] -> [ ] -> [ ] -> [ ] -> null
         //                            |             ↑
         //                            +-------------+

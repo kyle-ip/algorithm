@@ -1,6 +1,7 @@
 package com.ywh.model;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -17,6 +18,6 @@ public class UndirectedGraphNode {
 
     public UndirectedGraphNode(int x) {
         val = x;
-        neighbors = new ArrayList<>();
+        neighbors = new LinkedList<>();
     }
 }

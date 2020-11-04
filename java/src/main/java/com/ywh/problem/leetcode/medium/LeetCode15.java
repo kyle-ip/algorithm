@@ -13,7 +13,7 @@ public class LeetCode15 {
 
     /**
      * 三层循环
-     *
+     * <p>
      * Time: O(n^3), Space: O(n)
      *
      * @param nums
@@ -25,7 +25,7 @@ public class LeetCode15 {
         Set<List<Integer>> set = new HashSet<>();
         Arrays.sort(nums);
 
-        for(int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             for (int j = i + 1; j < nums.length; j++) {
                 for (int k = j + 1; k < nums.length; k++) {
                     if (nums[i] + nums[j] + nums[j] == 0) {
@@ -43,7 +43,7 @@ public class LeetCode15 {
 
     /**
      * 排序 + 双指针（注意每次成功判断后都要跳过重复值）
-     *
+     * <p>
      * Time: O(n^2), Space: O(1)
      *
      * @param nums
@@ -55,7 +55,7 @@ public class LeetCode15 {
         Set<List<Integer>> set = new HashSet<>();
         Arrays.sort(nums);
 
-        for(int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             for (int j = i + 1; j < nums.length; j++) {
                 for (int k = j + 1; k < nums.length; k++) {
                     if (nums[i] + nums[j] + nums[j] == 0) {
@@ -73,7 +73,7 @@ public class LeetCode15 {
 
     /**
      * 排序 + 双指针（注意每次成功判断后都要跳过重复值）
-     *
+     * <p>
      * Time: O(n^2), Space: O(1)
      *
      * @param nums
@@ -96,15 +96,15 @@ public class LeetCode15 {
                 } else {
                     ret.add(Arrays.asList(nums[left], nums[right], nums[k]));
                     // 跳过重复值。
-                    for (; left < right && nums[left] == nums[left + 1]; left++);
-                    for (; left < right && nums[right] == nums[right - 1]; right--);
+                    for (; left < right && nums[left] == nums[left + 1]; left++) ;
+                    for (; left < right && nums[right] == nums[right - 1]; right--) ;
                     left++;
                     right--;
                 }
             }
 
             // 跳过重复值。
-            for (; k>= 2 && nums[k] == nums[k - 1];);
+            for (; k >= 2 && nums[k] == nums[k - 1]; k--) ;
         }
         return ret;
     }

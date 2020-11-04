@@ -19,7 +19,7 @@ public class LeetCode16 {
      * @return
      */
     public int threeSumClosest(int[] nums, int target) {
-        int result = 0, min = Integer.MAX_VALUE;
+        int ret = 0, min = Integer.MAX_VALUE;
         Arrays.sort(nums);
 
         for (int k = nums.length-1; k >= 2; --k) {
@@ -35,11 +35,11 @@ public class LeetCode16 {
                 }
                 int diff = Math.abs(target - sum);
                 if (diff < min) {
-                    result = sum;
+                    ret = sum;
                     min = diff;
                 }
             }
         }
-        return result;
+        return ret;
     }
 }
