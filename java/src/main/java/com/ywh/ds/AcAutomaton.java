@@ -11,11 +11,11 @@ import java.util.Queue;
  * @author ywh
  * @since 2020/11/4/004
  */
-public class AcAutoMata {
+public class AcAutomaton {
 
     private final AcNode root;
 
-    public AcAutoMata() {
+    public AcAutomaton() {
         this.root = new AcNode('/');
     }
 
@@ -140,12 +140,12 @@ public class AcAutoMata {
 //        return false;
     }
     public static void match(String text, String[] patterns) {
-        AcAutoMata aCAutoMata = new AcAutoMata();
+        AcAutomaton aCAutomaton = new AcAutomaton();
         for (String pattern: patterns) {
-            aCAutoMata.insert(pattern);
+            aCAutomaton.insert(pattern);
         }
-        aCAutoMata.buildFailurePointer();
-        aCAutoMata.match(text);
+        aCAutomaton.buildFailurePointer();
+        aCAutomaton.match(text);
     }
 
     public static void main(String[] args) {
