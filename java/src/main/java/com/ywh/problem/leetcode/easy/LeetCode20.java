@@ -45,7 +45,9 @@ public class LeetCode20 {
 
 
     /**
-     * 与方法1类似，遇到左括号时改为把左括号的对应的右括号入栈
+     * 与方法 1 类似，遇到左括号时改为把左括号的对应的右括号入栈。
+     * 使得判断字符串中的右括号时只需要与栈顶弹出的元素比较即可，精简判断。
+     *
      * Time: O(n), Space: O(n)
      *
      * @param s
@@ -65,11 +67,14 @@ public class LeetCode20 {
                     stack.push('}');
                     break;
                 default:
+                    // 比如 { [ ] }，依次入栈的是 } ]。
+                    // 当遇到 ] 时栈顶是 ]，因此匹配，否则返回 false。
                     if (stack.isEmpty() || s.charAt(i) != stack.pop()) {
                         return false;
                     }
             }
         }
+        // 如果最终栈为空，表示所有的符号已经匹配并弹出。
         return stack.isEmpty();
     }
 

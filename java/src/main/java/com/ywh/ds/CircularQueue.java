@@ -16,8 +16,11 @@ import java.util.Queue;
 public class CircularQueue {
 
     private int[] array;
+
     private int n;
+
     private int head = 0;
+
     private int tail = 0;
 
     public CircularQueue(int capacity) {

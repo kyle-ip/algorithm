@@ -23,14 +23,12 @@ public class LinkedQueue {
     public void add(int val) {
         ListNode newNode = new ListNode(val);
 
-        //   [val]
-        // tail/head
+        //   [val]            [ ] -> [val]
+        // tail/head    =>    head   tail
         if (tail == null) {
             tail = newNode;
             head = newNode;
         }
-        // [ ] -> [val]
-        // head   tail
         else {
             tail.next = newNode;
             tail = tail.next;
@@ -43,7 +41,7 @@ public class LinkedQueue {
             throw new RuntimeException();
         }
         // [val] -> [ ] -> [ ]
-        // head =>       tail
+        // head =>         tail
         int val = head.val;
         head = head.next;
         if (head == null) {

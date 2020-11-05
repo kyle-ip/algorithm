@@ -28,7 +28,7 @@ public class LinkedStack {
     public void push(int val) {
         //            newNode
         //      栈顶    [ ] -> [ ]    栈底
-        //                 <= top
+        //                 <=  top
         ListNode newNode = new ListNode(val);
         if (top == null) {
             top = newNode;
