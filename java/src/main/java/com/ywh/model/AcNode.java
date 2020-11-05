@@ -26,11 +26,9 @@ public class AcNode {
     public int length = -1;
 
     /**
-     * 失败指针。
+     * 失配指针
      */
     public AcNode fail;
 
-    public AcNode(char data) {
-        this.data = data;
-    }
+    public AcNode() {}
 }
