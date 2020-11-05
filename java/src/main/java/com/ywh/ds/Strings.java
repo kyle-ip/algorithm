@@ -1,5 +1,8 @@
 package com.ywh.ds;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 字符串搜索：单模式串匹配算法。
  *
@@ -14,24 +17,24 @@ public class Strings {
      *
      * @return
      */
-    public int bf(String s, String t) {
+    public int bf(String s, String p) {
         int i = 0, j = 0;
-        while (i < s.length() && j < t.length()) {
-            if (s.charAt(i) == t.charAt(j)) {
+        while (i < s.length() && j < p.length()) {
+            if (s.charAt(i) == p.charAt(j)) {
                 i++;
                 j++;
             } else {
                 // 匹配失败，i 退回 j 个，再向后移动一位。
                 // s: d a b d e f        d a b d e f
                 //          ↑       =>       ↑
-                // t:   a b c                a b c
+                // p:   a b c                a b c
                 //          ↑                ↑
                 i = i - j + 1;
                 j = 0;
             }
         }
-        // 如果匹配则返回 s 中 t 首字母第一次出现的位置，否则返回 -1。
-        return j == t.length() ? i - j + 1 : -1;
+        // 如果匹配则返回 s 中 p 首字母第一次出现的位置，否则返回 -1。
+        return j == p.length() ? i - j + 1 : -1;
     }
 
     /**
@@ -41,15 +44,15 @@ public class Strings {
      *
      * Time: O(n), Space: O(1)
      * @param s
-     * @param t
+     * @param p
      * @return
      */
-    public int rk(String s, String t) {
-        int sLen = s.length(), tLen = t.length(), sHash = -1, tHash = hash(t, 0, t.length());
-        for (int i = 0; i < sLen - tLen + 1; i++) {
+    public int rk(String s, String p) {
+        int sLen = s.length(), pLen = p.length(), sHash = -1, pHash = hash(p, 0, p.length());
+        for (int i = 0; i < sLen - pLen + 1; i++) {
             // 首次计算 s 子串的 hash。
             if (sHash == -1) {
-                sHash = hash(s, i, i + tLen);
+                sHash = hash(s, i, i + pLen);
             }
             // 否则由上一步的子串 hash 计算当前子串 hash。
             else {
@@ -59,11 +62,11 @@ public class Strings {
                 // hash(b, d) ==               b * 26 * 26 + c * 26 + d * 1
                 //                                                   [ tail ]
                 // hash(a, c) == (hash(a, c) - head) * 26 + tail
-                int head = (s.charAt(i - 1) - 'a') * POW26[tLen - 1];
-                int tail = s.charAt(i + tLen - 1) - 'a';
+                int head = (s.charAt(i - 1) - 'a') * POW26[pLen - 1];
+                int tail = s.charAt(i + pLen - 1) - 'a';
                 sHash = (sHash - head) * 26 + tail;
             }
-            if (sHash == tHash) {
+            if (sHash == pHash) {
                 return i;
             }
         }
@@ -99,12 +102,12 @@ public class Strings {
      *      在发现坏字符时，如果坏字符在模式串中不存在，直接将模式串滑动到坏字符后面。
      *          s: a b c a c a b d c         s: a b c a c a b d c
      *                 ↑ (bad)         =>                 ↑
-     *          t: a b d                     t:       a b d（滑到坏字符 c 的后面，从尾开始匹配）
+     *          p: a b d                     p:       a b d（滑到坏字符 c 的后面，从尾开始匹配）
      *                 ↑                                  ↑
      *      如果坏字符在模式串中也存在，则通过滑动把模式串中坏字符出现的位置与之对齐。
      *          s: a b c a c a b d c         s: a b c a c a b d c
      *                       ↑ (bad)   =>                     ↑
-     *          t:       a b d               t:           a b d（与坏字符 a 对齐，从尾开始匹配）
+     *          p:       a b d               p:           a b d（与坏字符 a 对齐，从尾开始匹配）
      *                       ↑                                ↑
      *      当发生不匹配时把坏字符对应的模式串中的字符下标记作 si。
      *      如果坏字符在模式串中存在，则把这个坏字符在模式串中的下标记作 xi。
@@ -114,19 +117,19 @@ public class Strings {
      * 好后缀规则：当模式串从后往前滑动一定位数后才遇到坏字符（在此前是匹配），则认为坏字符后面的是好后缀（b c，记作 {u}）。
      *      s: a b c a c a b c b c
      *                 (bad) ↑ (good) {u}       此时拿 {u} 在模式串中查找，如果找到另一个与 {u} 相匹配的子串 {u*}，
-     *      t:       a b b c a b c              则就将模式串滑动到子串 {u*} 与主串中 {u} 对齐的位置。
+     *      p:       a b b c a b c              则就将模式串滑动到子串 {u*} 与主串中 {u} 对齐的位置。
      *                       ↑
      *
      *     如果在模式串中找不到另一个等于 {u} 的子串，当模式串滑动到前缀与主串中 {u} 的后缀有部分重合（并且重合的部分相等）的时候，就有可能会存在完全匹配的情况。
      *     s: [... {u} ...]
-     *     t:     [{v} ..]
+     *     p:     [{v} ..]
      *              ↑ 重合    {v} 是 {u} 的子串
      *
      *     因此还要考察好后缀的后缀子串是否存在跟模式串的前缀子串匹配的。
      *     某个字符串 s 的后缀子串即最后一个字符与 s 对齐的子串，前缀子串即起始字符跟 s 对齐的子串，比如 abc 的后缀子串有 c、bc，前缀子串有 a，ab。
      *     从好后缀的后缀子串中找一个最长的并且能跟模式串的前缀子串匹配的记作 {v}，然后将模式串滑动到下面的位置：
      *     s: [... {u{v}} ...]
-     *     t:       [{v} ...]
+     *     p:       [{v} ...]
      *                ↑ 好后缀后缀子串与模式串前缀重合的为位置。
      *
      * 优化：可以将模式串中的每个字符及其下标都存到散列表中，快速找到坏字符在模式串的位置下标（避免在模式串中线性查找）。
@@ -134,35 +137,36 @@ public class Strings {
      * 数组的下标对应字符的 ASCII 码值，数组中存储字符在模式串中出现的位置。
      *
      * @param s
-     * @param t
+     * @param p
      * @return
      */
-    public int bm(String s, String t) {
-        int sLen = s.length(), tLen = t.length();
+    public int bm(String s, String p) {
+        int sLen = s.length(), pLen = p.length();
 
-        // ========== 构建坏字符哈希表：记录模式串中每个字符最后出现的位置（t.charAt(i) 的 ASCII 值）。
+        // ========== 构建坏字符哈希表 ==========
+        // 记录模式串中每个字符最后出现的位置（p.charAt(i) 的 ASCII 值）。
         int[] bc = new int[256];
         for (int i = 0; i < 256; ++i) {
             bc[i] = -1;
         }
-        for (int i = 0; i < t.length(); ++i) {
-            bc[t.charAt(i)] = i;
+        for (int i = 0; i < p.length(); ++i) {
+            bc[p.charAt(i)] = i;
         }
 
-        // ========== 构建好后缀匹配规则。
-        int[] suffix = new int[tLen];
-        boolean[] prefix = new boolean[tLen];
-        for (int i = 0; i < tLen; ++i) {
+        // ========== 构建好后缀匹配规则 ==========
+        int[] suffix = new int[pLen];
+        boolean[] prefix = new boolean[pLen];
+        for (int i = 0; i < pLen; ++i) {
             suffix[i] = -1;
             prefix[i] = false;
         }
-        for (int i = 0; i < tLen - 1; ++i) {
-            //  与 t[0, tLen-1] 求公共后缀子串。
+        for (int i = 0; i < pLen - 1; ++i) {
+            //  与 p[0, tLen-1] 求公共后缀子串。
             int j = i, k = 0;
-            while (j >= 0 && t.charAt(j) == t.charAt(tLen - 1 - k)) {
+            while (j >= 0 && p.charAt(j) == p.charAt(pLen - 1 - k)) {
                 --j;
                 ++k;
-                // j+1 表示公共后缀子串在 t[0, i] 中的起始下标。
+                // j+1 表示公共后缀子串在 p[0, i] 中的起始下标。
                 suffix[k] = j + 1;
             }
             if (j == -1) {
@@ -171,15 +175,15 @@ public class Strings {
             }
         }
 
-        // ========== 开始匹配
+        // ========== 开始匹配 ==========
         // j 表示主串与模式串匹配的第一个字符。
         int i = 0;
-        while (i <= sLen - tLen) {
+        while (i <= sLen - pLen) {
             int j;
             // 模式串从后往前匹配。
-            for (j = tLen - 1; j >= 0; --j) {
+            for (j = pLen - 1; j >= 0; --j) {
                 // 坏字符对应模式串中的下标是 j
-                if (s.charAt(i + j) != t.charAt(j)) {
+                if (s.charAt(i + j) != p.charAt(j)) {
                     break;
                 }
             }
@@ -189,14 +193,14 @@ public class Strings {
             }
             int x = j - bc[s.charAt(i + j)], y = 0;
             // 如果存在好后缀：
-            if (j < tLen - 1) {
-                int k = tLen - 1 - j;
+            if (j < pLen - 1) {
+                int k = pLen - 1 - j;
                 if (suffix[k] != -1) {
                     y = j - suffix[k] + 1;
                 } else {
-                    y = tLen;
-                    for (int r = j + 2; r <= tLen - 1; ++r) {
-                        if (prefix[tLen - r]) {
+                    y = pLen;
+                    for (int r = j + 2; r <= pLen - 1; ++r) {
+                        if (prefix[pLen - r]) {
                             y = r;
                         }
                     }
@@ -211,13 +215,94 @@ public class Strings {
      * KMP 算法：类似 BM 算法，但关注的是“坏字符”和“好前缀”。
      *      s: a b a b a e a b a c
      *              (good) ↑ (bad)
-     *      t: a b a b a c d
+     *      p: a b a b a c d
      *                     ↑
      * @param s
-     * @param t
+     * @param p
      * @return
      */
-    public int kmp(String s, String t) {
+    public static int kmp(String s, String p) {
+
+        /*
+           ========== 生成 next 数组 ==========
+           next[i] 表示对于 p[0:i+1] 这段长度为 i + 1 的子串，使得“长度为 k 的前缀 = 长度为 k 的后缀”的 k 的最大值（小于子串长度）。
+           （后面简称“长度为 i 的子串的前后缀最大值”，再简称“前后缀最大值”），比如对于 ababacd：
+                i   子串长度       子串       next[i]     最长前后缀
+                0      1      a                0            -
+                1      2      a b              0            -
+                2      3      a b a            1            a
+                3      4      a b a b          2           ab
+                4      5      a b a b a        3           aba
+                5      6      a b a b a c      0            -
+                6      7      a b a b a c d    0            -
+        */
+        int[] next = new int[p.length() + 1];
+        // 其中 now 表示 next[i-1]，即长度为 i 的子串的后缀最大值。
+        // 假设已知 next[0]、next[1] ... next[i-1] 已知，求 next[i]。
+        for (int i = 1, now = 0; i < p.length();) {
+            // now 的字符与 i 的字符相同，则最长前后缀长度可扩展 1 位。
+            // 比如 [a] [b] [a] [b] [a] [c]      =>      [a] [b] [a] [b] [a] [c]
+            //              now      i                               now      i
+            // 最长前后缀长度扩展到 3，两个下标后移。
+            if (p.charAt(i) == p.charAt(now)) {
+                now++;
+                next[i++] = now;
+            } else {
+                // now 的字符与 i 的字符不同，且 now 为 0，则前后缀最大值不变。
+                // 比如 [a] [b] [a] [b] [a] [c]      =>      [a] [b] [a] [b] [a] [c]
+                //      now i                                now     i
+                if (now == 0) {
+                    next[++i] = now;
+                }
+                // now 的字符与 i 的字符不同，且 now 不为 0，now 下标 -1，并更新为当前下标表示的子串的前后缀最大值。
+                // 比如 [a] [b] [a] [b] [a] [c]      =>      [a] [b] [a] [b] [a] [c]      =>      [a] [b] [a] [b] [a] [c]
+                //                  now      i                       now          i                   now              i
+                // 退 1 位到 2，再取长度为 3 的前后缀最大值（即 1），跳到该位置。
+                else {
+                    // now = next[now - 1] 的含义是需要一直回退直到 p[now] == p[i] 为止，才能向右扩展。
+                    now = next[now - 1];
+                }
+            }
+        }
+
+        // ========== 开始匹配 ==========
+        int i = 0, j = 0;
+        while (i < s.length()) {
+            // 如果主串和模式串当前字符相等，则两个下标后移。
+            // s: a b b c c           s: a b b c c
+            //    i             =>         i
+            // p: a b a               p: a b a
+            //    j                        j
+            if (s.charAt(i) == p.charAt(j)) {
+                i++;
+                j++;
+            } else {
+                // 否则当模式串下标不为 0 时，从 next 数组取值。
+                // s: a b b c c           s: a b b c c
+                //        i         =>           i
+                // p: a b a               p: a b a          j 回退到 长度为 j 的子串的前后缀最大值（即 1，开始位置）。
+                //        j                    j            可以退到这个位置是因为除了 2 这里不匹配以外，此前都是匹配的。
+                //
+                if (j != 0) {
+                    j = next[j - 1];
+                }
+                // 模式串下标为 0，则主串下标继续后移。
+                // s: a b b c c           s: a b b c c
+                //        i         =>             i
+                // p: a b a               p: a b a
+                //    j                      j              不匹配，但 j 为 0（退无可退），i 后移、继续比对下一个。
+                else {
+                    i++;
+                }
+            }
+            if (j == p.length()) {
+                return i - j;
+            }
+        }
         return -1;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(kmp("naslfabcsa", "abc"));
     }
 }
