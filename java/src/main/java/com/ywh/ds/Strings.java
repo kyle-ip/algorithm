@@ -221,7 +221,7 @@ public class Strings {
      * @param p
      * @return
      */
-    public static int kmp(String s, String p) {
+    public int kmp(String s, String p) {
 
         /*
            ========== 生成 next 数组 ==========
@@ -247,20 +247,22 @@ public class Strings {
             if (p.charAt(i) == p.charAt(now)) {
                 now++;
                 next[i++] = now;
-            } else {
-                // now 的字符与 i 的字符不同，且 now 为 0，则前后缀最大值不变。
-                // 比如 [a] [b] [a] [b] [a] [c]      =>      [a] [b] [a] [b] [a] [c]
-                //      now i                                now     i
-                if (now == 0) {
-                    next[++i] = now;
-                }
-                // now 的字符与 i 的字符不同，且 now 不为 0，now 下标 -1，并更新为当前下标表示的子串的前后缀最大值。
+            }
+            // now 的字符与 i 的字符不同。
+            else {
+                // now 不为 0 则后退一位，并更新为当前下标表示的子串的前后缀最大值。
                 // 比如 [a] [b] [a] [b] [a] [c]      =>      [a] [b] [a] [b] [a] [c]      =>      [a] [b] [a] [b] [a] [c]
                 //                  now      i                       now          i                   now              i
                 // 退 1 位到 2，再取长度为 3 的前后缀最大值（即 1），跳到该位置。
-                else {
+                if (now != 0) {
                     // now = next[now - 1] 的含义是需要一直回退直到 p[now] == p[i] 为止，才能向右扩展。
                     now = next[now - 1];
+                }
+                // now 为 0（退无可退），则前后缀最大值不变。
+                // 比如 [a] [b] [a] [b] [a] [c]      =>      [a] [b] [a] [b] [a] [c]
+                //      now i                                now     i
+                else {
+                    next[++i] = now;
                 }
             }
         }
@@ -302,7 +304,27 @@ public class Strings {
         return -1;
     }
 
-    public static void main(String[] args) {
-        System.out.println(kmp("naslfabcsa", "abc"));
+    /**
+     *
+     * @param p
+     * @return
+     */
+    private List<Integer> buildNext(String p) {
+        List<Integer> next = new ArrayList<>(p.length());
+        next.add(0);
+        for (int i = 1, now = 0; i < p.length();) {
+            if (p.charAt(now) == p.charAt(i)) {
+                i++;
+                next.add(++now);
+            } else {
+                if (now != 0) {
+                    now = next.get(now - 1);
+                } else {
+                    next.add(0);
+                    i++;
+                }
+            }
+        }
+        return next;
     }
 }
