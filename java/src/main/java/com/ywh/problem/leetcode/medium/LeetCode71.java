@@ -20,12 +20,17 @@ public class LeetCode71 {
      */
     public String simplifyPath2(String path) {
         LinkedList<String> stack = new LinkedList<>();
+
+        // 以 / 把路径字符串划分为多个子串。
         for (String item : path.split("/")) {
-            if (item.equals("..")) {
+            // .. 表示上一级路径，（如果栈非空则）从栈中弹出元素。
+            if ("..".equals(item)) {
                 if (!stack.isEmpty()) {
                     stack.removeLast();
                 }
-            } else if (!item.isEmpty() && !item.equals(".")) {
+            }
+            // 非空路径，且非当前路径，入栈。
+            else if (!item.isEmpty() && !".".equals(item)) {
                 stack.add(item);
             }
         }
@@ -35,7 +40,6 @@ public class LeetCode71 {
 
     /**
      * 有限状态机，假设不存在错误，共四种状态：读到一个点、读到两个点、读到分隔符号、读到普通字符串
-     * TODO 暂时未理解
      *
      * Time: O(n), Space: O(n)
      *

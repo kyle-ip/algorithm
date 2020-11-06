@@ -50,6 +50,8 @@ public class UndirectedGraph {
         adj[dest].add(src);
     }
 
+    // 不论是何种搜索，在遍历过程中都需要记录：已访问节点（避免重复），访问路径（上一个节点）。
+
     /**
      * 广度优先搜索：从 src 开始到 dest 结束，输出一条（最短）路径。
      * 使用队列实现逐层访问，每轮循环从队列取出一个节点，依次访问其所有邻接节点：如果已到达终点，则输出路径，否则添加到队尾。
@@ -80,7 +82,7 @@ public class UndirectedGraph {
         while (!queue.isEmpty()) {
             int cur = queue.poll();
 
-            // 遍历 w 节点的邻接节点。
+            // 遍历当前节点的邻接节点。
             for (int i = 0; i < adj[cur].size(); i++) {
                 int neighbour = adj[cur].get(i);
 
@@ -132,19 +134,25 @@ public class UndirectedGraph {
      */
     private void recurDfs(int cur, int dest, boolean[] visited, int[] prev, boolean[] found) {
         // if (found[0]) return;
+
+        // 标记当前就节点已被访问。如果已到达终点，则标记搜索结束，返回。
         visited[cur] = true;
         if (cur == dest) {
             found[0] = true;
             return;
         }
+
+        // 遍历当前节点的邻接节点，每轮循环取出一个判断是否已被访问，如未访问则递归访问该邻接节点。
         for (int i = 0; i < adj[cur].size(); i++) {
+            int neighbour = adj[cur].get(i);
+            if (visited[neighbour]) {
+                continue;
+            }
+            prev[neighbour] = cur;
+            recurDfs(neighbour, dest, visited, prev, found);
+            // 如果已经找到路径，提前返回。
             if (found[0]) {
                 return;
-            }
-            int neighbour = adj[cur].get(i);
-            if (!visited[neighbour]) {
-                prev[neighbour] = cur;
-                recurDfs(neighbour, dest, visited, prev, found);
             }
         }
     }
