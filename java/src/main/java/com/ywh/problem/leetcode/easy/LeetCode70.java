@@ -15,12 +15,12 @@ public class LeetCode70 {
      * @param n
      * @return
      */
-    public int climbstairsRecursive(int n) {
+    public int climbStairsRecursive(int n) {
         if (n < 2) {
             return 1;
         }
         // 到达 n，可以从 n - 1 爬一阶，也可以从 n - 2 爬两阶。
-        return climbstairsRecursive(n - 1) + climbstairsRecursive(n - 2);
+        return climbStairsRecursive(n - 1) + climbStairsRecursive(n - 2);
     }
 
     /**
@@ -29,7 +29,7 @@ public class LeetCode70 {
      * @param n
      * @return
      */
-    public int climbstairsIterative(int n) {
+    public int climbStairsIterative(int n) {
         int x0 = 1, x1 = 1, x2;
         for (int i = 1; i < n; i++) {
             x2 = x0 + x1;

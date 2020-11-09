@@ -19,17 +19,17 @@ public class LeetCode3 {
      * @return
      */
     public int lengthOfLongestSubstring2N(String s) {
-        int[] hash = new int[256];
+        boolean[] hash = new boolean[256];
         int left = 0, right = 0, maxLen = 0;
         while (right < s.length()) {
             // 如果右指针指向的值存在于 hash 中，表示字符已经出现重复，此时需要重置最长子串的统计：
             // 不断把左指针到“重复元素首次出现的位置”之间的值全部剔除，移动左指针到新的起始位置。
-            while (hash[s.charAt(right)] == 1) {
-                hash[s.charAt(left++)] = 0;
+            while (hash[s.charAt(right)]) {
+                hash[s.charAt(left++)] = false;
             }
             // 此时左指针与右指针之间的字符都没有重复，计算最大长度，并缓存右指针指向的值。
             maxLen = Math.max(maxLen, right - left + 1);
-            hash[s.charAt(right++)] = 1;
+            hash[s.charAt(right++)] = true;
         }
 
 //        int left = 0, right = 0, maxLen = 0;
