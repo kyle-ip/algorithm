@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Random;
 
@@ -59,7 +60,7 @@ public class LeetCode973 {
      */
     public int[][] kClosest2(int[][] points, int K) {
         // 对距离按从小到大排列，返回前 K 个。
-        Arrays.sort(points, comparingInt(point -> (point[0] * point[0] + point[1] * point[1])));
+        Arrays.sort(points, Comparator.comparingInt(point -> (point[0] * point[0] + point[1] * point[1])));
         return Arrays.copyOfRange(points, 0, K);
     }
 
