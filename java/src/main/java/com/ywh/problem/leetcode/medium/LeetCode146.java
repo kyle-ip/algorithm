@@ -19,16 +19,21 @@ public class LeetCode146 {
         // 使用双向链表（移动节点 O(1)）和哈希表（get、put 操作 O(1)）存储。
         // 头节点存放下次 put 操作时被淘汰的元素，其 next 表示最近刚被使用的，prev 表示 LRU。
 
-        /**        +----------------------------------+
+        /**
+         *  prev: <-
+         *  next: ->
+         *
+         *         +----------------------------------+
          *         ↓                                  ↓
          *      [node0] <-> [node1] <-> [node2] <-> [node3]
          * （最近刚被使用的）                   （head，存放 LRU）
          */
         private DoublyListNode head;
+
         private final Map<Integer, DoublyListNode> map;
 
         /**
-         * 辅助方法，把节点移动到头节点。
+         * 辅助方法，把节点移动到头节点，表示最近刚被使用。
          *
          * @param cur
          */
@@ -69,7 +74,8 @@ public class LeetCode146 {
         }
 
         /**
-         * 获取元素
+         * 获取元素：
+         * 从哈希表中取出节点，并把该节点移动到链表头部，返回该节点的值。
          *
          * @param key
          * @return
@@ -91,16 +97,16 @@ public class LeetCode146 {
          */
         public void put(int key, int value) {
             DoublyListNode cur;
-            // 哈希表中已存在该 key，则更新节点的值，并移动到头部。
+            // 哈希表中已存在该 key，则取出该节点。
             if (map.containsKey(key)) {
                 cur = map.get(key);
             }
-            // 否则把节点插入头部，头节点移向上一个节点，即指向 LRU。
+            // 否则取头节点，并在哈希表中移除 key 对应的旧值。
             else {
                 cur = head;
-                // 先清理哈希表中的旧值。
                 map.remove(cur.key);
             }
+            // 设值，添加到哈希表，并移动到头部。
             cur.key = key;
             cur.val = value;
             map.put(key, cur);

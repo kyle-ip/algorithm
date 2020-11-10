@@ -98,8 +98,14 @@ public class LeetCode15 {
                     // 跳过重复值。
                     for (; left < right && nums[left] == nums[left + 1]; left++) ;
                     for (; left < right && nums[right] == nums[right - 1]; right--) ;
+
+                    // 1 2 [3] 3 4 5 5 6 [6]
+                    //         l       r
                     left++;
                     right--;
+
+                    // 1 2 3 3 4 5 5 6 6
+                    //         l   r
                 }
             }
 
