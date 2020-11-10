@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.easy;
 
-import com.ywh.model.TreeNode;
+import com.ywh.ds.tree.TreeNode;
 
 /**
  * 判断二叉树是否平衡

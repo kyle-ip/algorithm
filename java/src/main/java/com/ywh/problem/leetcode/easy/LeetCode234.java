@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.easy;
 
-import com.ywh.model.ListNode;
+import com.ywh.ds.list.ListNode;
 
 import java.util.Stack;
 

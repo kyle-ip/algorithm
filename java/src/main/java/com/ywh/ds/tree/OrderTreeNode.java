@@ -1,4 +1,4 @@
-package com.ywh.model;
+package com.ywh.ds.tree;
 
 /**
  * 二叉搜索树节点

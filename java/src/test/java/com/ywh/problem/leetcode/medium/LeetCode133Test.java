@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.medium;
 
-import com.ywh.model.UndirectedGraphNode;
+import com.ywh.ds.graph.UndirectedGraphNode;
 import com.ywh.util.AssertUtil;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;

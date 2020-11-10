@@ -1,4 +1,4 @@
-package com.ywh.model;
+package com.ywh.ds.trie;
 
 /**
  * 前缀树节点

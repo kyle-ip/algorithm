@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.medium;
 
-import com.ywh.model.TrieNode;
+import com.ywh.ds.trie.TrieNode;
 
 import java.util.*;
 

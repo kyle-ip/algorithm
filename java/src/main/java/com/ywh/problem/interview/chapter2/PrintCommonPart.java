@@ -1,6 +1,6 @@
 package com.ywh.problem.interview.chapter2;
 
-import com.ywh.model.ListNode;
+import com.ywh.ds.list.ListNode;
 
 /**
  * 打印两个有序链表的公共部分

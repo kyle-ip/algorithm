@@ -1,4 +1,4 @@
-package com.ywh.model;
+package com.ywh.ds.trie;
 
 /**
  * AC 自动机节点（Aho-Corasick）

@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.medium;
 
-import com.ywh.model.ListNode;
+import com.ywh.ds.list.ListNode;
 
 /**
  * 奇偶链表

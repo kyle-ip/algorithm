@@ -1,6 +1,6 @@
 package com.ywh.problem.interview.chapter2;
 
-import com.ywh.model.ListNode;
+import com.ywh.ds.list.ListNode;
 
 /**
  * 删除链表的中间节点和 a/b 处的节点

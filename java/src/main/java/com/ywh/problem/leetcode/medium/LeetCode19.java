@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.medium;
 
-import com.ywh.model.ListNode;
+import com.ywh.ds.list.ListNode;
 
 /**
  * 移除单链表倒数第 n 个节点

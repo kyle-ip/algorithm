@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.hard;
 
-import com.ywh.model.ListNode;
+import com.ywh.ds.list.ListNode;
 import com.ywh.util.LinkedListUtil;
 import com.ywh.util.StringUtil;
 import org.junit.jupiter.api.BeforeAll;

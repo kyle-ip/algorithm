@@ -1,7 +1,6 @@
 package com.ywh.problem.leetcode.medium;
 
-import com.ywh.model.ListNode;
-import com.ywh.model.TreeNode;
+import com.ywh.ds.tree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

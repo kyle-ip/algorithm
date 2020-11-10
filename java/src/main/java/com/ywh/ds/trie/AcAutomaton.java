@@ -1,6 +1,4 @@
-package com.ywh.ds;
-
-import com.ywh.model.AcNode;
+package com.ywh.ds.trie;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.medium;
 
-import com.ywh.model.TreeNode;
+import com.ywh.ds.tree.TreeNode;
 import com.ywh.problem.leetcode.easy.LeetCode100;
 import com.ywh.util.StringUtil;
 import org.junit.jupiter.api.BeforeAll;

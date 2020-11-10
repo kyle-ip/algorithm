@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.medium;
 
-import com.ywh.model.ListNode;
+import com.ywh.ds.list.ListNode;
 
 /**
  * 链表随机节点
@@ -13,7 +13,7 @@ public class LeetCode382 {
 
     private int count = 0;
 
-    private ListNode head;
+    private final ListNode head;
 
     public LeetCode382(ListNode head) {
         for (ListNode p = head; p != null; p = p.next) {

@@ -1,4 +1,4 @@
-package com.ywh.ds;
+package com.ywh.ds.stack;
 
 /**
  * 顺序栈
@@ -11,7 +11,7 @@ public class ArrayStack {
     /**
      * 数组
      */
-    private int[] array;
+    private final int[] array;
 
     /**
      * 元素个数（栈顶指针）
@@ -21,7 +21,7 @@ public class ArrayStack {
     /**
      * 栈大小
      */
-    private int n;
+    private final int n;
 
     public ArrayStack(int n) {
         this.array = new int[n];

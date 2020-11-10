@@ -1,4 +1,4 @@
-package com.ywh.ds;
+package com.ywh.ds.string;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -227,14 +227,14 @@ public class Strings {
            ========== 生成 next 数组 ==========
            next[i] 表示对于 p[0:i+1] 这段长度为 i + 1 的子串，使得“长度为 k 的前缀 = 长度为 k 的后缀”的 k 的最大值（小于子串长度）。
            （后面简称“长度为 i 的子串的前后缀最大值”，再简称“前后缀最大值”），比如对于 ababacd：
-                i   子串长度       子串       next[i]     最长前后缀
-                0      1      a                0            -
-                1      2      a b              0            -
-                2      3      a b a            1            a
-                3      4      a b a b          2           ab
-                4      5      a b a b a        3           aba
-                5      6      a b a b a c      0            -
-                6      7      a b a b a c d    0            -
+                i   子串长度       子串      next[i]     最长前后缀
+                0      1      a                 0            -
+                1      2      a b               0            -
+                2      3      a b a             1            a
+                3      4      a b a b           2           ab
+                4      5      a b a b a         3           aba
+                5      6      a b a b a c       0            -
+                6      7      a b a b a c d     0            -
         */
         int[] next = new int[p.length() + 1];
         // 其中 now 表示 next[i-1]，即长度为 i 的子串的后缀最大值。

@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.hard;
 
-import com.ywh.model.ListNode;
+import com.ywh.ds.list.ListNode;
 
 import java.util.PriorityQueue;
 import java.util.Queue;

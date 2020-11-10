@@ -1,7 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
-import com.ywh.model.ListNode;
-import com.ywh.model.TreeNode;
+import com.ywh.ds.list.ListNode;
+import com.ywh.ds.tree.TreeNode;
 
 /**
  * 有序链表转换二叉搜索树

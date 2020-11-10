@@ -1,7 +1,7 @@
 package com.ywh.problem.leetcode.easy;
 
 
-import com.ywh.model.TreeNode;
+import com.ywh.ds.tree.TreeNode;
 
 /**
  * 二叉搜索树中节点的最近公共祖先

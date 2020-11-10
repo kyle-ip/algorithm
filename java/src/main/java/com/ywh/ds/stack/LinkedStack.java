@@ -1,6 +1,6 @@
-package com.ywh.ds;
+package com.ywh.ds.stack;
 
-import com.ywh.model.ListNode;
+import com.ywh.ds.list.ListNode;
 
 /**
  * 链栈（头插法）

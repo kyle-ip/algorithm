@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.easy;
 
-import com.ywh.model.TreeNode;
+import com.ywh.ds.tree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

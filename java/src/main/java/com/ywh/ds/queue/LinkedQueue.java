@@ -1,6 +1,6 @@
-package com.ywh.ds;
+package com.ywh.ds.queue;
 
-import com.ywh.model.ListNode;
+import com.ywh.ds.list.ListNode;
 
 /**
  * 链队列（头插法）

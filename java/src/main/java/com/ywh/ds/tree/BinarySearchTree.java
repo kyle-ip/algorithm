@@ -1,6 +1,5 @@
-package com.ywh.ds;
+package com.ywh.ds.tree;
 
-import com.ywh.model.TreeNode;
 import lombok.Data;
 
 /**

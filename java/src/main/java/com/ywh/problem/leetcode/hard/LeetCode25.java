@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.hard;
 
-import com.ywh.model.ListNode;
+import com.ywh.ds.list.ListNode;
 
 /**
  * K 个一组翻转链表

@@ -1,4 +1,4 @@
-package com.ywh.ds;
+package com.ywh.ds.heap;
 
 /**
  * 最大堆
@@ -11,12 +11,12 @@ public class MaxHeap {
     /**
      * 数组（从 1 开始使用）
      */
-    private int[] a;
+    private final int[] a;
 
     /**
      * 堆大小
      */
-    private int size;
+    private final int size;
 
     /**
      * 堆当前元素个数

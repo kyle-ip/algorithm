@@ -1,6 +1,6 @@
 package com.ywh.util;
 
-import com.ywh.model.ListNode;
+import com.ywh.ds.list.ListNode;
 
 import java.util.HashSet;
 import java.util.Set;

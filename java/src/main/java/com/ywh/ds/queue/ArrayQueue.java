@@ -1,4 +1,4 @@
-package com.ywh.ds;
+package com.ywh.ds.queue;
 
 /**
  * 顺序队列
@@ -10,7 +10,7 @@ public class ArrayQueue {
 
     private int head, tail;
 
-    private int[] array;
+    private final int[] array;
 
     int count;
 

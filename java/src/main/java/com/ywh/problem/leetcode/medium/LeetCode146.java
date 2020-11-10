@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.medium;
 
-import com.ywh.model.DoublyListNode;
+import com.ywh.ds.list.DoublyListNode;
 
 import java.util.HashMap;
 import java.util.Map;

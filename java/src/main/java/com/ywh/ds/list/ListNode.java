@@ -1,4 +1,4 @@
-package com.ywh.model;
+package com.ywh.ds.list;
 
 import java.util.Objects;
 

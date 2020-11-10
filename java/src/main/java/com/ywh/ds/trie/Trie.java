@@ -1,6 +1,4 @@
-package com.ywh.ds;
-
-import com.ywh.model.TrieNode;
+package com.ywh.ds.trie;
 
 /**
  * 字典树
@@ -15,7 +13,7 @@ import com.ywh.model.TrieNode;
  */
 public class Trie {
 
-    private TrieNode root;
+    private final TrieNode root;
 
     public Trie() {
         this.root = new TrieNode();

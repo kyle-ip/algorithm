@@ -1,7 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
-import com.ywh.model.DoublyListNode;
-import com.ywh.model.TreeNode;
+import com.ywh.ds.list.DoublyListNode;
+import com.ywh.ds.tree.TreeNode;
 
 import java.util.Stack;
 

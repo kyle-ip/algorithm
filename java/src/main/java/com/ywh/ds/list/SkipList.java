@@ -1,6 +1,4 @@
-package com.ywh.ds;
-
-import com.ywh.model.SkipListNode;
+package com.ywh.ds.list;
 
 /**
  * 跳表

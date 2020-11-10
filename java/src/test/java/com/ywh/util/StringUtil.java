@@ -1,7 +1,7 @@
 package com.ywh.util;
 
 
-import com.ywh.model.TreeNode;
+import com.ywh.ds.tree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.Arrays;

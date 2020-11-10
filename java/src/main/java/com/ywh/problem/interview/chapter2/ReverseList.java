@@ -1,7 +1,7 @@
 package com.ywh.problem.interview.chapter2;
 
-import com.ywh.model.DoublyListNode;
-import com.ywh.model.ListNode;
+import com.ywh.ds.list.DoublyListNode;
+import com.ywh.ds.list.ListNode;
 
 /**
  * 反转单向和双向链表

@@ -1,7 +1,7 @@
 package com.ywh.problem.leetcode.easy;
 
-import com.ywh.model.OrderTreeNode;
-import com.ywh.model.TreeNode;
+import com.ywh.ds.tree.OrderTreeNode;
+import com.ywh.ds.tree.TreeNode;
 
 import java.util.Stack;
 

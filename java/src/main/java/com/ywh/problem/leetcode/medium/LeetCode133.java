@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.medium;
 
-import com.ywh.model.UndirectedGraphNode;
+import com.ywh.ds.graph.UndirectedGraphNode;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +17,7 @@ public class LeetCode133 {
     /**
      * 存储节点与复制节点的映射关系
      */
-    private Map<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
+    private final Map<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
 
     /**
      * 图的遍历：深度优先或广度优先；深度优先一般递归实现（栈），广度优先则使用队列实现，此处使用深度优先实现

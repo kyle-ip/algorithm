@@ -1,7 +1,7 @@
 package com.ywh.problem.interview.chapter2;
 
-import com.ywh.model.DoublyListNode;
-import com.ywh.model.ListNode;
+import com.ywh.ds.list.DoublyListNode;
+import com.ywh.ds.list.ListNode;
 
 /**
  * 在单链表和双链表中删除倒数第 k 个节点

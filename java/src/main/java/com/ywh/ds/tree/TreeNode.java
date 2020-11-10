@@ -1,4 +1,4 @@
-package com.ywh.model;
+package com.ywh.ds.tree;
 
 import lombok.Data;
 

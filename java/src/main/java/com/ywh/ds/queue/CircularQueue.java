@@ -1,6 +1,4 @@
-package com.ywh.ds;
-
-import java.util.Queue;
+package com.ywh.ds.queue;
 
 /**
  * 循环队列
@@ -15,9 +13,9 @@ import java.util.Queue;
  */
 public class CircularQueue {
 
-    private int[] array;
+    private final int[] array;
 
-    private int n;
+    private final int n;
 
     private int head = 0;
 

@@ -1,7 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
 
-import com.ywh.model.ListNode;
+import com.ywh.ds.list.ListNode;
 
 /**
  * 链表划分

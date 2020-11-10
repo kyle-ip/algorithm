@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.hard;
 
-import com.ywh.model.TreeNode;
+import com.ywh.ds.tree.TreeNode;
 
 /**
  * 二叉树的最大路径和

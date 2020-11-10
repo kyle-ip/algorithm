@@ -1,6 +1,6 @@
 package com.ywh.problem.interview.chapter2;
 
-import com.ywh.model.ListNode;
+import com.ywh.ds.list.ListNode;
 
 /**
  * 反转部分单向链表

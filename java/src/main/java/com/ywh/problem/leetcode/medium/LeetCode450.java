@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.medium;
 
-import com.ywh.model.TreeNode;
+import com.ywh.ds.tree.TreeNode;
 
 /**
  * 二叉搜索树中删除节点
