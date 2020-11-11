@@ -8,7 +8,7 @@ import com.ywh.ds.list.ListNode;
  * @author ywh
  * @since 2020/10/29/029
  */
-public class LinkedStack {
+public class LinkedStack implements Stack {
 
     private ListNode top;
 
@@ -25,6 +25,7 @@ public class LinkedStack {
      * @param val
      * @return
      */
+    @Override
     public void push(int val) {
         //            newNode
         //      栈顶    [ ] -> [ ]    栈底
@@ -44,6 +45,7 @@ public class LinkedStack {
      *
      * @return
      */
+    @Override
     public int pop() {
         if (top == null) {
             throw new RuntimeException();
@@ -61,6 +63,7 @@ public class LinkedStack {
      *
      * @return
      */
+    @Override
     public int size() {
         return count;
     }

@@ -2,81 +2,68 @@ package com.ywh.ds.graph;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
- * 邻接矩阵
+ * 邻接表
  *
- * space: O(V^2)
+ * space: O(V + E)
  */
-public class AdjMatrix {
+public class AdjListGraph implements Graph {
 
     private int V;
 
     private int E;
 
-    private int[][] adj;
-
-    public AdjMatrix(int[][] adj, int V, int E) {
-        this.adj = adj;
-        this.V = V;
-        this.E = E;
-    }
-
+    private LinkedList<Integer>[] adj;
 
     /**
      * 建图
      *
-     * Time: O(E)
-     *
-     * V E
-     * 7 9
-     * 0 1      0 -> 1
-     * 0 3      0 -> 3
-     * 1 2      ...
-     * 1 6
-     * 2 3
-     * 2 5
-     * 3 4
-     * 4 5
-     * 5 6
+     * Time: O(V * E)
      *
      * @param filename
      */
-    public AdjMatrix(String filename) {
+    public AdjListGraph(String filename) {
         File file = new File(filename);
         try (Scanner scanner = new Scanner(file)) {
             V = scanner.nextInt();
             if (V < 0) {
                 throw new IllegalArgumentException("V must be non-negative");
             }
-            adj = new int[V][V];
+            adj = new LinkedList[V];
+            for (int i = 0; i < V; i++) {
+                adj[i] = new LinkedList<>();
+            }
+
             E = scanner.nextInt();
             if (E < 0) {
                 throw new IllegalArgumentException("E must be non-negative");
             }
+
             for (int i = 0; i < E; i++) {
                 int a = scanner.nextInt();
                 validateVertex(a);
                 int b = scanner.nextInt();
                 validateVertex(b);
-                // 自环边
                 if (a == b) {
                     throw new IllegalArgumentException("Self Loop is Detected!");
                 }
-                // 平行边
-                if (adj[a][b] == 1) {
+                if (adj[a].contains(b)) {
                     throw new IllegalArgumentException("Parallel Edges are Detected!");
                 }
-                adj[a][b] = 1;
-                adj[b][a] = 1;
+                adj[a].add(b);
+                adj[b].add(a);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * @param v
+     */
     private void validateVertex(int v) {
         if (v < 0 || v >= V) {
             throw new IllegalArgumentException("vertex " + v + "is invalid");
@@ -94,35 +81,31 @@ public class AdjMatrix {
     /**
      * 两点是否相邻
      *
-     * Time: O(1)
+     * Time: O(degree(v))
      *
      * @param v
      * @param w
      * @return
      */
+    @Override
     public boolean hasEdge(int v, int w) {
         validateVertex(v);
         validateVertex(w);
-        return adj[v][w] == 1;
+        return adj[v].contains(w);
     }
 
     /**
-     * 求相邻节点
+     * 求相邻节点（相当于缓存了顶点的相邻节点，返回时需要遍历一遍）
      *
-     * Time: O(V)
+     * Time: O(degree(v))
      *
      * @param v
      * @return
      */
-    public ArrayList<Integer> adj(int v) {
+    @Override
+    public Iterable<Integer> adj(int v) {
         validateVertex(v);
-        ArrayList<Integer> res = new ArrayList<>();
-        for (int i = 0; i < V; i++) {
-            if (adj[v][i] == 1) {
-                res.add(i);
-            }
-        }
-        return res;
+        return adj[v];
     }
 
     /**
@@ -131,24 +114,31 @@ public class AdjMatrix {
      * @param v
      * @return
      */
+    @Override
     public int degree(int v) {
-        return adj(v).size();
+        return adj[v].size();
     }
 
+    /**
+     * @return
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("V = %d, E = %d\n", V, E));
-        for (int i = 0; i < V; i++) {
-            for (int j = 0; j < V; j++) {
-                sb.append(String.format("%d ", adj[i][j]));
+        for (int v = 0; v < V; v++) {
+            sb.append(String.format("%d : ", v));
+            for (int w : adj[v]) {
+                sb.append(String.format("%d ", w));
             }
             sb.append('\n');
         }
         return sb.toString();
     }
+
     public static void main(String[] args) {
-        AdjMatrix adjMatrix = new AdjMatrix("g.txt");
-        System.out.print(adjMatrix);
+
+        AdjListGraph adjListGraph = new AdjListGraph("g.txt");
+        System.out.print(adjListGraph);
     }
 }

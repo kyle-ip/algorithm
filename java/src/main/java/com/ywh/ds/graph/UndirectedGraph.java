@@ -1,173 +1,221 @@
-//package com.ywh.ds.graph;
-//
-//import java.util.Arrays;
-//import java.util.LinkedList;
-//import java.util.Queue;
-//
-///**
-// * 无向图
-// *
-// * @author ywh
-// * @since 2020/11/4/004z
-// */
-//public class UndirectedGraph {
-//
-//    /**
-//     * 顶点个数
-//     */
-//    private int v;
-//
-//    /**
-//     * 邻接表：链表数组
-//     *      [
-//     *          [ ] -> [ ] -> [ ] ... [ ],
-//     *          [ ] -> [ ],
-//     *          [ ],
-//     *      ]
-//     */
-//    private LinkedList<Integer>[] adj;
-//
-//    /**
-//     * 无向图初始化：共 v 个节点（默认用无符号整型表示）。
-//     * @param v
-//     */
-//    public UndirectedGraph(int v) {
-//        this.v = v;
-//        adj = new LinkedList[v];
-//        for (int i = 0; i < v; i++) {
-//            adj[i] = new LinkedList<>();
-//        }
-//    }
-//
-//    /**
-//     * 添加边到无向图：src -> dest，src -> dest。
-//     *
-//     * @param src
-//     * @param dest
-//     */
-//    public void addEdge(int src, int dest) {
-//        adj[src].add(dest);
-//        adj[dest].add(src);
-//    }
-//
-//    // 不论是何种搜索，在遍历过程中都需要记录：已访问节点（避免重复），访问路径（上一个节点）。
-//
-//    /**
-//     * 广度优先搜索：从 src 开始到 dest 结束，输出一条（最短）路径。
-//     * 使用队列实现逐层访问，每轮循环从队列取出一个节点，依次访问其所有邻接节点：如果已到达终点，则输出路径，否则添加到队尾。
-//     * 中间需要记录：已访问节点（避免重复访问），节点与上一个节点的映射关系（保存路径）。
-//     * 最坏情况下遍历整个图才能找到路径（每个顶点都要进出一遍队列、每条边都要被访问一次）。
-//     * 其中辅助存储的 visited、queue、prev 大小都不会超过顶点个数。
-//     *
-//     * Time: O(V+E)， Space: O(V)
-//     *
-//     * @param src
-//     * @param dest
-//     */
-//    public void bfs(int src, int dest) {
-//        if (src == dest) {
-//            return;
-//        }
-//        // 已访问的节点。
-//        boolean[] visited = new boolean[v];
-//        visited[src] = true;
-//
-//        // 队列，保存已被访问但邻接节点未被访问的节点。
-//        Queue<Integer> queue = new LinkedList<>();
-//        queue.add(src);
-//
-//        // 访问当前节点的上一个节点（记录路径）。
-//        int[] prev = new int[v];
-//        Arrays.fill(prev, -1);
-//        while (!queue.isEmpty()) {
-//            int cur = queue.poll();
-//
-//            // 遍历当前节点的邻接节点。
-//            for (int i = 0; i < adj[cur].size(); i++) {
-//                int neighbour = adj[cur].get(i);
-//
-//                // 如果当前邻居已经被访问过，跳过。
-//                if (visited[neighbour]) {
-//                    continue;
-//                }
-//
-//                // 记录从 cur 到达 neighbour，如果 neighbour 即为 dest，即输出完整路径。
-//                prev[neighbour] = cur;
-//                if (neighbour == dest) {
-//                    print(prev, src, dest);
-//                    return;
-//                }
-//                // 否则标记 neighbour 已被访问，添加到队尾。
-//                visited[neighbour] = true;
-//                queue.add(neighbour);
-//            }
-//        }
-//
-//    }
-//
-//    /**
-//     * 深度优先搜索：从 src 开始递归访问当前节点的邻接节点，直到找到 dest。
-//     *
-//     * 每条边最多被访问两次（遍历和回退）。
-//     * 消耗的内存主要是 visited、prev 数组和递归调用栈，其中前两者与顶点个数成正比、递归调用栈最大深度不会超过顶点个数。
-//     *
-//     * Time: O(E), Space: O(V)
-//     *
-//     * @param src
-//     * @param dest
-//     */
-//    public void dfs(int src, int dest) {
-//        boolean[] found = new boolean[]{false}, visited = new boolean[v];
-//        int[] prev = new int[v];
-//        Arrays.fill(prev, -1);
-//        recurDfs(src, dest, visited, prev, found);
-//        print(prev, src, dest);
-//    }
-//
-//    /**
-//     *
-//     * @param cur
-//     * @param dest
-//     * @param visited
-//     * @param prev
-//     * @param found
-//     */
-//    private void recurDfs(int cur, int dest, boolean[] visited, int[] prev, boolean[] found) {
-//        // if (found[0]) return;
-//
-//        // 标记当前就节点已被访问。如果已到达终点，则标记搜索结束，返回。
-//        visited[cur] = true;
-//        if (cur == dest) {
-//            found[0] = true;
-//            return;
-//        }
-//
-//        // 遍历当前节点的邻接节点，每轮循环取出一个判断是否已被访问，如未访问则递归访问该邻接节点。
-//        for (int i = 0; i < adj[cur].size(); i++) {
-//            int neighbour = adj[cur].get(i);
-//            if (visited[neighbour]) {
-//                continue;
-//            }
-//            prev[neighbour] = cur;
-//            recurDfs(neighbour, dest, visited, prev, found);
-//            // 如果已经找到路径，提前返回。
-//            if (found[0]) {
-//                return;
-//            }
-//        }
-//    }
-//
-//    /**
-//     * 递归打印 src -> dest 的路径。
-//     *
-//     * @param prev
-//     * @param src
-//     * @param dest
-//     */
-//    private void print(int[] prev, int src, int dest) {
-//        if (prev[dest] != -1 && dest != src) {
-//            print(prev, src, prev[dest]);
-//        }
-//        System.out.print(dest + " ");
-//    }
-//}
+package com.ywh.ds.graph;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Stack;
+import java.util.TreeSet;
+
+/**
+ * 图的邻接表实现（基于红黑树）
+ *
+ * @author ywh
+ * @since 10/11/2020
+ */
+public class UndirectedGraph implements Graph {
+    private int V;
+
+    private int E;
+
+    private TreeSet<Integer>[] adj;
+
+    /**
+     * 遍历标记
+     */
+    private boolean[] visited;
+
+    /**
+     * 遍历顺序
+     */
+    private ArrayList<Integer> order = new ArrayList<>();
+
+    /**
+     * 建图
+     *
+     * @param filename
+     */
+    public UndirectedGraph(String filename) {
+
+        File file = new File(filename);
+
+        try (Scanner scanner = new Scanner(file)) {
+
+            V = scanner.nextInt();
+            if (V < 0) {
+                throw new IllegalArgumentException("V must be non-negative");
+            }
+            adj = new TreeSet[V];
+            for (int i = 0; i < V; i++) {
+                adj[i] = new TreeSet<>();
+            }
+
+            E = scanner.nextInt();
+            if (E < 0) {
+                throw new IllegalArgumentException("E must be non-negative");
+            }
+
+            for (int i = 0; i < E; i++) {
+                int a = scanner.nextInt();
+                validateVertex(a);
+                int b = scanner.nextInt();
+                validateVertex(b);
+
+                if (a == b) {
+                    throw new IllegalArgumentException("Self Loop is Detected!");
+                }
+                if (adj[a].contains(b)) {
+                    throw new IllegalArgumentException("Parallel Edges are Detected!");
+                }
+
+                adj[a].add(b);
+                adj[b].add(a);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        visited = new boolean[V];
+    }
+
+    private void validateVertex(int v) {
+        if (v < 0 || v >= V) {
+            throw new IllegalArgumentException("vertex " + v + "is invalid");
+        }
+    }
+
+    @Override
+    public int V() {
+        return V;
+    }
+
+    @Override
+    public int E() {
+        return E;
+    }
+
+    /**
+     * 两点是否相邻
+     *
+     * @param v
+     * @param w
+     * @return
+     */
+    @Override
+    public boolean hasEdge(int v, int w) {
+        validateVertex(v);
+        validateVertex(w);
+        return adj[v].contains(w);
+    }
+
+    /**
+     * 求相邻节点
+     *
+     * @param v
+     * @return
+     */
+    @Override
+    public Iterable<Integer> adj(int v) {
+        validateVertex(v);
+        return adj[v];
+    }
+
+    /**
+     * 度数
+     *
+     * @param v
+     * @return
+     */
+    @Override
+    public int degree(int v) {
+        validateVertex(v);
+        return adj[v].size();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(String.format("V = %d, E = %d\n", V, E));
+        for (int v = 0; v < V; v++) {
+            sb.append(String.format("%d : ", v));
+            for (int w : adj[v]) {
+                sb.append(String.format("%d ", w));
+            }
+            sb.append('\n');
+        }
+        return sb.toString();
+    }
+
+    /**
+     * 深度优先遍历（迭代解法）
+     */
+    private void dfsIterative() {
+        for (int v = 0; v < V; v++) {
+            if (visited[v]) {
+                continue;
+            }
+            Stack<Integer> stack = new Stack<>();
+            stack.push(v);
+            visited[v] = true;
+            while (!stack.empty()) {
+                int cur = stack.pop();
+                order.add(cur);
+                for (int w : adj[v]) {
+                    if (!visited[w]) {
+                        stack.push(w);
+                        visited[w] = true;
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * 深度优先遍历（递归解法）
+     */
+    private void dfsRecursive() {
+        for (int v = 0; v < V; v++) {
+            if (!visited[v]) {
+                dfs(v);
+            }
+        }
+    }
+
+    /**
+     * 深度优先遍历（从某点开始访问整个联通分量）
+     * 可用于求解以下问题：
+     *      求图的联通分量
+     *      求两点间时否可达
+     *      求两点间的一条路径
+     *      判断图中是否有环
+     * 应用：
+     *      二分图检测
+     *
+     * Time: O(V + E)
+     *
+     * @param v
+     */
+    private void dfs(int v) {
+        visited[v] = true;
+
+        // 先序
+        order.add(v);
+
+        // 依次取出该点的所有未被访问过的邻接节点，递归遍历。
+        for (int w : adj(v)) {
+            if (!visited[w]) {
+                dfs(w);
+            }
+        }
+        // 后序
+        // order.add(v);
+    }
+
+    public static void main(String[] args) {
+        UndirectedGraph g = new UndirectedGraph("g.txt");
+        System.out.print(g);
+        g.dfsRecursive();
+        System.out.println(g.order);
+    }
+
+}

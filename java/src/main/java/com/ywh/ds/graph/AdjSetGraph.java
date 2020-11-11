@@ -2,38 +2,38 @@ package com.ywh.ds.graph;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Scanner;
-import java.util.TreeSet;
 
 /**
- * 邻接集合（红黑树，可保持节点顺序，且比哈希表节省空间）
+ * 邻接集合
  * 哈希表：Time: O(1)
- * 红黑树：Time: O(log(V))
+ * 红黑树：Time: O(log(V))（优势是可保持节点顺序，且比哈希表节省空间）
  *
  * 实现快速查重、快速查看两点是否相邻。
  */
-public class AdjSet {
+public class AdjSetGraph {
 
     private int V;
 
     private int E;
 
-    private TreeSet<Integer>[] adj;
+    private HashSet<Integer>[] adj;
 
     /**
      *
      * @param pathStr
      */
-    public AdjSet(String pathStr) {
+    public AdjSetGraph(String pathStr) {
         File file = new File(pathStr);
         try (Scanner scanner = new Scanner(file)) {
             V = scanner.nextInt();
             if (V < 0) {
                 throw new IllegalArgumentException("V must be non-negative");
             }
-            adj = new TreeSet[V];
+            adj = new HashSet[V];
             for (int i = 0; i < V; i++) {
-                adj[i] = new TreeSet<>();
+                adj[i] = new HashSet<>();
             }
             E = scanner.nextInt();
             if (E < 0) {
@@ -124,7 +124,7 @@ public class AdjSet {
 
     public static void main(String[] args) {
 
-        AdjSet adjSet = new AdjSet("g.txt");
-        System.out.print(adjSet);
+        AdjSetGraph adjSetGraph = new AdjSetGraph("g.txt");
+        System.out.print(adjSetGraph);
     }
 }

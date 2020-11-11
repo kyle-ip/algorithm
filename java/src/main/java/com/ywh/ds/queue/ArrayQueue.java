@@ -6,7 +6,7 @@ package com.ywh.ds.queue;
  * @author ywh
  * @since 2020/10/29/029
  */
-public class ArrayQueue {
+public class ArrayQueue implements Queue {
 
     private int head, tail;
 
@@ -24,17 +24,24 @@ public class ArrayQueue {
         this.n = n;
     }
 
-    public void push(int val) {
+    @Override
+    public void enqueue(int val) {
         if (count == n) {
             throw new RuntimeException();
         }
         array[tail++] = val;
     }
 
-    public int pop() {
+    @Override
+    public int dequeue() {
         if (head == tail) {
             throw new RuntimeException();
         }
         return array[head++];
+    }
+
+    @Override
+    public int size() {
+        return n;
     }
 }

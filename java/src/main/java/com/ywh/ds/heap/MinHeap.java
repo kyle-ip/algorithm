@@ -1,12 +1,13 @@
 package com.ywh.ds.heap;
 
 /**
- * 最大堆
+ * 最小堆
  *
  * @author ywh
- * @since 2020/11/2/002
+ * @since 2020/11/11/011
  */
-public class MaxHeap {
+public class MinHeap {
+
 
     /**
      * 数组（从 1 开始使用）
@@ -23,10 +24,10 @@ public class MaxHeap {
      */
     private int count;
 
-    public MaxHeap(int size) {
-        this.a = new int[size + 1];
+    public MinHeap(int size) {
         this.size = size;
         this.count = 0;
+        this.a = new int[size + 1];
     }
 
     /**
@@ -38,11 +39,8 @@ public class MaxHeap {
         if (count >= size) {
             throw new RuntimeException();
         }
-        // 把新增元素插入堆最后。
         a[++count] = val;
-
-        // 自底向上交换元素，直到满足大小关系。
-        for (int i = count; i / 2 > 0 && a[i] > a[i / 2]; i /= 2) {
+        for (int i = count; i / 2 > 0 && a[i] < a[i / 2] ; i /= 2) {
             swap(i, i / 2);
         }
     }
@@ -54,10 +52,7 @@ public class MaxHeap {
         if (count == 0) {
             throw new RuntimeException();
         }
-        // 把堆尾元素覆盖到堆顶，然后堆元素个数 -1。
         a[1] = a[count--];
-
-        // 自顶向下交换元素，直到满足大小关系。
         heapify(count, 1);
     }
 
@@ -81,19 +76,18 @@ public class MaxHeap {
      */
     private void heapify(int n, int i) {
         while (true) {
-            int maxPos = i;
-            if (i * 2 <= n && a[i] < a[i * 2]) {
-                maxPos = i * 2;
+            int minPos = i;
+            if (i * 2 <= n && a[i] > a[i * 2]) {
+                minPos = i * 2;
             }
-            if (i * 2 + 1 <= n && a[maxPos] < a[i * 2 + 1]){
-                maxPos = i * 2 + 1;
+            if (i * 2 + 1 <= n && a[i] > a[i * 2 + 1]) {
+                minPos = i * 2 + 1;
             }
-            // 没有发生交换，已达到稳定状态，返回。
-            if (maxPos == i) {
+            if (minPos == i) {
                 return;
             }
-            swap(i, maxPos);
-            i = maxPos;
+            swap(i, minPos);
+            i = minPos;
         }
     }
 
@@ -108,5 +102,4 @@ public class MaxHeap {
         a[x] = a[y];
         a[y] = tmp;
     }
-
 }

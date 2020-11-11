@@ -8,7 +8,7 @@ import com.ywh.ds.list.ListNode;
  * @author ywh
  * @since 2020/10/29/029
  */
-public class LinkedQueue {
+public class LinkedQueue implements Queue {
 
     private ListNode tail, head;
 
@@ -20,7 +20,8 @@ public class LinkedQueue {
         n = 0;
     }
 
-    public void add(int val) {
+    @Override
+    public void enqueue(int val) {
         ListNode newNode = new ListNode(val);
 
         //   [val]            [ ] -> [val]
@@ -36,7 +37,8 @@ public class LinkedQueue {
         n++;
     }
 
-    public int poll() {
+    @Override
+    public int dequeue() {
         if (head == null) {
             throw new RuntimeException();
         }
@@ -51,6 +53,7 @@ public class LinkedQueue {
         return val;
     }
 
+    @Override
     public int size() {
         return n;
     }

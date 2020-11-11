@@ -9,13 +9,13 @@ import java.util.List;
  * @author ywh
  * @since 27/11/2019
  */
-public class UndirectedGraphNode {
+public class UGN {
 
     public int val;
 
-    public List<UndirectedGraphNode> neighbors;
+    public List<UGN> neighbors;
 
-    public UndirectedGraphNode(int x) {
+    public UGN(int x) {
         val = x;
         neighbors = new LinkedList<>();
     }

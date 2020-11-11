@@ -6,7 +6,7 @@ package com.ywh.ds.stack;
  * @author ywh
  * @since 2020/10/29/029
  */
-public class ArrayStack {
+public class ArrayStack implements Stack {
 
     /**
      * 数组
@@ -33,8 +33,8 @@ public class ArrayStack {
      * 入栈
      *
      * @param val
-     * @return
      */
+    @Override
     public void push(int val) {
         // 数组空间不足，直接返回。
         if (count == n) {
@@ -49,6 +49,7 @@ public class ArrayStack {
      *
      * @return
      */
+    @Override
     public int pop() {
         if (count == 0) {
             throw new RuntimeException();
@@ -60,6 +61,7 @@ public class ArrayStack {
      *
      * @return
      */
+    @Override
     public int size() {
         return count;
     }
