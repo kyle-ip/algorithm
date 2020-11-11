@@ -152,6 +152,55 @@ public class AdjMatrixGraph implements Graph {
         }
         return sb.toString();
     }
+
+    /**
+     * 深度优先遍历（递归解法）
+     */
+    public void dfsRecursive() {
+        boolean[] visited = new boolean[V];
+        ArrayList<Integer> order = new ArrayList<>();
+        for (int v = 0; v < V; v++) {
+            if (!visited[v]) {
+                dfs(v, visited, order);
+                // 此处可统计联通分量。
+            }
+        }
+        System.out.println(order);
+    }
+
+    /**
+     * 深度优先遍历（从某点开始访问整个联通分量）
+     * 可用于求解以下问题：
+     *      求图的联通分量
+     *      求两点间时否可达
+     *      求两点间的一条路径
+     *      判断图中是否有环
+     * 应用：
+     *      二分图检测
+     *      寻找图中的割点
+     *      哈密尔顿路径
+     *      拓扑排序
+     *
+     * Time: O(V + E)
+     *
+     * @param v
+     */
+    private void dfs(int v, boolean[] visited, ArrayList<Integer> order) {
+        visited[v] = true;
+
+        // 先序
+        order.add(v);
+
+        // 依次取出该点的所有未被访问过的邻接节点，递归遍历。
+        for (int w : adj(v)) {
+            if (!visited[w]) {
+                dfs(w, visited, order);
+            }
+        }
+        // 后序
+        // order.add(v);
+    }
+
     public static void main(String[] args) {
         AdjMatrixGraph adjMatrix = new AdjMatrixGraph("g.txt");
         System.out.print(adjMatrix);

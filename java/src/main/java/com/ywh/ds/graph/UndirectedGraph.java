@@ -176,6 +176,10 @@ public class UndirectedGraph implements Graph {
      *      判断图中是否有环
      * 应用：
      *      二分图检测
+     *      寻找图中的割点
+     *      哈密尔顿路径
+     *      拓扑排序
+     *      ...
      *
      * Time: O(V + E)
      *
@@ -191,7 +195,6 @@ public class UndirectedGraph implements Graph {
         for (int w : adj(v)) {
             if (!visited[w]) {
                 dfs(w, visited, order);
-
             }
         }
         // 后序
@@ -245,7 +248,7 @@ public class UndirectedGraph implements Graph {
         boolean[] visited = new boolean[V], found = new boolean[1];
         int[] path = new int[V];
         Arrays.fill(path, -1);
-        sspDfs(src, dest, visited, found, path);
+        genPath(src, dest, visited, found, path);
         List<Integer> ret = new ArrayList<>();
         collect(path, src, dest, ret);
         return ret;
@@ -258,7 +261,7 @@ public class UndirectedGraph implements Graph {
      * @param visited
      * @param found
      */
-    private void sspDfs(int src, int dest, boolean[] visited, boolean[] found, int[] path) {
+    private void genPath(int src, int dest, boolean[] visited, boolean[] found, int[] path) {
         visited[src] = true;
         if (src == dest) {
             found[0] = true;
@@ -271,7 +274,7 @@ public class UndirectedGraph implements Graph {
 
             // 求某邻接节点时保存其与上一个节点的对应关系。
             path[w] = src;
-            sspDfs(w, dest, visited, found, path);
+            genPath(w, dest, visited, found, path);
             if (found[0]) {
                 return;
             }
@@ -292,10 +295,99 @@ public class UndirectedGraph implements Graph {
         ret.add(dest);
     }
 
+    /**
+     * 判断图中是否有环
+     * 成环的条件：出现已访问节点，且该节点不是上一个节点。
+     *
+     * @return
+     */
+    public boolean hasCycle() {
+        boolean[] visited = new boolean[V];
+        boolean hasCycle = false;
+        for (int v = 0; v < V; v++) {
+            if (visited[v]) {
+                continue;
+            }
+            if (cycleDetection(v, v, visited)) {
+                hasCycle = true;
+                break;
+            }
+        }
+        return hasCycle;
+    }
+
+    /**
+     *
+     * @param v
+     * @param prev
+     * @param visited
+     * @return
+     */
+    private boolean cycleDetection(int v, int prev, boolean[] visited) {
+        visited[v] = true;
+
+        // 遍历所有邻接节点 w。
+        for (int w : adj(v)) {
+            // w 未被访问：递归判断 w，判断成功则返回到上层。
+            if (!visited[w]) {
+                if (cycleDetection(w, v, visited)) {
+                    return true;
+                }
+            }
+            // w 已被访问，且 w 不是 v 的上一个节点。
+            else if (w != prev) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 判断图是否为二分图
+     *
+     * @return
+     */
+    private boolean isBipartiteGraph() {
+        int[]  visited = new int[V];
+        boolean isBipartite = true;
+        for (int v = 0; v < V; v++) {
+            if (visited[v] == 0) {
+                if (!bipartiteDetection(v, 1, visited)) {
+                    isBipartite = false;
+                    break;
+                }
+            }
+        }
+        for (int i : visited) {
+            System.out.println(i);
+        }
+        return isBipartite;
+    }
+
+    private boolean bipartiteDetection(int v, int color, int[] visited) {
+        // 给当前访问的 v 涂色。
+        visited[v] = color;
+
+        // 遍历所有邻接节点 w。
+        for (int w : adj(v)) {
+            // 如果 w 未被涂色，则递归判断 w，判断出现矛盾直接返回 false。
+            if (visited[w] == 0) {
+                if (!bipartiteDetection(w, -color, visited)) {
+                    return false;
+                }
+            }
+            // 如果 w 已被涂色，且颜色与 v 相同，返回 false。
+            else if (visited[w] == visited[v]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
-        UndirectedGraph g = new UndirectedGraph("g.txt");
+        UndirectedGraph g = new UndirectedGraph("t.txt");
         System.out.print(g);
-        System.out.println(g.singleSourcePath(0, 6));
+        System.out.println(g.isBipartiteGraph());
     }
 
 }
