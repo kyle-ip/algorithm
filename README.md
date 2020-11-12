@@ -11,7 +11,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
-## LeetCode (257)
+## LeetCode (258)
 
 | Tags          |                  |                     |                    |
 | ------------- | ---------------- | ------------------- | ------------------ |
@@ -271,6 +271,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 746  | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs) | 爬楼梯的最小代价                   | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode746.java) [Python](python/src/problem/leetcode/easy/leetcode_746.py) | Easy       | Array<br />Dynamic Programming                            |
 | 754  | [Reach a Number](https://leetcode.com/problems/reach-a-number) | 到达终点数字                       | Time: O(1)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode754.java) | Medium     | Math                                                   |
 | 771  | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | 石头中的珠宝数量                   | Time: O(m+n)<br />Space: O(k) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode771.java) [Python](python/src/problem/leetcode/easy/leetcode_771.py) | Easy       | Hash Table                                             |
+| 785  | [Is Graph Bipartite](https://leetcode-cn.com/problems/is-graph-bipartite/) | 判断二分图 | Time: O(V+E)<br />Space: O(V) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode785.java) | Medium | Graph<br />DFS<br />BFS |
 | 796  | [Rotate String](https://leetcode.com/problems/rotate-string/) | 旋转字符串 | Time: O(n^2)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode796.java) | Easy | String<br />Two Pointers |
 | 820  | [Short Encoding Of Words](https://leetcode.com/problems/short-encoding-of-words/) | 单词的压缩编码 | Time: O(∑wi)<br />Space: O(S\*∑wi) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode820.java) | Medium | Trie<br />Hash Table |
 | 876  | [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list) | 单链表中间节点                     | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode876.java) [Python](python/src/problem/leetcode/easy/leetcode_876.py) | Easy       | Linked List                                            |
