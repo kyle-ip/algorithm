@@ -1,6 +1,6 @@
 package com.ywh.problem.leetcode.medium;
 
-import java.util.*;
+import java.util.LinkedList;
 
 /**
  * 简化路径

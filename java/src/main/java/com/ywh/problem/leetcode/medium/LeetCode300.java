@@ -1,9 +1,5 @@
 package com.ywh.problem.leetcode.medium;
 
-import com.ywh.problem.leetcode.easy.LeetCode35;
-
-import java.util.Arrays;
-
 /**
  * 最长递增子序列的长度
  * [二分搜索] [动态规划]

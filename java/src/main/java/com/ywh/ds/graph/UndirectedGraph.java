@@ -239,18 +239,18 @@ public class UndirectedGraph implements Graph {
     }
 
     /**
-     * 判断两点间是否联通，求单源路径。
+     * 判断两点间是否联通，并求单源路径。
      *
      * @param src
      * @param dest
      */
-    public List<Integer> singleSourcePath(int src, int dest) {
+    public List<Integer> singleSourcePathDfs(int src, int dest) {
         boolean[] visited = new boolean[V], found = new boolean[1];
-        int[] path = new int[V];
-        Arrays.fill(path, -1);
-        genPath(src, dest, visited, found, path);
+        int[] prev = new int[V];
+        Arrays.fill(prev, -1);
+        genPathDfs(src, dest, visited, found, prev);
         List<Integer> ret = new ArrayList<>();
-        collect(path, src, dest, ret);
+        collect(prev, src, dest, ret);
         return ret;
     }
 
@@ -261,7 +261,7 @@ public class UndirectedGraph implements Graph {
      * @param visited
      * @param found
      */
-    private void genPath(int src, int dest, boolean[] visited, boolean[] found, int[] path) {
+    private void genPathDfs(int src, int dest, boolean[] visited, boolean[] found, int[] prev) {
         visited[src] = true;
         if (src == dest) {
             found[0] = true;
@@ -273,8 +273,8 @@ public class UndirectedGraph implements Graph {
             }
 
             // 求某邻接节点时保存其与上一个节点的对应关系。
-            path[w] = src;
-            genPath(w, dest, visited, found, path);
+            prev[w] = src;
+            genPathDfs(w, dest, visited, found, prev);
             if (found[0]) {
                 return;
             }
@@ -284,13 +284,13 @@ public class UndirectedGraph implements Graph {
     /**
      * 递归处理 src -> dest 的路径。
      *
-     * @param path
+     * @param prev
      * @param src
      * @param dest
      */
-    private void collect(int[] path, int src, int dest, List<Integer> ret) {
-        if (path[dest] != -1 && dest != src) {
-            collect(path, src, path[dest], ret);
+    private void collect(int[] prev, int src, int dest, List<Integer> ret) {
+        if (prev[dest] != -1 && dest != src) {
+            collect(prev, src, prev[dest], ret);
         }
         ret.add(dest);
     }
@@ -364,6 +364,13 @@ public class UndirectedGraph implements Graph {
         return isBipartite;
     }
 
+    /**
+     *
+     * @param v
+     * @param color
+     * @param visited
+     * @return
+     */
     private boolean bipartiteDetection(int v, int color, int[] visited) {
         // 给当前访问的 v 涂色。
         visited[v] = color;
@@ -384,10 +391,111 @@ public class UndirectedGraph implements Graph {
         return true;
     }
 
+    /**
+     * 广度优先遍历
+     */
+    public List<Integer> bfs() {
+        boolean[] visited = new boolean[V];
+        Queue<Integer> queue = new LinkedList<>();
+        List<Integer> order = new ArrayList<>();
+
+        // 遍历所有节点，添加到队列中。
+        for (int i = 0; i < V; i++) {
+            queue.add(i);
+            // 队列为空，表示一个联通分量遍历完成。
+            while (!queue.isEmpty()) {
+                // 从队列中取出一个节点 v，添加到结果数组。
+                int v = queue.poll();
+                order.add(v);
+                // 遍历所有邻接节点 w，如果 w 未被访问则添加到队列中，并标记为已访问。
+                for (int w : adj(v)) {
+                    if (!visited[w]) {
+                        queue.add(w);
+                        visited[w] = true;
+                    }
+                }
+            }
+        }
+        return order;
+    }
+
+    /**
+     * 判断两点间是否联通，并求单源路径。
+     *
+     * @param src
+     * @param dest
+     */
+    public List<Integer> singleSourcePathBfs(int src, int dest) {
+        if (src == dest) {
+            return Collections.singletonList(src);
+        }
+        boolean[] visited = new boolean[V];
+        visited[src] = true;
+        ArrayList<Integer> ret = new ArrayList<>();
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(src);
+        int[] prev = new int[V];
+        Arrays.fill(prev, -1);
+        while (!queue.isEmpty()) {
+            int v = queue.poll();
+            for (int w : adj(v)) {
+                if (visited[w]) {
+                    continue;
+                }
+                prev[w] = v;
+                if (w == dest) {
+                    collect(prev, src, dest, ret);
+                    return ret;
+                }
+                visited[w] = true;
+                queue.add(w);
+            }
+        }
+        return ret;
+    }
+
+    /**
+     * 判断两点间是否联通，并求单源路径。
+     *
+     * @param src
+     * @param dest
+     */
+    public List<Integer> singleSourcePathBfs2(int src, int dest) {
+        boolean[] visited = new boolean[V];
+        visited[src] = true;
+        ArrayList<Integer> ret = new ArrayList<>();
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(src);
+        int[] prev = new int[V];
+        Arrays.fill(prev, -1);
+        prev[src] = src;
+        while (!queue.isEmpty()) {
+            int v = queue.poll();
+            for (int w : adj(v)) {
+                if (!visited[w]) {
+                    queue.add(w);
+                    visited[w] = true;
+                    prev[w] = v;
+                }
+            }
+        }
+        if (!visited[dest]) {
+            return ret;
+        }
+        int cur = dest;
+        while (cur != src) {
+            ret.add(cur);
+            cur = prev[cur];
+        }
+        ret.add(src);
+        Collections.reverse(ret);
+        return ret;
+    }
+
     public static void main(String[] args) {
-        UndirectedGraph g = new UndirectedGraph("t.txt");
+        UndirectedGraph g = new UndirectedGraph("G:\\demo\\algorithm\\java\\src\\main\\java\\com\\ywh\\ds\\graph\\g.txt");
         System.out.print(g);
-        System.out.println(g.isBipartiteGraph());
+        System.out.println(g.singleSourcePathBfs(0, 6));
     }
 
 }

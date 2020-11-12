@@ -5,8 +5,6 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Random;
 
-import static java.util.Comparator.comparingInt;
-
 /**
  * 最接近原点的 K 个点
  * [堆] [排序] [分治]
