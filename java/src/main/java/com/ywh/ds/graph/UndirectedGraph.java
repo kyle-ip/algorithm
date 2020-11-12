@@ -129,7 +129,7 @@ public class UndirectedGraph implements Graph {
     // 相关问题：
     // 树遍历：144、94、145、102、589、590、429
     // 图遍历：185、886、547、695
-    // Flood Fill 算法：
+    // Flood Fill 算法：200、1020、130、733、1034、529、827
 
     // ========== DFS ==========
 
@@ -149,7 +149,7 @@ public class UndirectedGraph implements Graph {
             while (!stack.empty()) {
                 int cur = stack.pop();
                 order.add(cur);
-                for (int w : adj[v]) {
+                for (int w : adj[cur]) {
                     if (!visited[w]) {
                         stack.push(w);
                         visited[w] = true;
@@ -690,9 +690,12 @@ public class UndirectedGraph implements Graph {
     }
 
     public static void main(String[] args) {
-        UndirectedGraph g = new UndirectedGraph("G:\\demo\\algorithm\\java\\src\\main\\java\\com\\ywh\\ds\\graph\\g.txt");
-        System.out.print(g);
-        System.out.println(g.shortestPath(0, 6));
+        UndirectedGraph g = new UndirectedGraph("C:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh" +
+            "\\ds\\graph\\g.txt");
+//        System.out.print(g);
+//        System.out.println(g.shortestPath(0, 6));
+        g.dfsRecursive();
+        g.dfsIterative();
     }
 
 }
