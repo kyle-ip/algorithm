@@ -125,6 +125,8 @@ public class UndirectedGraph implements Graph {
         return sb.toString();
     }
 
+    // ========== DFS ==========
+
     /**
      * 深度优先遍历（迭代解法）
      */
@@ -206,7 +208,7 @@ public class UndirectedGraph implements Graph {
      *
      * @return
      */
-    public Map<Integer, Integer> connectedComponents() {
+    public Map<Integer, Integer> connectedComponentsDfs() {
         // 以顶点为下标，联通分量编号为值的访问数组
         int [] visited = new int[V];
         int cccount = 0;
@@ -244,7 +246,7 @@ public class UndirectedGraph implements Graph {
      * @param src
      * @param dest
      */
-    public List<Integer> singleSourcePathDfs(int src, int dest) {
+    public Iterable<Integer> singleSourcePathDfs(int src, int dest) {
         boolean[] visited = new boolean[V], found = new boolean[1];
         int[] prev = new int[V];
         Arrays.fill(prev, -1);
@@ -301,7 +303,7 @@ public class UndirectedGraph implements Graph {
      *
      * @return
      */
-    public boolean hasCycle() {
+    public boolean hasCycleDfs() {
         boolean[] visited = new boolean[V];
         boolean hasCycle = false;
         for (int v = 0; v < V; v++) {
@@ -343,11 +345,11 @@ public class UndirectedGraph implements Graph {
     }
 
     /**
-     * 判断图是否为二分图
+     * 判断是否为二分图
      *
      * @return
      */
-    private boolean isBipartiteGraph() {
+    private boolean isBipartiteGraphDfs() {
         int[]  visited = new int[V];
         boolean isBipartite = true;
         for (int v = 0; v < V; v++) {
@@ -391,10 +393,12 @@ public class UndirectedGraph implements Graph {
         return true;
     }
 
+    // ========== BFS ==========
+
     /**
      * 广度优先遍历
      */
-    public List<Integer> bfs() {
+    public Iterable<Integer> bfs() {
         boolean[] visited = new boolean[V];
         Queue<Integer> queue = new LinkedList<>();
         List<Integer> order = new ArrayList<>();
@@ -425,7 +429,10 @@ public class UndirectedGraph implements Graph {
      * @param src
      * @param dest
      */
-    public List<Integer> singleSourcePathBfs(int src, int dest) {
+    public Iterable<Integer> singleSourcePathBfs(int src, int dest) {
+        if (src > V || dest > V) {
+            return Collections.emptyList();
+        }
         if (src == dest) {
             return Collections.singletonList(src);
         }
@@ -460,7 +467,10 @@ public class UndirectedGraph implements Graph {
      * @param src
      * @param dest
      */
-    public List<Integer> singleSourcePathBfs2(int src, int dest) {
+    public Iterable<Integer> singleSourcePathBfs2(int src, int dest) {
+        if (src > V || dest > V) {
+            return Collections.emptyList();
+        }
         boolean[] visited = new boolean[V];
         visited[src] = true;
         ArrayList<Integer> ret = new ArrayList<>();
@@ -492,10 +502,191 @@ public class UndirectedGraph implements Graph {
         return ret;
     }
 
+    /**
+     * 所有点对路径
+     *
+     * @param dest
+     * @return
+     */
+    private Map<Integer, Iterable<Integer>> allPairsPath(int dest) {
+        // 逐个点求到达 dest 的单源路径。
+        Map<Integer, Iterable<Integer>> paths = new HashMap<>();
+        for (int v = 0; v < V; v++) {
+            paths.put(v, singleSourcePathBfs(v, dest));
+        }
+        return paths;
+    }
+
+    /**
+     * 判断两点间是否可达
+     *
+     * @param src
+     * @param dest
+     * @return
+     */
+    private boolean isConnected(int src, int dest) {
+        List<Integer> ret = (List<Integer>)singleSourcePathBfs(src, dest);
+        return ret.isEmpty();
+    }
+
+    /**
+     * 根据联通分量对顶点分组
+     *
+     * @return
+     */
+    public Map<Integer, Integer> connectedComponentsBfs() {
+        int[] visited = new int[V];
+        Arrays.fill(visited, -1);
+        int cccount = 0;
+        for (int i = 0; i < V; i++) {
+            if (visited[i] != -1) {
+                continue;
+            }
+            Queue<Integer> queue = new LinkedList<>();
+            queue.add(i);
+            visited[i] = cccount;
+            while (!queue.isEmpty()) {
+                int v = queue.poll();
+                for (int w : adj[v]) {
+                    if (visited[w] == -1) {
+                        queue.add(w);
+                        visited[w] = cccount;
+                    }
+                }
+            }
+            cccount++;
+        }
+        Map<Integer, Integer> ret = new HashMap<>(V);
+        for (int v = 0; v < V; v++) {
+            ret.put(v, visited[v]);
+        }
+        return ret;
+    }
+
+    /**
+     * 判断图中是否有环
+     *
+     * @return
+     */
+    public boolean hasCycleBfs() {
+        boolean[] visited = new boolean[V];
+        int[] prev = new int[V];
+        Arrays.fill(prev, -1);
+
+        for (int i = 0; i < V; i++) {
+            if (visited[i]) {
+                continue;
+            }
+            // 从顶点 i 开始，判断图是否有环。
+            Queue<Integer> queue = new LinkedList<>();
+            queue.add(i);
+            visited[i] = true;
+            while (!queue.isEmpty()) {
+                int v = queue.poll();
+                for (int w : adj(v)) {
+                    if (!visited[w]) {
+                        queue.add(w);
+                        visited[w] = true;
+                        prev[w] = v;
+                    } else if (prev[v] != w) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 判断图是否为二分图
+     *
+     * @return
+     */
+    public boolean isBipartiteGraphBfs() {
+        int[] visited = new int[V];
+        for (int i = 0; i < V; i++) {
+            if (visited[i] != 0) {
+                continue;
+            }
+            // 从 i 节点开始遍历，颜色设置为 1。
+            visited[i] = 1;
+            Queue<Integer> queue = new LinkedList<>();
+            queue.add(i);
+            while (!queue.isEmpty()) {
+                int v = queue.poll();
+                // v 的邻接节点 w
+                for (int w : adj[v]) {
+                    // w 未访问：取反色，入队。
+                    if (visited[w] == 0) {
+                        queue.add(w);
+                        visited[w] = -visited[v];
+                    }
+                    // w 已访问，且与 v 颜色相同，非二分图。
+                    else if (visited[w] == visited[v]) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 最短路径（只适用于无向图）
+     *
+     * @param src
+     * @param dest
+     * @return
+     */
+    public Iterable<Integer> shortestPath(int src, int dest) {
+
+        // 遍历过程记录当前节点的上一个节点，以及从 src 到达当前节点的距离。
+        int[] prev = new int[V], dis = new int[V];
+        Arrays.fill(prev, -1);
+        Arrays.fill(dis, -1);
+
+        boolean[] visited = new boolean[V];
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(src);
+        visited[src] = true;
+        prev[src] = src;
+
+        // dis[i] 表示从 src 到达 i 的最短距离。
+        dis[src] = 0;
+        while (!queue.isEmpty()) {
+            int v = queue.poll();
+            for (int w : adj(v)) {
+
+                // 访问过的邻接点会跳过（不计算距离），计算距离时该点都是首次被访问的。
+                // 对于广度优先遍历而言，首次被访问即表示经由最短路径访问。
+                if (visited[w]) {
+                    continue;
+                }
+                queue.add(w);
+                visited[w] = true;
+                prev[w] = v;
+                dis[w] = dis[v] + 1;
+            }
+        }
+
+        LinkedList<Integer> ret = new LinkedList<>();
+        if (!visited[dest]) {
+            return ret;
+        }
+        System.out.println(dis[dest]);
+        int cur = dest;
+        while (cur != src) {
+            ret.addFirst(cur);
+            cur = prev[cur];
+        }
+        ret.addFirst(src);
+        return ret;
+    }
+
     public static void main(String[] args) {
         UndirectedGraph g = new UndirectedGraph("G:\\demo\\algorithm\\java\\src\\main\\java\\com\\ywh\\ds\\graph\\g.txt");
         System.out.print(g);
-        System.out.println(g.singleSourcePathBfs(0, 6));
+        System.out.println(g.shortestPath(0, 6));
     }
 
 }
