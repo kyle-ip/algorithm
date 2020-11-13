@@ -104,7 +104,7 @@ public class LeetCode695 {
     /**
      * Flood Fill 算法
      * 不转换，直接使用二维坐标。
-     * <p>
+     *
      * Time: O(R*C), Space(R*C)
      *
      * @param grid
@@ -206,7 +206,6 @@ public class LeetCode695 {
 
     /**
      * 并查集解法
-     * TODO 暂时未理解
      *
      * @param grid
      * @return
@@ -218,32 +217,29 @@ public class LeetCode695 {
         int row = grid.length, col = grid[0].length;
         int[][] dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
         UnionFind uf = new UnionFind(row * col);
+
+        // 遍历所有坐标，把所有岛屿合并到 uf。
         for (int v = 0; v < row * col; v++) {
             int x = v / col, y = v % col;
-            if (grid[x][y] == 1) {
-                for (int d = 0; d < 4; d++) {
-                    int nextX = x + dirs[d][0], nextY = y + dirs[d][1];
-                    if (nextX < 0 || nextX >= grid.length || nextY < 0 || nextY >= grid[0].length || grid[nextX][nextY] == 0) {
-                        continue;
-                    }
-                    int next = nextX * col + nextY;
-                    uf.unionElements(v, next);
+             if (grid[x][y] == 0) {
+                 continue;
+             }
+            for (int d = 0; d < 4; d++) {
+                int nextX = x + dirs[d][0], nextY = y + dirs[d][1], next = nextX * col + nextY;
+                if (nextX < 0 || nextX >= grid.length || nextY < 0 || nextY >= grid[0].length || grid[nextX][nextY] == 0) {
+                    continue;
                 }
+                uf.union(v, next);
             }
         }
 
+        // 统计所有节点在 uf 中的根节点的大小，求最大值。
         int res = 0;
         for (int v = 0; v < row * col; v++) {
-            int x = v / col, y = v % col;
-            if (grid[x][y] == 1) {
+            if (grid[v / col][v % col] == 1) {
                 res = Math.max(res, uf.size(v));
             }
         }
         return res;
     }
-
-
-    public void main(String[] args) {
-    }
-
 }

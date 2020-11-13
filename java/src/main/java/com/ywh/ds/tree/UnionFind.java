@@ -8,24 +8,34 @@ package com.ywh.ds.tree;
  */
 public class UnionFind {
 
+    /**
+     * 父节点
+     * parent[p] 即 p 的父节点。
+     */
     private final int[] parent;
 
-    private final int[] sz;
+    /**
+     * 集合大小
+     */
+    private final int[] size;
 
     /**
+     * 初始化：
+     * 所有节点的父节点都是它自身，集合大小都为 1。
      *
      * @param n
      */
     public UnionFind(int n) {
         parent = new int[n];
-        sz = new int[n];
+        size = new int[n];
         for (int i = 0; i < n; i++) {
             parent[i] = i;
-            sz[i] = 1;
+            size[i] = 1;
         }
     }
 
     /**
+     * 查询：从给定节点迭代向其父节点查询，直到根节点。
      *
      * @param p
      * @return
@@ -38,6 +48,7 @@ public class UnionFind {
     }
 
     /**
+     * 判断两个点是否相连
      *
      * @param p
      * @param q
@@ -48,26 +59,35 @@ public class UnionFind {
     }
 
     /**
+     * 合并：
+     * 两个给定的节点迭代查询到根节点，如果它们有共同根节点则直接返回，
+     * 否则把其中的一个的根节点接到另一个根节点上（节点数更多的作为根节点）。
      *
      * @param p
      * @param q
      */
-    public void unionElements(int p, int q) {
-        int pRoot = find(p);
-        int qRoot = find(q);
+    public void union(int p, int q) {
+        int pRoot = find(p), qRoot = find(q);
         if (pRoot == qRoot) {
             return;
         }
-        parent[pRoot] = qRoot;
-        sz[qRoot] += sz[pRoot];
+        if (size[p] > size [q]) {
+            parent[qRoot] = pRoot;
+            size[pRoot] += size[qRoot];
+        } else {
+            parent[pRoot] = qRoot;
+            size[qRoot] += size[pRoot];
+        }
     }
 
     /**
+     * 求大小：
+     * 某个节点的大小等于其根节点的节点数。
      *
      * @param p
      * @return
      */
     public int size(int p) {
-        return sz[find(p)];
+        return size[find(p)];
     }
 }
