@@ -11,7 +11,53 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
-## LeetCode (261)
+## Data Structure
+
+[>>>](java/src/main/java/com/ywh/ds)
+
+- Linked List
+- Stack
+  - Array Stack
+  - Linked Stack
+- Queue
+  - Array Queue
+  - Circular Queue
+  - Linked Queue
+- Heap
+  - Max Heap
+  - Min Heap
+- String (pattern matching)
+- Skip List
+- Tree
+  - Binary Search Tree (BST)
+  - Union Find
+  - Trie
+  - AC Automaton
+- Graph
+  - Undirected Graph
+  - Directed Graph
+
+## Algorithm
+
+### Sorting (11)
+
+| No.  | Title                                                        | Desc       | Solution                                                     | Stability |
+| ---- | ------------------------------------------------------------ | ---------- | ------------------------------------------------------------ | --------- |
+| 1    | [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort)     | 冒泡排序   | [Java](java/src/main/java/com/ywh/sorting/BubbleSort.java)<br />[Python](python/src/algorithm/sorting/bubble_sort.py) | stable    |
+| 2    | [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) | 选择排序   | [Java](java/src/main/java/com/ywh/sorting/SelectionSort.java)<br />[Python](python/src/algorithm/sorting/selection_sort.py) | unstable  |
+| 3    | [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) | 插入排序   | [Java](java/src/main/java/com/ywh/sorting/InsertionSort.java)<br />[Python](python/src/algorithm/sorting/insertion_sort.py) | stable    |
+| 4    | [Shell Sort](https://en.wikipedia.org/wiki/Shellsort)        | 希尔排序   | [Java](java/src/main/java/com/ywh/sorting/ShellSort.java)<br />[Python](python/src/algorithm/sorting/shell_sort.py) | unstable  |
+| 5    | [Cocktail Shaker Sort](https://en.wikipedia.org/wiki/Cocktail_shaker_sort) | 鸡尾酒排序 | [Java](java/src/main/java/com/ywh/sorting/CocktailShakerSort.java)<br />[Python](python/src/algorithm/sorting/cocktail_shaker_sort.py) | stable    |
+| 6    | [Quick Sort](https://en.wikipedia.org/wiki/Quicksort)        | 快速排序   | [Java](java/src/main/java/com/ywh/sorting/QuickSort.java)<br />[Python](python/src/algorithm/sorting/quick_sort.py) | unstable  |
+| 7    | [Heap Sort](https://en.wikipedia.org/wiki/Heapsort)          | 堆排序     | [Java](java/src/main/java/com/ywh/sorting/HeapSort.java)     | unstable  |
+| 8    | [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort)       | 归并排序   | [Java](java/src/main/java/com/ywh/sorting/MergeSort.java)    | stable    |
+| 9    | [Counting Sort](https://en.wikipedia.org/wiki/Counting_sort) | 计数排序   | [Java](java/src/main/java/com/ywh/sorting/CountingSort.java) | stable    |
+| 10   | [Bucket Sort](https://en.wikipedia.org/wiki/Bucket_sort)     | 桶排序     | [Java](java/src/main/java/com/ywh/sorting/BucketSort.java)   | stable    |
+| 11   | [Radix Sort](https://en.wikipedia.org/wiki/Radix_sort)       | 基数排序   | [Java](java/src/main/java/com/ywh/sorting/RadixSort.java)    | stable    |
+
+
+
+## LeetCode (264)
 
 | Tags          |                  |                     |                    |
 | ------------- | ---------------- | ------------------- | ------------------ |
@@ -273,6 +319,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 752  | [Open the Lock](https://leetcode-cn.com/problems/open-the-lock) | 打开转盘锁 | Time: O(N^2\∗A^N+D)<br />Space: O(A^N+D) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode752.java) | Medium | BFS |
 | 754  | [Reach a Number](https://leetcode.com/problems/reach-a-number) | 到达终点数字                       | Time: O(1)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode754.java) | Medium     | Math                                                   |
 | 771  | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | 石头中的珠宝数量                   | Time: O(m+n)<br />Space: O(k) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode771.java) [Python](python/src/problem/leetcode/easy/leetcode_771.py) | Easy       | Hash Table                                             |
+| 773  | [Sliding Puzzle](https://leetcode-cn.com/problems/sliding-puzzle/) | 滑动谜题 | Time: O(R\*C\*(R\*C)!)<br />Space: O(R\*C\*(R\*C)!) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode773.java) | Hard | BFS |
 | 785  | [Is Graph Bipartite](https://leetcode-cn.com/problems/is-graph-bipartite/) | 判断二分图 | Time: O(V+E)<br />Space: O(V) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode785.java) | Medium | Graph<br />DFS<br />BFS |
 | 796  | [Rotate String](https://leetcode.com/problems/rotate-string/) | 旋转字符串 | Time: O(n^2)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode796.java) | Easy | String<br />Two Pointers |
 | 820  | [Short Encoding Of Words](https://leetcode.com/problems/short-encoding-of-words/) | 单词的压缩编码 | Time: O(∑wi)<br />Space: O(S\*∑wi) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode820.java) | Medium | Trie<br />Hash Table |
@@ -285,24 +332,6 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 1029 | [Two City Scheduling](https://leetcode.com/problems/two-city-scheduling) | 两地调度                           | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1029.java) [Python](python/src/problem/leetcode/easy/leetcode_1029.py) | Easy       | Greedy                                                 |
 | 1091 | [Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/) | 二进制矩阵中的最短路径 | Time: O(R\*C)<br />Space: O(R\*C) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode1091.java) | Medium | BFS |
 | 1304 | [Find N Unique Integers Sum up to Zero](https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero) | 和为零的 N 个唯一整数 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1304.java) [Python](python/src/problem/leetcode/easy/leetcode_1304.py) | Easy | Array |
-
-
-
-## Sorting (11)
-
-| No.  | Title                                                        | Desc       | Solution                                                     | Stability |
-| ---- | ------------------------------------------------------------ | ---------- | ------------------------------------------------------------ | --------- |
-| 1    | [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort)     | 冒泡排序   | [Java](java/src/main/java/com/ywh/sorting/BubbleSort.java)<br />[Python](python/src/algorithm/sorting/bubble_sort.py) | stable    |
-| 2    | [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) | 选择排序   | [Java](java/src/main/java/com/ywh/sorting/SelectionSort.java)<br />[Python](python/src/algorithm/sorting/selection_sort.py) | unstable  |
-| 3    | [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) | 插入排序   | [Java](java/src/main/java/com/ywh/sorting/InsertionSort.java)<br />[Python](python/src/algorithm/sorting/insertion_sort.py) | stable    |
-| 4    | [Shell Sort](https://en.wikipedia.org/wiki/Shellsort)        | 希尔排序   | [Java](java/src/main/java/com/ywh/sorting/ShellSort.java)<br />[Python](python/src/algorithm/sorting/shell_sort.py) | unstable  |
-| 5    | [Cocktail Shaker Sort](https://en.wikipedia.org/wiki/Cocktail_shaker_sort) | 鸡尾酒排序 | [Java](java/src/main/java/com/ywh/sorting/CocktailShakerSort.java)<br />[Python](python/src/algorithm/sorting/cocktail_shaker_sort.py) | stable    |
-| 6    | [Quick Sort](https://en.wikipedia.org/wiki/Quicksort)        | 快速排序   | [Java](java/src/main/java/com/ywh/sorting/QuickSort.java)<br />[Python](python/src/algorithm/sorting/quick_sort.py) | unstable  |
-| 7    | [Heap Sort](https://en.wikipedia.org/wiki/Heapsort)          | 堆排序     | [Java](java/src/main/java/com/ywh/sorting/HeapSort.java)     | unstable  |
-| 8    | [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort)       | 归并排序   | [Java](java/src/main/java/com/ywh/sorting/MergeSort.java)    | stable    |
-| 9    | [Counting Sort](https://en.wikipedia.org/wiki/Counting_sort) | 计数排序   | [Java](java/src/main/java/com/ywh/sorting/CountingSort.java) | stable    |
-| 10   | [Bucket Sort](https://en.wikipedia.org/wiki/Bucket_sort)     | 桶排序     | [Java](java/src/main/java/com/ywh/sorting/BucketSort.java)   | stable    |
-| 11   | [Radix Sort](https://en.wikipedia.org/wiki/Radix_sort)       | 基数排序   | [Java](java/src/main/java/com/ywh/sorting/RadixSort.java)    | stable    |
 
 
 

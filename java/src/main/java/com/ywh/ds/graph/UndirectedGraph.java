@@ -136,6 +136,8 @@ public class UndirectedGraph implements Graph {
 
     /**
      * 深度优先遍历（迭代解法）
+     *
+     * Time: O(V^2)
      */
     public void dfsIterative() {
         boolean[] visited = new boolean[V];
@@ -179,17 +181,17 @@ public class UndirectedGraph implements Graph {
     /**
      * 深度优先遍历（从某点开始访问整个联通分量）
      * 可用于求解以下问题：
-     *      求图的联通分量
-     *      求两点间时否可达
-     *      求两点间的一条路径
-     *      判断图中是否有环
+     * 求图的联通分量
+     * 求两点间时否可达
+     * 求两点间的一条路径
+     * 判断图中是否有环
      * 应用：
-     *      二分图检测
-     *      寻找图中的割点
-     *      哈密尔顿路径
-     *      拓扑排序
-     *      ...
-     *
+     * 二分图检测
+     * 寻找图中的割点
+     * 哈密尔顿路径
+     * 拓扑排序
+     * ...
+     * <p>
      * Time: O(V + E)
      *
      * @param v
@@ -217,7 +219,7 @@ public class UndirectedGraph implements Graph {
      */
     public Map<Integer, Integer> connectedComponentsDfs() {
         // 以顶点为下标，联通分量编号为值的访问数组
-        int [] visited = new int[V];
+        int[] visited = new int[V];
         int cccount = 0;
         Arrays.fill(visited, -1);
         for (int v = 0; v < V; v++) {
@@ -233,7 +235,6 @@ public class UndirectedGraph implements Graph {
     }
 
     /**
-     *
      * @param v
      * @param ccid
      * @param visited
@@ -264,7 +265,6 @@ public class UndirectedGraph implements Graph {
     }
 
     /**
-     *
      * @param src
      * @param dest
      * @param visited
@@ -326,7 +326,6 @@ public class UndirectedGraph implements Graph {
     }
 
     /**
-     *
      * @param v
      * @param prev
      * @param visited
@@ -357,7 +356,7 @@ public class UndirectedGraph implements Graph {
      * @return
      */
     private boolean isBipartiteGraphDfs() {
-        int[]  visited = new int[V];
+        int[] visited = new int[V];
         boolean isBipartite = true;
         for (int v = 0; v < V; v++) {
             if (visited[v] == 0) {
@@ -374,7 +373,6 @@ public class UndirectedGraph implements Graph {
     }
 
     /**
-     *
      * @param v
      * @param color
      * @param visited
@@ -404,6 +402,8 @@ public class UndirectedGraph implements Graph {
 
     /**
      * 广度优先遍历
+     *
+     * Time: O(V+E)
      */
     public Iterable<Integer> bfs() {
         boolean[] visited = new boolean[V];
@@ -532,7 +532,7 @@ public class UndirectedGraph implements Graph {
      * @return
      */
     private boolean isConnected(int src, int dest) {
-        List<Integer> ret = (List<Integer>)singleSourcePathBfs(src, dest);
+        List<Integer> ret = (List<Integer>) singleSourcePathBfs(src, dest);
         return ret.isEmpty();
     }
 
@@ -690,13 +690,85 @@ public class UndirectedGraph implements Graph {
         return ret;
     }
 
+    /**
+     * 寻找桥和割点
+     */
+    public void findBridges() {
+        boolean[] visited = new boolean[V];
+        List<Edge> bridges = new ArrayList<>();
+        HashSet<Integer> articulationPoints = new HashSet<>();
+
+        // ord[v] 表示顶点 v 在 DFS 中的访问顺序，low[v] 表示 DFS 过程中，顶点 v 能到达的最小 ord 值。
+        int[] ord = new int[V], low = new int[V];
+
+        // cnt 用于记录节点被访问的序号（DFS 遍历树的顺序）。
+        int[] cnt = {0};
+        for (int v = 0; v < V; v++) {
+            if (visited[v]) {
+                continue;
+            }
+            findBridgesDfs(v, v, visited, ord, low, cnt, bridges, articulationPoints);
+        }
+        System.out.println("bridges in graph: " + bridges);
+        System.out.println("articulation points in graph: " + articulationPoints);
+    }
+
+    /**
+     *
+     * @param v
+     * @param parent
+     * @param visited
+     * @param ord
+     * @param low
+     * @param cnt
+     * @param bridges
+     * @return
+     */
+    private void findBridgesDfs(int v, int parent, boolean[] visited, int[] ord, int[] low, int[] cnt,
+                                List<Edge> bridges, HashSet<Integer> articulationPoints) {
+        visited[v] = true;
+        ord[v] = cnt[0];
+
+        // low 初始化为最大值 ord，表示经由 v 能到达的节点序号最小值为自身序号（表示从根节点遍历到达当前节点的顺序）。
+        low[v] = ord[v];
+        cnt[0]++;
+
+        // 记录孩子节点，如果 w 未被访问，即遍历过程中 v 找到新的孩子节点，此时 child++。
+        int child = 0;
+        for (int w : adj(v)) {
+            // 节点未被访问。
+            if (!visited[w]) {
+                findBridgesDfs(w, v, visited, ord, low, cnt, bridges, articulationPoints);
+
+                // 如果 w 经由回向边可指向祖先节点，则 v 也应该满足条件，故更新 low[v]。
+                low[v] = Math.min(low[v], low[w]);
+
+                // low[w] > ord[v]，表示 w 能回到的节点序号（最小值）也比 v 的序号大，不能经由回向边（非遍历树边）指向祖先节点。
+                if (low[w] > ord[v]) {
+                    bridges.add(new Edge(v, w));
+                }
+                // v 不是根节点（其父节点不是自身）且 low[w] >= ord[v]，则为割点。
+                if (v != parent && low[w] >= ord[v]) {
+                    articulationPoints.add(v);
+                }
+                // v 是根节点，且遍历树的孩子数量大于 1，则为割点。
+                if (v == parent && ++child > 1) {
+                    articulationPoints.add(v);
+                }
+            }
+            // 节点已被访问，且不为根节点，更新 low[v] 即可。
+            else if (w != parent) {
+                low[v] = Math.min(low[v], low[w]);
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        UndirectedGraph g = new UndirectedGraph("C:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh" +
-            "\\ds\\graph\\g.txt");
+        UndirectedGraph g = new UndirectedGraph("E:\\Project\\algorithm\\java\\src\\main\\java\\com\\ywh\\ds\\graph" +
+            "\\g.txt");
+        g.findBridges();
 //        System.out.print(g);
 //        System.out.println(g.shortestPath(0, 6));
-        g.dfsRecursive();
-        g.dfsIterative();
     }
 
 }
