@@ -130,7 +130,8 @@ public class UndirectedGraph implements Graph {
     // 树遍历：144、94、145、102、589、590、429
     // 图遍历：185、886、547、695
     // Flood Fill 算法：200、1020、130、733、1034、529、827
-    // 图论建模：1091、752（状态转换）
+    // 图建模：1091、752（状态转换）、773
+    // 哈密尔顿路径：980（状态压缩、记忆化搜索）
 
     // ========== DFS ==========
 
@@ -181,15 +182,15 @@ public class UndirectedGraph implements Graph {
     /**
      * 深度优先遍历（从某点开始访问整个联通分量）
      * 可用于求解以下问题：
-     * 求图的联通分量
-     * 求两点间时否可达
-     * 求两点间的一条路径
-     * 判断图中是否有环
+     *      求图的联通分量
+     *      求两点间时否可达
+     *      求两点间的一条路径
+     *      判断图中是否有环
      * 应用：
-     * 二分图检测
-     * 寻找图中的割点
-     * 哈密尔顿路径
-     * 拓扑排序
+     *      二分图检测
+     *      寻找图中的割点
+     *      哈密尔顿路径
+     *      拓扑排序
      * ...
      * <p>
      * Time: O(V + E)
@@ -690,10 +691,12 @@ public class UndirectedGraph implements Graph {
         return ret;
     }
 
+    // ========== 桥与割点 ==========
+
     /**
      * 寻找桥和割点
      */
-    public void findBridges() {
+    public void bridges() {
         boolean[] visited = new boolean[V];
         List<Edge> bridges = new ArrayList<>();
         HashSet<Integer> articulationPoints = new HashSet<>();
@@ -707,7 +710,7 @@ public class UndirectedGraph implements Graph {
             if (visited[v]) {
                 continue;
             }
-            findBridgesDfs(v, v, visited, ord, low, cnt, bridges, articulationPoints);
+            bridgesDfs(v, v, visited, ord, low, cnt, bridges, articulationPoints);
         }
         System.out.println("bridges in graph: " + bridges);
         System.out.println("articulation points in graph: " + articulationPoints);
@@ -724,8 +727,8 @@ public class UndirectedGraph implements Graph {
      * @param bridges
      * @return
      */
-    private void findBridgesDfs(int v, int parent, boolean[] visited, int[] ord, int[] low, int[] cnt,
-                                List<Edge> bridges, HashSet<Integer> articulationPoints) {
+    private void bridgesDfs(int v, int parent, boolean[] visited, int[] ord, int[] low, int[] cnt,
+                            List<Edge> bridges, HashSet<Integer> articulationPoints) {
         visited[v] = true;
         ord[v] = cnt[0];
 
@@ -738,7 +741,7 @@ public class UndirectedGraph implements Graph {
         for (int w : adj(v)) {
             // 节点未被访问。
             if (!visited[w]) {
-                findBridgesDfs(w, v, visited, ord, low, cnt, bridges, articulationPoints);
+                bridgesDfs(w, v, visited, ord, low, cnt, bridges, articulationPoints);
 
                 // 如果 w 经由回向边可指向祖先节点，则 v 也应该满足条件，故更新 low[v]。
                 low[v] = Math.min(low[v], low[w]);
@@ -763,10 +766,125 @@ public class UndirectedGraph implements Graph {
         }
     }
 
+    // ========== 哈密尔顿回路与路径 ==========
+
+    /**
+     * 求哈密尔顿回路
+     *
+     * @return
+     */
+    private Iterable<Integer> hamiltonLoop() {
+        LinkedList<Integer> ret = new LinkedList<>();
+        boolean[] visited = new boolean[V];
+        int[] prev = new int[V], end = {-1};
+        // 从 0 开始 DFS。
+        hamiltonLoopDfs(0, 0, visited, prev, end, V);
+        // 没有找到哈密尔顿回路，返回空列表。
+        if (end[0] == -1) {
+            return ret;
+        }
+        int cur = end[0];
+        while (cur != 0) {
+            ret.addFirst(cur);
+            cur = prev[cur];
+        }
+        ret.addFirst(0);
+        return ret;
+    }
+
+    /**
+     * 遍历一个节点的邻接节点 w：
+     *      如果 w 未被访问，则递归调用 DFS，结果返回 true 表示从 w 出发找到哈密尔顿回路，即 v 也找到哈密尔顿回路，直接返回。
+     *      如果 w 已被访问，且 w 不为 0，跳过。
+     *      如果 w 未被访问，且 w 为 0，则检查是否所有节点都已被访问，是则设置终点为 v，返回 true（递归函数实际出口）。
+     * 如果遍历完所有的 w 仍未返回，表示从 v 出发无法找到哈密尔顿回路，（重置 v 的已访问状态）回溯并返回 false。
+     * @param v
+     * @param parent
+     * @param visited
+     * @param prev
+     * @param end
+     * @param left
+     * @return
+     */
+    private boolean hamiltonLoopDfs(int v, int parent, boolean[] visited, int[] prev, int[] end, int left) {
+        visited[v] = true;
+        prev[v] = parent;
+        // 如果算上点 v 后剩余未访问点为 0，且 v 的邻接节点中有 0，即已找到哈密尔顿回路，设 v 为终点并返回 true。
+        if (--left == 0 && adj[v].contains(0)) {
+            end[0] = v;
+            return true;
+        }
+        for (int w : adj(v)) {
+            // w 未访问过，且从 w 出发搜索到哈密尔顿回路，返回 true。
+            if (!visited[w] && hamiltonLoopDfs(w, v, visited, prev, end, left)) {
+                return true;
+            }
+        }
+        // 从 v 出发的所有邻接点搜索完毕，没有找到路径，回溯（重置 visited[v]）并返回 false。
+        visited[v] = false;
+        return false;
+    }
+
+    /**
+     * 求哈密尔顿路径（状态压缩）
+     *
+     * @param src
+     * @return
+     */
+    private Iterable<Integer> hamiltonPath(int src) {
+        LinkedList<Integer> ret = new LinkedList<>();
+        int[] prev = new int[V], end = {-1};
+
+        // visited 布尔数组压缩为二进制数（初始化为 0），比如 [true, false, true, false] 表示为 0b1010，再转换为十进制即 5。
+        // 判断第 n 位是否为 1：    visited & (1 << n)
+        // 将第 n 位设为 1：        visited += (1 << n)
+        // 将第 n 位设为 0：        visited -= (1 << n)
+        hamiltonPathDfs(src, src, 0, prev, end, V);
+        // 没有找到哈密尔顿回路，返回空列表。
+        if (end[0] == -1) {
+            return ret;
+        }
+        int cur = end[0];
+        while (cur != 0) {
+            ret.addFirst(cur);
+            cur = prev[cur];
+        }
+        ret.addFirst(0);
+        return ret;
+    }
+
+    /**
+     *
+     * @param v
+     * @param parent
+     * @param visited
+     * @param prev
+     * @param end
+     * @param left
+     * @return
+     */
+    private boolean hamiltonPathDfs(int v, int parent, int visited, int[] prev, int[] end, int left) {
+        // 把第 v 位设位已访问（1）。
+        visited += (1 << v);
+        prev[v] = parent;
+        if (--left == 0) {
+            end[0] = v;
+            return true;
+        }
+        for (int w : adj(v)) {
+            // w 未被访问（第 w 位为 0），且找到从 w 出发的哈密尔顿路径。
+            if ((visited & (1 << w)) == 0 && hamiltonPathDfs(w, v, visited, prev, end, left)) {
+                return true;
+            }
+        }
+        // visited -= (1 << v);
+        return false;
+    }
+
     public static void main(String[] args) {
-        UndirectedGraph g = new UndirectedGraph("E:\\Project\\algorithm\\java\\src\\main\\java\\com\\ywh\\ds\\graph" +
-            "\\g.txt");
-        g.findBridges();
+        UndirectedGraph g = new UndirectedGraph("C:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh" +
+            "\\ds\\graph\\g.txt");
+        System.out.println(g.hamiltonPath(1));
 //        System.out.print(g);
 //        System.out.println(g.shortestPath(0, 6));
     }
