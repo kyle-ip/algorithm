@@ -200,9 +200,4 @@ public class AdjMatrixGraph implements Graph {
         // 后序
         // order.add(v);
     }
-
-    public static void main(String[] args) {
-        AdjMatrixGraph adjMatrix = new AdjMatrixGraph("g.txt");
-        System.out.print(adjMatrix);
-    }
 }

@@ -121,10 +121,4 @@ public class AdjSetGraph {
         }
         return sb.toString();
     }
-
-    public static void main(String[] args) {
-
-        AdjSetGraph adjSetGraph = new AdjSetGraph("g.txt");
-        System.out.print(adjSetGraph);
-    }
 }

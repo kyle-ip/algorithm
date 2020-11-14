@@ -11,7 +11,7 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
-## LeetCode (260)
+## LeetCode (261)
 
 | Tags          |                  |                     |                    |
 | ------------- | ---------------- | ------------------- | ------------------ |
@@ -270,6 +270,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 724  | [Find Pivot Index](https://leetcode.com/problems/find-pivot-index/submissions/) | 寻找数组的平衡点 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode724.java) [Python](python/src/problem/leetcode/easy/leetcode_724.py) | Easy | Array |
 | 739  | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures) | 温度升高需要等待的天数 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode739.java) | Medium | Array<br />Stack |
 | 746  | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs) | 爬楼梯的最小代价                   | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode746.java) [Python](python/src/problem/leetcode/easy/leetcode_746.py) | Easy       | Array<br />Dynamic Programming                            |
+| 752  | [Open the Lock](https://leetcode-cn.com/problems/open-the-lock) | 打开转盘锁 | Time: O(N^2\∗A^N+D)<br />Space: O(A^N+D) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode752.java) | Medium | BFS |
 | 754  | [Reach a Number](https://leetcode.com/problems/reach-a-number) | 到达终点数字                       | Time: O(1)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode754.java) | Medium     | Math                                                   |
 | 771  | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | 石头中的珠宝数量                   | Time: O(m+n)<br />Space: O(k) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode771.java) [Python](python/src/problem/leetcode/easy/leetcode_771.py) | Easy       | Hash Table                                             |
 | 785  | [Is Graph Bipartite](https://leetcode-cn.com/problems/is-graph-bipartite/) | 判断二分图 | Time: O(V+E)<br />Space: O(V) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode785.java) | Medium | Graph<br />DFS<br />BFS |

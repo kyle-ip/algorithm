@@ -135,10 +135,4 @@ public class AdjListGraph implements Graph {
         }
         return sb.toString();
     }
-
-    public static void main(String[] args) {
-
-        AdjListGraph adjListGraph = new AdjListGraph("g.txt");
-        System.out.print(adjListGraph);
-    }
 }
