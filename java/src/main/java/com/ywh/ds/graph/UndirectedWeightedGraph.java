@@ -222,7 +222,7 @@ public class UndirectedWeightedGraph implements Graph {
 
     /**
      * 求最小生成树（Kruskal 算法）
-     *
+     * 
      * Time: O(E*log(E))
      *
      * @return
@@ -275,7 +275,6 @@ public class UndirectedWeightedGraph implements Graph {
     }
 
     /**
-     *
      * Time: O(V*E)，即 O((V-1)*(V+E))
      *
      * @return
@@ -351,9 +350,239 @@ public class UndirectedWeightedGraph implements Graph {
         return mst;
     }
 
+    /**
+     * Time: O(V^2)
+     *
+     * @param src
+     * @return
+     */
+    public int[] shortestPathDijkstra0(int src) {
+        int[] dis = new int[V];
+        Arrays.fill(dis, Integer.MAX_VALUE);
+        dis[src] = 0;
+        boolean[] visited = new boolean[V];
+        while (true) {
+
+            // 每轮循环都要判断所有的顶点，可用最小堆优化。
+            int cur = -1, curDis = Integer.MAX_VALUE;
+            for (int v = 0; v < V; v++) {
+                if (!visited[v] && dis[v] < curDis) {
+                    curDis = dis[v];
+                    cur = v;
+                }
+            }
+
+            // 所有顶点都已确定最短路径，退出循环。
+            if (cur == -1) {
+                break;
+            }
+            visited[cur] = true;
+            for (int w : adj(cur)) {
+                if (!visited[w] && dis[cur] + getWeight(cur, w) < dis[w]) {
+                    dis[w] = dis[cur] + getWeight(cur, w);
+                }
+            }
+        }
+        return dis;
+    }
+
+    /**
+     * 求最短路径（Dijkstra 算法）
+     * 单源最短路径，不能包含负权边。
+     * 
+     * Time: O(E*log(E)) => O(V*log(E))
+     *
+     * @param src
+     * @return
+     */
+    public Iterable<Integer> shortestPathDijkstra(int src, int dest) {
+        validateVertex(src);
+        validateVertex(dest);
+        int[] dis = new int[V], prev = new int[V];
+        Arrays.fill(dis, Integer.MAX_VALUE);
+        Arrays.fill(prev, -1);
+        dis[src] = 0;
+        prev[src] = src;
+
+        // visited 用于记录“已确定最短距离”的顶点。
+        boolean[] visited = new boolean[V];
+
+        // 最小堆用于高效提取 dis 最小的顶点（同一个点可能存在多份）。
+        // 而最小值必然是最近更新的结果，即距离已更新点 v 最近的点。
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));
+        pq.add(new int[]{src, 0});
+
+        // 每轮循环可决定（到达）一个点的最短距离。
+        while (!pq.isEmpty()) {
+
+            // 1. 利用最小堆找到 dis 最小值的顶点。
+            int v = pq.poll()[0];
+
+            // 2. 更新顶点状态，如果该点已经确定最短路径则跳过。
+            if (visited[v]) {
+                continue;
+            }
+            visited[v] = true;
+
+//            // 找到到达终点的最短路径，提前结束（对于 Bellman Ford 算法，由于存在松弛操作，不能提前终止）。
+//            if (v == dest) {
+//                break;
+//            }
+
+            // 3. 根据刚才确定的解，更新邻接顶点的 dis 值。
+            for (int w : adj(v)) {
+
+                // 如果 w 未确定最短路径，且其目前的 dis 值大于经由 v 到达 w 的距离，则更新 dis[w] 并添加到最小堆。
+                // 比如：
+                //           3
+                //       +------[w]
+                //       |       | 1
+                //      [0]-----[v]
+                //           1
+                // 此时 w 仍未确定，需要重新放入最小堆，用作下次继续更新。
+                if (!visited[w] && dis[w] > dis[v] + getWeight(v, w)) {
+                    dis[w] = dis[v] + getWeight(v, w);
+                    pq.add(new int[]{w, dis[w]});
+                    prev[w] = v;
+                }
+            }
+        }
+
+        // 根据 prev 数组求整个路径。
+        LinkedList<Integer> ret = new LinkedList<>();
+        if (!visited[dest]) {
+            return ret;
+        }
+        int cur = dest;
+        while (cur != src) {
+            ret.addFirst(cur);
+            cur = prev[cur];
+        }
+        ret.addFirst(src);
+        return ret;
+    }
+
+    /**
+     * 求最短路径（Bellman-Ford 算法）
+     * 单源最短路径，可以包含负权边，检测负权环。
+     * 
+     * Time: O(V*E)
+     *
+     * @param src
+     * @param dest
+     * @return
+     */
+    public Iterable<Integer> shortestPathBellmanFord(int src, int dest) {
+        validateVertex(src);
+        validateVertex(dest);
+        int[] dis = new int[V], prev = new int[V];
+        Arrays.fill(dis, Integer.MAX_VALUE);
+        Arrays.fill(prev, -1);
+        dis[src] = 0;
+
+        // 进行 v-1 轮松弛操作。
+        for (int pass = 1; pass < V; pass++) {
+
+            // 在每轮操作中对所有的边进行松弛操作：遍历每个顶点的邻接顶点，即取出每条边。
+            for (int v = 0; v < V; v++) {
+                for (int w : adj(v)) {
+
+                    // 如果 dis[v] 已被更新过，且 dis[w] 目前的 dis 值大于经由 v 到达 w 的距离，则更新 dis[w]。
+                    if (dis[v] != Integer.MAX_VALUE && dis[w] > dis[v] + getWeight(v, w)) {
+                        dis[w] = dis[v] + getWeight(v, w);
+                        prev[w] = v;
+                    }
+                }
+            }
+        }
+
+        // 判断是否有负权环：进行第 v 轮松弛操作。
+        boolean hasNegCycle = false;
+        for (int v = 0; v < V; v++) {
+            for (int w : adj(v)) {
+                if (dis[v] != Integer.MAX_VALUE && dis[w] > dis[v] + getWeight(v, w)) {
+                    hasNegCycle = true;
+                }
+            }
+        }
+
+        LinkedList<Integer> ret = new LinkedList<>();
+
+        // 存在负权环，返回空。
+        if (hasNegCycle) {
+            System.out.println("exist negative cycle");
+            return ret;
+        }
+        // dis[dest] 没有被更新，表示 dest 不在路径上，返回空。
+        if (dis[dest] == Integer.MAX_VALUE) {
+            return ret;
+        }
+        int cur = dest;
+        while (cur != src) {
+            ret.addFirst(cur);
+            cur = prev[cur];
+        }
+        ret.addFirst(src);
+        return ret;
+    }
+
+    /**
+     * 求最短路径（Floyd 算法）
+     * 所有点对最短路径，可以包含负权边，检测负权环。
+     * 
+     * Time: O(V^3)
+     * 
+     * @return
+     */
+    public Iterable<Integer> shortestPathFloyd(int src, int dest) {
+
+        // dis[v][w] 表示 从 v 到 w 的最短路径长度。
+        int[][] dis = new int[V][V];
+        int[] prev = new int[V];
+        Arrays.fill(prev, -1);
+        for (int v = 0; v < V; v++) {
+            Arrays.fill(dis[v], Integer.MAX_VALUE);
+        }
+        for (int v = 0; v < V; v++) {
+            dis[v][v] = 0;
+            for (int w : adj(v)) {
+                dis[v][w] = getWeight(v, w);
+            }
+        }
+        // 相当于松弛操作，每轮循环求解出中间绕过 [0, t] 这些点的最短路径。
+        for (int t = 0; t < V; t++) {
+            // 寻找最短路径的起始点和终止点。
+            for (int v = 0; v < V; v++) {
+                for (int w = 0; w < V; w++) {
+                    if (dis[v][t] != Integer.MAX_VALUE && dis[t][w] != Integer.MAX_VALUE
+                        && dis[v][t] + dis[t][w] < dis[v][w]) {
+                        dis[v][w] = dis[v][t] + dis[t][w];
+                        prev[w] = v;
+                    }
+                }
+            }
+        }
+        for (int v = 0; v < V; v++) {
+            if (dis[v][v] < 0) {
+                // 存在负权环，返回空。
+                return Collections.emptyList();
+            }
+        }
+
+        // FIXME 具体路径求解有问题。
+        LinkedList<Integer> ret = new LinkedList<>();
+        int cur = dest;
+        while (cur != src) {
+            ret.addFirst(cur);
+            cur = prev[cur];
+        }
+        ret.addFirst(src);
+        return ret;
+    }
+
     public static void main(String[] args) {
         UndirectedWeightedGraph g = new UndirectedWeightedGraph("C:\\Project\\cs-basic\\algorithm\\java\\src\\main" +
             "\\java\\com\\ywh\\ds\\graph\\g.txt");
-        System.out.println(g.mstKruskal());
+        System.out.println(g.shortestPathFloyd(0, 3));
     }
 }
