@@ -10,7 +10,7 @@ import java.util.*;
  * @author ywh
  * @since 10/11/2020
  */
-public class UndirectedGraph implements Graph {
+public class UndirectedUnweightedGraph implements Graph, Cloneable {
 
     private int V;
 
@@ -18,12 +18,31 @@ public class UndirectedGraph implements Graph {
 
     private TreeSet<Integer>[] adj;
 
+    @Override
+    public Object clone(){
+        try{
+            UndirectedUnweightedGraph cloned = (UndirectedUnweightedGraph) super.clone();
+            cloned.adj = new TreeSet[V];
+            for(int v = 0; v < V; v ++){
+                cloned.adj[v] = new TreeSet<>();
+                for(int w: adj[v]) {
+                    cloned.adj[v].add(w);
+                }
+            }
+            return cloned;
+        }
+        catch (CloneNotSupportedException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     /**
      * 建图
      *
      * @param filename
      */
-    public UndirectedGraph(String filename) {
+    public UndirectedUnweightedGraph(String filename) {
         File file = new File(filename);
         try (Scanner scanner = new Scanner(file)) {
             V = scanner.nextInt();
@@ -88,7 +107,23 @@ public class UndirectedGraph implements Graph {
     }
 
     /**
-     * 求相邻节点
+     * 删除边
+     *
+     * @param v
+     * @param w
+     */
+    public void removeEdge(int v, int w){
+        validateVertex(v);
+        validateVertex(w);
+        if (adj[v].contains(w)) {
+            E--;
+        }
+        adj[v].remove(w);
+        adj[w].remove(v);
+    }
+
+    /**
+     * 求相邻顶点
      *
      * @param v
      * @return
@@ -125,6 +160,20 @@ public class UndirectedGraph implements Graph {
         return sb.toString();
     }
 
+    @Override
+    public int connectedComponentsCount() {
+        boolean[] visited = new boolean[V];
+        int count = 0;
+        ArrayList<Integer> order = new ArrayList<>();
+        for (int v = 0; v < V; v++) {
+            if (!visited[v]) {
+                dfs(v, visited, order);
+                // 此处可统计联通分量。
+                count++;
+            }
+        }
+        return count;
+    }
 
     // 相关问题：
     // 树遍历：144、94、145、102、589、590、429
@@ -203,7 +252,7 @@ public class UndirectedGraph implements Graph {
         // 先序
         order.add(v);
 
-        // 依次取出该点的所有未被访问过的邻接节点，递归遍历。
+        // 依次取出该点的所有未被访问过的邻接顶点，递归遍历。
         for (int w : adj(v)) {
             if (!visited[w]) {
                 dfs(w, visited, order);
@@ -282,7 +331,7 @@ public class UndirectedGraph implements Graph {
                 continue;
             }
 
-            // 求某邻接节点时保存其与上一个节点的对应关系。
+            // 求某邻接顶点时保存其与上一个顶点的对应关系。
             prev[w] = src;
             genPathDfs(w, dest, visited, found, prev);
             if (found[0]) {
@@ -307,7 +356,7 @@ public class UndirectedGraph implements Graph {
 
     /**
      * 判断图中是否有环
-     * 成环的条件：出现已访问节点，且该节点不是上一个节点。
+     * 成环的条件：出现已访问顶点，且该顶点不是上一个顶点。
      *
      * @return
      */
@@ -335,7 +384,7 @@ public class UndirectedGraph implements Graph {
     private boolean cycleDetection(int v, int prev, boolean[] visited) {
         visited[v] = true;
 
-        // 遍历所有邻接节点 w。
+        // 遍历所有邻接顶点 w。
         for (int w : adj(v)) {
             // w 未被访问：递归判断 w，判断成功则返回到上层。
             if (!visited[w]) {
@@ -343,7 +392,7 @@ public class UndirectedGraph implements Graph {
                     return true;
                 }
             }
-            // w 已被访问，且 w 不是 v 的上一个节点。
+            // w 已被访问，且 w 不是 v 的上一个顶点。
             else if (w != prev) {
                 return true;
             }
@@ -383,7 +432,7 @@ public class UndirectedGraph implements Graph {
         // 给当前访问的 v 涂色。
         visited[v] = color;
 
-        // 遍历所有邻接节点 w。
+        // 遍历所有邻接顶点 w。
         for (int w : adj(v)) {
             // 如果 w 未被涂色，则递归判断 w，判断出现矛盾直接返回 false。
             if (visited[w] == 0) {
@@ -411,15 +460,15 @@ public class UndirectedGraph implements Graph {
         Queue<Integer> queue = new LinkedList<>();
         List<Integer> order = new ArrayList<>();
 
-        // 遍历所有节点，添加到队列中。
+        // 遍历所有顶点，添加到队列中。
         for (int i = 0; i < V; i++) {
             queue.add(i);
             // 队列为空，表示一个联通分量遍历完成。
             while (!queue.isEmpty()) {
-                // 从队列中取出一个节点 v，添加到结果数组。
+                // 从队列中取出一个顶点 v，添加到结果数组。
                 int v = queue.poll();
                 order.add(v);
-                // 遍历所有邻接节点 w，如果 w 未被访问则添加到队列中，并标记为已访问。
+                // 遍历所有邻接顶点 w，如果 w 未被访问则添加到队列中，并标记为已访问。
                 for (int w : adj(v)) {
                     if (!visited[w]) {
                         queue.add(w);
@@ -616,13 +665,13 @@ public class UndirectedGraph implements Graph {
             if (visited[i] != 0) {
                 continue;
             }
-            // 从 i 节点开始遍历，颜色设置为 1。
+            // 从 i 顶点开始遍历，颜色设置为 1。
             visited[i] = 1;
             Queue<Integer> queue = new LinkedList<>();
             queue.add(i);
             while (!queue.isEmpty()) {
                 int v = queue.poll();
-                // v 的邻接节点 w
+                // v 的邻接顶点 w
                 for (int w : adj[v]) {
                     // w 未访问：取反色，入队。
                     if (visited[w] == 0) {
@@ -648,7 +697,7 @@ public class UndirectedGraph implements Graph {
      */
     public Iterable<Integer> shortestPath(int src, int dest) {
 
-        // 遍历过程记录当前节点的上一个节点，以及从 src 到达当前节点的距离。
+        // 遍历过程记录当前顶点的上一个顶点，以及从 src 到达当前顶点的距离。
         int[] prev = new int[V], dis = new int[V];
         Arrays.fill(prev, -1);
         Arrays.fill(dis, -1);
@@ -704,7 +753,7 @@ public class UndirectedGraph implements Graph {
         // ord[v] 表示顶点 v 在 DFS 中的访问顺序，low[v] 表示 DFS 过程中，顶点 v 能到达的最小 ord 值。
         int[] ord = new int[V], low = new int[V];
 
-        // cnt 用于记录节点被访问的序号（DFS 遍历树的顺序）。
+        // cnt 用于记录顶点被访问的序号（DFS 遍历树的顺序）。
         int[] cnt = {0};
         for (int v = 0; v < V; v++) {
             if (visited[v]) {
@@ -732,41 +781,82 @@ public class UndirectedGraph implements Graph {
         visited[v] = true;
         ord[v] = cnt[0];
 
-        // low 初始化为最大值 ord，表示经由 v 能到达的节点序号最小值为自身序号（表示从根节点遍历到达当前节点的顺序）。
+        // low 初始化为最大值 ord，表示经由 v 能到达的顶点序号最小值为自身序号（表示从根顶点遍历到达当前顶点的顺序）。
         low[v] = ord[v];
         cnt[0]++;
 
-        // 记录孩子节点，如果 w 未被访问，即遍历过程中 v 找到新的孩子节点，此时 child++。
+        // 记录孩子顶点，如果 w 未被访问，即遍历过程中 v 找到新的孩子顶点，此时 child++。
         int child = 0;
         for (int w : adj(v)) {
-            // 节点未被访问。
+            // 顶点未被访问。
             if (!visited[w]) {
                 bridgesDfs(w, v, visited, ord, low, cnt, bridges, articulationPoints);
 
-                // 如果 w 经由回向边可指向祖先节点，则 v 也应该满足条件，故更新 low[v]。
+                // 如果 w 经由回向边可指向祖先顶点，则 v 也应该满足条件，故更新 low[v]。
                 low[v] = Math.min(low[v], low[w]);
 
-                // low[w] > ord[v]，表示 w 能回到的节点序号（最小值）也比 v 的序号大，不能经由回向边（非遍历树边）指向祖先节点。
+                // low[w] > ord[v]，表示 w 能回到的顶点序号（最小值）也比 v 的序号大，不能经由回向边（非遍历树边）指向祖先顶点。
                 if (low[w] > ord[v]) {
                     bridges.add(new Edge(v, w));
                 }
-                // v 不是根节点（其父节点不是自身）且 low[w] >= ord[v]，则为割点。
+                // v 不是根顶点（其父顶点不是自身）且 low[w] >= ord[v]，则为割点。
                 if (v != parent && low[w] >= ord[v]) {
                     articulationPoints.add(v);
                 }
-                // v 是根节点，且遍历树的孩子数量大于 1，则为割点。
+                // v 是根顶点，且遍历树的孩子数量大于 1，则为割点。
                 if (v == parent && ++child > 1) {
                     articulationPoints.add(v);
                 }
             }
-            // 节点已被访问，且不为根节点，更新 low[v] 即可。
+            // 顶点已被访问，且不为根顶点，更新 low[v] 即可。
             else if (w != parent) {
                 low[v] = Math.min(low[v], low[w]);
             }
         }
     }
 
-    // ========== 哈密尔顿回路与路径 ==========
+    // ========== 哈密尔顿、欧拉回路与路径 ==========
+
+    /**
+     * 判断是否存在哈密尔顿回路
+     *
+     * @return
+     */
+    private boolean hasHamiltonLoop() {
+        LinkedList<Integer> ret = new LinkedList<>();
+        boolean[] visited = new boolean[V];
+        int[] end = {-1};
+        // 从 0 开始 DFS。
+        hasHamiltonLoopDfs(0, visited, end, V);
+        // 没有找到哈密尔顿回路。
+        return end[0] != -1;
+    }
+
+    /**
+     *
+     * @param v
+     * @param visited
+     * @param end
+     * @param left
+     * @return
+     */
+    private boolean hasHamiltonLoopDfs(int v, boolean[] visited, int[] end, int left) {
+        visited[v] = true;
+        // 如果算上点 v 后剩余未访问点为 0，且 v 的邻接顶点中有 0，即已找到哈密尔顿回路，设 v 为终点并返回 true。
+        if (--left == 0 && adj[v].contains(0)) {
+            end[0] = v;
+            return true;
+        }
+        for (int w : adj(v)) {
+            // w 未访问过，且从 w 出发搜索到哈密尔顿回路，返回 true。
+            if (!visited[w] && hasHamiltonLoopDfs(w, visited, end, left)) {
+                return true;
+            }
+        }
+        // 从 v 出发的所有邻接点搜索完毕，没有找到路径，回溯（重置 visited[v]）并返回 false。
+        visited[v] = false;
+        return false;
+    }
 
     /**
      * 求哈密尔顿回路
@@ -793,10 +883,10 @@ public class UndirectedGraph implements Graph {
     }
 
     /**
-     * 遍历一个节点的邻接节点 w：
+     * 遍历一个顶点的邻接顶点 w：
      *      如果 w 未被访问，则递归调用 DFS，结果返回 true 表示从 w 出发找到哈密尔顿回路，即 v 也找到哈密尔顿回路，直接返回。
      *      如果 w 已被访问，且 w 不为 0，跳过。
-     *      如果 w 未被访问，且 w 为 0，则检查是否所有节点都已被访问，是则设置终点为 v，返回 true（递归函数实际出口）。
+     *      如果 w 未被访问，且 w 为 0，则检查是否所有顶点都已被访问，是则设置终点为 v，返回 true（递归函数实际出口）。
      * 如果遍历完所有的 w 仍未返回，表示从 v 出发无法找到哈密尔顿回路，（重置 v 的已访问状态）回溯并返回 false。
      * @param v
      * @param parent
@@ -809,7 +899,7 @@ public class UndirectedGraph implements Graph {
     private boolean hamiltonLoopDfs(int v, int parent, boolean[] visited, int[] prev, int[] end, int left) {
         visited[v] = true;
         prev[v] = parent;
-        // 如果算上点 v 后剩余未访问点为 0，且 v 的邻接节点中有 0，即已找到哈密尔顿回路，设 v 为终点并返回 true。
+        // 如果算上点 v 后剩余未访问点为 0，且 v 的邻接顶点中有 0，即已找到哈密尔顿回路，设 v 为终点并返回 true。
         if (--left == 0 && adj[v].contains(0)) {
             end[0] = v;
             return true;
@@ -881,10 +971,135 @@ public class UndirectedGraph implements Graph {
         return false;
     }
 
+    /**
+     * 判断是否存在欧拉回路
+     *
+     * @return
+     */
+    private boolean hasEulerLoop() {
+        boolean[] visited = new boolean[V];
+
+        // 判断联通分量个数是否为 1（从 0 出发 DFS，结束后剩余未访问节点 > 0，表示存在不联通的点，返回 false）。
+        Stack<Integer> stack = new Stack<>();
+        stack.push(0);
+        int left = V - 1;
+        visited[0] = true;
+        while (!stack.empty()) {
+            int v = stack.pop();
+            for (int w : adj(v)) {
+                if (visited[w]) {
+                    continue;
+                }
+                left--;
+                visited[w] = true;
+                stack.push(w);
+            }
+        }
+        if (left != 0) {
+            return false;
+        }
+        for (int v = 0; v < V; v++) {
+            // 存在度数为奇数的顶点，返回空。
+            if (adj[v].size() % 2 == 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 求欧拉回路（Hierholzer），另外还有：
+     *      回溯法
+     *      Fleury 算法
+     *
+     * Time: O(E)
+     *
+     * @return
+     */
+    private Iterable<Integer> eulerLoop() {
+
+        // [A]   [E]
+        //  |\   /|
+        //  | [B] |
+        //  |/   \|
+        // [C]   [D]
+
+        // 双栈解法：每条边走一次、回退一次，回退的路径即为欧拉回路。
+        // 1. 从某一点出发沿路一直走，把边去除，并把顶点添加到 curPath 栈：A、B、C、A。
+        // 2. 直到出现环即回退：不断把环中的节点从 curPath 转移到 loop 栈：A、C。
+        // 3. 在回退过程中，发现当前环与外部环相连的公共点（B），开始从路径开始重复第一步，curPath 栈：A、B、D、E、B。
+        // 4. 新路径也处理完，发现新环，且所有的边都被去除了（从 B 不能走到任何顶点），开始重复第二步。
+        // 5. 最终 curPath 栈的元素被全部转移到 loop 栈：A、C、B、E、D、B、A，此时 loop 栈存储的即为欧拉回路。
+
+        // 单栈解法：只保留 curPath 栈，结果直接存在 ret。
+
+        List<Integer> ret = new ArrayList<>();
+        if (!hasEulerLoop()) {
+            return ret;
+        }
+
+        // 在拷贝图上操作。
+        UndirectedUnweightedGraph graph = (UndirectedUnweightedGraph) this.clone();
+        Stack<Integer> stack = new Stack<>();
+        int v = 0;
+        stack.push(v);
+        while(!stack.isEmpty()){
+            // 当前节点 v 度数 > 0：表示有路可走。
+            // v 入栈，并取其邻接顶点 w、去除两者之间的边，继续以 w 迭代遍历。
+            if (graph.degree(v) != 0) {
+                stack.push(v);
+                int w = graph.adj(v).iterator().next();
+                graph.removeEdge(v, w);
+                v = w;
+            }
+            // 当前顶点度数为 0，表示已经把相连的边都去除（成环）。
+            // 此节点即为欧拉回路上的点，添加到结果列表。
+            else {
+                ret.add(v);
+                v = stack.pop();
+            }
+        }
+        return ret;
+    }
+
+    /**
+     * 求欧拉路径
+     *
+     * @param v
+     * @return
+     */
+    private Iterable<Integer> eulerPath(int v) {
+        List<Integer> ret = new ArrayList<>();
+        // 在拷贝图上操作。
+        UndirectedUnweightedGraph graph = (UndirectedUnweightedGraph) this.clone();
+        Stack<Integer> stack = new Stack<>();
+        stack.push(v);
+        while(!stack.isEmpty()){
+            // 当前节点 v 度数 > 0：表示有路可走。
+            // v 入栈，并取其邻接顶点 w、去除两者之间的边，继续以 w 迭代遍历。
+            if (graph.degree(v) != 0) {
+                stack.push(v);
+                int w = graph.adj(v).iterator().next();
+                graph.removeEdge(v, w);
+                v = w;
+                // 所有边都已去除，返回欧拉路径。
+                if (graph.E() == 0) {
+                    ret.add(v);
+                    return ret;
+                }
+            } else {
+                ret.add(v);
+                v = stack.pop();
+            }
+        }
+        // 当前顶点不存在欧拉路径。
+        return Collections.emptyList();
+    }
+
     public static void main(String[] args) {
-        UndirectedGraph g = new UndirectedGraph("C:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh" +
+        UndirectedUnweightedGraph g = new UndirectedUnweightedGraph("C:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh" +
             "\\ds\\graph\\g.txt");
-        System.out.println(g.hamiltonPath(1));
+        System.out.println(g.eulerLoop());
 //        System.out.print(g);
 //        System.out.println(g.shortestPath(0, 6));
     }

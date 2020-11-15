@@ -18,4 +18,5 @@ public interface Graph {
 
     int degree(int v);
 
+    int connectedComponentsCount();
 }

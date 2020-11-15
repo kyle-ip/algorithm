@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * space: O(V^2)
  */
-public class AdjMatrixGraph implements Graph {
+public class AdjMatrixGraph {
 
     private int V;
 
@@ -83,12 +83,10 @@ public class AdjMatrixGraph implements Graph {
         }
     }
 
-    @Override
     public int V() {
         return V;
     }
 
-    @Override
     public int E() {
         return E;
     }
@@ -102,7 +100,6 @@ public class AdjMatrixGraph implements Graph {
      * @param w
      * @return
      */
-    @Override
     public boolean hasEdge(int v, int w) {
         validateVertex(v);
         validateVertex(w);
@@ -117,7 +114,6 @@ public class AdjMatrixGraph implements Graph {
      * @param v
      * @return
      */
-    @Override
     public ArrayList<Integer> adj(int v) {
         validateVertex(v);
         ArrayList<Integer> res = new ArrayList<>();
@@ -135,7 +131,6 @@ public class AdjMatrixGraph implements Graph {
      * @param v
      * @return
      */
-    @Override
     public int degree(int v) {
         return adj(v).size();
     }

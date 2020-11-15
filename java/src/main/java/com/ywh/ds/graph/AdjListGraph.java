@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * space: O(V + E)
  */
-public class AdjListGraph implements Graph {
+public class AdjListGraph {
 
     private int V;
 
@@ -87,7 +87,6 @@ public class AdjListGraph implements Graph {
      * @param w
      * @return
      */
-    @Override
     public boolean hasEdge(int v, int w) {
         validateVertex(v);
         validateVertex(w);
@@ -102,7 +101,6 @@ public class AdjListGraph implements Graph {
      * @param v
      * @return
      */
-    @Override
     public Iterable<Integer> adj(int v) {
         validateVertex(v);
         return adj[v];
@@ -114,7 +112,6 @@ public class AdjListGraph implements Graph {
      * @param v
      * @return
      */
-    @Override
     public int degree(int v) {
         return adj[v].size();
     }
