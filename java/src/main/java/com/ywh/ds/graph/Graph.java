@@ -16,7 +16,11 @@ public interface Graph {
 
     Iterable<Integer> adj(int v);
 
+    int connectedComponentsCount();
+
     int degree(int v);
 
-    int connectedComponentsCount();
+    int indegree(int v);
+
+    int outdegree(int v);
 }

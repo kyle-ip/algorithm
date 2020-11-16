@@ -3,6 +3,7 @@ package com.ywh.ds.graph;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.IntStream;
 
 /**
  * 图的邻接表实现（基于红黑树）
@@ -10,7 +11,7 @@ import java.util.*;
  * @author ywh
  * @since 10/11/2020
  */
-public class UndirectedUnweightedGraph implements Graph, Cloneable {
+public class UnweightedGraph implements Graph, Cloneable {
 
     private int V;
 
@@ -18,31 +19,30 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
 
     private TreeSet<Integer>[] adj;
 
+    private final boolean directed;
+
+    private int[] indegrees, outdegrees;
+
     @Override
-    public Object clone(){
-        try{
-            UndirectedUnweightedGraph cloned = (UndirectedUnweightedGraph) super.clone();
+    public Object clone() {
+        try {
+            UnweightedGraph cloned = (UnweightedGraph) super.clone();
             cloned.adj = new TreeSet[V];
-            for(int v = 0; v < V; v ++){
+            for (int v = 0; v < V; v++) {
                 cloned.adj[v] = new TreeSet<>();
-                for(int w: adj[v]) {
+                for (int w : adj[v]) {
                     cloned.adj[v].add(w);
                 }
             }
             return cloned;
-        }
-        catch (CloneNotSupportedException e){
+        } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    /**
-     * 建图
-     *
-     * @param filename
-     */
-    public UndirectedUnweightedGraph(String filename) {
+    public UnweightedGraph(String filename, boolean directed) {
+        this.directed = directed;
         File file = new File(filename);
         try (Scanner scanner = new Scanner(file)) {
             V = scanner.nextInt();
@@ -53,6 +53,8 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
             for (int i = 0; i < V; i++) {
                 adj[i] = new TreeSet<>();
             }
+            indegrees = new int[V];
+            outdegrees = new int[V];
             E = scanner.nextInt();
             if (E < 0) {
                 throw new IllegalArgumentException("E must be non-negative");
@@ -62,18 +64,33 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
                 validateVertex(a);
                 int b = scanner.nextInt();
                 validateVertex(b);
+
                 if (a == b) {
                     throw new IllegalArgumentException("Self Loop is Detected!");
                 }
                 if (adj[a].contains(b)) {
                     throw new IllegalArgumentException("Parallel Edges are Detected!");
                 }
+
                 adj[a].add(b);
-                adj[b].add(a);
+                outdegrees[a]++;
+                indegrees[b]++;
+                if (!directed) {
+                    adj[b].add(a);
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 建图
+     *
+     * @param fileName
+     */
+    public UnweightedGraph(String fileName) {
+        this(fileName, false);
     }
 
     private void validateVertex(int v) {
@@ -112,14 +129,20 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
      * @param v
      * @param w
      */
-    public void removeEdge(int v, int w){
+    public void removeEdge(int v, int w) {
         validateVertex(v);
         validateVertex(w);
         if (adj[v].contains(w)) {
             E--;
+            if (directed) {
+                indegrees[w]--;
+                outdegrees[v]--;
+            }
         }
         adj[v].remove(w);
-        adj[w].remove(v);
+        if (!directed) {
+            adj[w].remove(v);
+        }
     }
 
     /**
@@ -135,28 +158,56 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
     }
 
     /**
-     * 度数
-     *
      * @param v
      * @return
      */
     @Override
     public int degree(int v) {
+        if (!directed) {
+            throw new RuntimeException("degree only works in undirected graph.");
+        }
         validateVertex(v);
         return adj[v].size();
     }
 
+    /**
+     * @param v
+     * @return
+     */
+    @Override
+    public int indegree(int v) {
+        if (!directed) {
+            throw new RuntimeException("indegree only works in directed graph.");
+        }
+        validateVertex(v);
+        return indegrees[v];
+    }
+
+    /**
+     * @param v
+     * @return
+     */
+    @Override
+    public int outdegree(int v) {
+        if (!directed) {
+            throw new RuntimeException("outdegree only works in directed graph.");
+        }
+        validateVertex(v);
+        return outdegrees[v];
+    }
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder()
-            .append(String.format("V = %d, E = %d\n", V, E));
-        for (int v = 0; v < V; v++) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(String.format("V = %d, E = %d, directed = %b\n", V, E, directed));
+        IntStream.range(0, V).forEach(v -> {
             sb.append(String.format("%d : ", v));
             for (int w : adj[v]) {
                 sb.append(String.format("%d ", w));
             }
             sb.append('\n');
-        }
+        });
         return sb.toString();
     }
 
@@ -186,7 +237,7 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
 
     /**
      * 深度优先遍历（迭代解法）
-     *
+     * 
      * Time: O(V^2)
      */
     public void dfsIterative() {
@@ -231,17 +282,17 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
     /**
      * 深度优先遍历（从某点开始访问整个联通分量）
      * 可用于求解以下问题：
-     *      求图的联通分量
-     *      求两点间时否可达
-     *      求两点间的一条路径
-     *      判断图中是否有环
+     * 1. 求图的联通分量
+     * 2. 求两点间时否可达
+     * 3. 求两点间的一条路径
+     * 4. 判断图中是否有环
      * 应用：
-     *      二分图检测
-     *      寻找图中的割点
-     *      哈密尔顿路径
-     *      拓扑排序
+     * 1. 二分图检测
+     * 2. 寻找图中的割点
+     * 3. 哈密尔顿路径
+     * 4. 拓扑排序
      * ...
-     * <p>
+     * 
      * Time: O(V + E)
      *
      * @param v
@@ -452,7 +503,7 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
 
     /**
      * 广度优先遍历
-     *
+     * 
      * Time: O(V+E)
      */
     public Iterable<Integer> bfs() {
@@ -747,7 +798,7 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
      */
     public void bridges() {
         boolean[] visited = new boolean[V];
-        List<Edge> bridges = new ArrayList<>();
+        List<UnweightedEdge> bridges = new ArrayList<>();
         HashSet<Integer> articulationPoints = new HashSet<>();
 
         // ord[v] 表示顶点 v 在 DFS 中的访问顺序，low[v] 表示 DFS 过程中，顶点 v 能到达的最小 ord 值。
@@ -766,7 +817,6 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
     }
 
     /**
-     *
      * @param v
      * @param parent
      * @param visited
@@ -777,7 +827,7 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
      * @return
      */
     private void bridgesDfs(int v, int parent, boolean[] visited, int[] ord, int[] low, int[] cnt,
-                            List<Edge> bridges, HashSet<Integer> articulationPoints) {
+                            List<UnweightedEdge> bridges, HashSet<Integer> articulationPoints) {
         visited[v] = true;
         ord[v] = cnt[0];
 
@@ -797,7 +847,7 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
 
                 // low[w] > ord[v]，表示 w 能回到的顶点序号（最小值）也比 v 的序号大，不能经由回向边（非遍历树边）指向祖先顶点。
                 if (low[w] > ord[v]) {
-                    bridges.add(new Edge(v, w));
+                    bridges.add(new UnweightedEdge(v, w));
                 }
                 // v 不是根顶点（其父顶点不是自身）且 low[w] >= ord[v]，则为割点。
                 if (v != parent && low[w] >= ord[v]) {
@@ -833,7 +883,6 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
     }
 
     /**
-     *
      * @param v
      * @param visited
      * @param end
@@ -884,10 +933,11 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
 
     /**
      * 遍历一个顶点的邻接顶点 w：
-     *      如果 w 未被访问，则递归调用 DFS，结果返回 true 表示从 w 出发找到哈密尔顿回路，即 v 也找到哈密尔顿回路，直接返回。
-     *      如果 w 已被访问，且 w 不为 0，跳过。
-     *      如果 w 未被访问，且 w 为 0，则检查是否所有顶点都已被访问，是则设置终点为 v，返回 true（递归函数实际出口）。
+     * 如果 w 未被访问，则递归调用 DFS，结果返回 true 表示从 w 出发找到哈密尔顿回路，即 v 也找到哈密尔顿回路，直接返回。
+     * 如果 w 已被访问，且 w 不为 0，跳过。
+     * 如果 w 未被访问，且 w 为 0，则检查是否所有顶点都已被访问，是则设置终点为 v，返回 true（递归函数实际出口）。
      * 如果遍历完所有的 w 仍未返回，表示从 v 出发无法找到哈密尔顿回路，（重置 v 的已访问状态）回溯并返回 false。
+     *
      * @param v
      * @param parent
      * @param visited
@@ -944,7 +994,6 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
     }
 
     /**
-     *
      * @param v
      * @param parent
      * @param visited
@@ -1009,9 +1058,9 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
 
     /**
      * 求欧拉回路（Hierholzer），另外还有：
-     *      回溯法
-     *      Fleury 算法
-     *
+     * 回溯法
+     * Fleury 算法
+     * 
      * Time: O(E)
      *
      * @return
@@ -1039,11 +1088,11 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
         }
 
         // 在拷贝图上操作。
-        UndirectedUnweightedGraph graph = (UndirectedUnweightedGraph) this.clone();
+        UnweightedGraph graph = (UnweightedGraph) this.clone();
         Stack<Integer> stack = new Stack<>();
         int v = 0;
         stack.push(v);
-        while(!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             // 当前节点 v 度数 > 0：表示有路可走。
             // v 入栈，并取其邻接顶点 w、去除两者之间的边，继续以 w 迭代遍历。
             if (graph.degree(v) != 0) {
@@ -1071,10 +1120,10 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
     private Iterable<Integer> eulerPath(int v) {
         List<Integer> ret = new ArrayList<>();
         // 在拷贝图上操作。
-        UndirectedUnweightedGraph graph = (UndirectedUnweightedGraph) this.clone();
+        UnweightedGraph graph = (UnweightedGraph) this.clone();
         Stack<Integer> stack = new Stack<>();
         stack.push(v);
-        while(!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             // 当前节点 v 度数 > 0：表示有路可走。
             // v 入栈，并取其邻接顶点 w、去除两者之间的边，继续以 w 迭代遍历。
             if (graph.degree(v) != 0) {
@@ -1097,9 +1146,8 @@ public class UndirectedUnweightedGraph implements Graph, Cloneable {
     }
 
     public static void main(String[] args) {
-        UndirectedUnweightedGraph g = new UndirectedUnweightedGraph("C:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh" +
-            "\\ds\\graph\\g.txt");
-        System.out.println(g.eulerLoop());
+        UnweightedGraph g = new UnweightedGraph("D:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh\\ds\\graph\\ug.txt");
+        System.out.println(g);
 //        System.out.print(g);
 //        System.out.println(g.shortestPath(0, 6));
     }

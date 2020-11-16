@@ -6,11 +6,12 @@ package com.ywh.ds.graph;
  * @author ywh
  * @since 2020/11/14
  */
-public class Edge {
+public class UnweightedEdge {
 
-    private int v, w;
+    private final int v;
+    private final int w;
 
-    public Edge(int v, int w){
+    public UnweightedEdge(int v, int w){
         this.v = v;
         this.w = w;
     }

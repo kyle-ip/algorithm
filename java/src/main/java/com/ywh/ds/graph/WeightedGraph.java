@@ -7,18 +7,22 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * 无向有权图
+ * 有权图
  *
  * @author ywh
  * @since 15/11/2020
  */
-public class UndirectedWeightedGraph implements Graph {
+public class WeightedGraph implements Graph {
 
     private int V;
 
     private int E;
 
     private TreeMap<Integer, Integer>[] adj;
+
+    private final boolean directed;
+
+    private int[] indegrees, outdegrees;
 
     /**
      * 7 12
@@ -37,7 +41,8 @@ public class UndirectedWeightedGraph implements Graph {
      *
      * @param filename
      */
-    public UndirectedWeightedGraph(String filename) {
+    public WeightedGraph(String filename, boolean directed) {
+        this.directed = directed;
         File file = new File(filename);
         try (Scanner scanner = new Scanner(file)) {
             V = scanner.nextInt();
@@ -48,6 +53,8 @@ public class UndirectedWeightedGraph implements Graph {
             for (int i = 0; i < V; i++) {
                 adj[i] = new TreeMap<>();
             }
+            indegrees = new int[V];
+            outdegrees = new int[V];
             E = scanner.nextInt();
             if (E < 0) {
                 throw new IllegalArgumentException("E must be non-negative");
@@ -57,19 +64,28 @@ public class UndirectedWeightedGraph implements Graph {
                 validateVertex(a);
                 int b = scanner.nextInt();
                 validateVertex(b);
-                int weight = scanner.nextInt();
+                int v = scanner.nextInt();
+
                 if (a == b) {
                     throw new IllegalArgumentException("Self Loop is Detected!");
                 }
                 if (adj[a].containsKey(b)) {
                     throw new IllegalArgumentException("Parallel Edges are Detected!");
                 }
-                adj[a].put(b, weight);
-                adj[b].put(a, weight);
+                adj[a].put(b, v);
+                outdegrees[a]++;
+                indegrees[b]++;
+                if (!directed) {
+                    adj[b].put(a, v);
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public WeightedGraph(String fileName) {
+        this(fileName, false);
     }
 
     /**
@@ -100,11 +116,20 @@ public class UndirectedWeightedGraph implements Graph {
     public void removeEdge(int v, int w) {
         validateVertex(v);
         validateVertex(w);
-        if (adj[v].containsKey(w)) {
+
+        if (adj[v].entrySet().contains(w)) {
             E--;
+
+            if (directed) {
+                indegrees[w]--;
+                outdegrees[v]--;
+            }
         }
+
         adj[v].remove(w);
-        adj[w].remove(v);
+        if (!directed) {
+            adj[w].remove(v);
+        }
     }
 
     /**
@@ -145,14 +170,31 @@ public class UndirectedWeightedGraph implements Graph {
         return adj[v].keySet();
     }
 
-    /**
-     * @param v
-     * @return
-     */
     @Override
     public int degree(int v) {
+        if (!directed) {
+            throw new RuntimeException("degree only works in undirected graph.");
+        }
         validateVertex(v);
         return adj[v].size();
+    }
+
+    @Override
+    public int indegree(int v) {
+        if (!directed) {
+            throw new RuntimeException("indegree only works in directed graph.");
+        }
+        validateVertex(v);
+        return indegrees[v];
+    }
+
+    @Override
+    public int outdegree(int v) {
+        if (!directed) {
+            throw new RuntimeException("outdegree only works in directed graph.");
+        }
+        validateVertex(v);
+        return outdegrees[v];
     }
 
     @Override
@@ -188,7 +230,7 @@ public class UndirectedWeightedGraph implements Graph {
     @Override
     public Object clone() {
         try {
-            UndirectedWeightedGraph cloned = (UndirectedWeightedGraph) super.clone();
+            WeightedGraph cloned = (WeightedGraph) super.clone();
             cloned.adj = new TreeMap[V];
             for (int v = 0; v < V; v++) {
                 cloned.adj[v] = new TreeMap<>();
@@ -208,8 +250,8 @@ public class UndirectedWeightedGraph implements Graph {
      */
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder()
-            .append(String.format("V = %d, E = %d\n", V, E));
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("V = %d, E = %d, directed = %b\n", V, E, directed));
         for (int v = 0; v < V; v++) {
             sb.append(String.format("%d : ", v));
             for (Map.Entry<Integer, Integer> entry : adj[v].entrySet()) {
@@ -531,7 +573,7 @@ public class UndirectedWeightedGraph implements Graph {
      * 所有点对最短路径，可以包含负权边，检测负权环。
      * 
      * Time: O(V^3)
-     * 
+     *
      * @return
      */
     public Iterable<Integer> shortestPathFloyd(int src, int dest) {
@@ -555,7 +597,7 @@ public class UndirectedWeightedGraph implements Graph {
             for (int v = 0; v < V; v++) {
                 for (int w = 0; w < V; w++) {
                     if (dis[v][t] != Integer.MAX_VALUE && dis[t][w] != Integer.MAX_VALUE
-                        && dis[v][t] + dis[t][w] < dis[v][w]) {
+                            && dis[v][t] + dis[t][w] < dis[v][w]) {
                         dis[v][w] = dis[v][t] + dis[t][w];
                         prev[w] = v;
                     }
@@ -581,8 +623,7 @@ public class UndirectedWeightedGraph implements Graph {
     }
 
     public static void main(String[] args) {
-        UndirectedWeightedGraph g = new UndirectedWeightedGraph("C:\\Project\\cs-basic\\algorithm\\java\\src\\main" +
-            "\\java\\com\\ywh\\ds\\graph\\g.txt");
-        System.out.println(g.shortestPathFloyd(0, 3));
+        WeightedGraph g = new WeightedGraph("D:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh\\ds\\graph\\wg.txt", true);
+        System.out.println(g);
     }
 }
