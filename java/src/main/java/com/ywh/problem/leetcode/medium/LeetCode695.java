@@ -15,7 +15,7 @@ import java.util.Stack;
 public class LeetCode695 {
 
     /**
-     * 四联通问题：已知二维平面上的一个点，求其上下左右四个方向的点。
+     * 四连通问题：已知二维平面上的一个点，求其上下左右四个方向的点。
      * <p>
      * Time: O(R*C), Space(R*C)
      *
@@ -69,7 +69,7 @@ public class LeetCode695 {
                 continue;
             }
 
-            // 对岛屿（一个联通分量）进行深度优先遍历。
+            // 对岛屿（一个连通分量）进行深度优先遍历。
             visited[v] = true;
             int area = 1;
             Stack<Integer> stack = new Stack<>();

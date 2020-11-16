@@ -157,16 +157,16 @@ public class AdjMatrixGraph {
         for (int v = 0; v < V; v++) {
             if (!visited[v]) {
                 dfs(v, visited, order);
-                // 此处可统计联通分量。
+                // 此处可统计连通分量。
             }
         }
         System.out.println(order);
     }
 
     /**
-     * 深度优先遍历（从某点开始访问整个联通分量）
+     * 深度优先遍历（从某点开始访问整个连通分量）
      * 可用于求解以下问题：
-     *      求图的联通分量
+     *      求图的连通分量
      *      求两点间时否可达
      *      求两点间的一条路径
      *      判断图中是否有环

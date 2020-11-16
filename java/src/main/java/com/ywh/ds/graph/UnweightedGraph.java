@@ -219,7 +219,7 @@ public class UnweightedGraph implements Graph, Cloneable {
         for (int v = 0; v < V; v++) {
             if (!visited[v]) {
                 dfs(v, visited, order);
-                // 此处可统计联通分量。
+                // 此处可统计连通分量。
                 count++;
             }
         }
@@ -230,7 +230,7 @@ public class UnweightedGraph implements Graph, Cloneable {
     // 树遍历：144、94、145、102、589、590、429
     // 图遍历：185、886、547、695
     // Flood Fill 算法：200、1020、130、733、1034、529、827
-    // 图建模：1091、752（状态转换）、773
+    // 图建模：1091、752（状态转换）、773、五桶+三桶凑四升水、狼羊菜问题
     // 哈密尔顿路径：980（状态压缩、记忆化搜索）
 
     // ========== DFS ==========
@@ -253,7 +253,7 @@ public class UnweightedGraph implements Graph, Cloneable {
             while (!stack.empty()) {
                 int cur = stack.pop();
                 order.add(cur);
-                for (int w : adj[cur]) {
+                for (int w : adj[v]) {
                     if (!visited[w]) {
                         stack.push(w);
                         visited[w] = true;
@@ -273,16 +273,16 @@ public class UnweightedGraph implements Graph, Cloneable {
         for (int v = 0; v < V; v++) {
             if (!visited[v]) {
                 dfs(v, visited, order);
-                // 此处可统计联通分量。
+                // 此处可统计连通分量。
             }
         }
         System.out.println(order);
     }
 
     /**
-     * 深度优先遍历（从某点开始访问整个联通分量）
+     * 深度优先遍历（从某点开始访问整个连通分量）
      * 可用于求解以下问题：
-     * 1. 求图的联通分量
+     * 1. 求图的连通分量
      * 2. 求两点间时否可达
      * 3. 求两点间的一条路径
      * 4. 判断图中是否有环
@@ -314,12 +314,12 @@ public class UnweightedGraph implements Graph, Cloneable {
     }
 
     /**
-     * 根据联通分量对顶点分组
+     * 根据连通分量对顶点分组
      *
      * @return
      */
     public Map<Integer, Integer> connectedComponentsDfs() {
-        // 以顶点为下标，联通分量编号为值的访问数组
+        // 以顶点为下标，连通分量编号为值的访问数组
         int[] visited = new int[V];
         int cccount = 0;
         Arrays.fill(visited, -1);
@@ -350,7 +350,7 @@ public class UnweightedGraph implements Graph, Cloneable {
     }
 
     /**
-     * 判断两点间是否联通，并求单源路径。
+     * 判断两点间是否连通，并求单源路径。
      *
      * @param src
      * @param dest
@@ -506,15 +506,18 @@ public class UnweightedGraph implements Graph, Cloneable {
      * 
      * Time: O(V+E)
      */
-    public Iterable<Integer> bfs() {
+    public void bfs() {
         boolean[] visited = new boolean[V];
         Queue<Integer> queue = new LinkedList<>();
         List<Integer> order = new ArrayList<>();
 
         // 遍历所有顶点，添加到队列中。
         for (int i = 0; i < V; i++) {
+            if (visited[i]) {
+                continue;
+            }
             queue.add(i);
-            // 队列为空，表示一个联通分量遍历完成。
+            // 队列为空，表示一个连通分量遍历完成。
             while (!queue.isEmpty()) {
                 // 从队列中取出一个顶点 v，添加到结果数组。
                 int v = queue.poll();
@@ -528,11 +531,11 @@ public class UnweightedGraph implements Graph, Cloneable {
                 }
             }
         }
-        return order;
+        System.out.println(order);
     }
 
     /**
-     * 判断两点间是否联通，并求单源路径。
+     * 判断两点间是否连通，并求单源路径。
      *
      * @param src
      * @param dest
@@ -570,7 +573,7 @@ public class UnweightedGraph implements Graph, Cloneable {
     }
 
     /**
-     * 判断两点间是否联通，并求单源路径。
+     * 判断两点间是否连通，并求单源路径。
      *
      * @param src
      * @param dest
@@ -638,7 +641,7 @@ public class UnweightedGraph implements Graph, Cloneable {
     }
 
     /**
-     * 根据联通分量对顶点分组
+     * 根据连通分量对顶点分组
      *
      * @return
      */
@@ -1028,7 +1031,7 @@ public class UnweightedGraph implements Graph, Cloneable {
     private boolean hasEulerLoop() {
         boolean[] visited = new boolean[V];
 
-        // 判断联通分量个数是否为 1（从 0 出发 DFS，结束后剩余未访问节点 > 0，表示存在不联通的点，返回 false）。
+        // 判断连通分量个数是否为 1（从 0 出发 DFS，结束后剩余未访问节点 > 0，表示存在不连通的点，返回 false）。
         Stack<Integer> stack = new Stack<>();
         stack.push(0);
         int left = V - 1;
@@ -1146,8 +1149,8 @@ public class UnweightedGraph implements Graph, Cloneable {
     }
 
     public static void main(String[] args) {
-        UnweightedGraph g = new UnweightedGraph("D:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh\\ds\\graph\\ug.txt");
-        System.out.println(g);
+        UnweightedGraph g = new UnweightedGraph("D:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh\\ds\\graph\\ug.txt", true);
+        g.bfs();
 //        System.out.print(g);
 //        System.out.println(g.shortestPath(0, 6));
     }

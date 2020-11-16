@@ -623,7 +623,7 @@ public class WeightedGraph implements Graph {
     }
 
     public static void main(String[] args) {
-        WeightedGraph g = new WeightedGraph("D:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh\\ds\\graph\\wg.txt", true);
-        System.out.println(g);
+        WeightedGraph g = new WeightedGraph("D:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh\\ds\\graph\\wg2.txt.txt", true);
+        System.out.println(g.shortestPathFloyd(0, 1));
     }
 }
