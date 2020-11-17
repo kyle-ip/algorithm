@@ -17,10 +17,23 @@ public class UnweightedGraph implements Graph, Cloneable {
 
     private int E;
 
+    /**
+     * 邻接表
+     * [
+     *      0: (1, 2, 3, 4),
+     *      1: (2, 3, 4)
+     * ]
+     */
     private TreeSet<Integer>[] adj;
 
+    /**
+     * 是否有向
+     */
     private final boolean directed;
 
+    /**
+     * 入度，出度
+     */
     private int[] indegrees, outdegrees;
 
     @Override
@@ -71,11 +84,12 @@ public class UnweightedGraph implements Graph, Cloneable {
                 if (adj[a].contains(b)) {
                     throw new IllegalArgumentException("Parallel Edges are Detected!");
                 }
-
+                // a -> b
                 adj[a].add(b);
                 outdegrees[a]++;
                 indegrees[b]++;
                 if (!directed) {
+                    // a <-> b
                     adj[b].add(a);
                 }
             }
@@ -158,6 +172,7 @@ public class UnweightedGraph implements Graph, Cloneable {
     }
 
     /**
+     *
      * @param v
      * @return
      */
@@ -309,7 +324,7 @@ public class UnweightedGraph implements Graph, Cloneable {
                 dfs(w, visited, order);
             }
         }
-        // 后序
+        // 后序：即遍历完顶点的邻接顶点时才遍历其自身。
         // order.add(v);
     }
 
@@ -414,11 +429,29 @@ public class UnweightedGraph implements Graph, Cloneable {
     public boolean hasCycleDfs() {
         boolean[] visited = new boolean[V];
         boolean hasCycle = false;
+
+        // 无向图。
+        if (!this.directed) {
+            for (int v = 0; v < V; v++) {
+                if (visited[v]) {
+                    continue;
+                }
+                if (cycleDetection(v, v, visited)) {
+                    hasCycle = true;
+                    break;
+                }
+            }
+            return hasCycle;
+        }
+
+        // 有向图。
+        boolean[] onPath = new boolean[V];
+
         for (int v = 0; v < V; v++) {
             if (visited[v]) {
                 continue;
             }
-            if (cycleDetection(v, v, visited)) {
+            if (cycleDetection(v, v, visited, onPath)) {
                 hasCycle = true;
                 break;
             }
@@ -450,6 +483,39 @@ public class UnweightedGraph implements Graph, Cloneable {
         }
         return false;
     }
+
+    /**
+     *
+     * @param v
+     * @param prev
+     * @param visited
+     * @param onPath
+     * @return
+     */
+    private boolean cycleDetection(int v, int prev, boolean[] visited, boolean[] onPath) {
+        visited[v] = true;
+        onPath[v] = true;
+        for (int w : adj(v)) {
+            if (!visited[w]) {
+                if (cycleDetection(w, v, visited, onPath)) {
+                    return true;
+                }
+            }
+            // 找到已访问节点，且该点在但当前路径上（而不局限于对父节点的判断）。
+            else if (onPath[w]) {
+                return true;
+            }
+        }
+        // 退递归时将该顶点移出 onPath，表示当前路径上无环，需要判断其他路径。
+        //  +---> [0]
+        //  |
+        // [1] -> [2] -> [3]
+        //  |      ↑            判断过 [1] -> [0] 和 [1] -> [2] -> [3] 都没有发现环时，需要把 [1] 从 onPath 移除，
+        //  +---> [4]           避免对检测 [1] -> [4] -> [2] -> [3] 时造成干扰。
+        onPath[v] = false;
+        return false;
+    }
+
 
     /**
      * 判断是否为二分图
@@ -675,11 +741,14 @@ public class UnweightedGraph implements Graph, Cloneable {
     }
 
     /**
-     * 判断图中是否有环
+     * 判断图中是否有环（仅支持无向图）
      *
      * @return
      */
     public boolean hasCycleBfs() {
+        if (this.directed) {
+            throw new IllegalArgumentException("directed cycle detection only works in directed graph.");
+        }
         boolean[] visited = new boolean[V];
         int[] prev = new int[V];
         Arrays.fill(prev, -1);
@@ -1024,11 +1093,63 @@ public class UnweightedGraph implements Graph, Cloneable {
     }
 
     /**
-     * 判断是否存在欧拉回路
+     * 判断有向图是否存在欧拉回路
      *
      * @return
      */
-    private boolean hasEulerLoop() {
+    private boolean hasEulerLoopDirected() {
+        // TODO 判断连通性
+        for (int v = 0; v < V; v++) {
+            if (indegrees[v] != outdegrees[v]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 求有向图的欧拉回路
+     *
+     * @return
+     */
+    private Iterable<Integer> eulerLoopDirected() {
+
+        // 有向图应使用链表记录节点，避免最终要对结果逆序。
+        LinkedList<Integer> ret = new LinkedList<>();
+        if (!hasEulerLoopDirected()) {
+            return ret;
+        }
+
+        // 在拷贝图上操作。
+        UnweightedGraph graph = (UnweightedGraph) this.clone();
+        Stack<Integer> stack = new Stack<>();
+        int v = 0;
+        stack.push(v);
+        while (!stack.isEmpty()) {
+            // 当前节点 v 出度 > 0：表示有路可走。
+            // v 入栈，并取其邻接顶点 w、去除两者之间的边，继续以 w 迭代遍历。
+            if (graph.outdegree(v) != 0) {
+                stack.push(v);
+                int w = graph.adj(v).iterator().next();
+                graph.removeEdge(v, w);
+                v = w;
+            }
+            // 当前顶点度数为 0，表示已经把相连的边都去除（成环）。
+            // 此节点即为欧拉回路上的点，添加到结果列表。
+            else {
+                ret.addFirst(v);
+                v = stack.pop();
+            }
+        }
+        return ret;
+    }
+
+    /**
+     * 判断无向图是否存在欧拉回路
+     *
+     * @return
+     */
+    private boolean hasEulerLoopUndirected() {
         boolean[] visited = new boolean[V];
 
         // 判断连通分量个数是否为 1（从 0 出发 DFS，结束后剩余未访问节点 > 0，表示存在不连通的点，返回 false）。
@@ -1060,7 +1181,7 @@ public class UnweightedGraph implements Graph, Cloneable {
     }
 
     /**
-     * 求欧拉回路（Hierholzer），另外还有：
+     * 求无向图的欧拉回路（Hierholzer），另外还有：
      * 回溯法
      * Fleury 算法
      * 
@@ -1068,13 +1189,13 @@ public class UnweightedGraph implements Graph, Cloneable {
      *
      * @return
      */
-    private Iterable<Integer> eulerLoop() {
+    private Iterable<Integer> eulerLoopUndirected() {
 
-        // [A]   [E]
-        //  |\   /|
-        //  | [B] |
-        //  |/   \|
-        // [C]   [D]
+        // [A]     [E]
+        //  | \   / |
+        //  |  [B]  |
+        //  | /   \ |
+        // [C]     [D]
 
         // 双栈解法：每条边走一次、回退一次，回退的路径即为欧拉回路。
         // 1. 从某一点出发沿路一直走，把边去除，并把顶点添加到 curPath 栈：A、B、C、A。
@@ -1086,7 +1207,7 @@ public class UnweightedGraph implements Graph, Cloneable {
         // 单栈解法：只保留 curPath 栈，结果直接存在 ret。
 
         List<Integer> ret = new ArrayList<>();
-        if (!hasEulerLoop()) {
+        if (!hasEulerLoopUndirected()) {
             return ret;
         }
 
@@ -1148,10 +1269,90 @@ public class UnweightedGraph implements Graph, Cloneable {
         return Collections.emptyList();
     }
 
+    /**
+     * 拓扑排序（可用于环检测）
+     *
+     * @return
+     */
+    public Iterable<Integer> topologicalSort() {
+        if(!directed) {
+            throw new IllegalArgumentException("topological sort only works in directed graph.");
+        }
+        List<Integer> ret = new ArrayList<>(V);
+        Queue<Integer> queue = new LinkedList<>();
+        int[] indgr = new int[V];
+        for (int i = 0; i < V; i++) {
+            indgr[i] = indegree(i);
+            if (indgr[i] == 0) {
+                queue.add(i);
+            }
+        }
+
+        // 循环处理入度为 0 的顶点
+        while (!queue.isEmpty()) {
+            int v = queue.poll();
+            ret.add(v);
+            for (int w : adj(v)) {
+                indgr[w]--;
+                if (indgr[w] == 0) {
+                    queue.add(w);
+                }
+            }
+        }
+
+        // 如果队列已空，但仍有顶点未添加到排序中（入度大于 0），则必然有环：
+        //  +------+
+        //  ↓      |
+        // [1] -> [2]
+        if (ret.size() != V) {
+            System.out.println("the graph has cycle");
+        }
+        return ret;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Iterable<Integer> topologicalSort2() {
+        if(!directed) {
+            throw new IllegalArgumentException("topological sort only works in directed graph.");
+        }
+        if (hasCycleDfs()) {
+            System.out.println("the graph has cycle");
+            return Collections.emptyList();
+        }
+        boolean[] visited = new boolean[V];
+        LinkedList<Integer> ret = new LinkedList<>();
+        for (int v = 0; v < V; v++) {
+            if (visited[v]) {
+                continue;
+            }
+            topologicalSortDfs(v, visited, ret);
+        }
+        return ret;
+    }
+
+    /**
+     * 拓扑排序（不可用于环检测，前置条件是 DAG）
+     *
+     * @param v
+     * @param visited
+     * @param ret
+     */
+    public void topologicalSortDfs(int v, boolean[] visited, LinkedList<Integer> ret) {
+        visited[v] = true;
+        for (int w : adj(v)) {
+            if (!visited[w]) {
+                topologicalSortDfs(w, visited, ret);
+            }
+        }
+        ret.addFirst(v);
+    }
+
     public static void main(String[] args) {
-        UnweightedGraph g = new UnweightedGraph("D:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh\\ds\\graph\\ug.txt", true);
-        g.bfs();
-//        System.out.print(g);
+        UnweightedGraph g = new UnweightedGraph("D:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh\\ds\\graph\\ug2.txt", true);
+        System.out.print(g.eulerLoopDirected());
 //        System.out.println(g.shortestPath(0, 6));
     }
 

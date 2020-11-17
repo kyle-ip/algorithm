@@ -14,14 +14,34 @@ import java.util.*;
  */
 public class WeightedGraph implements Graph {
 
+    /**
+     * 顶点
+     */
     private int V;
 
+
+    /**
+     * 边
+     */
     private int E;
 
+    /**
+     * 邻接表
+     * [
+     *      0: {1: 3, 2: 2, 3: -2},
+     *      1: (2: 2, 3: 2, 4: 1)
+     * ]
+     */
     private TreeMap<Integer, Integer>[] adj;
 
+    /**
+     * 是否有向
+     */
     private final boolean directed;
 
+    /**
+     * 入度，出度
+     */
     private int[] indegrees, outdegrees;
 
     /**
