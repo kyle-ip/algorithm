@@ -54,6 +54,25 @@ public class UnweightedGraph implements Graph, Cloneable {
         return null;
     }
 
+    public UnweightedGraph(TreeSet<Integer>[] adj, boolean directed) {
+        this.adj = adj;
+        this.directed = directed;
+        this.V = adj.length;
+        this.E = 0;
+        this.indegrees = new int[V];
+        this.outdegrees = new int[V];
+        for (int v = 0; v < V; v++) {
+            for (int w : adj(v)) {
+                outdegrees[v]++;
+                indegrees[w]++;
+                this.E++;
+            }
+        }
+        if (!directed) {
+            this.E /= 2;
+        }
+    }
+
     public UnweightedGraph(String filename, boolean directed) {
         this.directed = directed;
         File file = new File(filename);
@@ -255,7 +274,7 @@ public class UnweightedGraph implements Graph, Cloneable {
      * 
      * Time: O(V^2)
      */
-    public void dfsIterative() {
+    public Iterable<Integer> dfsIterative() {
         boolean[] visited = new boolean[V];
         ArrayList<Integer> order = new ArrayList<>();
         for (int v = 0; v < V; v++) {
@@ -276,13 +295,13 @@ public class UnweightedGraph implements Graph, Cloneable {
                 }
             }
         }
-        System.out.println(order);
+        return order;
     }
 
     /**
      * 深度优先遍历（递归解法）
      */
-    public void dfsRecursive() {
+    public Iterable<Integer> dfsRecursive() {
         boolean[] visited = new boolean[V];
         ArrayList<Integer> order = new ArrayList<>();
         for (int v = 0; v < V; v++) {
@@ -291,7 +310,7 @@ public class UnweightedGraph implements Graph, Cloneable {
                 // 此处可统计连通分量。
             }
         }
-        System.out.println(order);
+        return order;
     }
 
     /**
@@ -1350,9 +1369,106 @@ public class UnweightedGraph implements Graph, Cloneable {
         ret.addFirst(v);
     }
 
+
+    /**
+     * 求强连通分量（Kosaraju 算法）
+     *
+     * @return
+     */
+    public List<List<Integer>> stronglyConnectedComponentsKosaraju() {
+        // 强连通分量编号（强连通：visited[v] == visited[w]）、数量
+        int[] visited = new int[V];
+        int scccount = 0;
+        Arrays.fill(visited, -1);
+
+        // 反转原图。
+        TreeSet<Integer>[] rAdj = new TreeSet[adj.length];
+        for (int i = 0; i < V; i++) {
+            rAdj[i] = new TreeSet<>();
+        }
+        for (int v = 0; v < V; v++) {
+            for (int w : adj(v)) {
+                rAdj[w].add(v);
+            }
+        }
+        UnweightedGraph rg = new UnweightedGraph(rAdj, true);
+
+        // 求反图的后序的逆。
+        LinkedList<Integer> order = new LinkedList<>();
+        for (int v : sccPostDfs(rg)) {
+            order.addFirst(v);
+        }
+
+        // 对于上图得到的顺序，在原图中每 DFS 遍历一个顶点可以到达的顶点，就得到一个强连通分量。
+        for (int v : order) {
+            if (visited[v] == -1) {
+                sccCountDfs(v, scccount++, visited);
+            }
+        }
+
+        // 收集强连通分量：
+        List<List<Integer>> ret = new ArrayList<>(scccount);
+        for (int i = 0; i < scccount; i++) {
+            ret.add(new ArrayList<>());
+        }
+        for (int v = 0; v < V; v++) {
+            ret.get(visited[v]).add(v);
+        }
+        return ret;
+    }
+
+    /**
+     *
+     * @param v
+     * @param sccid
+     * @param visited
+     */
+    private void sccCountDfs(int v, int sccid, int[] visited) {
+        visited[v] = sccid;
+        for (int w : adj(v)) {
+            if (visited[w] == -1) {
+                sccCountDfs(w, sccid, visited);
+            }
+        }
+    }
+
+    /**
+     *
+     * @param ug
+     * @return
+     */
+    private Iterable<Integer> sccPostDfs(UnweightedGraph ug) {
+        boolean[] visited = new boolean[ug.V];
+        List<Integer> ret = new ArrayList<>();
+        for (int v = 0; v < ug.V(); v++) {
+            if (visited[v]) {
+                continue;
+            }
+            sccDfs(ug, v, visited, ret);
+        }
+        return ret;
+    }
+
+    /**
+     *
+     * @param ug
+     * @param v
+     * @param visited
+     * @param ret
+     */
+    private void sccDfs(UnweightedGraph ug, int v, boolean[] visited, List<Integer> ret) {
+        visited[v] = true;
+        for (int w : ug.adj(v)) {
+            if (!visited[w]) {
+                sccDfs(ug, w, visited, ret);
+            }
+        }
+        ret.add(v);
+    }
+
     public static void main(String[] args) {
-        UnweightedGraph g = new UnweightedGraph("D:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh\\ds\\graph\\ug2.txt", true);
-        System.out.print(g.eulerLoopDirected());
+        UnweightedGraph g = new UnweightedGraph("D:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh\\ds\\graph\\ug.txt", true);
+        System.out.print(g.stronglyConnectedComponentsKosaraju());
 //        System.out.println(g.shortestPath(0, 6));
     }
 
