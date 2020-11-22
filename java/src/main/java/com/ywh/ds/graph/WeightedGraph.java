@@ -763,11 +763,11 @@ public class WeightedGraph implements Graph {
         Queue<Integer> q = new LinkedList<>();
 
         // 记录顶点是否被遍历过、当前顶点的前一个顶点（初始化为 -1，>= 0 表示已经遍历过，且存储上一个节点）。
-        int[] pre = new int[V];
-        Arrays.fill(pre, -1);
+        int[] prev = new int[V];
+        Arrays.fill(prev, -1);
 
         q.add(s);
-        pre[s] = s;
+        prev[s] = s;
         while(!q.isEmpty()){
             int cur = q.remove();
             // 遇到汇点，退出循环。
@@ -778,8 +778,8 @@ public class WeightedGraph implements Graph {
             // 遍历邻接节点。
             for (int next: rG.adj(cur)) {
                 // 邻接节点未访问过，且在残量图上、与邻接节点的边权值大于 0，则添加到路径。
-                if(pre[next] == -1 && rG.getWeight(cur, next) > 0){
-                    pre[next] = cur;
+                if(prev[next] == -1 && rG.getWeight(cur, next) > 0){
+                    prev[next] = cur;
                     q.add(next);
                 }
             }
@@ -787,13 +787,13 @@ public class WeightedGraph implements Graph {
 
         // 还原增广路径并返回（必须到达汇点）。
         LinkedList<Integer> res = new LinkedList<>();
-        if (pre[t] == -1) {
+        if (prev[t] == -1) {
             return res;
         }
         int cur = t;
         while(cur != s){
             res.addFirst(cur);
-            cur = pre[cur];
+            cur = prev[cur];
         }
         res.addFirst(s);
         return res;
