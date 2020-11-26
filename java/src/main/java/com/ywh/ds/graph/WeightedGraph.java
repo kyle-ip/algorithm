@@ -75,29 +75,15 @@ public class WeightedGraph implements Graph {
             }
             indegrees = new int[V];
             outdegrees = new int[V];
-            E = scanner.nextInt();
-            if (E < 0) {
+            int e = scanner.nextInt();
+            if (e < 0) {
                 throw new IllegalArgumentException("E must be non-negative");
             }
-            for (int i = 0; i < E; i++) {
+            for (int i = 0; i < e; i++) {
                 int a = scanner.nextInt();
-                validateVertex(a);
                 int b = scanner.nextInt();
-                validateVertex(b);
                 int v = scanner.nextInt();
-
-                if (a == b) {
-                    throw new IllegalArgumentException("Self Loop is Detected!");
-                }
-                if (adj[a].containsKey(b)) {
-                    throw new IllegalArgumentException("Parallel Edges are Detected!");
-                }
-                adj[a].put(b, v);
-                outdegrees[a]++;
-                indegrees[b]++;
-                if (!directed) {
-                    adj[b].put(a, v);
-                }
+                addEdge(a, b, v);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -106,6 +92,43 @@ public class WeightedGraph implements Graph {
 
     public WeightedGraph(String fileName) {
         this(fileName, false);
+    }
+
+    public WeightedGraph(int v, boolean directed) {
+        this.V = v;
+        this.directed = directed;
+        this.E = 0;
+        this.adj = new TreeMap[v];
+        indegrees = new int[V];
+        outdegrees = new int[V];
+        for (int i = 0; i < v; i++) {
+            adj[i] = new TreeMap<>();
+        }
+    }
+
+    /**
+     * 添加边
+     *
+     * @param a
+     * @param b
+     * @param v
+     */
+    public void addEdge(int a, int b, int v) {
+        validateVertex(a);
+        validateVertex(b);
+        if (a == b) {
+            throw new IllegalArgumentException("Self Loop is Detected!");
+        }
+        if (adj[a].containsKey(b)) {
+            throw new IllegalArgumentException("Parallel Edges are Detected!");
+        }
+        adj[a].put(b, v);
+        outdegrees[a]++;
+        indegrees[b]++;
+        if (!directed) {
+            adj[b].put(a, v);
+        }
+        this.E ++;
     }
 
     /**
@@ -118,6 +141,8 @@ public class WeightedGraph implements Graph {
     }
 
     /**
+     * 获取权值
+     *
      * @param v
      * @param w
      * @return
@@ -130,6 +155,25 @@ public class WeightedGraph implements Graph {
     }
 
     /**
+     * 更新权值
+     *
+     * @param v
+     * @param w
+     * @param newWeight
+     */
+    public void setWeight(int v, int w, int newWeight){
+        if (!hasEdge(v, w)) {
+            throw new IllegalArgumentException(String.format("no edge %d-%d", v, w));
+        }
+        adj[v].put(w, newWeight);
+        if (!directed) {
+            adj[w].put(v, newWeight);
+        }
+    }
+
+    /**
+     * 删除边
+     *
      * @param v
      * @param w
      */
@@ -645,8 +689,123 @@ public class WeightedGraph implements Graph {
         return ret;
     }
 
+    /**
+     * 求解最大流（Edmonds-Karp 算法）
+     *
+     * Time: O(max*E) => O(V*E*E)
+     *
+     * @param s
+     * @param t
+     * @return
+     */
+    public int maxFlowEdmondsKarp(int s, int t) {
+        // 参数校验。
+        if(!directed) {
+            throw new IllegalArgumentException("max flow only works in directed graph.");
+        }
+        if (V < 2) {
+            throw new IllegalArgumentException("the network should hs at least 2 vertices.");
+        }
+        validateVertex(s);
+        validateVertex(t);
+        if (s == t) {
+            throw new IllegalArgumentException("s and t should be different.");
+        }
+
+        int maxFlow = 0;
+
+        // 创建残量图。
+        WeightedGraph rG = new WeightedGraph(V, true);
+        for (int v = 0; v < V; v++) {
+            for (int w : adj(v)) {
+                // 原图的容量 => 残量图的权值，反向为 0（初始时正向边没有流量，反向边也没有流量抵消）。
+                rG.addEdge(v, w, getWeight(v, w));
+                rG.addEdge(w, v, 0);
+            }
+        }
+
+        // 在残量图中寻找增广路径。
+        while (true) {
+            List<Integer> augPath = getAugmentingPath(s, t, rG);
+
+            // 找不到增广路径，已求出最大流，返回。
+            if (augPath.size() == 0) {
+                return maxFlow;
+            }
+            // 访问增广路径上所有的边，计算边最小权值，累计到最大流上。
+            int f = Integer.MAX_VALUE;
+            for (int i = 1; i < augPath.size(); i++) {
+                int v = augPath.get(i - 1), w = augPath.get(i);
+                f = Math.min(f, rG.getWeight(v, w));
+            }
+            maxFlow += f;
+
+            // 根据增广路径更新 rG 的流量。
+            for (int i = 1; i < augPath.size(); i++) {
+                int v = augPath.get(i - 1), w = augPath.get(i);
+                // 正向减去增广路径的最小权值，反向加上增广路径的最小权值。
+                rG.setWeight(v, w, rG.getWeight(v, w) - f);
+                rG.setWeight(w, v, rG.getWeight(w, v) + f);
+            }
+        }
+        // 边 v-w 的流量，即残量图的反向边的权值（可抵消的流量）。
+        // int flow = rg.getWeight(w, v);
+    }
+
+    /**
+     * 寻找增广路径。
+     *
+     * @param s
+     * @param t
+     * @param rG
+     * @return
+     */
+    private List<Integer> getAugmentingPath(int s, int t, WeightedGraph rG) {
+
+        // 广度优先遍历。
+        Queue<Integer> q = new LinkedList<>();
+
+        // 记录顶点是否被遍历过、当前顶点的前一个顶点（初始化为 -1，>= 0 表示已经遍历过，且存储上一个节点）。
+        int[] prev = new int[V];
+        Arrays.fill(prev, -1);
+
+        q.add(s);
+        prev[s] = s;
+        while(!q.isEmpty()){
+            int cur = q.remove();
+            // 遇到汇点，退出循环。
+            if (cur == t) {
+                break;
+            }
+
+            // 遍历邻接节点。
+            for (int next: rG.adj(cur)) {
+                // 邻接节点未访问过，且在残量图上、与邻接节点的边权值大于 0，则添加到路径。
+                if(prev[next] == -1 && rG.getWeight(cur, next) > 0){
+                    prev[next] = cur;
+                    q.add(next);
+                }
+            }
+        }
+
+        // 还原增广路径并返回（必须到达汇点）。
+        LinkedList<Integer> res = new LinkedList<>();
+        if (prev[t] == -1) {
+            return res;
+        }
+        int cur = t;
+        while(cur != s){
+            res.addFirst(cur);
+            cur = prev[cur];
+        }
+        res.addFirst(s);
+        return res;
+    }
+
+
     public static void main(String[] args) {
-        WeightedGraph g = new WeightedGraph("D:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh\\ds\\graph\\wg2.txt.txt", true);
-        System.out.println(g.shortestPathFloyd(0, 1));
+        WeightedGraph g = new WeightedGraph("C:\\Project\\cs-basic\\algorithm\\java\\src\\main\\java\\com\\ywh\\ds" +
+            "\\graph\\wg2.txt", true);
+        System.out.println(g.maxFlowEdmondsKarp(0, 5));
     }
 }

@@ -266,6 +266,7 @@ public class UnweightedGraph implements Graph, Cloneable {
     // Flood Fill 算法：200、1020、130、733、1034、529、827
     // 图建模：1091、752（状态转换）、773、五桶+三桶凑四升水、狼羊菜问题
     // 哈密尔顿路径：980（状态压缩、记忆化搜索）
+    // 最大流：普林斯顿棒球赛问题、LCP4（匹配算法建模）、俄罗斯方块匹配问题
 
     // ========== DFS ==========
 
@@ -1464,6 +1465,200 @@ public class UnweightedGraph implements Graph, Cloneable {
             }
         }
         ret.add(v);
+    }
+
+    /**
+     * 二分图匹配（最大流算法）
+     *
+     * @return
+     */
+    private int bipartiteMatchingMaxFlow(UnweightedGraph g) {
+
+        // 判断二分图，并记录颜色。
+        int[] colors = new int[g.V()];
+        for (int i = 0; i < g.V(); i++) {
+            if (colors[i] != -1) {
+                continue;
+            }
+            Queue<Integer> queue = new LinkedList<>();
+            queue.add(i);
+            colors[i] = 1;
+            while (!queue.isEmpty()) {
+                int v = queue.poll();
+                for (int w : g.adj(v)) {
+                    if (colors[w] == -1) {
+                        queue.add(w);
+                        colors[w] = -colors[v];
+                    } else if (colors[w] == colors[v]) {
+                        throw new IllegalArgumentException("bipartite matching only works for bipartite graph");
+                    }
+                }
+            }
+        }
+        // 创建网络流，即为原无向图添加源点（g.V()）和汇点（g.V()+1），分别与原图中的点相连，再添加权值和方向。
+        WeightedGraph network = new WeightedGraph(g.V() + 2, true);
+        // 遍历二分图的顶点。
+        for (int v = 0; v < g.V(); v++) {
+            // color 为 0 的连接源点，否则连接汇点。
+            if (colors[v] == 0) {
+                network.addEdge(g.V(), v, 1);
+            } else {
+                network.addEdge(v, g.V() + 1, 1);
+            }
+
+            // 遍历所有邻接节点。
+            for (int w : g.adj(v)) {
+                // 原图是无向图，避免重复遍历。
+                if (v >= w) {
+                    continue;
+                }
+
+                // 如果 v 与源点连接，则边 v-w 添加方向：v->w；
+                // 否则边 v-w 添加方向：v<-w。
+                // 即：
+                // s -> v1 -> w1 -> t
+                // |                ↑
+                // +--> w2 -> v2 ---+
+                if (colors[v] == 0) {
+                    network.addEdge(v, w, 1);
+                } else {
+                    network.addEdge(w, v, 1);
+                }
+            }
+        }
+        // 求出从源点到汇点的最大流即可。
+        return network.maxFlowEdmondsKarp(g.V(), g.V() + 1);
+    }
+
+    /**
+     * 二分图匹配（Hungarian 算法）
+     *
+     * @return
+     */
+    private int bipartiteMatchingHungarianBfs(UnweightedGraph g) {
+        int maxMatching = 0;
+        int[] matching = new int[V];
+        Arrays.fill(matching, -1);
+
+        // 判断二分图，并记录颜色。
+        int[] colors = new int[g.V()];
+        for (int i = 0; i < g.V(); i++) {
+            if (colors[i] != -1) {
+                continue;
+            }
+            Queue<Integer> queue = new LinkedList<>();
+            queue.add(i);
+            colors[i] = 1;
+            while (!queue.isEmpty()) {
+                int v = queue.poll();
+                for (int w : g.adj(v)) {
+                    if (colors[w] == -1) {
+                        queue.add(w);
+                        colors[w] = -colors[v];
+                    } else if (colors[w] == colors[v]) {
+                        throw new IllegalArgumentException("bipartite matching only works for bipartite graph");
+                    }
+                }
+            }
+        }
+
+        // 对于左侧的且未匹配的点，则开始 BFS 寻找增广路径，找到则最大匹配数 + 1。
+        for (int v = 0; v < V; v++) {
+            // 右边的点或已匹配的点，跳过。
+            if (colors[v] == -1 || matching[v] != -1) {
+
+            }
+            // BFS
+            if (hungarianBfs(v, matching)) {
+                maxMatching++;
+            }
+
+            // DFS
+//            if (hungarianDfs(v, matching, new boolean[V])) {
+//                maxMatching++;
+//            }
+        }
+        return maxMatching;
+    }
+
+    /**
+     * Hungarian 算法 DFS 实现（效率略低）
+     *
+     * @param v
+     * @param matching
+     * @return
+     */
+    private boolean hungarianDfs(int v, int[] matching, boolean[] visited) {
+        visited[v] = true;
+        for (int u: adj(v)) {
+            if (visited[u]) {
+                continue;
+            }
+            visited[u] = true;
+            if (matching[u] == -1 || hungarianDfs(matching[u], matching, visited)) {
+                matching[u] = v;
+                matching[v] = u;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Hungarian 算法 BFS 实现，来到右边的点不需要寻路，队列中只存储左边的点。
+     *
+     * @param v
+     * @param matching
+     * @return
+     */
+    private boolean hungarianBfs(int v, int[] matching) {
+        Queue<Integer> q = new LinkedList<>();
+
+        // 记录当前节点的上一个节点（默认 -1，表示未遍历过），倒序寻找路径。
+        int[] prev = new int[V];
+        Arrays.fill(prev, -1);
+
+        q.add(v);
+        prev[v] = v;
+        while (!q.isEmpty()) {
+            int cur = q.remove();
+            for (int next: adj(cur)) {
+                // 已访问的点，跳过。
+                if (prev[next] != -1) {
+                    continue;
+                }
+                // 与 next 已匹配的点存在（next 已匹配）。
+                if (matching[next] != -1) {
+
+                    // matching[next] 添加到队列。
+                    q.add(matching[next]);
+                    // cur -> next -> matching[next]
+                    prev[next] = cur;
+                    prev[matching[next]] = next;
+                }
+                // next 未匹配。
+                else{
+                    // 构建增广路径（必然有偶数顶点，逆序存储）。
+                    prev[next] = cur;
+                    ArrayList<Integer> augPath = new ArrayList<>();
+                    int c = next;
+                    while(c != v){
+                        augPath.add(c);
+                        c = prev[c];
+                    }
+                    augPath.add(v);
+
+                    // 把增广路径中的匹配边与非匹配边互换：
+                    // 与 aug[i] 匹配的修改为 aug[i+1]，与 aug[i+1] 匹配的修改为 aug[i]
+                    for(int i = 0; i < augPath.size(); i += 2){
+                        matching[augPath.get(i)] = augPath.get(i + 1);
+                        matching[augPath.get(i + 1)] = augPath.get(i);
+                    }
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public static void main(String[] args) {
