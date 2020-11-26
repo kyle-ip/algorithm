@@ -315,7 +315,7 @@ public class WeightedGraph implements Graph {
         }
 
         // 把所有边添加到 edges（不重复），按权值从小到大排序。
-        List<WeightedEdge> edges = new ArrayList<>(E), mst = new ArrayList<>(V - 1);
+        List<WeightedEdge> edges = new ArrayList<>(E);
         for (int v = 0; v < V; v++) {
             for (int w : adj(v)) {
                 if (v < w) {
@@ -325,13 +325,16 @@ public class WeightedGraph implements Graph {
         }
         Collections.sort(edges);
 
-        // 使用并查集判断每次取出的边是否与已取出的边形成环，不成环则收集。
+        // 使用并查集判断每次取出的边是否与先前已取出的边形成环，不成环则收集。
+        // 比如 1-2 与 2-3 都已添加到 uf 中，则下次通过 uf 可判断 1 和 3 已相连，不需要再添加到 mst。
+        List<WeightedEdge> mst = new ArrayList<>(V - 1);
         UnionFind uf = new UnionFind(V);
         for (WeightedEdge edge : edges) {
-            if (!uf.isConnected(edge.getV(), edge.getW())) {
-                mst.add(edge);
-                uf.union(edge.getV(), edge.getW());
+            if (uf.isConnected(edge.getV(), edge.getW())) {
+                continue;
             }
+            mst.add(edge);
+            uf.union(edge.getV(), edge.getW());
         }
         return mst;
     }
