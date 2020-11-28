@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * 四数相加 II
- * [哈希表] [二分查找]
+ * [哈希表] [二分搜素]
  *
  * @author ywh
  * @since 2020/11/27 22:23

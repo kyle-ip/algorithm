@@ -30,6 +30,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 - Skip List
 - Tree
   - Binary Search Tree (BST)
+  - Binary Indexed Tree (BIT)
   - Union Find
   - Trie
   - AC Automaton
@@ -57,16 +58,17 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (264)
+## LeetCode (265)
 
-| Tags          |                  |                     |                    |
-| ------------- | ---------------- | ------------------- | ------------------ |
-| Binary Search | Math             | Two Pointers        | String             |
-| Array         | Hash Table       | Linked List         | Divide and Conquer |
-| Sort          | Bit Manipulation | Tree                | DFS                |
-| Design        | Trie             | Queue               | BFS                |
-| Graph         | Heap             | Dynamic Programming | Backtracking       |
-| Greedy        | Line Sweep       | Stack               | Union Find         |
+| Tags                |                  |                     |                    |
+| ------------------- | ---------------- | ------------------- | ------------------ |
+| Binary Search       | Math             | Two Pointers        | String             |
+| Array               | Hash Table       | Linked List         | Divide and Conquer |
+| Sort                | Bit Manipulation | Tree                | DFS                |
+| Design              | Trie             | Queue               | BFS                |
+| Graph               | Heap             | Dynamic Programming | Backtracking       |
+| Greedy              | Line Sweep       | Stack               | Union Find         |
+| Binary Indexed Tree | Segment Tree     |                     |                    |
 
 | No.  | Title                                                        | Desc                               | Complexity                                           | Solution                                                     | Difficulty | Tags                                                     |
 | ---- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ | ---------- | -------------------------------------------------------- | -------------------------------------------------------- |
@@ -295,6 +297,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 463  | [Island Perimeter](https://leetcode.com/problems/island-perimeter) | 岛屿的周长                         | Time: O(n^2)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode463.java) [Python](python/src/problem/leetcode/easy/leetcode_463.py) | Easy       | Hash Table                                             |
 | 470  | [Implement Rand10() Using Rand7()](https://leetcode.com/problems/implement-rand10-using-rand7) | 用 rand7() 实现 rand10()           |  | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode470.java) | Medium     | Math<br />Random                                          |
 | 486  | [Predict the Winner](https://leetcode.com/problems/predict-the-winner) | 预测赢家                           | Time: O(n^2)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode486.java) | Medium     | Minimax<br />Dynamic Programming                          |
+| 493  | [Reverse Pairs](https://leetcode.com/problems/reverse-pairs/) | 翻转对 | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode493.java) | Hard | Binary Search<br />Divided and Conquer<br />Sort<br />Binary Indexed Tree<br />Segment Tree |
 | 509  | [Fibonacci Number](https://leetcode.com/problems/fibonacci-number) | 第 n 个斐波那契数                  | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode509.java) [Python](python/src/problem/leetcode/easy/leetcode_509.py) | Easy       | Array<br />Dynamic Programming                            |
 | 518  | [Coin Change 2](https://leetcode.com/problems/coin-change-2) | 零钱兑换 II            | Time: O(n\*sum)<br />Space: O(sum) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode518.java) | Medium     | Dynamic Programming                                    |
 | 523  | [ Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum) | 子数组求和是否为 K 的整数倍 | Time: O(n)<br />Space: O(k) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode523.java) [Python](python/src/problem/leetcode/medium/leetcode_523.py) | Medium | Math |

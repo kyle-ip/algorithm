@@ -2,7 +2,7 @@ package com.ywh.problem.leetcode.medium;
 
 /**
  * 两数相除
- * [数学] [二分查找]
+ * [数学] [二分搜素]
  *
  * @author ywh
  * @since 2020/9/20 22:46

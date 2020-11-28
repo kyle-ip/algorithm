@@ -663,8 +663,12 @@ public class WeightedGraph implements Graph {
             // 寻找最短路径的起始点和终止点。
             for (int v = 0; v < V; v++) {
                 for (int w = 0; w < V; w++) {
-                    if (dis[v][t] != Integer.MAX_VALUE && dis[t][w] != Integer.MAX_VALUE
-                            && dis[v][t] + dis[t][w] < dis[v][w]) {
+
+                    //      8
+                    //  +------[t]
+                    //  |   6   | -3
+                    // [v]-----[w]
+                    if (dis[v][t] != Integer.MAX_VALUE && dis[t][w] != Integer.MAX_VALUE && dis[v][t] + dis[t][w] < dis[v][w]) {
                         dis[v][w] = dis[v][t] + dis[t][w];
                         prev[w] = v;
                     }
