@@ -9,26 +9,44 @@ package com.ywh.ds.tree;
 public class BinaryIndexedTree {
 
     int[] tree;
-    int n;
 
     public BinaryIndexedTree(int n) {
-        this.n = n;
         this.tree = new int[n + 1];
     }
 
+    /**
+     * @param x
+     * @return
+     */
+    private int lowbit(int x) {
+        return x & (-x);
+    }
+
     public void update(int x, int d) {
-        while (x <= n) {
-            tree[x] += d;
-            x += x & (-x);
+        for (; x < tree.length; tree[x] += d, x += lowbit(x)) {
         }
     }
 
+    /**
+     * 查询前 x 个元素之和
+     *
+     * @param x
+     * @return
+     */
     public int query(int x) {
         int ret = 0;
-        while (x != 0) {
-            ret += tree[x];
-            x -= x & (-x);
+        for (; x != 0; ret += tree[x], x -= lowbit(x)) {
         }
         return ret;
     }
+
+    /**
+     * @param a
+     * @param b
+     * @return
+     */
+    public int query(int a, int b) {
+        return query(b) - query(a - 1);
+    }
+
 }
