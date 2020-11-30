@@ -19,6 +19,17 @@ public class SegmentTree {
     private final int[] weight;
 
     /**
+     *
+     * @param weight
+     * @param start
+     * @param end
+     */
+    public SegmentTree(int[] weight, int start, int end) {
+        this.weight = weight;
+        this.root = build(new SegTreeNode(start, end));
+    }
+
+    /**
      * 创建线段树
      *
      * @param weight
