@@ -34,6 +34,7 @@ public class LeetCode34 {
 
     /**
      * 查找 target 的结束下标：即当 nums 中有多个 target 时，返回最后一个的下标，否则返回右界
+     *
      * @param nums
      * @param target
      * @return
@@ -45,11 +46,15 @@ public class LeetCode34 {
             if (nums[mid] > target) {
                 high = mid - 1;
             }
-            // 找到目标值时不返回，继续在右半边查找，因此可以找到目标值的结束下标
+            // 找到目标值时不返回，继续在右半边查找，因此可以找到目标值的结束下标。
+            // nums[mid] == target 时，nums[mid+1] 也可能是 target，继续在右半边搜索。
             else {
                 low = mid + 1;
             }
         }
+
+        // [5, 7, 7, 8, 8, 10]
+        //              h   l
         return high;
     }
 
@@ -65,6 +70,11 @@ public class LeetCode34 {
             return new int[]{-1, -1};
         }
 
+        // [5, 7, 7, 8, 8, 10], target
+        //              ↑
+
+        // [5, 7, 7, 8, 8, 10], target-1
+        //        ↑
         int end = binarySearchLastOne(nums, target);
 
         // target - 1 的结束下标，再 +1 正好就是 target 的开始下标
