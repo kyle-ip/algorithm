@@ -25,7 +25,7 @@ public class LeetCode41 {
         if (nums == null || nums.length == 0) {
             return 1;
         }
-        int n = nums.length, p = 0;
+        int n = nums.length;
 
         // 2, -1, 4, 1, 8
 
@@ -55,7 +55,7 @@ public class LeetCode41 {
 
         // 8 > n, skip
         // 1, 2, -1, 4, [8]
-        while (p < n) {
+        for (int p = 0; p < n; ) {
             int num = nums[p];
             if (num >= 1 && num <= n && nums[num - 1] != num) {
                 int tmp = nums[p];
@@ -79,7 +79,7 @@ public class LeetCode41 {
 
     /**
      * FIXME bug
-     *
+     * <p>
      * Time: O(n), Space: O(1)
      *
      * @param nums
