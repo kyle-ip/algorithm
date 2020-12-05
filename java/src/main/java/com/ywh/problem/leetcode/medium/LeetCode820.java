@@ -6,7 +6,7 @@ import java.util.*;
 
 /**
  * 单词的压缩编码
- * [哈希表] [Trie]
+ * [哈希表] [字典树]
  *
  * @author ywh
  * @since 2020/9/9/009

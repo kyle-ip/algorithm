@@ -4,7 +4,7 @@ import com.ywh.ds.trie.TrieNode;
 
 /**
  * 实现前缀树
- * [设计] [Trie]
+ * [设计] [字典树]
  *
  * @author ywh
  * @since 25/11/2019

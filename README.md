@@ -59,7 +59,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (266)
+## LeetCode (267)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -151,6 +151,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 85   | [Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle) | 0/1 矩阵中的最大矩形               | Time: O(m\*n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode85.java) | Hard       | Array<br />Stack                                          |
 | 86   | [Partition List](https://leetcode.com/problems/partition-list/) | 链表划分                           | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode86.java) | Medium     | Linked List<br />Two Pointers                             |
 | 88   | [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) | 合并两个有序数组                   | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode88.java) [Python](python/src/problem/leetcode/easy/leetcode_88.py) | Easy       | Two Pointers<br />Array                                   |
+| 89   | [Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/submissions/) | 恢复搜索二叉树 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode89.java) | Hard | Tree<br />DFS |
 | 90   | [Subsets II](https://leetcode-cn.com/problems/subsets-ii/) | 子集 II | Time: O(2^n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode90.java) | Medium | Array<br />Backtracking |
 | 91   | [Decode Ways](https://leetcode.com/problems/decode-ways)     | 解码方式                           | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode91.java) | Medium     | String<br />Dynamic Programming                           |
 | 92   | [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) | 反转链表 II | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode92.java) | Medium | Linked List |
