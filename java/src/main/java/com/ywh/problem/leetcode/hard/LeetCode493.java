@@ -183,9 +183,4 @@ public class LeetCode493 {
         sort(nums, 0, nums.length - 1, ret);
         return ret[0];
     }
-
-    public static void main(String[] args) {
-        LeetCode493 l = new LeetCode493();
-        System.out.println(l.reversePairsMergeSort(new int[]{1,3,2,3,1}));
-    }
 }

@@ -58,10 +58,6 @@ public class LeetCode97 {
         return backtracking(s1, 0, s2, 0, s3, 0, cache);
     }
 
-    public static void main(String[] args) {
-        System.out.println(isInterleaveBacktracking("aabcc", "dbbca", "aadbbcbcac"));
-    }
-
     /**
      * 动态规划解法
      *

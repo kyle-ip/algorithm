@@ -18,20 +18,25 @@ public class LeetCode118 {
      * @return
      */
     public List<List<Integer>> generatePascalTriangle(int n) {
-        List<List<Integer>> result = new ArrayList<>();
+        List<List<Integer>> ret = new ArrayList<>();
         if (n < 1) {
-            return result;
+            return ret;
         }
+        // 一共 n 层。
         for (int i = 0; i < n; i++) {
             List<Integer> list = Arrays.asList(new Integer[i + 1]);
+            //              j-1  j
+            // i-1:     [1] [ ] [ ]
+            // i:       [1] ... [x] ... [1]
+            //           0  ...  j  ...  i
             list.set(0, 1);
             list.set(i, 1);
             for (int j = 1; j < i; j++) {
-                list.set(j, result.get(i - 1).get(j - 1) + result.get(i - 1).get(j));
+                list.set(j, ret.get(i - 1).get(j - 1) + ret.get(i - 1).get(j));
             }
-            result.add(list);
+            ret.add(list);
         }
-        return result;
+        return ret;
     }
 
     /**

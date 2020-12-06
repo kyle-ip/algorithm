@@ -42,9 +42,4 @@ public class LeetCode303 {
         }
 
     }
-
-    public static void main(String[] args) {
-        NumArrayImmutable NAI = new NumArrayImmutable(new int[]{-2, 0, 3, -5, 2, -1});
-        System.out.println(NAI.sumRange(2, 5));
-    }
 }
