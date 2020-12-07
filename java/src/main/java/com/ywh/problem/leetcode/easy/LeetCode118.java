@@ -40,30 +40,30 @@ public class LeetCode118 {
     }
 
     /**
-     * FIXME 错误
+     * FIXME 错误，参考《数据结构》（严蔚敏）
      * Time: O(n^2), Space: O(1)
      *
      * @param n
      * @return
      */
-    public List<List<Integer>> generatePascalTriangleUsingQueue(int n) {
-        List<List<Integer>> result = new ArrayList<>();
+    public List<List<Integer>> generatePascalTriangleQueue(int n) {
+        List<List<Integer>> ret = new ArrayList<>();
         if (n < 1) {
-            return result;
+            return ret;
         }
         Queue<Integer> queue = new LinkedList<>();
 
         // 放入三角顶尖上的元素
         queue.add(1);
 
-        // 记录上次从队首取出的元素，第一行队首前面没有元素，置为0
+        // 记录上次从队首取出的元素，第一行队首前面没有元素，置为 0
         int prev = 0;
         for (int i = 1; i < n + 2; i++) {
             List<Integer> elem = new ArrayList<>();
 
-            // 在队尾加入0隔开每行：
-            // 下一行的最后元素与上一行的最后元素相同，所以+0
-            // 0带到下一行又可以与下一行的行首元素相加、组成再下一行的行首元素
+            // 在队尾加入 0 隔开每行：
+            // 下一行的最后元素与上一行的最后元素相同，所以 +0
+            // 0 带到下一行又可以与下一行的行首元素相加、组成再下一行的行首元素
             queue.add(0);
 
             // 求第二行 0+2 次计算，求第三行 1+2 次计算...
@@ -75,10 +75,15 @@ public class LeetCode118 {
                 prev = value;
                 elem.add(value);
             }
-            // 忽略加入分隔每行用的0
+            // 忽略加入分隔每行用的 0
             elem.remove(elem.size() - 1);
-            result.add(elem);
+            ret.add(elem);
         }
-        return result;
+        return ret;
+    }
+
+    public static void main(String[] args) {
+        LeetCode118 l = new LeetCode118();
+        System.out.println(l.generatePascalTriangleQueue(5));
     }
 }

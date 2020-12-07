@@ -1118,7 +1118,28 @@ public class UnweightedGraph implements Graph, Cloneable {
      * @return
      */
     private boolean hasEulerLoopDirected() {
-        // TODO 判断连通性
+        // 判断连通性。
+        Stack<Integer> stack = new Stack<>();
+        stack.push(0);
+        int left = V - 1;
+        boolean[] visited = new boolean[V];
+        visited[0] = true;
+        while (!stack.empty()) {
+            int v = stack.pop();
+            for (int w : adj(v)) {
+                if (visited[w]) {
+                    continue;
+                }
+                left--;
+                visited[w] = true;
+                stack.push(w);
+            }
+        }
+        if (left != 0) {
+            return false;
+        }
+
+        // 对于连通图，判断每个点的入度和出度。
         for (int v = 0; v < V; v++) {
             if (indegrees[v] != outdegrees[v]) {
                 return false;

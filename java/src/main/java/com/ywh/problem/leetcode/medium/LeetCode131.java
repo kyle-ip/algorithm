@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -26,25 +27,32 @@ public class LeetCode131 {
      * @param s
      * @param start
      * @param dp
-     * @param result
+     * @param ret
      * @param elem
      */
-    private void partition(String s, int start, boolean[][] dp, List<List<String>> result, List<String> elem) {
+    private void partition(String s, int start, boolean[][] dp, List<List<String>> ret, LinkedList<String> elem) {
         if (start >= s.length()) {
-            result.add(new ArrayList<>(elem));
-        } else {
-            for (int end = start; end < s.length(); end++) {
-                if (dp[start][end]) {
-                    elem.add(s.substring(start, end + 1));
-                    partition(s, end + 1, dp, result, elem);
-                    elem.remove(elem.size() - 1);
-                }
+            ret.add(new LinkedList<>(elem));
+            return;
+        }
+        for (int end = start; end < s.length(); end++) {
+            if (!dp[start][end]) {
+                continue;
             }
+            // 从 start 到 end 是回文串，添加到 elem，并递归判断该子串的后续部分。
+            elem.add(s.substring(start, end + 1));
+
+            // 比如 [a, b, a,] (c, a, c)
+            //      s      e   e+1 ...
+            partition(s, end + 1, dp, ret, elem);
+
+            // 回溯，退递归。
+            elem.removeLast();
         }
     }
 
     /**
-     * d[i][j] 表示 i ~ j 的子串是否为回文串，见 {@link LeetCode647}
+     * 参考 {@link LeetCode647}
      *
      * Time: O(2^n), Space: O(n^2)
      *
@@ -52,11 +60,13 @@ public class LeetCode131 {
      * @return
      */
     public List<List<String>> partition(String s) {
-        List<List<String>> result = new ArrayList<>();
+        List<List<String>> ret = new ArrayList<>();
         if (s == null || s.length() == 0) {
-            return result;
+            return ret;
         }
         int n = s.length();
+
+        // d[i][j] 表示 i~j 的子串是否为回文串。
         boolean[][] dp = new boolean[n][n];
         for (int i = n - 1; i >= 0; i--) {
             for (int j = i; j < n; j++) {
@@ -69,7 +79,8 @@ public class LeetCode131 {
                 }
             }
         }
-        partition(s, 0, dp, result, new ArrayList<>());
-        return result;
+        // 至此 dp 数组填充完成，开始回溯分割回文串。
+        partition(s, 0, dp, ret, new LinkedList<>());
+        return ret;
     }
 }

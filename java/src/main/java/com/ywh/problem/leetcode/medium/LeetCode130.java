@@ -20,8 +20,7 @@ public class LeetCode130 {
      * @param board
      */
     public void solveBFS(char[][] board) {
-        int[] dx = {1, -1, 0, 0};
-        int[] dy = {0, 0, 1, -1};
+        int[] dx = {1, -1, 0, 0}, dy = {0, 0, 1, -1};
 
         int n = board.length;
         if (n == 0) {

@@ -155,7 +155,6 @@ public class SegmentTree {
         }
         // 当前区间包含待查询区间，加上标记。
         if (node.start >= start && node.end <= end) {
-            // TODO 为什么是 +=？
             node.val = val;
             node.addMark(val);
             return;
