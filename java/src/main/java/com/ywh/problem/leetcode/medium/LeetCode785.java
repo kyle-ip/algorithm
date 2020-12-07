@@ -88,7 +88,4 @@ public class LeetCode785 {
         return true;
     }
 
-    public static void main(String[] args) {
-        System.out.println(isBipartite2(new int[][]{{1,3},{0,2},{1,3},{0,2}}));
-    }
 }
