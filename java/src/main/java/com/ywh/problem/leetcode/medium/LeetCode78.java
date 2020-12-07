@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -12,17 +13,23 @@ import java.util.List;
  */
 public class LeetCode78 {
 
-    private void subsets(int[] nums, int start, List<Integer> elem, List<List<Integer>> result) {
+    /**
+     *
+     * @param nums
+     * @param start
+     * @param elem
+     * @param ret
+     */
+    private void subsets(int[] nums, int start, LinkedList<Integer> elem, List<List<Integer>> ret) {
 
-        // 此处添加子集（其中第一次 elem 为空、添加的是空集）
-        result.add(new ArrayList<>(elem));
-
+        // 此处添加子集（第一次调用 elem 为空、添加的是空集）
+        ret.add(new ArrayList<>(elem));
         for (int i = start; i < nums.length; i++) {
             elem.add(nums[i]);
-            subsets(nums, i + 1, elem, result);
+            subsets(nums, i + 1, elem, ret);
 
             // 回溯，每次移除最后一个元素
-            elem.remove(elem.size() - 1);
+            elem.removeLast();
         }
     }
 
@@ -37,10 +44,9 @@ public class LeetCode78 {
         if (nums == null || nums.length == 0) {
             return new ArrayList<>();
         }
-        List<List<Integer>> result = new ArrayList<>();
-        List<Integer> elem = new ArrayList<>();
-        subsets(nums, 0, elem, result);
-        return result;
+        List<List<Integer>> ret = new ArrayList<>();
+        subsets(nums, 0, new LinkedList<>(), ret);
+        return ret;
     }
 
     /**
@@ -55,9 +61,8 @@ public class LeetCode78 {
         if (nums == null || nums.length == 0) {
             return new ArrayList<>();
         }
-        List<List<Integer>> result = new ArrayList<>();
-        int n = nums.length;
-        int N = (int) Math.pow(2, n);
+        List<List<Integer>> ret = new ArrayList<>();
+        int n = nums.length, N = (int) Math.pow(2, n);
 
         for (int i = 0; i < N; ++i) {
             List<Integer> elem = new ArrayList<>();
@@ -66,9 +71,9 @@ public class LeetCode78 {
                     elem.add(nums[j]);
                 }
             }
-            result.add(elem);
+            ret.add(elem);
         }
-        return result;
+        return ret;
     }
 
 }

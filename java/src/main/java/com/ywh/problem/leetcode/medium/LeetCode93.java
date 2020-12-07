@@ -1,5 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
+import com.ywh.problem.leetcode.easy.LeetCode1;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,7 +20,7 @@ public class LeetCode93 {
      * @param segment
      * @return
      */
-    private static boolean valid(String segment) {
+    private boolean valid(String segment) {
         int m = segment.length();
         if (m > 3) {
             return false;
@@ -29,43 +31,43 @@ public class LeetCode93 {
     /**
      *
      * @param s
-     * @param prevPos
-     * @param dots
+     * @param start
      * @param segments
-     * @param output
+     * @param ret
      */
-    public static void backtrack(String s, int prevPos, int dots, List<String> segments, List<String> output) {
-        for (int currPos = prevPos + 1; currPos < Math.min(s.length() - 1, prevPos + 4); currPos++) {
-            String segment = s.substring(prevPos + 1, currPos + 1);
+    public void backtrack(String s, int start, LinkedList<String> segments, List<String> ret) {
+        for (int cur = start; cur < Math.min(s.length() - 1, start + 3); cur++) {
+            String segment = s.substring(start, cur + 1);
             if (!valid(segment)) {
                 continue;
             }
             segments.add(segment);
-            if (dots - 1 == 0) {
-                String outputSegment = s.substring(currPos + 1);
-                if (valid(outputSegment)) {
-                    segments.add(outputSegment);
-                    output.add(String.join(".", segments));
-                    segments.remove(segments.size() - 1);
+
+            // 处理最后一段。
+            if (segments.size() == 3) {
+                String lastSegment = s.substring(cur + 1);
+                if (valid(lastSegment)) {
+                    segments.add(lastSegment);
+                    ret.add(String.join(".", segments));
+                    segments.removeLast();
                 }
             } else {
-                backtrack(s, currPos, dots - 1, segments, output);
+                backtrack(s, cur + 1, segments, ret);
             }
-            segments.remove(segments.size() - 1);
+            segments.removeLast();
         }
     }
 
     /**
      * 回溯解法
-     * TODO 暂时未理解
      *
      * @param s
      * @return
      */
-    public static List<String> restoreIpAddresses(String s) {
-        ArrayList<String> output = new ArrayList<>();
-        backtrack(s, -1, 3, new LinkedList<>(), output);
-        return output;
+    public List<String> restoreIpAddresses(String s) {
+        ArrayList<String> ret = new ArrayList<>();
+        backtrack(s, 0, new LinkedList<>(), ret);
+        return ret;
     }
 
     /**
