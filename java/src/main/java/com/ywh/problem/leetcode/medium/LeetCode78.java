@@ -23,7 +23,7 @@ public class LeetCode78 {
     private void subsets(int[] nums, int start, LinkedList<Integer> elem, List<List<Integer>> ret) {
 
         // 此处添加子集（第一次调用 elem 为空、添加的是空集）
-        ret.add(new ArrayList<>(elem));
+        ret.add(new LinkedList<>(elem));
         for (int i = start; i < nums.length; i++) {
             elem.add(nums[i]);
             subsets(nums, i + 1, elem, ret);
