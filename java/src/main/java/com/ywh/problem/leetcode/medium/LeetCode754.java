@@ -3,7 +3,6 @@ package com.ywh.problem.leetcode.medium;
 /**
  * 到达终点数字
  * TODO 暂时未理解
- * <p>
  * [数学]
  *
  * @author ywh
@@ -21,7 +20,7 @@ public class LeetCode754 {
         target = Math.abs(target);
 
         // S = 1 + 2 + 3 + ... + k >= target，S - target == delta（超出）
-        // 假设一开始全部向一个方向走，直到超出 target（此时最接近重点，对于超出部分，需要 delta/2 抵消）
+        // 假设一开始全部向一个方向走，直到超出 target（此时最接近终点，对于超出部分，需要 delta/2 抵消）
         int k = 0;
         while (target > 0) {
             target -= ++k;

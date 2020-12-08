@@ -81,9 +81,4 @@ public class LeetCode118 {
         }
         return ret;
     }
-
-    public static void main(String[] args) {
-        LeetCode118 l = new LeetCode118();
-        System.out.println(l.generatePascalTriangleQueue(5));
-    }
 }

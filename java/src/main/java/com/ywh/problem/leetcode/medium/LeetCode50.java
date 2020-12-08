@@ -10,8 +10,6 @@ package com.ywh.problem.leetcode.medium;
 public class LeetCode50 {
 
     /**
-     * TODO 理解为何要转换为 long
-     *
      * Time: O(n), Space: O(1)
      *
      * @param x
@@ -19,11 +17,11 @@ public class LeetCode50 {
      * @return
      */
     public double pow(double x, int n) {
-        double result = 1;
-        for (int i = 0; i < Math.abs((long) n); i++) {
-            result *= x;
+        double ret = 1;
+        for (int i = 0; i < Math.abs(n); i++) {
+            ret *= x;
         }
-        return n < 0 ? 1 / result : result;
+        return n < 0 ? 1 / ret : ret;
     }
 
     /**
@@ -36,16 +34,15 @@ public class LeetCode50 {
      * @return
      */
     public double powFast(double x, int n) {
-        double result = 1;
+        double ret = 1;
         long N = Math.abs((long) n);
         while (N != 0) {
             if ((N & 1) == 1) {
-                result *= x;
+                ret *= x;
             }
-
             x *= x;
             N >>= 1;
         }
-        return n < 0 ? 1 / result : result;
+        return n < 0 ? 1 / ret : ret;
     }
 }

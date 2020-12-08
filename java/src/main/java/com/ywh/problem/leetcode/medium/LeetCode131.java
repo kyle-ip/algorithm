@@ -14,8 +14,6 @@ import java.util.List;
 public class LeetCode131 {
 
     /**
-     * TODO 暂时未完全理解
-     *
      * 每轮递归都固定 start、循环 end，判断从 start 到 end 是否为回文子串：
      * start        end
      * 0            start -> n - 1

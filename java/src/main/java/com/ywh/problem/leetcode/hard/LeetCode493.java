@@ -92,6 +92,8 @@ public class LeetCode493 {
 
     /**
      * 树状数组解法
+     * TODO 暂时未理解
+     *
      * Time: O(n*log(n)), Space: O(n)
      *
      * @param nums
@@ -121,66 +123,4 @@ public class LeetCode493 {
         return ret;
     }
 
-    /**
-     *
-     * @param nums
-     * @param low
-     * @param mid
-     * @param high
-     * @param ret
-     */
-    private void merge(int[] nums, int low, int mid, int high, int[] ret) {
-        int[] tmp = new int[nums.length];
-        System.arraycopy(nums, low, tmp, low, high - low + 1);
-
-        for (int i = low, j = mid + 1; i <= mid; i++) {
-            while (j <= high && (long) nums[i] > 2 * (long) nums[j]) {
-                j++;
-            }
-            ret[0] += j - mid - 1;
-        }
-
-        // [low, mid] 和 [mid, high] 分别是两个有序的数组。
-        // 如果从前者中取出 i、后者取出 j，满足 nums[i] > 2 * nums[j]。
-        // 则对于 [i, mid] 内的任意值都满足 > 2 * nums[j]。
-        for (int i = low, j = mid + 1, k = low; k <= high; k++) {
-            if (i > mid) {
-                nums[k] = tmp[j++];
-            } else if (j > high) {
-                nums[k] = tmp[i++];
-            } else if (tmp[i] < tmp[j]) {
-                nums[k] = tmp[i++];
-            } else {
-                nums[k] = tmp[j++];
-            }
-        }
-    }
-
-    /**
-     *
-     * @param nums
-     * @param low
-     * @param high
-     */
-    private void sort(int[] nums, int low, int high, int[] ret) {
-        if (low >= high) {
-            return;
-        }
-        int mid = low + (high - low) / 2;
-        sort(nums, low, mid, ret);
-        sort(nums, mid + 1, high, ret);
-        merge(nums, low, mid, high, ret);
-    }
-
-    /**
-     * TODO 归并排序解法 2（超时，待优化）
-     *
-     * @param nums
-     * @return
-     */
-    public int reversePairsMergeSort2(int[] nums) {
-        int[] ret = new int[1];
-        sort(nums, 0, nums.length - 1, ret);
-        return ret[0];
-    }
 }

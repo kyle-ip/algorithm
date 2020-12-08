@@ -50,8 +50,6 @@ public class LeetCode78 {
     }
 
     /**
-     * TODO 暂时未理解
-     *
      * Time: O(n*2^n), Space: O(1)
      *
      * @param nums

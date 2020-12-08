@@ -1,7 +1,5 @@
 package com.ywh.problem.leetcode.medium;
 
-import com.ywh.problem.leetcode.easy.LeetCode1;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,7 +33,7 @@ public class LeetCode93 {
      * @param segments
      * @param ret
      */
-    public void backtrack(String s, int start, LinkedList<String> segments, List<String> ret) {
+    public void backtracking(String s, int start, LinkedList<String> segments, List<String> ret) {
         for (int cur = start; cur < Math.min(s.length() - 1, start + 3); cur++) {
             String segment = s.substring(start, cur + 1);
             if (!valid(segment)) {
@@ -52,7 +50,7 @@ public class LeetCode93 {
                     segments.removeLast();
                 }
             } else {
-                backtrack(s, cur + 1, segments, ret);
+                backtracking(s, cur + 1, segments, ret);
             }
             segments.removeLast();
         }
@@ -66,7 +64,7 @@ public class LeetCode93 {
      */
     public List<String> restoreIpAddresses(String s) {
         ArrayList<String> ret = new ArrayList<>();
-        backtrack(s, 0, new LinkedList<>(), ret);
+        backtracking(s, 0, new LinkedList<>(), ret);
         return ret;
     }
 

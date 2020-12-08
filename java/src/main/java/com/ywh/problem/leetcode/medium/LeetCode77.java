@@ -26,6 +26,9 @@ public class LeetCode77 {
         }
 
         // 从 start 开始，取 [1, n] 的后 k 个元素，所以边界条件为 [start, n-k+1]。
+        // 比如 [1, 2, 3, 4, 5]
+        //            |<----->|
+        //              k = 3
         for (int i = start; i <= n - k + 1; i++) {
             elem.add(i);
             combine(n, k - 1, i + 1, elem, ret);
@@ -51,7 +54,6 @@ public class LeetCode77 {
     }
 
     /**
-     * TODO 暂时未理解
      * Time: O(k*C(n, k)), Space: O(k*C(n, k))
      *
      * @param n

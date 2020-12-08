@@ -1,5 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
+import com.ywh.problem.leetcode.easy.LeetCode1;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -13,58 +15,67 @@ import java.util.Queue;
 public class LeetCode130 {
 
     /**
-     * TODO 暂时未理解
-     *
      * Time: O(m*n), Space: O(m*n)
      *
      * @param board
      */
     public void solveBFS(char[][] board) {
-        int[] dx = {1, -1, 0, 0}, dy = {0, 0, 1, -1};
-
-        int n = board.length;
-        if (n == 0) {
+        if (board == null || board.length == 0 || board[0] == null || board[0].length == 0) {
             return;
         }
-        int m = board[0].length;
-        Queue<int[]> queue = new LinkedList<>();
-        for (int i = 0; i < n; i++) {
+        int[][] dirs = new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+        int m = board.length, n = board[0].length;
+        Queue<int[]> queue=  new LinkedList<>();
+
+        // 处理矩阵的左右边界，如果值为 O，则把坐标添加到队列中。
+        for (int i = 0; i < m; i++) {
             if (board[i][0] == 'O') {
-                queue.offer(new int[]{i, 0});
+                queue.add(new int[]{i, 0});
             }
-            if (board[i][m - 1] == 'O') {
-                queue.offer(new int[]{i, m - 1});
-            }
-        }
-        for (int i = 1; i < m - 1; i++) {
-            if (board[0][i] == 'O') {
-                queue.offer(new int[]{0, i});
-            }
-            if (board[n - 1][i] == 'O') {
-                queue.offer(new int[]{n - 1, i});
+            if (board[i][n - 1] == 'O') {
+                queue.add(new int[]{i, n - 1});
             }
         }
+
+        // 处理矩阵的上下边（注意不与上一步重复），如果值为 O，则把坐标添加到队列中。
+        for (int j = 1; j < n - 1; j++) {
+            if (board[0][j] == 'O') {
+                queue.add(new int[]{0, j});
+            }
+            if (board[m - 1][j] == 'O') {
+                queue.add(new int[] {m - 1, j});
+            }
+        }
+
+        // 广度优先遍历，从队列中取出坐标，标记为 A保护不可能被包围的 O，使之在下一步不会被改为 X）。
         while (!queue.isEmpty()) {
             int[] cell = queue.poll();
             int x = cell[0], y = cell[1];
             board[x][y] = 'A';
-            for (int i = 0; i < 4; i++) {
-                int mx = x + dx[i], my = y + dy[i];
-                if (mx < 0 || my < 0 || mx >= n || my >= m || board[mx][my] != 'O') {
-                    continue;
+            for (int[] dir : dirs) {
+                int nextX = x + dir[0], nextY = y + dir[1];
+                if (nextX >= 0 && nextX < m && nextY >= 0 && nextY < n && board[nextX][nextY] == 'O') {
+                    queue.add(new int[]{nextX, nextY});
                 }
-                queue.offer(new int[]{mx, my});
             }
         }
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 if (board[i][j] == 'A') {
                     board[i][j] = 'O';
-                } else if (board[i][j] == 'O') {
+                } else {
                     board[i][j] = 'X';
                 }
             }
         }
+    }
+
+    public static void main(String[] args) {
+        LeetCode130 l = new LeetCode130();
+        char[][] board = new char[][]{{'X','O','X','O','X','O'},{'O','X','O','X','O','X'},{'X','O','X','O','X','O'},
+            {'O','X','O','X','O','X'}};
+        l.solveBFS(board);
     }
 
     /**
@@ -74,7 +85,7 @@ public class LeetCode130 {
         if (board.length == 0) {
             return;
         }
-        // 把边界 O 标记为 A（保护这些不可能被包围的 O，使之不会被改为 X）
+        // 递归处理，把边界或与边界相邻的、值为 O 的点标记为 A（保护不可能被包围的 O，使之不会被改为 X）。
 
         // 遍历处理左右边界的元素：
         // X X X X          X X X X

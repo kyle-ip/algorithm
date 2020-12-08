@@ -15,7 +15,7 @@ import java.util.Map;
 public class LeetCode437 {
 
     /**
-     * 计算从 root 出发，路径和为 sum 的路径数量
+     * 计算从 root 出发，路径和为 sum 的路径数量。
      *
      * @param root
      * @param sum
@@ -31,7 +31,7 @@ public class LeetCode437 {
         if (root.val == sum) {
             ++cnt;
         }
-        // 节点值可能存在负数，因此无论截至目前是否已找到和为 sum 的路径，都继续向左右子树遍历
+        // 节点值可能存在负数，因此无论截至目前是否已找到和为 sum 的路径，都继续向左右子树遍历。
         cnt += pathFrom(root.left, sum - root.val);
         cnt += pathFrom(root.right, sum - root.val);
         return cnt;
@@ -54,13 +54,13 @@ public class LeetCode437 {
     }
 
     /**
-     * 前序遍历二叉树，并记录遍历过程中的路径和及其出现次数
+     * 前序遍历二叉树，并记录遍历过程中的路径和及其出现次数。
      *
-     * @param root          当前节点
-     * @param cur           前缀路径和
-     * @param sum           目标值
+     * @param root      当前节点
+     * @param cur       前缀路径和
+     * @param sum       目标值
      * @param prefixSum
-     * @return              路径和为 sum 的路径数量
+     * @return 路径和为 sum 的路径数量
      */
     private int dfs(TreeNode root, int cur, int sum, Map<Integer, Integer> prefixSum) {
         if (root == null) {
@@ -68,24 +68,22 @@ public class LeetCode437 {
         }
         cur += root.val;
 
-        // 记录当前节点的前缀路径和
+        // 取出前缀路径和与目标值差值的数量（表示共有多少条路径可以到达这里）。
+        int cnt = prefixSum.getOrDefault(cur - sum, 0);
+
+        // 由于发现一条新路径，其路径和为 cur，更新到 prefixSum。
         prefixSum.put(cur, prefixSum.getOrDefault(cur, 0) + 1);
 
-        // 取出前缀路径和与目标值差值的数量
-        int cnt = prefixSum.getOrDefault(cur - sum, 0);
-        // 在左右子树中继续查找，并添加到 cnt 上
-        cnt += dfs(root.left, cur, sum, prefixSum);
-        cnt += dfs(root.right, cur, sum, prefixSum);
+        // 在左右子树中继续递归查找，并添加到 cnt 上。
+        cnt += dfs(root.left, cur, sum, prefixSum) + dfs(root.right, cur, sum, prefixSum);
 
-        // 退递归后数量 - 1，回溯到上一个节点处理
+        // 退递归后数量 -1，回溯到上一个节点处理。
         prefixSum.put(cur, prefixSum.get(cur) - 1);
         return cnt;
-
     }
 
     /**
-     * 使用哈希表存放前缀路径和（从根节点到当前节点的路径和）及其出现的次数
-     * TODO 暂时未理解
+     * 使用哈希表存放前缀路径和（从根节点到当前节点的路径和）及其出现的次数。
      *
      * Time: O(n), Space: O(n)
      *
