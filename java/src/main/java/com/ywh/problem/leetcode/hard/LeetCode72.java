@@ -4,50 +4,69 @@ package com.ywh.problem.leetcode.hard;
  * 编辑距离
  * [字符串] [动态规划]
  *
+ * 给你两个单词 word1 和 word2，请你计算出将 word1 转换成 word2 所使用的最少操作数 。
+ * 你可以对一个单词进行如下三种操作：
+ *      插入一个字符
+ *      删除一个字符
+ *      替换一个字符
+ * 示例 1：
+ *      输入：word1 = "horse", word2 = "ros"
+ *      输出：3
+ *      解释：
+ *          horse -> rorse (将 'h' 替换为 'r')
+ *          rorse -> rose (删除 'r')
+ *          rose -> ros (删除 'e')
+ * 示例 2：
+ *      输入：word1 = "intention", word2 = "execution"
+ *      输出：5
+ *      解释：
+ *          intention -> inention (删除 't')
+ *          inention -> enention (将 'i' 替换为 'e')
+ *          enention -> exention (将 'n' 替换为 'x')
+ *          exention -> exection (将 'n' 替换为 'c')
+ *          exection -> execution (插入 'u')
+ * 提示：
+ *      0 <= word1.length, word2.length <= 500
+ *      word1 和 word2 由小写英文字母组成
+ *
  * @author ywh
  * @since 2019/10/28
  */
 public class LeetCode72 {
 
     /**
-     * 回溯：
-     * 在递归树中 (i, j) 两个变量重复的节点很多，因此只需要保留 edist 最小的，继续递归处理即可。
+     * 回溯：在递归树中 (i, j) 两个变量重复的节点很多，因此只需要保留 edist 最小的，继续递归处理即可。
      *
      * @param s
      * @param i
      * @param t
      * @param j
      * @param edist
-     * @param minDist
+     * @param ret
      */
-    public void backtracking(String s, int i, String t, int j, int edist, int[] minDist) {
+    public void backtracking(String s, int i, String t, int j, int edist, int[] ret) {
         // 结束条件：其中一个字符串下标已到达末尾，编辑距离需要加上另一个字符串剩余长度。
         // a b c
         //     i
         // a b c d e    dist += 2
         //     j
         if (i == s.length() || j == t.length()) {
-            if (j == t.length()) {
-                edist += (s.length() - i);
-            }
-            if (i == s.length()) {
-                edist += (t.length() - j);
-            }
-            minDist[0] = Math.min(minDist[0], edist);
+            edist += j == t.length()? s.length() - i: t.length() - j;
+            ret[0] = Math.min(ret[0], edist);
             return;
         }
         // 字符相同：两个字符串下标后移。
         if (s.charAt(i) == t.charAt(j)) {
-            backtracking(s, i + 1, t, j + 1, edist, minDist);
+            backtracking(s, i + 1, t, j + 1, edist, ret);
         }
         // 字符不同：编辑距离 + 1。
         else {
             // 删除 s[i] 或者 t[j] 前添加一个字符：s 的下标后移。
-            backtracking(s, i + 1, t, j, edist + 1, minDist);
+            backtracking(s, i + 1, t, j, edist + 1, ret);
             // 删除 t[j] 或者 s[i] 前添加一个字符：t 的下标后移。
-            backtracking(s, i, t, j + 1, edist + 1, minDist);
+            backtracking(s, i, t, j + 1, edist + 1, ret);
             // 将 s[i] 和 t[j] 替换为相同字符：两个字符串下标后移。
-            backtracking(s, i + 1, t, j + 1, edist + 1, minDist);
+            backtracking(s, i + 1, t, j + 1, edist + 1, ret);
         }
     }
 
@@ -83,15 +102,12 @@ public class LeetCode72 {
             return 0;
         }
         int m = s.length() + 1, n = t.length() + 1;
-
         // dp[i][j] 表示长度为 i 的 s 的子串 -> 长度为 j 的 t 的子串的编辑距离。
         int[][] dp = new int[m][n];
-
         // s[0, i - 1] -> t[0, 0]
         for (int i = 0; i < m; i++) {
             dp[i][0] = i;
         }
-
         // s[0, 0] -> t[0, j - 1]
         for (int j = 0; j < n; j++) {
             dp[0][j] = j;
