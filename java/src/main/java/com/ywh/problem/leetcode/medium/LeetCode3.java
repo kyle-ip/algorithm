@@ -31,25 +31,6 @@ public class LeetCode3 {
             maxLen = Math.max(maxLen, right - left + 1);
             hash[s.charAt(right++)] = true;
         }
-
-//        int left = 0, right = 0, maxLen = 0;
-//
-//        // 记录出现字符的次数的 Hash
-//        int[] counts = new int[256];
-//        for (; left < s.length(); left++) {
-//            for (; right < s.length(); right++) {
-//
-//                // 区间中的字符重复出现在右端点，则退出内层循环；
-//                if (counts[s.charAt(right)] != 0) {
-//                    break;
-//                }
-//                counts[s.charAt(right)]++;
-//            }
-//            maxLen = Math.max(maxLen, right - left);
-//
-//            // 区间向前滑动，最左边的字符出现次数 - 1
-//            counts[s.charAt(left)] -= 1;
-//        }
         return maxLen;
     }
 

@@ -59,7 +59,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (270)
+## LeetCode (271)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -331,6 +331,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 796  | [Rotate String](https://leetcode.com/problems/rotate-string/) | 旋转字符串 | Time: O(n^2)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode796.java) | Easy | String<br />Two Pointers |
 | 820  | [Short Encoding Of Words](https://leetcode.com/problems/short-encoding-of-words/) | 单词的压缩编码 | Time: O(∑wi)<br />Space: O(S\*∑wi) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode820.java) | Medium | Trie<br />Hash Table |
 | 842  | [Split Array into Fibonacci Sequence](https://leetcode.com/problems/split-array-into-fibonacci-sequence/) | 将数组拆分成斐波那契序列 | Time: *O*(n\*log2C)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode842.java) | Medium | Greedy<br />Backtracking<br />String |
+| 860  | [Lemonade Change](https://leetcode-cn.com/problems/lemonade-change/) | 柠檬水找零 | Time: *O*(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode860.java) | Easy | Greedy |
 | 861  | [Score After Flipping Matrix](https://leetcode-cn.com/problems/score-after-flipping-matrix/) | 翻转矩阵后的得分 | Time: O(m\*n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode861.java) | Medium | Greedy |
 | 876  | [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list) | 单链表中间节点                     | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode876.java) [Python](python/src/problem/leetcode/easy/leetcode_876.py) | Easy       | Linked List                                            |
 | 892  | [Surface Area of 3D Shapes](https://leetcode.com/problems/surface-area-of-3d-shapes) | 三维形体的表面积                   | Time: O(n^2)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode892.java) [Python](python/src/problem/leetcode/easy/leetcode_892.py) | Easy       | Geometry<br />Math                                        |
