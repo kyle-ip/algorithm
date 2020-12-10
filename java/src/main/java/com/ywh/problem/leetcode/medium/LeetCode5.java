@@ -2,9 +2,18 @@ package com.ywh.problem.leetcode.medium;
 
 /**
  * 最长回文子串
- * 解法类似 647，具体解析参考 {@link LeetCode647}
- * <p>
  * [字符串] [动态规划]
+ *
+ * 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
+ * 示例 1：
+ *      输入: "babad"
+ *      输出: "bab"
+ *      注意: "aba" 也是一个有效答案。
+ * 示例 2：
+ *      输入: "cbbd"
+ *      输出: "bb"
+ *
+ * 解法类似 {@link LeetCode647}
  *
  * @author ywh
  * @since 2/28/2019
@@ -79,10 +88,14 @@ public class LeetCode5 {
             int len = Math.max(expand(s, i, i), expand(s, i, i + 1));
             if (len > maxLen) {
                 maxLen = len;
+
+                // 0 1 2 3 3 2 1 5          偶数：
+                //       i                  i = 3, len = 6, start = 1
+                // 0 1 2 3 2 1 5            奇数：
+                //       i                  i = 3, len = 5, start = 1
                 start = i - (len - 1) / 2;
             }
         }
         return s.substring(start, start + maxLen);
     }
-
 }

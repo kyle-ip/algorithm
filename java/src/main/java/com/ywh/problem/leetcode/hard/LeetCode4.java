@@ -4,6 +4,26 @@ package com.ywh.problem.leetcode.hard;
  * 求两个有序数组的中位数
  * [数组] [二分搜索] [分治]
  *
+ * 给定两个大小为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的中位数。
+ * 进阶：你能设计一个时间复杂度为 O(log (m+n)) 的算法解决此问题吗？
+ * 示例 1：
+ *      输入：nums1 = [1,3], nums2 = [2]
+ *      输出：2.00000
+ *      解释：合并数组 = [1,2,3] ，中位数 2
+ * 示例 2：
+ *      输入：nums1 = [1,2], nums2 = [3,4]
+ *      输出：2.50000
+ *      解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5
+ * 示例 3：
+ *      输入：nums1 = [0,0], nums2 = [0,0]
+ *      输出：0.00000
+ * 示例 4：
+ *      输入：nums1 = [], nums2 = [1]
+ *      输出：1.00000
+ * 示例 5：
+ *      输入：nums1 = [2], nums2 = []
+ *      输出：2.00000
+ *
  * @author ywh
  * @since 2019/10/28
  */
@@ -177,10 +197,10 @@ public class LeetCode4 {
             int i = (left + right) / 2, j = (m + n + 1) / 2 - i;
 
             // numsIm1, numsI, numsJm1, numsJ 分别表示 nums1[i-1], nums1[i], nums2[j-1], nums2[j]，对于越界的下标，置为正无穷和负无穷。
-            int numsIm1 = (i == 0 ? Integer.MIN_VALUE : nums1[i - 1]);
-            int numsI = (i == m ? Integer.MAX_VALUE : nums1[i]);
-            int numsJm1 = (j == 0 ? Integer.MIN_VALUE : nums2[j - 1]);
-            int numsJ = (j == n ? Integer.MAX_VALUE : nums2[j]);
+            int numsIm1 = i == 0 ? Integer.MIN_VALUE : nums1[i - 1];
+            int numsI = i == m ? Integer.MAX_VALUE : nums1[i];
+            int numsJm1 = j == 0 ? Integer.MIN_VALUE : nums2[j - 1];
+            int numsJ = j == n ? Integer.MAX_VALUE : nums2[j];
 
             if (numsIm1 <= numsJ) {
                 leftMax = Math.max(numsIm1, numsJm1);

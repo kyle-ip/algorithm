@@ -3,8 +3,18 @@ package com.ywh.problem.leetcode.medium;
 import java.util.*;
 
 /**
- * 相加等于 0 的三个数
+ * 三数之和
  * [数组] [双指针]
+ *
+ * 给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有满足条件且不重复的三元组。
+ * 注意：答案中不可以包含重复的三元组。
+ * 示例：
+ *      给定数组 nums = [-1, 0, 1, 2, -1, -4]，
+ *      满足要求的三元组集合为：
+ *          [
+ *            [-1, 0, 1],
+ *            [-1, -1, 2]
+ *          ]
  *
  * @author ywh
  * @since 2019/2/21
@@ -13,7 +23,7 @@ public class LeetCode15 {
 
     /**
      * 三层循环
-     * <p>
+     *
      * Time: O(n^3), Space: O(n)
      *
      * @param nums
@@ -21,59 +31,29 @@ public class LeetCode15 {
      */
     public List<List<Integer>> threeNumSumToZeroOn3(int[] nums) {
 
-        List<List<Integer>> result = new ArrayList<>();
+        List<List<Integer>> ret = new ArrayList<>();
         Set<List<Integer>> set = new HashSet<>();
         Arrays.sort(nums);
 
         for (int i = 0; i < nums.length; i++) {
             for (int j = i + 1; j < nums.length; j++) {
                 for (int k = j + 1; k < nums.length; k++) {
-                    if (nums[i] + nums[j] + nums[j] == 0) {
+                    if (nums[i] + nums[j] + nums[k] == 0) {
                         List<Integer> elem = Arrays.asList(nums[i], nums[j], nums[k]);
-                        if (set.contains(elem)) {
-                            set.add(elem);
-                            result.add(elem);
+                        if (!set.contains(elem)) {
+                            ret.add(elem);
                         }
+                        set.add(elem);
                     }
                 }
             }
         }
-        return result;
+        return ret;
     }
 
     /**
      * 排序 + 双指针（注意每次成功判断后都要跳过重复值）
-     * <p>
-     * Time: O(n^2), Space: O(1)
      *
-     * @param nums
-     * @return
-     */
-    public List<List<Integer>> threeNumSumToZeroOn2(int[] nums) {
-
-        List<List<Integer>> result = new ArrayList<>();
-        Set<List<Integer>> set = new HashSet<>();
-        Arrays.sort(nums);
-
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                for (int k = j + 1; k < nums.length; k++) {
-                    if (nums[i] + nums[j] + nums[j] == 0) {
-                        List<Integer> elem = Arrays.asList(nums[i], nums[j], nums[k]);
-                        if (set.contains(elem)) {
-                            set.add(elem);
-                            result.add(elem);
-                        }
-                    }
-                }
-            }
-        }
-        return result;
-    }
-
-    /**
-     * 排序 + 双指针（注意每次成功判断后都要跳过重复值）
-     * <p>
      * Time: O(n^2), Space: O(1)
      *
      * @param nums

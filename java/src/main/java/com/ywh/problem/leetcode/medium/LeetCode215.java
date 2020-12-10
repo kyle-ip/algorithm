@@ -7,8 +7,18 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
- * 数组中第 K 大的元素
+ * 数组中的第 K 个最大元素
  * [分治] [堆]
+ *
+ * 在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
+ * 示例 1：
+ *      输入: [3,2,1,5,6,4] 和 k = 2
+ *      输出: 5
+ * 示例 2：
+ *      输入: [3,2,3,1,2,4,5,5,6] 和 k = 4
+ *      输出: 4
+ * 说明：
+ *      你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。
  *
  * @author ywh
  * @since 2019/10/30
@@ -49,39 +59,21 @@ public class LeetCode215 {
         return minHeap.peek();
     }
 
-    void swap(int[] nums, int i, int j) {
+    /**
+     *
+     * @param nums
+     * @param i
+     * @param j
+     */
+    private void swap(int[] nums, int i, int j) {
         int tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
     }
 
     /**
-     * 反向的分区方法，对于返回值 i：左边的元素都大于等于 i，右边的元素都小于 i
-     *
-     * @param nums
-     * @param low
-     * @param high
-     * @return
-     */
-    int partition(int[] nums, int low, int high) {
-        int pivot = nums[low], i = low, j = high;
-        while (i < j) {
-            while (i < j && nums[j] < pivot) {
-                j--;
-            }
-            while (i < j && nums[i] >= pivot) {
-                i++;
-            }
-            if (i < j) {
-                swap(nums, i, j);
-            }
-        }
-        return i;
-    }
-
-    /**
      * 快速选择法：
-     * 类似二分搜索，每次使用 {@link #partition} 获取分区点的下标；
+     * 类似二分搜索，每次获取分区点的下标；
      * 如果下标为 k - 1（比如 2），表示前面有 k - 1 个元素比它大（nums[0]、nums[1]）；
      * 所以下标为 pivot 的元素即为数组第 k（3）大元素
      *
@@ -92,18 +84,31 @@ public class LeetCode215 {
     public int findKthLargestQuickSelect(int[] nums, int k) {
         int low = 0, high = nums.length - 1;
         while (low <= high) {
-            int pivot = partition(nums, low, high);
-            if (pivot == k - 1) {
-                return nums[pivot];
+
+            // 反向的分区方法，对于返回值 i：左边的元素都大于等于 i，右边的元素都小于 i。
+            int pivot = nums[low], i = low, j = high;
+            while (i < j) {
+                while (i < j && nums[j] < pivot) {
+                    --j;
+                }
+                if (i < j) {
+                    swap(nums, i, j);
+                }
+                while (i < j && nums[i] >= pivot) {
+                    ++i;
+                }
+                if (i < j) {
+                    swap(nums, i, j);
+                }
             }
-            if (pivot > k - 1) {
-                high = pivot - 1;
+            if (i == k-1) {
+                return nums[i];
+            } else if (i > k-1) {
+                high = i - 1;
             } else {
-                low = pivot + 1;
+                low = i + 1;
             }
         }
-
-
         return -1;
     }
 

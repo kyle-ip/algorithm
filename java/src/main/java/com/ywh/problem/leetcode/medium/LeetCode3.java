@@ -6,6 +6,26 @@ import java.util.Arrays;
  * 没有重复字符的最长子串长度
  * [哈希表] [双指针] [字符串]
  *
+ * 给定一个字符串，请你找出其中不含有重复字符的最长子串的长度。
+ * 示例 1：
+ *      输入: s = "abcabcbb"
+ *      输出: 3
+ *      解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
+ * 示例 2：
+ *      输入: s = "bbbbb"
+ *      输出: 1
+ *      解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
+ * 示例 3：
+ *      输入: s = "pwwkew"
+ *      输出: 3
+ *      解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
+ * 示例 4：
+ *      输入: s = ""
+ *      输出: 0
+ * 提示：
+ *      0 <= s.length <= 5 * 10^4
+ *      s 由英文字母、数字、符号和空格组成
+ *
  * @author ywh
  * @since 2/21/2019
  */
@@ -45,13 +65,13 @@ public class LeetCode3 {
         int[] index = new int[256];
         Arrays.fill(index, -1);
         int maxLen = 0, left = 0, right = 0;
-        for (; right < s.length(); right++) {
+        while (right < s.length()) {
             // 每轮更新左指针：取当前位置与“右指针所指字符上次出现的位置 + 1”的较大者，表示必要时重置最长子串的统计。
             // 即假设 right 现在所指的字符 c 此前上次出现的位置是 2，则把 left 定在 3，再与当前的 right 计算距离。
             left = Math.max(left, index[s.charAt(right)] + 1);
             // 最大长度取“当前最大长度”与“左右指针相隔距离”中的较大者。
             maxLen = Math.max(maxLen, right - left + 1);
-            index[s.charAt(right)] = right;
+            index[s.charAt(right++)] = right;
         }
         return maxLen;
     }
