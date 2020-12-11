@@ -78,10 +78,6 @@ public class LeetCode43 {
         return sb.reverse().toString();
     }
 
-    public static void main(String[] args) {
-        System.out.println(mul("123456789", "987654321"));
-    }
-
     /**
      * Time: O(n^2), Space: O(1)
      *

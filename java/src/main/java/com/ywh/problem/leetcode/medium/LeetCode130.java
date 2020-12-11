@@ -71,13 +71,6 @@ public class LeetCode130 {
         }
     }
 
-    public static void main(String[] args) {
-        LeetCode130 l = new LeetCode130();
-        char[][] board = new char[][]{{'X','O','X','O','X','O'},{'O','X','O','X','O','X'},{'X','O','X','O','X','O'},
-            {'O','X','O','X','O','X'}};
-        l.solveBFS(board);
-    }
-
     /**
      * @param board
      */
