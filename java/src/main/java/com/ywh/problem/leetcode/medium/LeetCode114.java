@@ -24,7 +24,7 @@ public class LeetCode114 {
         if (root == null) {
             return;
         }
-        // 求树的先序遍历列表：
+        // 求树的前序遍历列表：
         //         1
         //        / \
         //       2   5      [1, 2, 3, 4, 5, 6]

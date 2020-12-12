@@ -3,8 +3,27 @@ package com.ywh.problem.leetcode.hard;
 import com.ywh.ds.tree.TreeNode;
 
 /**
- * 二叉树的最大路径和
+ * 二叉树中的最大路径和
  * [树] [DFS]
+ *
+ * 给定一个非空二叉树，返回其最大路径和。
+ * 本题中，路径被定义为一条从树中任意节点出发，沿父节点-子节点连接，达到任意节点的序列。
+ * 该路径至少包含一个节点，且不一定经过根节点。
+ * 示例 1：
+ *      输入：[1,2,3]
+ *
+ *             1
+ *            / \
+ *           2   3
+ *      输出：6
+ * 示例 2：
+ *      输入：[-10,9,20,null,null,15,7]
+ *         -10
+ *         / \
+ *        9  20
+ *          /  \
+ *         15   7
+ *      输出：42
  *
  * @author ywh
  * @since 2020/9/16/016
@@ -29,9 +48,7 @@ public class LeetCode124 {
         if (root == null) {
             return 0;
         }
-        int leftMax = Math.max(maxPathSumFrom(root.left), 0);
-        int rightMax = Math.max(maxPathSumFrom(root.right), 0);
-        return root.val + Math.max(leftMax, rightMax);
+        return root.val + Math.max(Math.max(maxPathSumFrom(root.left), 0), Math.max(maxPathSumFrom(root.right), 0));
     }
 
     /**
@@ -44,12 +61,10 @@ public class LeetCode124 {
         if (root == null) {
             return Integer.MIN_VALUE;
         }
-        int leftMax = Math.max(maxPathSumFrom(root.left), 0);
-        int rightMax = Math.max(maxPathSumFrom(root.right), 0);
         return max(
-                root.val + leftMax + rightMax,
-                maxPathSumBruteForce(root.left),
-                maxPathSumBruteForce(root.right)
+            root.val + Math.max(maxPathSumFrom(root.left), 0) + Math.max(maxPathSumFrom(root.right), 0),
+            maxPathSumBruteForce(root.left),
+            maxPathSumBruteForce(root.right)
         );
     }
 
@@ -74,7 +89,7 @@ public class LeetCode124 {
         // 更新答案：节点的最大路径和取决于该节点的值与该节点的左右子节点的最大贡献值。
         max[0] = Math.max(max[0], root.val + leftMax + rightMax);
 
-        // 返回节点的最大贡献值：
+        // 返回节点的最大贡献值：取较大路径和所在的路径用于计算上层递归。
         //   1
         //  / \
         // 4   8

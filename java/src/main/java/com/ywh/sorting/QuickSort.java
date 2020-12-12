@@ -23,17 +23,16 @@ public class QuickSort {
      * @return
      */
     private int lomutoPartition(int[] arr, int low, int high) {
-        // 选取基准值、游标从左端开始
-        int pivot = arr[high];
-        int i = low;
+        // 选取基准值、游标从左端开始。
+        int pivot = arr[high], i = low;
 
-        // 遍历元素，如果小于基准值，则交换到前面，同时移动游标
+        // 遍历元素，如果小于基准值，则交换到前面，同时移动游标。
         for (int j = low; j < high; j++) {
-            if (arr[j] < pivot) {
+            if (arr[j] < arr[high]) {
                 swap(arr, i++, j);
             }
         }
-        // 最后游标的落点即为基准值的位置（左小右大），把基准值换到这里
+        // 最后游标的落点即为基准值的位置（左小右大），把基准值换到这里。
         swap(arr, i, high);
         return i;
     }

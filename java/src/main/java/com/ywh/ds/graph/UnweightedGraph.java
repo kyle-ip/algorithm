@@ -335,7 +335,7 @@ public class UnweightedGraph implements Graph, Cloneable {
     private void dfs(int v, boolean[] visited, ArrayList<Integer> order) {
         visited[v] = true;
 
-        // 先序
+        // 前序
         order.add(v);
 
         // 依次取出该点的所有未被访问过的邻接顶点，递归遍历。

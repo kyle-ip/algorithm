@@ -3,8 +3,24 @@ package com.ywh.problem.leetcode.medium;
 import com.ywh.ds.list.ListNode;
 
 /**
- * 单链表排序
+ * 链表排序
  * [链表] [排序]
+ *
+ * 给你链表的头结点 head ，请将其按 升序 排列并返回排序后的链表。
+ * 进阶：
+ *      你可以在 O(n*log(n)) 时间复杂度和常数级空间复杂度下，对链表进行排序吗？
+ * 示例 1：
+ *      输入：head = [4,2,1,3]
+ *      输出：[1,2,3,4]
+ * 示例 2：
+ *      输入：head = [-1,5,3,4,0]
+ *      输出：[-1,0,3,4,5]
+ * 示例 3：
+ *      输入：head = []
+ *      输出：[]
+ * 提示：
+ *      链表中节点的数目在范围 [0, 5*10^4] 内
+ *      -10^5 <= Node.val <= 10^5
  *
  * @author ywh
  * @since 2/21/2019
@@ -51,7 +67,7 @@ public class LeetCode148 {
         //            left   right
 
         // 4: right 比 start 小，移动 left（刚才被跳过，即移动后的 left 是比 start 大的），交换 right、left 所指的值。
-        //                      swap()
+        //                       swap
         //                     +------+
         //                     ↓      ↓
         //      [3] -> [1] -> [4] -> [2] -> [ ]    =>    [3] -> [1] -> [2] -> [4] -> [ ]
@@ -67,11 +83,10 @@ public class LeetCode148 {
         // 5: right 停止移动时 left 所在的位置把 [start + 1, right) 分成两半，左边（包括 left 自身）都小于等于 start，右边都大于 start。
         // 交换 start、left 所指的值，使 [start, right) 以 left 为界，左边都小于它，右边（包括 left 自身）都大于等于它。
         //            swap()
-        //       +-------------+                                 分成两半
+        //       +-------------+                                      分成两半
         //       ↓             ↓                         |<-           ->|<-  ->|
         //      [3] -> [1] -> [2] -> [4] -> [ ]    =>    [2] -> [1] -> [3] -> [4] -> [ ]
         //                   left                                     left
-
         swap(start, left);
         quickSort(start, left);
         quickSort(left.next, end);
@@ -90,28 +105,6 @@ public class LeetCode148 {
     }
 
     /**
-     * 归并两个有序链表
-     *
-     * @param l1
-     * @param l2
-     * @return
-     */
-    private ListNode mergeTwoSortedLists(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(-1), cur = dummy;
-        for (;l1 != null && l2 != null; cur = cur.next) {
-            if (l1.val < l2.val) {
-                cur.next = l1;
-                l1 = l1.next;
-            } else {
-                cur.next = l2;
-                l2 = l2.next;
-            }
-        }
-        cur.next = l1 != null? l1: l2;
-        return dummy.next;
-    }
-
-    /**
      * 归并排序法
      * Time: O(n*log(n)), Space: O(log(n))
      *
@@ -119,11 +112,9 @@ public class LeetCode148 {
      * @return
      */
     public ListNode mergeSortList(ListNode head) {
-        // 如果传入空值或只有一个节点，则无需排序。
         if (head == null || head.next == null) {
             return head;
         }
-
         // 左右两个指针，分别移动到链表的中点和终点。
         // 1:
         //      [3] -> [1] -> [4] -> [2] -> null
@@ -159,7 +150,19 @@ public class LeetCode148 {
         left = mergeSortList(head);
 
         // 6: 合并两个有序链表。
-        // [1] -> [3] -> null, [2] -> [4] -> null    =>    [1] -> [2] -> [3] -> [4] -> null
-        return mergeTwoSortedLists(left, right);
+        // [1] -> [3] -> null,
+        // [2] -> [4] -> null    =>    [1] -> [2] -> [3] -> [4] -> null
+        ListNode dummy = new ListNode(-1), p = dummy;
+        for (;left != null && right != null; p = p.next) {
+            if (left.val < right.val) {
+                p.next = left;
+                left = left.next;
+            } else {
+                p.next = right;
+                right = right.next;
+            }
+        }
+        p.next = left != null? left: right;
+        return dummy.next;
     }
 }
