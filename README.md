@@ -59,7 +59,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (273)
+## LeetCode (274)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -160,7 +160,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 96   | [Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees) | 二叉搜索树的数量                   | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode96.java) | Medium     | Dynamic Programming<br />Tree<br />Math                      |
 | 97   | [Interleaving String]((https://leetcode-cn.com/problems/interleaving-string/)) | 交错字符串 | Time: O(m\*n)<br />Space: O(m\*n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode97.java) | Hard | Dynamic Programming<br />Backtracking |
 | 98   | [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree) | 检验二叉搜索树                     | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode98.java) | Medium     | Tree<br />DFS                                             |
-| 99 | [Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/submissions/) | 恢复搜索二叉树 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode89.java) | Hard | Tree<br />DFS |
+| 99   | [Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/submissions/) | 恢复搜索二叉树 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode89.java) | Hard | Tree<br />DFS |
 | 100  | [Same Tree](https://leetcode.com/problems/same-tree/)        | 判断二叉树是否相同                 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode100.java) [Python](python/src/problem/leetcode/easy/leetcode_100.py) | Easy       | Tree<br />Stack                                           |
 | 101  | [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) | 判断二叉树是否对称                 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode101.java) [Python](python/src/problem/leetcode/easy/leetcode_101.py) | Easy       | Tree<br />DFS<br />BFS                                       |
 | 102  | [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) | 二叉树的层序遍历                   | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode102.java) [Python](python/src/problem/leetcode/easy/leetcode_102.py) | Easy       | Tree<br />BFS                                             |
@@ -324,6 +324,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 703  | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream) | 数据流中第 K 大的元素              | Time: O(n\*log(k))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode703.java) [Python](python/src/problem/leetcode/easy/leetcode_703.py) | Easy       | Heap                                                   |
 | 704  | [Binary Search](https://leetcode.com/problems/binary-search) | 二分搜索                           | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode704.java) [Python](python/src/problem/leetcode/easy/leetcode_704.py) | Easy       | Binary Search                                          |
 | 724  | [Find Pivot Index](https://leetcode.com/problems/find-pivot-index/submissions/) | 寻找数组的平衡点 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode724.java) [Python](python/src/problem/leetcode/easy/leetcode_724.py) | Easy | Array |
+| 738  | [Monotone Increasing Digits](https://leetcode.com/problems/monotone-increasing-digits) | 单调递增的数字 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode738.java) | Medium | Greedy |
 | 739  | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures) | 温度升高需要等待的天数 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode739.java) | Medium | Array<br />Stack |
 | 746  | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs) | 爬楼梯的最小代价                   | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode746.java) [Python](python/src/problem/leetcode/easy/leetcode_746.py) | Easy       | Array<br />Dynamic Programming                            |
 | 752  | [Open the Lock](https://leetcode-cn.com/problems/open-the-lock) | 打开转盘锁 | Time: O(N^2\*A^N+D)<br />Space: O(A^N+D) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode752.java) | Medium | BFS |
