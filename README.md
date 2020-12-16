@@ -59,7 +59,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (274)
+## LeetCode (275)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -260,6 +260,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 278  | [First Bad Version](https://leetcode.com/problems/first-bad-version) | 第一个出错的版本 | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode278.java) [Python](python/src/problem/leetcode/easy/leetcode_278.py) | Easy | Binary Search |
 | 283  | [Move Zeroes](https://leetcode.com/problems/move-zeroes/)    | 向后移动 0                         | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode283.java) [Python](python/src/problem/leetcode/easy/leetcode_283.py) | Easy       | Array<br />Two Pointers                                   |
 | 287  | [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number) | 查找重复数字                       | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode287.java) | Medium     | Array<br />Two Pointers<br />Binary Search                   |
+| 290  | [Word Pattern](https://leetcode-cn.com/problems/word-pattern/) | 单词规律 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode290.java) | Easy | Hash Table |
 | 292  | [Nim Game](https://leetcode.com/problems/nim-game/) | Nim 游戏 | Time: O(1)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode292.java) | Easy | Brainteaser<br />Minimax |
 | 295  | [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream) | 在数据流中查找中位数               | Time: O(log(n)) (add), O(1) (find)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode295.java) | Hard       | Heap<br />Design                                          |
 | 297  | [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | 二叉树的序列化与反序列化 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode297.java) | Hard | Tree<br />Design |
