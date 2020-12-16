@@ -3,6 +3,43 @@ package com.ywh.problem.leetcode.hard;
 /**
  * 通配符匹配
  * [字符串] [动态规划] [贪心] [回溯]
+ * 
+ * 给定一个字符串 (s) 和一个字符模式 (p) ，实现一个支持 '?' 和 '*' 的通配符匹配。
+ *      '?' 可以匹配任何单个字符。
+ *      '*' 可以匹配任意字符串（包括空字符串）。
+ * 两个字符串完全匹配才算匹配成功。
+ * 说明:
+ *      s 可能为空，且只包含从 a-z 的小写字母。
+ *      p 可能为空，且只包含从 a-z 的小写字母，以及字符 ? 和 *。
+ * 示例 1:
+ *      输入:
+ *      s = "aa"
+ *      p = "a"
+ *      输出: false
+ *      解释: "a" 无法匹配 "aa" 整个字符串。
+ * 示例 2:
+ *      输入:
+ *      s = "aa"
+ *      p = "*"
+ *      输出: true
+ *      解释: '*' 可以匹配任意字符串。
+ * 示例 3:
+ *      输入:
+ *      s = "cb"
+ *      p = "?a"
+ *      输出: false
+ *      解释: '?' 可以匹配 'c', 但第二个 'a' 无法匹配 'b'。
+ * 示例 4:
+ *      输入:
+ *      s = "adceb"
+ *      p = "*a*b"
+ *      输出: true
+ *      解释: 第一个 '*' 可以匹配空字符串, 第二个 '*' 可以匹配字符串 "dce".
+ * 示例 5:
+ *      输入:
+ *      s = "acdcb"
+ *      p = "a*c?b"
+ *      输出: false
  *
  * @author ywh
  * @since 2020/10/23/023
@@ -65,6 +102,51 @@ public class LeetCode44 {
                     dp[i][j] = dp[i][j - 1] || dp[i - 1][j];
                 } else {
                     dp[i][j] = false;
+                }
+            }
+        }
+        return dp[m][n];
+    }
+
+    /**
+     *
+     * @param s
+     * @param p
+     * @return
+     */
+    public boolean isMatchDP2(String s, String p) {
+        int m = s.length(), n = p.length();
+
+        // dp[i][j] 表示字符串 s 的前 i 个字符和模式 p 的前 j 个字符是否匹配。
+        // 如果 p[j] 是字母，则 s[i] 必须是相同的字母。
+        //      dp[i][j] = dp[i-1][j-1] && s[i] == p[i]
+        // 如果 p[j] 是 ?，则 s[i] 可以为任意字符。
+        //      dp[i][j] = dp[i-1][j-1]
+        // 如果 p[j] 是 *，则 s[i] 没有任何要求，但 * 可以匹配零或任意多个小写字母，所以有两种情况：
+        //      使用（推进 j）或不使用（推进 i）这个 *。
+        //      dp[i][j] = dp[i][j-1] || dp[i-1][j]
+        boolean[][] dp = new boolean[m + 1][n + 1];
+
+        // 边界条件：
+        //      dp[0][0] = true     表示两串为空时匹配成功。
+        //      dp[i][0] = false    表示空模式无法匹配任何字符串
+        //      dp[0][j]            表示当字符串为空，只有当模式 p 的前 j 个字符均为 * 时，dp[0][j] 才为真。
+        dp[0][0] = true;
+        for (int i = 1; i <= n; ++i) {
+            if (p.charAt(i - 1) != '*') {
+                break;
+            }
+            dp[0][i] = true;
+        }
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                switch (p.charAt(j - 1)) {
+                    case '*':
+                        dp[i][j] = dp[i][j - 1] || dp[i - 1][j]; break;
+                    case '?':
+                        dp[i][j] = dp[i - 1][j - 1]; break;
+                    default:
+                        dp[i][j] = dp[i - 1][j - 1] && s.charAt(i - 1) == p.charAt(j - 1); break;
                 }
             }
         }
