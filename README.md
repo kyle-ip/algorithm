@@ -59,7 +59,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (277)
+## LeetCode (278)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -325,6 +325,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 700  | [Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree) | 二叉搜索树中查找数字               | Time: O(h)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode700.java) [Python](python/src/problem/leetcode/easy/leetcode_700.py) | Easy       | Tree                                                   |
 | 703  | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream) | 数据流中第 K 大的元素              | Time: O(n\*log(k))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode703.java) [Python](python/src/problem/leetcode/easy/leetcode_703.py) | Easy       | Heap                                                   |
 | 704  | [Binary Search](https://leetcode.com/problems/binary-search) | 二分搜索                           | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode704.java) [Python](python/src/problem/leetcode/easy/leetcode_704.py) | Easy       | Binary Search                                          |
+| 718  | [Best Time to Buy and Sell Stock with Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/) | 买卖股票的最佳时机含手续费 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode718.java) | Medium | Greedy<br />Array<br />Dynamic Programming |
 | 724  | [Find Pivot Index](https://leetcode.com/problems/find-pivot-index/submissions/) | 寻找数组的平衡点 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode724.java) [Python](python/src/problem/leetcode/easy/leetcode_724.py) | Easy | Array |
 | 738  | [Monotone Increasing Digits](https://leetcode.com/problems/monotone-increasing-digits) | 单调递增的数字 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode738.java) | Medium | Greedy |
 | 739  | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures) | 温度升高需要等待的天数 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode739.java) | Medium | Array<br />Stack |
@@ -340,7 +341,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 860  | [Lemonade Change](https://leetcode-cn.com/problems/lemonade-change/) | 柠檬水找零 | Time: *O*(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode860.java) | Easy | Greedy |
 | 861  | [Score After Flipping Matrix](https://leetcode-cn.com/problems/score-after-flipping-matrix/) | 翻转矩阵后的得分 | Time: O(m\*n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode861.java) | Medium | Greedy |
 | 876  | [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list) | 单链表中间节点                     | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode876.java) [Python](python/src/problem/leetcode/easy/leetcode_876.py) | Easy       | Linked List                                            |
-| 887 | [Super Egg Drop](https://leetcode-cn.com/problems/super-egg-drop/) | 鸡蛋掉落 | Time: O(K\*N^(1/K))<br />Space: O(K\*N) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode887.java) | Hard | Math<br />Binary Search<br />Dynamic Programming |
+| 887  | [Super Egg Drop](https://leetcode-cn.com/problems/super-egg-drop/) | 鸡蛋掉落 | Time: O(K\*N^(1/K))<br />Space: O(K\*N) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode887.java) | Hard | Math<br />Binary Search<br />Dynamic Programming |
 | 892  | [Surface Area of 3D Shapes](https://leetcode.com/problems/surface-area-of-3d-shapes) | 三维形体的表面积                   | Time: O(n^2)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode892.java) [Python](python/src/problem/leetcode/easy/leetcode_892.py) | Easy       | Geometry<br />Math                                        |
 | 938  | [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/submissions/) | 二叉搜索树的区间和 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode938.java) [Python](python/src/problem/leetcode/easy/leetcode_938.py) | Easy | Tree |
 | 945  | [ Minimum Increment to Make Array Unique](https://leetcode.com/problems/minimum-increment-to-make-array-unique) | 使数组唯一的最小增量               | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode945.java) | Medium     | Array                                                  |
