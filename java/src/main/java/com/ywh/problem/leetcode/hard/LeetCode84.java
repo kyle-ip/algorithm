@@ -6,6 +6,19 @@ import java.util.Stack;
  * 直方图中的最大矩形
  * [数组] [栈]
  *
+ * 给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
+ * 求在该柱状图中，能够勾勒出来的矩形的最大面积。
+ *            |
+ *          | |
+ *          | |
+ *          | |   |
+ *      |   | | | |
+ *      | | | | | |
+ * 以上是柱状图的示例，其中每个柱子的宽度为 1，给定的高度为 [2,1,5,6,2,3]。
+ * 图中阴影部分为所能勾勒出的最大矩形面积，其面积为 10 个单位。
+ * 示例：
+ *      输入: [2,1,5,6,2,3]
+ *      输出: 10
  * @author ywh
  * @since 16/11/2019
  */
@@ -29,15 +42,10 @@ public class LeetCode84 {
         for (int i = 0; i < n; i++) {
             // 双指针从 i 出发向两边移动，直到两边的高度小于中间。
             int left = i, right = i;
-            while (left >= 0 && heights[left] >= heights[i]) {
-                --left;
-            }
-            while (right < n && heights[right] >= heights[i]) {
-                ++right;
-            }
-
+            for (; left >= 0 && heights[left] >= heights[i]; left--);
+            for (; right < n && heights[right] >= heights[i]; right++);
+            // 此时 left 和 right 之间的范围内中间低、两边高，阴影面积的高度为 height[i]。
             // 由于 left 和 right 都指向不符合条件的位置，宽度应为 (left, right) 开区间的长度
-            // 两边都比 height[i]，因此取 height[i] 为高。
             max = Math.max(max, heights[i] * (right - left - 1));
         }
         return max;

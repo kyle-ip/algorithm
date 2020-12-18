@@ -4,6 +4,34 @@ package com.ywh.problem.leetcode.medium;
  * 解码方式
  * [字符串] [动态规划]
  *
+ * 一条包含字母 A-Z 的消息通过以下方式进行了编码：
+ *      'A' -> 1
+ *      'B' -> 2
+ *      ...
+ *      'Z' -> 26
+ * 给定一个只包含数字的非空字符串，请计算解码方法的总数。
+ * 题目数据保证答案肯定是一个 32 位的整数。
+ * 示例 1：
+ *      输入：s = "12"
+ *      输出：2
+ *      解释：它可以解码为 "AB"（1 2）或者 "L"（12）。
+ * 示例 2：
+ *      输入：s = "226"
+ *      输出：3
+ *      解释：它可以解码为 "BZ" (2 26), "VF" (22 6), 或者 "BBF" (2 2 6) 。
+ * 示例 3：
+ *      输入：s = "0"
+ *      输出：0
+ * 示例 4：
+ *      输入：s = "1"
+ *      输出：1
+ * 示例 5：
+ *      输入：s = "2"
+ *      输出：1
+ * 提示：
+ *      1 <= s.length <= 100
+ *      s 只包含数字，并且可能包含前导零。
+ *
  * @author ywh
  * @since 11/11/2019
  */
@@ -70,11 +98,11 @@ public class LeetCode91 {
      */
     public int numberOfDecodingsDP(String s) {
 
-        // d[i] 表示长度为 i 的子串的解码方式数量
+        // d[i] 表示长度为 i 的子串的解码方式数量。
         int[] d = new int[s.length() + 1];
 
         // 注意 d[0] = 1，表示前 0 个字符的解码方式数量，所有的 d[i] 在最后一个字符或最后两个字符能有效解码时，
-        // 就会取 d[i - 1] 或 d[i - 2] 的值，到达 d[0] 时形成有效的解码序列，需要初始化为 1
+        // 就会取 d[i-1] 或 d[i-2] 的值，到达 d[0] 时形成有效的解码序列，需要初始化为 1。
         d[0] = 1;
         d[1] = s.charAt(0) != '0' ? 1 : 0;
 
@@ -105,12 +133,12 @@ public class LeetCode91 {
      */
     public int numberOfDecodingsDPO1(String s) {
         //      [1]    [0]    [5]    [9]    [2]
-        //     first  second third
-        // second：截至前一个位置的字符串的编码方式数量。
-        // first：截至前两个位置的字符串的编码方式数量。
-        int first = 1, second = s.charAt(0) != '0' ? 1 : 0;
+        //       c1     c2    cur
+        // c2：截至前一个位置的字符串的编码方式数量。
+        // c1：截至前两个位置的字符串的编码方式数量。
+        int c1 = 1, c2 = s.charAt(0) != '0' ? 1 : 0;
         for (int i = 2; i <= s.length(); ++i) {
-            int third = 0;
+            int cur = 0;
 
             //      [1]    [1]    [i]    [9]    [2]
             //     first  second third
@@ -118,14 +146,14 @@ public class LeetCode91 {
             //      [1]    [0]    [i]    [9]    [2]
             //     first  second third
             if (s.charAt(i - 1) != '0') {
-                third += second;
+                cur += c2;
             }
             if (isValidTwoDigit(s.charAt(i - 2), s.charAt(i - 1))) {
-                third += first;
+                cur += c1;
             }
-            first = second;
-            second = third;
+            c1 = c2;
+            c2 = cur;
         }
-        return second;
+        return c2;
     }
 }
