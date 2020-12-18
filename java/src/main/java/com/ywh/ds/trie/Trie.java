@@ -44,7 +44,8 @@ public class Trie {
         // 迭代逐层添加 word 中的字符。
         for (int i = 0; i < word.length(); i++) {
 
-            // 把字符映射到 [0, 25] 的数值：int idx = c - 'a';，反映射：char c = (char) (idx + 'a');
+            // 把字符映射到 [0, 25] 的数值：int idx = c - 'a';
+            // 反映射：char c = (char) (idx + 'a');
             int idx = word.charAt(i) - 'a';
             if (cur.children[idx] == null) {
                 cur.children[idx] = new TrieNode();
