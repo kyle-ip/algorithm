@@ -59,7 +59,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (282)
+## LeetCode (283)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -194,7 +194,8 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 134  | [Gas Station](https://leetcode.com/problems/gas-station)     | 加油站                             | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode134.java) | Medium     | Greedy                                                 |
 | 136  | [Single Number](https://leetcode.com/problems/single-number/) | 只出现一次的数字                   | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode136.java) | Medium     | Hash Table<br />Bit Manipulation                          |
 | 138  | [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer) | 含随机指针的链表拷贝               | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode138.java) | Medium     | Linked List<br />Hash Table                               |
-| 139  | [Word Break](https://leetcode.com/problems/word-break/)      | 字符串分解                         | Time: O(n^2)<br />Space: O(n+m) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode139.java) | Medium     | Dynamic Programming                                    |
+| 139  | [Word Break](https://leetcode.com/problems/word-break/)      | 单词拆分 | Time: O(n^2)<br />Space: O(n+m) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode139.java) | Medium     | Dynamic Programming                                    |
+| 140  | [Word Break II](https://leetcode.com/problems/word-break-ii) | 单词拆分 II | Time: O(n^2)<br />Space: O(n+m) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode140.java) | Hard | Dynamic Programming<br />Backtracking |
 | 141  | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | 环形链表             | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode141.java) | Medium     | Linked List<br />Two Pointers                             |
 | 142  | [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) | 单链表中圆环的开始节点             | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode142.java) | Medium     | Linked List<br />Two Pointers                             |
 | 143  | [Reorder List](https://leetcode.com/problems/reorder-list/) | 重排链表 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode143.java) | Medium | Linked List<br />Two Pointers |

@@ -8,6 +8,21 @@ import java.util.*;
  * 二叉树的 Z 字形遍历
  * [树] [BFS] [队列]
  *
+ * 给定一个二叉树，返回其节点值的锯齿形层序遍历。（即先从左往右，再从右往左进行下一层遍历，以此类推，层与层之间交替进行）。
+ * 例如：
+ *      给定二叉树 [3,9,20,null,null,15,7],
+ *          3
+ *         / \
+ *        9  20
+ *          /  \
+ *         15   7
+ *      返回锯齿形层序遍历如下：
+ *      [
+ *        [3],
+ *        [20,9],
+ *        [15,7]
+ *      ]
+ *
  * @author ywh
  * @since 24/12/2019
  */
@@ -65,14 +80,14 @@ public class LeetCode103 {
         q.add(root);
         boolean right2Left = false;
         while (!q.isEmpty()) {
-            List<Integer> elem = new ArrayList<>();
+            LinkedList<Integer> elem = new LinkedList<>();
             int size = q.size();
             for (int i = 0; i < size; i++) {
                 TreeNode node = q.poll();
                 if (right2Left) {
-                    elem.add(0, node.val);
+                    elem.addFirst(node.val);
                 } else {
-                    elem.add(node.val);
+                    elem.addLast(node.val);
                 }
                 if (node.left != null) {
                     q.add(node.left);
