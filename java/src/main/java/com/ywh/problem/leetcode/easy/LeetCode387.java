@@ -3,8 +3,14 @@ package com.ywh.problem.leetcode.easy;
 import java.util.Arrays;
 
 /**
- * 第一个只出现一次的字符
+ * 字符串中的第一个唯一字符
  * [字符串] [哈希表]
+ *
+ * 给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。
+ * 示例：
+ *      s = "leetcode"  返回 0
+ *      s = "loveleetcode"  返回 2
+ * 提示：你可以假定该字符串只包含小写字母。
  *
  * @author ywh
  * @since 3/15/2019
@@ -12,7 +18,7 @@ import java.util.Arrays;
 public class LeetCode387 {
 
     /**
-     * 遍历两次字符串，第一次统计字符出现的次数，第二次返回首个只出现一次字符
+     * 遍历两次字符串，第一次统计字符出现的次数，第二次返回首个只出现一次字符。
      * Time: O(n), Space: O(m)
      *
      * @param s
@@ -35,8 +41,8 @@ public class LeetCode387 {
     }
 
     /**
-     * 遍历一次字符串，遍历字符串时统计字符出现的次数和字符首次出现时的下标；
-     * 最后遍历下标数组，取最小下标返回即可
+     * 遍历一次字符串，遍历字符串时统计字符出现的次数和字符首次出现时的下标。
+     * 最后遍历下标数组，取最小下标返回即可。
      * Time: O(n), Space: O(m)
      *
      * @param s

@@ -3,13 +3,57 @@ package com.ywh.problem.leetcode.medium;
 import com.ywh.problem.leetcode.hard.LeetCode85;
 
 /**
- * 0/1 矩阵中的最大正方形
+ * 最大正方形
  * [动态规划] [数组] [栈]
+ *
+ * 在一个由 '0' 和 '1' 组成的二维矩阵内，找到只包含 '1' 的最大正方形，并返回其面积。
+ * 示例 1：
+ *      输入：matrix = [
+ *              ["1","0","1","0","0"],
+ *              ["1","0","1","1","1"],
+ *              ["1","1","1","1","1"],
+ *              ["1","0","0","1","0"]
+ *           ]
+ *      输出：4
+ * 示例 2：
+ *      输入：matrix = [
+ *              ["0","1"],
+ *              ["1","0"]
+ *           ]
+ *      输出：1
+ * 示例 3：
+ *      输入：matrix = [["0"]]
+ *      输出：0
+ * 提示：
+ *      m == matrix.length
+ *      n == matrix[i].length
+ *      1 <= m, n <= 300
+ *      matrix[i][j] 为 '0' 或 '1'
  *
  * @author ywh
  * @since 16/11/2019
  */
 public class LeetCode221 {
+
+    /**
+     *
+     * @param heights
+     * @return
+     */
+    private int largestSquareLengthInHistogram2(int[] heights) {
+        if (heights == null || heights.length == 0) {
+            return 0;
+        }
+        int max = 0;
+        for (int i = 0; i < heights.length; i++) {
+            int left = i, right = i;
+            for (; left >= 0 && heights[i] <= heights[left]; left--);
+            for (; right < heights.length && heights[i] <= heights[right]; right++);
+            int r = Math.min(left - right - 1, heights[i]);
+            max = Math.max(max, r * r);
+        }
+        return max;
+    }
 
     /**
      * Time: O(m*n), Space: O(n)
@@ -21,7 +65,7 @@ public class LeetCode221 {
         if (heights == null || heights.length == 0) {
             return 0;
         }
-        int top = 0, n = heights.length, maxLength = 0;
+        int top = -1, n = heights.length, max = 0;
         int[] stack = new int[n + 1];
         for (int right = 0; right <= n; right++) {
             int h = right == n ? 0 : heights[right];
@@ -31,11 +75,11 @@ public class LeetCode221 {
 
                 // 取宽和高的较小者为边长
                 int len = Math.min(heights[idx], right - left - 1);
-                maxLength = Math.max(maxLength, len);
+                max = Math.max(max, len * len);
             }
             stack[++top] = right;
         }
-        return maxLength;
+        return max;
     }
 
     /**
@@ -50,16 +94,16 @@ public class LeetCode221 {
         if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
             return 0;
         }
-        int m = matrix.length, n = matrix[0].length, maxLength = 0;
-        int[] heights = new int[n + 1];
-        for (char[] row : matrix) {
-            for (int i = 0; i < n; i++) {
-                heights[i] = row[i] == '1' ? heights[i] + 1 : 0;
+        int n = matrix[0].length;
+        int[] heights = new int[n];
+        int max = 0;
+        for (char[] chars : matrix) {
+            for (int j = 0; j < n; ++j) {
+                heights[j] = chars[j] == '1' ? heights[j] + 1 : 0;
             }
-            maxLength = Math.max(maxLength, largestSquareLengthInHistogram(heights));
+            max = Math.max(max, largestSquareLengthInHistogram2(heights));
         }
-
-        return maxLength * maxLength;
+        return max;
     }
 
     private int min(int a, int b, int c) {
