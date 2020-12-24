@@ -59,7 +59,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (284)
+## LeetCode (285)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -338,6 +338,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 746  | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs) | 爬楼梯的最小代价                   | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode746.java) [Python](python/src/problem/leetcode/easy/leetcode_746.py) | Easy       | Array<br />Dynamic Programming                            |
 | 752  | [Open the Lock](https://leetcode.com/problems/open-the-lock) | 打开转盘锁 | Time: O(N^2\*A^N+D)<br />Space: O(A^N+D) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode752.java) | Medium | BFS |
 | 754  | [Reach a Number](https://leetcode.com/problems/reach-a-number) | 到达终点数字                       | Time: O(1)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode754.java) | Medium     | Math                                                   |
+| 767  | [Reorganize String](https://leetcode-cn.com/problems/reorganize-string/) | 重构字符串 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode767.java) | Medium | Greedy<br />Heap<br />String |
 | 771  | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | 石头中的珠宝数量                   | Time: O(m+n)<br />Space: O(k) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode771.java) [Python](python/src/problem/leetcode/easy/leetcode_771.py) | Easy       | Hash Table                                             |
 | 773  | [Sliding Puzzle](https://leetcode.com/problems/sliding-puzzle/) | 滑动谜题 | Time: O(R\*C\*(R\*C)!)<br />Space: O(R\*C\*(R\*C)!) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode773.java) | Hard | BFS |
 | 785  | [Is Graph Bipartite](https://leetcode.com/problems/is-graph-bipartite/) | 判断二分图 | Time: O(V+E)<br />Space: O(V) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode785.java) | Medium | Graph<br />DFS<br />BFS |
