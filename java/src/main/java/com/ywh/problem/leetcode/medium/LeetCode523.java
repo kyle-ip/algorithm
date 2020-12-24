@@ -41,7 +41,7 @@ public class LeetCode523 {
      * 同余：当两个整数除以同一个数字，得到的余数相同：a % k == b % k；
      * 如果 a 与 b 同余，则 a - b == m * k
      * s[i] - s[j] 表示 nums[j+1] ~ nums[i] 之和
-     * <p>
+     *
      * Time: O(n), Space: O(k)
      *
      * @param nums

@@ -1,5 +1,7 @@
 package com.ywh.problem.leetcode.hard;
 
+import com.ywh.problem.leetcode.medium.LeetCode55;
+
 /**
  * 跳完数组的最少跳数
  * [数组] [贪心]
@@ -89,20 +91,22 @@ public class LeetCode45 {
     }
 
     /**
+     * 参考 {@link LeetCode55}
+     *
      * Time: O(n), Space: O(1)
      *
      * @param nums
      * @return
      */
     public int jump(int[] nums) {
-        int length = nums.length, end = 0, maxPosition = 0, steps = 0;
+        int length = nums.length, end = 0, max = 0, steps = 0;
         for (int i = 0; i < length - 1; i++) {
             // 每次找到可到达的最远位置（从 i 跳跃 nums[i] 位）。
-            maxPosition = Math.max(maxPosition, i + nums[i]);
+            max = Math.max(max, i + nums[i]);
 
             // 如果遍历走到该最远位置，则更新 end，并增加步数。
             if (i == end) {
-                end = maxPosition;
+                end = max;
                 steps++;
             }
         }

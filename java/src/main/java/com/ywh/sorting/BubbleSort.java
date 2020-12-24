@@ -23,7 +23,7 @@ public class BubbleSort {
     /**
      * end: [n - 1, 0)
      * i: [0, end)
-     * <p>
+     *
      * Time: O(n^2), Space: O(1)
      *
      * @param arr

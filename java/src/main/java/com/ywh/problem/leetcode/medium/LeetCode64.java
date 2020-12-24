@@ -40,7 +40,7 @@ public class LeetCode64 {
         int[][] dp = new int[m][n];
         dp[0][0] = grid[0][0];
 
-        // 分别求出第一行和第一列的路径和
+        // 分别求出第一行和第一列的路径和。
         for (int i = 1; i < m; i++) {
             dp[i][0] = dp[i - 1][0] + grid[i][0];
         }
@@ -48,7 +48,7 @@ public class LeetCode64 {
             dp[0][i] = dp[0][i - 1] + grid[0][i];
         }
 
-        // 遍历矩阵，从左边和上边的值中取较小者
+        // 遍历矩阵，从左边和上边的值中取较小者。
         for (int i = 1; i < m; i++) {
             for (int j = 1; j < n; j++) {
                 dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
@@ -97,7 +97,7 @@ public class LeetCode64 {
         // dp
         // i\j   0    1    2     3
         //  0   [1]   [5]  [14]  [32]   dp = {1, 5, 14, 32}
-        //  1   [10]  [x]               dp[j] == 5、dp[j - 1] == 10，表中 x 的值为两者中的较小者 + 5。
+        //  1   [10]  [x]               dp[j] == 5、dp[j - 1] == 10，表中 x 的值为两者中的较小者 +5。
 
         return dp[n - 1];
     }

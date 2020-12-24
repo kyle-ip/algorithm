@@ -11,7 +11,7 @@ public class LeetCode134 {
 
     /**
      * 暴力解法
-     * <p>
+     *
      * Time: O(n^2), Space: O(1)
      *
      * @param gas
@@ -44,7 +44,7 @@ public class LeetCode134 {
      * 暴力解法（跳过不必要的加油站）
      * 假设从 i 开始出发，可以走到 j、但不能走到 j + 1，此时如使用原解法要从 i + 1 开始尝试；
      * 但实际上此时从 i ~ j 的任何一点出发都无法走到 j + 1，都不能作为起点，因此可以跳过 i + 1 ~ j 的所有加油站、从 j + 1 开始
-     * <p>
+     *
      * Time: O(n), Space: O(1)
      *
      * @param gas

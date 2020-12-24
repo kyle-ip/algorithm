@@ -19,9 +19,9 @@ public class LeetCode120 {
      * d[0][0] = a[0][0]                                    原点
      * d[i][0] = d[i-1][0] + a[i][0]                        左边
      * d[i][i] = d[i-1][i-1] + a[i][i]                      右边
-     * <p>
+     *
      * 最后处理最下面一层，n 个终点的 n 个最小路径和的最小值
-     * <p>
+     *
      * Time: O(n^2), Space: O(n^2)
      *
      * @param a
@@ -81,7 +81,7 @@ public class LeetCode120 {
      * d[i][j] = min(d[i+1][j], d[i+1][j+1]) + a[i][j]      状态转移方程（到达 (i, j) 的最小路径和）
      * ...
      * 最终返回 d[0][0] 即可
-     * <p>
+     *
      * Time: O(n^2), Space: O(n^2)
      *
      * @param a

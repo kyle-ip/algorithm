@@ -18,7 +18,7 @@ public class InsertionSort {
     /**
      * i: [1, n)
      * j: [i - 1, 0)
-     * <p>
+     *
      * Time: O(n^2), Space: O(1)
      *
      * @param arr

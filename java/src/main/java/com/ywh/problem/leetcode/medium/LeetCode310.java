@@ -79,7 +79,7 @@ public class LeetCode310 {
 
     /**
      * 收缩解法：从外围的叶子节点一步步向中心收缩（删去叶子），最后剩下的叶子节点即为中心。
-     * <p>
+     *
      * Time: O(n), Space: O(n)
      *
      * @param n

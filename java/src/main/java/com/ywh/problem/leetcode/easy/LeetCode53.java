@@ -10,7 +10,6 @@ package com.ywh.problem.leetcode.easy;
  *      输出: 6
  *      解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
  *
- *
  * @author ywh
  * @since 2/16/2019
  */

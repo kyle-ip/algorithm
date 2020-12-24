@@ -57,7 +57,7 @@ public class LeetCode42 {
         // 比如对于 [1, 2, 1, 3]
         //                ↑         对于该位置，从左到右最高为 2，从右到左最高为 3，取 2。
         // 则蓄水量为该值减去当前位置高度，即 2 - 1 == 1。
-        for (int i = n-1; i >= 0; --i) {
+        for (int i = n - 1; i >= 0; --i) {
             rightMax = Math.max(rightMax, height[i]);
             dp[i] = Math.min(dp[i], rightMax);
             water += (dp[i] - height[i]);

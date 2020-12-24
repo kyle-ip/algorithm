@@ -16,7 +16,7 @@ public class LeetCode695 {
 
     /**
      * 四连通问题：已知二维平面上的一个点，求其上下左右四个方向的点。
-     * <p>
+     *
      * Time: O(R*C), Space(R*C)
      *
      * @param grid

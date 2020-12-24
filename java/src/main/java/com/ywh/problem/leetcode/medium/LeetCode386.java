@@ -46,7 +46,7 @@ public class LeetCode386 {
 
     /**
      * 前序遍历十叉树解法
-     * <p>
+     *
      * Time: O(n), Space: O(n)
      *
      * @param n
