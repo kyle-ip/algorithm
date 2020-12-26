@@ -48,7 +48,7 @@ public class LeetCode85 {
         int max = 0, n = heights.length;
         for (int i = 0; i < n; i++) {
             int left = i, right = i;
-            for (; left > 0 && heights[left] >= heights[i]; left--);
+            for (; left >= 0 && heights[left] >= heights[i]; left--);
             for (; right < n && heights[right] >= heights[i]; right++);
             max = Math.max(max, heights[i] * (right - left - 1));
         }
