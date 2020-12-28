@@ -36,6 +36,10 @@ public class LeetCode188 {
      * @return
      */
     public int maxProfit(int k, int[] prices) {
+        if (prices == null || prices.length == 0) {
+            return 0;
+        }
+
         // sell[i]、buy[i] 分别表示限制交易 i 次时在前一天卖出/买入得到的最大收益。
         int[] sell = new int[k + 1], buy = new int[k + 1];
         Arrays.fill(buy, -prices[0]);

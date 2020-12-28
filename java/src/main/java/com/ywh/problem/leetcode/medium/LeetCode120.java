@@ -107,7 +107,6 @@ public class LeetCode120 {
     }
 
     /**
-     *
      * d[j] = min(d[j], d[j+1]) + a[i][j]
      *
      * Time: O(n^2), Space: O(n)
@@ -117,8 +116,11 @@ public class LeetCode120 {
      */
     public int minimumTotalBottomUpOn(List<List<Integer>> a) {
         int n = a.size();
+        // dp[i][j] 表示到达 (i, j) 的最小路径和。
         int[] dp = new int[n];
-        for (int j = 0; j < n; dp[j] = a.get(n - 1).get(j++));
+        // 先求最后一行的路径和，即为最后一行的元素值（n == a.get(n-1).size()）。
+        for (int j = 0; j < n; dp[j] = a.get(n - 1).get(j), j++);
+        // 自底向上动态求值，取 dp[j]、dp[j+1] 的较小者（分别表示从左边路径上来、从右边路径上来），与当前位置元素之和。
         for (int i = n - 2; i >= 0; --i) {
             for (int j = 0; j <= i; ++j) {
                 dp[j] = Math.min(dp[j], dp[j + 1]) + a.get(i).get(j);

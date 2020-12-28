@@ -19,6 +19,7 @@ import java.util.Stack;
  * 示例：
  *      输入: [2,1,5,6,2,3]
  *      输出: 10
+ *
  * @author ywh
  * @since 16/11/2019
  */
@@ -41,12 +42,12 @@ public class LeetCode84 {
         // 从右向左遍历直方图。
         for (int i = 0; i < n; i++) {
             // 双指针从 i 出发向两边移动，直到两边的高度小于中间。
-            int left = i, right = i;
-            for (; left >= 0 && heights[left] >= heights[i]; left--);
-            for (; right < n && heights[right] >= heights[i]; right++);
+            int l = i, r = i;
+            for (; l >= 0 && heights[l] >= heights[i]; l--);
+            for (; r < n && heights[r] >= heights[i]; r++);
             // 此时 left 和 right 之间的范围内中间低、两边高，阴影面积的高度为 height[i]。
             // 由于 left 和 right 都指向不符合条件的位置，宽度应为 (left, right) 开区间的长度
-            max = Math.max(max, heights[i] * (right - left - 1));
+            max = Math.max(max, heights[i] * (r - l - 1));
         }
         return max;
     }
@@ -71,10 +72,10 @@ public class LeetCode84 {
         Stack<Integer> stack = new Stack<>();
 
         // 遍历到数组最后一个元素的后一位（目的是处理最后一个柱子）。
-        for (int right = 0; right <= n; right++) {
+        for (int r = 0; r <= n; r++) {
 
             // 获取当前高度，越界则定义为 0。
-            int h = right == n? 0: heights[right];
+            int h = r == n? 0: heights[r];
 
             // 栈不为空，且越过极大值点（当前高度小于栈顶元素所指位置的高度）。
             // 一直弹出，直到左边界所指的高度小于右边界所指的高度。
@@ -83,19 +84,19 @@ public class LeetCode84 {
             //     [ ] [ ] [ ]              [ ]              [ ][ ]
             // [ ] [ ] [ ] [ ]      =>      [ ]      =>      [ ][ ]
             // [0] [1] [2] [3]              [ ]              [ ][ ]
-            //  l  idx      r         s == (r - l - 1) * height[idx] == (3 - 1 - 0) * h[1] == 4
+            //  l  idx      r         s == (r-l-1) * height[idx] == (3-1-0) * h[1] == 4
             while (!stack.empty() && h < heights[stack.peek()]) {
 
                 // 则弹出栈顶的极大值点，下一个元素为左边界下标（如果弹出极大值后没有元素，则置为 -1）。
                 int idx = stack.pop();
-                int left = stack.empty()?  -1: stack.peek();
+                int l = stack.empty()?  -1: stack.peek();
 
-                // 由于 right 表示开始递减的位置的下标，所以底边应为 (left, right) 区间的长度，所以是 right - left - 1。
-                max = Math.max(max, heights[idx] * (right - left - 1));
+                // 由于 right 表示开始递减的位置的下标，所以底边应为 (l, right) 区间的长度，所以是 r - l - 1。
+                max = Math.max(max, heights[idx] * (r - l - 1));
             }
 
             // 栈为空或高度递增或持平，把下标入栈。
-            stack.push(right);
+            stack.push(r);
         }
 
         return max;
@@ -116,14 +117,14 @@ public class LeetCode84 {
 
         int max = 0, n = heights.length, top = -1;
         int[] stack = new int[n + 1];
-        for (int right = 0; right <= n; right++) {
-            int h = right == n? 0: heights[right];
+        for (int r = 0; r <= n; r++) {
+            int h = r == n? 0: heights[r];
             while (top != -1 && h < heights[stack[top]]) {
                 int idx = stack[top--];
-                int left = top != -1? stack[top]: -1;
-                max = Math.max(max, heights[idx] * (right - left - 1));
+                int l = top != -1? stack[top]: -1;
+                max = Math.max(max, heights[idx] * (r - l - 1));
             }
-            stack[++top] = right;
+            stack[++top] = r;
         }
         return max;
     }
