@@ -48,7 +48,7 @@ public class LeetCode39 {
      * @param elem
      * @param ret
      */
-    private void combSumSort(int[] nums, int target, int start, List<Integer> elem, List<List<Integer>> ret) {
+    public void combSumSort(int[] nums, int target, int start, List<Integer> elem, List<List<Integer>> ret) {
         if (target == 0) {
             ret.add(new ArrayList<>(elem));
             return;

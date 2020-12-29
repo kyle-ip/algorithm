@@ -28,18 +28,6 @@ public class LeetCode39Test {
         solution = new LeetCode39();
     }
 
-    @ParameterizedTest
-    @DisplayName("测试回溯解法")
-    @CsvSource({
-        "'4,2,8', 6, '4,2/2,2,2'",
-        "'4,2,8', 1, ''"
-    })
-    void testCombinationSum(ArgumentsAccessor arguments) {
-        int[] nums = StringUtil.strToIntArray(arguments.getString(0));
-        int target = arguments.getInteger(1);
-        List<List<Integer>> expected = StringUtil.strTo2DimIntList(arguments.getString(2));
-        assert2DimIntListEquals(expected, solution.combinationSum(nums, target));
-    }
 
     @ParameterizedTest
     @DisplayName("测试回溯（排序优化）解法")

@@ -4,6 +4,15 @@ package com.ywh.problem.leetcode.medium;
  * 长度最小的子数组
  * [数组] [双指针] [二分搜索]
  *
+ * 给定一个含有 n 个正整数的数组和一个正整数 s ，找出该数组中满足其和 ≥ s 的长度最小的连续子数组，并返回其长度。
+ * 如果不存在符合条件的子数组，返回 0。
+ * 示例：
+ *      输入：s = 7, nums = [2,3,1,2,4,3]
+ *      输出：2
+ *      解释：子数组 [4,3] 是该条件下的长度最小的子数组。
+ * 进阶：
+ *      如果你已经完成了 O(n) 时间复杂度的解法, 请尝试 O(n*log(n)) 时间复杂度的解法。
+ *
  * @author ywh
  * @since 2020/9/14/014
  */
@@ -37,5 +46,58 @@ public class LeetCode209 {
 
         // 求最小值应把变量初始化为最大值，如果 cnt 一次都未被计算（仍为初始化的值），即所有元素之和小于 s，依题目要求不满足条件时返回 0。
         return cnt == Integer.MAX_VALUE? 0: cnt;
+    }
+
+    /**
+     * 二分搜索，如果找不到 target，则返回待插入的位置。
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
+    private int binarySearch(int[] nums, int target) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int low = 0, high = nums.length - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            }
+            if (nums[mid] > target) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
+
+    /**
+     *
+     * @param s
+     * @param nums
+     * @return
+     */
+    public int minSubArrayLen2(int s, int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int n = nums.length;
+        int ret = Integer.MAX_VALUE;
+        int[] prefixSum = new int[n + 1];
+        // sum[i] 表示前 i 个元素之和。
+        for (int i = 1; i <= n; i++) {
+            prefixSum[i] = prefixSum[i - 1] + nums[i - 1];
+        }
+        for (int i = 1; i <= n; i++) {
+            int target = s + prefixSum[i - 1];
+            int bound = binarySearch(prefixSum, target);
+            if (bound <= n) {
+                ret = Math.min(ret, bound - (i - 1));
+            }
+        }
+        return ret == Integer.MAX_VALUE ? 0 : ret;
     }
 }

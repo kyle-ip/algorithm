@@ -123,7 +123,7 @@ public class LeetCode221 {
             return 0;
         }
 
-        // 状态 d[i][j] 表示只包含字符 1 并且右下角在 (i, j) 的最大正方形对应的边长
+        // 状态 d[i][j] 表示只包含字符 1 并且右下角在 (i, j) 的最大正方形对应的边长。
         int m = matrix.length, n = matrix[0].length, len = 0;
         int[][] d = new int[m][n];
         for (int i = 0; i < m; i++) {
