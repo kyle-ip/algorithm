@@ -5,6 +5,37 @@ import java.util.TreeMap;
 /**
  * 滑动窗口中的最大值
  * [堆]
+ * 
+ * 给你一个整数数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。
+ * 你只可以看到在滑动窗口内的 k 个数字。滑动窗口每次只向右移动一位。返回滑动窗口中的最大值。
+ * 示例 1：
+ *      输入：nums = [1,3,-1,-3,5,3,6,7], k = 3
+ *      输出：[3,3,5,5,6,7]
+ *      解释：
+ *          滑动窗口的位置                最大值
+ *          ---------------               -----
+ *          [1  3  -1] -3  5  3  6  7       3
+ *           1 [3  -1  -3] 5  3  6  7       3
+ *           1  3 [-1  -3  5] 3  6  7       5
+ *           1  3  -1 [-3  5  3] 6  7       5
+ *           1  3  -1  -3 [5  3  6] 7       6
+ *           1  3  -1  -3  5 [3  6  7]      7
+ * 示例 2：
+ *      输入：nums = [1], k = 1
+ *      输出：[1]
+ * 示例 3：
+ *      输入：nums = [1,-1], k = 1
+ *      输出：[1,-1]
+ * 示例 4：
+ *      输入：nums = [9,11], k = 2
+ *      输出：[11]
+ * 示例 5：
+ *      输入：nums = [4,-2], k = 2
+ *      输出：[4]
+ * 提示：
+ *      1 <= nums.length <= 10^5
+ *      -10^4 <= nums[i] <= 10^4
+ *      1 <= k <= nums.length
  *
  * @author ywh
  * @since 18/11/2019
@@ -25,15 +56,15 @@ public class LeetCode239 {
             return nums;
         }
         int n = nums.length;
-        int[] result = new int [n - k + 1];
+        int[] ret = new int [n - k + 1];
         for (int left = 0; left < n - k + 1; left++) {
             int max = nums[left];
             for (int i = left; i < left + k; i++) {
                 max = Math.max(max, nums[i]);
             }
-            result[left] = max;
+            ret[left] = max;
         }
-        return result;
+        return ret;
     }
 
     /**
@@ -56,10 +87,10 @@ public class LeetCode239 {
         for (int i = 0; i < k; i++) {
             map.put(nums[i], i);
         }
-        int [] result = new int[n - k + 1];
+        int [] ret = new int[n - k + 1];
 
         // map 默认从小到大排序，因此取最后一个
-        result[p++] = map.lastKey();
+        ret[p++] = map.lastKey();
 
         for (int i = k; i < n; i++) {
             // 由于数组中存在相等的值，在取出窗口最左边的数字对应下标时，要判断是否等于 i - k（即 ）
@@ -72,9 +103,9 @@ public class LeetCode239 {
             map.put(nums[i], i);
 
             // 取出最大值，填充结果数组
-            result[p++] = map.lastKey();
+            ret[p++] = map.lastKey();
         }
-        return result;
+        return ret;
     }
 
     /**
@@ -94,7 +125,7 @@ public class LeetCode239 {
         int n = nums.length;
 
         // 结果数组，从左到右分组最大值，从右到左分组最大值
-        int[] result = new int[n - k + 1], maxFromLeft = new int[n], maxFromRight = new int[n];
+        int[] ret = new int[n - k + 1], maxFromLeft = new int[n], maxFromRight = new int[n];
 
         // [0, 4, 2], [1, 0, 8], 2
 
@@ -114,8 +145,8 @@ public class LeetCode239 {
         }
 
         for (int i = 0; i < n - k + 1; i++) {
-            result[i] = Math.max(maxFromRight[i], maxFromLeft[i + k - 1]);
+            ret[i] = Math.max(maxFromRight[i], maxFromLeft[i + k - 1]);
         }
-        return result;
+        return ret;
     }
 }

@@ -59,7 +59,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (287)
+## LeetCode (288)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -322,6 +322,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 560  | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k) | 求和等于 K 的子数组数量 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode560.java) | Medium | Hash Table<br />Array |
 | 572  | [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree) | 树 t 是否等于树 s 的子树           | Time: O(m\*n)<br />Space: O(h) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode572.java) | Easy       | Tree                                                   |
 | 581  | [Shortest Unsorted Continuous Subarray](https://leetcode.com/problems/shortest-unsorted-continuous-subarray) | 需要排序的最短子数组               | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode581.java) | Medium     | Array                                                  |
+| 605 | [Can Place Flowers](https://leetcode.com/problems/can-place-flowers/) | 种花问题 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode605.java) | Easy | Array<br />Greedy |
 | 617  | [Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees) | 合并二叉树                         | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode617.java) [Python](python/src/problem/leetcode/easy/leetcode_617.py) | Easy       | Tree                                                   |
 | 621  | [Task Scheduler](https://leetcode.com/problems/task-scheduler/) | 任务调度器 | Time: O(m)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode621.java) | Medium | Greedy<br />Head<br />Queue |
 | 633  | [Sum of Square Numbers](https://leetcode.com/problems/sum-of-square-numbers) | 两个完全平方数的和                 | Time: O(c^(1/2))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode633.java) [Python](python/src/problem/leetcode/easy/leetcode_633.py) | Easy       | Math<br />Hash Table<br />Two Pointers                       |
