@@ -59,7 +59,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (290)
+## LeetCode (291)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -347,6 +347,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 773  | [Sliding Puzzle](https://leetcode.com/problems/sliding-puzzle/) | 滑动谜题 | Time: O(R\*C\*(R\*C)!)<br />Space: O(R\*C\*(R\*C)!) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode773.java) | Hard | BFS |
 | 785  | [Is Graph Bipartite](https://leetcode.com/problems/is-graph-bipartite/) | 判断二分图 | Time: O(V+E)<br />Space: O(V) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode785.java) | Medium | Graph<br />DFS<br />BFS |
 | 796  | [Rotate String](https://leetcode.com/problems/rotate-string/) | 旋转字符串 | Time: O(n^2)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode796.java) | Easy | String<br />Two Pointers |
+| 830  | [Positions of Large Groups](https://leetcode.com/problems/positions-of-large-groups/) | 较大分组的位置 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode830.java) | Easy | Array |
 | 820  | [Short Encoding Of Words](https://leetcode.com/problems/short-encoding-of-words/) | 单词的压缩编码 | Time: O(∑wi)<br />Space: O(S\*∑wi) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode820.java) | Medium | Trie<br />Hash Table |
 | 842  | [Split Array into Fibonacci Sequence](https://leetcode.com/problems/split-array-into-fibonacci-sequence/) | 将数组拆分成斐波那契序列 | Time: *O*(n\*log2C)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode842.java) | Medium | Greedy<br />Backtracking<br />String |
 | 860  | [Lemonade Change](https://leetcode.com/problems/lemonade-change/) | 柠檬水找零 | Time: *O*(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode860.java) | Easy | Greedy |
