@@ -59,7 +59,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (291)
+## LeetCode (293)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -318,6 +318,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 523  | [ Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum) | 子数组求和是否为 K 的整数倍 | Time: O(n)<br />Space: O(k) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode523.java) [Python](python/src/problem/leetcode/medium/leetcode_523.py) | Medium | Math |
 | 538  | [Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree) | 将二叉搜索树转为较大树             | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode538.java) [Python](python/src/problem/leetcode/easy/leetcode_538.py) | Easy       | Tree                                                   |
 | 540  | [Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array) | 有序数组中的单身数字               | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode540.java) | Medium     | Bit Manipulation<br />Binary Search                       |
+| 547 | [Number of Provinces](https://leetcode-cn.com/problems/number-of-provinces/) | 省份数量 | Time: O(n^2)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode547.java) | Medium | DFS<br />Union Find |
 | 543  | [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree) | 二叉树的直径                       | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode543.java) [Python](python/src/problem/leetcode/easy/leetcode_543.py) | Easy       | Tree                                                   |
 | 557  | [Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii) | 反转单词                           | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode557.java) [Python](python/src/problem/leetcode/easy/leetcode_557.py) | Easy       | String                                                 |
 | 558  | [Quad Tree Intersection](https://leetcode.com/problems/quad-tree-intersection) | 四叉树交集                         | Time: O(n^4)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode558.java) [Python](python/src/problem/leetcode/easy/leetcode_558.py) | Easy       | Tree                                                   |
@@ -331,6 +332,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 647  | [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings) | 回文子串个数                       | Time: O(n^2)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode647.java) | Medium     | String<br />Dynamic Programming                           |
 | 649  | [Dota2 Senate](https://leetcode.com/problems/dota2-senate/) | Dota2 参议院 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode649.java) | Medium | Greedy |
 | 665  | [Non-decreasing Array](https://leetcode.com/problems/non-decreasing-array/) | 非减数组 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode665.java) [Python](python/src/problem/leetcode/easy/leetcode_665.py) | Easy | Array |
+| 673 | [Number of Longest Increasing Subsequence](https://leetcode-cn.com/problems/number-of-longest-increasing-subsequence/) | 最长递增子序列的个数 | Time: O(n\*log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode673.java) | Medium | Dynamic Programming |
 | 695  | [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) | 岛屿的最大面积 | Time: O(R\*C)<br />Space: (R\*C) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode695.java) | Medium | DFS<br />Array<br />Union Find |
 | 700  | [Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree) | 二叉搜索树中查找数字               | Time: O(h)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode700.java) [Python](python/src/problem/leetcode/easy/leetcode_700.py) | Easy       | Tree                                                   |
 | 703  | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream) | 数据流中第 K 大的元素              | Time: O(n\*log(k))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode703.java) [Python](python/src/problem/leetcode/easy/leetcode_703.py) | Easy       | Heap                                                   |

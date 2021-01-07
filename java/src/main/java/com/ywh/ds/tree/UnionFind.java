@@ -15,7 +15,7 @@ public class UnionFind {
     private final int[] parent;
 
     /**
-     * 集合大小
+     * 集合大小（优化树结构）
      */
     private final int[] size;
 
@@ -36,6 +36,7 @@ public class UnionFind {
 
     /**
      * 查询：从给定节点迭代向其父节点查询，直到根节点。
+     * 并更新沿途访问节点的根节点。
      *
      * @param p
      * @return
@@ -67,6 +68,10 @@ public class UnionFind {
      * @param q
      */
     public void union(int p, int q) {
+        // 不去重（根的值相同也合并）。
+        // parent[find(parent, p)] = find(parent, q);
+
+        // 去重（根的值相同不合并）。
         int pRoot = find(p), qRoot = find(q);
         if (pRoot == qRoot) {
             return;
@@ -89,5 +94,20 @@ public class UnionFind {
      */
     public int size(int p) {
         return size[find(p)];
+    }
+
+    /**
+     * 联通分量个数：父节点为其自身的点的数量。
+     *
+     * @return
+     */
+    public int cc() {
+        int cnt = 0;
+        for (int i = 0; i < parent.length; i++) {
+            if (parent[i] == i) {
+                cnt++;
+            }
+        }
+        return cnt;
     }
 }
