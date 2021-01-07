@@ -23,44 +23,45 @@ import java.util.Arrays;
 public class LeetCode673 {
 
     /**
-     * TODO: 暂时未理解
-     *
      * Time: O(n^2), Space: O(n)
      *
      * @param nums
      * @return
      */
     public int findNumberOfLIS(int[] nums) {
-        int N = nums.length;
-        if (N <= 1) {
-            return N;
+        int n = nums.length;
+        if (n <= 1) {
+            return n;
         }
 
-        // 以 nums[i] 结尾的序列，最长序列长度 length[i]，具有该长度的序列的 count[i]。
-        // lengths[i] = length of longest ending in nums[i]
-        int[] lengths = new int[N];
-        // count[i] = number of longest ending in nums[i]
-        int[] counts = new int[N];
+        // lengths[i] 表示截至 i 的最长序列长度，counts[i] 表示出现该长度的序列的个数。
+        int[] lengths = new int[n], counts = new int[n];
         Arrays.fill(counts, 1);
 
-        for (int j = 0; j < N; ++j) {
-            for (int i = 0; i < j; ++i) {
-                if (nums[i] < nums[j]) {
-                    if (lengths[i] >= lengths[j]) {
-                        lengths[j] = lengths[i] + 1;
-                        counts[j] = counts[i];
-                    } else if (lengths[i] + 1 == lengths[j]) {
-                        counts[j] += counts[i];
-                    }
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                // 不递增，跳过。
+                if (nums[j] >= nums[i]) {
+                    continue;
+                }
+                // 更新 lengths[i]、counts[i]：使得 lengths[i] 始终比 length[j] 长 1，且数量相等。
+                if (lengths[j] >= lengths[i]) {
+                    lengths[i] = lengths[j] + 1;
+                    counts[i] = counts[j];
+                }
+                // 如果 [0, i] 中递增的长度比 [0, j] 大 1，表示算上 i 后又找到 counts[j] 种最长递增序列的凑法。
+                else if (lengths[j] + 1 == lengths[i]) {
+                    counts[i] += counts[j];
                 }
             }
         }
 
+        // 找到最大值，并在 lengths 中统计该最大值出现的个数，返回。
         int longest = 0, ret = 0;
         for (int length : lengths) {
             longest = Math.max(longest, length);
         }
-        for (int i = 0; i < N; ++i) {
+        for (int i = 0; i < n; ++i) {
             if (lengths[i] == longest) {
                 ret += counts[i];
             }
