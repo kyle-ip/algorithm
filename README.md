@@ -59,7 +59,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (293)
+## LeetCode (294)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -245,6 +245,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 224  | [Basic Calculator](https://leetcode.com/problems/basic-calculator/) | 基本计算器 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode224.java) | Hard | Math<br />Stack |
 | 226  | [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) | 翻转二叉树                         | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode226.java) [Python](python/src/problem/leetcode/easy/leetcode_226.py) | Easy       | Tree                                                   |
 | 227  | [Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii) | 简易计算器                         | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode227.java) | Medium     | String                                                 |
+| 228 | [Summary Ranges](https://leetcode.com/problems/summary-ranges) | 汇总区间 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode228.java) | Easy | Array |
 | 230  | [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | 二叉搜索树中第 K 小的元素 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode230.java) | Medium | Tree<br />Binary Search |
 | 231  | [Power of Two](https://leetcode.com/problems/power-of-two)   | 2 的幂                             | Time: O(1)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode231.java) [Python](python/src/problem/leetcode/easy/leetcode_231.py) | Easy       | Math<br />Bit Manipulation                                |
 | 232  | [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/) | 使用栈实现队列                     |  | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode232.java) [Python](python/src/problem/leetcode/easy/leetcode_232.py) | Easy       | Stack<br />Design                                         |
