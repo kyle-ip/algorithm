@@ -59,7 +59,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (295)
+## LeetCode (296)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -364,6 +364,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 946  | [Validate Stack Sequences](https://leetcode.com/problems/validate-stack-sequences) | 验证入栈出栈序列                   | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode946.java) | Medium     | Stack                                                  |
 | 973  | [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) | 最接近原点的 K 个点 | Time: O(n\*log(K))<br />Space: O(K) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode973.java) | Medium | Heap<br />Sorting<br />Divide and Conquer |
 | 976  | [Largest Perimeter Triangle](https://leetcode.com/problems/largest-perimeter-triangle) | 三角形的最大周长 | Time: O(n\*log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode976.java) | Easy | Sort<br />Math |
+| 1018 | [Binary Prefix Divisible By 5](https://leetcode-cn.com/problems/binary-prefix-divisible-by-5/) | 可被 5 整除的二进制前缀 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1018.java) | Easy | [Array] |
 | 1029 | [Two City Scheduling](https://leetcode.com/problems/two-city-scheduling) | 两地调度                           | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1029.java) [Python](python/src/problem/leetcode/easy/leetcode_1029.py) | Easy       | Greedy                                                 |
 | 1046 | [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/) | 最后一块石头的重量 | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1046.java) | Easy | Greedy<br />Heap |
 | 1091 | [Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/) | 二进制矩阵中的最短路径 | Time: O(R\*C)<br />Space: O(R\*C) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode1091.java) | Medium | BFS |
