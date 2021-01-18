@@ -34,7 +34,7 @@ import java.util.Map;
  *      解释：[0,0] 是平面上唯一一块石头，所以不可以移除它。
  * 提示：
  *      1 <= stones.length <= 1000
- *      0 <= xi, yi <= 104
+ *      0 <= xi, yi <= 10^4
  *      不会有两块石头放在同一个坐标点上
  *
  * @author ywh
@@ -44,6 +44,8 @@ public class LeetCode947 {
 
 
     /**
+     * TODO 暂时未理解
+     *
      * Time: O(n*log(A)), Space: O(A)
      *
      * @param stones
@@ -52,7 +54,6 @@ public class LeetCode947 {
     public int removeStones(int[][] stones) {
         // 删到最后留在图中的顶点一定位于不同的行和不同的列。
         // 使用并查集描述横坐标和纵坐标的数值，需要遍历 stones，将每个 stone 的横纵坐标再并查集合并。
-
         UnionFind unionFind = new UnionFind();
 
         for (int[] stone : stones) {
