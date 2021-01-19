@@ -59,7 +59,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (299)
+## LeetCode (300)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -282,6 +282,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 326  | [Power of Three](https://leetcode.com/problems/power-of-three) | 3 的幂                             | Time: O(1)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode326.java) [Python](python/src/problem/leetcode/easy/leetcode_326.py) | Easy       | Math                                                   |
 | 328  | [Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list) | 奇偶链表                           | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode328.java) | Medium     | Linked List                                            |
 | 338  | [Counting Bits](https://leetcode.com/problems/counting-bits) | 连续自然数二进制中 1 的个数        | Time: O(k)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode338.java) | Medium     | Dynamic Programming<br />Bit Manipulation                 |
+| 332  | [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary) | 重新安排行程 | Time: O(n*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode332.java) | Medium | Graph<br />DFS |
 | 344  | [Reverse String](https://leetcode.com/problems/reverse-string/) | 反转字符串                         | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode344.java) [Python](python/src/problem/leetcode/easy/leetcode_344.py) | Easy       | String<br />Two Pointers                                  |
 | 347  | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements) | 前 K 个高频数字 | Time(avg): O(n)<br />Time(worst): O(n^2)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode347.java) | Medium | Hash Table<br />Heap<br />Sort |
 | 349  | [Intersection Of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/) | 两个数组的交集 | Time: O(m+n)<br />Space: O(m+n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode349.java) | Easy | Sorting<br />Hash Table<br />Two Pointers<br />Binary Search |
