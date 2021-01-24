@@ -59,7 +59,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (300)
+## LeetCode (301)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -336,6 +336,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 649  | [Dota2 Senate](https://leetcode.com/problems/dota2-senate/) | Dota2 参议院 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode649.java) | Medium | Greedy |
 | 665  | [Non-decreasing Array](https://leetcode.com/problems/non-decreasing-array/) | 非减数组 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode665.java) [Python](python/src/problem/leetcode/easy/leetcode_665.py) | Easy | Array |
 | 673  | [Number of Longest Increasing Subsequence](https://leetcode-cn.com/problems/number-of-longest-increasing-subsequence/) | 最长递增子序列的个数 | Time: O(n\*log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode673.java) | Medium | Dynamic Programming |
+| 674 | [Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence) | 最长连续递增序列 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode674.java) | Easy | Array |
 | 684  | [Redundant Connection](https://leetcode-cn.com/problems/redundant-connection) | 冗余连接 | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode684.java) | Medium | Union Find<br />Graph<br />Tree |
 | 695  | [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) | 岛屿的最大面积 | Time: O(R\*C)<br />Space: (R\*C) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode695.java) | Medium | DFS<br />Array<br />Union Find |
 | 700  | [Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree) | 二叉搜索树中查找数字               | Time: O(h)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode700.java) [Python](python/src/problem/leetcode/easy/leetcode_700.py) | Easy       | Tree                                                   |
