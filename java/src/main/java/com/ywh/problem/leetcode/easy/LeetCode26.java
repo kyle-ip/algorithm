@@ -47,16 +47,16 @@ public class LeetCode26 {
         if (nums == null || nums.length == 0) {
             return 0;
         }
-        int left = 1, right = 1;
-        for (;right < nums.length; right++) {
+        int l = 1, r = 1;
+        for (; r < nums.length; r++) {
             // 跳过相同元素。
-            if (nums[right] == nums[right - 1]) {
+            if (nums[r] == nums[r - 1]) {
                 continue;
             }
             // 此时 nums[right] 为最近出现的不同元素，拷贝到 left 的位置上，并移动 left。
-            nums[left++] = nums[right];
+            nums[l++] = nums[r];
         }
-        return left;
+        return l;
     }
 
 }
