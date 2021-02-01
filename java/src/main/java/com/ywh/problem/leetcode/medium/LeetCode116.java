@@ -1,8 +1,21 @@
 package com.ywh.problem.leetcode.medium;
 
 /**
- * 树节点的 next 指针
+ * 填充每个节点的下一个右侧节点指针
  * [树] [DFS] [BFS]
+ * 
+ * 给定一个 完美二叉树 ，其所有叶子节点都在同一层，每个父节点都有两个子节点。二叉树定义如下：
+ *      struct Node {
+ *        int val;
+ *        Node *left;
+ *        Node *right;
+ *        Node *next;
+ *      }
+ * 填充它的每个 next 指针，让这个指针指向其下一个右侧节点。如果找不到下一个右侧节点，则将 next 指针设置为 NULL。
+ * 初始状态下，所有 next 指针都被设置为 NULL。
+ * 进阶：
+ *      你只能使用常量级额外空间。
+ *      使用递归解题也符合要求，本题中递归程序占用的栈空间不算做额外的空间复杂度。
  *
  * @author ywh
  * @since 30/11/2019
@@ -13,16 +26,6 @@ public class LeetCode116 {
         public int val;
 
         public Node left, right, next;
-
-        public Node(int val) {
-            this.val = val;
-        }
-
-        public Node(int val, Node left, Node right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 
     /**
@@ -42,9 +45,11 @@ public class LeetCode116 {
         root.left.next = root.right;
 
         // 如当前节点已跨子树连接，则将其右节点与其对面的左节点连接：[8] -> [10]。
+        //             2
         //     [2]   ----->    [4]
         //    /   \           /   \
         // [6] --> [8] -> [10]     [12]
+        //      1      3
         if (root.next != null) {
             root.right.next = root.next.left;
         }

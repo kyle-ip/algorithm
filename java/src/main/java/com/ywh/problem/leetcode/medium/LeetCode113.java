@@ -5,9 +5,26 @@ import com.ywh.ds.tree.TreeNode;
 import java.util.*;
 
 /**
- * 二叉树中和为给定值的路径
+ * 路径总和 II
  * [树] [DFS] [回溯]
- *
+ * 
+ * 给定一个二叉树和一个目标和，找到所有从根节点到叶子节点路径总和等于给定目标和的路径。
+ * 说明: 叶子节点是指没有子节点的节点。
+ * 示例:
+ *      给定如下二叉树，以及目标和 sum = 22，
+ *               5
+ *              / \
+ *             4   8
+ *            /   / \
+ *           11  13  4
+ *          /  \    / \
+ *         7    2  5   1
+ * 返回:
+ *      [
+ *         [5,4,11,2],
+ *         [5,8,4,5]
+ *      ]
+ * 
  * @author ywh
  * @since 21/11/2019
  */
@@ -20,24 +37,24 @@ public class LeetCode113 {
      * @param elem
      * @param ret
      */
-    private void path(TreeNode root, int sum, List<Integer> elem, List<List<Integer>> ret) {
+    private void path(TreeNode root, int sum, LinkedList<Integer> elem, List<List<Integer>> ret) {
         if (root == null) {
             return;
         }
-        // 把当前节点加入当前路径
+        // 把当前节点加入当前路径。
         elem.add(root.val);
 
-        // 路径和符合要求
+        // 路径和符合要求。
         if (root.left == null && root.right == null && root.val == sum) {
             ret.add(new ArrayList<>(elem));
         }
 
-        // 递归调用左右子树
+        // 递归调用左右子树。
         path(root.left, sum - root.val, elem, ret);
         path(root.right, sum - root.val, elem, ret);
 
-        // 移除最后一个元素
-        elem.remove(elem.size() - 1);
+        // 移除最后一个元素。
+        elem.removeLast();
     }
 
     /**
@@ -49,8 +66,7 @@ public class LeetCode113 {
      */
     public List<List<Integer>> pathSumRecursive(TreeNode root, int sum) {
         List<List<Integer>> ret = new ArrayList<>();
-        List<Integer> elem = new ArrayList<>();
-        path(root, sum, elem, ret);
+        path(root, sum, new LinkedList<>(), ret);
         return ret;
     }
 
@@ -62,7 +78,7 @@ public class LeetCode113 {
      * @return
      */
     public List<List<Integer>> pathSumIterative(TreeNode root, int sum) {
-        List<List<Integer>> result = new ArrayList<>();
+        List<List<Integer>> ret = new ArrayList<>();
         List<Integer> elem = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         Set<TreeNode> visited = new HashSet<>();
@@ -84,7 +100,7 @@ public class LeetCode113 {
             // 当前路径没有右节点，或右边路径已被访问过（用于回退时判断）
             if (n.right == null || visited.contains(n.right)) {
                 if (n.left == null && n.right == null && curSum == sum) {
-                    result.add(new ArrayList<>(elem));
+                    ret.add(new ArrayList<>(elem));
                 }
                 stack.pop();
                 elem.remove(elem.size() - 1);
@@ -94,7 +110,7 @@ public class LeetCode113 {
                 root = n.right;
             }
         }
-        return result;
+        return ret;
     }
 
     /**
@@ -105,7 +121,7 @@ public class LeetCode113 {
      * @return
      */
     public List<List<Integer>> pathSumIterativePrev(TreeNode root, int sum) {
-        List<List<Integer>> result = new ArrayList<>();
+        List<List<Integer>> ret = new ArrayList<>();
         List<Integer> elem = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         TreeNode prev = null;
@@ -120,7 +136,7 @@ public class LeetCode113 {
             TreeNode n = stack.peek();
             if (n.right == null || n.right == prev) {
                 if (n.left == null && n.right == null && curSum == sum) {
-                    result.add(new ArrayList<>());
+                    ret.add(new ArrayList<>());
                 }
                 stack.pop();
                 elem.remove(elem.size() - 1);
@@ -131,6 +147,6 @@ public class LeetCode113 {
                 root = n.right;
             }
         }
-        return result;
+        return ret;
     }
 }
