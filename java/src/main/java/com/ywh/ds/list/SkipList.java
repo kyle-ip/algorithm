@@ -127,18 +127,17 @@ public class SkipList {
             }
         }
 
-        while (levelCount>1&&head.forwards[levelCount]==null){
+        while (levelCount > 1 && head.forwards[levelCount] == null) {
             levelCount--;
         }
 
     }
 
-    // 理论来讲，
     // 因为这里每一层的晋升概率是 50%。对于每一个新插入的节点，都需要调用 randomLevel 生成一个合理的层数。
     // 该 randomLevel 方法会随机生成 1~MAX_LEVEL 之间的数，且 ：
-    //        50%的概率返回 1
-    //        25%的概率返回 2
-    //      12.5%的概率返回 3 ...
+    //        50% 的概率返回 1
+    //        25% 的概率返回 2
+    //      12.5% 的概率返回 3 ...
 
     /**
      * 动态更新：如果插入时不修改索引，则当两个索引节点之间数据非常多时，会退化成单链表。
