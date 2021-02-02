@@ -11,7 +11,6 @@ import com.ywh.ds.tree.TreeNode;
  * 该路径至少包含一个节点，且不一定经过根节点。
  * 示例 1：
  *      输入：[1,2,3]
- *
  *             1
  *            / \
  *           2   3
@@ -79,12 +78,12 @@ public class LeetCode124 {
         //   1    2
         //  / \
         // 4   8
-
         if (root == null) {
             return 0;
         }
         // 递归计算左右子节点的最大贡献值，在最大贡献值大于 0 时才会选取对应子节点。
-        int leftMax = Math.max(maxPathSumOn(root.left, max), 0), rightMax = Math.max(maxPathSumOn(root.right, max), 0);
+        int leftMax = Math.max(maxPathSumOn(root.left, max), 0),
+            rightMax = Math.max(maxPathSumOn(root.right, max), 0);
 
         // 更新答案：节点的最大路径和取决于该节点的值与该节点的左右子节点的最大贡献值。
         max[0] = Math.max(max[0], root.val + leftMax + rightMax);
