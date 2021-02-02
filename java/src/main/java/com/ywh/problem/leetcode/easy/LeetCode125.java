@@ -1,8 +1,17 @@
 package com.ywh.problem.leetcode.easy;
 
 /**
- * 回文字符串判断
+ * 验证回文串
  * [双指针] [字符串]
+ *
+ * 给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。
+ * 说明：本题中，我们将空字符串定义为有效的回文串。
+ * 示例 1:
+ *      输入: "A man, a plan, a canal: Panama"
+ *      输出: true
+ * 示例 2:
+ *      输入: "race a car"
+ *      输出: false
  *
  * Time: O(n), Space: O(1)
  *
@@ -14,7 +23,7 @@ public class LeetCode125 {
     /**
      * 判断是否大写字母
      *
-     * @param c 字符c
+     * @param c 字符
      * @return 判断结果
      */
     private boolean isUppercase(char c) {
@@ -24,7 +33,7 @@ public class LeetCode125 {
     /**
      * 判断是否字母
      *
-     * @param c 字符c
+     * @param c 字符
      * @return 判断结果
      */
     private boolean isAlphabet(char c) {
@@ -44,7 +53,7 @@ public class LeetCode125 {
     /**
      * 判断是否字母或数字
      *
-     * @param c 字符c
+     * @param c 字符
      * @return 判断结果
      */
     private boolean isAlphanumeric(char c) {
@@ -54,8 +63,8 @@ public class LeetCode125 {
     /**
      * 忽略大小写，判断是否相同字符
      *
-     * @param a 字符a
-     * @param b 字符b
+     * @param a 字符
+     * @param b 字符
      * @return 判断结果
      */
     private boolean isEqualIgnoreCase(char a, char b) {
@@ -75,14 +84,13 @@ public class LeetCode125 {
      * 判断是否回文串
      * Time: O(n), Space: O(1)
      *
-     * @param s 字符串s
+     * @param s 字符串
      * @return 判断结果
      */
     public boolean isPalindrome(String s) {
         if (s == null || s.length() == 0) {
             return true;
         }
-
         int left = 0, right = s.length() - 1;
         while (left < right) {
             // 双指针跳过非字母和非数字向中间移动

@@ -52,14 +52,15 @@ public class LeetCode123 {
             return 0;
         }
         int n = prices.length;
-        //定义在 第 i 天时达到 4 种状态下的最大收益：第一次买入、第一次卖出、第二次买入、第二次卖出。
-        int dp1 = -prices[0], dp2 = 0, dp3 = -prices[0], dp4 = 0;
+        //定义在 第 i 天时达到 4 种状态下的最大收益：
+        // 第一次买入（初始值为 -prices[0]，可理解为）、第一次卖出、第二次买入、第二次卖出。
+        int buy1 = -prices[0], sell1 = 0, buy2 = -prices[0], sell2 = 0;
         for (int i = 1; i < n; i++) {
-            dp1 = max(dp1, - prices[i]);
-            dp2 = max(dp2, dp1 + prices[i]);
-            dp3 = max(dp3, dp2 - prices[i]);
-            dp4 = max(dp4, dp3 + prices[i]);
+            buy1 = max(buy1, - prices[i]);
+            sell1 = max(sell1, buy1 + prices[i]);
+            buy2 = max(buy2, sell1 - prices[i]);
+            sell2 = max(sell2, buy2 + prices[i]);
         }
-        return max(0, dp1, dp2, dp3, dp4);
+        return max(0, buy1, sell1, buy2, sell2);
     }
 }
