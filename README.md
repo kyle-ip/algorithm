@@ -188,8 +188,8 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 122  | [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii) | 买卖股票的最佳时机 II | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode122.java) [Python](python/src/problem/leetcode/easy/leetcode_122.py) | Easy       | Array<br />Greedy                                         |
 | 123  | [Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii) | 买卖股票的最佳时机 III | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode123.java) | Hard | Dynamic Programming<br />Array |
 | 124  | [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | 二叉树中的最大路径和 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode124.java) | Hard | Tree<br />DFS |
-| 125  | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | 验证回文串                     | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode125.java) [Python](python/src/problem/leetcode/easy/leetcode_125.py) | Easy       | Two Pointers<br />String                                  |
-| 128  | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence) | 最长连续序列             | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode128.java) | Hard       | Sort<br />Hash Table                                      |
+| 125  | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | 验证回文串                | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode125.java) [Python](python/src/problem/leetcode/easy/leetcode_125.py) | Easy       | Two Pointers<br />String                                  |
+| 128  | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence) | 最长连续序列                               | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode128.java) | Hard       | Sort<br />Hash Table                                      |
 | 130  | [Surrounded Regions](https://leetcode.com/problems/surrounded-regions) | 被围绕的区域 | Time: O(m\*n)<br />Space: O(m\*n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode130.java) | Medium | DFS<br />BFS<br />Union Find |
 | 131  | [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning) | 分割回文串                        | Time: O(2^n)<br />Space: O(n^2) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode131.java) | Medium     | Backtracking                                           |
 | 132  | [Palindrome Partitioning II](https://leetcode.com/problems/palindrome-partitioning-ii) | 分割回文串 II | Time: O(n^2)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode132.java) | Hard | Dynamic Programming |
@@ -432,4 +432,4 @@ Thanks for JetBrains' support ([Free Open Source Licenses](https://www.jetbrains
 
 ## License
 
-See LICENSE file.      
+See LICENSE file.
