@@ -51,10 +51,11 @@ public class LeetCode337 {
      */
     private int[] dfs(TreeNode root) {
         if (root == null) {
+            // 第一位表示当前节点未被取，第二位表示当前节点被取。
             return new int[]{0, 0};
         }
         int[] left = dfs(root.left), right = dfs(root.right);
-        //                                 当前节点没有被打劫                                当前节点被打劫。
+        // 当前节点没有被打劫（其左右两个分支都可以取，取其两个分支两种情况较大者之和和）；当前节点被打劫（取当前节点，以及左右节点此前未取的状态）。
         return new int[]{Math.max(left[0], left[1]) + Math.max(right[0], right[1]), root.val + left[0] + right[0]};
     }
 }
