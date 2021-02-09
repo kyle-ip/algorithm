@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Stack;
 
 /**
  * 字符串解码
