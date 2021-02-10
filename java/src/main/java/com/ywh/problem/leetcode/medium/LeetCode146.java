@@ -63,16 +63,18 @@ public class LeetCode146 {
         private final Map<Integer, DoublyListNode> map;
 
         /**
-         * 辅助方法，把节点移动到头节点，表示最近刚被使用。
+         * 辅助方法，把节点移动到头节点的后面，表示最近刚被使用。
          *
          * @param cur
          */
-        private void move2Head(DoublyListNode cur) {
-            // 当前节点为头节点，头节点移动到其上一个节点。
+        private void moveToHeadNext(DoublyListNode cur) {
+            // 如果当前节点为头节点，表示头节点刚被使用，把头节点移动到其前一个节点。
             if (cur == head) {
                 head = head.prev;
                 return;
             }
+            // 否则解除当前节点的前驱、后继指针，把当前节点插到头节点的后面（六步），即 [head] <-> [cur] <-> [xxx]。
+
             // detach
             cur.prev.next = cur.next;
             cur.next.prev = cur.prev;
@@ -115,7 +117,7 @@ public class LeetCode146 {
                 return -1;
             }
             DoublyListNode cur = map.get(key);
-            move2Head(cur);
+            moveToHeadNext(cur);
             return cur.val;
         }
 
@@ -131,16 +133,16 @@ public class LeetCode146 {
             if (map.containsKey(key)) {
                 cur = map.get(key);
             }
-            // 否则取头节点，并在哈希表中移除 key 对应的旧值。
+            // 哈希表中不存在该 key，则取头节点来存放新元素（哈希表中要移除头节点的旧值）。
             else {
                 cur = head;
-                map.remove(cur.key);
+                map.remove(head.key);
             }
             // 设值，添加到哈希表，并移动到头部。
             cur.key = key;
             cur.val = value;
             map.put(key, cur);
-            move2Head(cur);
+            moveToHeadNext(cur);
         }
     }
 }
