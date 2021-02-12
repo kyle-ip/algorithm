@@ -59,7 +59,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (304)
+## LeetCode (305)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -70,7 +70,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | Graph               | Heap             | Dynamic Programming | Backtracking       |
 | Greedy              | Line Sweep       | Stack               | Union Find         |
 | Binary Indexed Tree | Segment Tree     | Minimax             | Brainteaser        |
-| Geometry            |                  |                     |                    |
+| Geometry            | Sliding Window   |                     |                    |
 
 | No.  | Title                                                        | Desc                               | Complexity                                           | Solution                                                     | Difficulty | Tags                                                     |
 | ---- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ | ---------- | -------------------------------------------------------- | -------------------------------------------------------- |
@@ -329,6 +329,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 558  | [Quad Tree Intersection](https://leetcode.com/problems/quad-tree-intersection) | 四叉树交集                         | Time: O(n^4)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode558.java) [Python](python/src/problem/leetcode/easy/leetcode_558.py) | Easy       | Tree                                                   |
 | 560  | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k) | 求和等于 K 的子数组数量 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode560.java) | Medium | Hash Table<br />Array |
 | 566  | [Reshape the Matrix](https://leetcode.com/problems/reshape-the-matrix) | 重塑矩阵 | Time: O(r\*c)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode566.java) | Easy | Array |
+| 567  | [Permutation in String](https://leetcode-cn.com/problems/permutation-in-string/) | 字符串的排列 | Time: O(n+m+∣Σ∣)<br />Space: O(∣Σ∣) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode567.java) | Medium | Two Pointers<br />Sliding Window<br />String |
 | 572  | [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree) | 树 t 是否等于树 s 的子树           | Time: O(m\*n)<br />Space: O(h) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode572.java) | Easy       | Tree                                                   |
 | 581  | [Shortest Unsorted Continuous Subarray](https://leetcode.com/problems/shortest-unsorted-continuous-subarray) | 需要排序的最短子数组               | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode581.java) | Medium     | Array                                                  |
 | 605  | [Can Place Flowers](https://leetcode.com/problems/can-place-flowers/) | 种花问题 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode605.java) | Easy | Array<br />Greedy |
