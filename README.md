@@ -60,7 +60,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (307)
+## LeetCode (308)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -376,6 +376,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 976  | [Largest Perimeter Triangle](https://leetcode.com/problems/largest-perimeter-triangle) | 三角形的最大周长 | Time: O(n\*log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode976.java) | Easy | Sort<br />Math |
 | 978  | [Longest Turbulent Subarray](https://leetcode-cn.com/problems/longest-turbulent-subarray/) | 最长湍流子数组 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode978.java) | Medium | Array<br />Dynamic Programming<br />Sliding Window |
 | 992  | [Subarrays with K Different Integers](https://leetcode-cn.com/problems/subarrays-with-k-different-integers/) | K 个不同整数的子数组 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode992.java) | Hard | Sliding Window<br />Hash Table<br />Two Pointers |
+| 1004 | [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii) | 最大连续1的个数 III | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode1004.java)<br />[Go](go/src/leetcode/leetcode1004.go) | Medium | Two Pointers<br />Sliding Window |
 | 1018 | [Binary Prefix Divisible By 5](https://leetcode-cn.com/problems/binary-prefix-divisible-by-5/) | 可被 5 整除的二进制前缀 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1018.java) | Easy | Array |
 | 1029 | [Two City Scheduling](https://leetcode.com/problems/two-city-scheduling) | 两地调度                           | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1029.java) [Python](python/src/problem/leetcode/easy/leetcode_1029.py) | Easy       | Greedy                                                 |
 | 1046 | [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/) | 最后一块石头的重量 | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1046.java) | Easy | Greedy<br />Heap |
