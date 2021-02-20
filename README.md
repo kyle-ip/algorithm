@@ -60,7 +60,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (308)
+## LeetCode (309)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -344,6 +344,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 674  | [Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence) | 最长连续递增序列 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode674.java) | Easy | Array |
 | 684  | [Redundant Connection](https://leetcode-cn.com/problems/redundant-connection) | 冗余连接 | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode684.java) | Medium | Union Find<br />Graph<br />Tree |
 | 695  | [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) | 岛屿的最大面积 | Time: O(R\*C)<br />Space: (R\*C) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode695.java) | Medium | DFS<br />Array<br />Union Find |
+| 697 | [Degree of an Array](https://leetcode-cn.com/problems/degree-of-an-array/) | 数组的度 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode697.java) [Go](go/src/leetcode/leetcode697.go) | Easy | Array<br />Hash Table |
 | 700  | [Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree) | 二叉搜索树中查找数字               | Time: O(h)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode700.java) [Python](python/src/problem/leetcode/easy/leetcode_700.py) | Easy       | Tree                                                   |
 | 703  | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream) | 数据流中第 K 大的元素              | Time: O(n\*log(k))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode703.java) [Python](python/src/problem/leetcode/easy/leetcode_703.py) | Easy       | Heap                                                   |
 | 704  | [Binary Search](https://leetcode.com/problems/binary-search) | 二分搜索                           | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode704.java) [Python](python/src/problem/leetcode/easy/leetcode_704.py) | Easy       | Binary Search                                          |
