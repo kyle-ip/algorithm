@@ -4,7 +4,7 @@ const MinInt = ^int(^uint(0) >> 1)
 
 // Time: O(1), Space: O(n)
 func maxSubArray(nums []int) int {
-    if len(nums) == 0 {
+    if nums == nil || len(nums) == 0 {
         return 0
     }
     if len(nums) == 1 {

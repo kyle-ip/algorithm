@@ -26,13 +26,13 @@ public class LeetCode132 {
     private void expand(String s, int i, int j, int[] cut) {
         // 比如 s 为 a a b a c，入参 i、j 都是 2。
         // a b a 是回文串，因此有两种分割方法：
-        //      a | a [b] a c     在前面分割，表示要在前面遍历（[b] 前）已经处理过的分割中再补充“一刀”，即 cut[i] + 1。
+        //      a | a [b] a c     在前面分割，表示要在前面遍历（[b] 前）已经处理过的分割中再补充“一刀”，即 cut[i]+1。
         //          i     j
         //      a a [b] a | c     在后面分割，表示在“下刀”的位置之前不需要做额外处理，因此是 cut[j+1]。
         //        i     j  j+1
         // 在两种方法中，取分割次数较少的一种情况。
         for (; i >= 0 && j < s.length() && s.charAt(i) == s.charAt(j); i--, j++) {
-            cut[j + 1] = Math.min(cut[j + 1], cut[i] + 1);
+            cut[j + 1] = Math.min(cut[i] + 1, cut[j + 1]);
         }
     }
 
