@@ -1,4 +1,4 @@
-package leetcode
+package leetcode376
 
 func max(a, b int) int {
     if a > b {

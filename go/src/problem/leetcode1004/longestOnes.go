@@ -1,4 +1,4 @@
-package leetcode
+package leetcode1004
 
 func longestOnes(A []int, K int) int {
     n, l, lsum, rsum, ret := len(A), 0, 0, 0, 0

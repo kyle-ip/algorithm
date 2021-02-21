@@ -1,4 +1,4 @@
-package leetcode
+package leetcode1
 
 // Time: O(n), Space: O(n)
 func twoSum(nums []int, target int) []int {

@@ -1,4 +1,4 @@
-package leetcode
+package leetcode70
 
 // Time: O(n), Space: O(n)
 func climbStairs(n int) int {

@@ -1,4 +1,4 @@
-package leetcode
+package leetcode53
 
 const MinInt = ^int(^uint(0) >> 1)
 

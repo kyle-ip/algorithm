@@ -1,4 +1,4 @@
-package leetcode
+package leetcode132
 
 func min(num1 int, num2 int) int {
     if num1 < num2 {

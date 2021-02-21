@@ -1,4 +1,4 @@
-package leetcode
+package leetcode697
 
 // Time: O(n), Space: O(n)
 func findShortestSubArray(nums []int) int {
