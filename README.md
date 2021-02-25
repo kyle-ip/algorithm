@@ -1,7 +1,7 @@
 # Algorithm
 
 [![Java](https://img.shields.io/badge/language-Java-orange.svg)]()
-[![C](https://img.shields.io/badge/language-C-black.svg)]()
+[![C](https://img.shields.io/badge/language-C-pink.svg)]()
 [![Python](https://img.shields.io/badge/language-Python-yellow.svg)]()
 [![Go](https://img.shields.io/badge/language-Go-blue.svg)]()
 
@@ -60,7 +60,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (310)
+## LeetCode (311)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -295,7 +295,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 371  | [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/description/) | 不用 +/- 求两数之和                | Time: O(m)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode371.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_371.py) | Easy       | Bit Manipulation                                       |
 | 373  | [Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums) | 查找和最小的K对数字 | Time: O(k\*log(k))<br />Space: O(k) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode373.java) | Medium | Heap |
 | 376  | [Wiggle Subsequence](https://leetcode.com/problems/wiggle-subsequence/submissions/) | 摆动序列 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode376.java)<br />[Python](python/src/problem/leetcode/medium/leetcode_376.py)<br />[Go](go/src/problem/leetcode376/wiggleMaxLength.go) | Medium | Dynamic Programming<br />Greedy |
-| 378  | [ Kth Smallest Element in a Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix) | 行列递增矩阵中第 K 小的元素        | Time: O(k\*log(k))<br />Space: O(k) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode378.java) | Medium     | Heap<br />Binary Search                                   |
+| 378  | [Kth Smallest Element in a Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix) | 有序矩阵中第 K 小的元素 | Time: O(k\*log(k))<br />Space: O(k) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode378.java)<br />[Go](go/src/problem/leetcode378/kthSmallest.go) | Medium     | Heap<br />Binary Search                                   |
 | 380  | [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1) | 常数时间插入、删除和获取随机元素 | Time: O(1)<br />Time: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode380.java) | Medium     | Design<br />Hash Table<br />Array                            |
 | 382  | [Linked List Random Node](https://leetcode.com/problems/linked-list-random-node) | 链表随机节点                       | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode382.java) | Medium     | Reservoir Sampling                                     |
 | 384  | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/) | 随机洗牌                           | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode384.java) | Medium     | Array                                                  |
@@ -366,6 +366,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 842  | [Split Array into Fibonacci Sequence](https://leetcode.com/problems/split-array-into-fibonacci-sequence/) | 将数组拆分成斐波那契序列 | Time: *O*(n\*log2C)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode842.java) | Medium | Greedy<br />Backtracking<br />String |
 | 860  | [Lemonade Change](https://leetcode.com/problems/lemonade-change/) | 柠檬水找零 | Time: *O*(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode860.java) | Easy | Greedy |
 | 861  | [Score After Flipping Matrix](https://leetcode.com/problems/score-after-flipping-matrix/) | 翻转矩阵后的得分 | Time: O(m\*n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode861.java) | Medium | Greedy |
+| 867 | [Transpose Matrix](https://leetcode.com/problems/transpose-matrix/) | 转置矩阵 | Time: O(m\*n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode867.java)<br />[Go](go/src/problem/leetcode867/transpose.go) | Easy | Array |
 | 876  | [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list) | 单链表中间节点                     | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode876.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_876.py) | Easy       | Linked List                                            |
 | 887  | [Super Egg Drop](https://leetcode.com/problems/super-egg-drop/) | 鸡蛋掉落 | Time: O(K\*N^(1/K))<br />Space: O(K\*N) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode887.java) | Hard | Math<br />Binary Search<br />Dynamic Programming |
 | 892  | [Surface Area of 3D Shapes](https://leetcode.com/problems/surface-area-of-3d-shapes) | 三维形体的表面积                   | Time: O(n^2)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode892.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_892.py) | Easy       | Geometry<br />Math                                        |
