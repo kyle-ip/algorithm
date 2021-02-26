@@ -33,9 +33,9 @@ public class LeetCode215 {
      * @param k
      * @return
      */
-    public int findKthLargestQuickSort(int[] nums, int k) {
+    public static int findKthLargestQuickSort(int[] nums, int k) {
         Arrays.sort(nums);
-        return nums[k - 1];
+        return nums[nums.length - k];
     }
 
     /**
@@ -101,7 +101,7 @@ public class LeetCode215 {
                     swap(nums, i, j);
                 }
             }
-            if (i == k-1) {
+            if (i == k - 1) {
                 return nums[i];
             } else if (i > k-1) {
                 high = i - 1;

@@ -29,6 +29,32 @@ import java.util.List;
 public class LeetCode56 {
 
     /**
+     *
+     * @param intervals
+     * @return
+     */
+    public int[][] merge(int[][] intervals) {
+        List<Interval> list = new ArrayList<>(), input = new ArrayList<>();
+        for (int[] interval : intervals) {
+            input.add(new Interval(interval[0], interval[1]));
+        }
+        input.sort(Comparator.comparingInt(r -> r.start));
+        for (Interval interval : input) {
+            int n = list.size();
+            if (n == 0 || list.get(n - 1).end < interval.start) {
+                list.add(interval);
+            } else {
+                list.get(n - 1).end = Math.max(list.get(n - 1).end, interval.end);
+            }
+        }
+        int[][] ret = new int[list.size()][2];
+        for (int i = 0; i < list.size(); i++) {
+            ret[i] = new int[]{list.get(i).start, list.get(i).end};
+        }
+        return ret;
+    }
+
+    /**
      * Time: O(n*log(n)), Space: O(1)
      *
      * @param intervals

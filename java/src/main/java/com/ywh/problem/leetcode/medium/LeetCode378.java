@@ -104,12 +104,19 @@ public class LeetCode378 {
     public int kthSmallestBinarySearch(int[][] matrix, int k) {
         int n = matrix.length, min = matrix[0][0], max = matrix[n - 1][n - 1];
         while (min < max) {
+            // 矩阵从左上到右下递增，人去一个数 mid 满足 min <= mid <= mid，矩阵中不大于 mid 的元素都分布在左上角。
+            //      设置初始位置为左下角 matrix[n-1][0]，设置当前位置为 matrix[i][j]（以左下到右上作分界线）。
+            //      如果 matrix[i][j] <= mid，则将当前所在列的不大于 mid 的数的数量累加到 num 中，不断向右移动，否则向上移动。
+            //      不断移动直到走出格子为止。
             int mid = min + (max - min) / 2, i = n - 1, j = 0, num = 0;
             while (i >= 0 && j < n) {
+                // 平均数在分界线左上，因此记录累加“当前所在列的不大于 mid 的数的数量”，分界线右移。
                 if (matrix[i][j] <= mid) {
                     num += i + 1;
                     j++;
-                } else {
+                }
+                // 平均数在分界线右下，因此分界线上移。
+                else {
                     i--;
                 }
             }
