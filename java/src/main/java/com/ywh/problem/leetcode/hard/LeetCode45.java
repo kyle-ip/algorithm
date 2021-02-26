@@ -99,12 +99,19 @@ public class LeetCode45 {
      * @return
      */
     public int jump(int[] nums) {
-        int length = nums.length, end = 0, max = 0, steps = 0;
-        for (int i = 0; i < length - 1; i++) {
-            // 每次找到可到达的最远位置（从 i 跳跃 nums[i] 位）。
+
+        // end 记录边界（应该跳到的位置），max 记录从当前点出发可到达的最远位置，steps 为步数。
+        int end = 0, max = 0, steps = 0;
+
+        // max 一定大于等于最后一个位置，因此最后一步必然跳出数组，因此不需要访问最后一个元素。
+        for (int i = 0; i < nums.length - 1; i++) {
+            // 每次找到从当前位置起跳、可到达的最远位置（从 i 跳跃 nums[i] 位）。
+            // 比如 [2, 3, 1, 2, 4, 2, 3]，从下标 0 出发，最远可到达下标 2。
+            // 在下标 0 可到达的位置中（0、1、2），下标 1 的值是 3、下标 2 的值是 1，即再从 1 出发可到达位置最远。
+            // 所以应该从 0 跳到 1。
             max = Math.max(max, i + nums[i]);
 
-            // 如果遍历走到该最远位置，则更新 end，并增加步数。
+            // 如果遍历走到边界，则更新边界为之前记录的、可到达的最远位置，并增加步数。
             if (i == end) {
                 end = max;
                 steps++;
