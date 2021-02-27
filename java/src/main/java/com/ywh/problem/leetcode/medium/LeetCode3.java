@@ -44,9 +44,8 @@ public class LeetCode3 {
         while (r < s.length()) {
             // 如果右指针指向的值存在于 hash 中，表示字符已经出现重复，此时需要重置最长子串的统计：
             // 不断把左指针到“重复元素首次出现的位置”之间的值全部剔除，移动左指针到新的起始位置。
-            while (hash[s.charAt(r)]) {
-                hash[s.charAt(l++)] = false;
-            }
+            for (; hash[s.charAt(r)]; hash[s.charAt(l++)] = false);
+
             // 此时左指针与右指针之间的字符都没有重复，计算最大长度，并缓存右指针指向的值。
             max = Math.max(max, r - l + 1);
             hash[s.charAt(r++)] = true;
@@ -65,7 +64,7 @@ public class LeetCode3 {
         int[] idx = new int[256];
         Arrays.fill(idx, -1);
         int max = 0, l = 0, r = 0;
-        for (;r < s.length(); r++) {
+        for (; r < s.length(); r++) {
             // 每轮更新左指针：取当前位置与“右指针所指字符上次出现的位置 + 1”的较大者，表示必要时重置最长子串的统计。
             // 即假设 r 现在所指的字符 c 此前上次出现的位置是 2，则把 l 定在 3，再与当前的 r 计算距离。
             l = Math.max(l, idx[s.charAt(r)] + 1);

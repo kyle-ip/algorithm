@@ -12,13 +12,53 @@ import com.ywh.ds.list.ListNode;
 public class LeetCode25 {
 
     /**
-     * Time: O(n), Space: O(1)
      *
      * @param head
      * @param k
      * @return
      */
     public ListNode reverseKGroup(ListNode head, int k) {
+        ListNode tail = head;
+        // 不足 k 个直接返回。
+        for (int i = 0; i < k; i++) {
+            if (tail == null) {
+                return head;
+            }
+            tail = tail.next;
+        }
+        // 反转 head 与 tail 之间的一段，作为新头指针。
+        ListNode newHead = reverse(head, tail);
+        head.next = reverseKGroup(tail, k);
+
+        // 最后返回新头指针。
+        return newHead;
+    }
+
+    /**
+     *
+     * @param head
+     * @param tail
+     * @return
+     */
+    private ListNode reverse(ListNode head, ListNode tail) {
+        ListNode prev = tail;
+        while (head != tail) {
+            ListNode next = head.next;
+            head.next = prev;
+            prev = head;
+            head = next;
+        }
+        return prev;
+    }
+
+    /**
+     * Time: O(n), Space: O(1)
+     *
+     * @param head
+     * @param k
+     * @return
+     */
+    public ListNode reverseKGroup2(ListNode head, int k) {
 
         // dummy 表示 head 前的辅助节点，prev 表示待反转子链表的前驱节点， left、right 表示待反转子链表的左右边界（闭区间）。
         ListNode dummy = new ListNode(0, head), prev = dummy, left = head, right;
@@ -134,5 +174,4 @@ public class LeetCode25 {
         }
         return new ListNode[]{right, left};
     }
-
 }
