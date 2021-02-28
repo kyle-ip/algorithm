@@ -60,7 +60,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 
 
-## LeetCode (313)
+## LeetCode (314)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -372,6 +372,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 | 876  | [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list) | 单链表中间节点                     | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode876.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_876.py) | Easy       | Linked List                                            |
 | 887  | [Super Egg Drop](https://leetcode.com/problems/super-egg-drop/) | 鸡蛋掉落 | Time: O(K\*N^(1/K))<br />Space: O(K\*N) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode887.java) | Hard | Math<br />Binary Search<br />Dynamic Programming |
 | 892  | [Surface Area of 3D Shapes](https://leetcode.com/problems/surface-area-of-3d-shapes) | 三维形体的表面积                   | Time: O(n^2)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode892.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_892.py) | Easy       | Geometry<br />Math                                        |
+| 896  | [Monotonic Array](https://leetcode-cn.com/problems/monotonic-array/) | 单调数列 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode896.java)<br />[Go](go/src/problem/leetcode896/isMonotonic.go) | Easy | Array |
 | 938  | [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/submissions/) | 二叉搜索树的区间和 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode938.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_938.py) | Easy | Tree |
 | 945  | [ Minimum Increment to Make Array Unique](https://leetcode.com/problems/minimum-increment-to-make-array-unique) | 使数组唯一的最小增量               | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode945.java) | Medium     | Array                                                  |
 | 946  | [Validate Stack Sequences](https://leetcode.com/problems/validate-stack-sequences) | 验证入栈出栈序列                   | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode946.java) | Medium     | Stack                                                  |
