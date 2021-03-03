@@ -158,8 +158,8 @@ public class LeetCode23 {
             min = q.poll();
             p.next = min;
             p = p.next;
-            if (p.next != null) {
-                q.add(p.next);
+            if (min.next != null) {
+                q.add(min.next);
             }
         }
         return dummy.next;

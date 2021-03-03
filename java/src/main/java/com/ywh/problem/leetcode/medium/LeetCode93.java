@@ -8,6 +8,28 @@ import java.util.List;
  * 复原 IP 地址
  * [字符串] [回溯]
  *
+ * 给定一个只包含数字的字符串，用以表示一个 IP 地址，返回所有可能从 s 获得的 有效 IP 地址 。你可以按任何顺序返回答案。
+ * 有效 IP 地址 正好由四个整数（每个整数位于 0 到 255 之间组成，且不能含有前导 0），整数之间用 '.' 分隔。
+ * 例如："0.1.2.201" 和 "192.168.1.1" 是 有效 IP 地址，但是 "0.011.255.245"、"192.168.1.312" 和 "192.168@1.1" 是 无效 IP 地址。
+ * 示例 1：
+ *      输入：s = "25525511135"
+ *      输出：["255.255.11.135","255.255.111.35"]
+ * 示例 2：
+ *      输入：s = "0000"
+ *      输出：["0.0.0.0"]
+ * 示例 3：
+ *      输入：s = "1111"
+ *      输出：["1.1.1.1"]
+ * 示例 4：
+ *      输入：s = "010010"
+ *      输出：["0.10.0.10","0.100.1.0"]
+ * 示例 5：
+ *      输入：s = "101023"
+ *      输出：["1.0.10.23","1.0.102.3","10.1.0.23","10.10.2.3","101.0.2.3"]
+ * 提示：
+ *      0 <= s.length <= 3000
+ *      s 仅由数字组成
+ *
  * @author ywh
  * @since 14/12/2019
  */
@@ -18,15 +40,18 @@ public class LeetCode93 {
      * @param segment
      * @return
      */
-    private boolean valid(String segment) {
+    private boolean isValid(String segment) {
         int m = segment.length();
         if (m > 3) {
             return false;
         }
-        return (segment.charAt(0) != '0') ? (Integer.parseInt(segment) <= 255) : (m == 1);
+        return segment.charAt(0) != '0' ? Integer.parseInt(segment) <= 255 : m == 1;
     }
 
     /**
+     * 1. 每次截取起始下标到遍历下标之间的子串为一段，其中遍历下标不能超过原字符串长度 +3。
+     * 2. 每截取一段即判断是否合法，合法则添加到当前结果集。
+     * 3. 区分第二第三段与最后一段的处理。
      *
      * @param s
      * @param start
@@ -34,23 +59,26 @@ public class LeetCode93 {
      * @param ret
      */
     public void backtracking(String s, int start, LinkedList<String> segments, List<String> ret) {
-        for (int cur = start; cur < Math.min(s.length() - 1, start + 3); cur++) {
-            String segment = s.substring(start, cur + 1);
-            if (!valid(segment)) {
+        // start + 3 不超过 s 的长度（三个“.”分隔符）。
+        for (int i = start; i < Math.min(s.length() - 1, start + 3); i++) {
+            String segment = s.substring(start, i + 1);
+            if (!isValid(segment)) {
                 continue;
             }
             segments.add(segment);
 
-            // 处理最后一段。
+            // 单独处理最后一段。
             if (segments.size() == 3) {
-                String lastSegment = s.substring(cur + 1);
-                if (valid(lastSegment)) {
+                String lastSegment = s.substring(i + 1);
+                if (isValid(lastSegment)) {
                     segments.add(lastSegment);
                     ret.add(String.join(".", segments));
                     segments.removeLast();
                 }
-            } else {
-                backtracking(s, cur + 1, segments, ret);
+            }
+            // 处理第二第三段。
+            else {
+                backtracking(s, i + 1, segments, ret);
             }
             segments.removeLast();
         }

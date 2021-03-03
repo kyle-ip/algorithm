@@ -58,7 +58,7 @@ public class LeetCode46 {
      */
     public List<List<Integer>> permute(int[] nums) {
         if (nums == null || nums.length == 0) {
-            return new ArrayList<>();
+            return Collections.emptyList();
         }
         List<List<Integer>> ret = new ArrayList<>();
         List<Integer> list = new ArrayList<>(nums.length);
