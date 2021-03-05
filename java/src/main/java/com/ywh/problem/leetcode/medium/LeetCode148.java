@@ -72,11 +72,11 @@ public class LeetCode148 {
         //                     ↓      ↓
         //      [3] -> [1] -> [4] -> [2] -> [ ]    =>    [3] -> [1] -> [2] -> [4] -> [ ]
         //                   left   right                             left          right
-        ListNode left = start, right = start.next;
-        for (;right != end; right = right.next) {
-            if (right.val <= start.val) {
-                left = left.next;
-                swap(left, right);
+        ListNode l = start, r = start.next;
+        for (;r != end; r = r.next) {
+            if (r.val <= start.val) {
+                l = l.next;
+                swap(l, r);
             }
         }
 
@@ -87,9 +87,9 @@ public class LeetCode148 {
         //       ↓             ↓                         |<-           ->|<-  ->|
         //      [3] -> [1] -> [2] -> [4] -> [ ]    =>    [2] -> [1] -> [3] -> [4] -> [ ]
         //                   left                                     left
-        swap(start, left);
-        quickSort(start, left);
-        quickSort(left.next, end);
+        swap(start, l);
+        quickSort(start, l);
+        quickSort(l.next, end);
     }
 
     /**

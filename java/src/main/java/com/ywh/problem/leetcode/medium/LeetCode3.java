@@ -40,8 +40,8 @@ public class LeetCode3 {
      */
     public int lengthOfLongestSubstring2N(String s) {
         boolean[] hash = new boolean[256];
-        int l = 0, r = 0, max = 0;
-        while (r < s.length()) {
+        int max = 0;
+        for (int l = 0, r = 0; r < s.length(); ) {
             // 如果右指针指向的值存在于 hash 中，表示字符已经出现重复，此时需要重置最长子串的统计：
             // 不断把左指针到“重复元素首次出现的位置”之间的值全部剔除，移动左指针到新的起始位置。
             for (; hash[s.charAt(r)]; hash[s.charAt(l++)] = false);

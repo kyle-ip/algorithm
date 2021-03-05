@@ -1,17 +1,14 @@
 package leetcode10
 
 func isMatch(s string, p string) bool {
-
-	matches := func(i int, j int) bool {
-		return i != 0 && (p[j-1] == '.' || s[i-1] == p[j-1])
+	matches := func(i, j int) bool {
+		return i > 0 && (p[j-1] == '.' || s[i-1] == p[j-1])
 	}
-
 	m, n := len(s), len(p)
 	dp := make([][]bool, m + 1)
 	for i := 0; i <= m; i++ {
-		dp[i] = make([]bool, n + 1)
+		dp[i] = make([]bool, n+1)
 	}
-
 	dp[0][0] = true
 	for i := 0; i <= m; i++ {
 		for j := 1; j <= n; j++ {

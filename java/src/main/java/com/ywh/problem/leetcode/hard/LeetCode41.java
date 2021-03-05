@@ -1,8 +1,23 @@
 package com.ywh.problem.leetcode.hard;
 
 /**
- * 第一个缺失的正整数
+ * 缺失的第一个正数
  * [数组]
+ * 
+ * 给你一个未排序的整数数组 nums ，请你找出其中没有出现的最小的正整数。
+ * 进阶：你可以实现时间复杂度为 O(n) 并且只使用常数级别额外空间的解决方案吗？
+ * 示例 1：
+ *      输入：nums = [1,2,0]
+ *      输出：3
+ * 示例 2：
+ *      输入：nums = [3,4,-1,1]
+ *      输出：2
+ * 示例 3：
+ *      输入：nums = [7,8,9,11,12]
+ *      输出：1
+ * 提示：
+ *      0 <= nums.length <= 300
+ *      -2^31 <= nums[i] <= 2^31 - 1
  *
  * @author ywh
  * @since 2020/9/15/015
@@ -55,25 +70,33 @@ public class LeetCode41 {
 
         // 8 > n, skip
         // 1, 2, -1, 4, [8]
-        for (int p = 0; p < n; ) {
-            int num = nums[p];
+
+        //
+        for (int i = 0; i < n; ) {
+            int num = nums[i];
+            // 设位置 i 的值为 num，如果 num 在 [1, n] 的范围内，且数组中第 num 个值不为 num，则把位置 i 的值与位置 num-1 的值交换。
             if (num >= 1 && num <= n && nums[num - 1] != num) {
-                int tmp = nums[p];
-                nums[p] = nums[num - 1];
+                int tmp = nums[i];
+                nums[i] = nums[num - 1];
                 nums[num - 1] = tmp;
-            } else {
-                ++p;
+            }
+            // 否则表示值已经正确归位，如 [1, -1, 3, ...]，处理下一个值。
+            else {
+                ++i;
             }
         }
 
         // -1 != 3, return i + 1
         // 1, 2, [-1], 4, 8
+
+        // 遍历交换好的数组，找到第一个未正确归位的值，返回该位置“原来应有的值”。
         for (int i = 0; i < n; ++i) {
             if (nums[i] != i + 1) {
                 return i + 1;
             }
         }
-        // return n + 1
+
+        // 否则认为全部归位，返回最后一个值即可。
         return n + 1;
     }
 

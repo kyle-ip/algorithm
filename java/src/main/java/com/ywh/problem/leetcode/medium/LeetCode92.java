@@ -5,6 +5,13 @@ import com.ywh.ds.list.ListNode;
 /**
  * 反转链表 II
  * [链表]
+ * 
+ * 反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。
+ * 说明:
+ *      1 ≤ m ≤ n ≤ 链表长度。
+ * 示例:
+ *      输入: 1->2->3->4->5->NULL, m = 2, n = 4
+ *      输出: 1->4->3->2->5->NULL
  *
  * @author ywh
  * @since 2020/10/14/014
@@ -89,6 +96,35 @@ public class LeetCode92 {
         //                  node1 right/node2
         //                (return)
         return node1;
+    }
+
+    /**
+     *
+     * @param head
+     * @param m
+     * @param n
+     * @return
+     */
+    public ListNode reverseBetween2(ListNode head, int m, int n) {
+        if (head == null || m >= n) {
+            return head;
+        }
+        ListNode newHead = new ListNode(0, head), pre = newHead;
+        // 找到第一个需要反转的节点的前一个节点 pre。
+        for (int i = 0; pre.next != null && i < m - 1; i++, pre = pre.next);
+        // 不足 m 个，直接返回。
+        if (pre.next == null) {
+            return head;
+        }
+        // 从 pre 开始，依次把后面的节点用头插法插到 p 节点的后面。
+        ListNode cur = pre.next;
+        for (int i = 0; i < n - m; i++) {
+            ListNode next = pre.next;
+            pre.next = cur.next;
+            cur.next = cur.next.next;
+            pre.next.next = next;
+        }
+        return newHead.next;
     }
 
 }
