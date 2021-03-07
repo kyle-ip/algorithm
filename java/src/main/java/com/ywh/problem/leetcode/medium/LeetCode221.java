@@ -46,11 +46,11 @@ public class LeetCode221 {
         }
         int max = 0;
         for (int i = 0; i < heights.length; i++) {
-            int left = i, right = i;
-            for (; left >= 0 && heights[i] <= heights[left]; left--);
-            for (; right < heights.length && heights[i] <= heights[right]; right++);
-            int r = Math.min(left - right - 1, heights[i]);
-            max = Math.max(max, r * r);
+            int l = i, r = i;
+            for (; l >= 0 && heights[i] <= heights[l]; l--);
+            for (; r < heights.length && heights[i] <= heights[r]; r++);
+            int len = Math.min(l - r - 1, heights[i]);
+            max = Math.max(max, len * len);
         }
         return max;
     }
@@ -67,17 +67,17 @@ public class LeetCode221 {
         }
         int top = -1, n = heights.length, max = 0;
         int[] stack = new int[n + 1];
-        for (int right = 0; right <= n; right++) {
-            int h = right == n ? 0 : heights[right];
+        for (int r = 0; r <= n; r++) {
+            int h = r == n ? 0 : heights[r];
             while (top != -1 && h < heights[stack[top]]) {
                 int idx = stack[top--];
                 int left = top != -1 ? stack[top] : -1;
 
                 // 取宽和高的较小者为边长
-                int len = Math.min(heights[idx], right - left - 1);
+                int len = Math.min(heights[idx], r - left - 1);
                 max = Math.max(max, len * len);
             }
-            stack[++top] = right;
+            stack[++top] = r;
         }
         return max;
     }
@@ -106,6 +106,13 @@ public class LeetCode221 {
         return max;
     }
 
+    /**
+     *
+     * @param a
+     * @param b
+     * @param c
+     * @return
+     */
     private int min(int a, int b, int c) {
         return Math.min(Math.min(a, b), c);
     }

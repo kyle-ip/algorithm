@@ -88,19 +88,18 @@ public class LeetCode215 {
             // 反向的分区方法，对于返回值 i：左边的元素都大于等于 i，右边的元素都小于 i。
             int pivot = nums[low], i = low, j = high;
             while (i < j) {
-                while (i < j && nums[j] < pivot) {
-                    --j;
-                }
+                for (; i < j && nums[j] < pivot; j--);
                 if (i < j) {
                     swap(nums, i, j);
                 }
-                while (i < j && nums[i] >= pivot) {
-                    ++i;
-                }
+                for (; i < j && nums[i] >= pivot; i++);
                 if (i < j) {
                     swap(nums, i, j);
                 }
             }
+            // 至此，i 左边的元素都大于等于 pivot，i 右边的元素都小于 pivot。
+            // 如果 i 正处在 k-1 的位置（从 0 开始），表示该位置正是数组中第 k 大的元素，直接返回。
+            // 否则，如果 i 左边的元素大于 k 个，处理左半边；如果 i 左边的元素小于 k 个，处理右半边。
             if (i == k - 1) {
                 return nums[i];
             } else if (i > k-1) {

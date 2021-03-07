@@ -101,19 +101,19 @@ public class LeetCode72 {
         if (s == null || t == null) {
             return 0;
         }
-        int m = s.length() + 1, n = t.length() + 1;
+        int m = s.length(), n = t.length();
         // dp[i][j] 表示长度为 i 的 s 的子串 -> 长度为 j 的 t 的子串的编辑距离。
-        int[][] dp = new int[m][n];
+        int[][] dp = new int[m + 1][n + 1];
         // s[0, i - 1] -> t[0, 0]
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i <= m; i++) {
             dp[i][0] = i;
         }
         // s[0, 0] -> t[0, j - 1]
-        for (int j = 0; j < n; j++) {
+        for (int j = 0; j <= n; j++) {
             dp[0][j] = j;
         }
-        for (int i = 1; i < m; i++) {
-            for (int j = 1; j < n; j++) {
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
                 // i == j == 3（两个子串长度都为 3），当前位置的字符 s[i - 1] 和 t[j - 1]。
 
                 // 如果当前位置上的字符相同，则编辑距离取值与上次相同。
@@ -132,7 +132,7 @@ public class LeetCode72 {
                 }
             }
         }
-        return dp[m - 1][n - 1];
+        return dp[m][n];
     }
 
     /**

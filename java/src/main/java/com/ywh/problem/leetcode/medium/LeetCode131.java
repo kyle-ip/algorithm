@@ -33,16 +33,16 @@ public class LeetCode131 {
             ret.add(new LinkedList<>(elem));
             return;
         }
-        for (int end = start; end < s.length(); end++) {
-            if (!dp[start][end]) {
+        for (int i = start; i < s.length(); i++) {
+            if (!dp[start][i]) {
                 continue;
             }
-            // 从 start 到 end 是回文串，添加到 elem，并递归判断该子串的后续部分。
-            elem.add(s.substring(start, end + 1));
+            // 从 start 到 i 是回文串，添加到 elem，并递归判断该子串的后续部分。
+            elem.add(s.substring(start, i + 1));
 
             // 比如 [a, b, a,] (c, a, c)
             //      s      e   e+1 ...
-            partition(s, end + 1, dp, ret, elem);
+            partition(s, i + 1, dp, ret, elem);
 
             // 回溯，退递归。
             elem.removeLast();

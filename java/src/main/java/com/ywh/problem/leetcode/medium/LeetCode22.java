@@ -4,8 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 括号的合法排列
+ * 括号生成
  * [字符串] [回溯]
+ * 
+ * 数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。
+ * 示例 1：
+ *      输入：n = 3
+ *      输出：["((()))","(()())","(())()","()(())","()()()"]
+ * 示例 2：
+ *      输入：n = 1
+ *      输出：["()"]
+ * 提示：
+ *      1 <= n <= 8
  *
  * @author ywh
  * @since 2/28/2019
@@ -15,22 +25,23 @@ public class LeetCode22 {
     /**
      * 辅助递归方法：
      *
-     * @param result 保存所有合法排列的列表
+     * @param ret 保存所有合法排列的列表
      * @param str    当前排列
      * @param left   左括号剩余数量
      * @param right  右括号剩余数量
      */
-    private void generate(List<String> result, String str, int left, int right) {
+    private List<String> generate(List<String> ret, String str, int left, int right) {
         if (left == 0 && right == 0) {
-            result.add(str);
+            ret.add(str);
         } else {
             if (left > 0) {
-                generate(result, str + "(", left - 1, right);
+                generate(ret, str + "(", left - 1, right);
             }
             if (right > left) {
-                generate(result, str + ")", left, right - 1);
+                generate(ret, str + ")", left, right - 1);
             }
         }
+        return ret;
     }
 
     /**
@@ -45,9 +56,7 @@ public class LeetCode22 {
         if (n <= 0) {
             return new ArrayList<>();
         }
-        List<String> result = new ArrayList<>();
-        generate(result, "", n, n);
-        return result;
+        return generate(new ArrayList<>(), "", n, n);
     }
 
     /**
