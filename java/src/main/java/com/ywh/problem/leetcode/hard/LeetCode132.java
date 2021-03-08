@@ -30,7 +30,7 @@ public class LeetCode132 {
         //          i     j
         //      a a [b] a | c     在后面分割，表示在“下刀”的位置之前不需要做额外处理，因此是 cut[j+1]。
         //        i     j  j+1
-        // 在两种方法中，取分割次数较少的一种情况。
+        // 在两种方法中取次数较少的一种。
         for (; i >= 0 && j < s.length() && s.charAt(i) == s.charAt(j); i--, j++) {
             cut[j + 1] = Math.min(cut[i] + 1, cut[j + 1]);
         }
@@ -44,7 +44,7 @@ public class LeetCode132 {
      */
     public int minCut(String s) {
         if (s == null || s.length() == 0) {
-            return -1;
+            return 0;
         }
         int n = s.length();
         // cut[i] 表示 s[0:i] 的子串分割成回文子串所需要的最少分割次数（长度为 i）。
