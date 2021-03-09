@@ -45,8 +45,8 @@ public class LeetCode84 {
             int l = i, r = i;
             for (; l >= 0 && heights[l] >= heights[i]; l--);
             for (; r < n && heights[r] >= heights[i]; r++);
-            // 此时 left 和 right 之间的范围内中间低、两边高，阴影面积的高度为 height[i]。
-            // 由于 left 和 right 都指向不符合条件的位置，宽度应为 (left, right) 开区间的长度
+            // 此时 l 和 r 之间的范围内中间低、两边高，阴影面积的高度为 height[i]。
+            // 由于 l 和 r 都指向不符合条件的位置，宽度应为 (l, r) 开区间的长度。
             max = Math.max(max, heights[i] * (r - l - 1));
         }
         return max;
@@ -77,8 +77,8 @@ public class LeetCode84 {
             // 获取当前高度，越界则定义为 0。
             int h = r == n? 0: heights[r];
 
-            // 栈不为空，且越过极大值点（当前高度小于栈顶元素所指位置的高度）。
-            // 一直弹出，直到左边界所指的高度小于右边界所指的高度。
+            // 栈不为空，且越过极大值点（相对于栈顶而言，开始下降）。
+            // 一直弹出，直到 l 高度小于 r 高度，则 (l, r) 表示矩形的宽，栈顶所指的高度为矩形的高。
 
             //     [ ] [ ]                  [ ]              [ ][ ]
             //     [ ] [ ] [ ]              [ ]              [ ][ ]
@@ -91,11 +91,11 @@ public class LeetCode84 {
                 int idx = stack.pop();
                 int l = stack.empty()?  -1: stack.peek();
 
-                // 由于 right 表示开始递减的位置的下标，所以底边应为 (l, right) 区间的长度，所以是 r - l - 1。
+                // 由于 r 表示开始递减的位置的下标，所以底边应为 (l, r) 区间的长度，所以是 r-l-1。
                 max = Math.max(max, heights[idx] * (r - l - 1));
             }
 
-            // 栈为空或高度递增或持平，把下标入栈。
+            // 栈为空或高度递增/持平，把下标入栈。
             stack.push(r);
         }
 
