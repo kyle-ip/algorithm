@@ -66,14 +66,14 @@ public class LeetCode85 {
         }
         int max = 0, n = heights.length, top = -1;
         int[] stack = new int[n + 1];
-        for (int right = 0; right <= n; right++) {
-            int h = right == n ? 0 : heights[right];
+        for (int r = 0; r <= n; r++) {
+            int h = r == n ? 0 : heights[r];
             while (top != -1 && h < heights[stack[top]]) {
                 int idx = stack[top--];
-                int left = top != -1 ? stack[top] : -1;
-                max = Math.max(max, heights[idx] * (right - left - 1));
+                int l = top != -1 ? stack[top] : -1;
+                max = Math.max(max, heights[idx] * (r - l - 1));
             }
-            stack[++top] = right;
+            stack[++top] = r;
         }
         return max;
     }
@@ -99,7 +99,7 @@ public class LeetCode85 {
             for (int j = 0; j < n; j++) {
                 heights[j] = row[j] == '1' ? heights[j] + 1 : 0;
             }
-            max = Math.max(max, largestRectangleInHistogram2(heights));
+            max = Math.max(max, largestRectangleInHistogram(heights));
         }
         return max;
     }
