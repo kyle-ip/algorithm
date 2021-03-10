@@ -6,6 +6,21 @@ import java.util.Stack;
  * 基本计算器
  * [数学] [栈]
  *
+ * 实现一个基本的计算器来计算一个简单的字符串表达式 s 的值。
+ * 示例 1：
+ *      输入：s = "1 + 1"
+ *      输出：2
+ * 示例 2：
+ *      输入：s = " 2-1 + 2 "
+ *      输出：3
+ * 示例 3：
+ *      输入：s = "(1+(4+5+2)-3)+(6+8)"
+ *      输出：23
+ * 提示：
+ *      1 <= s.length <= 3 * 10^5
+ *      s 由数字、'+'、'-'、'('、')'、和 ' ' 组成
+ *      s 表示一个有效的表达式
+ *
  * @author ywh
  * @since 2020/9/11/011
  */
@@ -17,27 +32,35 @@ public class LeetCode224 {
      * @param s
      * @return
      */
-    public int calculateOneStack(String s) {
+    public int calculate(String s) {
         int sum = 0, op = 1, n = s.length();
-        // 栈用于暂存一个子表达式值的符号（正负），子表达式结束后弹出（初始化为 1）。
-        Stack<Integer> opStack = new Stack<>();
-        opStack.push(1);
-        for (int i = 0; i < n; i++) {
-            if (s.charAt(i) >= '0' && s.charAt(i) <= '9') {
+        // 符号栈用于暂存一个子表达式值（括号内）的正负，子表达式结束后弹出。
+        Stack<Integer> ops = new Stack<>();
+        ops.push(1);
+        for (int i = 0; i < n; ++i) {
+            // 数字
+            if (Character.isDigit(s.charAt(i))) {
                 int num = s.charAt(i) - '0';
-                while (i + 1 < n && s.charAt(i + 1) >= '0' && s.charAt(i + 1) <= '9') {
+                for (; i + 1 < n && Character.isDigit(s.charAt(i + 1)); i++) {
                     num = num * 10 + s.charAt(i + 1) - '0';
-                    i++;
                 }
-                sum += opStack.peek() * op * num;
-            } else if (s.charAt(i) == '(') {
-                opStack.push(opStack.peek() * op);
+                sum += ops.peek() * op * num;
+            }
+            // 左括号
+            else if (s.charAt(i) == '(') {
+                ops.push(ops.peek() * op);
                 op = 1;
-            } else if (s.charAt(i) == ')') {
-                opStack.pop();
-            } else if (s.charAt(i) == '+') {
+            }
+            // 右括号
+            else if (s.charAt(i) == ')') {
+                ops.pop();
+            }
+            // 加号
+            else if (s.charAt(i) == '+') {
                 op = 1;
-            } else if (s.charAt(i) == '0') {
+            }
+            // 减号
+            else if (s.charAt(i) == '-') {
                 op = -1;
             }
         }
