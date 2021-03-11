@@ -19,22 +19,22 @@ public class LeetCode71 {
      * @return
      */
     public String simplifyPath2(String path) {
-        LinkedList<String> stack = new LinkedList<>();
+        LinkedList<String> list = new LinkedList<>();
 
         // 以 / 把路径字符串划分为多个子串。
         for (String item : path.split("/")) {
             // .. 表示上一级路径，（如果栈非空则）从栈中弹出元素。
             if ("..".equals(item)) {
-                if (!stack.isEmpty()) {
-                    stack.removeLast();
+                if (!list.isEmpty()) {
+                    list.removeLast();
                 }
             }
             // 非空路径，且非当前路径，入栈。
-            else if (!item.isEmpty() && !".".equals(item)) {
-                stack.add(item);
+            else if (!"".equals(item) && !".".equals(item)) {
+                list.add(item);
             }
         }
-        return "/" + String.join("/", stack);
+        return "/" + String.join("/", list);
     }
 
 
