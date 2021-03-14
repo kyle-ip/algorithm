@@ -14,26 +14,6 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## Algorithm
-
-### Sorting (11)
-
-| No.  | Title                                                        | Desc       | Solution                                                     | Stability |
-| ---- | ------------------------------------------------------------ | ---------- | ------------------------------------------------------------ | --------- |
-| 1    | [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort)     | 冒泡排序   | [Java](java/src/main/java/com/ywh/sorting/BubbleSort.java)<br />[Python](python/src/algorithm/sorting/bubble_sort.py) | stable    |
-| 2    | [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) | 选择排序   | [Java](java/src/main/java/com/ywh/sorting/SelectionSort.java)<br />[Python](python/src/algorithm/sorting/selection_sort.py) | unstable  |
-| 3    | [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) | 插入排序   | [Java](java/src/main/java/com/ywh/sorting/InsertionSort.java)<br />[Python](python/src/algorithm/sorting/insertion_sort.py) | stable    |
-| 4    | [Shell Sort](https://en.wikipedia.org/wiki/Shellsort)        | 希尔排序   | [Java](java/src/main/java/com/ywh/sorting/ShellSort.java)<br />[Python](python/src/algorithm/sorting/shell_sort.py) | unstable  |
-| 5    | [Cocktail Shaker Sort](https://en.wikipedia.org/wiki/Cocktail_shaker_sort) | 鸡尾酒排序 | [Java](java/src/main/java/com/ywh/sorting/CocktailShakerSort.java)<br />[Python](python/src/algorithm/sorting/cocktail_shaker_sort.py) | stable    |
-| 6    | [Quick Sort](https://en.wikipedia.org/wiki/Quicksort)        | 快速排序   | [Java](java/src/main/java/com/ywh/sorting/QuickSort.java)<br />[Python](python/src/algorithm/sorting/quick_sort.py) | unstable  |
-| 7    | [Heap Sort](https://en.wikipedia.org/wiki/Heapsort)          | 堆排序     | [Java](java/src/main/java/com/ywh/sorting/HeapSort.java)     | unstable  |
-| 8    | [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort)       | 归并排序   | [Java](java/src/main/java/com/ywh/sorting/MergeSort.java)    | stable    |
-| 9    | [Counting Sort](https://en.wikipedia.org/wiki/Counting_sort) | 计数排序   | [Java](java/src/main/java/com/ywh/sorting/CountingSort.java) | stable    |
-| 10   | [Bucket Sort](https://en.wikipedia.org/wiki/Bucket_sort)     | 桶排序     | [Java](java/src/main/java/com/ywh/sorting/BucketSort.java)   | stable    |
-| 11   | [Radix Sort](https://en.wikipedia.org/wiki/Radix_sort)       | 基数排序   | [Java](java/src/main/java/com/ywh/sorting/RadixSort.java)    | stable    |
-
-
-
 ## LeetCode (317)
 
 | Tags                |                  |                     |                    |
@@ -393,8 +373,6 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 3    | 删除链表的中间节点和 a/b 处的节点     | [Java](java/src/main/java/com/ywh/problem/interview/chapter2/RemoveByRatio.java) | 1          |
 | 4    | 反转单向和双向链表                    | [Java](java/src/main/java/com/ywh/problem/interview/chapter2/ReverseList.java) | 1          |
 | 5    | 反转部分单项链表                      | [Java](java/src/main/java/com/ywh/problem/interview/chapter2/ReversePart.java) | 1          |
-
-
 
 ## Usage
 
