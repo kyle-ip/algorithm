@@ -1,4 +1,4 @@
-# algorithm
+# Algorithm
 
 [![Java](https://img.shields.io/badge/language-Java-orange.svg)]()
 [![C](https://img.shields.io/badge/language-C-pink.svg)]()
