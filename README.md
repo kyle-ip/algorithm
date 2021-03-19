@@ -12,6 +12,8 @@ Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in
 
 Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
+Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
+
 ## Algorithm
 
 ### Sorting (11)
