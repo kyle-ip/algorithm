@@ -57,7 +57,7 @@ public class LeetCode198 {
             return 0;
         }
         // x1 表示上一次抢劫后的总获利，x0 表示上上一次抢劫后的总获利，sum 表示截至当前元素的总获利。
-        int x0 = 0, x1 = 0, sum = 0;
+        int x0 = 0, x1 = 0;
         for (int num: nums) {
             // 当 num == 3：
             //      +-------------->    5   √
@@ -65,10 +65,10 @@ public class LeetCode198 {
             // 1    5    3
             // |         |
             // +---------+--------->    4
-            sum = Math.max(x1, x0 + num);
+            int sum = Math.max(x1, x0 + num);
             x0 = x1;
             x1 = sum;
         }
-        return sum;
+        return x1;
     }
 }

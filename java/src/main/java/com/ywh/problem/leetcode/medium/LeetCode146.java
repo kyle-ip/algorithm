@@ -65,26 +65,26 @@ public class LeetCode146 {
         /**
          * 辅助方法，把节点移动到头节点的后面，表示最近刚被使用。
          *
-         * @param cur
+         * @param node
          */
-        private void moveToHeadNext(DoublyListNode cur) {
+        private void moveToHeadNext(DoublyListNode node) {
             // 如果当前节点为头节点，表示头节点刚被使用，把头节点移动到其前一个节点。
-            if (cur == head) {
+            if (node == head) {
                 head = head.prev;
                 return;
             }
             // 否则解除当前节点的前驱、后继指针，把当前节点插到头节点的后面（六步），即 [head] <-> [cur] <-> [xxx]。
 
             // detach
-            cur.prev.next = cur.next;
-            cur.next.prev = cur.prev;
+            node.prev.next = node.next;
+            node.next.prev = node.prev;
 
             // attach
-            cur.next = head.next;
-            cur.next.prev = cur;
+            node.next = head.next;
+            node.next.prev = node;
 
-            head.next = cur;
-            cur.prev = head;
+            head.next = node;
+            node.prev = head;
         }
 
         /**
@@ -95,14 +95,14 @@ public class LeetCode146 {
         public LRUCache(int capacity) {
             head = new DoublyListNode(-1, -1, null, null);
             map = new HashMap<>();
-            DoublyListNode cur = head;
+            DoublyListNode node = head;
             // 尾插法创建容量 -1 个节点（因为 head 本身也用于存放数据）。
             for (int i = 0; i < capacity - 1; i++) {
-                cur.next = new DoublyListNode(-1, -1, null, cur);
-                cur = cur.next;
+                node.next = new DoublyListNode(-1, -1, null, node);
+                node = node.next;
             }
-            cur.next = head;
-            head.prev = cur;
+            node.next = head;
+            head.prev = node;
         }
 
         /**
@@ -116,9 +116,9 @@ public class LeetCode146 {
             if (!map.containsKey(key)) {
                 return -1;
             }
-            DoublyListNode cur = map.get(key);
-            moveToHeadNext(cur);
-            return cur.val;
+            DoublyListNode node = map.get(key);
+            moveToHeadNext(node);
+            return node.val;
         }
 
         /**
@@ -128,21 +128,21 @@ public class LeetCode146 {
          * @param value
          */
         public void put(int key, int value) {
-            DoublyListNode cur;
+            DoublyListNode node;
             // 哈希表中已存在该 key，则取出该节点。
             if (map.containsKey(key)) {
-                cur = map.get(key);
+                node = map.get(key);
             }
             // 哈希表中不存在该 key，则取头节点来存放新元素（哈希表中要移除头节点的旧值）。
             else {
-                cur = head;
+                node = head;
                 map.remove(head.key);
             }
             // 设值，添加到哈希表，并移动到头部。
-            cur.key = key;
-            cur.val = value;
-            map.put(key, cur);
-            moveToHeadNext(cur);
+            node.key = key;
+            node.val = value;
+            map.put(key, node);
+            moveToHeadNext(node);
         }
     }
 }

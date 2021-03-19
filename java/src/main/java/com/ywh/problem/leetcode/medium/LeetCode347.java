@@ -6,6 +6,19 @@ import java.util.*;
  * 前 K 个高频数字
  * [哈希表] [堆] [排序]
  *
+ * 给定一个非空的整数数组，返回其中出现频率前 k 高的元素。
+ * 示例 1:
+ *      输入: nums = [1,1,1,2,2,3], k = 2
+ *      输出: [1,2]
+ * 示例 2:
+ *      输入: nums = [1], k = 1
+ *      输出: [1]
+ * 提示：
+ *      你可以假设给定的 k 总是合理的，且 1 ≤ k ≤ 数组中不相同的元素的个数。
+ *      你的算法的时间复杂度必须优于 O(n log n) , n 是数组的大小。
+ *      题目数据保证答案唯一，换句话说，数组中前 k 个高频元素的集合是唯一的。
+ *      你可以按任意顺序返回答案。
+ *
  * @author ywh
  * @since 12/01/2020
  */
@@ -25,8 +38,7 @@ public class LeetCode347 {
             freqMap.put(num, freq + 1);
         }
 
-        Queue<Map.Entry<Integer, Integer>> pq =
-            new PriorityQueue<>((a, b) -> a.getValue() - b.getValue());
+        Queue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((a, b) -> a.getValue() - b.getValue());
         for (Map.Entry<Integer, Integer> e: freqMap.entrySet()) {
             pq.add(e);
             if (pq.size() > k) {
@@ -34,11 +46,11 @@ public class LeetCode347 {
             }
         }
 
-        List<Integer> result = new ArrayList<>();
+        List<Integer> ret = new ArrayList<>();
         for (Map.Entry<Integer, Integer> e: pq) {
-            result.add(e.getKey());
+            ret.add(e.getKey());
         }
-        return result;
+        return ret;
     }
 
     /**
@@ -110,13 +122,23 @@ public class LeetCode347 {
      * @param k
      * @return
      */
-    public List<Integer> topKFrequentBucketSort(int[] nums, int k) {
+    public int[] topKFrequentBucketSort(int[] nums, int k) {
+
+        // 统计每个元素出现频率。
         Map<Integer, Integer> freqMap = new HashMap<>();
         for (int num: nums) {
             int freq = freqMap.getOrDefault(num, 0);
             freqMap.put(num, freq + 1);
         }
 
+        // 创建一些桶，把数组的元素按出现的频率分配到对应下标的桶中：
+        // 比如 [1, 1, 1, 2, 2, 2, 3]，1 出现 3 次放在 3 桶、2 出现 3 次放在 3 桶，3 出现 1 次放在 1 桶。
+        // [
+        //     [],
+        //     [3],
+        //     [],
+        //     [1, 2]
+        // ]
         List<List<Integer>> buckets = new ArrayList<>(nums.length + 1);
         for (int i = 0; i <= nums.length; ++i) {
             buckets.add(new ArrayList<>());
@@ -125,15 +147,15 @@ public class LeetCode347 {
             buckets.get(e.getValue()).add(e.getKey());
         }
 
-        List<Integer> result = new ArrayList<>();
-        for (int i = buckets.size()-1; i >= 0 && k > 0; --i) {
+        // 从桶中取出元素，返回。
+        int[] ret = new int[k];
+        for (int i = buckets.size() - 1; i >= 0 && k > 0; --i) {
             List<Integer> bucket = buckets.get(i);
-            for (int j = 0; j < bucket.size() && k > 0; ++j) {
-                result.add(bucket.get(j));
-                --k;
+            for (int j = 0; j < bucket.size() && k > 0; j++) {
+                ret[k-- - 1] = bucket.get(j);
             }
         }
-        return result;
+        return ret;
     }
 
 }

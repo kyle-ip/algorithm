@@ -77,14 +77,13 @@ public class LeetCode322 {
      * @return
      */
     public int minCoinCombinationOsum(int[] coins, int amount) {
+        // d[i] 表示凑成 i 元的最小硬币数，其中 d[0] == 0 表示凑成 0 元的最小硬币数为 0，其余先则初始化为 Integer.MAX_VALUE - 1。
         int[] dp = new int[amount + 1];
-
-        // d[i] 表示凑成 i 元的最小硬币数，其中 d[0] == 0 表示凑成 0 元的最小硬币数为 0，其余先初始化为 Integer.MAX_VALUE - 1。
         Arrays.fill(dp, 1, amount + 1, Integer.MAX_VALUE - 1);
 
         // 遍历每种面值的硬币，用来凑 [0, sum] 元。
         for (int coin : coins) {
-            // 从当前硬币面值开始凑（因为假设用 5 元硬币凑 1 元就无意义，所以至少凑 5 元），使用面值为 coin 的硬币凑 sum：
+            // 从当前硬币面值开始凑（假设现有 5 元面值，至少凑 5 元及以上才有意义），使用面值为 coin 的硬币凑 sum：
             // 比如要用 2 元硬币凑 10 元，如果之前已经把凑成 10 - 2 == 8 元的最小硬币数算好，存在两种可能：
             //      1. 使用这个硬币，加上之前凑的 8 元，刚好 10 元（硬币数 + 1）。
             //      2. 不使用这个硬币，通过其他方法凑成的 10 元。

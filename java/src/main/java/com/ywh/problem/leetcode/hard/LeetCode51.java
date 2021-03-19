@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.hard;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -48,11 +49,11 @@ public class LeetCode51 {
             ret.add(list);
             return;
         }
-        for (int col = 0; col < n; ++col) {
+        for (int col = 0; col < n; col++) {
             // 检查当前行、列是否与前面放置的皇后有冲突：
             // row - col + n：经过 (row, col) 的主对角线（右下 -> 左上）已被占用。
             // row + col：经过 (row, col) 的副对角线（左下 -> 右上）已被占用。
-            //        列                     主对角线                   副对角线
+            //         列                     主对角线                     副对角线
             if (!visited[0][col] && !visited[1][row - col + n] && !visited[2][row + col]) {
                 // 放置皇后、标记。
                 board[row][col] = 'Q';
@@ -84,9 +85,7 @@ public class LeetCode51 {
         // 构建棋盘。
         char[][] board = new char[n][n];
         for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                board[i][j] = '.';
-            }
+            Arrays.fill(board[i], '.');
         }
         solve(0, ret, board, visited);
         return ret;

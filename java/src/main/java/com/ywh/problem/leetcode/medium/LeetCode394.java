@@ -1,7 +1,6 @@
 package com.ywh.problem.leetcode.medium;
 
-import java.util.Collections;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * 字符串解码
@@ -24,8 +23,6 @@ import java.util.Stack;
  *      输入：s = "abc3[cd]xyz"
  *      输出："abccdcdcdxyz"
  *
- * TODO 暂时未理解
- *
  * @author ywh
  * @since 2020/12/10/010
  */
@@ -41,38 +38,45 @@ public class LeetCode394 {
      */
     public String decodeString(String s) {
         Stack<String> stack = new Stack<>();
-        int[] ptr = new int[1];
-        while (ptr[0] < s.length()) {
-            char cur = s.charAt(ptr[0]);
-            // 获取一个数字并进栈
+        for (int p = 0; p < s.length(); ) {
+            char cur = s.charAt(p);
+            // 获取数字并进栈
             if (Character.isDigit(cur)) {
                 StringBuilder ret = new StringBuilder();
-                while (Character.isDigit(s.charAt(ptr[0]))) {
-                    ret.append(s.charAt(ptr[0]++));
+                while (Character.isDigit(s.charAt(p))) {
+                    ret.append(s.charAt(p++));
                 }
                 stack.add(ret.toString());
             }
-            // 遇到字母 或 [，获取一个字母并进栈。
+            // 遇到字母 或 [，获取并入栈。
             else if (Character.isLetter(cur) || cur == '[') {
-                stack.add(String.valueOf(s.charAt(ptr[0]++)));
+                stack.add(String.valueOf(s.charAt(p++)));
             }
             // 遇到 ]，处理一个子串。
             else {
-                ++ptr[0];
-                Stack<String> substring = new Stack<>();
+                ++p;
+                // ...3[abcd]...
+                //      ↑  ↑
+                LinkedList<String> substring = new LinkedList<>();
                 while (!"[".equals(stack.peek())) {
-                    substring.add(stack.pop());
+                    substring.addFirst(stack.pop());
                 }
-                Collections.reverse(substring);
+
                 // 左括号出栈
                 stack.pop();
+
+                // ...3[abcd]...
+                //    ↑x
                 // 此时栈顶为当前 sub 对应的字符串应该出现的次数。
                 int repTime = Integer.parseInt(stack.pop());
                 StringBuilder t = new StringBuilder();
-                String o = getString(substring);
-                // 构造字符串
+
+                // 字符串列表转换成字符串：["a", "b", "c", "d"] => "abcd"
+                String str = getString(substring);
+
+                // 重复构造字符串："abcd" * 3 => "abcdabcdabcd"
                 while (repTime-- > 0) {
-                    t.append(o);
+                    t.append(str);
                 }
                 // 将构造好的字符串入栈
                 stack.add(t.toString());
@@ -86,7 +90,7 @@ public class LeetCode394 {
      * @param v
      * @return
      */
-    public String getString(Stack<String> v) {
+    public String getString(List<String> v) {
         StringBuilder ret = new StringBuilder();
         for (String s : v) {
             ret.append(s);

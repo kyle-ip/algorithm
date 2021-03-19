@@ -3,7 +3,7 @@ package com.ywh.problem.leetcode.medium;
 /**
  * 字符串转整数
  * [数学] [字符串]
- * 
+ *
  * 请你来实现一个 atoi 函数，使其能将字符串转换成整数。
  * 首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。接下来的转化规则如下：
  *      如果第一个非空字符为正或者负号时，则将该符号与之后面尽可能多的连续数字字符组合起来，形成一个有符号整数。
@@ -21,57 +21,43 @@ package com.ywh.problem.leetcode.medium;
 public class LeetCode8 {
 
     /**
-     * 判断是否数字
-     *
-     * @param c
-     * @return
-     */
-    private boolean isNumber(char c) {
-        return c >= '0' && c <= '9';
-    }
-
-    /**
      * Time: O(n), Space: O(1)
      *
      * 依次判断空格、正负号、前导 0、长度；
      * 再逐位转换为 long 型，注意判断是否超出 int 的范围
      *
-     * @param str
+     * @param s
      * @return
      */
-    public int string2Integer(String str) {
-        int start, p = 0, length = str.length();
+    public int string2Integer(String s) {
+        int p = 0, n = s.length();
         boolean negative = false;
 
-        while (p < length && str.charAt(p) == ' ') {
-            ++p;
-        }
-        if (p == length) {
+        // 空白
+        for (; p < n && s.charAt(p) == ' '; p++);
+        if (p == n) {
             return 0;
         }
 
         // 正负号
-        if (str.charAt(p) == '+') {
+        if (s.charAt(p) == '+') {
             ++p;
-        } else if (str.charAt(p) == '-') {
+        } else if (s.charAt(p) == '-') {
             ++p;
             negative = true;
         }
 
         // 前导 0
-        while (p < length && str.charAt(p) == '0') {
-            ++p;
-        }
+        for (; p < n && s.charAt(p) == '0'; p++);
 
-        start = p;
-        while (p < length && str.charAt(p) >= '0' && str.charAt(p) <= '9') {
-            ++p;
-        }
+        // 数字（start 与 p 之间）
+        int start = p;
+        for (; p < n && Character.isDigit(s.charAt(p)); p++);
         if (p == start) {
             return 0;
         }
 
-        // 长度
+        // 长度（超过 10，返回最大值或最小值）
         if (p - start > 10) {
             return negative? Integer.MIN_VALUE: Integer.MAX_VALUE;
         }
@@ -79,10 +65,9 @@ public class LeetCode8 {
         // 逐位转换
         long num = 0;
         for (int i = start; i < p; i++) {
-            num = num * 10 + (str.charAt(i) - '0');
+            num = num * 10 + s.charAt(i) - '0';
         }
         num = negative? -num: num;
-
         if (num < Integer.MIN_VALUE) {
             return Integer.MIN_VALUE;
         } else if (num > Integer.MAX_VALUE) {

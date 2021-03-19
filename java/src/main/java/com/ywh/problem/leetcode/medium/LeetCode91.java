@@ -133,7 +133,7 @@ public class LeetCode91 {
      */
     public int numberOfDecodingsDPO1(String s) {
         //      [1]    [0]    [5]    [9]    [2]
-        //       c1     c2    cur
+        //      c1     c2     cur
         // c2：截至前一个位置的字符串的编码方式数量。
         // c1：截至前两个位置的字符串的编码方式数量。
         int c1 = 1, c2 = s.charAt(0) != '0' ? 1 : 0;

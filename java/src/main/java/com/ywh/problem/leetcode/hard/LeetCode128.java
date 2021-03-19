@@ -80,13 +80,11 @@ public class LeetCode128 {
         // 至此，哈希表中剩下 6
         for (int i = 0; i < nums.length && !set.isEmpty(); i++) {
             set.remove(nums[i]);
+
+            // 一边向两边扩展，一边从 set 中移除元素。
             int low = nums[i], high = nums[i];
-            while (set.contains(--low)) {
-                set.remove(low);
-            }
-            while (set.contains(++high)) {
-                set.remove(high);
-            }
+            for (; set.contains(--low); set.remove(low));
+            for (; set.contains(++high); set.remove(high));
 
             // 跳出上面的循环时，high、low 表示为开区间，因此统计区间长度需要减去 1（如 5 与 2 之间有 3、4，所以 5-2-1 == 2）。
             max = Math.max(max, high - low - 1);

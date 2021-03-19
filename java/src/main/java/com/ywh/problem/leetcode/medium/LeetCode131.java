@@ -1,12 +1,25 @@
 package com.ywh.problem.leetcode.medium;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  * 分割回文串
- * [回溯]
+ * [DFS] [动态规划] [回溯]
+ *
+ * 给你一个字符串 s，请你将 s 分割成一些子串，使每个子串都是 回文串 。返回 s 所有可能的分割方案。
+ * 回文串 是正着读和反着读都一样的字符串。
+ * 示例 1：
+ *      输入：s = "aab"
+ *      输出：[["a","a","b"],["aa","b"]]
+ * 示例 2：
+ *      输入：s = "a"
+ *      输出：[["a"]]
+ * 提示：
+ *      1 <= s.length <= 16
+ *      s 仅由小写英文字母组成
  *
  * @author ywh
  * @since 03/11/2019
@@ -58,9 +71,8 @@ public class LeetCode131 {
      * @return
      */
     public List<List<String>> partition(String s) {
-        List<List<String>> ret = new ArrayList<>();
         if (s == null || s.length() == 0) {
-            return ret;
+            return Collections.emptyList();
         }
         int n = s.length();
 
@@ -78,6 +90,7 @@ public class LeetCode131 {
             }
         }
         // 至此 dp 数组填充完成，开始回溯分割回文串。
+        List<List<String>> ret = new ArrayList<>();
         partition(s, 0, dp, ret, new LinkedList<>());
         return ret;
     }
