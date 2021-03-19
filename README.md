@@ -1,4 +1,4 @@
-# Algorithm
+# algorithm
 
 [![Java](https://img.shields.io/badge/language-Java-orange.svg)]()
 [![C](https://img.shields.io/badge/language-C-pink.svg)]()
@@ -11,34 +11,6 @@
 Data Structure &amp; Algorithm Problems' Solutions for interview, implemented in Java, C, Python, Go.
 
 Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
-
-## Data Structure
-
-[>>>](java/src/main/java/com/ywh/ds)
-
-- Linked List
-- Stack
-  - Array Stack
-  - Linked Stack
-- Queue
-  - Array Queue
-  - Circular Queue
-  - Linked Queue
-- Heap
-  - Max Heap
-  - Min Heap
-- String (pattern matching)
-- Skip List
-- Tree
-  - Binary Search Tree (BST)
-  - Binary Indexed Tree (BIT)
-  - Segment Tree
-  - Union Find
-  - Trie
-  - AC Automaton
-- Graph
-  - Undirected Graph
-  - Directed Graph
 
 ## Algorithm
 
