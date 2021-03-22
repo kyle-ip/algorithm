@@ -44,7 +44,7 @@ public class LeetCode673 {
                 if (nums[j] >= nums[i]) {
                     continue;
                 }
-                // 更新 lengths[i]、counts[i]：使得 lengths[i] 始终比 length[j] 长 1，且数量相等。
+                // 更新 lengths[i]、counts[i]：使得 lengths[i] 始终比 length[j] 长 1，且数量相等（是同一个递增序列 s[0:i]）。
                 if (lengths[j] >= lengths[i]) {
                     lengths[i] = lengths[j] + 1;
                     counts[i] = counts[j];
@@ -57,12 +57,12 @@ public class LeetCode673 {
         }
 
         // 找到最大值，并在 lengths 中统计该最大值出现的个数，返回。
-        int longest = 0, ret = 0;
+        int maxLen = 0, ret = 0;
         for (int length : lengths) {
-            longest = Math.max(longest, length);
+            maxLen = Math.max(maxLen, length);
         }
         for (int i = 0; i < n; ++i) {
-            if (lengths[i] == longest) {
+            if (lengths[i] == maxLen) {
                 ret += counts[i];
             }
         }
