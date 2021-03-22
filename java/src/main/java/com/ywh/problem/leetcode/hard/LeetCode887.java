@@ -63,7 +63,7 @@ public class LeetCode887 {
         } else if (K == 1) {
             ret = N;
         } else {
-            // 在所有满足条件的 XX 上进行二分查找。对于状态 (K, N) 而言，X 即为 [1, N] 中的任一整数。
+            // 在所有满足条件的 XX 上进行二分搜索。对于状态 (K, N) 而言，X 即为 [1, N] 中的任一整数。
             int low = 1, high = N;
             while (low + 1 < high) {
                 int x = (low + high) / 2;
