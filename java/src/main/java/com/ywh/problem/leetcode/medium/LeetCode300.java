@@ -1,5 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
+import java.util.List;
+
 /**
  * 最长上升子序列
  * [二分搜索] [动态规划]
@@ -91,7 +93,7 @@ public class LeetCode300 {
 
         // 遍历同时在嵌套循环中划分子数组
         for (int i = 1; i < n; i++) {
-            for (int j = 1; j < i; j++) {
+            for (int j = 0; j < i; j++) {
                 // 对于子数组，逐个元素 nums[j] 判断：
                 //     小于上界 nums[i]，表示从 0 到 i 中有 dp[j]+1 个元素递增，与 dp[i] 取较大者；
                 //     大于上界 nums[i]，表示子数组本轮遍历不递增，设为 1。
@@ -111,11 +113,27 @@ public class LeetCode300 {
      * @return
      */
     public int lengthOfLISBinarySearch(int[] nums) {
+
         if (nums == null || nums.length == 0) {
             return 0;
         }
         int n = nums.length, len = 0;
-        // 递增顺序数组。
+
+        // FIXME
+//        // 递增顺序数组。
+//
+//        List<Integer> f = new ArrayList<>();
+//        f.add(nums[0]);
+//        for (int i = 1; i < nums.length; i++) {
+//            if (nums[i] > f.get(f.size() - 1)) {
+//                f.add(nums[i]);
+//            } else {
+//                binarySearch(f, nums[i]);
+//            }
+//        }
+//        return f.size();
+
+
         int[] d = new int[n];
 
         for (int num: nums) {
@@ -144,5 +162,24 @@ public class LeetCode300 {
             }
         }
         return len;
+    }
+
+    /**
+     *
+     * @param f
+     * @param target
+     * @return
+     */
+    private int binarySearch(List<Integer> f, int target) {
+        int low = 0, high = f.size() - 1, mid;
+        while (low < high) {
+            mid = low + (high - low) / 2;
+            if (f.get(mid) < target) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return low;
     }
 }
