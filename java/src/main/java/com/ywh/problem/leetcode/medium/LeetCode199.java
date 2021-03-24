@@ -8,6 +8,18 @@ import java.util.*;
  * 二叉树的右视图
  * [树] [BFS] [DFS]
  *
+ * 给定一棵二叉树，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。
+ * 示例:
+ *      输入: [1,2,3,null,5,null,4]
+ *      输出: [1, 3, 4]
+ *      解释:
+ *
+ *         1            <---
+ *       /   \
+ *      2     3         <---
+ *       \     \
+ *        5     4       <---
+ * 
  * @author ywh
  * @since 28/04/2020
  */
@@ -29,18 +41,18 @@ public class LeetCode199 {
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
         while (!q.isEmpty()) {
-            // 取出队列头部元素（即每层最右边的值）。
+            // 取队列头部元素（即每层最右边的值），注意此时不要出队。
             ret.add(q.peek().val);
             int size = q.size();
             for (int i = 0; i < size; i++) {
-                TreeNode node = q.poll();
+                root = q.poll();
 
                 // 每次先放入右边。
-                if (node.right != null) {
-                    q.add(node.right);
+                if (root.right != null) {
+                    q.add(root.right);
                 }
-                if (node.left != null) {
-                    q.add(node.left);
+                if (root.left != null) {
+                    q.add(root.left);
                 }
             }
         }

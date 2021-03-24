@@ -38,9 +38,6 @@ public class LeetCode33 {
      * @return
      */
     public int searchInRotatedSortedArray(int[] nums, int target) {
-        if (nums == null || nums.length == 0) {
-            return -1;
-        }
         int low = 0, high = nums.length - 1;
         while (low <= high) {
             int mid = low + (high - low) / 2;

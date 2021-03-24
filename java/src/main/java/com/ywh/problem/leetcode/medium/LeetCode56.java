@@ -3,6 +3,7 @@ package com.ywh.problem.leetcode.medium;
 import com.ywh.model.Interval;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
@@ -34,24 +35,17 @@ public class LeetCode56 {
      * @return
      */
     public int[][] merge(int[][] intervals) {
-        List<Interval> list = new ArrayList<>(), input = new ArrayList<>();
+        List<int[]> ret = new ArrayList<>();
+        Arrays.sort(intervals, Comparator.comparingInt(r -> r[0]));
         for (int[] interval : intervals) {
-            input.add(new Interval(interval[0], interval[1]));
-        }
-        input.sort(Comparator.comparingInt(r -> r.start));
-        for (Interval interval : input) {
-            int n = list.size();
-            if (n == 0 || list.get(n - 1).end < interval.start) {
-                list.add(interval);
+            int n = ret.size(), start = interval[0], end = interval[1];
+            if (n == 0 || ret.get(n - 1)[1] < start) {
+                ret.add(interval);
             } else {
-                list.get(n - 1).end = Math.max(list.get(n - 1).end, interval.end);
+                ret.get(n - 1)[1] = Math.max(ret.get(n - 1)[1], end);
             }
         }
-        int[][] ret = new int[list.size()][2];
-        for (int i = 0; i < list.size(); i++) {
-            ret[i] = new int[]{list.get(i).start, list.get(i).end};
-        }
-        return ret;
+        return ret.toArray(new int[ret.size()][]);
     }
 
     /**
