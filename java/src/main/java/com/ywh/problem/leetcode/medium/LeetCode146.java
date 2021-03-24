@@ -58,9 +58,9 @@ public class LeetCode146 {
          *      [node0] <-> [node1] <-> [node2] <-> [node3]
          * （最近刚被使用的）                   （head，存放 LRU）
          */
-        private DoublyListNode head;
+        private DoublyListNode head = new DoublyListNode();
 
-        private final Map<Integer, DoublyListNode> map;
+        private final Map<Integer, DoublyListNode> map = new HashMap<>();
 
         /**
          * 辅助方法，把节点移动到头节点的后面，表示最近刚被使用。
@@ -93,8 +93,6 @@ public class LeetCode146 {
          * @param capacity
          */
         public LRUCache(int capacity) {
-            head = new DoublyListNode(-1, -1, null, null);
-            map = new HashMap<>();
             DoublyListNode node = head;
             // 尾插法创建容量 -1 个节点（因为 head 本身也用于存放数据）。
             for (int i = 0; i < capacity - 1; i++) {

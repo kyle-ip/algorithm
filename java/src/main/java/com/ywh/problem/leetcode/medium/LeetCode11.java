@@ -1,5 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
+import com.ywh.problem.leetcode.hard.LeetCode42;
+
 /**
  * 盛最多水的容器
  * [数组] [双指针]
@@ -32,24 +34,26 @@ package com.ywh.problem.leetcode.medium;
 public class LeetCode11 {
 
     /**
+     * 类似 {@link LeetCode42}
+     *
      * Time: O(n), Space: O(1)
      *
      * @param height
      * @return
      */
     public int maxArea(int[] height) {
-        int left = 0, right = height.length - 1, max = 0;
-        while (left < right) {
+        int ret = 0;
+        for (int l = 0, r = height.length - 1; l < r; ) {
             // 当前面积，左右高度中的较小者 * 左右距离。
-            max = Math.max(max, (right - left) * Math.min(height[left], height[right]));
+            ret = Math.max(ret, (r - l) * Math.min(height[l], height[r]));
 
             // 比较左右指针所指高度，固定较高的指针：宽度随指针移动变小，要使乘积变大必然要选取最大的高度。
-            if (height[left] < height[right]) {
-                left++;
+            if (height[l] < height[r]) {
+                l++;
             } else {
-                right--;
+                r--;
             }
         }
-        return max;
+        return ret;
     }
 }

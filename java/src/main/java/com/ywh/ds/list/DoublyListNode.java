@@ -29,4 +29,8 @@ public class DoublyListNode {
         this.prev = prev;
     }
 
+    public DoublyListNode(DoublyListNode next, DoublyListNode prev) {
+        this.next = next;
+        this.prev = prev;
+    }
 }

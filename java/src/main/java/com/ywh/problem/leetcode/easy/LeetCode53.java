@@ -25,7 +25,7 @@ public class LeetCode53 {
      */
     public int maxSumOfSubArray(int[] nums) {
         // 遍历数组，使用变量 cur 记录当前累计和、max 记录历史最大累计和。
-        int ret = Integer.MIN_VALUE, cur = 0;
+        int ret = Integer.MIN_VALUE, cur = Integer.MIN_VALUE;
         for (int num : nums) {
             // 当 cur > 0，当前累计和仍存在成为全局最大的可能性，所以继续累计。
             //      [1, 2, -4, 5]    此时 cur = 3，虽然 num<0，但算上它以及后面的 5 还是会比从此截断、只算 1 + 2 要大的，所以这个 -4 要保留。

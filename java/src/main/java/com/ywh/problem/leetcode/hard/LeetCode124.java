@@ -68,6 +68,8 @@ public class LeetCode124 {
     }
 
     /**
+     * 以 root 为根的最大路径和（不含 root）
+     *
      * @param root
      * @param ret
      * @return

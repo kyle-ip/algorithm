@@ -58,7 +58,7 @@ public class LeetCode23 {
             return null;
         }
         for (ListNode list : lists) {
-            ListNode dummy = new ListNode(-1), p = dummy;
+            ListNode dummy = new ListNode(), p = dummy;
             for (; ret != null && list != null; p = p.next) {
                 if (ret.val < list.val) {
                     p.next = ret;
@@ -94,7 +94,7 @@ public class LeetCode23 {
         }
         int mid = start + (end - start) / 2;
         ListNode left = merge(lists, start, mid), right = merge(lists, mid + 1, end);
-        ListNode dummy = new ListNode(-1), p = dummy;
+        ListNode dummy = new ListNode(), p = dummy;
         for (;; p = p.next) {
             if (left != null && right != null) {
                 if (left.val < right.val) {
@@ -153,7 +153,7 @@ public class LeetCode23 {
                 q.add(list);
             }
         }
-        ListNode dummy = new ListNode(0), p = dummy, min;
+        ListNode dummy = new ListNode(), p = dummy, min;
         while (!q.isEmpty()) {
             min = q.poll();
             p.next = min;

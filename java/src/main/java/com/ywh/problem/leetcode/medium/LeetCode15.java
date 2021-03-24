@@ -67,25 +67,22 @@ public class LeetCode15 {
             if (nums[k] < 0) {
                 break;
             }
-            int target = -nums[k], left = 0, right = k - 1;
-            while (left < right) {
-                if (nums[left] + nums[right] < target) {
-                    left++;
-                } else if (nums[left] + nums[right] > target) {
-                    right--;
+            for (int l = 0, r = k - 1; l < r; ) {
+                if (nums[l] + nums[r] + nums[k] < 0) {
+                    l++;
+                } else if (nums[l] + nums[r] + nums[k] > 0) {
+                    r--;
                 } else {
-                    ret.add(Arrays.asList(nums[left], nums[right], nums[k]));
+                    ret.add(Arrays.asList(nums[l], nums[r], nums[k]));
                     // 跳过重复值。
-                    for (; left < right && nums[left] == nums[left + 1]; left++) ;
-                    for (; left < right && nums[right] == nums[right - 1]; right--) ;
-
+                    for (; l < r && nums[l] == nums[l + 1]; l++) ;
                     // 1 2 [3] 3 4 5 5 6 [6]
                     //         l       r
-                    left++;
-                    right--;
-
+                    l++;
+                    for (; l < r && nums[r] == nums[r - 1]; r--) ;
                     // 1 2 3 3 4 5 5 6 6
                     //         l   r
+                    r--;
                 }
             }
 

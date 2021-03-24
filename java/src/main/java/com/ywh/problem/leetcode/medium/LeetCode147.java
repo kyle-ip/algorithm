@@ -18,7 +18,7 @@ public class LeetCode147 {
      * @return
      */
     public ListNode insertionSortList(ListNode head) {
-        ListNode dummy = new ListNode(0), p;
+        ListNode dummy = new ListNode(), p;
         ListNode cur = head, next;
         while (cur != null) {
             next = cur.next;
@@ -40,7 +40,7 @@ public class LeetCode147 {
      * @return
      */
     public ListNode insertionSortListFast(ListNode head) {
-        ListNode dummy = new ListNode(0), p = dummy;
+        ListNode dummy = new ListNode(), p = dummy;
         ListNode cur = head, next;
         while (cur != null) {
             next = cur.next;

@@ -30,7 +30,7 @@ public class LeetCode2 {
      * @return
      */
     public ListNode addTwoLinkedListNumbers(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(0), p = dummy;
+        ListNode dummy = new ListNode(), p = dummy;
         int carry = 0;
         while (l1 != null || l2 != null || carry != 0) {
             int sum = carry;

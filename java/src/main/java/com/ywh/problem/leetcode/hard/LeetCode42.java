@@ -67,7 +67,7 @@ public class LeetCode42 {
 
     /**
      * 双指针解法：一次扫描，无额外开销。
-     * 类似 {@link LeetCode11}
+     * 类似 {@link LeetCode11}，区别在于本题是求极值之和，{@link LeetCode11} 是求最大面积。
      *
      * Time: O(n), Space: O(1)
      *

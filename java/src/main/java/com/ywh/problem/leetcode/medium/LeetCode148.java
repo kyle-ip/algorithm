@@ -152,7 +152,7 @@ public class LeetCode148 {
         // 6: 合并两个有序链表。
         // [1] -> [3] -> null,
         // [2] -> [4] -> null    =>    [1] -> [2] -> [3] -> [4] -> null
-        ListNode dummy = new ListNode(-1), p = dummy;
+        ListNode dummy = new ListNode(), p = dummy;
         for (;left != null && right != null; p = p.next) {
             if (left.val < right.val) {
                 p.next = left;

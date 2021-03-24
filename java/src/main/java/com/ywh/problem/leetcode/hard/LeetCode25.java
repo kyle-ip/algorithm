@@ -20,11 +20,10 @@ public class LeetCode25 {
     public ListNode reverseKGroup(ListNode head, int k) {
         ListNode tail = head;
         // 不足 k 个直接返回。
-        for (int i = 0; i < k; i++) {
+        for (int i = 0; i < k; i++, tail = tail.next) {
             if (tail == null) {
                 return head;
             }
-            tail = tail.next;
         }
         // 反转 head 与 tail 之间的一段，作为新头指针。
         ListNode newHead = reverse(head, tail);

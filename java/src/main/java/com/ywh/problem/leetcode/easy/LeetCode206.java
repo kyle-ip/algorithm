@@ -62,10 +62,11 @@ public class LeetCode206 {
             return head;
         }
         ListNode ret = reverseListRecursive(head.next);
-        //    +---------+
-        //    ↓         |
-        // [head]  x [next]
-        //
+        //          1
+        //    +----------+
+        //    ↓          |
+        //  [head]  x  [next]
+        //          2
         head.next.next = head;
         head.next = null;
         return ret;
