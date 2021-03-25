@@ -1,5 +1,8 @@
 package com.ywh.problem.leetcode.medium;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 最长回文子串
  * [字符串] [动态规划]
@@ -88,17 +91,13 @@ public class LeetCode5 {
      * @return
      */
     public String longestPalindromeExpand(String s) {
-        if (s == null || s.length() == 0) {
-            return null;
-        }
-
         // 记录最大回文子串的开始位置和长度。
-        int start = 0, max = 0;
+        int start = 0, maxLen = 0;
         for (int i = 0; i < s.length(); i++) {
             // 处理 a, b, b, a 和 a, b, a 两种回文串。
             int len = Math.max(expand(s, i, i), expand(s, i, i + 1));
-            if (len > max) {
-                max = len;
+            if (len > maxLen) {
+                maxLen = len;
 
                 // 0 1 2 3 3 2 1 5          偶数：
                 //       i                  i = 3, len = 6, start = 1
@@ -107,6 +106,63 @@ public class LeetCode5 {
                 start = i - (len - 1) / 2;
             }
         }
-        return s.substring(start, start + max);
+        return s.substring(start, start + maxLen);
+    }
+
+    /**
+     * Manacher 算法
+     *
+     * Time: O(n), Space: O(1)
+     *
+     * @param s
+     * @return
+     */
+    public String longestPalindrome(String s) {
+        int start = 0, end = -1;
+        StringBuffer t = new StringBuffer("#");
+        for (int i = 0; i < s.length(); ++i) {
+            t.append(s.charAt(i));
+            t.append('#');
+        }
+        t.append('#');
+        s = t.toString();
+
+        List<Integer> armLen = new ArrayList<>();
+        int right = -1, j = -1;
+        for (int i = 0; i < s.length(); ++i) {
+            int curArmLen;
+            if (right >= i) {
+                int iSym = j * 2 - i;
+                int minArmLen = Math.min(armLen.get(iSym), right - i);
+                curArmLen = expand2(s, i - minArmLen, i + minArmLen);
+            } else {
+                curArmLen = expand2(s, i, i);
+            }
+            armLen.add(curArmLen);
+            if (i + curArmLen > right) {
+                j = i;
+                right = i + curArmLen;
+            }
+            if (curArmLen * 2 + 1 > end - start) {
+                start = i - curArmLen;
+                end = i + curArmLen;
+            }
+        }
+
+        StringBuilder ret = new StringBuilder();
+        for (int i = start; i <= end; ++i) {
+            if (s.charAt(i) != '#') {
+                ret.append(s.charAt(i));
+            }
+        }
+        return ret.toString();
+    }
+
+    public int expand2(String s, int left, int right) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            --left;
+            ++right;
+        }
+        return (right - left - 2) / 2;
     }
 }

@@ -84,9 +84,9 @@ public class LeetCode32 {
         }
         // l 统计左括号的数量，d[i] 表示以第 i 个字符结尾的有效括号子串的最大长度，比如对于 “()(()” d[2] == 2。
         // 状态数组 d 只有发生匹配时才会被填充，因此需要 max 值记录大小，而不是直接返回最后一项
-        int l = 0, ret = 0;
+        int ret = 0;
         int[] dp = new int[s.length() + 1];
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 0, l = 0; i < s.length(); i++) {
             // 左括号：统计数量。
             if (s.charAt(i) == '(') {
                 l++;

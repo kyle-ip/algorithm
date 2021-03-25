@@ -24,19 +24,19 @@ public class LeetCode102 {
             return Collections.emptyList();
         }
         List<List<Integer>> ret = new ArrayList<>();
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
             List<Integer> elem = new ArrayList<>();
-            int size = queue.size();
+            int size = q.size();
             for (int i = 0; i < size; i++) {
-                TreeNode node = queue.poll();
+                TreeNode node = q.poll();
                 elem.add(node.val);
                 if (node.left != null) {
-                    queue.add(node.left);
+                    q.add(node.left);
                 }
                 if (node.right != null) {
-                    queue.add(node.right);
+                    q.add(node.right);
                 }
             }
             ret.add(elem);

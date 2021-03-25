@@ -3,7 +3,7 @@ package com.ywh.problem.leetcode.medium;
 import com.ywh.ds.list.ListNode;
 
 /**
- * 链表排序
+ * 排序链表
  * [链表] [排序]
  *
  * 给你链表的头结点 head ，请将其按 升序 排列并返回排序后的链表。

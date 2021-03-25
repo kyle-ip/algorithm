@@ -24,12 +24,6 @@ package com.ywh.problem.leetcode.hard;
  */
 public class LeetCode41 {
 
-    private void swap(int[] nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
-    }
-
     /**
      * Time: O(n), Space: O(1)
      *
@@ -90,7 +84,7 @@ public class LeetCode41 {
         // 1, 2, [-1], 4, 8
 
         // 遍历交换好的数组，找到第一个未正确归位的值，返回该位置“原来应有的值”。
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < n; i++) {
             if (nums[i] != i + 1) {
                 return i + 1;
             }

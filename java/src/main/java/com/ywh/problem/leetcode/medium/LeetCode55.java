@@ -1,7 +1,5 @@
 package com.ywh.problem.leetcode.medium;
 
-import com.ywh.problem.leetcode.hard.LeetCode45;
-
 /**
  * 跳跃游戏
  * [数组] [贪心]

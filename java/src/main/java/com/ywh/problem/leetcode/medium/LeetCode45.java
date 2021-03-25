@@ -1,6 +1,4 @@
-package com.ywh.problem.leetcode.hard;
-
-import com.ywh.problem.leetcode.medium.LeetCode55;
+package com.ywh.problem.leetcode.medium;
 
 /**
  * 跳完数组的最少跳数

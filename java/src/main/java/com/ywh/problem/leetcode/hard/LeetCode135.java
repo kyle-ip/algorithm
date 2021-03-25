@@ -78,7 +78,7 @@ public class LeetCode135 {
 
     /**
      * Time: O(n), Space: O(n)
-     * 
+     *
      * @param ratings
      * @return
      */

@@ -73,9 +73,11 @@ public class LeetCode215 {
 
     /**
      * 快速选择法：
-     * 类似二分搜索，每次获取分区点的下标；
+     * 类似二分搜索和快速排序，每次获取分区点的下标；
      * 如果下标为 k - 1（比如 2），表示前面有 k - 1 个元素比它大（nums[0]、nums[1]）；
      * 所以下标为 pivot 的元素即为数组第 k（3）大元素
+     *
+     * Time(avg): O(n), Time(worst): O(n^2), Space: O(1)
      *
      * @param nums
      * @param k
@@ -85,27 +87,27 @@ public class LeetCode215 {
         int low = 0, high = nums.length - 1;
         while (low <= high) {
 
-            // 反向的分区方法，对于返回值 i：左边的元素都大于等于 i，右边的元素都小于 i。
-            int pivot = nums[low], i = low, j = high;
-            while (i < j) {
-                for (; i < j && nums[j] < pivot; j--);
-                if (i < j) {
-                    swap(nums, i, j);
+            // 反向的分区方法，对于返回值 l：左边的元素都大于等于 l，右边的元素都小于 l。
+            int pivot = nums[low], l = low, r = high;
+            while (l < r) {
+                for (; l < r && nums[r] < pivot; r--);
+                if (l < r) {
+                    swap(nums, l, r);
                 }
-                for (; i < j && nums[i] >= pivot; i++);
-                if (i < j) {
-                    swap(nums, i, j);
+                for (; l < r && nums[l] >= pivot; l++);
+                if (l < r) {
+                    swap(nums, l, r);
                 }
             }
-            // 至此，i 左边的元素都大于等于 pivot，i 右边的元素都小于 pivot。
-            // 如果 i 正处在 k-1 的位置（从 0 开始），表示该位置正是数组中第 k 大的元素，直接返回。
-            // 否则，如果 i 左边的元素大于 k 个，处理左半边；如果 i 左边的元素小于 k 个，处理右半边。
-            if (i == k - 1) {
-                return nums[i];
-            } else if (i > k-1) {
-                high = i - 1;
+            // 至此，l 左边的元素都大于等于 pivot，l 右边的元素都小于 pivot。
+            // 如果 l 正处在 k-1 的位置（从 0 开始），表示该位置正是数组中第 k 大的元素，直接返回。
+            // 否则，如果 l 左边的元素大于 k 个，处理左半边；如果 l 左边的元素小于 k 个，处理右半边。
+            if (l == k - 1) {
+                return nums[l];
+            } else if (l > k - 1) {
+                high = l - 1;
             } else {
-                low = i + 1;
+                low = l + 1;
             }
         }
         return -1;

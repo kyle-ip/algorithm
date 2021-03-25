@@ -1,7 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
 /**
- * 旋转有序数组的搜索
+ * 搜索旋转排序数组
  * [数组] [二分搜索]
  *
  * 给你一个整数数组 nums ，和一个整数 target 。
@@ -47,7 +47,7 @@ public class LeetCode33 {
             // 0 ~ mid 递增，如 3, 4, 5, [6], 7, 1, 2
             if (nums[mid] >= nums[low]) {
                 // target 在 low 和 mid 之间，如 3, 4, {5}, [6], 7, 1, 2，则 => 3, 4, 5
-                if (nums[mid] > target && nums[low] <= target) {
+                if (nums[low] <= target && target < nums[mid]) {
                     high = mid - 1;
                 } else {
                     low = mid + 1;
@@ -56,7 +56,7 @@ public class LeetCode33 {
             // 0 ~ mid 不递增，如 6, 7, 1, [2], 3, 4, 5
             else {
                 // target 在 mid 和 high 之间，如 6, 7, 1, [2], {3}, 4, 5，则 => 3, 4, 5
-                if (nums[mid] < target && nums[high] >= target) {
+                if (nums[mid] < target && target <= nums[high]) {
                     low = mid + 1;
                 } else {
                     high = mid - 1;

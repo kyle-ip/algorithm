@@ -16,7 +16,9 @@ package com.ywh.problem.leetcode.medium;
  *      输入: [7,6,4,3,1]
  *      输出: 0
  *      解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
- *
+ * 提示：
+ *      1 <= prices.length <= 10^5
+ *      0 <= prices[i] <= 10^4
  * @author ywh
  * @since 2/17/2019
  */
@@ -55,19 +57,18 @@ public class LeetCode121 {
         if (prices.length < 2) {
             return 0;
         }
-
         // 只买卖一次，在一次遍历中求出最低买入价，当求解过程中出现高于买入价的价格即为卖出价，更新最大收入。
-        int max = 0, buy = prices[0];
-        for (int price: prices) {
+        int ret = 0, buy = prices[0];
+        for (int i = 1; i < prices.length; i++) {
             // 当天价格低于买入价，重置买入价。
-            if (price < buy) {
-                buy = price;
+            if (prices[i] < buy) {
+                buy = prices[i];
             }
             // 当天价格高于买入价，更新最大收入。
             else {
-                max = Math.max(max, price - buy);
+                ret = Math.max(ret, prices[i] - buy);
             }
         }
-        return max;
+        return ret;
     }
 }

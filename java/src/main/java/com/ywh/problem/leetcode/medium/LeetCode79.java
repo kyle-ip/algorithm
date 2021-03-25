@@ -3,9 +3,8 @@ package com.ywh.problem.leetcode.medium;
 /**
  * 搜索单词
  * [数组] [回溯] [DFS]
- * 
- * 给定一个二维网格和一个单词，找出该单词是否存在于网格中。
  *
+ * 给定一个二维网格和一个单词，找出该单词是否存在于网格中。
  * 单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。
  * 示例:
  *      board =
@@ -22,37 +21,37 @@ package com.ywh.problem.leetcode.medium;
  *      1 <= board.length <= 200
  *      1 <= board[i].length <= 200
  *      1 <= word.length <= 10^3
- * 
+ *
  * @author ywh
  * @since 3/15/2019
  */
 public class LeetCode79 {
 
     /**
-     * 
      * @param board
      * @param visited
-     * @param i
-     * @param j
+     * @param x
+     * @param y
      * @param word
      * @param idx
      * @return
      */
-    private boolean exist(char[][] board, boolean[][] visited, int i, int j, String word, int idx) {
+    private boolean exist(char[][] board, boolean[][] visited, int x, int y, String word, int idx) {
         if (idx == word.length()) {
             return true;
         }
-        if (i < 0 || i >= board.length || j < 0 || j >= board[0].length ||
-            visited[i][j] || board[i][j] != word.charAt(idx)){
+        if (x < 0 || x >= board.length || y < 0 || y >= board[0].length ||
+            visited[x][y] || board[x][y] != word.charAt(idx)) {
             return false;
         }
 
-        visited[i][j] = true;
-        boolean existed = exist(board, visited, i-1, j, word, idx+1)
-            || exist(board, visited, i+1, j, word, idx+1)
-            || exist(board, visited, i, j-1, word, idx+1)
-            || exist(board, visited, i, j+1, word, idx+1);
-        visited[i][j] = false;
+        visited[x][y] = true;
+        boolean existed = exist(board, visited, x - 1, y, word, idx + 1)
+            || exist(board, visited, x + 1, y, word, idx + 1)
+            || exist(board, visited, x, y - 1, word, idx + 1)
+            || exist(board, visited, x, y + 1, word, idx + 1);
+        // 不同于统计岛屿数量，图上的每个点需要重复访问，因此每次回溯退递归都要把 visited 重置为 false。
+        visited[x][y] = false;
         return existed;
     }
 
@@ -64,10 +63,6 @@ public class LeetCode79 {
      * @return
      */
     public boolean exist(char[][] board, String word) {
-        if (board == null || board.length == 0 || board[0] == null || board[0].length == 0) {
-            return false;
-        }
-
         int m = board.length, n = board[0].length;
         boolean[][] visited = new boolean[m][n];
         for (int i = 0; i < m; ++i) {

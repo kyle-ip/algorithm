@@ -95,38 +95,28 @@ public class LeetCode23 {
         int mid = start + (end - start) / 2;
         ListNode left = merge(lists, start, mid), right = merge(lists, mid + 1, end);
         ListNode dummy = new ListNode(), p = dummy;
-        for (;; p = p.next) {
-            if (left != null && right != null) {
-                if (left.val < right.val) {
-                    p.next = left;
-                    left = left.next;
-                } else {
-                    p.next = right;
-                    right = right.next;
-                }
-            } else if (left != null) {
+        for (;left != null && right != null; p = p.next) {
+            if (left.val < right.val) {
                 p.next = left;
-                break;
+                left = left.next;
             } else {
                 p.next = right;
-                break;
+                right = right.next;
             }
         }
+        p.next = left == null? right: left;
         return dummy.next;
     }
 
     /**
      * 分治解法
      *
-     * Time: O(n*log(k)), Space: O(log(k))
+     * Time: O(k*n*log(k)), Space: O(log(k))
      *
      * @param lists
      * @return
      */
     public ListNode mergeKSortedListsDivideConquer(ListNode[] lists) {
-        if (lists == null || lists.length == 0) {
-            return null;
-        }
         return merge(lists, 0, lists.length - 1);
     }
 
@@ -136,15 +126,12 @@ public class LeetCode23 {
      * 每次取堆顶元素，截取头部加入结果链表；如果该元素不是链表结尾（.next = null），则把后续节点重新入堆；
      * 循环直到堆空即可。
      *
-     * Time: O(n*log(k)), Space: O(k)
+     * Time: O(k*n*log(k)), Space: O(k)
      *
      * @param lists
      * @return
      */
     public ListNode mergeKSortedListsMinHeap(ListNode[] lists) {
-        if (lists == null || lists.length == 0) {
-            return null;
-        }
 
         // 最小堆（优先级队列）：每次从中获取最小元素，在这里表示头节点值最小的链表。
         Queue<ListNode> q = new PriorityQueue<>(Comparator.comparingInt(a -> a.val));

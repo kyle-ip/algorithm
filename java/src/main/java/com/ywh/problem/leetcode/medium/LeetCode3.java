@@ -3,7 +3,7 @@ package com.ywh.problem.leetcode.medium;
 import java.util.Arrays;
 
 /**
- * 没有重复字符的最长子串长度
+ * 无重复字符的最长子串
  * [哈希表] [双指针] [字符串]
  *
  * 给定一个字符串，请你找出其中不含有重复字符的最长子串的长度。
@@ -40,17 +40,17 @@ public class LeetCode3 {
      */
     public int lengthOfLongestSubstring2N(String s) {
         boolean[] hash = new boolean[256];
-        int max = 0;
-        for (int l = 0, r = 0; r < s.length(); ) {
+        int ret = 0;
+        for (int l = 0, r = 0; r < s.length(); r++) {
             // 如果右指针指向的值存在于 hash 中，表示字符已经出现重复，此时需要重置最长子串的统计：
             // 不断把左指针到“重复元素首次出现的位置”之间的值全部剔除，移动左指针到新的起始位置。
             for (; hash[s.charAt(r)]; hash[s.charAt(l++)] = false);
 
             // 此时左指针与右指针之间的字符都没有重复，计算最大长度，并缓存右指针指向的值。
-            max = Math.max(max, r - l + 1);
-            hash[s.charAt(r++)] = true;
+            ret = Math.max(ret, r - l + 1);
+            hash[s.charAt(r)] = true;
         }
-        return max;
+        return ret;
     }
 
     /**
