@@ -33,35 +33,33 @@ public class LeetCode78 {
      *
      * @param nums
      * @param start
-     * @param elem
-     * @param ret
+     * @param subset
+     * @param subsets
      */
-    private void subsets(int[] nums, int start, LinkedList<Integer> elem, List<List<Integer>> ret) {
+    private List<List<Integer>>  subsets(int[] nums, int start, LinkedList<Integer> subset, List<List<Integer>> subsets) {
         // 此处添加子集（第一次调用 elem 为空，添加的是空集）。
-        ret.add(new LinkedList<>(elem));
+        subsets.add(new LinkedList<>(subset));
         for (int i = start; i < nums.length; i++) {
-            elem.add(nums[i]);
-            subsets(nums, i + 1, elem, ret);
+            subset.add(nums[i]);
+            subsets(nums, i + 1, subset, subsets);
 
             // 回溯，每次移除最后一个元素。
-            elem.removeLast();
+            subset.removeLast();
         }
+        return subsets;
     }
 
 
     /**
+     * 参考 {@link LeetCode78} 子集、{@link LeetCode46} 全排列、{@link LeetCode47} 全排列 II、{@link LeetCode77} 组合
+     *
      * Time: O(2^n), Space: O(n)
      *
      * @param nums
      * @return
      */
     public List<List<Integer>> subsetsRecursive(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return new ArrayList<>();
-        }
-        List<List<Integer>> ret = new ArrayList<>();
-        subsets(nums, 0, new LinkedList<>(), ret);
-        return ret;
+        return subsets(nums, 0, new LinkedList<>(), new ArrayList<>());
     }
 
     /**

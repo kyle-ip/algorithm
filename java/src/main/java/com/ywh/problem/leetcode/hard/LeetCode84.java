@@ -66,7 +66,7 @@ public class LeetCode84 {
         if (heights == null || heights.length == 0) {
             return 0;
         }
-        int max = 0, n = heights.length;
+        int ret = 0, n = heights.length;
 
         // 使用辅助栈缓存高度数组的下标。
         Stack<Integer> stack = new Stack<>();
@@ -92,14 +92,14 @@ public class LeetCode84 {
                 int l = stack.empty()?  -1: stack.peek();
 
                 // 由于 r 表示开始递减的位置的下标，所以底边应为 (l, r) 区间的长度，所以是 r-l-1。
-                max = Math.max(max, heights[idx] * (r - l - 1));
+                ret = Math.max(ret, heights[idx] * (r - l - 1));
             }
 
             // 栈为空或高度递增/持平，把下标入栈。
             stack.push(r);
         }
 
-        return max;
+        return ret;
     }
 
     /**

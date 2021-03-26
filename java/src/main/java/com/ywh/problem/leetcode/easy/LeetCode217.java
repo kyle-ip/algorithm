@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 数组中是否包含重复元素
+ * 存在重复元素
  * [数组] [哈希表] [排序]
  *
  * @author ywh

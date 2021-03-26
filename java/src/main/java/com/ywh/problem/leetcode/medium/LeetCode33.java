@@ -45,7 +45,7 @@ public class LeetCode33 {
                 return mid;
             }
             // 0 ~ mid 递增，如 3, 4, 5, [6], 7, 1, 2
-            if (nums[mid] >= nums[low]) {
+            if (nums[low] <= nums[mid]) {
                 // target 在 low 和 mid 之间，如 3, 4, {5}, [6], 7, 1, 2，则 => 3, 4, 5
                 if (nums[low] <= target && target < nums[mid]) {
                     high = mid - 1;

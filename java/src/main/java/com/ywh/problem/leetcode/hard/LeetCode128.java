@@ -64,13 +64,8 @@ public class LeetCode128 {
      * @return
      */
     public int lengthOfLongestConsecutiveSequenceSet(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
-        Set<Integer> set = new HashSet<>();
-        int max = 0;
-
         // 把所有元素添加到哈希表：8, 4, 2, 1, 2, 3, 6
+        Set<Integer> set = new HashSet<>();
         for (int num : nums) {
             set.add(num);
         }
@@ -78,17 +73,18 @@ public class LeetCode128 {
         // 如第一个被移除的元素是 8，但与之相邻的 7 和 9 不在集合中，所以长度为 (8+1)-(8-1)-1 == 1，更新到 max。
         // 如第二个被移除的元素是 4，与之一并被移除的元素还有相邻的 3、2、1，所以连续长度为 (4+1)-(4-1-1-1-1)-1 == 4。
         // 至此，哈希表中剩下 6
+        int ret = 0;
         for (int i = 0; i < nums.length && !set.isEmpty(); i++) {
             set.remove(nums[i]);
 
             // 一边向两边扩展，一边从 set 中移除元素。
-            int low = nums[i], high = nums[i];
-            for (; set.contains(--low); set.remove(low));
-            for (; set.contains(++high); set.remove(high));
+            int l = nums[i], r = nums[i];
+            for (; set.contains(--l); set.remove(l));
+            for (; set.contains(++r); set.remove(r));
 
-            // 跳出上面的循环时，high、low 表示为开区间，因此统计区间长度需要减去 1（如 5 与 2 之间有 3、4，所以 5-2-1 == 2）。
-            max = Math.max(max, high - low - 1);
+            // 跳出上面的循环时，l、r 表示为开区间，因此统计区间长度需要减去 1（如 5 与 2 之间有 3、4，所以 5-2-1 == 2）。
+            ret = Math.max(ret, r - l - 1);
         }
-        return max;
+        return ret;
     }
 }

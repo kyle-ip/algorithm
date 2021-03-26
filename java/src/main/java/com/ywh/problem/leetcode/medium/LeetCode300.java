@@ -82,9 +82,6 @@ public class LeetCode300 {
      * @return
      */
     public int lengthOfLISDP(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
         int n = nums.length, max = 1;
 
         // dp[i] 表示从 0 到 i 递增元素递增的个数。
@@ -113,10 +110,6 @@ public class LeetCode300 {
      * @return
      */
     public int lengthOfLISBinarySearch(int[] nums) {
-
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
         int n = nums.length, len = 0;
 
         // FIXME

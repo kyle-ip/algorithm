@@ -53,9 +53,6 @@ public class LeetCode22 {
      * @return
      */
     public List<String> generateParentheses(int n) {
-        if (n <= 0) {
-            return new ArrayList<>();
-        }
         return generate(new ArrayList<>(), "", n, n);
     }
 

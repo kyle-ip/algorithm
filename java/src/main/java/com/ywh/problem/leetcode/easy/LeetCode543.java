@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.easy;
 
 import com.ywh.ds.tree.TreeNode;
+import com.ywh.problem.leetcode.hard.LeetCode124;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,6 +44,8 @@ public class LeetCode543 {
     }
 
     /**
+     * 对比 {@link LeetCode124}
+     *
      * Time: O(n), Space: O(n)
      *
      * @param root

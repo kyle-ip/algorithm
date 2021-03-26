@@ -37,16 +37,11 @@ public class LeetCode445 {
         for (; l2 != null; l2 = l2.next) {
             stack2.push(l2.val);
         }
-        int carry = 0, sum;
         ListNode p = null;
-        while (!stack1.isEmpty() || !stack2.isEmpty() || carry > 0) {
-            sum = carry;
-            sum += stack1.isEmpty()? 0: stack1.pop();
-            sum += stack2.isEmpty()? 0: stack2.pop();
-            ListNode node = new ListNode(sum % 10);
-            node.next = p;
-            p = node;
-            carry = sum / 10;
+        for (int carry = 0; !stack1.isEmpty() || !stack2.isEmpty() || carry > 0; carry /= 10) {
+            carry += stack1.isEmpty()? 0: stack1.pop();
+            carry += stack2.isEmpty()? 0: stack2.pop();
+            p = new ListNode(carry % 10, p);
         }
         return p;
     }

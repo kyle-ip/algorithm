@@ -55,15 +55,11 @@ public class LeetCode9 {
      * @return
      */
     public boolean isPalindrome(int x) {
-        if (x < 0) {
-            return false;
+        // 负数都不是回文数，因此判断条件为 i>0 即可。
+        int y = 0;
+        for (int i = x; i > 0; i /= 10) {
+            y = y * 10 + i % 10;
         }
-        // 保存 x 的值，用于取每一位给 y。
-        int y = 0, tmp = x;
-        while (tmp != 0) {
-            y = y * 10 + tmp % 10;
-            tmp /= 10;
-        }
-        return x == y;
+        return y == x;
     }
 }

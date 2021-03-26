@@ -90,6 +90,7 @@ public class LeetCode20 {
                 default:
                     // 比如 { [ ] }，依次入栈的是 } ]。
                     // 当遇到 ] 时栈顶是 ]，因此匹配，否则返回 false。
+                    // 如果遇到右括号时栈为空，表示不存在与之匹配的左括号，因此返回 false。
                     if (stack.isEmpty() || s.charAt(i) != stack.pop()) {
                         return false;
                     }

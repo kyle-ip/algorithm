@@ -22,6 +22,7 @@ import java.util.*;
  * @author ywh
  * @since 12/01/2020
  */
+
 public class LeetCode347 {
 
     /**
@@ -32,14 +33,14 @@ public class LeetCode347 {
      * @return
      */
     public List<Integer> topKFrequentMinHeap(int[] nums, int k) {
-        Map<Integer, Integer> freqMap = new HashMap<>();
-        for (int num: nums) {
-            int freq = freqMap.getOrDefault(num, 0);
-            freqMap.put(num, freq + 1);
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int num : nums) {
+            int freq = counter.getOrDefault(num, 0);
+            counter.put(num, freq + 1);
         }
 
         Queue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((a, b) -> a.getValue() - b.getValue());
-        for (Map.Entry<Integer, Integer> e: freqMap.entrySet()) {
+        for (Map.Entry<Integer, Integer> e : counter.entrySet()) {
             pq.add(e);
             if (pq.size() > k) {
                 pq.poll();
@@ -47,15 +48,13 @@ public class LeetCode347 {
         }
 
         List<Integer> ret = new ArrayList<>();
-        for (Map.Entry<Integer, Integer> e: pq) {
+        for (Map.Entry<Integer, Integer> e : pq) {
             ret.add(e.getKey());
         }
         return ret;
     }
 
     /**
-     *
-     *
      * @param entries
      * @param low
      * @param high
@@ -89,19 +88,18 @@ public class LeetCode347 {
      * @return
      */
     public List<Integer> topKFrequentQuickSelect(int[] nums, int k) {
-        Map<Integer, Integer> freqMap = new HashMap<>();
-        for (int num: nums) {
-            int freq = freqMap.getOrDefault(num, 0);
-            freqMap.put(num, freq + 1);
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int num : nums) {
+            counter.put(num, counter.getOrDefault(num, 0) + 1);
         }
 
-        List<Map.Entry<Integer, Integer>> entries = new ArrayList<>(freqMap.entrySet());
+        List<Map.Entry<Integer, Integer>> entries = new ArrayList<>(counter.entrySet());
         int low = 0, high = entries.size() - 1;
         while (low <= high) {
             int p = partition(entries, low, high);
-            if (p == k-1) {
+            if (p == k - 1) {
                 break;
-            } else if (p > k-1) {
+            } else if (p > k - 1) {
                 high = p - 1;
             } else {
                 low = p + 1;
@@ -125,10 +123,9 @@ public class LeetCode347 {
     public int[] topKFrequentBucketSort(int[] nums, int k) {
 
         // 统计每个元素出现频率。
-        Map<Integer, Integer> freqMap = new HashMap<>();
-        for (int num: nums) {
-            int freq = freqMap.getOrDefault(num, 0);
-            freqMap.put(num, freq + 1);
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int num : nums) {
+            counter.put(num, counter.getOrDefault(num, 0) + 1);
         }
 
         // 创建一些桶，把数组的元素按出现的频率分配到对应下标的桶中：
@@ -140,22 +137,23 @@ public class LeetCode347 {
         //     [1, 2]
         // ]
         List<List<Integer>> buckets = new ArrayList<>(nums.length + 1);
-        for (int i = 0; i <= nums.length; ++i) {
+        for (int i = 0; i <= nums.length; i++) {
             buckets.add(new ArrayList<>());
         }
-        for (Map.Entry<Integer, Integer> e: freqMap.entrySet()) {
+        for (Map.Entry<Integer, Integer> e : counter.entrySet()) {
             buckets.get(e.getValue()).add(e.getKey());
         }
 
         // 从桶中取出元素，返回。
         int[] ret = new int[k];
-        for (int i = buckets.size() - 1; i >= 0 && k > 0; --i) {
+        for (int i = buckets.size() - 1; i >= 0 && k > 0; i--) {
             List<Integer> bucket = buckets.get(i);
-            for (int j = 0; j < bucket.size() && k > 0; j++) {
-                ret[k-- - 1] = bucket.get(j);
+            for (int j = 0; j < bucket.size() && k > 0; j++, k--) {
+                ret[k - 1] = bucket.get(j);
             }
         }
         return ret;
     }
 
 }
+
