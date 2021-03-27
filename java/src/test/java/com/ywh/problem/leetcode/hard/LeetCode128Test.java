@@ -54,7 +54,7 @@ class LeetCode128Test {
     void testLengthOfLongestConsecutiveSequenceSet(ArgumentsAccessor arguments) {
         int[] nums = StringUtil.strToIntArray(arguments.getString(0));
         int expected = arguments.getInteger(1);
-        assertEquals(expected, solution.lengthOfLongestConsecutiveSequenceSet(nums));
+        assertEquals(expected, solution.lengthOfLongestConsecutiveSequenceSet1(nums));
     }
 
 }

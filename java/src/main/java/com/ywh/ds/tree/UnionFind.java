@@ -23,6 +23,9 @@ public class UnionFind {
      * 初始化：
      * [0, n) 所有节点的父节点都是它自身，集合大小都为 1。
      *
+     *  +-→↓   +-→↓   +-→↓   +-→↓   +-→↓
+     *  +-[1]  +-[1]  +-[1]  +-[1]  +-[1]
+     *     0      1      2      3      4
      * @param n
      */
     public UnionFind(int n) {
@@ -49,17 +52,6 @@ public class UnionFind {
     }
 
     /**
-     * 判断两个点是否相连
-     *
-     * @param p
-     * @param q
-     * @return
-     */
-    public boolean isConnected(int p, int q) {
-        return find(p) == find(q);
-    }
-
-    /**
      * 合并：
      * 两个给定的节点迭代查询到根节点，如果它们有共同根节点则直接返回，
      * 否则把其中的一个的根节点接到另一个根节点上（节点数更多的作为根节点）。
@@ -76,7 +68,7 @@ public class UnionFind {
         if (pRoot == qRoot) {
             return;
         }
-        if (size[p] > size [q]) {
+        if (size[p] > size[q]) {
             parent[qRoot] = pRoot;
             size[pRoot] += size[qRoot];
         } else {
@@ -94,6 +86,17 @@ public class UnionFind {
      */
     public int size(int p) {
         return size[find(p)];
+    }
+
+    /**
+     * 判断两个点是否相连
+     *
+     * @param p
+     * @param q
+     * @return
+     */
+    public boolean isConnected(int p, int q) {
+        return find(p) == find(q);
     }
 
     /**

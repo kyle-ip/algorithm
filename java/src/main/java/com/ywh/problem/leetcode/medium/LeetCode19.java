@@ -42,7 +42,7 @@ public class LeetCode19 {
 
         // n 还没减完，fast 已到末尾，表示链表长度不够，返回第一个节点
         if (n > 0) {
-            return dummy.next;
+            return head;
         }
 
         // fast、slow 相隔 n 个节点，当 fast 定位最后一个节点，slow 定位到倒数第 n 个节点的前一个节点。

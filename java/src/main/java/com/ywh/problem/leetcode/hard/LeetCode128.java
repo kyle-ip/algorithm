@@ -63,7 +63,7 @@ public class LeetCode128 {
      * @param nums
      * @return
      */
-    public int lengthOfLongestConsecutiveSequenceSet(int[] nums) {
+    public int lengthOfLongestConsecutiveSequenceSet1(int[] nums) {
         // 把所有元素添加到哈希表：8, 4, 2, 1, 2, 3, 6
         Set<Integer> set = new HashSet<>();
         for (int num : nums) {
@@ -84,6 +84,31 @@ public class LeetCode128 {
 
             // 跳出上面的循环时，l、r 表示为开区间，因此统计区间长度需要减去 1（如 5 与 2 之间有 3、4，所以 5-2-1 == 2）。
             ret = Math.max(ret, r - l - 1);
+        }
+        return ret;
+    }
+
+    /**
+     * Time: O(n), Space: O(n)
+     *
+     * @param nums
+     * @return
+     */
+    public int lengthOfLongestConsecutiveSequenceSet2(int[] nums) {
+        // 把所有元素添加到哈希表：8, 4, 2, 1, 2, 3, 6
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            set.add(num);
+        }
+        int ret = 0;
+        for (int num : set) {
+            // 判断集合中的当前元素是否存在前驱数，比如 [1, 2, 3, 4]，1 没有前驱数，因此它就是连续序列的起始值。
+            if (!set.contains(num - 1)) {
+                int len = 1;
+                // 从起始值开始，判断紧随其后的每个数是否存在与哈希表中，存在的更新长度。
+                for (; set.contains(num + 1); num++, len++);
+                ret = Math.max(ret, len);
+            }
         }
         return ret;
     }

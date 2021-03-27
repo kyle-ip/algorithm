@@ -26,7 +26,7 @@ public class LeetCode206 {
      */
     public ListNode reverseListIterative(ListNode head) {
         // 三个指针，一个指向当前节点，一个指向上一个节点，一个指向下一个节点。
-        ListNode pre = null, cur = head, next;
+        ListNode pre = null, next;
 
         //       2
         //   +--------+
@@ -34,14 +34,14 @@ public class LeetCode206 {
         // [pre] -> [cur] -> [next]     =>      [  ] <- [pre] -> [cur] -> [next]
         //            3        4
         //          [pre]    [cur]
-        while (cur != null) {
+        while (head != null) {
             // 先保存当前节点的下一个节点。
-            next = cur.next;
+            next = head.next;
             // 把当前节点 next 域指向上一个节点。
-            cur.next = pre;
+            head.next = pre;
             // 把上一个节点替换为当前节点、把当前节点替换为最初保存的 next 节点。
-            pre = cur;
-            cur = next;
+            pre = head;
+            head = next;
         }
         // 最终：
         //         return

@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.hard;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 直方图中的最大矩形
@@ -69,7 +70,7 @@ public class LeetCode84 {
         int ret = 0, n = heights.length;
 
         // 使用辅助栈缓存高度数组的下标。
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new LinkedList<>();
 
         // 遍历到数组最后一个元素的后一位（目的是处理最后一个柱子）。
         for (int r = 0; r <= n; r++) {
@@ -85,11 +86,11 @@ public class LeetCode84 {
             // [ ] [ ] [ ] [ ]      =>      [ ]      =>      [ ][ ]
             // [0] [1] [2] [3]              [ ]              [ ][ ]
             //  l  idx      r         s == (r-l-1) * height[idx] == (3-1-0) * h[1] == 4
-            while (!stack.empty() && h < heights[stack.peek()]) {
+            while (!stack.isEmpty() && h < heights[stack.peek()]) {
 
                 // 则弹出栈顶的极大值点，下一个元素为左边界下标（如果弹出极大值后没有元素，则置为 -1）。
                 int idx = stack.pop();
-                int l = stack.empty()?  -1: stack.peek();
+                int l = stack.isEmpty()?  -1: stack.peek();
 
                 // 由于 r 表示开始递减的位置的下标，所以底边应为 (l, r) 区间的长度，所以是 r-l-1。
                 ret = Math.max(ret, heights[idx] * (r - l - 1));

@@ -48,11 +48,7 @@ public class LeetCode329 {
      * @return
      */
     public int longestIncreasingPath(int[][] matrix) {
-        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
-            return 0;
-        }
-        int m = matrix.length, n = matrix[0].length;
-        int ret = 0;
+        int m = matrix.length, n = matrix[0].length, ret = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 ret = Math.max(ret, dfs(matrix, i, j, new int[m][n]));
@@ -93,10 +89,6 @@ public class LeetCode329 {
      * @return
      */
     public int longestIncreasingPath2(int[][] matrix) {
-        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
-            return 0;
-        }
-
         // 把矩阵视为图，outDegrees[i][j] 表示 matrix[i][j] 的出度（即从 matrix[i][j] 射出、指向比 matrix[i][j] 值更大的点的边数）。
         int m = matrix.length, n = matrix[0].length;
         int[][] outDegrees = new int[m][n];

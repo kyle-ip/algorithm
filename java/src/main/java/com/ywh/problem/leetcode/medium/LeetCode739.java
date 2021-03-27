@@ -52,8 +52,9 @@ public class LeetCode739 {
         // 辅助栈存储数组下标，确保辅助栈中的下标所指的元素都是递减的
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < n; i++) {
-            // 辅助栈栈顶元素所指的原数组元素小于当前元素，表示距离 st.peek() 最近且比 T[st.peek()] 大的元素为 T[i]，距离 i - st.peek()
+            // 辅助栈栈顶下标所指的元素小于当前元素，表示距离 st.peek() 最近且比 T[st.peek()] 大的元素为 T[i]，距离 i - st.peek()
             // 可能不止一个，所以一直循环处理，比如：3, 2, 6，则 ret[0] == 2, ret[1] == 1，都是 6
+            // 每轮都要把栈中的元素全部摊出来，直到栈空或者栈不递减。
             while (!stack.isEmpty() && T[stack.peek()] < T[i]) {
                 int idx = stack.pop();
                 ret[idx] = i - idx;
@@ -67,7 +68,7 @@ public class LeetCode739 {
     /**
      * 跳跃解法：从后往前，利用已解出的等待天数跳跃求解
      *
-     * Time: O(n), Space: O(n)
+     * Time: O(n), Space: O(1)
      *
      * @param T
      * @return

@@ -133,9 +133,8 @@ public class LeetCode695 {
         if (grid == null || grid.length == 0 || grid[0] == null || grid[0].length == 0) {
             return 0;
         }
-        int row = grid.length, col = grid[0].length;
+        int row = grid.length, col = grid[0].length, ret = 0;
         boolean[][] visited = new boolean[row][col];
-        int ret = 0;
         int[][] dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
         for (int r = 0; r < row; r++) {
             for (int c = 0; c < col; c++) {
@@ -173,35 +172,36 @@ public class LeetCode695 {
         if (grid == null || grid.length == 0 || grid[0] == null || grid[0].length == 0) {
             return 0;
         }
-        boolean[][] visited = new boolean[grid.length][grid[0].length];
         int ret = 0;
         for (int r = 0; r < grid.length; r++) {
             for (int c = 0; c < grid[0].length; c++) {
-                if (grid[r][c] == 0 || visited[r][c]) {
+                if (grid[r][c] == 0) {
                     continue;
                 }
-                ret = Math.max(ret, dfs(r, c, grid, visited));
+                ret = Math.max(ret, dfs(r, c, grid));
             }
         }
         return ret;
     }
 
     /**
+     *
      * @param x
      * @param y
+     * @param grid
      * @return
      */
-    private int dfs(int x, int y, int[][] grid, boolean[][] visited) {
+    private int dfs(int x, int y, int[][] grid) {
         if (x < 0 || x >= grid.length || y < 0 || y >= grid[0].length || grid[x][y] == 0) {
             return 0;
         }
-        visited[x][y] = true;
+        // 避免重复计算，grid 置为 -1。
         grid[x][y] = 0;
         return 1 +
-            dfs(x - 1, y, grid, visited) +
-            dfs(x, y + 1, grid, visited) +
-            dfs(x + 1, y, grid, visited) +
-            dfs(x, y - 1, grid, visited);
+            dfs(x - 1, y, grid) +
+            dfs(x, y + 1, grid) +
+            dfs(x + 1, y, grid) +
+            dfs(x, y - 1, grid);
     }
 
     /**

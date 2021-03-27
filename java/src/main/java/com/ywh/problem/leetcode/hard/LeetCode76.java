@@ -30,9 +30,6 @@ public class LeetCode76 {
      * @return
      */
     public String minSubstringContainT(String s, String t) {
-        if (s == null || t == null) {
-            return "";
-        }
         int[] required = new int[256];
         int start = 0, len = Integer.MAX_VALUE, requiredCnt = t.length();
         int left = 0, right = 0;

@@ -44,9 +44,9 @@ public class LeetCode6 {
         }
 
         // 创建每行的列表，个数为行数和 s 长度中的较小者。
-        List<List<Character>> rows = new ArrayList<>();
+        List<List<Character>> buckets = new ArrayList<>();
         for (int i = 0; i < Math.min(s.length(), numRows); i++) {
-            rows.add(new ArrayList<>());
+            buckets.add(new ArrayList<>());
         }
 
         // 遍历 s 每个字符，对于第 0 行或最后一行，切换方向：
@@ -65,15 +65,15 @@ public class LeetCode6 {
         // 最后压缩为一行："LDR EOEII ECIHN TSG"
         int curRow = 0, dir = -1;
         for (char c : s.toCharArray()) {
-            rows.get(curRow).add(c);
+            buckets.get(curRow).add(c);
             if (curRow == 0 || curRow == numRows - 1) {
                 dir = -dir;
             }
             curRow += dir;
         }
         StringBuilder ret = new StringBuilder();
-        for (List<Character> row : rows) {
-            for (Character c : row) {
+        for (List<Character> bucket : buckets) {
+            for (Character c : bucket) {
                 ret.append(c);
             }
         }

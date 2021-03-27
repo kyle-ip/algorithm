@@ -40,6 +40,8 @@ public class LeetCode543 {
         }
         int left = maxDepth(root.left, ret), right = maxDepth(root.right, ret);
         ret[0] = Math.max(ret[0], left + right);
+
+        // 取其中一条路径的值（再加上当前节点的 1），返回上一层。
         return Math.max(left, right) + 1;
     }
 

@@ -38,7 +38,6 @@ public class LeetCode198 {
         if (nums.length == 1) {
             return nums[0];
         }
-
         int[] dp = new int[nums.length];
         for (int i = 2; i < nums.length; i++) {
             dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
@@ -53,9 +52,6 @@ public class LeetCode198 {
      * @return
      */
     public int robO1(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
         // x1 表示上一次抢劫后的总获利，x0 表示上上一次抢劫后的总获利，sum 表示截至当前元素的总获利。
         int x0 = 0, x1 = 0;
         for (int num: nums) {
@@ -65,9 +61,9 @@ public class LeetCode198 {
             // 1    5    3
             // |         |
             // +---------+--------->    4
-            int sum = Math.max(x1, x0 + num);
+            int cur = Math.max(x1, x0 + num);
             x0 = x1;
-            x1 = sum;
+            x1 = cur;
         }
         return x1;
     }

@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (319)
+## LeetCode (320)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -312,7 +312,7 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 721  | [Accounts Merge](https://leetcode.com/problems/accounts-merge) | 账户合并 | Time: O(n\*log(n))<br />Space: O(n\*log(n)) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode721.java) | Medium | DFS<br />Union Find |
 | 724  | [Find Pivot Index](https://leetcode.com/problems/find-pivot-index/submissions/) | 寻找数组的平衡点 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode724.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_724.py) | Easy | Array |
 | 738  | [Monotone Increasing Digits](https://leetcode.com/problems/monotone-increasing-digits) | 单调递增的数字 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode738.java) | Medium | Greedy |
-| 739  | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures) | 每日温度 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode739.java) | Medium | Array<br />Stack |
+| 739  | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures) | 每日温度 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode739.java) | Medium | Array<br />Stack |
 | 746  | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs) | 爬楼梯的最小代价                   | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode746.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_746.py) | Easy       | Array<br />Dynamic Programming                            |
 | 752  | [Open the Lock](https://leetcode.com/problems/open-the-lock) | 打开转盘锁 | Time: O(N^2\*A^N+D)<br />Space: O(A^N+D) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode752.java) | Medium | BFS |
 | 754  | [Reach a Number](https://leetcode.com/problems/reach-a-number) | 到达终点数字                       | Time: O(1)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode754.java) | Medium     | Math                                                   |

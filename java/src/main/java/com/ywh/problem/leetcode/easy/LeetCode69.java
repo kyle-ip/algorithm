@@ -23,20 +23,22 @@ public class LeetCode69 {
 
     /**
      * 二分搜索法
+     * 注意上界是 x！！！！
+     *
+     *
      * Time: O(log(n)), Space: O(1)
      *
-     * @param n
+     * @param x
      * @return
      */
-    public int sqrtBinarySearch(int n) {
-        long low = 0, high = n - 1, mid, pow;
+    public int sqrtBinarySearch(int x) {
+        long low = 0, high = x;
         while (low <= high) {
-            mid = low + (high - low) / 2;
-            pow = mid * mid;
-            if (pow == n) {
+            long mid = low + (high - low) / 2, pow = mid * mid;
+            if (pow == x) {
                 return (int) mid;
             }
-            if (pow < n) {
+            if (pow < x) {
                 low = mid + 1;
             } else {
                 high = mid - 1;
@@ -49,14 +51,14 @@ public class LeetCode69 {
      * 牛顿法
      * Time: O(log(n)), Space: O(1)
      *
-     * @param n
+     * @param x
      * @return
      */
-    public int sqrtNewton(int n) {
-        long x = n;
-        while (x * x > n) {
-            x = (x + n / x) / 2;
+    public int sqrtNewton(int x) {
+        long i = x;
+        while (i * i > x) {
+            i = (i + x / i) / 2;
         }
-        return (int) x;
+        return (int) i;
     }
 }
