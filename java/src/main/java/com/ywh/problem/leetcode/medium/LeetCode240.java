@@ -28,6 +28,9 @@ package com.ywh.problem.leetcode.medium;
 public class LeetCode240 {
 
     /**
+     * 对比 {@link LeetCode74} 取出每行后可以重新编排成一行、然后用二分搜索。
+     * 本题是每行都作为一个独立的递增数组。
+     *
      * Time: O(m+n), Space: O(1)
      *
      * @param matrix
@@ -35,9 +38,6 @@ public class LeetCode240 {
      * @return
      */
     public boolean searchIn2DArray(int[][] matrix, int target) {
-        if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
-            return false;
-        }
         // 从右上角开始遍历。
         for (int i = 0, j = matrix[0].length - 1; i < matrix.length && j >= 0; ) {
             if (matrix[i][j] == target) {

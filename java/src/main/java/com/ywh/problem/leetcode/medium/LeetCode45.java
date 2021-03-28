@@ -1,7 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
 /**
- * 跳完数组的最少跳数
+ * 跳跃游戏 II
  * [数组] [贪心]
  * 
  * 给定一个非负整数数组，你最初位于数组的第一个位置。

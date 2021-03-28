@@ -34,8 +34,6 @@ public class LeetCode64 {
      * @return
      */
     public int minSumOfPath(int[][] grid) {
-        // 省略入参判断
-
         int m = grid.length, n = grid[0].length;
         int[][] dp = new int[m][n];
         dp[0][0] = grid[0][0];

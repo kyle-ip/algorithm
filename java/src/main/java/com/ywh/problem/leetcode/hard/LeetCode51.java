@@ -37,9 +37,9 @@ public class LeetCode51 {
      * @param row
      * @param ret
      * @param board
-     * @param visited
+     * @param visited   访问记录，第一维表示列、主对角线、副对角线三个方向。
      */
-    private void solve(int row, List<List<String>> ret, char[][] board, boolean[][] visited) {
+    private List<List<String>> solve(int row, List<List<String>> ret, char[][] board, boolean[][] visited) {
         int n = board.length;
         if (row == n) {
             List<String> list = new ArrayList<>();
@@ -47,7 +47,7 @@ public class LeetCode51 {
                 list.add(new String(r));
             }
             ret.add(list);
-            return;
+            return ret;
         }
         for (int col = 0; col < n; col++) {
             // 检查当前行、列是否与前面放置的皇后有冲突：
@@ -65,6 +65,7 @@ public class LeetCode51 {
                 board[row][col] = '.';
             }
         }
+        return ret;
     }
 
     /**
@@ -77,17 +78,11 @@ public class LeetCode51 {
      * @return
      */
     public List<List<String>> solveNQueens(int n) {
-        List<List<String>> ret = new ArrayList<>();
-
-        // 第一维表示列、主对角线、副对角线三个方向。
-        boolean[][] visited = new boolean[3][2 * n];
-
         // 构建棋盘。
         char[][] board = new char[n][n];
         for (int i = 0; i < n; ++i) {
             Arrays.fill(board[i], '.');
         }
-        solve(0, ret, board, visited);
-        return ret;
+        return solve(0, new ArrayList<>(), board, new boolean[3][2 * n]);
     }
 }

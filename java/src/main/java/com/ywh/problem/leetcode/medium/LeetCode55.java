@@ -15,6 +15,9 @@ package com.ywh.problem.leetcode.medium;
  *      输入: [3,2,1,0,4]
  *      输出: false
  *      解释: 无论怎样，你总会到达索引为 3 的位置。但该位置的最大跳跃长度是 0 ， 所以你永远不可能到达最后一个位置。
+ * 提示：
+ *      1 <= nums.length <= 3 * 10^4
+ *      0 <= nums[i] <= 10^5
  *
  * @author ywh
  * @since 2019/11/29/029
@@ -30,26 +33,27 @@ public class LeetCode55 {
      * @return
      */
     public boolean canJumpToLast(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return false;
-        }
 
-        // max 记录从当前位置下最远可达位置，可能为当前下标 + 步数（2, [4], 0, 1），或前面累计的最大值（4, [2], 0, 0, 0, 1）
-        int n = nums.length, max = 0;
-        for (int i = 0; i < n; i++) {
-            // 如最远可达位置大于等于数组长度（末尾），直接返回 true
-            if (max >= n - 1) {
+        // max 记录从当前位置下最远可达位置，可能为当前下标 + 步数（2, [4], 0, 1），或前面累计的最大值（4, [2], 0, 0, 0, 1）。
+        for (int i = 0, max = 0; i < nums.length; i++) {
+            max = Math.max(max, i + nums[i]);
+
+            // 如最远可达位置大于等于数组长度（末尾），直接返回 true。
+            if (max >= nums.length - 1) {
                 return true;
             }
 
-            // 如最远可达位置小于当前下标，表示中间存在一或多个 0、且前面的步数不足以跳过这些 0（比如 2, 0, 0, [0], 2），提早返回 false
-            if (max < i) {
+            // 如最远可达位置小等于当前下标，表示最远只能到达这里、不能继续往后跳了。
+            // （中间存在一或多个 0、且前面的步数不足以跳过这些 0），提早返回 false。
+            // 比如 2, 0, 0, [0], 2
+            // 比如 3, 2, 1, [0], 4
+            if (max <= i) {
                 return false;
             }
-            max = Math.max(max, i + nums[i]);
+
         }
 
-        // 循环结束都无法到达最后，返回错误
+        // 循环结束都无法到达最后，返回错误。
         return false;
     }
 

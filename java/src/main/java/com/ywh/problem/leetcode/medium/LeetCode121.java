@@ -1,5 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
+import com.ywh.problem.leetcode.easy.LeetCode122;
+
 /**
  * 买卖股票的最佳时机
  * [数组] [动态规划]
@@ -48,6 +50,8 @@ public class LeetCode121 {
 
 
     /**
+     * 参考 {@link LeetCode714}、{@link LeetCode122}、{@link LeetCode123}、{@link LeetCode188}
+     *
      * Time: O(n), Space: O(1)
      *
      * @param prices

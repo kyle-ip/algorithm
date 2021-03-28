@@ -1,5 +1,9 @@
 package com.ywh.problem.leetcode.hard;
 
+import com.ywh.problem.leetcode.easy.LeetCode122;
+import com.ywh.problem.leetcode.medium.LeetCode121;
+import com.ywh.problem.leetcode.medium.LeetCode714;
+
 import java.util.Arrays;
 
 /**
@@ -29,6 +33,8 @@ import java.util.Arrays;
 public class LeetCode188 {
 
     /**
+     *  {@link LeetCode121}、{@link LeetCode122}、{@link LeetCode123}、{@link LeetCode714}
+     *
      * Time: O(n^2), Space: O(n)
      *
      * @param k

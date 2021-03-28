@@ -1,5 +1,10 @@
 package com.ywh.problem.leetcode.easy;
 
+import com.ywh.problem.leetcode.hard.LeetCode123;
+import com.ywh.problem.leetcode.hard.LeetCode188;
+import com.ywh.problem.leetcode.medium.LeetCode121;
+import com.ywh.problem.leetcode.medium.LeetCode714;
+
 /**
  * 买卖股票的最佳时机 II
  * [数组] [贪心]
@@ -38,9 +43,6 @@ public class LeetCode122 {
      * @return
      */
     public int maxProfitLocalMaxMin(int[] prices) {
-        if (prices == null || prices.length == 0) {
-            return 0;
-        }
         int profit = 0, buyPrice, sellPrice, i = 0, n = prices.length;
         while (i < n - 1) {
             // 跳过下坡，到波谷后买入
@@ -63,6 +65,8 @@ public class LeetCode122 {
     }
 
     /**
+     * 参考 {@link LeetCode121}、{@link LeetCode123}、{@link LeetCode188}、{@link LeetCode714}
+     *
      * 波峰值 - 波谷值 = 中间两两插值之和
      * 因此只要把所有第二天比第一天价格高的情况计入收益即可（不限买卖次数）
      *
@@ -75,9 +79,6 @@ public class LeetCode122 {
      * @return
      */
     public int maxProfitGreedy(int[] prices) {
-        if (prices == null || prices.length == 0) {
-            return 0;
-        }
         int profit = 0;
         for (int i = 1; i < prices.length; i++) {
             if (prices[i] > prices[i - 1]) {

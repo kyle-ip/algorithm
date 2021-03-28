@@ -4,10 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 求和等于 K 的子数组数量
+ * 和为 K 的子数组
  * [哈希表] [数组]
- *
- * 参考 {@link LeetCode437}
+ * 
+ * 给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的连续的子数组的个数。
+ * 示例 1 :
+ *      输入:nums = [1,1,1], k = 2
+ *      输出: 2 , [1,1] 与 [1,1] 为两种不同的情况。
+ * 说明 :
+ *      数组的长度为 [1, 20,000]。
+ *      数组中元素的范围是 [-1000, 1000] ，且整数 k 的范围是 [-1e7, 1e7]。
  *
  * @author ywh
  * @since 23/04/2020
@@ -55,9 +61,6 @@ public class LeetCode560 {
      * @return
      */
     public int subarraySumPrefixSum(int[] nums, int k) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
 
         // key 为前缀和，value 为前缀和出现的次数。
         Map<Integer, Integer> map = new HashMap<>(nums.length);

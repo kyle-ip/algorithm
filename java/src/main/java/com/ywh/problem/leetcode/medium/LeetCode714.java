@@ -1,5 +1,9 @@
 package com.ywh.problem.leetcode.medium;
 
+import com.ywh.problem.leetcode.easy.LeetCode122;
+import com.ywh.problem.leetcode.hard.LeetCode123;
+import com.ywh.problem.leetcode.hard.LeetCode188;
+
 /**
  * 买卖股票的最佳时机含手续费
  * [贪心] [数组] [动态规划]
@@ -28,6 +32,8 @@ package com.ywh.problem.leetcode.medium;
 public class LeetCode714 {
 
     /**
+     * 参考 {@link LeetCode121}、{@link LeetCode122}、{@link LeetCode123}、{@link LeetCode188}
+     *
      * Time: O(n), Space: O(1)
      * 
      * @param prices

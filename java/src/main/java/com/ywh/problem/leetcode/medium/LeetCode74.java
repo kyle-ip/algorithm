@@ -25,6 +25,8 @@ package com.ywh.problem.leetcode.medium;
 public class LeetCode74 {
 
     /**
+     * 对比 {@link LeetCode240}
+     *
      * 二维的二分搜索法：把矩阵看作一行划分区间，
      * 通过对“列数”取商和取模求得中点所在的行数和列数，
      * 并根据坐标与目标值比较大小
