@@ -37,7 +37,7 @@ class LeetCode91Test {
     void testNumberOfDecodingsRecursive(ArgumentsAccessor arguments) {
         String str = arguments.getString(0);
         int expected = arguments.getInteger(1);
-        assertEquals(expected, solution.numberOfDecodingsRecursive(str));
+        assertEquals(expected, solution.numDecodingsRecursive(str));
     }
 
     @ParameterizedTest
@@ -53,7 +53,7 @@ class LeetCode91Test {
     void testNumberOfDecodingsDP(ArgumentsAccessor arguments) {
         String str = arguments.getString(0);
         int expected = arguments.getInteger(1);
-        assertEquals(expected, solution.numberOfDecodingsDP(str));
+        assertEquals(expected, solution.numDecodingsRecursiveDP(str));
     }
 
     @ParameterizedTest

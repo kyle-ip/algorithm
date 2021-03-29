@@ -3,7 +3,7 @@ package com.ywh.problem.leetcode.hard;
 import java.util.TreeMap;
 
 /**
- * 滑动窗口中的最大值
+ * 滑动窗口最大值
  * [堆]
  * 
  * 给你一个整数数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。
@@ -52,17 +52,14 @@ public class LeetCode239 {
      * @return
      */
     public int[] maxNumInSlidingWindowBruteForce(int[] nums, int k) {
-        if (nums == null || nums.length == 0) {
-            return nums;
-        }
         int n = nums.length;
         int[] ret = new int [n - k + 1];
-        for (int left = 0; left < n - k + 1; left++) {
-            int max = nums[left];
-            for (int i = left; i < left + k; i++) {
-                max = Math.max(max, nums[i]);
+        for (int l = 0; l < n - k + 1; l++) {
+            int max = nums[l];
+            for (int r = l; r < l + k; r++) {
+                max = Math.max(max, nums[r]);
             }
-            ret[left] = max;
+            ret[l] = max;
         }
         return ret;
     }
@@ -78,9 +75,6 @@ public class LeetCode239 {
      * @return
      */
     public int[] maxNumInSlidingWindowTreeMap(int[] nums, int k) {
-        if (nums == null || nums.length == 0) {
-            return nums;
-        }
         int n = nums.length, p = 0;
         // key 为数组中的值，value 为下标，把前 k 个数字加到 map
         TreeMap<Integer, Integer> map = new TreeMap<>();

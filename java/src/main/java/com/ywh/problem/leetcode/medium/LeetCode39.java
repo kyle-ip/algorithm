@@ -47,24 +47,22 @@ public class LeetCode39 {
      * @param elem
      * @param ret
      */
-    public void combSumSort(int[] nums, int target, int start, List<Integer> elem, List<List<Integer>> ret) {
+    public List<List<Integer>> combSumSort(int[] nums, int target, int start, List<Integer> elem, List<List<Integer>> ret) {
         if (target == 0) {
             ret.add(new ArrayList<>(elem));
-            return;
-        }
-        if (target < 0) {
-            return;
-        }
-        for (int i = start; i < nums.length; i++) {
+        } else if (target > 0) {
+            for (int i = start; i < nums.length; i++) {
 
-            // 由于已排序，当前元素大于剩余目标值，剩余元素必然大于目标值，不需要继续拼凑。
-            if (nums[i] > target) {
-                break;
+                // 由于已排序，当前元素大于剩余目标值，剩余元素必然大于目标值，不需要继续拼凑。
+                if (nums[i] > target) {
+                    break;
+                }
+                elem.add(nums[i]);
+                combSumSort(nums, target - nums[i], i, elem, ret);
+                elem.remove(elem.size() - 1);
             }
-            elem.add(nums[i]);
-            combSumSort(nums, target - nums[i], i, elem, ret);
-            elem.remove(elem.size() - 1);
         }
+        return ret;
     }
 
     /**
@@ -75,10 +73,7 @@ public class LeetCode39 {
      * @return
      */
     public List<List<Integer>> combinationSumSort(int[] candidates, int target) {
-        List<List<Integer>> result = new ArrayList<>();
-        List<Integer> elem = new ArrayList<>();
         Arrays.sort(candidates);
-        combSumSort(candidates, target, 0, elem, result);
-        return result;
+        return combSumSort(candidates, target, 0, new ArrayList<>(), new ArrayList<>());
     }
 }

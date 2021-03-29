@@ -156,9 +156,7 @@ public class LeetCode43 {
         // 去掉前面多余的 0。
         StringBuilder sb = new StringBuilder();
         int i = 0;
-        while (i < mul.length - 1 && mul[i] == 0) {
-            i++;
-        }
+        for (; i < mul.length - 1 && mul[i] == 0; i++);
         while (i < mul.length) {
             sb.append(mul[i++]);
         }

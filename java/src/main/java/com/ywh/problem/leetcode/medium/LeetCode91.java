@@ -84,7 +84,7 @@ public class LeetCode91 {
      * @param s
      * @return
      */
-    public int numberOfDecodingsRecursive(String s) {
+    public int numDecodingsRecursive(String s) {
         return decode(s.toCharArray(), 0);
     }
 
@@ -96,7 +96,7 @@ public class LeetCode91 {
      * @param s
      * @return
      */
-    public int numberOfDecodingsDP(String s) {
+    public int numDecodingsRecursiveDP(String s) {
 
         // d[i] 表示长度为 i 的子串的解码方式数量。
         int[] d = new int[s.length() + 1];

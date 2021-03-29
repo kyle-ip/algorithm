@@ -195,7 +195,7 @@ public class LeetCode695 {
         if (x < 0 || x >= grid.length || y < 0 || y >= grid[0].length || grid[x][y] == 0) {
             return 0;
         }
-        // 避免重复计算，grid 置为 -1。
+        // 避免重复计算，grid 置为 0。
         grid[x][y] = 0;
         return 1 +
             dfs(x - 1, y, grid) +

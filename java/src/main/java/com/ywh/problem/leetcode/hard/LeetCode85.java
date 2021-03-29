@@ -42,15 +42,12 @@ public class LeetCode85 {
      * @return
      */
     private int largestRectangleInHistogram2(int[] heights) {
-        if (heights == null || heights.length == 0) {
-            return 0;
-        }
         int max = 0, n = heights.length;
         for (int i = 0; i < n; i++) {
-            int left = i, right = i;
-            for (; left >= 0 && heights[left] >= heights[i]; left--);
-            for (; right < n && heights[right] >= heights[i]; right++);
-            max = Math.max(max, heights[i] * (right - left - 1));
+            int l = i, r = i;
+            for (; l >= 0 && heights[l] >= heights[i]; l--);
+            for (; r < n && heights[r] >= heights[i]; r++);
+            max = Math.max(max, heights[i] * (r - l - 1));
         }
         return max;
     }

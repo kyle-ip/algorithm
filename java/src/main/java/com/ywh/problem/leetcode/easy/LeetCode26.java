@@ -27,7 +27,10 @@ package com.ywh.problem.leetcode.easy;
  *      for (int i = 0; i < len; i++) {
  *           print(nums[i]);
  *      }
- *
+ * 提示：
+ *      0 <= nums.length <= 3 * 10^4
+ *      -10^4 <= nums[i] <= 10^4
+ *      nums 已按升序排列
  * @author ywh
  * @since 06/11/2019
  */
@@ -49,12 +52,10 @@ public class LeetCode26 {
         }
         int l = 1, r = 1;
         for (; r < nums.length; r++) {
-            // 跳过相同元素。
-            if (nums[r] == nums[r - 1]) {
-                continue;
+            if (nums[r] != nums[r - 1]) {
+                // 此时 nums[r] 为最近出现的不同元素，拷贝到 l 的位置上，并移动 l。
+                nums[l++] = nums[r];
             }
-            // 此时 nums[right] 为最近出现的不同元素，拷贝到 left 的位置上，并移动 left。
-            nums[l++] = nums[r];
         }
         return l;
     }

@@ -81,9 +81,10 @@ public class LeetCode739 {
             int j = i + 1;
 
             // 如果在 j 这天气温下降（且累计天数数组值不为 0），表示应跳过 j + ret[j] 天。
-            while (j < T.length && T[j] <= T[i] && ret[j] != 0) {
-                j += ret[j];
-            }
+            // 1. 不能越界；
+            // 2. 必须递增；
+            // 3. 必须更新 j 的值（ret[j] != 0）；
+            for (; j < T.length && T[j] <= T[i] && ret[j] != 0; j += ret[j]);
 
             // 如果跳完后 j 的气温高于 i，则更新 ret[i]。
             if (T[i] < T[j]) {

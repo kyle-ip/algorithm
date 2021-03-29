@@ -37,7 +37,7 @@ import java.util.List;
 public class LeetCode236 {
 
     /**
-     * 在 root 上找到 node，并把路径记录在 path
+     * 在 root 上找到 node，并把路径记录在 path。
      *
      * @param root
      * @param node
@@ -84,12 +84,12 @@ public class LeetCode236 {
         search(root, q, qPath);
         int i = 0, len = Math.min(pPath.size(), qPath.size());
 
-        // 跳过相同节点
+        // 跳过相同节点。
         while (i < len && pPath.get(i) == qPath.get(i)) {
             ++i;
         }
 
-        // 已经遍历完较短路径，或两条路径从 i 开始已分叉，返回上一个节点即可
+        // 已经遍历完较短路径，或两条路径从 i 开始已分叉，返回上一个节点即可。
         return pPath.get(i - 1);
 
     }
@@ -112,7 +112,7 @@ public class LeetCode236 {
         TreeNode left = lcaExtend(root.left, p, q), right = lcaExtend(root.right, p, q);
 
         // 如果 left 和 right 非空，说明在左右子树上各找到一个节点。
-        // 即都不可能为对方的祖先，于是当前的根节点就是最近公共祖先。
+        // 即左右子树中都不可能找到对方的祖先，于是当前的根节点就是最近公共祖先。
         if (left != null && right != null) {
             return root;
         }
