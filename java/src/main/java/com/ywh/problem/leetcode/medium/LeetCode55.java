@@ -35,11 +35,11 @@ public class LeetCode55 {
     public boolean canJumpToLast(int[] nums) {
 
         // max 记录从当前位置下最远可达位置，可能为当前下标 + 步数（2, [4], 0, 1），或前面累计的最大值（4, [2], 0, 0, 0, 1）。
-        for (int i = 0, max = 0; i < nums.length; i++) {
-            max = Math.max(max, i + nums[i]);
+        for (int i = 0, end = 0; i < nums.length; i++) {
+            end = Math.max(end, i + nums[i]);
 
             // 如最远可达位置大于等于数组长度（末尾），直接返回 true。
-            if (max >= nums.length - 1) {
+            if (end >= nums.length - 1) {
                 return true;
             }
 
@@ -47,7 +47,7 @@ public class LeetCode55 {
             // （中间存在一或多个 0、且前面的步数不足以跳过这些 0），提早返回 false。
             // 比如 2, 0, 0, [0], 2
             // 比如 3, 2, 1, [0], 4
-            if (max <= i) {
+            if (end <= i) {
                 return false;
             }
 

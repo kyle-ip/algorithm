@@ -2,6 +2,7 @@ package com.ywh.problem.leetcode.medium;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -47,7 +48,7 @@ public class LeetCode39 {
      * @param elem
      * @param ret
      */
-    public List<List<Integer>> combSumSort(int[] nums, int target, int start, List<Integer> elem, List<List<Integer>> ret) {
+    public List<List<Integer>> combSumSort(int[] nums, int target, int start, LinkedList<Integer> elem, List<List<Integer>> ret) {
         if (target == 0) {
             ret.add(new ArrayList<>(elem));
         } else if (target > 0) {
@@ -59,7 +60,7 @@ public class LeetCode39 {
                 }
                 elem.add(nums[i]);
                 combSumSort(nums, target - nums[i], i, elem, ret);
-                elem.remove(elem.size() - 1);
+                elem.removeLast();
             }
         }
         return ret;
@@ -74,6 +75,6 @@ public class LeetCode39 {
      */
     public List<List<Integer>> combinationSumSort(int[] candidates, int target) {
         Arrays.sort(candidates);
-        return combSumSort(candidates, target, 0, new ArrayList<>(), new ArrayList<>());
+        return combSumSort(candidates, target, 0, new LinkedList<>(), new ArrayList<>());
     }
 }

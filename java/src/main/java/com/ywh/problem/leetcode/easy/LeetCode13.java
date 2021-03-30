@@ -70,16 +70,16 @@ public class LeetCode13 {
         // 如果数字从递增，则表示相减，否则相加
         // M, M, C, M, X, C, I, X
         int n = s.length();
-        int result = MAPPING[s.charAt(n - 1)];
+        int ret = MAPPING[s.charAt(n - 1)];
         for (int i = n - 2; i >= 0; i--) {
             int cur = MAPPING[s.charAt(i)];
             int right = MAPPING[s.charAt(i + 1)];
             if (cur >= right) {
-                result += cur;
+                ret += cur;
             } else {
-                result -= cur;
+                ret -= cur;
             }
         }
-        return result;
+        return ret;
     }
 }

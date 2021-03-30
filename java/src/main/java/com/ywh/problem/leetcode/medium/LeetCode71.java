@@ -53,9 +53,7 @@ public class LeetCode71 {
 
         // 以 / 把路径字符串划分为多个子串。
         for (String item : path.split("/")) {
-
-
-
+            
             // .. 表示上一级路径，（如果栈非空则）从栈中弹出元素。
             if ("..".equals(item)) {
                 if (!list.isEmpty()) {

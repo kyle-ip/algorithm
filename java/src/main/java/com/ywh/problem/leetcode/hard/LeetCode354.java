@@ -84,7 +84,7 @@ public class LeetCode354 {
             if (num > f.get(f.size() - 1)) {
                 f.add(num);
             }
-            // 如果不递增，则在 [0, f.length()) 之间找到二分查找插入的位置，设值。
+            // 如果不递增，则在 [0, f.length()) 之间找到二分搜索插入的位置，设值。
             else {
                 f.set(binarySearch(f, num), num);
             }

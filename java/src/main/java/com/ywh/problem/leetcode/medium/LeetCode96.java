@@ -40,19 +40,19 @@ public class LeetCode96 {
             // 比如 i == 3，d[3] += d[0] * d[2] + d[1] * d[1] + d[2] * d[0]，就表示 0+1+2、1+1+1、2+1+0 三种情况（左根右）。
             // 有 n 个数字，则分别以这些数字为根，求和得到二叉搜索数量之和。
 
-//            for (int j = 1; j <= i; ++j) {
-//                 d[i] += d[j - 1] * d[i - j];
-//            }
+            for (int j = 1; j <= i; j++) {
+                 dp[i] += dp[j - 1] * dp[i - j];
+            }
 
             // 因为左右是对称的，只需要算一半，偶数直接乘 2，奇数再额外多算一个。
-            int total = 0, mid = i / 2;
-            for (int j = 1; j <= mid; j++) {
-                total += dp[j - 1] * dp[i - j] * 2;
-            }
-            if (i % 2 == 1) {
-                total += dp[mid] * dp[i - mid - 1];
-            }
-            dp[i] = total;
+//            int total = 0, mid = i / 2;
+//            for (int j = 1; j <= mid; j++) {
+//                total += dp[j - 1] * dp[i - j] * 2;
+//            }
+//            if (i % 2 == 1) {
+//                total += dp[mid] * dp[i - mid - 1];
+//            }
+//            dp[i] = total;
         }
         return dp[n];
     }

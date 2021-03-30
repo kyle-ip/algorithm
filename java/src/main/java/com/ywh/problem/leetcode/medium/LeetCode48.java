@@ -58,8 +58,8 @@ public class LeetCode48 {
         // a[n][0], a[n][1]      ...   a[n][n-1], a[n][n]
 
         int n = matrix.length;
-        for (int i = 0; i < n / 2; i++) {
-            int start = i, end = n - i - 1;
+        for (int start = 0; start < n / 2; start++) {
+            int end = n - start - 1;
             for (int j = 0; j < end - start; j++) {
                 int temp = matrix[start][start + j];
                 matrix[start][start + j] = matrix[end - j][start];

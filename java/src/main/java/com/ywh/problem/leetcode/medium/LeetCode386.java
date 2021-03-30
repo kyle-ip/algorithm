@@ -31,10 +31,9 @@ public class LeetCode386 {
         // 循环中递归，相当于把当前循环执行到底再执行下一轮循环（比如当前循环为 1，则不断 n * 10 + 1 到底再返回）
         for (int i = 0; i <= 9 && val * 10 + i <= max; i++) {
             // 跳过 0 * 10 + 0，即至少从 1、10 ... 开始。
-            if (val == 0 && i == 0) {
-                continue;
+            if (val != 0 || i != 0) {
+                lexicalOrderRecursive(ret, val * 10 + i, max);
             }
-            lexicalOrderRecursive(ret, val * 10 + i, max);
         }
         return  ret;
     }

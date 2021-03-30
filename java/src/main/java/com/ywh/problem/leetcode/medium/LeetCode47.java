@@ -52,9 +52,6 @@ public class LeetCode47 {
      * @return
      */
     public List<List<Integer>> permuteUniqueUsingHashSet(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return Collections.emptyList();
-        }
         List<Integer> list = new ArrayList<>();
         for (int num : nums) {
             list.add(num);
@@ -64,12 +61,23 @@ public class LeetCode47 {
         return new ArrayList<>(ret);
     }
 
+    /**
+     *
+     * @param nums
+     * @param i
+     * @param j
+     */
     private void swap(int[] nums, int i, int j) {
         int tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
     }
 
+    /**
+     *
+     * @param nums
+     * @return
+     */
     private List<Integer> toList(int[] nums) {
         List<Integer> list = new ArrayList<>(nums.length);
         for (int num : nums) {
@@ -105,8 +113,8 @@ public class LeetCode47 {
 
         // 最后对 p + 1 到 n - 1 之间的元素按从大到小排序（从高位到低位，从小到大）。
         // 由于 p 移动到该位置时已确定此时是从小到大排序，两两交换即可逆序。
-        for (int left = p + 1, right = n - 1; left < right; ++left, --right) {
-            swap(nums, left, right);
+        for (int l = p + 1, r = n - 1; l < r; ++l, --r) {
+            swap(nums, l, r);
         }
 
         // 返回是否存在下一个更大的排列。
@@ -123,9 +131,6 @@ public class LeetCode47 {
      * @return
      */
     public List<List<Integer>> permuteUniqueUsingNextPermutation(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return new ArrayList<>();
-        }
         List<List<Integer>> ret = new ArrayList<>();
         Arrays.sort(nums);
         ret.add(toList(nums));

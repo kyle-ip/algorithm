@@ -76,12 +76,8 @@ public class LeetCode64 {
             // 把矩阵每行第一个元素累加到 dp 数组第一项。
             dp[0] += grid[i][0];
             for (int j = 1; j < n; j++) {
-                dp[j] = Math.min(
-                    // 相当于二维数组时上边的值（未更新）。
-                    dp[j],
-                    // 相当于二维数组时左边的值（已更新）。
-                    dp[j - 1]
-                ) + grid[i][j];
+                // 即二维数组时上边的值（未更新）、左边的值（已更新），加上当前位置的值。
+                dp[j] = Math.min(dp[j], dp[j - 1]) + grid[i][j];
             }
 
         }

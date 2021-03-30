@@ -32,8 +32,8 @@ public class LeetCode309 {
         //      手上持有股票的最大收益：第 i 天持有股票，可能是今天刚买入（f2 - price[i]）或是前一天已经持有股票（f0）。
         //      手上不持有股票，并且处于冷冻期中的累计最大收益：第 i 天不持有股票且在冷冻期，即前一天还持有的股票在今天卖出（f0+prices[i]）。
         //      手上不持有股票，并且不在冷冻期中的累计最大收益：第 i 天不持有股票且不在冷冻期，即当天没有任何操作，可能是前一天还处于冷冻期（f1）或是前一天和今天一样（f2）。
-        int n = prices.length, f0 = -prices[0], f1 = 0, f2 = 0;
-        for (int i = 1; i < n; ++i) {
+        int f0 = -prices[0], f1 = 0, f2 = 0;
+        for (int i = 1; i < prices.length; ++i) {
             int new0 = Math.max(f0, f2 - prices[i]), new1 = f0 + prices[i], new2 = Math.max(f1, f2);
             f0 = new0;
             f1 = new1;

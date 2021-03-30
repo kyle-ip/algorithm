@@ -6,8 +6,23 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 电话号码对应的字母组合
+ * 电话号码的字母组合
  * [字符串] [回溯]
+ * 
+ * 给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。
+ * 给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
+ * 示例 1：
+ *      输入：digits = "23"
+ *      输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]
+ * 示例 2：
+ *      输入：digits = ""
+ *      输出：[]
+ * 示例 3：
+ *      输入：digits = "2"
+ *      输出：["a","b","c"]
+ * 提示：
+ *      0 <= digits.length <= 4
+ *      digits[i] 是范围 ['2', '9'] 的一个数字。
  *
  * @author ywh
  * @since 15/12/2019
@@ -22,16 +37,17 @@ public class LeetCode17 {
         "mno", "pqrs", "tuv", "wxyz"
     };
 
-    private void combinations(String digits, int idx, String str, List<String> result) {
+    private List<String> combinations(String digits, int idx, String str, List<String> ret) {
         if (idx == digits.length()) {
-            result.add(str);
-            return;
+            ret.add(str);
+            return ret;
         }
         // 取出当前位置数字对应的字母映射，循环处理每个字母
         String chars = mapping[digits.charAt(idx) - '2'];
         for (int i = 0; i < chars.length(); i++) {
-            combinations(digits, idx + 1, str + chars.charAt(i), result);
+            combinations(digits, idx + 1, str + chars.charAt(i), ret);
         }
+        return ret;
     }
 
     /**
@@ -44,9 +60,7 @@ public class LeetCode17 {
         if (digits == null || digits.length() == 0) {
             return Collections.emptyList();
         }
-        List<String> result = new ArrayList<>();
-        combinations(digits, 0, "", result);
-        return result;
+        return combinations(digits, 0, "", new ArrayList<>());
     }
 
     /**
@@ -58,27 +72,26 @@ public class LeetCode17 {
      * @return
      */
     public List<String> letterCombinationsIterative(String digits) {
-
         if (digits == null || digits.length() == 0) {
             return Collections.emptyList();
         }
-        LinkedList<String> result = new LinkedList<>();
-        result.add("");
+        LinkedList<String> ret = new LinkedList<>();
+        ret.add("");
         for (int i = 0; i < digits.length(); i++) {
             // 获取当前数字对应的字母组合映射
             String chars = mapping[digits.charAt(i) - '2'];
 
             // 遍历结果集合，每次取出最后一个元素
-            for (int j = 0; j < result.size(); j++) {
-                String str = result.poll();
+            for (int j = 0; j < ret.size(); j++) {
+                String str = ret.poll();
 
                 // 遍历每个字母，
                 for (int k = 0; k < chars.length(); k++) {
-                    result.add(str + chars.charAt(k));
+                    ret.add(str + chars.charAt(k));
                 }
             }
         }
-        return result;
+        return ret;
     }
 
 }

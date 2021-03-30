@@ -142,9 +142,6 @@ public class LeetCode43 {
      * @return
      */
     public String multiply2(String num1, String num2) {
-        if (num1 == null || num1.length() == 0 || num2 == null || num2.length() == 0) {
-            return "";
-        }
         int[] mul = new int[num1.length() + num2.length()];
         for (int i = num1.length() - 1; i >= 0; i--) {
             for (int j = num2.length() - 1; j >= 0; j--) {

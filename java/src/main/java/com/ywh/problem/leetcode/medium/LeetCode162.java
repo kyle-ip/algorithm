@@ -19,6 +19,11 @@ package com.ywh.problem.leetcode.medium;
  *           或者返回索引 5， 其峰值元素为 6。
  * 说明:
  *      你的解法应该是 O(logN) 时间复杂度的。
+ * 提示：
+ *      1 <= nums.length <= 1000
+ *      -2^31 <= nums[i] <= 2^31 - 1
+ *      对于所有有效的 i 都有 nums[i] != nums[i + 1]
+ * 进阶：你可以实现时间复杂度为 O(logN) 的解决方案吗？
  *
  * @author ywh
  * @since 18/12/2019
@@ -32,9 +37,6 @@ public class LeetCode162 {
      * @return
      */
     public int findPeakElementSequentialSearch(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return -1;
-        }
         for (int i = 0; i < nums.length - 1; i++) {
             // 开始出现递减，直接返回下标
             if (nums[i] > nums[i + 1]) {
@@ -53,9 +55,6 @@ public class LeetCode162 {
      * @return
      */
     public int findPeakElementBinarySearch(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return -1;
-        }
         int low = 0, high = nums.length - 1, left, right;
         while (low < high) {
             int mid = low + (high - low) / 2;
@@ -69,9 +68,14 @@ public class LeetCode162 {
                 return mid;
             }
             // 如果 mid 左边的值比它大，则说明波峰在左边，否则在右边。
+            // [1, 2, 3, 1, 0]
+            //           m
             if (left > nums[mid]) {
                 high = mid - 1;
-            } else {
+            }
+            // [1, 2, 1, 3, 5, 6, 4]
+            //           m
+            else {
                 low = mid + 1;
             }
         }

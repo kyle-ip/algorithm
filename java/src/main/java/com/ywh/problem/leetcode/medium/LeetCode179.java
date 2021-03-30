@@ -3,8 +3,26 @@ package com.ywh.problem.leetcode.medium;
 import java.util.Arrays;
 
 /**
- * 拼接的最大数字
+ * 最大数
  * [排序]
+ * 
+ * 给定一组非负整数 nums，重新排列每个数的顺序（每个数不可拆分）使之组成一个最大的整数。
+ * 注意：输出结果可能非常大，所以你需要返回一个字符串而不是整数。
+ * 示例 1：
+ *      输入：nums = [10,2]
+ *      输出："210"
+ * 示例 2：
+ *      输入：nums = [3,30,34,5,9]
+ *      输出："9534330"
+ * 示例 3：
+ *      输入：nums = [1]
+ *      输出："1"
+ * 示例 4：
+ *      输入：nums = [10]
+ *      输出："10"
+ * 提示：
+ *      1 <= nums.length <= 100
+ *      0 <= nums[i] <= 10^9
  *
  * @author ywh
  * @since 27/04/2020
@@ -18,9 +36,6 @@ public class LeetCode179 {
      * @return
      */
     public String largestNumber(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return "";
-        }
 
         // 整型数组转换为字符串数组
         String[] strs = new String[nums.length];
@@ -36,14 +51,10 @@ public class LeetCode179 {
             return o21.compareTo(o12);
         });
         // 排序结果最大的是 "0"，表示数组中的元素全部都为 0
-        if (strs[0].equals("0")) {
+        if ("0".equals(strs[0])) {
             return "0";
         }
-        StringBuilder sb = new StringBuilder();
-        for (String str : strs) {
-            sb.append(str);
-        }
-        return sb.toString();
+        return String.join("", strs);
     }
 
     /**
@@ -53,9 +64,6 @@ public class LeetCode179 {
      * @return
      */
     public String largestNumberFast(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return "";
-        }
         String[] strs = new String[nums.length];
         for (int i = 0; i < nums.length; i++) {
             strs[i] = String.valueOf(nums[i]);
@@ -72,13 +80,9 @@ public class LeetCode179 {
             }
             return 0;
         });
-        if (strs[0].equals("0")) {
+        if ("0".equals(strs[0])) {
             return "0";
         }
-        StringBuilder sb = new StringBuilder();
-        for (String str: strs) {
-            sb.append(str);
-        }
-        return sb.toString();
+        return String.join("", strs);
     }
 }

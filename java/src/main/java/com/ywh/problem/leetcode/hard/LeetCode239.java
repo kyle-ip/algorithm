@@ -43,7 +43,7 @@ import java.util.TreeMap;
 public class LeetCode239 {
 
     /**
-     * 暴力解法，每 k 个元素算依次最大值，填充到结果数组
+     * 暴力解法，每 k 个元素算依次最大值，填充到结果数组。
      *
      * Time: O(k*n), Space: O(1)
      *
@@ -104,7 +104,6 @@ public class LeetCode239 {
 
     /**
      * 使用两个分组辅助数组
-     * TODO 暂时未理解
      *
      * Time: O(n), Space: O(n)
      *
@@ -113,12 +112,9 @@ public class LeetCode239 {
      * @return
      */
     public int[] maxNumInSlidingWindowOn(int[] nums, int k) {
-        if (nums == null || nums.length == 0) {
-            return nums;
-        }
         int n = nums.length;
 
-        // 结果数组，从左到右分组最大值，从右到左分组最大值
+        // 结果数组，从左到右分组最大值，从右到左分组最大。
         int[] ret = new int[n - k + 1], maxFromLeft = new int[n], maxFromRight = new int[n];
 
         // [0, 4, 2], [1, 0, 8], 2
@@ -129,12 +125,12 @@ public class LeetCode239 {
         // [4, 4, 2], [8, 8, 8], 2
         maxFromRight[n - 1] = nums[n - 1];
 
-        // 从左到右、从右到左求分组长度为 k 的阶段最大值
+        // 一轮循环，从左到右、从右到左求分组长度为 k 的阶段最大值。
         for (int i = 1, j = n - 2; i < n; i++, j--) {
-            // 可以整除 k，表示分组内的第一个值，最大值为自身；否则与上一个最大值对比
+            // 可以整除 k，表示分组内的第一个值，最大值为自身；否则与上一个最大值对比。
             maxFromLeft[i] = i % k == 0? nums[i]: Math.max(maxFromLeft[i - 1], nums[i]);
 
-            // 除以 k 余 k - 1，表示分组内最后一个值，最大值为自身；否则与上一个最大值对比
+            // 除以 k 余 k - 1，表示分组内最后一个值，最大值为自身；否则与上一个最大值对比。
             maxFromRight[j] = j % k == k - 1? nums[j]: Math.max(maxFromRight[j + 1], nums[j]);
         }
 
