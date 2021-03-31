@@ -78,15 +78,15 @@ public class LeetCode38 {
         String ret = "1";
         for (int i = 1; i < n; i++) {
             StringBuilder sb = new StringBuilder();
-            int left = 0, right = 0;
+            int l = 0, r = 0;
 
             // 相邻字符相同，移动右指针
-            while (right < ret.length()) {
-                while (right < ret.length() && ret.charAt(right) == ret.charAt(left)) {
-                    right++;
+            while (r < ret.length()) {
+                while (r < ret.length() && ret.charAt(r) == ret.charAt(l)) {
+                    r++;
                 }
-                sb.append(right - left).append(ret.charAt(left));
-                left = right;
+                sb.append(r - l).append(ret.charAt(l));
+                l = r;
             }
 
             ret = sb.toString();

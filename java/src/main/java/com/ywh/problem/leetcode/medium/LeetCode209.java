@@ -12,6 +12,12 @@ package com.ywh.problem.leetcode.medium;
  *      解释：子数组 [4,3] 是该条件下的长度最小的子数组。
  * 进阶：
  *      如果你已经完成了 O(n) 时间复杂度的解法, 请尝试 O(n*log(n)) 时间复杂度的解法。
+ * 提示：
+ *      1 <= target <= 10^9
+ *      1 <= nums.length <= 10^5
+ *      1 <= nums[i] <= 10^5
+ * 进阶：
+ *      如果你已经实现 O(n) 时间复杂度的解法, 请尝试设计一个 O(nlog(n)) 时间复杂度的解法。
  *
  * @author ywh
  * @since 2020/9/14/014
@@ -56,9 +62,6 @@ public class LeetCode209 {
      * @return
      */
     private int binarySearch(int[] nums, int target) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
         int low = 0, high = nums.length - 1;
         while (low <= high) {
             int mid = low + (high - low) / 2;
@@ -81,9 +84,6 @@ public class LeetCode209 {
      * @return
      */
     public int minSubArrayLen2(int s, int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
         int n = nums.length;
         int ret = Integer.MAX_VALUE;
         int[] prefixSum = new int[n + 1];
