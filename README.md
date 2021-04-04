@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (323)
+## LeetCode (324)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -320,6 +320,7 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 767  | [Reorganize String](https://leetcode.com/problems/reorganize-string/) | 重构字符串 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode767.java) | Medium | Greedy<br />Heap<br />String |
 | 771  | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | 石头中的珠宝数量                   | Time: O(m+n)<br />Space: O(k) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode771.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_771.py) | Easy       | Hash Table                                             |
 | 773  | [Sliding Puzzle](https://leetcode.com/problems/sliding-puzzle/) | 滑动谜题 | Time: O(R\*C\*(R\*C)!)<br />Space: O(R\*C\*(R\*C)!) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode773.java) | Hard | BFS |
+| 781  | [Rabbits in Forest](https://leetcode.com/problems/rabbits-in-forest) | 森林中的兔子 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode781.java) | Medium | Math<br />Hash Table |
 | 785  | [Is Graph Bipartite](https://leetcode.com/problems/is-graph-bipartite/) | 判断二分图 | Time: O(V+E)<br />Space: O(V) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode785.java) | Medium | Graph<br />DFS<br />BFS |
 | 796  | [Rotate String](https://leetcode.com/problems/rotate-string/) | 旋转字符串 | Time: O(n^2)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode796.java) | Easy | String<br />Two Pointers |
 | 801  | [Minimum Swaps To Make Sequences Increasing](https://leetcode.com/problems/minimum-swaps-to-make-sequences-increasing) | 使序列递增的最小交换次数 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode801.java) | Medium | Dynamic Programming |
