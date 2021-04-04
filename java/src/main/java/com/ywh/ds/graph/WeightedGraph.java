@@ -269,10 +269,10 @@ public class WeightedGraph implements Graph {
             if (visited[i]) {
                 continue;
             }
-            Stack<Integer> stack = new Stack<>();
+            Deque<Integer> stack = new LinkedList<>();
             visited[i] = true;
             stack.push(i);
-            while (!stack.empty()) {
+            while (!stack.isEmpty()) {
                 int v = stack.pop();
                 for (int w : adj(v)) {
                     if (visited[w]) {
@@ -334,14 +334,14 @@ public class WeightedGraph implements Graph {
      * @return
      */
     public Iterable<WeightedEdge> mstKruskal() {
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new LinkedList<>();
         boolean[] visited = new boolean[V];
 
         // 从 0 出发遍历图，判断图是否联通。
         stack.push(0);
         int left = V - 1;
         visited[0] = true;
-        while (!stack.empty()) {
+        while (!stack.isEmpty()) {
             int v = stack.pop();
             for (int w : adj(v)) {
                 if (visited[w]) {

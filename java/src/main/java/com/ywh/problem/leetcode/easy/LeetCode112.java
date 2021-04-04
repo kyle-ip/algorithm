@@ -2,7 +2,8 @@ package com.ywh.problem.leetcode.easy;
 
 import com.ywh.ds.tree.TreeNode;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 路径和是否等于给定值
@@ -59,8 +60,8 @@ public class LeetCode112 {
         }
 
         // 使用两个栈，一个用于缓存节点，另一个用于缓存从根节点到当前节点的差值（给定值 - 路径和）。
-        Stack<TreeNode> stack = new Stack<>();
-        Stack<Integer> sumStack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
+        Deque<Integer> sumStack = new LinkedList<>();
         stack.push(root);
         sumStack.push(sum);
 

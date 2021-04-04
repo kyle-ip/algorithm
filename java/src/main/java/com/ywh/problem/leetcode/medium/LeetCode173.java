@@ -2,7 +2,8 @@ package com.ywh.problem.leetcode.medium;
 
 import com.ywh.ds.tree.TreeNode;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 二叉搜索树迭代器
@@ -17,7 +18,7 @@ public class LeetCode173 {
         /**
          * 辅助栈（参考中序遍历 {@link LeetCode94}）
          */
-        private final Stack<TreeNode> stack = new Stack<>();
+        private final Deque<TreeNode> stack = new LinkedList<>();
 
         /**
          * 把当前节点及其左节点迭代推入栈中。

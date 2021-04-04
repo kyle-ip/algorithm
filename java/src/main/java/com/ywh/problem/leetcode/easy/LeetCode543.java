@@ -3,9 +3,10 @@ package com.ywh.problem.leetcode.easy;
 import com.ywh.ds.tree.TreeNode;
 import com.ywh.problem.leetcode.hard.LeetCode124;
 
+import java.util.Deque;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
-import java.util.Stack;
 
 /**
  * 二叉树的直径
@@ -71,7 +72,7 @@ public class LeetCode543 {
         }
         int diameter = 0;
 
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         stack.push(root);
 
         // 记录节点子树及其深度

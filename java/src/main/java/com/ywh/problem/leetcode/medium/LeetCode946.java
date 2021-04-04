@@ -1,7 +1,8 @@
 
 package com.ywh.problem.leetcode.medium;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 验证入栈出栈序列
@@ -25,7 +26,7 @@ public class LeetCode946 {
         }
 
         // 使用辅助栈模拟入栈出栈过程
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new LinkedList<>();
 
         // 用于记录出栈数组当前位置（验证时需要逐个比对）
         int idx = 0;

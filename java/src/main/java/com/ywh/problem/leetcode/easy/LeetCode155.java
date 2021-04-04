@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.easy;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 带有 min 函数的栈带有 min 函数的栈
@@ -16,8 +17,8 @@ public class LeetCode155 {
      */
     public class MinStackWithTwoStack {
 
-        private Stack<Integer> stack = new Stack<>();
-        private Stack<Integer> min = new Stack<>();
+        private Deque<Integer> stack = new LinkedList<>();
+        private Deque<Integer> min = new LinkedList<>();
 
         public int getMin() {
             return min.peek();
@@ -51,7 +52,7 @@ public class LeetCode155 {
      */
     public class MinStackWithLinkedList {
 
-        private Stack<Integer> stack = new Stack<>();
+        private Deque<Integer> stack = new LinkedList<>();
         private int min = Integer.MAX_VALUE;
 
         public int getMin() {

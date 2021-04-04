@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.hard;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 基本计算器
@@ -35,7 +36,7 @@ public class LeetCode224 {
     public int calculate(String s) {
         int sum = 0, op = 1, n = s.length();
         // 符号栈用于暂存一个子表达式值（括号内）的正负，子表达式结束后弹出。
-        Stack<Integer> ops = new Stack<>();
+        Deque<Integer> ops = new LinkedList<>();
         ops.push(1);
         for (int i = 0; i < n; ++i) {
             // 数字
@@ -74,8 +75,8 @@ public class LeetCode224 {
      * @return
      */
     public int calculateTwoStack(String s) {
-        Stack<Integer> numStack = new Stack<>();
-        Stack<Character> opStack = new Stack<>();
+        Deque<Integer> numStack = new LinkedList<>();
+        Deque<Character> opStack = new LinkedList<>();
 
         // 先添加一个左括号，用于处理整个表达式没有括号的情况。
         opStack.push('(');

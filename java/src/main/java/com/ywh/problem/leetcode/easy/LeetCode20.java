@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.easy;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 有效的括号
@@ -43,7 +44,7 @@ public class LeetCode20 {
      * @return
      */
     public boolean isValidBrackets(String s) {
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> stack = new LinkedList<>();
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{') {
                 stack.push(s.charAt(i));
@@ -75,7 +76,7 @@ public class LeetCode20 {
      * @return
      */
     public boolean isValidBracketsShort(String s) {
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> stack = new LinkedList<>();
         for (int i = 0; i < s.length(); i++) {
             switch (s.charAt(i)) {
                 case '(':

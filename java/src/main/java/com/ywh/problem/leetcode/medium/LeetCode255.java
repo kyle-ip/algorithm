@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 验证二叉搜索树的前序遍历序列
@@ -74,7 +75,7 @@ public class LeetCode255 {
             return false;
         }
 
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new LinkedList<>();
         int lowerBound = Integer.MIN_VALUE;
 
         // 逐个元素判断

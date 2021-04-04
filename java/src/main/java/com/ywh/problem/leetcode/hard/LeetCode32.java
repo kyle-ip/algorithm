@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.hard;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 有效括号的最大长度
@@ -25,7 +26,7 @@ public class LeetCode32 {
         // 栈存储字符下标，弹出下标计算子串长度：子串最后字符的下标 - 子串前一个字符的下标（栈非空条件：栈非空且栈顶元素不为 -1）。
         // stack[0] = -1，左端的位置信息由当前不配对的括号下标提供：当子串最左边的括号下标为 0 时，它前一个字符的下标为 -1。
         int n = s.length(), max = 0;
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new LinkedList<>();
         stack.add(-1);
         for (int i = 0; i < n; i++) {
             // 栈顶的下标所指的字符是左括号且当前的下标所指的字符是右括号。

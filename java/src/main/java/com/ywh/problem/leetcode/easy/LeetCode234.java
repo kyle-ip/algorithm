@@ -2,7 +2,8 @@ package com.ywh.problem.leetcode.easy;
 
 import com.ywh.ds.list.ListNode;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 回文链表
@@ -34,7 +35,7 @@ public class LeetCode234 {
      */
     public boolean isPalindromeUsingStack(ListNode head) {
         ListNode p = head;
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new LinkedList<>();
         while (p != null) {
             stack.push(p.val);
             p = p.next;

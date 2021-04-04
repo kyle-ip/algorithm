@@ -3,7 +3,8 @@ package com.ywh.problem.leetcode.easy;
 import com.ywh.ds.tree.OrderTreeNode;
 import com.ywh.ds.tree.TreeNode;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 将有序数组转换为二叉搜索树
@@ -64,7 +65,7 @@ public class LeetCode108 {
         if (nums == null || nums.length == 0) {
             return null;
         }
-        Stack<OrderTreeNode> stack = new Stack<>();
+        Deque<OrderTreeNode> stack = new LinkedList<>();
         TreeNode dummy = new TreeNode(0);
         stack.push(new OrderTreeNode(dummy, 0, nums.length - 1, true));
 

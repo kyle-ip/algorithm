@@ -2,7 +2,8 @@ package com.ywh.problem.leetcode.easy;
 
 import com.ywh.ds.tree.TreeNode;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 将二叉搜索树转为较大树
@@ -50,10 +51,10 @@ public class LeetCode538 {
      * @return
      */
     public TreeNode convertBSTIterative(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         TreeNode cur = root;
         int sum = 0;
-        while (cur != null || !stack.empty()) {
+        while (cur != null || !stack.isEmpty()) {
             // 不断把右节点入栈
             while (cur != null) {
                 stack.push(cur);

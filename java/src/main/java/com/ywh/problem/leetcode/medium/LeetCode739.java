@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 每日温度
@@ -50,7 +51,7 @@ public class LeetCode739 {
         int[] ret = new int[n];
 
         // 辅助栈存储数组下标，确保辅助栈中的下标所指的元素都是递减的
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new LinkedList<>();
         for (int i = 0; i < n; i++) {
             // 辅助栈栈顶下标所指的元素小于当前元素，表示距离 st.peek() 最近且比 T[st.peek()] 大的元素为 T[i]，距离 i - st.peek()
             // 可能不止一个，所以一直循环处理，比如：3, 2, 6，则 ret[0] == 2, ret[1] == 1，都是 6
@@ -61,7 +62,7 @@ public class LeetCode739 {
             }
             stack.push(i);
         }
-        // while (!st.empty()) ret[st.pop()] = 0;
+        // while (!st.isEmpty()) ret[st.pop()] = 0;
         return ret;
     }
 
@@ -84,7 +85,7 @@ public class LeetCode739 {
             // 1. 不能越界；
             // 2. 必须递增；
             // 3. 必须更新 j 的值（ret[j] != 0）；
-            for (; j < T.length && T[j] <= T[i] && ret[j] != 0; j += ret[j]);
+            for (; j < T.length && T[j] <= T[i] && ret[j] != 0; j += ret[j]) { }
 
             // 如果跳完后 j 的气温高于 i，则更新 ret[i]。
             if (T[i] < T[j]) {

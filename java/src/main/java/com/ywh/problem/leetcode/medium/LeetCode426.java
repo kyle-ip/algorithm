@@ -3,7 +3,8 @@ package com.ywh.problem.leetcode.medium;
 import com.ywh.ds.list.DoublyListNode;
 import com.ywh.ds.tree.TreeNode;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 将二叉搜索树转化为排序的双向链表
@@ -22,7 +23,7 @@ public class LeetCode426 {
      */
     public static DoublyListNode bstToDoublyList(TreeNode root) {
         DoublyListNode dummy = new DoublyListNode(-1), cur = dummy, next;
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         while (root != null || !stack.isEmpty()) {
             if (root != null) {
                 stack.push(root);

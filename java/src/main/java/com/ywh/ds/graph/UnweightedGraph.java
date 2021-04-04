@@ -282,10 +282,10 @@ public class UnweightedGraph implements Graph, Cloneable {
             if (visited[v]) {
                 continue;
             }
-            Stack<Integer> stack = new Stack<>();
+            Deque<Integer> stack = new LinkedList<>();
             stack.push(v);
             visited[v] = true;
-            while (!stack.empty()) {
+            while (!stack.isEmpty()) {
                 int cur = stack.pop();
                 order.add(cur);
                 for (int w : adj[v]) {
@@ -1119,12 +1119,12 @@ public class UnweightedGraph implements Graph, Cloneable {
      */
     private boolean hasEulerLoopDirected() {
         // 判断连通性。
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new LinkedList<>();
         stack.push(0);
         int left = V - 1;
         boolean[] visited = new boolean[V];
         visited[0] = true;
-        while (!stack.empty()) {
+        while (!stack.isEmpty()) {
             int v = stack.pop();
             for (int w : adj(v)) {
                 if (visited[w]) {
@@ -1163,7 +1163,7 @@ public class UnweightedGraph implements Graph, Cloneable {
 
         // 在拷贝图上操作。
         UnweightedGraph graph = (UnweightedGraph) this.clone();
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new LinkedList<>();
         int v = 0;
         stack.push(v);
         while (!stack.isEmpty()) {
@@ -1194,11 +1194,11 @@ public class UnweightedGraph implements Graph, Cloneable {
         boolean[] visited = new boolean[V];
 
         // 判断连通分量个数是否为 1（从 0 出发 DFS，结束后剩余未访问节点 > 0，表示存在不连通的点，返回 false）。
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new LinkedList<>();
         stack.push(0);
         int left = V - 1;
         visited[0] = true;
-        while (!stack.empty()) {
+        while (!stack.isEmpty()) {
             int v = stack.pop();
             for (int w : adj(v)) {
                 if (visited[w]) {
@@ -1254,7 +1254,7 @@ public class UnweightedGraph implements Graph, Cloneable {
 
         // 在拷贝图上操作。
         UnweightedGraph graph = (UnweightedGraph) this.clone();
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new LinkedList<>();
         int v = 0;
         stack.push(v);
         while (!stack.isEmpty()) {
@@ -1286,7 +1286,7 @@ public class UnweightedGraph implements Graph, Cloneable {
         List<Integer> ret = new ArrayList<>();
         // 在拷贝图上操作。
         UnweightedGraph graph = (UnweightedGraph) this.clone();
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new LinkedList<>();
         stack.push(v);
         while (!stack.isEmpty()) {
             // 当前节点 v 度数 > 0：表示有路可走。

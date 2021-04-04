@@ -80,7 +80,7 @@ public class LeetCode113 {
     public List<List<Integer>> pathSumIterative(TreeNode root, int sum) {
         List<List<Integer>> ret = new ArrayList<>();
         List<Integer> elem = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         Set<TreeNode> visited = new HashSet<>();
 
         int curSum = 0;
@@ -123,7 +123,7 @@ public class LeetCode113 {
     public List<List<Integer>> pathSumIterativePrev(TreeNode root, int sum) {
         List<List<Integer>> ret = new ArrayList<>();
         List<Integer> elem = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         TreeNode prev = null;
         int curSum = 0;
         while (root != null || !stack.isEmpty()) {

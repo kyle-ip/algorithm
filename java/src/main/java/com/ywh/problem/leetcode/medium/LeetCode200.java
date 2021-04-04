@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 岛屿数量
@@ -69,7 +70,7 @@ public class LeetCode200 {
      */
     private void dfsIterative(char[][] g, boolean[][] visited, int i , int j) {
         int m = g.length, n = g[0].length;
-        Stack<int[]> stack = new Stack<>();
+        Deque<int[]> stack = new LinkedList<>();
         stack.push(new int[]{i, j});
         while(!stack.isEmpty()) {
             int[] p = stack.pop();

@@ -1,8 +1,6 @@
 package com.ywh.problem.leetcode.medium;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * 字典序排数
@@ -58,14 +56,14 @@ public class LeetCode386 {
      */
     public List<Integer> lexicalOrder10WayTreePreorder(int n) {
         List<Integer> ret = new ArrayList<>();
-        Stack<Integer> tree = new Stack<>();
+        Deque<Integer> tree = new LinkedList<>();
 
         // 填充十叉树的第一层（[1, n] 或 [1, 9]）
         for (int i = Math.min(n, 9); i > 0; i--) {
             tree.push(i);
         }
 
-        while (!tree.empty()) {
+        while (!tree.isEmpty()) {
             int cur = tree.pop();
             ret.add(cur);
 

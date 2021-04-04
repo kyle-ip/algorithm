@@ -3,8 +3,9 @@ package com.ywh.problem.leetcode.medium;
 import com.ywh.ds.tree.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
 
 /**
  * 二叉树中序遍历
@@ -57,7 +58,7 @@ public class LeetCode94 {
      * @return
      */
     public List<Integer> inorderTraversalIterative(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         List<Integer> ret = new ArrayList<>();
 
         // 遍历路径：

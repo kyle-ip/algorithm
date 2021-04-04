@@ -1,6 +1,6 @@
 package com.ywh.ds.tree;
 
-import java.util.Objects;
+import java.util.*;
 
 /**
  * 二叉树节点
@@ -45,5 +45,26 @@ public class TreeNode {
     @Override
     public int hashCode() {
         return Objects.hash(val, left, right);
+    }
+
+    /**
+     *
+     * @return
+     */
+    public List<Integer> preorder() {
+        List<Integer> ret = new ArrayList<>();
+        Deque<TreeNode> stack = new LinkedList<>();
+        TreeNode root = this;
+        while (root != null || !stack.isEmpty()) {
+            if (root != null) {
+                ret.add(root.val);
+                stack.push(root);
+                root = root.left;
+            }
+            else {
+                root = stack.pop().right;
+            }
+        }
+        return ret;
     }
 }

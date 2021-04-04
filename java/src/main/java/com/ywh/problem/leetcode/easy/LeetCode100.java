@@ -2,7 +2,8 @@ package com.ywh.problem.leetcode.easy;
 
 import com.ywh.ds.tree.TreeNode;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 相同的树
@@ -64,7 +65,7 @@ public class LeetCode100 {
      * @return
      */
     public boolean isSameTreeIterative(TreeNode p, TreeNode q) {
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         stack.push(p);
         stack.push(q);
         while (!stack.isEmpty()) {

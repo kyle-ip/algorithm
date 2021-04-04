@@ -2,7 +2,8 @@ package com.ywh.problem.leetcode.easy;
 
 import com.ywh.ds.tree.TreeNode;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 对称二叉树
@@ -74,7 +75,7 @@ public class LeetCode101 {
         if (root == null) {
             return true;
         }
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         stack.push(root.left);
         stack.push(root.right);
 

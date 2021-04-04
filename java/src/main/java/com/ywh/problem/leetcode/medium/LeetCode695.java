@@ -2,8 +2,9 @@ package com.ywh.problem.leetcode.medium;
 
 import com.ywh.ds.tree.UnionFind;
 
+import java.util.Deque;
 import java.util.HashSet;
-import java.util.Stack;
+import java.util.LinkedList;
 
 /**
  * 岛屿的最大面积
@@ -91,9 +92,9 @@ public class LeetCode695 {
             // 对岛屿（一个连通分量）进行深度优先遍历。
             visited[v] = true;
             int area = 1;
-            Stack<Integer> stack = new Stack<>();
+            Deque<Integer> stack = new LinkedList<>();
             stack.push(v);
-            while (!stack.empty()) {
+            while (!stack.isEmpty()) {
                 int cur = stack.pop();
                 for (int w : graph[cur]) {
                     if (!visited[w]) {
@@ -143,9 +144,9 @@ public class LeetCode695 {
                 }
                 visited[r][c] = true;
                 int tmp = 1;
-                Stack<int[]> stack = new Stack<>();
+                Deque<int[]> stack = new LinkedList<>();
                 stack.push(new int[]{r, c});
-                while (!stack.empty()) {
+                while (!stack.isEmpty()) {
                     int[] cur = stack.pop();
                     int x = cur[0], y = cur[1];
                     for (int d = 0; d < 4; d++) {

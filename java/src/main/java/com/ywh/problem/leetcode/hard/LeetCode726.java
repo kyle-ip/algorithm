@@ -1,8 +1,6 @@
 package com.ywh.problem.leetcode.hard;
 
-import java.util.Map;
-import java.util.Stack;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -114,7 +112,7 @@ public class LeetCode726 {
      */
     public String countOfAtomsStack(String formula) {
         int n = formula.length();
-        Stack<Map<String, Integer>> stack = new Stack<>();
+        Deque<Map<String, Integer>> stack = new LinkedList<>();
         stack.push(new TreeMap<>());
 
         for (int i = 0; i < n;) {
@@ -161,7 +159,7 @@ public class LeetCode726 {
      */
     public String countOfAtomsRegex(String formula) {
         Matcher matcher = Pattern.compile("([A-Z][a-z]*)(\\d*)|(\\()|(\\))(\\d*)").matcher(formula);
-        Stack<Map<String, Integer>> stack = new Stack<>();
+        Deque<Map<String, Integer>> stack = new LinkedList<>();
         stack.push(new TreeMap<>());
 
         while (matcher.find()) {

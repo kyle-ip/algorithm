@@ -2,7 +2,8 @@ package com.ywh.problem.leetcode.easy;
 
 import com.ywh.ds.tree.TreeNode;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 二叉搜索树的区间和
@@ -45,9 +46,9 @@ public class LeetCode938 {
      */
     public int rangeSumBSTIterative(TreeNode root, int L, int R) {
         int sum = 0;
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         stack.push(root);
-        while (!stack.empty()) {
+        while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
             if (node == null) {
                 continue;

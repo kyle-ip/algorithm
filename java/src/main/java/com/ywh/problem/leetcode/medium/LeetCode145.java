@@ -2,10 +2,7 @@ package com.ywh.problem.leetcode.medium;
 
 import com.ywh.ds.tree.TreeNode;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * 二叉树后序遍历
@@ -60,9 +57,9 @@ public class LeetCode145 {
      */
     public List<Integer> postorderTraversalIterative(TreeNode root) {
         List<Integer> result = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         TreeNode pre = null;
-        while (root != null || !stack.empty()) {
+        while (root != null || !stack.isEmpty()) {
 
             // 一直遍历把节点入栈，直到到达最左节点
             if (root != null) {
@@ -100,9 +97,9 @@ public class LeetCode145 {
         if (root == null) {
             return ret;
         }
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         stack.push(root);
-        while (!stack.empty()) {
+        while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
             // 使用链表插入元素到头部
             ret.addFirst(node.val);

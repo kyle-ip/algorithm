@@ -3,8 +3,9 @@ package com.ywh.problem.leetcode.medium;
 import com.ywh.ds.tree.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
 
 /**
  * 拍平二叉树
@@ -47,7 +48,7 @@ public class LeetCode114 {
         //       2   5      [1, 2, 3, 4, 5, 6]
         //      / \   \
         //     3   4   6
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         List<TreeNode> preorderList = new ArrayList<>();
         TreeNode cur = root;
         while (cur != null || !stack.isEmpty()) {
