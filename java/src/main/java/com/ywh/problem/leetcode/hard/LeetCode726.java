@@ -11,17 +11,10 @@ import java.util.regex.Pattern;
  * [栈] [递归] [哈希表]
  *
  * 给定一个化学式formula（作为字符串），返回每种原子的数量。
- *
  * 原子总是以一个大写字母开始，接着跟随0个或任意个小写字母，表示原子的名字。
- *
  * 如果数量大于 1，原子后会跟着数字表示原子的数量。如果数量等于 1 则不会跟数字。例如，H2O 和 H2O2 是可行的，但 H1O2 这个表达是不可行的。
- *
- * 两个化学式连在一起是新的化学式。例如 H2O2He3Mg4 也是化学式。
- *
- * 一个括号中的化学式和数字（可选择性添加）也是化学式。例如 (H2O2) 和 (H2O2)3 是化学式。
- *
+ * 两个化学式连在一起是新的化学式。例如 H2O2He3Mg4 也是化学式。一个括号中的化学式和数字（可选择性添加）也是化学式。例如 (H2O2) 和 (H2O2)3 是化学式。
  * 给定一个化学式，输出所有原子的数量。格式为：第一个（按字典序）原子的名子，跟着它的数量（如果数量大于 1），然后是第二个原子的名字（按字典序），跟着它的数量（如果数量大于 1），以此类推。
- *
  * 示例 1:
  *      输入:
  *          formula = "H2O"
@@ -65,7 +58,7 @@ public class LeetCode726 {
             ans.append(name);
             int multiplicity = count.get(name);
             if (multiplicity > 1) {
-                ans.append("" + multiplicity);
+                ans.append(multiplicity);
             }
         }
         return new String(ans);
@@ -77,33 +70,41 @@ public class LeetCode726 {
      * @return
      */
     public Map<String, Integer> parse(String formula) {
-        int N = formula.length();
-        Map<String, Integer> count = new TreeMap();
-        while (i < N && formula.charAt(i) != ')') {
+        int n = formula.length();
+        Map<String, Integer> counter = new TreeMap<>();
+
+        // 解析一个子串或一种原子。
+        while (i < n && formula.charAt(i) != ')') {
             if (formula.charAt(i) == '(') {
+                // 跳过“(”，解析子串，算入 counter 中。
                 i++;
-                for (Map.Entry<String, Integer> entry: parse(formula).entrySet()) {
-                    count.put(entry.getKey(), count.getOrDefault(entry.getKey(), 0) + entry.getValue());
+                Map<String, Integer> subFormula = parse(formula);
+                for (Map.Entry<String, Integer> entry: subFormula.entrySet()) {
+                    counter.put(entry.getKey(), counter.getOrDefault(entry.getKey(), 0) + entry.getValue());
                 }
             } else {
                 int iStart = i++;
-                for (; i < N && Character.isLowerCase(formula.charAt(i)); i++);
+                // 取原子的名称。
+                for (; i < n && Character.isLowerCase(formula.charAt(i)); i++) {}
                 String name = formula.substring(iStart, i);
+                // 取原子的个数。
                 iStart = i;
-                for (; i < N && Character.isDigit(formula.charAt(i)); i++) ;
+                for (; i < n && Character.isDigit(formula.charAt(i)); i++) {}
                 int multiplicity = iStart < i ? Integer.parseInt(formula.substring(iStart, i)) : 1;
-                count.put(name, count.getOrDefault(name, 0) + multiplicity);
+                // 算入 counter 中。
+                counter.put(name, counter.getOrDefault(name, 0) + multiplicity);
             }
         }
+        //
         int iStart = ++i;
-        for (; i < N && Character.isDigit(formula.charAt(i)); i++) ;
+        for (; i < n && Character.isDigit(formula.charAt(i)); i++) {}
         if (iStart < i) {
             int multiplicity = Integer.parseInt(formula.substring(iStart, i));
-            for (String key: count.keySet()) {
-                count.put(key, count.get(key) * multiplicity);
+            for (String key: counter.keySet()) {
+                counter.put(key, counter.get(key) * multiplicity);
             }
         }
-        return count;
+        return counter;
     }
 
     /**
@@ -123,7 +124,7 @@ public class LeetCode726 {
             } else if (formula.charAt(i) == ')') {
                 Map<String, Integer> top = stack.pop();
                 int iStart = ++i, multiplicity = 1;
-                for (; i < n && Character.isDigit(formula.charAt(i)); i++);
+                for (; i < n && Character.isDigit(formula.charAt(i)); i++) {}
                 if (i > iStart) {
                     multiplicity = Integer.parseInt(formula.substring(iStart, i));
                 }
@@ -133,10 +134,10 @@ public class LeetCode726 {
                 }
             } else {
                 int iStart = i++;
-                for (; i < n && Character.isLowerCase(formula.charAt(i)); i++);
+                for (; i < n && Character.isLowerCase(formula.charAt(i)); i++) {}
                 String name = formula.substring(iStart, i);
                 iStart = i;
-                for (; i < n && Character.isDigit(formula.charAt(i)); i++);
+                for (; i < n && Character.isDigit(formula.charAt(i)); i++) {}
                 int multiplicity = i > iStart ? Integer.parseInt(formula.substring(iStart, i)) : 1;
                 stack.peek().put(name, stack.peek().getOrDefault(name, 0) + multiplicity);
             }
@@ -146,19 +147,26 @@ public class LeetCode726 {
         for (String name: stack.peek().keySet()) {
             ans.append(name);
             int multiplicity = stack.peek().get(name);
-            if (multiplicity > 1) ans.append("" + multiplicity);
+            if (multiplicity > 1) {
+                ans.append(multiplicity);
+            }
         }
         return new String(ans);
     }
 
+    /**
+     *
+     * @param formula
+     * @return
+     */
     public String countOfAtomsRegex(String formula) {
         Matcher matcher = Pattern.compile("([A-Z][a-z]*)(\\d*)|(\\()|(\\))(\\d*)").matcher(formula);
-        Stack<Map<String, Integer>> stack = new Stack();
+        Stack<Map<String, Integer>> stack = new Stack<>();
         stack.push(new TreeMap<>());
 
         while (matcher.find()) {
             String match = matcher.group();
-            if (match.equals("(")) {
+            if ("(".equals(match)) {
                 stack.push(new TreeMap<>());
             } else if (match.startsWith(")")) {
                 Map<String, Integer> top = stack.pop();

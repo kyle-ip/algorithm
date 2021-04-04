@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (322)
+## LeetCode (323)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -349,6 +349,7 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 1047 | [Remove All Adjacent Duplicates In String](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string) | 删除字符串中的所有相邻重复项 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1047.java) | Easy | Stack |
 | 1091 | [Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/) | 二进制矩阵中的最短路径 | Time: O(R\*C)<br />Space: O(R\*C) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode1091.java) | Medium | BFS |
 | 1114 | [Print in Order](https://leetcode.com/problems/print-in-order) | 按序打印 |  | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode1091.java) | Easy | Concurrency |
+| 1143 | [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence) | 最长公共子序列 |  | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode1143.java) | Medium | Dynamic Programming |
 | 1232 | [Check If It Is a Straight Line](https://leetcode.com/problems/check-if-it-is-a-straight-line) | 缀点成线 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1232.java) | Easy | Math<br />Geometry<br />Array |
 | 1304 | [Find N Unique Integers Sum up to Zero](https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero) | 和为零的 N 个唯一整数 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1304.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_1304.py) | Easy | Array |
 | 1430 | [Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit) | 绝对差不超过限制的最长连续子数组 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode1430.java) | Medium | Array<br />Sliding Window |

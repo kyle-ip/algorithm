@@ -59,14 +59,10 @@ public class LeetCode295 {
     }
 
     /**
-     * 最小堆存放数据流中较大的一半，两堆顶元素即为最中间的两个数值
+     * 数据流中，最小堆存放较大的一半，最大堆存放较小的一半（最大堆倒序排列，堆顶元素为最大值），两堆顶元素即为最中间的两个数值。
      */
-    private final Queue<Integer> minHeap = new PriorityQueue<>();
-
-    /**
-     * 最大堆存放数据流中较小的一半（倒序排列，即堆顶元素为最大值）
-     */
-    private final Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+    private final Queue<Integer> minHeap = new PriorityQueue<>(),
+        maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 
     /**
      * Time: O(log(n))
@@ -75,15 +71,12 @@ public class LeetCode295 {
      */
     public void addNumHeap(int num) {
 
-        // 元素先放入最小堆
+        // 元素先放入最小堆（较大的一半），再从中取出最小值放入最大堆（较小的一半）。
         minHeap.add(num);
-
-        // 最小堆的堆顶元素（最小值）放到最大堆
         maxHeap.add(minHeap.poll());
 
-        // 要么最大堆与最小堆元素个数相等，要么最大堆比最小堆多一个元素
+        // 两堆均衡：保证最大堆与最小堆元素个数相等，或最大堆比最小堆多一个元素。
         if (maxHeap.size() - minHeap.size() > 1) {
-            // 最大堆的堆顶元素（最大值）放到最小堆
             minHeap.add(maxHeap.poll());
         }
     }

@@ -1,14 +1,11 @@
 package com.ywh.ds.tree;
 
-import lombok.Data;
-
 /**
  * 二叉搜索树
  *
  * @author ywh
  * @since 2020/10/28/028
  */
-@Data
 public class BinarySearchTree {
 
     public TreeNode root;

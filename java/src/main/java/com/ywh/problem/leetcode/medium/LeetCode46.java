@@ -1,8 +1,6 @@
 package com.ywh.problem.leetcode.medium;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * 全排列
@@ -70,5 +68,4 @@ public class LeetCode46 {
         permuteRec(list, 0, ret);
         return ret;
     }
-
 }

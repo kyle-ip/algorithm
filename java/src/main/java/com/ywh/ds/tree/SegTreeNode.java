@@ -1,14 +1,11 @@
 package com.ywh.ds.tree;
 
-import lombok.Data;
-
 /**
  * 线段树节点
  *
  * @author ywh
  * @since 29/11/2020
  */
-@Data
 public class SegTreeNode {
 
     /**

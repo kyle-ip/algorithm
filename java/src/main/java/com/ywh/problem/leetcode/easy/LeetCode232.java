@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.easy;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 用栈实现队列
@@ -41,13 +42,11 @@ import java.util.Stack;
  */
 public class LeetCode232 {
 
-    private final Stack<Integer> in = new Stack<>();
-
-    private final Stack<Integer> out = new Stack<>();
+    private final Deque<Integer> in = new LinkedList<>(), out = new LinkedList<>();
 
     private void transferFromInToOut() {
-        if (out.empty()) {
-            while (!in.empty()) {
+        if (out.isEmpty()) {
+            while (!in.isEmpty()) {
                 out.push(in.pop());
             }
         }
@@ -59,11 +58,17 @@ public class LeetCode232 {
 
     public int pop() {
         transferFromInToOut();
+        if (out.isEmpty()) {
+            return -1;
+        }
         return out.pop();
     }
 
     public int peek() {
         transferFromInToOut();
+        if (out.isEmpty()) {
+            return -1;
+        }
         return out.peek();
     }
 
