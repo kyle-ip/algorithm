@@ -5,7 +5,7 @@ import java.util.Queue;
 
 /**
  * 判断二分图
- * [图] [DFS] [BFS]
+ * [图] [深度优先搜索] [广度优先搜索]
  *
  * @author ywh
  * @since 2020/11/12/012

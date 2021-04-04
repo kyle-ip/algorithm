@@ -6,7 +6,7 @@ import java.util.*;
 
 /**
  * 二叉树的层序遍历
- * [树] [BFS]
+ * [树] [广度优先搜索]
  *
  * @author ywh
  * @since 2/20/2019

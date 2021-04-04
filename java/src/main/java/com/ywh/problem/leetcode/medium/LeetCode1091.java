@@ -5,7 +5,7 @@ import java.util.Queue;
 
 /**
  * 二进制矩阵中的最短路径
- * [BFS]
+ * [广度优先搜索]
  *
  * @author ywh
  * @since 2020/11/13/013

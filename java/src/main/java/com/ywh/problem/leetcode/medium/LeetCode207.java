@@ -7,7 +7,7 @@ import java.util.Queue;
 
 /**
  * 课程表
- * [图] [回溯] [拓扑排序] [DFS] [BFS]
+ * [图] [回溯] [拓扑排序] [深度优先搜索] [广度优先搜索]
  * 
  * 你这个学期必须选修 numCourses 门课程，记为 0 到 numCourses - 1 。
  * 在选修某些课程之前需要一些先修课程。 先修课程按数组 prerequisites 给出，其中 prerequisites[i] = [ai, bi] ，

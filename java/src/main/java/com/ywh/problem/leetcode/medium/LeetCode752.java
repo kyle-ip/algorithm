@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * 打开转盘锁
- * [BFS]
+ * [广度优先搜索]
  *
  * @author ywh
  * @since 2020/11/14

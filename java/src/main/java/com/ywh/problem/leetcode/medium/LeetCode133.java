@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * 图的深拷贝
- * [图] [DFS] [BFS]
+ * [图] [深度优先搜索] [广度优先搜索]
  *
  * @author ywh
  * @since 27/11/2019

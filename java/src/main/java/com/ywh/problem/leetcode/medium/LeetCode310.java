@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 最小高度树
- * [图] [BFS] [DFS]
+ * [图] [广度优先搜索] [深度优先搜索]
  *
  * @author ywh
  * @since 12/01/2020

@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * 恢复二叉搜索树
- * [树] [DFS]
+ * [树] [深度优先搜索]
  *
  * @author ywh
  * @since 2020/12/5

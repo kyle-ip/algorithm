@@ -8,7 +8,7 @@ import java.util.Queue;
 
 /**
  * 滑动谜题
- * [BFS]
+ * [广度优先搜索]
  *
  * @author ywh
  * @since 2020/11/14

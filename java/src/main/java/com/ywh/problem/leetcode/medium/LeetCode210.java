@@ -9,7 +9,7 @@ import java.util.Queue;
  * 上课顺序
  * 参考 {@link LeetCode207}
  *
- * [图] [回溯] [拓扑排序] [DFS] [BFS]
+ * [图] [回溯] [拓扑排序] [深度优先搜索] [广度优先搜索]
  *
  * @author ywh
  * @since 22/12/2019

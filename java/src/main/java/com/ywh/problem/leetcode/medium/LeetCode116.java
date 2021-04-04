@@ -2,7 +2,7 @@ package com.ywh.problem.leetcode.medium;
 
 /**
  * 填充每个节点的下一个右侧节点指针
- * [树] [DFS] [BFS]
+ * [树] [深度优先搜索] [广度优先搜索]
  * 
  * 给定一个 完美二叉树 ，其所有叶子节点都在同一层，每个父节点都有两个子节点。二叉树定义如下：
  *      struct Node {
