@@ -37,15 +37,15 @@ public class LeetCode144 {
     /**
      *
      * @param root
-     * @param result
+     * @param ret
      */
-    private void preorder(TreeNode root, List<Integer> result) {
+    private void preorder(TreeNode root, List<Integer> ret) {
         if (root == null) {
             return;
         }
-        result.add(root.val);
-        preorder(root.left, result);
-        preorder(root.right, result);
+        ret.add(root.val);
+        preorder(root.left, ret);
+        preorder(root.right, ret);
     }
 
     /**

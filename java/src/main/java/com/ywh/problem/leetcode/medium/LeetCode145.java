@@ -5,8 +5,19 @@ import com.ywh.ds.tree.TreeNode;
 import java.util.*;
 
 /**
- * 二叉树后序遍历
+ * 二叉树的后序遍历
  * [树] [栈]
+ * 
+ * 给定一个二叉树，返回它的 后序 遍历。
+ * 示例:
+ *      输入: [1,null,2,3]
+ *         1
+ *          \
+ *           2
+ *          /
+ *         3
+ *      输出: [3,2,1]
+ * 进阶: 递归算法很简单，你可以通过迭代算法完成吗？
  *
  * @author ywh
  * @since 06/11/2019
@@ -16,15 +27,15 @@ public class LeetCode145 {
     /**
      *
      * @param root
-     * @param result
+     * @param ret
      */
-    private void postorder(TreeNode root, List<Integer> result) {
+    private void postorder(TreeNode root, List<Integer> ret) {
         if (root == null) {
             return;
         }
-        postorder(root.left, result);
-        postorder(root.right, result);
-        result.add(root.val);
+        postorder(root.left, ret);
+        postorder(root.right, ret);
+        ret.add(root.val);
     }
 
     /**
@@ -34,9 +45,9 @@ public class LeetCode145 {
      * @return
      */
     public List<Integer> postorderTraversalRecursive(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
-        postorder(root, result);
-        return  result;
+        List<Integer> ret = new ArrayList<>();
+        postorder(root, ret);
+        return  ret;
     }
 
     public List<Integer> postorderTraversalRecursive2(TreeNode root) {
