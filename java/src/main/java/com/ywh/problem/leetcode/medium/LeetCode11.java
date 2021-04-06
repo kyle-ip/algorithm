@@ -43,7 +43,7 @@ public class LeetCode11 {
      */
     public int maxArea(int[] height) {
         int ret = 0;
-        for (int l = 0, r = height.length - 1; l < r; ) {
+        for (int l = 0, r = height.length - 1; l <= r; ) {
             // 当前面积，左右高度中的较小者 * 左右距离。
             ret = Math.max(ret, (r - l) * Math.min(height[l], height[r]));
 

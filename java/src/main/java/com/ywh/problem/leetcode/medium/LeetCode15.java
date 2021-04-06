@@ -30,7 +30,6 @@ public class LeetCode15 {
      * @return
      */
     public List<List<Integer>> threeNumSumToZeroOn3(int[] nums) {
-
         List<List<Integer>> ret = new ArrayList<>();
         Set<List<Integer>> set = new HashSet<>();
         Arrays.sort(nums);

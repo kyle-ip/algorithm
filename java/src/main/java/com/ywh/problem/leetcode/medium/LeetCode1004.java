@@ -1,7 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
 /**
- * 最大连续1的个数 III
+ * 最大连续 1 的个数 III
  * [双指针] [滑动窗口]
  * 
  * 给定一个由若干 0 和 1 组成的数组 A，我们最多可以将 K 个值从 0 变成 1 。
@@ -81,12 +81,14 @@ public class LeetCode1004 {
      */
     public int longestOnes1(int[] A, int K) {
         // 前缀和表示 0 的个数，lsum（l-1）、rsum（r）分别表示左前缀和、右前缀和，则目标找到 rsum - lsum <= K。
-        int n = A.length, l = 0, lsum = 0, rsum = 0, ret = 0;
-        for (int r = 0; r < n; ++r) {
+        int n = A.length, ret = 0;
+        for (int r = 0, l = 0, lsum = 0, rsum = 0; r < n; ++r) {
+
+            // 如果 A[r] 为 0，则 1-A[r] 为 1，累加到 rsum 上。
             rsum += 1 - A[r];
 
-            // 找到 rsum - lsum <= K 的位置：
-            for (;rsum - lsum > K; l++) {
+            // 找到 rsum - lsum <= K 的位置，表示可以将 l 与 r 之间的 0 变成 1，再计算长度。
+            for (; rsum - lsum > K; l++) {
                 lsum += 1 - A[l];
             }
             ret = Math.max(ret, r - l + 1);

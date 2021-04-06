@@ -18,6 +18,8 @@ package com.ywh.problem.leetcode.medium;
  *           将中间的一个'A'替换为'B',字符串变为 "AABBBBA"。
  *           子串 "BBBB" 有最长重复字母, 答案为 4。
  *
+ * https://leetcode-cn.com/problems/longest-repeating-character-replacement/solution/ti-huan-hou-de-zui-chang-zhong-fu-zi-fu-eaacp/
+ *
  * @author ywh
  * @since 2021/3/10/010
  */

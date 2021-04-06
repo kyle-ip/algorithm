@@ -114,28 +114,28 @@ public class LeetCode239 {
     public int[] maxNumInSlidingWindowOn(int[] nums, int k) {
         int n = nums.length;
 
-        // 结果数组，从左到右分组最大值，从右到左分组最大。
-        int[] ret = new int[n - k + 1], maxFromLeft = new int[n], maxFromRight = new int[n];
+        // 结果数组，从左到右分组最大值，从右到左分组最大值。
+        int[] ret = new int[n - k + 1], leftMax = new int[n], rightMax = new int[n];
 
         // [0, 4, 2], [1, 0, 8], 2
 
         // [0, 4, 4], [1, 1, 8], 2
-        maxFromLeft[0] = nums[0];
+        leftMax[0] = nums[0];
 
         // [4, 4, 2], [8, 8, 8], 2
-        maxFromRight[n - 1] = nums[n - 1];
+        rightMax[n - 1] = nums[n - 1];
 
         // 一轮循环，从左到右、从右到左求分组长度为 k 的阶段最大值。
         for (int i = 1, j = n - 2; i < n; i++, j--) {
             // 可以整除 k，表示分组内的第一个值，最大值为自身；否则与上一个最大值对比。
-            maxFromLeft[i] = i % k == 0? nums[i]: Math.max(maxFromLeft[i - 1], nums[i]);
+            leftMax[i] = i % k == 0? nums[i]: Math.max(leftMax[i - 1], nums[i]);
 
             // 除以 k 余 k - 1，表示分组内最后一个值，最大值为自身；否则与上一个最大值对比。
-            maxFromRight[j] = j % k == k - 1? nums[j]: Math.max(maxFromRight[j + 1], nums[j]);
+            rightMax[j] = j % k == k - 1? nums[j]: Math.max(rightMax[j + 1], nums[j]);
         }
 
         for (int i = 0; i < n - k + 1; i++) {
-            ret[i] = Math.max(maxFromRight[i], maxFromLeft[i + k - 1]);
+            ret[i] = Math.max(rightMax[i], leftMax[i + k - 1]);
         }
         return ret;
     }

@@ -28,6 +28,11 @@ public class TreeNode {
         this.val = val;
     }
 
+    /**
+     *
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -42,6 +47,10 @@ public class TreeNode {
             right.equals(node.right);
     }
 
+    /**
+     * 
+     * @return
+     */
     @Override
     public int hashCode() {
         return Objects.hash(val, left, right);

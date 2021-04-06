@@ -6,7 +6,28 @@ import java.util.Set;
 /**
  * 快乐数
  * [哈希表] [双指针] [数学]
+ * 
+ * 编写一个算法来判断一个数 n 是不是快乐数。
  *
+ * 「快乐数」定义为：
+ * 对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和。
+ * 然后重复这个过程直到这个数变为 1，也可能是 无限循环 但始终变不到 1。
+ * 如果 可以变为  1，那么这个数就是快乐数。
+ * 如果 n 是快乐数就返回 true ；不是，则返回 false 。
+ * 示例 1：
+ *      输入：19
+ *      输出：true
+ *      解释：
+ *      1^2 + 9^2 = 82
+ *      8^2 + 2^2 = 68
+ *      6^2 + 8^2 = 100
+ *      1^2 + 0^2 + 0^2 = 1
+ * 示例 2：
+ *      输入：n = 2
+ *      输出：false
+ * 提示：
+ *      1 <= n <= 2^31 - 1
+ * 
  * @author ywh
  * @since 20/11/2019
  */
@@ -19,11 +40,10 @@ public class LeetCode202 {
      * @return
      */
     private int transform(int n) {
-        int sum = 0, a = 0;
-        while (n != 0) {
+        int sum = 0, a;
+        for (; n != 0; n /= 10) {
             a = n % 10;
             sum += a * a;
-            n /= 10;
         }
         return sum;
     }
@@ -37,14 +57,9 @@ public class LeetCode202 {
      * @return
      */
     public boolean isHappyTwoPointer(int n) {
-        if (n <= 0) {
-            return false;
-        }
-        int fast = n, slow = n;
-
         // 根据快乐数的定义，它会在 4, 16, 37, 58, 89, 145, 42, 20 之间循环
         // 因此定义快慢指针，如果快指针可以达到 1，则返回 true；否则当快指针追上慢指针返回 false
-        while (true) {
+        for (int fast = n, slow = n; ; ) {
             fast = transform(transform(fast));
             slow = transform(slow);
             if (fast == 1) {
@@ -86,9 +101,6 @@ public class LeetCode202 {
      * @return
      */
     public boolean isHappyMath(int n) {
-        if (n <= 0) {
-            return false;
-        }
 
         // 打表
         boolean[] happy = new boolean[101];
@@ -164,9 +176,6 @@ public class LeetCode202 {
      * @return
      */
     public boolean isHappyHashSetPrint(int n) {
-        if (n <= 0) {
-            return false;
-        }
         Set<Integer> set = new HashSet<>();
         System.out.print(n + ", ");
         while (n != 1) {
