@@ -25,6 +25,8 @@ package com.ywh.problem.leetcode.hard;
 public class LeetCode992 {
 
     /**
+     * 恰好包含 K 个不同整数的子区间的个数
+     *
      * Time: O(n), Space: O(n)
      *
      * @param A
@@ -36,39 +38,35 @@ public class LeetCode992 {
     }
 
     /**
+     * 最多包含 K 个不同整数的子区间的个数
      *
      * @param A
      * @param K
-     * @return 最多包含 K 个不同整数的子区间的个数
+     * @return
      */
     private int atMostKDistinct(int[] A, int K) {
-        int len = A.length;
-        int[] freq = new int[len + 1];
-
-        int left = 0;
-        int right = 0;
-        // [left, right) 里不同整数的个数
-        int count = 0;
-        int res = 0;
-        // [left, right) 包含不同整数的个数小于等于 K
-        while (right < len) {
-            if (freq[A[right]] == 0) {
-                count++;
+        int[] counter = new int[A.length + 1];
+        // [l, r) 中不同整数的个数、包含不同整数的个数小于等于 K
+        int cnt = 0, ret = 0;
+        for (int l = 0, r = 0; r < A.length; ) {
+            // 右指针的元素首次出现，统计到 count。
+            if (counter[A[r]] == 0) {
+                cnt++;
             }
-            freq[A[right]]++;
-            right++;
+            counter[A[r++]]++;
 
-            while (count > K) {
-                freq[A[left]]--;
-                if (freq[A[left]] == 0) {
-                    count--;
+            // 如果统计首次出现的元素的个数（即不同元素的个数）大于 K，则减少相应的统计值，并移动左指针。
+            for (; cnt > K; l++) {
+                counter[A[l]]--;
+                // 左指针的元素出现次数被减到 0，count 减少。
+                if (counter[A[l]] == 0) {
+                    cnt--;
                 }
-                left++;
             }
-            // [left, right) 区间的长度就是对结果的贡献
-            res += right - left;
+            // [l, r) 区间的长度就是对结果的贡献。
+            ret += r - l;
         }
-        return res;
+        return ret;
     }
 
 }

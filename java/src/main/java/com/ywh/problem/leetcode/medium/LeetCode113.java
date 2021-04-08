@@ -37,9 +37,9 @@ public class LeetCode113 {
      * @param elem
      * @param ret
      */
-    private void path(TreeNode root, int sum, LinkedList<Integer> elem, List<List<Integer>> ret) {
+    private List<List<Integer>> path(TreeNode root, int sum, LinkedList<Integer> elem, List<List<Integer>> ret) {
         if (root == null) {
-            return;
+            return ret;
         }
         // 把当前节点加入当前路径。
         elem.add(root.val);
@@ -55,18 +55,6 @@ public class LeetCode113 {
 
         // 移除最后一个元素。
         elem.removeLast();
-    }
-
-    /**
-     * Time: O(n), Space: O(n)
-     *
-     * @param root
-     * @param sum
-     * @return
-     */
-    public List<List<Integer>> pathSumRecursive(TreeNode root, int sum) {
-        List<List<Integer>> ret = new ArrayList<>();
-        path(root, sum, new LinkedList<>(), ret);
         return ret;
     }
 
@@ -74,10 +62,21 @@ public class LeetCode113 {
      * Time: O(n), Space: O(n)
      *
      * @param root
-     * @param sum
+     * @param targetSum
      * @return
      */
-    public List<List<Integer>> pathSumIterative(TreeNode root, int sum) {
+    public List<List<Integer>> pathSumRecursive(TreeNode root, int targetSum) {
+        return path(root, targetSum, new LinkedList<>(), new ArrayList<>());
+    }
+
+    /**
+     * Time: O(n), Space: O(n)
+     *
+     * @param root
+     * @param targetSum
+     * @return
+     */
+    public List<List<Integer>> pathSumIterative(TreeNode root, int targetSum) {
         List<List<Integer>> ret = new ArrayList<>();
         List<Integer> elem = new ArrayList<>();
         Deque<TreeNode> stack = new LinkedList<>();
@@ -99,7 +98,7 @@ public class LeetCode113 {
 
             // 当前路径没有右节点，或右边路径已被访问过（用于回退时判断）
             if (n.right == null || visited.contains(n.right)) {
-                if (n.left == null && n.right == null && curSum == sum) {
+                if (n.left == null && n.right == null && curSum == targetSum) {
                     ret.add(new ArrayList<>(elem));
                 }
                 stack.pop();
@@ -117,10 +116,10 @@ public class LeetCode113 {
      * Time: O(n), Space: O(n)
      *
      * @param root
-     * @param sum
+     * @param targetSum
      * @return
      */
-    public List<List<Integer>> pathSumIterativePrev(TreeNode root, int sum) {
+    public List<List<Integer>> pathSumIterativePrev(TreeNode root, int targetSum) {
         List<List<Integer>> ret = new ArrayList<>();
         List<Integer> elem = new ArrayList<>();
         Deque<TreeNode> stack = new LinkedList<>();
@@ -135,7 +134,7 @@ public class LeetCode113 {
             }
             TreeNode n = stack.peek();
             if (n.right == null || n.right == prev) {
-                if (n.left == null && n.right == null && curSum == sum) {
+                if (n.left == null && n.right == null && curSum == targetSum) {
                     ret.add(new ArrayList<>());
                 }
                 stack.pop();

@@ -80,11 +80,15 @@ public class LeetCode124 {
         //   1    2
         //  / \
         // 4   8
+
+        // 叶子节点，返回 0。
         if (root == null) {
             return 0;
         }
+
         // 递归计算左右子节点的最大贡献值，在最大贡献值大于 0 时才会选取对应子节点。
-        int leftMax = Math.max(maxPathSumOn(root.left, ret), 0), rightMax = Math.max(maxPathSumOn(root.right, ret), 0);
+        int leftMax = Math.max(maxPathSumOn(root.left, ret), 0),
+            rightMax = Math.max(maxPathSumOn(root.right, ret), 0);
 
         // 更新答案：root 的最大路径和为 root.val 与其左右子节点最大路径和之和。
         ret[0] = Math.max(ret[0], root.val + leftMax + rightMax);
@@ -105,7 +109,7 @@ public class LeetCode124 {
      */
     public int maxPathSumOn(TreeNode root) {
 
-        // 数组便于传参。
+        // 数组便于传参，由于节点值可能为负数，所以每次求值都需要把结果与 0 比较取较大者（表示不累计负值）。
         int[] ret = new int[]{Integer.MIN_VALUE};
         maxPathSumOn(root, ret);
         return ret[0];

@@ -85,18 +85,18 @@ public class LeetCode287 {
     public int findDuplicateTwoPointer(int[] nums) {
         // 快慢两个指针，慢指针指向第一个元素，快指针指向以慢指针元素为下标的元素
         // 不断以值为下标、访问下一个元素（快指针转换两次、慢指针转换一次）
-        int slow = nums[0], fast = nums[nums[0]], p = 0;
+        int slow = nums[0], fast = nums[nums[0]];
 
         // 这会不断循环，如对于 4, 3, 3, 1, 2, 5，序列为：2 -> 3 -> 1 -> 3 -> 1 -> ...
         // 这是因为数组长度为 n + 1，值域为 1 ~ n，不断循环都是合法的下标（成环）
-        // 使用快慢两个指针，
+        // 使用快慢两个指针：
         while (slow != fast) {
             slow = nums[slow];
             fast = nums[nums[fast]];
         }
 
         // 当快慢指针相遇，新建一个指针从头开始，与慢指针同步移动，直到两者相遇，即为环的入口，即重复元素。
-        while (p != slow) {
+        for (int p = 0; p != slow; ) {
             slow = nums[slow];
             p = nums[p];
         }

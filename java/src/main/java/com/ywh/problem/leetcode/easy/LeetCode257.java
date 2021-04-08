@@ -8,7 +8,20 @@ import java.util.List;
 /**
  * 二叉树的所有路径
  * [树]
+ * 
+ * 给定一个二叉树，返回所有从根节点到叶子节点的路径。
+ * 说明: 叶子节点是指没有子节点的节点。
+ * 示例:
+ *      输入:
+ *              1
+ *            /   \
+ *           2     3
+ *            \
+ *             5
  *
+ *      输出: ["1->2->5", "1->3"]
+ *      解释: 所有根节点到叶子节点的路径为: 1->2->5, 1->3
+ * 
  * @author ywh
  * @since 09/01/2020
  */
@@ -18,19 +31,19 @@ public class LeetCode257 {
      *
      * @param root
      * @param cur
-     * @param list
+     * @param ret
      */
-    private void dfs(TreeNode root, String cur, List<String> list) {
+    private List<String> dfs(TreeNode root, String cur, List<String> ret) {
         if (root == null) {
-            return;
+            return ret;
         }
         cur += root.val;
         if (root.left == null && root.right == null) {
-            list.add(cur);
+            ret.add(cur);
         }
-        dfs(root.left, cur + "->", list);
-        dfs(root.right, cur + "->", list);
-
+        dfs(root.left, cur + "->", ret);
+        dfs(root.right, cur + "->", ret);
+        return ret;
     }
 
     /**
@@ -39,13 +52,8 @@ public class LeetCode257 {
      * @param root
      * @return
      */
-    public List<String> dfs(TreeNode root) {
-        List<String> list = new ArrayList<>();
-        if (root == null) {
-            return list;
-        }
-        dfs(root, "", list);
-        return list;
+    public List<String> binaryTreePaths(TreeNode root) {
+        return dfs(root, "", new ArrayList<>());
     }
 
     /**

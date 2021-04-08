@@ -19,18 +19,18 @@ public class LeetCode386 {
     /**
      *
      * @param ret
-     * @param val
+     * @param num
      * @param max
      */
-    private List<Integer> lexicalOrderRecursive(List<Integer> ret, int val, int max) {
-        if (val != 0) {
-            ret.add(val);
+    private List<Integer> lexicalOrderRecursive(List<Integer> ret, int num, int max) {
+        if (num > 0) {
+            ret.add(num);
         }
         // 循环中递归，相当于把当前循环执行到底再执行下一轮循环（比如当前循环为 1，则不断 n * 10 + 1 到底再返回）
-        for (int i = 0; i <= 9 && val * 10 + i <= max; i++) {
+        for (int i = 0; i <= 9 && num * 10 + i <= max; i++) {
             // 跳过 0 * 10 + 0，即至少从 1、10 ... 开始。
-            if (val != 0 || i != 0) {
-                lexicalOrderRecursive(ret, val * 10 + i, max);
+            if (num != 0 || i != 0) {
+                lexicalOrderRecursive(ret, num * 10 + i, max);
             }
         }
         return  ret;
@@ -56,26 +56,23 @@ public class LeetCode386 {
      */
     public List<Integer> lexicalOrder10WayTreePreorder(int n) {
         List<Integer> ret = new ArrayList<>();
-        Deque<Integer> tree = new LinkedList<>();
+        Deque<Integer> stack = new LinkedList<>();
 
-        // 填充十叉树的第一层（[1, n] 或 [1, 9]）
+        // 倒序填充十叉树的第一层（[1, n] 或 [1, 9]）
         for (int i = Math.min(n, 9); i > 0; i--) {
-            tree.push(i);
+            stack.push(i);
         }
 
-        while (!tree.isEmpty()) {
-            int cur = tree.pop();
-            ret.add(cur);
+        while (!stack.isEmpty()) {
+            int num = stack.pop();
+            ret.add(num);
 
             // 字典序：如处理 1 后，继续处理 10 ~ 19
-            cur *= 10;
-            if (cur > n) {
-                continue;
-            }
+            num *= 10;
             // 倒序入栈：如 n 与 cur 差距超出 9，需要处理 [cur, cur + 9]，否则 [cur, cur + n]
-            for (int i = Math.min(n - cur, 9); i >= 0; i--) {
-                if (cur + i <= n) {
-                    tree.push(cur + i);
+            for (int i = Math.min(n - num, 9); i >= 0 && num <= n; i--) {
+                if (num + i <= n) {
+                    stack.push(num + i);
                 }
             }
         }

@@ -4,8 +4,25 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 /**
- * 验证二叉搜索树的前序遍历序列
+ * 验证前序遍历序列二叉搜索树
  * [树] [栈] [分治]
+ *
+ * 给定一个整数数组，你需要验证它是否是一个二叉搜索树正确的先序遍历序列。
+ * 你可以假定该序列中的数都是不相同的。
+ * 参考以下这颗二叉搜索树：
+ *           5
+ *          / \
+ *         2   6
+ *        / \
+ *       1   3
+ * 示例 1：
+ *      输入: [5,2,6,1,3]
+ *      输出: false
+ * 示例 2：
+ *      输入: [5,2,1,3,6]
+ *      输出: true
+ * 进阶挑战：
+ *      您能否使用恒定的空间复杂度来完成此题？
  *
  * @author ywh
  * @since 07/01/2020
@@ -21,25 +38,23 @@ public class LeetCode255 {
      * @return
      */
     private boolean verify(int[] nums, int start, int end) {
+        // 处理到最后返回 true。
         if (start == end || start + 1 == end) {
             return true;
         }
+
         // 取树根：[4], 1, 0, 2, 8
         int root = nums[start];
 
         // 验证左子树：4, (1, 0, 2), 8
         int i = start + 1;
-        while (i < end && nums[i] < root) {
-            ++i;
-        }
+        for (; i < end && nums[i] < root; i++);
 
         // 验证右子树：4, 1, 0, 2, (8)
         int mid = i;
-        while (i < end && nums[i] > root) {
-            ++i;
-        }
+        for (; i < end && nums[i] > root; i++);
 
-        // 如果验证到尽头（满足根节点大于左子树、小于右子树的条件），则递归验证其左右子树，否则返回 false
+        // 如果验证到尽头，满足根节点大于左子树、小于右子树的条件，则递归验证其左右子树，否则返回 false。
         if (i != end) {
             return false;
 
@@ -99,7 +114,7 @@ public class LeetCode255 {
     /**
      * 运用数组实现栈
      *
-     * Time: O(n), Space: O(1)
+     * Time: O(n), Space: O(n)
      *
      * @param preorder
      * @return

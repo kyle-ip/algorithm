@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 /**
  * 和至少为 K 的最短子数组
- * 
+ *
  * 返回 A 的最短的非空连续子数组的长度，该子数组的和至少为 K 。
  * 如果没有和至少为 K 的非空子数组，返回 -1 。
  * 示例 1：
@@ -28,34 +28,39 @@ import java.util.LinkedList;
 public class LeetCode862 {
 
     /**
-     *
      * @param A
      * @param K
      * @return
      */
     public int shortestSubarray(int[] A, int K) {
         int n = A.length;
-        long[] P = new long[n + 1];
+
+        // 前缀和 p[i] 表示前 i 个元素之和。
+        long[] prefixSum = new long[n + 1];
         for (int i = 0; i < n; ++i) {
-            P[i + 1] = P[i] + (long) A[i];
+            prefixSum[i + 1] = prefixSum[i] + (long) A[i];
         }
 
-        // Want smallest y-x with P[y] - P[x] >= K
-        int ans = n+1; // N+1 is impossible
+        // 找到 l 与 r，使得 P[r] - P[l] >= K，即 l 与 r 之间的和至少为 K。
+        int ret = n + 1;
         // opt(y) candidates, as indices of P
-        Deque<Integer> monoq = new LinkedList<>();
 
-        for (int y = 0; y < P.length; ++y) {
+        // 使用队列存放左下标（模拟滑动窗口的左边界）
+        Deque<Integer> deque = new LinkedList<>();
+
+        for (int r = 0; r < prefixSum.length; ++r) {
             // Want opt(y) = largest x with P[x] <= P[y] - K;
-            while (!monoq.isEmpty() && P[y] <= P[monoq.getLast()]) {
-                monoq.removeLast();
+            // 右判断条件：队列非空，且 r 的前缀和小于等于队尾值的前缀和，则移除队尾值。
+            while (!deque.isEmpty() && prefixSum[r] <= prefixSum[deque.getLast()]) {
+                deque.removeLast();
             }
-            while (!monoq.isEmpty() && P[y] >= P[monoq.getFirst()] + K) {
-                ans = Math.min(ans, y - monoq.removeFirst());
+            // 左判断条件：队列非空，且 r 的前缀和大于等于队首值的前缀和 + K，则更新结果值，并移除队首值。
+            while (!deque.isEmpty() && prefixSum[r] >= prefixSum[deque.getFirst()] + K) {
+                ret = Math.min(ret, r - deque.removeFirst());
             }
-            monoq.addLast(y);
+            deque.addLast(r);
         }
 
-        return ans < n + 1 ? ans : -1;
+        return ret < n + 1 ? ret : -1;
     }
 }
