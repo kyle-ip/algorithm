@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 拍平二叉树
+ * 二叉树展开为链表
  * [树] [深度优先搜索]
  * 
  * 给你二叉树的根结点 root ，请你将它展开为一个单链表：
@@ -49,11 +49,11 @@ public class LeetCode114 {
         //      / \   \
         //     3   4   6
         Deque<TreeNode> stack = new LinkedList<>();
-        List<TreeNode> preorderList = new ArrayList<>();
+        List<TreeNode> preorder = new ArrayList<>();
         TreeNode cur = root;
         while (cur != null || !stack.isEmpty()) {
             if (cur != null) {
-                preorderList.add(cur);
+                preorder.add(cur);
                 stack.push(cur);
                 cur = cur.left;
             } else {
@@ -67,9 +67,9 @@ public class LeetCode114 {
         //      / \
         //     x   3
         //          ...
-        for (int i = 1; i < preorderList.size(); i++) {
+        for (int i = 1; i < preorder.size(); i++) {
             root.left = null;
-            root.right = preorderList.get(i);
+            root.right = preorder.get(i);
             root = root.right;
         }
     }

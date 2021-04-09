@@ -34,27 +34,27 @@ public class LeetCode112 {
      * Time: O(n), Space: O(n)
      *
      * @param root
-     * @param sum
+     * @param targetSum
      * @return
      */
-    public boolean hasPathSumRecursive(TreeNode root, int sum) {
+    public boolean hasPathSumRecursive(TreeNode root, int targetSum) {
         if (root == null) {
             return false;
         }
         if (root.left == null && root.right == null) {
-            return sum == root.val;
+            return targetSum == root.val;
         }
-        return hasPathSumRecursive(root.left, sum - root.val) || hasPathSumRecursive(root.right, sum - root.val);
+        return hasPathSumRecursive(root.left, targetSum - root.val) || hasPathSumRecursive(root.right, targetSum - root.val);
     }
 
     /**
      * Time: O(n), Space: O(n)
      *
      * @param root
-     * @param sum
+     * @param targetSum
      * @return
      */
-    public boolean hasPathSumIterative(TreeNode root, int sum) {
+    public boolean hasPathSumIterative(TreeNode root, int targetSum) {
         if (root == null) {
             return false;
         }
@@ -63,7 +63,7 @@ public class LeetCode112 {
         Deque<TreeNode> stack = new LinkedList<>();
         Deque<Integer> sumStack = new LinkedList<>();
         stack.push(root);
-        sumStack.push(sum);
+        sumStack.push(targetSum);
 
         while (!stack.isEmpty()) {
             int s = sumStack.pop();

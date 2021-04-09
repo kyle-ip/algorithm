@@ -80,7 +80,7 @@ public class LeetCode129 {
      * @return
      */
     public int sumNumbersDFS(TreeNode root) {
-        return dfs(root, 0);
+        return sumNumbersDFS(root, 0);
     }
 
     /**
@@ -89,7 +89,7 @@ public class LeetCode129 {
      * @param prevSum
      * @return
      */
-    public int dfs(TreeNode root, int prevSum) {
+    public int sumNumbersDFS(TreeNode root, int prevSum) {
         if (root == null) {
             return 0;
         }
@@ -97,6 +97,6 @@ public class LeetCode129 {
         if (root.left == null && root.right == null) {
             return sum;
         }
-        return dfs(root.left, sum) + dfs(root.right, sum);
+        return sumNumbersDFS(root.left, sum) + sumNumbersDFS(root.right, sum);
     }
 }

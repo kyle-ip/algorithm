@@ -33,12 +33,10 @@ public class LeetCode109 {
         if (left == right) {
             return null;
         }
-        ListNode mid = left, fast = left;
-        for (; fast != right && fast.next != right; mid = mid.next, fast = fast.next.next) {}
+        ListNode mid = left;
+        for (ListNode p = left; p != right && p.next != right; mid = mid.next, p = p.next.next) {}
         return new TreeNode(
-            mid.val,
-            sortedListToBST(left, mid),
-            sortedListToBST(mid.next, right)
+            mid.val, sortedListToBST(left, mid), sortedListToBST(mid.next, right)
         );
     }
 
@@ -82,7 +80,7 @@ public class LeetCode109 {
     public TreeNode sortedListToBST2(ListNode head) {
         cur = head;
         int len = 0;
-        for (; head != null; len += 1, head = head.next) ;
+        for (; head != null; len += 1, head = head.next) {}
         return sortedListToBST2(0, len - 1);
     }
 

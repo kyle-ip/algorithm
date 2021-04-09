@@ -6,7 +6,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 /**
- * 将二叉搜索树转为较大树
+ * 把二叉搜索树转换为累加树
  * [树]
  *
  * @author ywh

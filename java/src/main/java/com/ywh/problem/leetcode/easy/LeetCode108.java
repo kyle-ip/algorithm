@@ -20,7 +20,10 @@ import java.util.LinkedList;
  *         -3   9
  *         /   /
  *       -10  5
- *
+ * 提示：
+ *      1 <= nums.length <= 10^4
+ *      -10^4 <= nums[i] <= 10^4
+ *      nums 按 严格递增 顺序排列
  * @author ywh
  * @since 2/20/2019
  */
@@ -37,7 +40,7 @@ public class LeetCode108 {
         if (start > end) {
             return null;
         }
-        int mid = (start + end) / 2;
+        int mid = start + (end - start) / 2;
         return new TreeNode(nums[mid], toBST(nums, start, mid - 1), toBST(nums, mid + 1, end));
     }
 
@@ -49,9 +52,6 @@ public class LeetCode108 {
      * @return
      */
     public TreeNode sortedArrayToBSTRecursive(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return null;
-        }
         return toBST(nums, 0, nums.length - 1);
     }
 
@@ -62,9 +62,6 @@ public class LeetCode108 {
      * @return
      */
     public TreeNode sortedArrayToBSTIterative(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return null;
-        }
         Deque<OrderTreeNode> stack = new LinkedList<>();
         TreeNode dummy = new TreeNode(0);
         stack.push(new OrderTreeNode(dummy, 0, nums.length - 1, true));

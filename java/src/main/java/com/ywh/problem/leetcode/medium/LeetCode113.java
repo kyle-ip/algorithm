@@ -33,11 +33,11 @@ public class LeetCode113 {
     /**
      *
      * @param root
-     * @param sum
+     * @param targetSum
      * @param elem
      * @param ret
      */
-    private List<List<Integer>> path(TreeNode root, int sum, LinkedList<Integer> elem, List<List<Integer>> ret) {
+    private List<List<Integer>> path(TreeNode root, int targetSum, LinkedList<Integer> elem, List<List<Integer>> ret) {
         if (root == null) {
             return ret;
         }
@@ -45,13 +45,13 @@ public class LeetCode113 {
         elem.add(root.val);
 
         // 路径和符合要求。
-        if (root.left == null && root.right == null && root.val == sum) {
+        if (root.left == null && root.right == null && root.val == targetSum) {
             ret.add(new ArrayList<>(elem));
         }
 
         // 递归调用左右子树。
-        path(root.left, sum - root.val, elem, ret);
-        path(root.right, sum - root.val, elem, ret);
+        path(root.left, targetSum - root.val, elem, ret);
+        path(root.right, targetSum - root.val, elem, ret);
 
         // 移除最后一个元素。
         elem.removeLast();
