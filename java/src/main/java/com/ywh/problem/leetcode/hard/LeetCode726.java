@@ -41,63 +41,64 @@ import java.util.regex.Pattern;
  */
 public class LeetCode726 {
 
-    int i;
-
     /**
      *
      * @param formula
      * @return
      */
     public String countOfAtoms(String formula) {
-        StringBuilder ans = new StringBuilder();
-        i = 0;
-        Map<String, Integer> count = parse(formula);
+        StringBuilder ret = new StringBuilder();
+        int[] index = new int[1];
+        Map<String, Integer> count = parse(formula, index);
+
+        // 整理处理结果。
         for (String name: count.keySet()) {
-            ans.append(name);
+            ret.append(name);
             int multiplicity = count.get(name);
             if (multiplicity > 1) {
-                ans.append(multiplicity);
+                ret.append(multiplicity);
             }
         }
-        return new String(ans);
+        return new String(ret);
     }
 
     /**
      *
      * @param formula
+     * @param index
      * @return
      */
-    public Map<String, Integer> parse(String formula) {
+    public Map<String, Integer> parse(String formula, int[] index) {
         int n = formula.length();
         Map<String, Integer> counter = new TreeMap<>();
 
         // 解析一个子串或一种原子。
-        while (i < n && formula.charAt(i) != ')') {
-            if (formula.charAt(i) == '(') {
+        while (index[0] < n && formula.charAt(index[0]) != ')') {
+            if (formula.charAt(index[0]) == '(') {
                 // 跳过“(”，解析子串，算入 counter 中。
-                i++;
-                Map<String, Integer> subFormula = parse(formula);
+                index[0]++;
+                Map<String, Integer> subFormula = parse(formula, index);
                 for (Map.Entry<String, Integer> entry: subFormula.entrySet()) {
                     counter.put(entry.getKey(), counter.getOrDefault(entry.getKey(), 0) + entry.getValue());
                 }
             } else {
-                int iStart = i++;
+                int iStart = index[0]++;
                 // 取原子的名称。
-                for (; i < n && Character.isLowerCase(formula.charAt(i)); i++) {}
-                String name = formula.substring(iStart, i);
+                for (; index[0] < n && Character.isLowerCase(formula.charAt(index[0])); index[0]++) {}
+                String name = formula.substring(iStart, index[0]);
                 // 取原子的个数。
-                iStart = i;
-                for (; i < n && Character.isDigit(formula.charAt(i)); i++) {}
-                int multiplicity = iStart < i ? Integer.parseInt(formula.substring(iStart, i)) : 1;
+                iStart = index[0];
+                for (; index[0] < n && Character.isDigit(formula.charAt(index[0])); index[0]++) {}
+                int multiplicity = iStart < index[0] ? Integer.parseInt(formula.substring(iStart, index[0])) : 1;
                 // 算入 counter 中。
                 counter.put(name, counter.getOrDefault(name, 0) + multiplicity);
             }
         }
         //
-        int iStart = ++i;
-        for (; i < n && Character.isDigit(formula.charAt(i)); i++) {}
-        if (iStart < i) {
-            int multiplicity = Integer.parseInt(formula.substring(iStart, i));
+        int iStart = ++index[0];
+        for (; index[0] < n && Character.isDigit(formula.charAt(index[0])); index[0]++) {}
+        if (iStart < index[0]) {
+            int multiplicity = Integer.parseInt(formula.substring(iStart, index[0]));
             for (String key: counter.keySet()) {
                 counter.put(key, counter.get(key) * multiplicity);
             }

@@ -3,7 +3,7 @@ package com.ywh.problem.leetcode.hard;
 /**
  * 最小覆盖子串
  * [哈希表] [双指针] [字符串] [滑动窗口]
- * 
+ *
  * 给你一个字符串 s 、一个字符串 t 。返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 "" 。
  * 注意：如果 s 中存在这样的子串，我们保证它是唯一的答案。
  * 示例 1：
@@ -30,34 +30,38 @@ public class LeetCode76 {
      * @return
      */
     public String minSubstringContainT(String s, String t) {
+
+        // s 中需求的字符统计值（初始化为 t 中字符出现的频度）。在滑动窗口的过程中每出现一次就 -1。
+        // 比如 t 为 aab，则 required['a'] == 2，required['b'] == 1。
         int[] required = new int[256];
-        int start = 0, len = Integer.MAX_VALUE, requiredCnt = t.length();
-        int left = 0, right = 0;
         for (int i = 0; i < t.length(); ++i) {
             ++required[t.charAt(i)];
         }
 
-        for (; right < s.length(); ++right) {
-            char r = s.charAt(right);
-            if (required[r] > 0) {
-                --requiredCnt;
-            }
-            --required[r];
+        // start、len 用于返回结果子串，requiredCnt 表示剩余需要寻找的字符总量。
+        int start = 0, len = s.length() + 1, requiredCnt = t.length();
 
-            while (requiredCnt == 0) {
-                if (right - left + 1 < len) {
-                    start = left;
-                    len = right - left + 1;
+        for (int l = 0, r = 0; r < s.length(); ++r) {
+            // required 中的统计值大于 0，表示 s.charAt(r) 即为 t 中的字符。
+            if (required[s.charAt(r)] > 0) {
+                requiredCnt--;
+            }
+            required[s.charAt(r)]--;
+            // 每当 requiredCnt 减到 0，表示 [l、r] 包含的子串已覆盖 t。
+            for (; requiredCnt == 0; ++l) {
+                // 更新当前下标的开始、长度（如果更短）。
+                if (r - l + 1 < len) {
+                    start = l;
+                    len = r - l + 1;
                 }
-                char l = s.charAt(left);
-                ++required[l];
-                if (required[l] > 0) {
-                    ++requiredCnt;
+                // 收缩左边界（左边统计值 +1，需要的字符总量 +1）。
+                required[s.charAt(l)]++;
+                if (required[s.charAt(l)] > 0) {
+                    requiredCnt++;
                 }
-                ++left;
             }
         }
-        return len == Integer.MAX_VALUE ? "" : s.substring(start, start + len);
+        return len > s.length() ? "" : s.substring(start, start + len);
     }
 
 }

@@ -89,27 +89,27 @@ public class LeetCode207 {
      * （节点总数为 V，边总数为 E）
      * Time: O(V+E), Space: O(V+E)
      *
-     * @param n
-     * @param pairs
+     * @param numCourses
+     * @param prerequisites
      * @return
      */
-    public boolean canFinishDFS(int n, int[][] pairs) {
+    public boolean canFinishDFS(int numCourses, int[][] prerequisites) {
 
         // 以邻接表表示的图，从 0 到 n - 1 定义一个链表，表示 n 个节点的邻接表
         List<List<Integer>> graph = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < numCourses; i++) {
             graph.add(new LinkedList<>());
         }
 
         // pair[0] 依赖 pair[1]：即上课程 pair[0] 之前需要先上课程 pair[1]
         // 邻接表表示有向图，第一维指向第二维（pair[1] -> pair[0]）
-        for (int[] pair : pairs) {
+        for (int[] pair : prerequisites) {
             graph.get(pair[1]).add(pair[0]);
         }
-        boolean[] checked = new boolean[n], visited = new boolean[n];
+        boolean[] checked = new boolean[numCourses], visited = new boolean[numCourses];
 
         // 遍历 n 个节点，如果该节点未检查过且有环，返回 false
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < numCourses; i++) {
             if (!checked[i] && hasCycle(graph, visited, checked, i)) {
                 return false;
             }
@@ -125,27 +125,28 @@ public class LeetCode207 {
      *
      * Time: O(V+E), Space: O(V+E)
      *
-     * @param n
-     * @param pairs
+     * @param numCourses
+     * @param prerequisites
      * @return
      */
-    public boolean canFinishTopoSortAdjList(int n, int[][] pairs) {
-        if (n <= 1 || pairs == null || pairs.length == 0) {
+    public boolean canFinishTopoSortAdjList(int numCourses, int[][] prerequisites) {
+        if (numCourses <= 1 || prerequisites == null || prerequisites.length == 0) {
             return true;
         }
 
-        // 生成图，并记录每个节点的入度
-        int[] inDegree = new int[n];
+        // 生成图，并记录每个节点的入度。
+        int[] inDegree = new int[numCourses];
         List<List<Integer>> graph = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < numCourses; i++) {
             graph.add(new LinkedList<>());
         }
-        for (int[] pair : pairs) {
+        for (int[] pair : prerequisites) {
+            // pair[1] -> pair[0]
             graph.get(pair[1]).add(pair[0]);
-            ++inDegree[pair[0]];
+            inDegree[pair[0]]++;
         }
 
-        // 使用一个队列存放入度为 0 的点
+        // 使用一个队列存放入度为 0 的点：
         Queue<Integer> q = new LinkedList<>();
         for (int i = 0; i < inDegree.length; i++) {
             if (inDegree[i] == 0) {
@@ -153,19 +154,14 @@ public class LeetCode207 {
             }
         }
 
-        // 拓扑排序计数（每有一个入度为 0 的节点被处理则 + 1，如最终所有节点都被处理，表示可生成拓扑排序）
-        int count = 0;
-        while (!q.isEmpty()) {
-            int v = q.poll();
-            ++count;
-            for (int i : graph.get(v)) {
-                --inDegree[i];
-                if (inDegree[i] == 0) {
+        // 拓扑排序计数（每有一个入度为 0 的节点被处理则 +1，如最终所有节点都被处理，表示可生成拓扑排序）。
+        for (; !q.isEmpty(); numCourses--) {
+            for (int i : graph.get(q.poll())) {
+                if (--inDegree[i] == 0) {
                     q.add(i);
                 }
             }
         }
-
-        return count == n;
+        return numCourses == 0;
     }
 }
