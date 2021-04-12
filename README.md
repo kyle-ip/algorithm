@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (331)
+## LeetCode (332)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -279,9 +279,10 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 450  | [Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst) | 二叉搜索树中删除节点               | Time: O(h)<br />Space: O(h) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode450.java) | Medium     | Tree                                                   |
 | 454  | [4Sum II](https://leetcode.com/problems/4sum-ii/) | 四数相加 II | Time: O(n^2)<br />Space: O(n^2) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode454.java) | Medium | Hash Table<br />Binary Search |
 | 455  | [Assign Cookies](https://leetcode.com/problems/assign-cookies/) | 分发饼干 | Time: O(n\*log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode455.java) | Easy | Greedy |
-| 461  | [Hamming Distance](https://leetcode.com/problems/hamming-distance/) | 汉明距离                           | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode461.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_461.py) | Easy       | Bit Manipulation                                       |
+| 460  | [LFU Cache](https://leetcode.com/problems/lfu-cache) | LFU 缓存                           | Time: O(1)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode460.java) | Hard       | Design                                       |
+| 461  | [Hamming Distance](https://leetcode.com/problems/hamming-distance) | 汉明距离                           | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode461.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_461.py) | Easy       | Bit Manipulation                                       |
 | 463  | [Island Perimeter](https://leetcode.com/problems/island-perimeter) | 岛屿的周长                         | Time: O(n^2)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode463.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_463.py) | Easy       | Hash Table                                             |
-| 470  | [Implement Rand10() Using Rand7()](https://leetcode.com/problems/implement-rand10-using-rand7) | 用 rand7() 实现 rand10()           |  | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode470.java) | Medium     | Math<br />Random                                          |
+| 470  | [Implement Rand10() Using Rand7()](https://leetcode.com/problems/implement-rand10-using-rand7) | 用 Rand7() 实现 Rand10()           |  | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode470.java) | Medium     | Math<br />Random                                          |
 | 486  | [Predict the Winner](https://leetcode.com/problems/predict-the-winner) | 预测赢家                           | Time: O(n^2)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode486.java) | Medium     | Minimax<br />Dynamic Programming                          |
 | 493  | [Reverse Pairs](https://leetcode.com/problems/reverse-pairs/) | 翻转对 | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode493.java) | Hard | Binary Search<br />Divided and Conquer<br />Sort<br />Binary Indexed Tree<br />Segment Tree |
 | 509  | [Fibonacci Number](https://leetcode.com/problems/fibonacci-number) | 斐波那契数                  | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode509.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_509.py) | Easy       | Array<br />Dynamic Programming                            |

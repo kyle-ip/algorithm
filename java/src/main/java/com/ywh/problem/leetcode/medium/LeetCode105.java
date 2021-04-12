@@ -28,14 +28,14 @@ import java.util.Map;
 public class LeetCode105 {
 
     /**
-     * @param pre      前序遍历数组
+     * @param preorder      前序遍历数组
      * @param preStartIdx 前序遍历起始位置
      * @param preEndIdx   前序遍历结束位置
      * @param inStartIdx  中序遍历起始位置
      * @param inPos    中序遍历数字下标缓存
      * @return
      */
-    private TreeNode buildTree(int[] pre, int preStartIdx, int preEndIdx, int inStartIdx, Map<Integer, Integer> inPos) {
+    private TreeNode buildTree(int[] preorder, int preStartIdx, int preEndIdx, int inStartIdx, Map<Integer, Integer> inPos) {
 
         // 对于一棵二叉树：
         //       1
@@ -52,7 +52,7 @@ public class LeetCode105 {
         // 再根据根节点的值在中序遍历找到下标，rootIdx = inPos.get(rootVal)。
         // pre: [1], 2, 4, 8, 16
         // in: (2), [1], (8, 4, 16)
-        int rootVal = pre[preStartIdx], inRootIdx = inPos.get(rootVal);
+        int rootVal = preorder[preStartIdx], inRootIdx = inPos.get(rootVal);
 
         // 由中序遍历中根节点的下标可以得出应该划分给左子树和右子树的节点个数，左子树 rootInIdx - inStart 个，剩余给右子树。
         int leftLen = inRootIdx - inStartIdx;
@@ -62,25 +62,25 @@ public class LeetCode105 {
         //           left   right
         return new TreeNode(rootVal,
             // 左 [preStart+1: preStart+leftLen]
-            buildTree(pre, preStartIdx + 1, preStartIdx + leftLen, inStartIdx, inPos),
+            buildTree(preorder, preStartIdx + 1, preStartIdx + leftLen, inStartIdx, inPos),
             // 右 [preStart+leftLen: preEnd]
-            buildTree(pre, preStartIdx + leftLen + 1, preEndIdx, inRootIdx + 1, inPos)
+            buildTree(preorder, preStartIdx + leftLen + 1, preEndIdx, inRootIdx + 1, inPos)
         );
     }
 
     /**
      * Time: O(n), Space: O(n)
      *
-     * @param pre
-     * @param in
+     * @param preorder
+     * @param inorder
      * @return
      */
-    public TreeNode buildTree(int[] pre, int[] in) {
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
         // 在哈希表中缓存中序遍历中值（key）与下标的对应关系（value），可避免每次都做线性查找。
-        Map<Integer, Integer> inPos = new HashMap<>(in.length);
-        for (int i = 0; i < in.length; i++) {
-            inPos.put(in[i], i);
+        Map<Integer, Integer> inPos = new HashMap<>(inorder.length);
+        for (int i = 0; i < inorder.length; i++) {
+            inPos.put(inorder[i], i);
         }
-        return buildTree(pre, 0, pre.length - 1, 0, inPos);
+        return buildTree(preorder, 0, preorder.length - 1, 0, inPos);
     }
 }

@@ -65,13 +65,12 @@ public class LeetCode142 {
      * @return
      */
     public ListNode startNodeOfCycleTwoPointer(ListNode head) {
-        ListNode fast = head, slow = head;
-        while (fast != null && fast.next != null) {
+        for (ListNode fast = head, slow = head; fast != null && fast.next != null; ) {
             fast = fast.next.next;
             slow = slow.next;
             if (fast == slow) {
-                ListNode cur = head;
-                while (cur != slow) {
+
+                for (ListNode cur = head; cur != slow; ) {
                     cur = cur.next;
                     slow = slow.next;
                 }

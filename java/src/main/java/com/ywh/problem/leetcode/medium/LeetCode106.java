@@ -29,14 +29,14 @@ public class LeetCode106 {
 
     /**
      *
-     * @param post              后序遍历数组
+     * @param postorder              后序遍历数组
      * @param postStartIdx      后序遍历起始位置
      * @param postEndIdx        后序遍历结束位置
      * @param inStartIdx        中序遍历起始位置
      * @param inPos             中序遍历下标缓存
      * @return
      */
-    private TreeNode buildTree(int[] post, int postStartIdx, int postEndIdx, int inStartIdx, Map<Integer, Integer> inPos) {
+    private TreeNode buildTree(int[] postorder, int postStartIdx, int postEndIdx, int inStartIdx, Map<Integer, Integer> inPos) {
         if (postStartIdx > postEndIdx) {
             return null;
         }
@@ -49,11 +49,11 @@ public class LeetCode106 {
 
         // post: 2, 8, 16, 4, [1]
         // in: (2), [1], (8, 4, 16)
-        int rootInIdx = inPos.get(post[postEndIdx]), leftLen = rootInIdx - inStartIdx;
+        int rootInIdx = inPos.get(postorder[postEndIdx]), leftLen = rootInIdx - inStartIdx;
         return new TreeNode(
-            post[postEndIdx],
-            buildTree(post, postStartIdx, postStartIdx + leftLen - 1, inStartIdx, inPos),
-            buildTree(post, postStartIdx + leftLen, postEndIdx - 1, rootInIdx + 1, inPos)
+            postorder[postEndIdx],
+            buildTree(postorder, postStartIdx, postStartIdx + leftLen - 1, inStartIdx, inPos),
+            buildTree(postorder, postStartIdx + leftLen, postEndIdx - 1, rootInIdx + 1, inPos)
         );
     }
 
@@ -61,15 +61,15 @@ public class LeetCode106 {
     /**
      * Time: O(n), Space: O(n)
      *
-     * @param in
-     * @param post
+     * @param inorder
+     * @param postorder
      * @return
      */
-    public TreeNode buildTree(int[] in, int[] post) {
-        Map<Integer, Integer> inPos = new HashMap<>(post.length);
-        for (int i = 0; i < post.length; i++) {
-            inPos.put(in[i], i);
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+        Map<Integer, Integer> inPos = new HashMap<>(postorder.length);
+        for (int i = 0; i < postorder.length; i++) {
+            inPos.put(inorder[i], i);
         }
-        return buildTree(post, 0, post.length - 1, 0, inPos);
+        return buildTree(postorder, 0, postorder.length - 1, 0, inPos);
     }
 }
