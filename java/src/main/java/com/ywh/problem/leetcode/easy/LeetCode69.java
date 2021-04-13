@@ -2,7 +2,7 @@ package com.ywh.problem.leetcode.easy;
 
 /**
  * x 的平方根
- * [数学] [二分搜索]
+ * [数学] [二分查找]
  * 
  * 实现 int sqrt(int x) 函数。
  * 计算并返回 x 的平方根，其中 x 是非负整数。
@@ -22,9 +22,8 @@ package com.ywh.problem.leetcode.easy;
 public class LeetCode69 {
 
     /**
-     * 二分搜索法
+     * 二分查找
      * 注意上界是 x！！！！
-     *
      *
      * Time: O(log(n)), Space: O(1)
      *

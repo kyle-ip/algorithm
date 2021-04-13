@@ -2,7 +2,7 @@ package com.ywh.problem.leetcode.easy;
 
 /**
  * 验证完全平方数
- * [数学] [二分搜索]
+ * [数学] [二分查找]
  *
  * @author ywh
  * @since 19/11/2019

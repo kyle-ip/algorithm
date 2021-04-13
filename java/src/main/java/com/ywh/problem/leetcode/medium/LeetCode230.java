@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * 二叉搜索树中第 K 小的元素
- * [树] [二分搜索]
+ * [树] [二分查找]
  *
  * @author ywh
  * @since 2020/12/11/011

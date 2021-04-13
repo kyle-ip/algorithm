@@ -2,7 +2,7 @@ package com.ywh.problem.leetcode.medium;
 
 /**
  * 搜索旋转排序数组
- * [数组] [二分搜索]
+ * [数组] [二分查找]
  *
  * 给你一个整数数组 nums ，和一个整数 target 。
  * 该整数数组原本是按升序排列，但输入时在预先未知的某个点上进行了旋转。（例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] ）。
@@ -29,7 +29,7 @@ package com.ywh.problem.leetcode.medium;
 public class LeetCode33 {
 
     /**
-     * 使用二分搜索前需要区分前半数组是否单调
+     * 使用二分查找前需要区分前半数组是否单调
      *
      * Time: O(log(n)), Space: O(1)
      *

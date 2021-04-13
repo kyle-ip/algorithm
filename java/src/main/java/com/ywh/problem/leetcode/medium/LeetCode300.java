@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * 最长上升子序列
- * [二分搜索] [动态规划]
+ * [二分查找] [动态规划]
  *
  * 给定一个无序的整数数组，找到其中最长上升子序列的长度。
  * 示例:
@@ -102,7 +102,7 @@ public class LeetCode300 {
     }
 
     /**
-     * 二分搜索
+     * 二分查找
      *
      * Time: O(n*log(n)), Space: O(n)
      *
@@ -131,7 +131,7 @@ public class LeetCode300 {
 
         for (int num: nums) {
             int low = 0, high = len - 1, pos;
-            // 二分搜索，在数组 d 的 [low, high] 之间找到 num 应该插入的位置，其中 [low, high] 表示最长递增子数组的范围。
+            // 二分查找，在数组 d 的 [low, high] 之间找到 num 应该插入的位置，其中 [low, high] 表示最长递增子数组的范围。
             while (true) {
                 if (low > high) {
                     pos = low;

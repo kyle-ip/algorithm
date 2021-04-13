@@ -2,7 +2,7 @@ package com.ywh.problem.leetcode.medium;
 
 /**
  * 数值的 n 次方
- * [数学] [二分搜索]
+ * [数学] [二分查找]
  *
  * @author ywh
  * @since 27/10/2019

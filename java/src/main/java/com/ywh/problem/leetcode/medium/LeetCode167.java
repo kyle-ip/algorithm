@@ -2,7 +2,7 @@ package com.ywh.problem.leetcode.medium;
 
 /**
  * 两数之和 II - 输入有序数组
- * [双指针] [数组] [二分搜索]
+ * [双指针] [数组] [二分查找]
  *
  * 给定一个已按照 升序排列  的整数数组 numbers ，请你从数组中找出两个数满足相加之和等于目标数 target 。
  * 函数应该以长度为 2 的整数数组的形式返回这两个数的下标值。numbers 的下标 从 1 开始计数 ，所以答案数组应当满足 1 <= answer[0] < answer[1] <= numbers.length 。

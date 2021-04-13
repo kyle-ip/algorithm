@@ -20,7 +20,7 @@ package com.ywh.problem.leetcode.easy;
 public class LeetCode344 {
 
     /**
-     * 注意区别于二分搜索的循环条件为 l <= h，反转问题的循环条件为 i < j。
+     * 注意区别于二分查找的循环条件为 l <= h，反转问题的循环条件为 i < j。
      *
      * Time: O(n), Space: O(n)
      *

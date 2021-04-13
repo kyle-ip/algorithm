@@ -2,7 +2,7 @@ package com.ywh.problem.leetcode.medium;
 
 /**
  * 搜索二维矩阵 II
- * [二分搜索] [分治]
+ * [二分查找] [分治]
  * 
  * 编写一个高效的算法来搜索 m x n 矩阵 matrix 中的一个目标值 target 。该矩阵具有以下特性：
  * 每行的元素从左到右升序排列。
@@ -28,7 +28,7 @@ package com.ywh.problem.leetcode.medium;
 public class LeetCode240 {
 
     /**
-     * 对比 {@link LeetCode74} 取出每行后可以重新编排成一行、然后用二分搜索。
+     * 对比 {@link LeetCode74} 取出每行后可以重新编排成一行、然后用二分查找。
      * 本题是每行都作为一个独立的递增数组。
      *
      * Time: O(m+n), Space: O(1)

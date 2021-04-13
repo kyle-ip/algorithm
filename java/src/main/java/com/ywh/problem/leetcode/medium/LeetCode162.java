@@ -2,7 +2,7 @@ package com.ywh.problem.leetcode.medium;
 
 /**
  * 寻找峰值
- * [数组] [二分搜索]
+ * [数组] [二分查找]
  *
  * 峰值元素是指其值大于左右相邻值的元素。
  * 给定一个输入数组 nums，其中 nums[i] ≠ nums[i+1]，找到峰值元素并返回其索引。

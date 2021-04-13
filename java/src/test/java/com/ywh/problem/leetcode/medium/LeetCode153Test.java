@@ -27,7 +27,7 @@ public class LeetCode153Test {
     }
 
     @ParameterizedTest
-    @DisplayName("测试二分搜索解法")
+    @DisplayName("测试二分查找解法")
     @CsvSource({
         "'1,2,4,8,0', 0",
         "'2,4,8,0,1', 0",
@@ -42,7 +42,7 @@ public class LeetCode153Test {
     }
 
     @ParameterizedTest
-    @DisplayName("测试二分搜索（提早返回）解法")
+    @DisplayName("测试二分查找（提早返回）解法")
     @CsvSource({
         "'1,2,4,8,0', 0",
         "'2,4,8,0,1', 0",

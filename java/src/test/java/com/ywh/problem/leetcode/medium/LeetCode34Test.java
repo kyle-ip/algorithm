@@ -44,7 +44,7 @@ class LeetCode34Test {
     }
 
     @ParameterizedTest
-    @DisplayName("测试二分搜索解法")
+    @DisplayName("测试二分查找解法")
     @CsvSource({
         "'1,2,2,4,4,8,8', 2, '1,2'",
         "'1,2,2,4,4,8,8', 1, '0,0'",

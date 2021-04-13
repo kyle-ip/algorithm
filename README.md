@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (334)
+## LeetCode (335)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -168,6 +168,7 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 151  | [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string) | 翻转单词顺序                       | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode151.java) | Medium     | String                                                 |
 | 152  | [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray) | 乘积最大子数组               | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode152.java) | Medium     | Array<br />Dynamic Programming                            |
 | 153  | [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array) | 寻找旋转排序数组中的最小值 | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode153.java) | Medium     | Array<br />Binary Search                                  |
+| 154  | [Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii) | 寻找旋转排序数组中的最小值 II | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode154.java) | Hard     | Array<br />Binary Search                                  |
 | 155  | [Min Stack](https://leetcode.com/problems/min-stack/)        | 带有 min 函数的栈带有 min 函数的栈 | Time: O(1)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode155.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_155.py) | Easy       | Stack<br />Design                                         |
 | 160  | [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/) | 相交链表 | Time: O(m+n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode160.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_160.py)<br />[Go](go/src/problem/leetcode160/getIntersectionNode.go) | Easy       | Linked List                                            |
 | 162  | [Find Peak Element](https://leetcode.com/problems/find-peak-element) | 寻找峰值                 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode162.java) | Medium     | Array<br />Binary Search                                  |

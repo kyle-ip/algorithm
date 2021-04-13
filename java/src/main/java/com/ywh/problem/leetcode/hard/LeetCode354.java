@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * 俄罗斯套娃信封问题
- * [动态规划] [二分搜索]
+ * [动态规划] [二分查找]
  * 
  * 给你一个二维整数数组 envelopes ，其中 envelopes[i] = [wi, hi] ，表示第 i 个信封的宽度和高度。
  * 当另一个信封的宽度和高度都比这个信封大的时候，这个信封就可以放进另一个信封里，如同俄罗斯套娃一样。
@@ -84,7 +84,7 @@ public class LeetCode354 {
             if (num > f.get(f.size() - 1)) {
                 f.add(num);
             }
-            // 如果不递增，则在 [0, f.length()) 之间找到二分搜索插入的位置，设值。
+            // 如果不递增，则在 [0, f.length()) 之间找到二分查找插入的位置，设值。
             else {
                 f.set(binarySearch(f, num), num);
             }

@@ -2,7 +2,7 @@ package com.ywh.problem.leetcode.medium;
 
 /**
  * 有序数组中的单身数字
- * [位操作] [二分搜索]
+ * [位操作] [二分查找]
  *
  * @author ywh
  * @since 2019/10/30
@@ -26,7 +26,7 @@ public class LeetCode540 {
     }
 
     /**
-     * 利用数组有序的特性使用二分搜索
+     * 利用数组有序的特性使用二分查找
      *
      * Time: O(log(n)), Space: O(1)
      *

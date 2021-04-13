@@ -1,8 +1,8 @@
 package com.ywh.problem.leetcode.easy;
 
 /**
- * 二分搜索
- * [二分搜索]
+ * 二分查找
+ * [二分查找]
  *
  * @author ywh
  * @since 2/17/2019

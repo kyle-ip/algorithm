@@ -2,7 +2,7 @@ package com.ywh.problem.leetcode.easy;
 
 /**
  * 第一个出错的版本
- * [二分搜索]
+ * [二分查找]
  *
  * @author ywh
  * @since 22/04/2020
