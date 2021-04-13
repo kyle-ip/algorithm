@@ -95,7 +95,7 @@ public class LeetCode287 {
             fast = nums[nums[fast]];
         }
 
-        // 当快慢指针相遇，新建一个指针从头开始，与慢指针同步移动，直到两者相遇，即为环的入口，即重复元素。
+        // 当快慢指针相遇，新建一个指针从头开始，与慢指针同步移动，直到两者相遇即为环的入口，即重复元素。
         for (int p = 0; p != slow; ) {
             slow = nums[slow];
             p = nums[p];

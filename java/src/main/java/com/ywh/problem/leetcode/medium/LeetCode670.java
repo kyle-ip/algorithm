@@ -28,22 +28,21 @@ public class LeetCode670 {
      */
     public int maximumSwap(int num) {
         String s = String.valueOf(num);
-        int len = s.length();
         char[] charArray = s.toCharArray();
 
-        // 记录每个数字出现的最后一次出现的下标
+        // 记录每个数字最后一次出现的下标。
         int[] last = new int[10];
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < s.length(); i++) {
             last[charArray[i] - '0'] = i;
         }
 
-        // 从左向右扫描，找到当前位置右边的最大的数字并交换
-        for (int i = 0; i < len - 1; i++) {
+        // 从左向右扫描，找到当前位置右边的最大的数字并交换。
+        for (int i = 0; i < s.length() - 1; i++) {
             // 找最大，所以倒着找
             for (int d = 9; d > charArray[i] - '0'; d--) {
                 if (last[d] > i) {
                     swap(charArray, i, last[d]);
-                    // 只允许交换一次，因此直接返回
+                    // 只允许交换一次，因此直接返回。
                     return Integer.parseInt(new String(charArray));
                 }
             }
