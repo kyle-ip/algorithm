@@ -47,13 +47,13 @@ public class LeetCode70 {
      * @return
      */
     public int climbStairsIterative(int n) {
-        int x0 = 1, x1 = 1, x2;
-        for (int i = 1; i < n; i++) {
-            x2 = x0 + x1;
+        int x0 = 1, x1 = 1;
+        for(int i = 0; i < n; i++){
+            int tmp = (x0 + x1) % 1_000_000_007;
             x0 = x1;
-            x1 = x2;
+            x1 = tmp;
         }
-        return x1;
+        return x0;
     }
 
 }
