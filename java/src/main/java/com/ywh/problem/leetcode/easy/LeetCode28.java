@@ -30,17 +30,15 @@ public class LeetCode28 {
      * @return
      */
     public int strstr(String haystack, String needle) {
-        if (haystack == null || needle == null) {
-            return -1;
-        }
-        if (needle.length() == 0) {
-            return 0;
-        }
-        int n = haystack.length(), m = needle.length();
-        for (int i = 0; i < n - m; i++) {
-            int j = 0, k = i;
-            for (; j < m && k < n && haystack.charAt(k) == needle.charAt(j); j++, k++);
-            if (j == m) {
+        for (int i = 0; i + needle.length() <= haystack.length(); i++) {
+            boolean flag = true;
+            for (int j = 0; j < needle.length(); j++) {
+                if (haystack.charAt(i + j) != needle.charAt(j)) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
                 return i;
             }
         }
