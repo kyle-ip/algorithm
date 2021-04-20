@@ -14,13 +14,13 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (337)
+## LeetCode (338)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
 | Binary Search       | Math             | Two Pointers        | String             |
 | Array               | Hash Table       | Linked List         | Divide and Conquer |
-| Sort                | Bit Manipulation | Tree                | DFS                |
+| Sorting             | Bit Manipulation | Tree                | DFS                |
 | Design              | Trie             | Queue               | BFS                |
 | Graph               | Heap             | Dynamic Programming | Backtracking       |
 | Greedy              | Line Sweep       | Stack               | Union Find         |
@@ -200,6 +200,7 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 215  | [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) | 数组中第 K 大的元素                | Time: O(n\*log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode215.java)<br />[Go](go/src/problem/leetcode215/findKthLargest.go) | Medium     | Divide and Conquer<br />Heap                              |
 | 217  | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/submissions/) | 存在重复元素 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode217.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_217.py) | Easy | Array<br />Hash Table<br />Sorting |
 | 218  | [The Skyline Problem](https://leetcode.com/problems/the-skyline-problem) | 寻找天际线 | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode218.java) | Hard | Divide and Conquer<br />Heap<br />Segment Tree |
+| 220  | [Contains Duplicate III](https://leetcode-cn.com/problems/contains-duplicate-iii) | 存在重复元素 III        | Time: O(n)<br />Space: O(min(n, k)) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode220.java) | Medium     | Sorting<br />Hash Table                    |
 | 221  | [Maximal Square](https://leetcode.com/problems/maximal-square) | 最大正方形        | Time: O(m\*n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode221.java)<br />[Go](go/src/problem/leetcode221/maximalSquare.go) | Medium     | Dynamic Programming<br />Array<br />Stack                    |
 | 224  | [Basic Calculator](https://leetcode.com/problems/basic-calculator/) | 基本计算器 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode224.java) | Hard | Math<br />Stack |
 | 226  | [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) | 翻转二叉树                         | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode226.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_226.py) | Easy       | Tree                                                   |
