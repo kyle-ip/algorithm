@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (339)
+## LeetCode (340)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -296,6 +296,7 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 540  | [Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array) | 有序数组中的单身数字               | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode540.java) | Medium     | Bit Manipulation<br />Binary Search                       |
 | 543  | [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree) | 二叉树的直径                       | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode543.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_543.py)<br />[Go](go/src/problem/leetcode543/diameterOfBinaryTree.go) | Easy       | Tree                                                   |
 | 547  | [Number of Provinces](https://leetcode.com/problems/number-of-provinces/) | 省份数量 | Time: O(n^2)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode547.java) | Medium | DFS<br />Union Find |
+| 556  | [Next Greater Element III](https://leetcode.com/problems/next-greater-element-iii) | 下一个更大元素 III                           | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode556.java) | Medium       | String                                                 |
 | 557  | [Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii) | 反转单词                           | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode557.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_557.py) | Easy       | String                                                 |
 | 558  | [Quad Tree Intersection](https://leetcode.com/problems/quad-tree-intersection) | 四叉树交集                         | Time: O(n^4)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode558.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_558.py) | Easy       | Tree                                                   |
 | 560  | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k) | 和为 K 的子数组 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode560.java) | Medium | Hash Table<br />Array |
