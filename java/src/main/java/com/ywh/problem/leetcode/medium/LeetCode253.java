@@ -38,7 +38,7 @@ public class LeetCode253 {
         // intervals: [2, 4], [4, 6], [1, 3] => [1, 3], [2, 4], [4, 6]
         Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
 
-        // 创建最小堆（每次调用 poll 从中获取最小元素），存放会议结束时间。
+        // 创建最小堆（每次调用 poll 从中获取最小元素），存放最近一场会议的结束时间。
         Queue<Integer> minHeap = new PriorityQueue<>();
 
         // 遍历所有会议区间：[1, 3], [2, 4], [4, 6]
@@ -50,7 +50,7 @@ public class LeetCode253 {
             // [2, 4]   =>   [2, 4], [4, 6]
             // [4, 6]
 
-            // interval: [4, 6], heapPeek: [4, 3] => heapPeak: [4]，表示可复用房间。
+            // meeting: [4, 6], heapPeek: [4, 5] => heapPeak: [4]，表示可复用房间。
             if (minHeap.size() > 0 && minHeap.peek() <= meeting[0]) {
                 minHeap.poll();
             }

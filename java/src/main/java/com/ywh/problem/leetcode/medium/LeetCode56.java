@@ -1,7 +1,5 @@
 package com.ywh.problem.leetcode.medium;
 
-import com.ywh.model.Interval;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -30,40 +28,20 @@ import java.util.List;
 public class LeetCode56 {
 
     /**
+     * Time: O(n*log(n)), Space: O(1)
      *
      * @param intervals
      * @return
      */
     public int[][] merge(int[][] intervals) {
         List<int[]> ret = new ArrayList<>();
+        // 先对区间数组排序（根据左端点大小），intervals.sort((a, b) -> a.start - b.start);
         Arrays.sort(intervals, Comparator.comparingInt(r -> r[0]));
         for (int[] interval : intervals) {
             int n = ret.size(), start = interval[0], end = interval[1];
-            if (n == 0 || ret.get(n - 1)[1] < start) {
-                ret.add(interval);
-            } else {
-                ret.get(n - 1)[1] = Math.max(ret.get(n - 1)[1], end);
-            }
-        }
-        return ret.toArray(new int[ret.size()][]);
-    }
-
-    /**
-     * Time: O(n*log(n)), Space: O(1)
-     *
-     * @param intervals
-     * @return
-     */
-    public List<Interval> merge(List<Interval> intervals) {
-        List<Interval> ret = new ArrayList<>();
-
-        // 先对区间数组排序（根据左端点大小），intervals.sort((a, b) -> a.start - b.start);
-        intervals.sort(Comparator.comparingInt(a -> a.start));
-        for (Interval interval: intervals) {
-            int n = ret.size();
             // 当结果数组为空，或结果数组最后区间的右端点小于当前区间的左端点，区间直接加入结果数组。
             // [..., [3, 6]] <- [8, 9] => [..., [3, 6], [8, 9]]
-            if (ret.isEmpty() || ret.get(n - 1).end < interval.start) {
+            if (n == 0 || ret.get(n - 1)[1] < start) {
                 ret.add(interval);
             }
             // 否则当前区间的左端点包含在结果数组的最后区间内，此时如果当前区间的右端点大于结果数组最后区间的右端点，合并最后区间。
@@ -74,9 +52,9 @@ public class LeetCode56 {
             //                               3, 4, 5, 6
             // [..., [3, 6]] <- [4, 5] => [..., [3, 6]]
             else {
-                ret.get(n - 1).end = Math.max(ret.get(n - 1).end, interval.end);
+                ret.get(n - 1)[1] = Math.max(ret.get(n - 1)[1], end);
             }
         }
-        return ret;
+        return ret.toArray(new int[ret.size()][]);
     }
 }

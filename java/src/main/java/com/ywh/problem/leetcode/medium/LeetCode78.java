@@ -34,19 +34,19 @@ public class LeetCode78 {
      * @param nums
      * @param start
      * @param subset
-     * @param subsets
+     * @param ret
      */
-    private List<List<Integer>>  subsets(int[] nums, int start, LinkedList<Integer> subset, List<List<Integer>> subsets) {
+    private List<List<Integer>>  subsets(int[] nums, int start, LinkedList<Integer> subset, List<List<Integer>> ret) {
         // 此处添加子集（第一次调用 elem 为空，添加的是空集）。
-        subsets.add(new LinkedList<>(subset));
+        ret.add(new LinkedList<>(subset));
         for (int i = start; i < nums.length; i++) {
             subset.add(nums[i]);
-            subsets(nums, i + 1, subset, subsets);
+            subsets(nums, i + 1, subset, ret);
 
             // 回溯，每次移除最后一个元素。
             subset.removeLast();
         }
-        return subsets;
+        return ret;
     }
 
 

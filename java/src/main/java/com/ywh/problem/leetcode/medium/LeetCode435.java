@@ -43,16 +43,19 @@ public class LeetCode435 {
         // 如果此时存在一个区间 [lj, rj] 使得 rj < rk，即区间 j 的右端点在区间 k 的左侧，则将区间 k 替换为区间 j。
         // 剩余的区间仍然是不重叠，因此得到另一种最优的选择方法。
         // 不断寻找右端点在首个区间右端点左侧的新区间，将首个区间替换成该区间，最终得到的首个区间就是所有可选择区间中右端点最小的区间。
+
+        // 对区间列表按右端点以从小到大排序。
         Arrays.sort(intervals, Comparator.comparingInt(i -> i[1]));
-        int n = intervals.length;
-        int right = intervals[0][1];
-        int ans = 1;
+
+        // right 为第一个区间的右端点，nonOverlappingCnt 表示没有重叠的区间个数。
+        int n = intervals.length, right = intervals[0][1], nonOverlappingCnt = 1;
         for (int i = 1; i < n; ++i) {
+            // 如果当前区间的左端点大于等于 right 区间的右端点，表示没有重叠，可以取代 right：[right] [cur]
             if (intervals[i][0] >= right) {
-                ++ans;
+                ++nonOverlappingCnt;
                 right = intervals[i][1];
             }
         }
-        return n - ans;
+        return n - nonOverlappingCnt;
     }
 }

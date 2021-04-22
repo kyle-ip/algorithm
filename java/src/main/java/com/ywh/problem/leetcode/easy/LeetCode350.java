@@ -38,8 +38,7 @@ public class LeetCode350 {
 
         // 统计 nums1 的元素及其出现个数
         for (int num : nums1) {
-            int cnt = counter.getOrDefault(num, 0);
-            counter.put(num, cnt + 1);
+            counter.put(num, counter.getOrDefault(num, 0) + 1);
         }
 
         List<Integer> list = new ArrayList<>();

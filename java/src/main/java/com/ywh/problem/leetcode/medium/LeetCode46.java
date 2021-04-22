@@ -31,6 +31,8 @@ public class LeetCode46 {
      * @param ret       全排列结果
      */
     private void permuteRec(List<Integer> nums, int start, List<List<Integer>> ret) {
+        // 每次调用处理从 start 到 nums.size() 的元素。
+
         // 当起始位置 == 排列长度，表示得到一个排列。
         if (start == nums.size()) {
             ret.add(new ArrayList<>(nums));

@@ -48,19 +48,17 @@ public class LeetCode40 {
     private void combSum(int[] nums, int target, int start, LinkedList<Integer> elem, List<List<Integer>> ret) {
         if (target == 0) {
             ret.add(new ArrayList<>(elem));
-            return;
-        }
-        if (target < 0) {
-            return;
-        }
-        for (int i = start; i < nums.length; i++) {
-            // 当前元素与上一个元素相同，跳过。
-            if (i > start && nums[i] == nums[i - 1]) {
-                continue;
+        } else if (target > 0) {
+            for (int i = start; i < nums.length; i++) {
+                // 当前元素与上一个元素相同，跳过。
+                if (i > start && nums[i] == nums[i - 1]) {
+                    continue;
+                }
+                elem.add(nums[i]);
+                // candidates 中的每个数字在每个组合中只能使用一次，因此传递到下一层递归的“start”参数不需要 +1。
+                combSum(nums, target - nums[i], i + 1, elem, ret);
+                elem.removeLast();
             }
-            elem.add(nums[i]);
-            combSum(nums, target - nums[i], i + 1, elem, ret);
-            elem.removeLast();
         }
     }
 

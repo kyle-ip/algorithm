@@ -31,14 +31,14 @@ public class LeetCode47 {
      * @param start
      * @param ret
      */
-    private void backtracking(List<Integer> nums, int start, Set<List<Integer>> ret) {
+    private void permuteRec(List<Integer> nums, int start, Set<List<Integer>> ret) {
         if (start == nums.size()) {
             ret.add(new ArrayList<>(nums));
             return;
         }
         for (int i = start; i < nums.size(); i++) {
             Collections.swap(nums, start, i);
-            backtracking(nums, start + 1, ret);
+            permuteRec(nums, start + 1, ret);
             Collections.swap(nums, start, i);
         }
     }
@@ -57,7 +57,7 @@ public class LeetCode47 {
             list.add(num);
         }
         Set<List<Integer>> ret = new HashSet<>();
-        backtracking(list, 0, ret);
+        permuteRec(list, 0, ret);
         return new ArrayList<>(ret);
     }
 

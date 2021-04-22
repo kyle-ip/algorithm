@@ -48,7 +48,7 @@ public class LeetCode39 {
      * @param elem
      * @param ret
      */
-    public List<List<Integer>> combSumSort(int[] nums, int target, int start, LinkedList<Integer> elem, List<List<Integer>> ret) {
+    private List<List<Integer>> combSumSort(int[] nums, int target, int start, LinkedList<Integer> elem, List<List<Integer>> ret) {
         if (target == 0) {
             ret.add(new ArrayList<>(elem));
         } else if (target > 0) {
@@ -59,6 +59,7 @@ public class LeetCode39 {
                     break;
                 }
                 elem.add(nums[i]);
+                // 由于允许多次使用同一个元素，因此传递到下一层递归的“start”参数不需要 +1。
                 combSumSort(nums, target - nums[i], i, elem, ret);
                 elem.removeLast();
             }

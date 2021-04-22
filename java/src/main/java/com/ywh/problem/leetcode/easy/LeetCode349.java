@@ -35,9 +35,9 @@ public class LeetCode349 {
     public int[] intersection(int[] nums1, int[] nums2) {
         Arrays.sort(nums1);
         Arrays.sort(nums2);
-        int p1 = 0, p2 = 0, i = 0;
+
         Set<Integer> set = new HashSet<>();
-        while (p1 < nums1.length && p2 < nums2.length) {
+        for (int p1 = 0, p2 = 0; p1 < nums1.length && p2 < nums2.length; ) {
             if (nums1[p1] < nums2[p2]) {
                 p1++;
             } else if (nums1[p1] > nums2[p2]) {
@@ -50,8 +50,8 @@ public class LeetCode349 {
         }
         Iterator<Integer> it = set.iterator();
         int[] ret = new int[set.size()];
-        while (it.hasNext()) {
-            ret[i++] = it.next();
+        for (int i = 0; it.hasNext(); i++) {
+            ret[i] = it.next();
         }
         return ret;
     }
