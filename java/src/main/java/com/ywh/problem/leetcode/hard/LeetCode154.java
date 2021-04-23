@@ -42,7 +42,7 @@ public class LeetCode154 {
             int mid = low + (high - low) / 2;
 
             // nums[mid] 比 nums[high] 小，即此时 [mid, high] 仍递增，因此可以向左收缩区间（不确定是否包含 mid，因此不能略过）。
-            // [1, 2, (3), 4, 5]
+            // [4, 5, (1), 2, 3]
             //         ↑      h
             //         |      |
             //         +------+

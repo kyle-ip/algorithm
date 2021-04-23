@@ -39,17 +39,18 @@ public class LeetCode240 {
      */
     public boolean searchIn2DArray(int[][] matrix, int target) {
         // 从右上角开始遍历。
-        for (int i = 0, j = matrix[0].length - 1; i < matrix.length && j >= 0; ) {
-            if (matrix[i][j] == target) {
+        for (int r = 0, c = matrix[0].length - 1; r < matrix.length && c >= 0; ) {
+            if (matrix[r][c] == target) {
                 return true;
             }
-            if (matrix[i][j] < target) {
-                i++;
+            if (matrix[r][c] < target) {
+                r++;
             } else {
-                j--;
+                c--;
             }
         }
         return false;
     }
+
 
 }

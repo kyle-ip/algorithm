@@ -56,8 +56,8 @@ public class LeetCode153 {
         int low = 0, high = nums.length - 1;
 
         // 旋转后的数组只有两种情况：
-        // 1. 分两半分别递增，最大值在中间；
-        // 2. 全数组递增，最大值在最右端
+        // 1. 分两半分别递增，最小值在中间；
+        // 2. 全数组递增，最小值在最左端
         while (low < high) {
 
             // 子数组是从 low 到 high 递增的，直接返回 low。

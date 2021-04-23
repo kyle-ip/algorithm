@@ -96,8 +96,10 @@ public class LeetCode34 {
         //        ↑
         int end = binarySearchLastOne(nums, target);
 
-        // target - 1 的结束下标，再 +1 正好就是 target 的开始下标
+        // target-1 的结束下标，再 +1 正好是 target 的开始下标。
         int start = binarySearchLastOne(nums, target - 1) + 1;
+
+        // 找到两个不越界的值。
         if (start >= 0 && start <= end && end < nums.length) {
             return new int[]{start, end};
         } else {

@@ -49,7 +49,7 @@ public class LeetCode35 {
             }
         }
 
-        // 注意最终 target 应插入 low 后。
+        // 注意最终 low > high，target 应插入 low 的位置（前）。
         return low;
     }
 }

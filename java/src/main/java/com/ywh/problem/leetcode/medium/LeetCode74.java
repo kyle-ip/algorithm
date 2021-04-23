@@ -41,6 +41,7 @@ public class LeetCode74 {
         int low = 0, high = m * n - 1, mid;
         while (low <= high) {
             mid = low + (high - low) / 2;
+            // 除以列数得出行号，模列数得出列号。
             int row = mid / n, col = mid % n;
             if (matrix[row][col] == target) {
                 return new int[] {row, col};

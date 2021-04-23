@@ -55,13 +55,13 @@ public class LeetCode162 {
      * @return
      */
     public int findPeakElementBinarySearch(int[] nums) {
-        int low = 0, high = nums.length - 1, left, right;
+        int low = 0, high = nums.length - 1;
         while (low < high) {
             int mid = low + (high - low) / 2;
 
-            // 取 mid 左边和右边的值，如果 mid 落在边界上，则把它的左/右边的值设为最小值。
-            left = mid - 1 >= 0 ? nums[mid - 1] : Integer.MIN_VALUE;
-            right = mid + 1 < nums.length ? nums[mid + 1] : Integer.MIN_VALUE;
+            // 取 mid 左、右的值，如果 mid 落在边界上，无需考虑（必然符合），把它的左/右边的值设为最小值。
+            int left = mid - 1 >= 0 ? nums[mid - 1] : Integer.MIN_VALUE;
+            int right = mid + 1 < nums.length ? nums[mid + 1] : Integer.MIN_VALUE;
 
             // 如果 mid 比左右的值都大，直接返回。
             if (nums[mid] > left && nums[mid] > right) {
