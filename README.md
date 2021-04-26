@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (341)
+## LeetCode (342)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -257,6 +257,7 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 371  | [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/description) | 不用 +/- 求两数之和                | Time: O(m)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode371.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_371.py) | Easy       | Bit Manipulation                                       |
 | 373  | [Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums) | 查找和最小的K对数字 | Time: O(k\*log(k))<br />Space: O(k) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode373.java) | Medium | Heap |
 | 376  | [Wiggle Subsequence](https://leetcode.com/problems/wiggle-subsequence/submissions) | 摆动序列 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode376.java)<br />[Python](python/src/problem/leetcode/medium/leetcode_376.py)<br />[Go](go/src/problem/leetcode376/wiggleMaxLength.go) | Medium | Dynamic Programming<br />Greedy |
+| 377  | [Combination Sum IV](https://leetcode.com/problems/combination-sum-iv) | 摆动序列 | Time: O(k\*n), Space: O(k) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode377.java) | Medium | Dynamic Programming |
 | 378  | [Kth Smallest Element in a Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix) | 有序矩阵中第 K 小的元素 | Time: O(k\*log(k))<br />Space: O(k) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode378.java)<br />[Go](go/src/problem/leetcode378/kthSmallest.go) | Medium     | Heap<br />Binary Search                                   |
 | 380  | [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1) | 常数时间插入、删除和获取随机元素 | Time: O(1)<br />Time: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode380.java) | Medium     | Design<br />Hash Table<br />Array                            |
 | 382  | [Linked List Random Node](https://leetcode.com/problems/linked-list-random-node) | 链表随机节点                       | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode382.java) | Medium     | Reservoir Sampling                                     |

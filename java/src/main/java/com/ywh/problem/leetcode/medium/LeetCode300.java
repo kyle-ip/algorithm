@@ -88,12 +88,12 @@ public class LeetCode300 {
         int[] dp = new int[n];
         dp[0] = 1;
 
-        // 遍历同时在嵌套循环中划分子数组
+        // 遍历同时在嵌套循环中划分子数组。
         for (int i = 1; i < n; i++) {
+            // 枚举 [0, i-1]，
+            //     小于上界 nums[i]，表示从 0 到 i 中有 dp[j]+1 个元素递增，与 dp[i] 取较大者；
+            //     大于上界 nums[i]，表示子数组本轮遍历不递增，设为 1。
             for (int j = 0; j < i; j++) {
-                // 对于子数组，逐个元素 nums[j] 判断：
-                //     小于上界 nums[i]，表示从 0 到 i 中有 dp[j]+1 个元素递增，与 dp[i] 取较大者；
-                //     大于上界 nums[i]，表示子数组本轮遍历不递增，设为 1。
                 dp[i] = Math.max(dp[i], nums[j] < nums[i]? dp[j] + 1: 1);
             }
             max = Math.max(max, dp[i]);
@@ -111,21 +111,6 @@ public class LeetCode300 {
      */
     public int lengthOfLISBinarySearch(int[] nums) {
         int n = nums.length, len = 0;
-
-        // FIXME
-//        // 递增顺序数组。
-//
-//        List<Integer> f = new ArrayList<>();
-//        f.add(nums[0]);
-//        for (int i = 1; i < nums.length; i++) {
-//            if (nums[i] > f.get(f.size() - 1)) {
-//                f.add(nums[i]);
-//            } else {
-//                binarySearch(f, nums[i]);
-//            }
-//        }
-//        return f.size();
-
 
         int[] d = new int[n];
 
