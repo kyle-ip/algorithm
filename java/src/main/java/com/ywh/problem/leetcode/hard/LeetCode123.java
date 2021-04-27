@@ -26,6 +26,12 @@ import com.ywh.problem.leetcode.medium.LeetCode714;
  *      输入: [7,6,4,3,1]
  *      输出: 0
  *      解释: 在这个情况下, 没有交易完成, 所以最大利润为 0。
+ * 示例 4：
+ *      输入：prices = [1]
+ *      输出：0
+ * 提示：
+ *      1 <= prices.length <= 10^5
+ *      0 <= prices[i] <= 10^5
  *
  * @author ywh
  * @since 2020/12/21/021
@@ -54,14 +60,10 @@ public class LeetCode123 {
      * @return
      */
     public int maxProfit(int[] prices) {
-        if (prices == null || prices.length == 0) {
-            return 0;
-        }
-        int n = prices.length;
-        //定义在 第 i 天时达到 4 种状态下的最大收益：
-        // 第一次买入（初始值为 -prices[0]，可理解为）、第一次卖出、第二次买入、第二次卖出。
+        // 定义在 第 i 天时达到 4 种状态下的最大收益：
+        // 第一次买入（初始值为 -prices[0]，可理解为只付出了买入的价、没有收益）、第一次卖出、第二次买入、第二次卖出。
         int buy1 = -prices[0], sell1 = 0, buy2 = -prices[0], sell2 = 0;
-        for (int i = 1; i < n; i++) {
+        for (int i = 1; i < prices.length; i++) {
             buy1 = max(buy1, - prices[i]);
             sell1 = max(sell1, buy1 + prices[i]);
             buy2 = max(buy2, sell1 - prices[i]);
