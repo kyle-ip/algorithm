@@ -52,6 +52,7 @@ public class LeetCode403 {
         // 遍历每个位置的石头。
         for (int curPos : stones) {
             // 对于每个位置。遍历 value 中的每个 jumpSize。
+            // 表示之前是走过 k 步到达 curPos 的，因此接下来只能走 k-1、k、k+1 步，看看能不能到达下一个位置。
             for (int k : map.get(curPos)) {
 
                 // 判断跳 step 的距离（[k-1, k+1]）存在于 map 中，如果存在，则可以添加到 curPos+step 的位置集合。

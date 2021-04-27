@@ -89,7 +89,7 @@ public class LeetCode312 {
     }
 
     /**
-     * 动态规划解法
+     * 动态规划解法（逆向思维）
      * Time: O(n^3), Space: O(n^2)
      *
      * @param nums
@@ -100,17 +100,21 @@ public class LeetCode312 {
         // dp[l][r] 表示填满开区间 (l, r) 能得到的最多硬币数。边界条件 i >= j - 1 时值为 0。
         int[][] dp = new int[n + 2][n + 2];
 
-        // 对数组做处理，将其两边各加上假设存在的 nums[-1] 和 nums[n]，保存在 val 中，可避免越界。
+        // 对数组做处理，将其两边各加上假设存在的 nums[-1] 和 nums[n]，保存在 val 中以可避免越界。
         int[] val = new int[n + 2];
         System.arraycopy(nums, 0, val, 1, n);
         val[0] = val[n + 1] = 1;
 
-        // 类似记忆化搜索解法，使用动态规划自底向上求解。
+        // 类似记忆化搜索解法，使用动态规划自底向上求解：[..., n-1, n, n+1]
+        //                                              i   k   j
+        // 左边的气球：[0, n-1]
         for (int i = n - 1; i >= 0; i--) {
+            // 右边的气球：[i+2, n+1]。
             for (int j = i + 2; j <= n + 1; j++) {
+                // 中间的气球。
                 for (int k = i + 1; k < j; k++) {
-                    int sum = val[i] * val[k] * val[j];
-                    sum += dp[i][k] + dp[k][j];
+                    //             戳 k 位置得到的分数      (i, k) 和 (k, j) 两个区间的分数
+                    int sum = (val[i] * val[k] * val[j]) + (dp[i][k] + dp[k][j]);
                     dp[i][j] = Math.max(dp[i][j], sum);
                 }
             }
