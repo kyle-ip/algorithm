@@ -23,6 +23,8 @@ import java.util.Arrays;
 public class LeetCode673 {
 
     /**
+     * 动态规划解法
+     *
      * Time: O(n^2), Space: O(n)
      *
      * @param nums
@@ -34,49 +36,149 @@ public class LeetCode673 {
             return n;
         }
 
-        // lengths[i] 表示截至 i 的最长序列长度，counts[i] 表示出现该长度的序列的个数。
-        int[] lengths = new int[n], counts = new int[n];
-        Arrays.fill(counts, 1);
+        // len[i] 表示截至 i 的最长序列长度，cnt[i] 表示出现该长度的序列的个数。
+        int[] len = new int[n], cnt = new int[n];
+        Arrays.fill(cnt, 1);
 
-        for (int i = 0; i < n; ++i) {
+        for (int i = 1; i < n; ++i) {
             for (int j = 0; j < i; ++j) {
                 // 不递增，跳过。
                 if (nums[j] >= nums[i]) {
                     continue;
                 }
-                // 更新 lengths[i]、counts[i]：使得 lengths[i] 始终比 length[j] 长 1，且数量相等（是同一个递增序列 s[0:i]）。
-                if (lengths[j] >= lengths[i]) {
-                    lengths[i] = lengths[j] + 1;
-                    counts[i] = counts[j];
+                // 递增：
+                // 更新 len[i]、counts[i]：使得 len[i] 始终比 len[j] 长 1，且数量相等（是同一个递增序列 s[0:i]）。
+                if (len[j] >= len[i]) {
+                    len[i] = len[j] + 1;
+                    cnt[i] = cnt[j];
                 }
-                // 如果 [0, i] 中递增的长度比 [0, j] 大 1，表示算上 i 后又找到 counts[j] 种最长递增序列的凑法。
-                else if (lengths[j] + 1 == lengths[i]) {
-                    counts[i] += counts[j];
+                // 如果 [0, i] 中递增的长度比 [0, j] 大 1，表示算上 i 后又找到 cnt[j] 种最长递增序列的凑法。
+                else if (len[j] + 1 == len[i]) {
+                    cnt[i] += cnt[j];
                 }
             }
         }
 
-        // 找到最大值，并在 lengths 中统计该最大值出现的个数，返回。
+        // 找到最大值，并在 len 中统计该最大值出现的个数，返回。
         int maxLen = 0, ret = 0;
-        for (int length : lengths) {
-            maxLen = Math.max(maxLen, length);
+        for (int l : len) {
+            maxLen = Math.max(maxLen, l);
         }
         for (int i = 0; i < n; ++i) {
-            if (lengths[i] == maxLen) {
-                ret += counts[i];
+            if (len[i] == maxLen) {
+                ret += cnt[i];
             }
         }
         return ret;
     }
 
     /**
+     * 线段树解法
      * Time: O(n*log(n)), Space: O(n)
      *
      * @param nums
      * @return
      */
     public int findNumberOfLIS2(int[] nums) {
-        return 0;
+        if (nums.length == 0) {
+            return 0;
+        }
+        int min = nums[0], max = nums[0];
+        for (int num: nums) {
+            min = Math.min(min, num);
+            max = Math.max(max, num);
+        }
+        Node root = new Node(min, max);
+        for (int num: nums) {
+            Value v = query(root, num-1);
+            insert(root, num, new Value(v.length + 1, v.count));
+        }
+        return root.val.count;
     }
 
+    /**
+     *
+     * @param v1
+     * @param v2
+     * @return
+     */
+    public Value merge(Value v1, Value v2) {
+        if (v1.length == v2.length) {
+            if (v1.length == 0) {
+                return new Value(0, 1);
+            }
+            return new Value(v1.length, v1.count + v2.count);
+        }
+        return v1.length > v2.length ? v1 : v2;
+    }
+
+    /**
+     *
+     * @param node
+     * @param key
+     * @param val
+     */
+    public void insert(Node node, int key, Value val) {
+        if (node.rangeLeft == node.rangeRight) {
+            node.val = merge(val, node.val);
+            return;
+        } else if (key <= node.getRangeMid()) {
+            insert(node.getLeft(), key, val);
+        } else {
+            insert(node.getRight(), key, val);
+        }
+        node.val = merge(node.getLeft().val, node.getRight().val);
+    }
+
+    /**
+     *
+     * @param node
+     * @param key
+     * @return
+     */
+    public Value query(Node node, int key) {
+        if (node.rangeRight <= key) {
+            return node.val;
+        } else if (node.rangeLeft > key) {
+            return new Value(0, 1);
+        } else {
+            return merge(query(node.getLeft(), key), query(node.getRight(), key));
+        }
+    }
+
+    static class Node {
+        int rangeLeft, rangeRight;
+        Node left, right;
+        Value val;
+        public Node(int start, int end) {
+            rangeLeft = start;
+            rangeRight = end;
+            left = null;
+            right = null;
+            val = new Value(0, 1);
+        }
+        public int getRangeMid() {
+            return rangeLeft + (rangeRight - rangeLeft) / 2;
+        }
+        public Node getLeft() {
+            if (left == null) {
+                left = new Node(rangeLeft, getRangeMid());
+            }
+            return left;
+        }
+        public Node getRight() {
+            if (right == null) {
+                right = new Node(getRangeMid() + 1, rangeRight);
+            }
+            return right;
+        }
+    }
+
+    static class Value {
+        int length, count;
+        public Value(int len, int ct) {
+            length = len;
+            count = ct;
+        }
+    }
 }

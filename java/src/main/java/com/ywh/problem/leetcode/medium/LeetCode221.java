@@ -36,18 +36,40 @@ import com.ywh.problem.leetcode.hard.LeetCode85;
 public class LeetCode221 {
 
     /**
+     * FIXME: bug
      *
      * @param heights
      * @return
      */
     private int largestSquareLengthInHistogram2(int[] heights) {
-        int max = 0;
-        for (int i = 0; i < heights.length; i++) {
+        int max = 0, n = heights.length;
+        for (int i = 0; i < n; i++) {
             int l = i, r = i;
-            for (; l >= 0 && heights[i] <= heights[l]; l--);
-            for (; r < heights.length && heights[i] <= heights[r]; r++);
+            for (; l >= 0 && heights[l] >= heights[i]; l--);
+            for (; r < n && heights[r] >= heights[i]; r++);
             int len = Math.min(l - r - 1, heights[i]);
             max = Math.max(max, len * len);
+        }
+        return max;
+    }
+
+    /**
+     * 分层双指针解法，参考 {@link LeetCode85}
+     *
+     * Time: O(m*n), Space: O(n)
+     *
+     * @param matrix
+     * @return
+     */
+    public int maximalSquareHistogram(char[][] matrix) {
+        int n = matrix[0].length;
+        int[] heights = new int[n];
+        int max = 0;
+        for (char[] chars : matrix) {
+            for (int j = 0; j < n; ++j) {
+                heights[j] = chars[j] == '1' ? heights[j] + 1 : 0;
+            }
+            max = Math.max(max, largestSquareLengthInHistogram2(heights));
         }
         return max;
     }
@@ -72,27 +94,6 @@ public class LeetCode221 {
                 max = Math.max(max, len * len);
             }
             stack[++top] = r;
-        }
-        return max;
-    }
-
-    /**
-     * 分层单调栈解法，参考 {@link LeetCode85}
-     *
-     * Time: O(m*n), Space: O(n)
-     *
-     * @param matrix
-     * @return
-     */
-    public int maximalSquareHistogram(char[][] matrix) {
-        int n = matrix[0].length;
-        int[] heights = new int[n];
-        int max = 0;
-        for (char[] chars : matrix) {
-            for (int j = 0; j < n; ++j) {
-                heights[j] = chars[j] == '1' ? heights[j] + 1 : 0;
-            }
-            max = Math.max(max, largestSquareLengthInHistogram2(heights));
         }
         return max;
     }
@@ -125,7 +126,7 @@ public class LeetCode221 {
             for (int j = 0; j < n; j++) {
                 // 第一行、第一列，或当前位置为 0
                 if (i == 0 || j == 0 || matrix[i][j] == '0') {
-                    dp[i][j] = matrix[i][j] == '1' ? 1 : 0;
+                    dp[i][j] = matrix[i][j] == '0' ? 0 : 1;
                 } else {
                     // 取以左、上、左上为右下顶点的最大边长状态值的最小值
                     dp[i][j] = min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]) + 1;

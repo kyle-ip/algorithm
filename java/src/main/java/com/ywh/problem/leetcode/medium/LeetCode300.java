@@ -111,9 +111,7 @@ public class LeetCode300 {
      */
     public int lengthOfLISBinarySearch(int[] nums) {
         int n = nums.length, len = 0;
-
         int[] d = new int[n];
-
         for (int num: nums) {
             int low = 0, high = len - 1, pos;
             // 二分查找，在数组 d 的 [low, high] 之间找到 num 应该插入的位置，其中 [low, high] 表示最长递增子数组的范围。

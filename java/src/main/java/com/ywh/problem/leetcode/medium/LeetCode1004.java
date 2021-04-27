@@ -81,8 +81,8 @@ public class LeetCode1004 {
      */
     public int longestOnes1(int[] A, int K) {
         // 前缀和表示 0 的个数，lsum（l-1）、rsum（r）分别表示左前缀和、右前缀和，则目标找到 rsum - lsum <= K。
-        int n = A.length, ret = 0;
-        for (int r = 0, l = 0, lsum = 0, rsum = 0; r < n; ++r) {
+        int ret = 0;
+        for (int r = 0, l = 0, lsum = 0, rsum = 0; r < A.length; ++r) {
 
             // 如果 A[r] 为 0，则 1-A[r] 为 1，累加到 rsum 上。
             rsum += 1 - A[r];

@@ -32,8 +32,8 @@ public class LeetCode209 {
      * @return
      */
     public int minSubArrayLen(int target, int[] nums) {
-        int cnt = Integer.MAX_VALUE ,n = nums.length;
-        for (int l = 0, r = 0, sum = 0; r < n; r++) {
+        int cnt = Integer.MAX_VALUE;
+        for (int l = 0, r = 0, sum = 0; r < nums.length; r++) {
             // 每轮循环把最右边的元素添加到 sum 中。
             sum += nums[r];
 

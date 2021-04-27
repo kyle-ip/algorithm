@@ -27,16 +27,17 @@ public class LeetCode118 {
     /**
      * Time: O(n^2), Space: O(1)
      *
-     * @param n
+     * @param numRows
      * @return
      */
-    public List<List<Integer>> generatePascalTriangle(int n) {
+    public List<List<Integer>> generatePascalTriangle(int numRows) {
         List<List<Integer>> ret = new ArrayList<>();
-        if (n < 1) {
+        if (numRows < 1) {
             return ret;
         }
         // 一共 n 层。
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < numRows; i++) {
+            // 每层数组的值初始化为 0，长度为 i+1。
             List<Integer> list = Arrays.asList(new Integer[i + 1]);
             //              j-1  j
             // i-1:     [1] [ ] [ ]
@@ -53,7 +54,7 @@ public class LeetCode118 {
     }
 
     /**
-     * FIXME 错误，参考《数据结构》（严蔚敏）
+     * FIXME bug，参考《数据结构》（严蔚敏）
      * Time: O(n^2), Space: O(1)
      *
      * @param n

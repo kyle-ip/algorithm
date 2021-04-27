@@ -38,9 +38,9 @@ public class LeetCode213 {
      * @return
      */
     private int rob(int[] nums, int start, int end) {
-        int x0 = 0, x1 = 0, cur;
+        int x0 = 0, x1 = 0;
         for (int i = start; i <= end; i++) {
-            cur = Math.max(x1, x0 + nums[i]);
+            int cur = Math.max(x1, x0 + nums[i]);
             x0 = x1;
             x1 = cur;
         }
@@ -57,14 +57,10 @@ public class LeetCode213 {
      * @return
      */
     public int rob(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
         int n = nums.length;
         if (n == 1) {
             return nums[0];
         }
         return Math.max(rob(nums, 0, n - 2), rob(nums, 1, n - 1));
-
     }
 }

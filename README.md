@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (342)
+## LeetCode (343)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -266,6 +266,7 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 387  | [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string) | 字符串中的第一个唯一字符 | Time: O(n)<br />Space: O(m) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode387.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_387.py) | Easy       | String<br />Hash Table                                    |
 | 389  | [Find the Difference](https://leetcode.com/problems/find-the-difference) | 找不同 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode389.java) | Easy | Hash Table<br />Bit Manipulation |
 | 399  | [Evaluate Division](https://leetcode.com/problems/evaluate-division/submissions) | 除法求值 | Time: O(m\*V)<br />Space: O(V+E) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode399.java) | Medium | Graph |
+| 403  | [Frog Jump](https://leetcode.com/problems/frog-jump) | 青蛙过河                   | Time: O(n^2)<br />Space: O(n^2) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode403.java) | Hard       | Dynamic Programming                                             |
 | 406  | [Queue Reconstruction by Height](https://leetcode.com/problems/queue-reconstruction-by-height) | 根据身高重建队列                   | Time: O(n)<br />Space: O(n\*log(n)) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode406.java) | Medium       | Greedy                                             |
 | 407  | [Trapping Rain Water II](https://leetcode.com/problems/trapping-rain-water-ii) | 接雨水 II                   | Time: O(m\*n)<br />Space: O(m\*n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode407.java) | Hard       | BFS<br />Heap                                             |
 | 409  | [Longest Palindrome](https://leetcode.com/problems/longest-palindrome) | 最长回文串的长度                   | Time: O(n)<br />Space: O(m) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode409.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_409.py) | Easy       | Hash Table                                             |
@@ -351,7 +352,7 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 892  | [Surface Area of 3D Shapes](https://leetcode.com/problems/surface-area-of-3d-shapes) | 三维形体的表面积                   | Time: O(n^2)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode892.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_892.py) | Easy       | Geometry<br />Math                                        |
 | 896  | [Monotonic Array](https://leetcode.com/problems/monotonic-array) | 单调数列 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode896.java)<br />[Go](go/src/problem/leetcode896/isMonotonic.go) | Easy | Array |
 | 912  | [Sort an Array](https://leetcode.com/problems/sort-an-array) | 排序数组 | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode912.java) | Medium | Array<br />Sort |
-| 938  | [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/submissions) | 二叉搜索树的区间和 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode938.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_938.py) | Easy | Tree |
+| 938  | [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/submissions) | 二叉搜索树的范围和 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode938.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_938.py) | Easy | Tree |
 | 945  | [ Minimum Increment to Make Array Unique](https://leetcode.com/problems/minimum-increment-to-make-array-unique) | 使数组唯一的最小增量               | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode945.java) | Medium     | Array                                                  |
 | 946  | [Validate Stack Sequences](https://leetcode.com/problems/validate-stack-sequences) | 验证入栈出栈序列                   | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode946.java) | Medium     | Stack                                                  |
 | 947  | [Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column) | 移除最多的同行或同列石头 | Time: O(n\*log(A))<br />Space: O(A) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode947.java) | Medium | DFS<br />Union Find |

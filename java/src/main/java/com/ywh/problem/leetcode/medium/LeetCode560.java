@@ -28,9 +28,6 @@ public class LeetCode560 {
      * @return
      */
     public int subarraySumBruteForce(int[] nums, int k) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
         int cnt = 0, n = nums.length, sum;
         for (int i = 0; i < n; i++) {
             sum = 0;
@@ -62,7 +59,7 @@ public class LeetCode560 {
      */
     public int subarraySumPrefixSum(int[] nums, int k) {
 
-        // key 为前缀和，value 为前缀和出现的次数。
+        // key 为前缀和，value 为前缀和出现的次数（初始设置前缀和为 0 出现 1 次，即一个元素都不要就能凑出一个 0）。
         Map<Integer, Integer> map = new HashMap<>(nums.length);
         map.put(0, 1);
 

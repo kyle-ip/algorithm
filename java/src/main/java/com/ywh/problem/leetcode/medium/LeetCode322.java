@@ -81,7 +81,7 @@ public class LeetCode322 {
         int[] dp = new int[amount + 1];
         Arrays.fill(dp, 1, amount + 1, Integer.MAX_VALUE - 1);
 
-        // 遍历每种面值的硬币，用来凑 [0, sum] 元。
+        // 遍历每种面值的硬币，用来凑 [0, amount] 元。
         for (int coin : coins) {
             // 从当前硬币面值开始凑（假设现有 5 元面值，至少凑 5 元及以上才有意义），使用面值为 coin 的硬币凑 sum：
             // 比如要用 2 元硬币凑 10 元，如果之前已经把凑成 10 - 2 == 8 元的最小硬币数算好，存在两种可能：

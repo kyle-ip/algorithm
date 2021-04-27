@@ -48,9 +48,6 @@ public class LeetCode48 {
      * @param matrix
      */
     public void rotate2(int[][] matrix) {
-        if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
-            return;
-        }
         // a[0][0], a[0][1],     ...   a[0][n-1], a[0][n]
         // a[1][0], a[1][1],     ...   a[1][n-1], a[1][n]
         // ...
@@ -77,9 +74,6 @@ public class LeetCode48 {
      * @param matrix
      */
     public void rotate(int[][] matrix) {
-        if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
-            return;
-        }
         int n = matrix.length;
         // 以主对角线（左上到右下）为对称轴交换右边的元素
         // 1,   [2],  [3]      1, 4, 7

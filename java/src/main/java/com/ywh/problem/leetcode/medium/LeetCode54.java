@@ -38,10 +38,6 @@ public class LeetCode54 {
      */
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> ret = new ArrayList<>();
-        if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
-            return ret;
-        }
-
         int top = 0, bottom = matrix.length - 1, left = 0, right = matrix[0].length - 1;
         while (true) {
             // top: left -> right

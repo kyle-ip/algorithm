@@ -45,9 +45,6 @@ public class LeetCode62 {
      * @return
      */
     public int uniquePathsDP(int m, int n) {
-        if (m < 1 || n < 1) {
-            return 0;
-        }
         int[][] dp = new int[m][n];
         for (int i = 0; i < m; i++) {
             dp[i][0] = 1;
@@ -73,9 +70,6 @@ public class LeetCode62 {
      * @return
      */
     public int uniquePathsDP2(int m, int n) {
-        if (m < 1 || n < 1) {
-            return 0;
-        }
         int[] dp = new int[n];
         Arrays.fill(dp, 1);
         for (int i = 1; i < m; i++) {
@@ -92,9 +86,9 @@ public class LeetCode62 {
 
     /**
      * 组合数学：
-     * 在 m * n 的矩阵中从左上角走到右下角，都必须向下走 m - 1 步、向右走 n - 1 步，总步数 m + n - 2；
-     * 可以从总步数 m + n - 1 中任意选 m - 1 步向下走，剩下向右走、或者任意选 n - 1 步向下走，剩下向右走；
-     * 即 C(m - 1, m + n - 2) == C(n - 1, m + n - 2)
+     * 在 m * n 的矩阵中从左上角走到右下角，都必须向下走 m-1 步、向右走 n-1 步，总步数 m+n-2；
+     * 可以从总步数 m+n-1 中任意选 m-1 步向下走，剩下向右走、或者任意选 n-1 步向下走，剩下向右走；
+     * 即 C(m-1, m+n-2) == C(n-1, m+n-2)
      * 其中组合数公式：C(b, a) == a!/(b!*(a-b)!) == a*(a-1)*...* (a-b+1)/b!
      *
      * Time: O(min(m, n)), Space: O(1)
@@ -104,9 +98,6 @@ public class LeetCode62 {
      * @return
      */
     public int uniquePathsMath(int m, int n) {
-        if (m < 1 || n < 1) {
-            return 0;
-        }
         int small = Math.max(m - 1, n - 1);
         int total = m + n - 2;
 

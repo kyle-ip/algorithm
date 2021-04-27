@@ -96,7 +96,7 @@ public class LeetCode85 {
             for (int j = 0; j < n; j++) {
                 heights[j] = row[j] == '1' ? heights[j] + 1 : 0;
             }
-            max = Math.max(max, largestRectangleInHistogram(heights));
+            max = Math.max(max, largestRectangleInHistogram2(heights));
         }
         return max;
     }
