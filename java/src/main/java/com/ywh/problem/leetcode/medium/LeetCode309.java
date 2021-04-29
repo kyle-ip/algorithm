@@ -28,7 +28,7 @@ public class LeetCode309 {
             return 0;
         }
 
-        // 三种情况：当天结算后持有股票、当天不持有股票且处于冻结期、当天不持有股票且不处于冻结期。
+        // 三种情况：当天结算后持有股票、不持有股票且处于冻结期、不持有股票且不处于冻结期。
         int f0 = -prices[0], f1 = 0, f2 = 0;
         for (int i = 1; i < prices.length; ++i) {
             int new0 = Math.max(f0, f2 - prices[i]), new1 = f0 + prices[i], new2 = Math.max(f1, f2);

@@ -39,19 +39,6 @@ import com.ywh.problem.leetcode.medium.LeetCode714;
 public class LeetCode123 {
 
     /**
-     *
-     * @param nums
-     * @return
-     */
-    private int max(int ... nums) {
-        int max = 0;
-        for (int num : nums) {
-            max = Math.max(max, num);
-        }
-        return max;
-    }
-
-    /**
      * 参考 {@link LeetCode121}、{@link LeetCode122}、{@link LeetCode188}、{@link LeetCode714}
      *
      * Time: O(n), Space: O(1)
@@ -64,11 +51,11 @@ public class LeetCode123 {
         // 第一次买入（初始值为 -prices[0]，可理解为只付出了买入的价、没有收益）、第一次卖出、第二次买入、第二次卖出。
         int buy1 = -prices[0], sell1 = 0, buy2 = -prices[0], sell2 = 0;
         for (int i = 1; i < prices.length; i++) {
-            buy1 = max(buy1, - prices[i]);
-            sell1 = max(sell1, buy1 + prices[i]);
-            buy2 = max(buy2, sell1 - prices[i]);
-            sell2 = max(sell2, buy2 + prices[i]);
+            buy1 = Math.max(buy1, - prices[i]);
+            sell1 = Math.max(sell1, buy1 + prices[i]);
+            buy2 = Math.max(buy2, sell1 - prices[i]);
+            sell2 = Math.max(sell2, buy2 + prices[i]);
         }
-        return max(0, buy1, sell1, buy2, sell2);
+        return sell2;
     }
 }

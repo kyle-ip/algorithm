@@ -10,7 +10,19 @@ import java.util.TreeSet;
 /**
  * 翻转对
  * [排序] [树状数组] [线段树] [二分搜素]
- *
+ * 
+ * 给定一个数组 nums ，如果 i < j 且 nums[i] > 2*nums[j] 我们就将 (i, j) 称作一个重要翻转对。
+ * 你需要返回给定数组中的重要翻转对的数量。
+ * 示例 1:
+ *      输入: [1,3,2,3,1]
+ *      输出: 2
+ * 示例 2:
+ *      输入: [2,4,3,5,1]
+ *      输出: 3
+ * 注意:
+ *      给定数组的长度不会超过50000。
+ *      输入数组中的所有数字都在32位整数的表示范围内。
+ * 
  * @author ywh
  * @since 2020/11/28/028
  */
@@ -35,43 +47,41 @@ public class LeetCode493 {
     /**
      *
      * @param nums
-     * @param left
-     * @param right
+     * @param low
+     * @param high
      */
-    private int mergeSort(int[] nums, int left, int right) {
-        if (left == right) {
+    private int mergeSort(int[] nums, int low, int high) {
+        if (low == high) {
             return 0;
         }
-        int mid = (left + right) / 2;
-        int ret = mergeSort(nums, left, mid) + mergeSort(nums, mid + 1, right);
+        int mid = low + (high - low) / 2;
+        int ret = mergeSort(nums, low, mid) + mergeSort(nums, mid + 1, high);
 
         // 统计下标对的数量。
-        // [left, mid] 和 (mid, right] 分别是两个有序的数组。
-        // 如果从前者中取出 i、后者取出 j，满足 nums[i] > 2 * nums[j]，则翻转对个数为 j - mid + 1。
-        for (int l = left, r = mid + 1; l <= mid; l++) {
-            while (r <= right && (long) nums[l] > 2 * (long) nums[r]) {
+        // [low, mid] 和 (mid, high] 分别是两个有序的数组。
+        // 如果从前者中取出 i、后者取出 j，满足 nums[i] > 2 * nums[j]，则翻转对个数为 j-mid+1。
+        for (int l = low, r = mid + 1; l <= mid; l++) {
+            while (r <= high && (long) nums[l] > 2 * (long) nums[r]) {
                 r++;
             }
             ret += r - mid - 1;
         }
 
         // 合并两个排序数组。
-        int[] sorted = new int[right - left + 1];
-        int l = left, r = mid + 1, p = 0;
-        while (l <= mid || r <= right) {
+        int[] sorted = new int[high - low + 1];
+        int l = low, r = mid + 1, p = 0;
+        for (; l <= mid || r <= high; p++) {
             if (l > mid) {
-                sorted[p++] = nums[r++];
-            } else if (r > right) {
-                sorted[p++] = nums[l++];
+                sorted[p] = nums[r++];
+            } else if (r > high) {
+                sorted[p] = nums[l++];
             } else if(nums[l] < nums[r]) {
-                sorted[p++] = nums[l++];
+                sorted[p] = nums[l++];
             } else {
-                sorted[p++] = nums[r++];
+                sorted[p] = nums[r++];
             }
         }
-        if (sorted.length >= 0) {
-            System.arraycopy(sorted, 0, nums, left, sorted.length);
-        }
+        System.arraycopy(sorted, 0, nums, low, sorted.length);
         return ret;
     }
 

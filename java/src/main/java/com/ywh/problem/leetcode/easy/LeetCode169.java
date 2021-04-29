@@ -30,9 +30,6 @@ public class LeetCode169 {
      * @return
      */
     public int getMajorityWithHashMap(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return -1;
-        }
         Map<Integer, Integer> cache = new HashMap<>(nums.length);
         int maxNum = 0, maxCount = 0;
         for (int num: nums) {
@@ -56,20 +53,20 @@ public class LeetCode169 {
      * 即此时 cur 出现的个数不可能超过总数一半，因此把 cur 重置。
      * （题设必然存在出现次数过半的元素）
      *
-     * Time: O(n), Space: O(n)
+     * Time: O(n), Space: O(1)
      *
      * @param nums
      * @return
      */
     public int getMajority(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return -1;
-        }
         int cur = nums[0], count = 1;
         for (int i = 1; i < nums.length; i++) {
+            // 如果与 cur 相同，则 count++。
             if (nums[i] == cur) {
                 count++;
-            } else {
+            }
+            // 否则 count--，减到 0 则重置。
+            else {
                 if (count > 0) {
                     count--;
                 } else {

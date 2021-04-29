@@ -46,14 +46,14 @@ public class LeetCode188 {
             return 0;
         }
 
-        // sell[i]、buy[i] 分别表示限制交易 i 次时在前一天卖出/买入得到的最大收益。
+        // sell[i]、buy[i] 分别表示交易 i 次时在前一天卖出/买入得到的最大收益。
         int[] sell = new int[k + 1], buy = new int[k + 1];
         Arrays.fill(buy, -prices[0]);
         // 遍历每天的价格。
         for (int price : prices) {
             // 第 i 次时买入，即从第 i-1 次卖出的最大收益减去当天价格。
             // 第 i 次时卖出，即取“不卖出”和“上次买入所得最大收益加上今天价格”的较大者。
-            for (int i = 1; i < k + 1; i++) {
+            for (int i = 1; i <= k; i++) {
                 buy[i] = Math.max(buy[i], sell[i - 1] - price);
                 sell[i] = Math.max(sell[i], buy[i] + price);
             }

@@ -43,14 +43,14 @@ public class LeetCode179 {
             strs[i] = String.valueOf(nums[i]);
         }
 
-        // 对字符串数组排序，规则为字典序的倒序：如比较 "12" 和 "8"，812 > 128，因此 8 排在 12 前面
+        // 对字符串数组按字典序排倒序：如比较 "12" 和 "8"，812 > 128，因此 8 排在 12 前面。
         Arrays.sort(strs, (o1, o2) -> {
             String o12 = o1 + o2, o21 = o2 + o1;
 
             // 在 compare 函数中，对比 o12 和 o21 时 o12 较大，如希望 o1 排在 o2 前面，则需要返回负数，即 o21.compareTo(o12)
             return o21.compareTo(o12);
         });
-        // 排序结果最大的是 "0"，表示数组中的元素全部都为 0
+        // 排序结果最大的是 "0"，表示数组中的元素全部都为 0。
         if ("0".equals(strs[0])) {
             return "0";
         }

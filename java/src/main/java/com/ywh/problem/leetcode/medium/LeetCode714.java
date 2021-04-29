@@ -42,12 +42,12 @@ public class LeetCode714 {
      */
     public int maxProfit(int[] prices, int fee) {
         // 分别表示当天结算时没有股票的最大利润、前一天结束有股票的最大利润。
-        int sell = 0, buy = -prices[0];
+        int buy = -prices[0], sell = 0;
         for (int i = 1; i < prices.length; i++) {
-            // 这一天结算时没有股票，可能是之前就没有股票（sell），也可能是今天卖出了（buy+prices[i]-fee）。
-            sell = Math.max(sell, buy + prices[i] - fee);
             // 这一天结算时有股票，可能是之前今天买入了（sell-prices[i]），也可能是一直持有（buy）。
             buy = Math.max(buy, sell - prices[i]);
+            // 这一天结算时没有股票，可能是之前就没有股票（sell），也可能是今天卖出了（buy+prices[i]-fee）。
+            sell = Math.max(sell, buy + prices[i] - fee);
         }
         // 最后一天必然把股票都卖出，因此返回 sell。
         return sell;

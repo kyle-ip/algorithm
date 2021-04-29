@@ -1,12 +1,32 @@
-package com.ywh.problem.leetcode.easy;
+package com.ywh.problem.leetcode.medium;
 
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 两个完全平方数的和
+ * 平方数之和
  * [数学] [哈希表] [双指针]
- *
+ * 
+ * 给定一个非负整数 c ，你要判断是否存在两个整数 a 和 b，使得 a2 + b2 = c 。
+ * 示例 1：
+ *      输入：c = 5
+ *      输出：true
+ *      解释：1 * 1 + 2 * 2 = 5
+ * 示例 2：
+ *      输入：c = 3
+ *      输出：false
+ * 示例 3：
+ *      输入：c = 4
+ *      输出：true
+ * 示例 4：
+ *      输入：c = 2
+ *      输出：true
+ * 示例 5：
+ *      输入：c = 1
+ *      输出：true
+ * 提示：
+ *      0 <= c <= 2^31 - 1
+ * 
  * @author ywh
  * @since 09/11/2019
  */
