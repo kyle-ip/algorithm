@@ -66,17 +66,17 @@ public class LeetCode647 {
     }
 
     /**
-     * 求字符串 s 中以下标 left、right 为中心的回文子串数量
+     * 求字符串 s 中以下标 l、r 为中心的回文子串数量
      *
      * @param s
-     * @param left
-     * @param right
+     * @param l
+     * @param r
      * @return
      */
-    private int expand(String s, int left, int right) {
-        int count = 0;
-        for (; left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right); count++, right++, left--);
-        return count;
+    private int expand(String s, int l, int r) {
+        int cnt = 0;
+        for (; l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r); cnt++, r++, l--);
+        return cnt;
     }
 
     /**

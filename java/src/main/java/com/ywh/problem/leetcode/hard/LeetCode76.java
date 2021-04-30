@@ -30,26 +30,26 @@ public class LeetCode76 {
      * @return
      */
     public String minSubstringContainT(String s, String t) {
-
-        // s 中需求的字符统计值（初始化为 t 中字符出现的频度）。在滑动窗口的过程中每出现一次就 -1。
+        // required 表示 s 中需求的字符统计值（初始化为 t 中字符出现的频度）。
         // 比如 t 为 aab，则 required['a'] == 2，required['b'] == 1。
         int[] required = new int[256];
         for (int i = 0; i < t.length(); ++i) {
             ++required[t.charAt(i)];
         }
 
-        // start、len 用于返回结果子串，requiredCnt 表示剩余需要寻找的字符总量。
+        // start、len 用于截取返回结果子串，requiredCnt 表示剩余需要寻找的字符总量。
         int start = 0, len = s.length() + 1, requiredCnt = t.length();
 
-        for (int l = 0, r = 0; r < s.length(); ++r) {
-            // required 中的统计值大于 0，表示 s.charAt(r) 即为 t 中的字符。
+        for (int l = 0, r = 0; r < s.length(); r++) {
+            // required 中的统计值大于 0，表示 s.charAt(r) 即为 t 中的字符，总需求个数 -1、该字符需求个数 -1。
             if (required[s.charAt(r)] > 0) {
                 requiredCnt--;
             }
             required[s.charAt(r)]--;
+
             // 每当 requiredCnt 减到 0，表示 [l、r] 包含的子串已覆盖 t。
-            for (; requiredCnt == 0; ++l) {
-                // 更新当前下标的开始、长度（如果更短）。
+            for (; requiredCnt == 0; l++) {
+                // 找到更小的覆盖子串：记录起始位置、长度。
                 if (r - l + 1 < len) {
                     start = l;
                     len = r - l + 1;

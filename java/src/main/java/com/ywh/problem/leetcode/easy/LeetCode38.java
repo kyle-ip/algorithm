@@ -50,9 +50,6 @@ public class LeetCode38 {
      * @return
      */
     public static String countAndSay(int n) {
-        if (n < 1) {
-            return null;
-        }
         String s = "1";
         for (int i = 1; i < n; i++) {
             StringBuilder sb = new StringBuilder();
@@ -78,17 +75,11 @@ public class LeetCode38 {
         String ret = "1";
         for (int i = 1; i < n; i++) {
             StringBuilder sb = new StringBuilder();
-            int l = 0, r = 0;
-
             // 相邻字符相同，移动右指针
-            while (r < ret.length()) {
-                while (r < ret.length() && ret.charAt(r) == ret.charAt(l)) {
-                    r++;
-                }
+            for (int l = 0, r = 0; r < ret.length(); l = r) {
+                for (; r < ret.length() && ret.charAt(r) == ret.charAt(l); r++);
                 sb.append(r - l).append(ret.charAt(l));
-                l = r;
             }
-
             ret = sb.toString();
         }
         return ret;

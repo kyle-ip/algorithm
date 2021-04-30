@@ -80,7 +80,7 @@ public class LeetCode5 {
      * @return
      */
     private int expand(String s, int l, int r) {
-        for (; l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r); l--, r++) {}
+        for (; l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r); l--, r++) ;
         return (r - 1) - (l + 1) + 1;
     }
 
@@ -158,11 +158,8 @@ public class LeetCode5 {
         return ret.toString();
     }
 
-    public int expand2(String s, int left, int right) {
-        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
-            --left;
-            ++right;
-        }
-        return (right - left - 2) / 2;
+    public int expand2(String s, int l, int r) {
+        for (; l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r); l--, r++) ;
+        return (r - l - 2) / 2;
     }
 }
