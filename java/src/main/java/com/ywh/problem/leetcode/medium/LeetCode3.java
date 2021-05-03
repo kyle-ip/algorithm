@@ -39,6 +39,7 @@ public class LeetCode3 {
      * @return
      */
     public int lengthOfLongestSubstring2N(String s) {
+        // 哈希表，左右指针，结果值。
         boolean[] hash = new boolean[256];
         int ret = 0;
         for (int l = 0, r = 0; r < s.length(); r++) {

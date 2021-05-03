@@ -30,6 +30,8 @@ public class LeetCode76 {
      * @return
      */
     public String minSubstringContainT(String s, String t) {
+        //
+
         // required 表示 s 中需求的字符统计值（初始化为 t 中字符出现的频度）。
         // 比如 t 为 aab，则 required['a'] == 2，required['b'] == 1。
         int[] required = new int[256];

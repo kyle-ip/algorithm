@@ -29,11 +29,9 @@ public class LeetCode557 {
         char[] c = s.toCharArray();
 
         // start、end 分别定位到每个单词的起始和结束（end 定位单词后的空格，每轮翻转都把 end 与 start 置于空格后第一位）
-        int start = 0, end = 0;
-        while (start < c.length) {
-            while (end < c.length && c[end] != ' '){
-                end++;
-            }
+
+        for (int start = 0, end = 0; start < c.length; ) {
+            for (; end < c.length && c[end] != ' '; end++);
 
             // 与单指针的写法相比更推荐这种
             for (int i = start, j = end - 1; i < j; i++, j--) {

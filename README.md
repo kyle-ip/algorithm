@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (346)
+## LeetCode (347)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -300,6 +300,7 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 540  | [Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array) | 有序数组中的单身数字               | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode540.java) | Medium     | Bit Manipulation<br />Binary Search                       |
 | 543  | [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree) | 二叉树的直径                       | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode543.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_543.py)<br />[Go](go/src/problem/leetcode543/diameterOfBinaryTree.go) | Easy       | Tree                                                   |
 | 547  | [Number of Provinces](https://leetcode.com/problems/number-of-provinces) | 省份数量 | Time: O(n^2)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode547.java) | Medium | DFS<br />Union Find |
+| 554  | [Brick Wall](https://leetcode-cn.com/problems/brick-wall) | 砖墙                           | Time: O(m\*n)<br />Space: O(m\*n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode554.java) | Medium       | Hash Table                                                 |
 | 556  | [Next Greater Element III](https://leetcode.com/problems/next-greater-element-iii) | 下一个更大元素 III                           | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode556.java) | Medium       | String                                                 |
 | 557  | [Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii) | 反转字符串中的单词 III                           | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode557.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_557.py) | Easy       | String                                                 |
 | 558  | [Quad Tree Intersection](https://leetcode.com/problems/quad-tree-intersection) | 四叉树交集                         | Time: O(n^4)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode558.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_558.py) | Easy       | Tree                                                   |
@@ -320,6 +321,7 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 673  | [Number of Longest Increasing Subsequence](https://leetcode.com/problems/number-of-longest-increasing-subsequence) | 最长递增子序列的个数 | Time: O(n\*log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode673.java) | Medium | Dynamic Programming |
 | 674  | [Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence) | 最长连续递增序列 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode674.java) | Easy | Array |
 | 684  | [Redundant Connection](https://leetcode.com/problems/redundant-connection) | 冗余连接 | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode684.java) | Medium | Union Find<br />Graph<br />Tree |
+| 690  | [Employee Importance](https://leetcode-cn.com/problems/employee-importance) | 员工的重要性 | Time: O(n)<br />Space: (n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode690.java) | Easy | DFS<br />BFS<br />Hash Table |
 | 695  | [Max Area of Island](https://leetcode.com/problems/max-area-of-island) | 岛屿的最大面积 | Time: O(R\*C)<br />Space: (R\*C) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode695.java) | Medium | DFS<br />Array<br />Union Find |
 | 697  | [Degree of an Array](https://leetcode.com/problems/degree-of-an-array) | 数组的度 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode697.java)<br />[Go](go/src/problem/leetcode697/findShortestSubArray.go) | Easy | Array<br />Hash Table |
 | 700  | [Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree) | 二叉搜索树中查找数字               | Time: O(h)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode700.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_700.py) | Easy       | Tree                                                   |
