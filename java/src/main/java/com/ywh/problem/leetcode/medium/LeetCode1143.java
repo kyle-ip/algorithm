@@ -46,6 +46,7 @@ public class LeetCode1143 {
                 if (c1 == c2) {
                     dp[i][j] = dp[i - 1][j - 1] + 1;
                 } else {
+                    // text1 回退一位，或 text2 回退一位。
                     dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
                 }
             }

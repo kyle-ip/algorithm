@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (348)
+## LeetCode (349)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -320,6 +320,7 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 670  | [Maximum Swap](https://leetcode.com/problems/maximum-swap) | 最大交换 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode670.java) | Medium | Math<br />Array |
 | 673  | [Number of Longest Increasing Subsequence](https://leetcode.com/problems/number-of-longest-increasing-subsequence) | 最长递增子序列的个数 | Time: O(n\*log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode673.java) | Medium | Dynamic Programming |
 | 674  | [Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence) | 最长连续递增序列 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode674.java) | Easy | Array |
+| 678  | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string) | 有效的括号字符串 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode678.java) | Medium | String |
 | 684  | [Redundant Connection](https://leetcode.com/problems/redundant-connection) | 冗余连接 | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode684.java) | Medium | Union Find<br />Graph<br />Tree |
 | 690  | [Employee Importance](https://leetcode-cn.com/problems/employee-importance) | 员工的重要性 | Time: O(n)<br />Space: (n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode690.java) | Easy | DFS<br />BFS<br />Hash Table |
 | 695  | [Max Area of Island](https://leetcode.com/problems/max-area-of-island) | 岛屿的最大面积 | Time: O(R\*C)<br />Space: (R\*C) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode695.java) | Medium | DFS<br />Array<br />Union Find |

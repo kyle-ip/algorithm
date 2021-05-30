@@ -43,17 +43,17 @@ public class LeetCode647 {
         // 外循环 i 从右到左
         for (int i = length - 1; i >= 0; i--) {
 
-            // 内循环 j 从 i 的位置出发，从左到右
+            // 内循环 j 从 i 的位置出发，从左到右。
             for (int j = i; j < length; j++) {
-                // 当 i == j，表示单个字符，则 i~j 为回文子串;
+                // 当 i == j，表示单个字符，则 i~j 为回文子串。
                 if (i == j) {
                     dp[i][j] = true;
                 }
-                // 当 i、j 相邻且元素相等，则 i~j 为回文子串，否则不是；
+                // 当 i、j 相邻且元素相等，则 i~j 为回文子串，否则不是。
                 else if (i + 1 == j) {
                     dp[i][j] = s.charAt(i) == s.charAt(j);
                 }
-                // 其余情况则要求 i、j 元素相等，其中间部分也为回文子串，则 i~j 为回文子串
+                // 其余情况则要求 i、j 元素相等，其中间部分也为回文子串，则 i~j 为回文子串。
                 else {
                     dp[i][j] = s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1];
                 }

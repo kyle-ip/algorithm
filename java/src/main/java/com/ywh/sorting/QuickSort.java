@@ -71,8 +71,8 @@ public class QuickSort {
         // partition
         int i = low, j = high, pivot = nums[i + (j - i) / 2];
         for (;;) {
-            for (; nums[i] < pivot; i++) {}
-            for (; nums[j] > pivot; j--) {}
+            for (; nums[i] < pivot; i++);
+            for (; nums[j] > pivot; j--);
             if (i >= j) {
                 break;
             }

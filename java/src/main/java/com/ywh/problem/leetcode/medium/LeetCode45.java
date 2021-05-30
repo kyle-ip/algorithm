@@ -21,8 +21,6 @@ package com.ywh.problem.leetcode.medium;
 public class LeetCode45 {
 
     /**
-     * TODO 暂时未理解
-     *
      * Time: O(n), Space: O(n)
      *
      * @param nums
