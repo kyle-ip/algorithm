@@ -1,21 +1,20 @@
 package leetcode3
 
 func lengthOfLongestSubstring(s string) int {
-    l, r, ret, hash := 0, 0, 0, make([]int, 256)
-    for i := 0; i < 255; i++ {
-        hash[i] = -1
+    max := func(num1, num2 int) int {
+        if num1 > num2 {
+            return num1
+        }
+        return num2
     }
-    for ; r < len(s); r++ {
-        l = max(l, hash[s[r]] + 1)
+    ret := 0
+    hash := make([]bool, 256)
+    for l, r := 0, 0; r < len(s); r++ {
+        for ; hash[s[r]]; l++ {
+            hash[s[l]] = false
+        }
         ret = max(ret, r - l + 1)
-        hash[s[r]] = r
+        hash[s[r]] = true
     }
     return ret
-}
-
-func max(num1, num2 int) int {
-    if num1 > num2 {
-        return num1
-    }
-    return num2
 }

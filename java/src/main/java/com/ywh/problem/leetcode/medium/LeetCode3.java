@@ -47,7 +47,7 @@ public class LeetCode3 {
             // 不断把左指针到“重复元素首次出现的位置”之间的值全部剔除，移动左指针到新的起始位置。
             for (; hash[s.charAt(r)]; hash[s.charAt(l++)] = false);
 
-            // 此时左指针与右指针之间的字符都没有重复，计算最大长度，并缓存右指针指向的值。
+            // 结束内层循环时，[l, r] 之间的子串不含重复字符。计算最大长度，并缓存右指针指向的值。
             ret = Math.max(ret, r - l + 1);
             hash[s.charAt(r)] = true;
         }
