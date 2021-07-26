@@ -1,9 +1,4 @@
-package leetcode25
-
-type ListNode struct {
-    Val int
-    Next *ListNode
-}
+package leetcode
 
 func reverseKGroup(head *ListNode, k int) *ListNode {
     tail := head
