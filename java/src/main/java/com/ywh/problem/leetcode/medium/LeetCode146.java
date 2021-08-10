@@ -95,9 +95,8 @@ public class LeetCode146 {
         public LRUCache(int capacity) {
             DoublyListNode node = head;
             // 尾插法创建容量 -1 个节点（因为 head 本身也用于存放数据）。
-            for (int i = 0; i < capacity - 1; i++) {
+            for (int i = 0; i < capacity - 1; i++, node = node.next) {
                 node.next = new DoublyListNode(null, node);
-                node = node.next;
             }
             node.next = head;
             head.prev = node;
