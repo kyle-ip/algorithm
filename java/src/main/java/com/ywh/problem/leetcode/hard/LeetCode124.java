@@ -86,9 +86,8 @@ public class LeetCode124 {
             return 0;
         }
 
-        // 递归计算左右子节点的最大贡献值，在最大贡献值大于 0 时才会选取对应子节点。
-        int leftMax = Math.max(maxPathSumOn(root.left, ret), 0),
-            rightMax = Math.max(maxPathSumOn(root.right, ret), 0);
+        // 递归计算左右子节点的最大贡献值（不含 root.val），在最大贡献值大于 0 时才会选取对应子节点。
+        int leftMax = Math.max(maxPathSumOn(root.left, ret), 0), rightMax = Math.max(maxPathSumOn(root.right, ret), 0);
 
         // 更新答案：root 的最大路径和为 root.val 与其左右子节点最大路径和之和。
         ret[0] = Math.max(ret[0], root.val + leftMax + rightMax);

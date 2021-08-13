@@ -7,7 +7,7 @@ import java.util.Random;
 
 /**
  * 最接近原点的 K 个点
- * [堆] [排序] [分治]
+ * [堆] [排序] [分治] [快速选择]
  *
  * @author ywh
  * @since 2020/11/9/009

@@ -38,34 +38,34 @@ public class LeetCode54 {
      */
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> ret = new ArrayList<>();
-        int top = 0, bottom = matrix.length - 1, left = 0, right = matrix[0].length - 1;
+        int t = 0, b = matrix.length - 1, l = 0, r = matrix[0].length - 1;
         while (true) {
             // top: left -> right
-            for (int i = left; i <= right; i++) {
-                ret.add(matrix[top][i]);
+            for (int i = l; i <= r; i++) {
+                ret.add(matrix[t][i]);
             }
-            if (++top > bottom) {
+            if (++t > b) {
                 break;
             }
             // right: top -> bottom
-            for (int i = top; i <= bottom; i++) {
-                ret.add(matrix[i][right]);
+            for (int i = t; i <= b; i++) {
+                ret.add(matrix[i][r]);
             }
-            if (--right < left) {
+            if (--r < l) {
                 break;
             }
             // bottom: right -> left
-            for (int i = right; i >= left; i--) {
-                ret.add(matrix[bottom][i]);
+            for (int i = r; i >= l; i--) {
+                ret.add(matrix[b][i]);
             }
-            if (--bottom < top) {
+            if (--b < t) {
                 break;
             }
             // left: bottom -> top
-            for (int i = bottom; i >= top; --i) {
-                ret.add(matrix[i][left]);
+            for (int i = b; i >= t; --i) {
+                ret.add(matrix[i][l]);
             }
-            if (++left > right) {
+            if (++l > r) {
                 break;
             }
         }

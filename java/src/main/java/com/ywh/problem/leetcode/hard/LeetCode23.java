@@ -93,18 +93,18 @@ public class LeetCode23 {
             return null;
         }
         int mid = start + (end - start) / 2;
-        ListNode left = merge(lists, start, mid), right = merge(lists, mid + 1, end);
+        ListNode l = merge(lists, start, mid), r = merge(lists, mid + 1, end);
         ListNode dummy = new ListNode(), p = dummy;
-        for (;left != null && right != null; p = p.next) {
-            if (left.val < right.val) {
-                p.next = left;
-                left = left.next;
+        for (;l != null && r != null; p = p.next) {
+            if (l.val < r.val) {
+                p.next = l;
+                l = l.next;
             } else {
-                p.next = right;
-                right = right.next;
+                p.next = r;
+                r = r.next;
             }
         }
-        p.next = left == null? right: left;
+        p.next = l == null? r: l;
         return dummy.next;
     }
 

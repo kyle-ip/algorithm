@@ -109,22 +109,31 @@ public class LeetCode92 {
         if (head == null || m >= n) {
             return head;
         }
-        ListNode newHead = new ListNode(0, head), pre = newHead;
-        // 找到第一个需要反转的节点的前一个节点 pre。
-        for (int i = 0; pre.next != null && i < m - 1; i++, pre = pre.next);
+        ListNode dummy = new ListNode(0, head), prev = dummy;
+        // 找到第一个需要反转的节点的前一个节点 prev。
+        for (int i = 0; prev.next != null && i < m - 1; i++, prev = prev.next);
         // 不足 m 个，直接返回。
-        if (pre.next == null) {
+        if (prev.next == null) {
             return head;
         }
-        // 从 pre 开始，依次把后面的节点用头插法插到 p 节点的后面。
-        ListNode cur = pre.next;
+        // 从 prev 开始，依次把后面的节点用头插法插到 p 节点的后面。
+        ListNode cur = prev.next;
         for (int i = 0; i < n - m; i++) {
-            ListNode next = pre.next;
-            pre.next = cur.next;
+            //                                                        1
+            //                                              +------------------+
+            //                                              |                  ↓
+            // [prev] -> [cur] -> [...] -> [...]    =>    [prev]    [cur]    [...]    [...]
+            //                                                       ↑ |       |        ↑
+            //                                                       | +-------+--------+ 2
+            //                                                       |         |
+            //                                                       +---------+
+            //                                                            3
+            ListNode next = prev.next;
+            prev.next = cur.next;
             cur.next = cur.next.next;
-            pre.next.next = next;
+            prev.next.next = next;
         }
-        return newHead.next;
+        return dummy.next;
     }
 
 }

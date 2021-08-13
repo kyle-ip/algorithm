@@ -107,4 +107,56 @@ public class LeetCode200 {
         return num;
     }
 
+    /**
+     *
+     * @param g
+     * @param i
+     * @param j
+     */
+    private void dfs(char[][] g, int i, int j) {
+        int m = g.length, n = g[0].length;
+//        if (i < 0 || i >= m || j < 0 || j >= n || g[i][j] == '0' || g[i][j] == '2') {
+//            return;
+//        }
+//        g[i][j] = '2';
+//        dfs(g, i + 1, j);
+//        dfs(g, i - 1, j);
+//        dfs(g, i, j + 1);
+//        dfs(g, i, j - 1);
+        Deque<int[]> stack = new LinkedList<>();
+        stack.push(new int[]{i, j});
+        while (!stack.isEmpty()) {
+            int[] p = stack.pop();
+            if (p[0] < 0 || p[0] >= m || p[1] < 0 || p[1] >= n || g[p[0]][p[1]] == '0' || g[p[0]][p[1]] == '2') {
+                continue;
+            }
+            g[p[0]][p[1]] = '2';
+            stack.push(new int[]{p[0] + 1, p[1]});
+            stack.push(new int[]{p[0] - 1, p[1]});
+            stack.push(new int[]{p[0], p[1] + 1});
+            stack.push(new int[]{p[0], p[1] - 1});
+        }
+    }
+
+    /**
+     * Time: O(m*n), Space: O(m*n)
+     *
+     * @param grid
+     * @return
+     */
+    public int numIslands(char[][] grid) {
+        int m = grid.length, n = grid[0].length, num = 0;
+        boolean[][] visited = new boolean[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                // 海水或已经遍历过的海岛跳过。
+                if (grid[i][j] == '0' || grid[i][j] == '2') {
+                    continue;
+                }
+                num++;
+                dfs(grid, i, j);
+            }
+        }
+        return num;
+    }
 }

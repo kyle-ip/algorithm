@@ -8,7 +8,7 @@ import java.util.Queue;
 
 /**
  * 数组中的第 K 个最大元素
- * [分治] [堆]
+ * [数组] [分治] [堆] [排序] [快速选择]
  *
  * 在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
  * 示例 1：
@@ -84,8 +84,7 @@ public class LeetCode215 {
      * @return
      */
     public int findKthLargestQuickSelect(int[] nums, int k) {
-        int low = 0, high = nums.length - 1;
-        while (low <= high) {
+        for (int low = 0, high = nums.length - 1; low <= high; ) {
 
             // 反向的分区方法，对于返回值 l：左边的元素都大于等于 l，右边的元素都小于 l。
             int pivot = nums[low], l = low, r = high;

@@ -2,7 +2,7 @@ package com.ywh.problem.leetcode.hard;
 
 /**
  * 字典序的第 K 小数字
- * [树]
+ * [字典树]
  *
  * 给定整数 n 和 k，找到 1 到 n 中字典序第 k 小的数字。
  * 注意：1 ≤ k ≤ n ≤ 10^9。

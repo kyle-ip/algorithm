@@ -24,19 +24,17 @@ public class LeetCode21 {
      * @return
      */
     public ListNode mergeTwoSortedLists(ListNode l1, ListNode l2) {
-        for (ListNode dummy = new ListNode(), p = dummy; ; p = p.next) {
-            if (l1 != null && l2 != null) {
-                if (l1.val < l2.val) {
-                    p.next = l1;
-                    l1 = l1.next;
-                } else {
-                    p.next = l2;
-                    l2 = l2.next;
-                }
+        ListNode dummy = new ListNode(), p = dummy;
+        for (; l1 != null && l2 != null; p = p.next) {
+            if (l1.val <= l2.val) {
+                p.next = l1;
+                l1 = l1.next;
             } else {
-                p.next = l1 != null ? l1 : l2;
-                return dummy.next;
+                p.next = l2;
+                l2 = l2.next;
             }
         }
+        p.next = l1 == null? l2: l1;
+        return dummy.next;
     }
 }

@@ -13,7 +13,7 @@ import com.ywh.problem.leetcode.hard.LeetCode42;
  * 示例 1：
  *      输入：[1,8,6,2,5,4,8,3,7]
  *      输出：49
- *      解释：图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。
+ *      解释：图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。
  * 示例 2：
  *      输入：height = [1,1]
  *      输出：1
@@ -43,7 +43,7 @@ public class LeetCode11 {
      */
     public int maxArea(int[] height) {
         int ret = 0;
-        for (int l = 0, r = height.length - 1; l <= r; ) {
+        for (int l = 0, r = height.length - 1; l < r; ) {
             // 当前面积，高度（左右高度中的较小者） * 宽度（左右距离）。
             ret = Math.max(ret, (r - l) * Math.min(height[l], height[r]));
 

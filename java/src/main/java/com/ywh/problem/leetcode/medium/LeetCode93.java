@@ -45,7 +45,7 @@ public class LeetCode93 {
         if (len > 3) {
             return false;
         }
-        return segment.charAt(0) != '0' ? Integer.parseInt(segment) <= 255 : len == 1;
+        return segment.charAt(0) != '0' ? Integer.parseInt(segment) < 256 : len == 1;
     }
 
     /**
@@ -58,7 +58,7 @@ public class LeetCode93 {
      * @param segments
      * @param ret
      */
-    private void backtracking(String s, int start, LinkedList<String> segments, List<String> ret) {
+    private List<String> backtracking(String s, int start, LinkedList<String> segments, List<String> ret) {
         // start + 3 不超过 s 的长度（三个“.”分隔符）。
         for (int i = start; i < Math.min(s.length() - 1, start + 3); i++) {
             String segment = s.substring(start, i + 1);
@@ -82,6 +82,7 @@ public class LeetCode93 {
             }
             segments.removeLast();
         }
+        return ret;
     }
 
     /**
@@ -91,9 +92,7 @@ public class LeetCode93 {
      * @return
      */
     public List<String> restoreIpAddresses(String s) {
-        List<String> ret = new ArrayList<>();
-        backtracking(s, 0, new LinkedList<>(), ret);
-        return ret;
+        return backtracking(s, 0, new LinkedList<>(), new ArrayList<>());
     }
 
     /**

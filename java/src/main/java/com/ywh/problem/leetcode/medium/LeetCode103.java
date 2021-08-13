@@ -79,7 +79,7 @@ public class LeetCode103 {
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
         boolean right2Left = false;
-        while (!q.isEmpty()) {
+        for (; !q.isEmpty(); right2Left = !right2Left) {
             LinkedList<Integer> elem = new LinkedList<>();
             int size = q.size();
             for (int i = 0; i < size; i++) {
@@ -97,7 +97,6 @@ public class LeetCode103 {
                 }
             }
             ret.add(elem);
-            right2Left = !right2Left;
         }
         return ret;
     }
