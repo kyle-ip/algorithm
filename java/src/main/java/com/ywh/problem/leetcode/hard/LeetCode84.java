@@ -20,6 +20,9 @@ import java.util.LinkedList;
  * 示例：
  *      输入: [2,1,5,6,2,3]
  *      输出: 10
+ * 提示：
+ *      1 <= heights.length <=10^5
+ *      0 <= heights[i] <= 10^4
  *
  * @author ywh
  * @since 16/11/2019
@@ -36,9 +39,6 @@ public class LeetCode84 {
      * @return
      */
     public int largestRectangleAreaExpand(int[] heights) {
-        if (heights == null || heights.length == 0) {
-            return 0;
-        }
         int max = 0, n = heights.length;
         // 从右向左遍历直方图。
         for (int i = 0; i < n; i++) {
@@ -64,9 +64,6 @@ public class LeetCode84 {
      * @return
      */
     public int largestRectangleAreaStack(int[] heights) {
-        if (heights == null || heights.length == 0) {
-            return 0;
-        }
         int ret = 0, n = heights.length;
 
         // 使用辅助栈缓存高度数组的下标。
@@ -112,10 +109,6 @@ public class LeetCode84 {
      * @return
      */
     public int largestRectangleAreaArray(int[] heights) {
-        if (heights == null || heights.length == 0) {
-            return 0;
-        }
-
         int max = 0, n = heights.length, top = -1;
         int[] stack = new int[n + 1];
         for (int r = 0; r <= n; r++) {

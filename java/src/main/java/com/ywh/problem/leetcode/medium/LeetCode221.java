@@ -124,9 +124,13 @@ public class LeetCode221 {
         int[][] dp = new int[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                // 第一行、第一列，或当前位置为 0
-                if (i == 0 || j == 0 || matrix[i][j] == '0') {
-                    dp[i][j] = matrix[i][j] == '0' ? 0 : 1;
+                // 当前位置为 0
+                if (matrix[i][j] == '0') {
+                    dp[i][j] = 0;
+                }
+                // 第一行、第一列
+                else if (i == 0 || j == 0) {
+                    dp[i][j] = 1;
                 } else {
                     // 取以左、上、左上为右下顶点的最大边长状态值的最小值
                     dp[i][j] = min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]) + 1;

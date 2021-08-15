@@ -81,7 +81,7 @@ public class LeetCode146 {
 
             // attach
             node.next = head.next;
-            node.next.prev = node;
+            head.next.prev = node;
 
             head.next = node;
             node.prev = head;

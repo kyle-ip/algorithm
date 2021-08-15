@@ -56,7 +56,7 @@ public class LeetCode19 {
 
         // step2:                    slow                        fast
         //           dummy -> [ ] -> [ ] -> [x] -> [ ] -> [ ] -> [ ] -> null
-        for (;fast != null; fast = fast.next, slow = slow.next);
+        for (; fast != null; fast = fast.next, slow = slow.next);
 
         // step3:                    slow                        fast
         //           dummy -> [ ] -> [ ] -> [x] -> [ ] -> [ ] -> [ ] -> null

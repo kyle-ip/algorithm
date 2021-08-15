@@ -5,6 +5,23 @@ import com.ywh.ds.list.ListNode;
 /**
  * 两两交换链表中的节点
  * [链表]
+ * 
+ * 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
+ * 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
+ * 示例 1：
+ *      输入：head = [1,2,3,4]
+ *      输出：[2,1,4,3]
+ * 示例 2：
+ *      输入：head = []
+ *      输出：[]
+ * 示例 3：
+ *      输入：head = [1]
+ *      输出：[1]
+ * 提示：
+ *      链表中节点的数目在范围 [0, 100] 内
+ *      0 <= Node.val <= 100
+ * 进阶：
+ *      你能在不修改链表节点值的情况下解决这个问题吗?（也就是说，仅修改节点本身。）
  *
  * @author ywh
  * @since 27/03/2020
@@ -54,8 +71,8 @@ public class LeetCode24 {
      * @return
      */
     public ListNode swapPairsIterative(ListNode head) {
-        ListNode dummy = new ListNode(0, head), pre = dummy;
-        while (pre.next != null && pre.next.next != null) {
+        ListNode dummy = new ListNode(0, head), prev = dummy;
+        while (prev.next != null && prev.next.next != null) {
 
             //      三步交换：                         循环最后 pre 定位到 first 的位置：
             //                     2
@@ -64,11 +81,11 @@ public class LeetCode24 {
             //       |      |   3  ↓      ↓
             //      [ ]    [ ] <- [ ]    [ ] ->       [ ] -> [ ] -> [ ] -> [ ]
             //      pre   first  second                    second  first/pre
-            ListNode first = pre.next, second = pre.next.next;
-            pre.next = second;
+            ListNode first = prev.next, second = prev.next.next;
+            prev.next = second;
             first.next = second.next;
             second.next = first;
-            pre = first;
+            prev = first;
         }
         return dummy.next;
     }

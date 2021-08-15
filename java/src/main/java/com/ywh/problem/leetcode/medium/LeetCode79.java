@@ -40,8 +40,7 @@ public class LeetCode79 {
         if (idx == word.length()) {
             return true;
         }
-        if (x < 0 || x >= board.length || y < 0 || y >= board[0].length ||
-            visited[x][y] || board[x][y] != word.charAt(idx)) {
+        if (x < 0 || x >= board.length || y < 0 || y >= board[0].length || visited[x][y] || board[x][y] != word.charAt(idx)) {
             return false;
         }
 
@@ -67,7 +66,7 @@ public class LeetCode79 {
         boolean[][] visited = new boolean[m][n];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (board[i][j] != word.charAt(0)) {
+                if (visited[i][j] || board[i][j] != word.charAt(0)) {
                     continue;
                 }
                 if (exist(board, visited, i, j, word, 0)) {

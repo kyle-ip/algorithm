@@ -2,7 +2,7 @@ package com.ywh.problem.leetcode.hard;
 
 /**
  * 编辑距离
- * [字符串] [动态规划]
+ * [字符串] [动态规划] [回溯]
  *
  * 给你两个单词 word1 和 word2，请你计算出将 word1 转换成 word2 所使用的最少操作数 。
  * 你可以对一个单词进行如下三种操作：

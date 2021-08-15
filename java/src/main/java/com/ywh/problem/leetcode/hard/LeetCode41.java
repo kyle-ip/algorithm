@@ -2,7 +2,7 @@ package com.ywh.problem.leetcode.hard;
 
 /**
  * 缺失的第一个正数
- * [数组]
+ * [数组] [哈希表]
  * 
  * 给你一个未排序的整数数组 nums ，请你找出其中没有出现的最小的正整数。
  * 进阶：你可以实现时间复杂度为 O(n) 并且只使用常数级别额外空间的解决方案吗？
@@ -23,6 +23,12 @@ package com.ywh.problem.leetcode.hard;
  * @since 2020/9/15/015
  */
 public class LeetCode41 {
+
+    private void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
 
     /**
      * Time: O(n), Space: O(1)
@@ -67,12 +73,10 @@ public class LeetCode41 {
 
         //
         for (int i = 0; i < n; ) {
-            int num = nums[i];
-            // 设位置 i 的值为 num，如果 num 在 [1, n] 的范围内，且数组中第 num 个值不为 num，则把位置 i 的值与位置 num-1 的值交换。
-            if (num >= 1 && num <= n && nums[num - 1] != num) {
-                int tmp = nums[i];
-                nums[i] = nums[num - 1];
-                nums[num - 1] = tmp;
+            int num = nums[i] - 1;
+            // 设位置 i 的值为 num，如果 num 在 [1, n] 的范围内，且数组中第 num 个值不为 num，则把位置 i 的值与位置 num-1 的值交换（先减去 1 便于处理）。
+            if (num >= 0 && num < n && nums[num] != num + 1) {
+                swap(nums, num, i);
             }
             // 否则表示值已经正确归位，如 [1, -1, 3, ...]，处理下一个值。
             else {
