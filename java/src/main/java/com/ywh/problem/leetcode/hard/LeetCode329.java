@@ -39,7 +39,7 @@ import java.util.Queue;
  */
 public class LeetCode329 {
 
-    public int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    private final int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
     /**
      * 记忆化 DFS
@@ -49,9 +49,10 @@ public class LeetCode329 {
      */
     public int longestIncreasingPath(int[][] matrix) {
         int m = matrix.length, n = matrix[0].length, ret = 0;
+        int[][] memo = new int[m][n];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                ret = Math.max(ret, dfs(matrix, i, j, new int[m][n]));
+                ret = Math.max(ret, memo[i][j] == 0? dfs(matrix, i, j, memo): memo[i][j]);
             }
         }
         return ret;
@@ -65,17 +66,16 @@ public class LeetCode329 {
      * @param memo
      * @return
      */
-    public int dfs(int[][] matrix, int x, int y, int[][] memo) {
-        // memo 用于记录当前位置下的递增路径长度最大值，如果已经有值则直接返回。
-        if (memo[x][y] != 0) {
-            return memo[x][y];
-        }
-        ++memo[x][y];
-        int m = matrix.length, n = matrix[0].length;
-        for (int[] dir : dirs) {
-            int nextX = x + dir[0], nextY = y + dir[1];
-            if (nextX >= 0 && nextX < m && nextY >= 0 && nextY < n && matrix[nextX][nextY] > matrix[x][y]) {
-                memo[x][y] = Math.max(memo[x][y], dfs(matrix, nextX, nextY, memo) + 1);
+    private int dfs(int[][] matrix, int x, int y, int[][] memo) {
+        // memo 用于记录从当前位置出发的递增路径长度最大值，如果已经有值则直接返回。
+        if (memo[x][y] == 0) {
+            ++memo[x][y];
+            int m = matrix.length, n = matrix[0].length;
+            for (int[] dir : dirs) {
+                int nextX = x + dir[0], nextY = y + dir[1];
+                if (nextX >= 0 && nextX < m && nextY >= 0 && nextY < n && matrix[nextX][nextY] > matrix[x][y]) {
+                    memo[x][y] = Math.max(memo[x][y], dfs(matrix, nextX, nextY, memo) + 1);
+                }
             }
         }
         return memo[x][y];

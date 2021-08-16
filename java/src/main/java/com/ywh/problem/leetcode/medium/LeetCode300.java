@@ -16,7 +16,6 @@ import java.util.List;
  *      你算法的时间复杂度应该为 O(n^2) 。
  * 进阶:
  *      你能将算法的时间复杂度降低到 O(nlog(n)) 吗?
- *
  * 思路：
  *      使用动态规划方法求解，根据问题类型（线性/区间/树形，此处是区间）把问题规模减小：
  *      1. 每次减少一半：
@@ -124,8 +123,7 @@ public class LeetCode300 {
                 if (num == d[mid]) {
                     pos = mid;
                     break;
-                }
-                if (num < d[mid]) {
+                } else if (num < d[mid]) {
                     high = mid - 1;
                 } else {
                     low = mid + 1;
@@ -133,9 +131,7 @@ public class LeetCode300 {
             }
             // 插入 num，如果插入的位置为当前顺序数组长度（即从数组末尾插入），表示该元素是递增顺序插入的，长度 + 1。
             d[pos] = num;
-            if (pos == len) {
-                len++;
-            }
+            len += pos == len? 1: 0;
         }
         return len;
     }

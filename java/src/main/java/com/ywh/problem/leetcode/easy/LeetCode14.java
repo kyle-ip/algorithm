@@ -42,9 +42,10 @@ public class LeetCode14 {
 
             // strs 中的其他字符串。
             for (int j = 1; j < strs.length; j++) {
+                String s = strs[j];
 
                 // 取出第 i 个字符。
-                if (strs[j].length() <= i || strs[j].charAt(i) != first.charAt(i)) {
+                if (s.length() <= i || s.charAt(i) != first.charAt(i)) {
                     return first.substring(0, i);
                 }
             }

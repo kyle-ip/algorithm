@@ -136,7 +136,7 @@ public class LeetCode347 {
         //     [],
         //     [1, 2]
         // ]
-        List<List<Integer>> buckets = new ArrayList<>(nums.length + 1);
+        List<List<Integer>> buckets = new ArrayList<>();
         for (int i = 0; i <= nums.length; i++) {
             buckets.add(new ArrayList<>());
         }

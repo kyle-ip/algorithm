@@ -25,6 +25,13 @@ import java.util.List;
  *      E   O E   I I
  *      E C   I H   N
  *      T     S     G
+ * 示例 3：
+ *      输入：s = "A", numRows = 1
+ *      输出："A"
+ * 提示：
+ *      1 <= s.length <= 1000
+ *      s 由英文字母（小写和大写）、',' 和 '.' 组成
+ *      1 <= numRows <= 1000
  *
  * @author ywh
  * @since 2020/12/8/008
@@ -73,7 +80,7 @@ public class LeetCode6 {
         }
         StringBuilder ret = new StringBuilder();
         for (List<Character> bucket : buckets) {
-            for (Character c : bucket) {
+            for (char c : bucket) {
                 ret.append(c);
             }
         }

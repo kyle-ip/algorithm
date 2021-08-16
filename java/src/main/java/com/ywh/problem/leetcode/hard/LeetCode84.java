@@ -109,17 +109,17 @@ public class LeetCode84 {
      * @return
      */
     public int largestRectangleAreaArray(int[] heights) {
-        int max = 0, n = heights.length, top = -1;
+        int ret = 0, n = heights.length, top = -1;
         int[] stack = new int[n + 1];
         for (int r = 0; r <= n; r++) {
             int h = r == n? 0: heights[r];
             while (top != -1 && h < heights[stack[top]]) {
                 int idx = stack[top--];
                 int l = top != -1? stack[top]: -1;
-                max = Math.max(max, heights[idx] * (r - l - 1));
+                ret = Math.max(ret, heights[idx] * (r - l - 1));
             }
             stack[++top] = r;
         }
-        return max;
+        return ret;
     }
 }
