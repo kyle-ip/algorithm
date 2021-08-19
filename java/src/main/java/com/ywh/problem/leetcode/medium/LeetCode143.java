@@ -30,16 +30,13 @@ public class LeetCode143 {
      * @param head
      */
     public void reorderListWithArray(ListNode head) {
-        if (head == null || head.next == null || head.next.next == null) {
+        if (head == null || head.next == null) {
             return;
         }
 
         // 使用数组缓存链表节点，随后可用下标访问。
         List<ListNode> list = new ArrayList<>();
-        for (ListNode cur = head; cur != null; cur = cur.next) {
-            list.add(cur);
-        }
-
+        for (; head != null; list.add(head), head = head.next);
         // 双指针，一头一尾取数组元素，头++ -> 尾，尾-- -> 头。
 
         // 奇数
@@ -87,7 +84,6 @@ public class LeetCode143 {
             len++;
             h = h.next;
         }
-
         reorderListRecursive(head, len);
     }
 

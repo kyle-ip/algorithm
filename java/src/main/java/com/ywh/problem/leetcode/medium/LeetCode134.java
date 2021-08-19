@@ -116,14 +116,13 @@ public class LeetCode134 {
         // total 为整个过程的加油量和耗油量之差，tank 为到达当前加油站时的剩余油量，start 为出发的位置。
         int total = 0, tank = 0, start = 0;
         for (int i = 0; i < gas.length; i++) {
-            total += gas[i] - cost[i];
-            tank += gas[i] - cost[i];
-
-            // 如果在某个点剩余油量小于 0，表示前面的位置都不可能是出发的位置，因此更新开始位置为下一个点，并把剩余油量重置。
+            // 如果在某个点剩余油量小于 0，表示前面的位置都不可能是出发的位置，因此更新开始位置、重置剩余油量。
             if (tank < 0) {
-                start = i + 1;
+                start = i;
                 tank = 0;
             }
+            total += gas[i] - cost[i];
+            tank += gas[i] - cost[i];
         }
 
         // 如果加油站的油量之和，大于等于消耗的油量之和，那么肯定存在一个出发点，可以绕行公路一周。

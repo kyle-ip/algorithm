@@ -62,7 +62,7 @@ public class LeetCode154 {
             // [2, 3, (1), 1, 1]
             //              ← h
             else {
-                high -= 1;
+                high--;
             }
         }
         return nums[low];

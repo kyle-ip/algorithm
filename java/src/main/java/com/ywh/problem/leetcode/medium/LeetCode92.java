@@ -127,10 +127,10 @@ public class LeetCode92 {
             //                                                        ↑        |
             //                                                        +--------+
             //                                                             3
-            ListNode next = prev.next;
+            ListNode tmp = prev.next;
             prev.next = cur.next;
             cur.next = cur.next.next;
-            prev.next.next = next;
+            prev.next.next = tmp;
         }
         return dummy.next;
     }

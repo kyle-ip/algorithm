@@ -48,7 +48,7 @@ public class LeetCode10 {
      * @return
      */
     private boolean matches(String s, String p, int i, int j) {
-        return i != 0 && (p.charAt(j - 1) == '.' || s.charAt(i - 1) == p.charAt(j - 1));
+        return i > 0 && (p.charAt(j - 1) == '.' || s.charAt(i - 1) == p.charAt(j - 1));
     }
 
     /**

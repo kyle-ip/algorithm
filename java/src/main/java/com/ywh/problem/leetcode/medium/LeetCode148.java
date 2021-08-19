@@ -74,7 +74,7 @@ public class LeetCode148 {
         //                   left   right                             left          right
         ListNode l = start, r = start.next;
         for (;r != end; r = r.next) {
-            if (r.val <= start.val) {
+            if (r.val < start.val) {
                 l = l.next;
                 swap(l, r);
             }
@@ -118,24 +118,22 @@ public class LeetCode148 {
         // 左右两个指针，分别移动到链表的中点和终点。
         // 1:
         //      [3] -> [1] -> [4] -> [2] -> null
-        //     fast
+        //             fast
         //     slow
 
         // 2:
         //      [3] -> [1] -> [4] -> [2] -> null
-        //                   fast
+        //                           fast
         //            slow
-        ListNode slow = head, fast = head, left, right;
-        while (fast.next != null && fast.next.next != null) {
-            fast = fast.next.next;
-            slow = slow.next;
-        }
+        ListNode slow = head, fast = head.next;
+        for (; fast.next != null && fast.next.next != null; fast = fast.next.next, slow = slow.next);
+
 
         // 3: 以 slow 为界，把链表切分两段（slow 在左边），先递归处理右边。
         //      (  left  )    (  right )
         //      [3] -> [1] -> [4] -> [2] -> null
         //            slow
-        right = mergeSortList(slow.next);
+        ListNode right = mergeSortList(slow.next);
 
         // 4: 处理完右边后，要修改 slow 指向，断成两个链表。
         //      (  left  )          (  right )
@@ -147,7 +145,7 @@ public class LeetCode148 {
         //      (  left  )          (  right )
         //      [1] -> [3] -> null, [2] -> [4] -> null
         //     head   slow
-        left = mergeSortList(head);
+        ListNode left = mergeSortList(head);
 
         // 6: 合并两个有序链表。
         // [1] -> [3] -> null,

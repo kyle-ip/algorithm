@@ -34,12 +34,12 @@ public class LeetCode76 {
         // required 表示 s 中需求的字符统计值（初始化为 t 中字符出现的频度）。
         // 比如 t 为 aab，则 required['a'] == 2，required['b'] == 1。
         int[] required = new int[256];
-        for (int i = 0; i < t.length(); ++i) {
-            ++required[t.charAt(i)];
+        for (int i = 0; i < t.length(); i++) {
+            required[t.charAt(i)]++;
         }
 
         // start、len 用于截取返回结果子串，requiredCnt 表示剩余需要寻找的字符总量。
-        int start = 0, len = s.length() + 1, requiredCnt = t.length();
+        int start = 0, len = Integer.MAX_VALUE, requiredCnt = t.length();
 
         for (int l = 0, r = 0; r < s.length(); r++) {
             // required 中的统计值大于 0，表示 s.charAt(r) 即为 t 中的字符，总需求个数 -1、该字符需求个数 -1。
@@ -55,14 +55,14 @@ public class LeetCode76 {
                     start = l;
                     len = r - l + 1;
                 }
-                // 收缩左边界（左边统计值 +1，需要的字符总量 +1）。
+                // 收缩左边界，即 s 窗口中最左边的字符不能再用了（左边统计值 +1，需要的字符总量 +1）。
                 required[s.charAt(l)]++;
                 if (required[s.charAt(l)] > 0) {
                     requiredCnt++;
                 }
             }
         }
-        return len > s.length() ? "" : s.substring(start, start + len);
+        return len == Integer.MAX_VALUE ? "" : s.substring(start, start + len);
     }
 
 }

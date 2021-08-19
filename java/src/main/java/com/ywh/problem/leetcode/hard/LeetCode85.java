@@ -58,16 +58,13 @@ public class LeetCode85 {
      * @return
      */
     private int largestRectangleInHistogram(int[] heights) {
-        if (heights == null || heights.length == 0) {
-            return 0;
-        }
         int max = 0, n = heights.length, top = -1;
         int[] stack = new int[n + 1];
         for (int r = 0; r <= n; r++) {
             int h = r == n ? 0 : heights[r];
-            while (top != -1 && h < heights[stack[top]]) {
+            while (top > -1 && h < heights[stack[top]]) {
                 int idx = stack[top--];
-                int l = top != -1 ? stack[top] : -1;
+                int l = top > -1 ? stack[top] : -1;
                 max = Math.max(max, heights[idx] * (r - l - 1));
             }
             stack[++top] = r;
@@ -86,7 +83,7 @@ public class LeetCode85 {
      * @return
      */
     public int maximalRectangle(char[][] matrix) {
-        if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
+        if (matrix.length == 0 || matrix[0].length == 0) {
             return 0;
         }
         int n = matrix[0].length, max = 0;

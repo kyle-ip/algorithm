@@ -141,10 +141,9 @@ public class LeetCode23 {
             }
         }
         ListNode dummy = new ListNode(), p = dummy, min;
-        while (!q.isEmpty()) {
+        for (; !q.isEmpty(); p = p.next) {
             min = q.poll();
             p.next = min;
-            p = p.next;
             if (min.next != null) {
                 q.add(min.next);
             }
