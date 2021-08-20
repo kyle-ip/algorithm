@@ -85,9 +85,7 @@ public class LeetCode236 {
         int i = 0, len = Math.min(pPath.size(), qPath.size());
 
         // 跳过相同节点。
-        while (i < len && pPath.get(i) == qPath.get(i)) {
-            ++i;
-        }
+        for (; i < len && pPath.get(i) == qPath.get(i); i++);
 
         // 已经遍历完较短路径，或两条路径从 i 开始已分叉，返回上一个节点即可。
         return pPath.get(i - 1);

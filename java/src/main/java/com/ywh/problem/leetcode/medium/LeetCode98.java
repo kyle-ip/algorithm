@@ -90,13 +90,13 @@ public class LeetCode98 {
      * @param upper
      * @return
      */
-    boolean isValidBSTBound(TreeNode root, TreeNode lower, TreeNode upper) {
+    private boolean isValidBSTBound(TreeNode root, TreeNode lower, TreeNode upper) {
         if (root == null) {
             return true;
         }
 
         // 当前节点存在下/上界，且下/上界的值大于/小于等于当前节点值，返回错误。
-        if ((lower != null && lower.val >= root.val) || (upper != null && upper.val <= root.val)) {
+        if (lower != null && lower.val >= root.val || upper != null && upper.val <= root.val) {
             return false;
         }
 

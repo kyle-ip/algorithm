@@ -56,7 +56,7 @@ public class LeetCode8 {
 
         // 数字（start 与 p 之间）
         int start = p;
-        for (; p < n && Character.isDigit(s.charAt(p)); p++);
+        for (; p < n && s.charAt(p) >= '0' && s.charAt(p) < '9'; p++);
         if (p == start) {
             return 0;
         }
@@ -68,9 +68,8 @@ public class LeetCode8 {
 
         // 逐位转换
         long num = 0;
-        for (int i = start; i < p; i++) {
-            num = num * 10 + s.charAt(i) - '0';
-        }
+        for (int i = start; i < p; num = num * 10 + s.charAt(i++) - '0');
+
         num = negative? -num: num;
         if (num < Integer.MIN_VALUE) {
             return Integer.MIN_VALUE;
