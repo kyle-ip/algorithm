@@ -34,21 +34,21 @@ public class LeetCode16 {
         Arrays.sort(nums);
 
         for (int k = nums.length - 1; k >= 2; --k) {
-            int i = 0, j = k - 1;
-            while (i < j) {
+
+            for (int i = 0, j = k - 1; i < j; ) {
                 int sum = nums[i] + nums[j] + nums[k];
                 if (sum == target) {
                     return sum;
-                }
-                if (sum < target) {
-                    ++i;
-                } else {
-                    --j;
                 }
                 int diff = Math.abs(target - sum);
                 if (diff < min) {
                     ret = sum;
                     min = diff;
+                }
+                if (sum < target) {
+                    ++i;
+                } else {
+                    --j;
                 }
             }
         }

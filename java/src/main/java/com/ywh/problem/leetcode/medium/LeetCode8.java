@@ -55,20 +55,20 @@ public class LeetCode8 {
         for (; p < n && s.charAt(p) == '0'; p++);
 
         // 数字（start 与 p 之间）
-        int start = p;
+        int i = p;
         for (; p < n && s.charAt(p) >= '0' && s.charAt(p) < '9'; p++);
-        if (p == start) {
+        if (p == i) {
             return 0;
         }
 
         // 长度（超过 10，返回最大值或最小值）
-        if (p - start > 10) {
+        if (p - i > 10) {
             return negative? Integer.MIN_VALUE: Integer.MAX_VALUE;
         }
 
         // 逐位转换
         long num = 0;
-        for (int i = start; i < p; num = num * 10 + s.charAt(i++) - '0');
+        for (; i < p; num = num * 10 + s.charAt(i++) - '0');
 
         num = negative? -num: num;
         if (num < Integer.MIN_VALUE) {

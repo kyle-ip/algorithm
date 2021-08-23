@@ -77,7 +77,7 @@ public class LeetCode42 {
     public int waterCanBeTrapO1(int[] height) {
         int ret = 0;
         // 双指针从两边向中间移动。
-        for (int leftMax = 0, rightMax = 0, l = 0, r = height.length - 1; l <= r; ) {
+        for (int leftMax = 0, rightMax = 0, l = 0, r = height.length - 1; l < r; ) {
             // 每轮循环更新左边高度最大值和右边高度最大值。
             leftMax = Math.max(leftMax, height[l]);
             rightMax = Math.max(rightMax, height[r]);

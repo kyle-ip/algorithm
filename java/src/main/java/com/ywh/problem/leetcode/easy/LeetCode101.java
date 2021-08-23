@@ -41,7 +41,7 @@ public class LeetCode101 {
      * @param root
      * @return
      */
-    boolean isSymmetricTreeRecursive(TreeNode root) {
+    public boolean isSymmetricTreeRecursive(TreeNode root) {
         if (root == null) {
             return true;
         }
