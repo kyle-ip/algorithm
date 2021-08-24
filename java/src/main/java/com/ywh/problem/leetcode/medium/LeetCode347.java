@@ -35,8 +35,7 @@ public class LeetCode347 {
     public List<Integer> topKFrequentMinHeap(int[] nums, int k) {
         Map<Integer, Integer> counter = new HashMap<>();
         for (int num : nums) {
-            int freq = counter.getOrDefault(num, 0);
-            counter.put(num, freq + 1);
+            counter.put(num, counter.getOrDefault(num, 0) + 1);
         }
 
         Queue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((a, b) -> a.getValue() - b.getValue());
@@ -146,7 +145,7 @@ public class LeetCode347 {
 
         // 从桶中取出元素，返回。
         int[] ret = new int[k];
-        for (int i = buckets.size() - 1; i >= 0 && k > 0; i--) {
+        for (int i = nums.length; i >= 0 && k > 0; i--) {
             List<Integer> bucket = buckets.get(i);
             for (int j = 0; j < bucket.size() && k > 0; j++, k--) {
                 ret[k - 1] = bucket.get(j);

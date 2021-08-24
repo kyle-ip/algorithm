@@ -68,7 +68,6 @@ public class LeetCode230 {
                 root = root.right;
             }
         }
-        System.out.println(list);
         return list.get(k);
     }
 

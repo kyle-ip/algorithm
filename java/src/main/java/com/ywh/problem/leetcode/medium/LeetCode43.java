@@ -50,7 +50,6 @@ public class LeetCode43 {
                 cur = add(cur, tmp);
             }
             sum = add(sum, cur);
-            System.out.println(sum);
         }
         return sum;
     }
@@ -147,6 +146,8 @@ public class LeetCode43 {
             for (int j = num2.length() - 1; j >= 0; j--) {
                 int sum = (num1.charAt(i) - '0') * (num2.charAt(j) - '0') + mul[i + j + 1];
                 mul[i + j + 1] = sum % 10;
+
+                // mul[i + j] 即 carry.
                 mul[i + j] += sum / 10;
             }
         }
@@ -154,9 +155,7 @@ public class LeetCode43 {
         StringBuilder sb = new StringBuilder();
         int i = 0;
         for (; i < mul.length - 1 && mul[i] == 0; i++);
-        while (i < mul.length) {
-            sb.append(mul[i++]);
-        }
+        for (; i < mul.length; sb.append(mul[i++]));
         return sb.toString();
     }
 

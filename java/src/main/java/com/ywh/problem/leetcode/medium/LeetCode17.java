@@ -32,20 +32,16 @@ public class LeetCode17 {
     /**
      * 2 ~ 9
      */
-    private final String[] mapping = new String[]{
-        "abc", "def", "ghi", "jkl",
-        "mno", "pqrs", "tuv", "wxyz"
-    };
+    private final String[] mapping = new String[]{"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
     private List<String> combinations(String digits, int idx, String str, List<String> ret) {
         if (idx == digits.length()) {
             ret.add(str);
-            return ret;
-        }
-        // 取出当前位置数字对应的字母映射，循环处理每个字母
-        String chars = mapping[digits.charAt(idx) - '2'];
-        for (int i = 0; i < chars.length(); i++) {
-            combinations(digits, idx + 1, str + chars.charAt(i), ret);
+        } else {
+            // 取出当前位置数字对应的字母映射，循环处理每个字母。
+            for (char c: mapping[digits.charAt(idx) - '2'].toCharArray()) {
+                combinations(digits, idx + 1, str + c, ret);
+            }
         }
         return ret;
     }
@@ -57,9 +53,6 @@ public class LeetCode17 {
      * @return
      */
     public List<String> letterCombinationsRecursive(String digits) {
-        if (digits == null || digits.length() == 0) {
-            return Collections.emptyList();
-        }
         return combinations(digits, 0, "", new ArrayList<>());
     }
 

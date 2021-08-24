@@ -61,8 +61,7 @@ public class LeetCode295 {
     /**
      * 数据流中，最小堆存放较大的一半，最大堆存放较小的一半（最大堆倒序排列，堆顶元素为最大值），两堆顶元素即为最中间的两个数值。
      */
-    private final Queue<Integer> minHeap = new PriorityQueue<>(),
-        maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+    private final Queue<Integer> minHeap = new PriorityQueue<>(), maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 
     /**
      * Time: O(log(n))

@@ -180,14 +180,11 @@ public class LeetCode202 {
         System.out.print(n + ", ");
         while (n != 1) {
             n = transform(n);
-            System.out.print(n + ", ");
             if (set.contains(n)) {
-                System.out.println();
                 return false;
             }
             set.add(n);
         }
-        System.out.println();
         return true;
     }
 }

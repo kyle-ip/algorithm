@@ -69,11 +69,7 @@ public class LeetCode142 {
             fast = fast.next.next;
             slow = slow.next;
             if (fast == slow) {
-
-                for (ListNode cur = head; cur != slow; ) {
-                    cur = cur.next;
-                    slow = slow.next;
-                }
+                for (ListNode cur = head; cur != slow; cur = cur.next, slow = slow.next);
                 return slow;
             }
         }

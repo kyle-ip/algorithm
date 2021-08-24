@@ -70,13 +70,11 @@ public class LeetCode6 {
         //      [T, S, G]
         // ]
         // 最后压缩为一行："LDR EOEII ECIHN TSG"
-        int curRow = 0, dir = -1;
-        for (char c : s.toCharArray()) {
-            buckets.get(curRow).add(c);
+        for (int i = 0, curRow = 0, dir = -1; i < s.length(); curRow += dir, i++) {
+            buckets.get(curRow).add(s.charAt(i));
             if (curRow == 0 || curRow == numRows - 1) {
                 dir = -dir;
             }
-            curRow += dir;
         }
         StringBuilder ret = new StringBuilder();
         for (List<Character> bucket : buckets) {
