@@ -32,7 +32,9 @@ public class LeetCode82 {
      */
     public ListNode removeDuplicatesInSortedList(ListNode head) {
         ListNode dummy = new ListNode(-1, head);
-        for (ListNode l = dummy, r = dummy.next; r != null; r = l.next) {
+
+        // l 指向最近一个非重复元素。
+        for (ListNode l = dummy, r = dummy; r != null; r = l.next) {
 
             // 右指针不断向右移动，直到与其下一个节点的值不同（跳过重复值）。
             for (; r.next != null && r.val == r.next.val; r = r.next);

@@ -199,8 +199,6 @@ public class SegmentTree {
     public static void main(String[] args) {
         SegmentTree st = new SegmentTree(new int[]{5, 9, 7, 4, 6, 1});
         st.updateInterval(0, 2, 3);
-        System.out.println(st.query(0, 1));
         st.updateInterval(0, 2, 10);
-        System.out.println();
     }
 }

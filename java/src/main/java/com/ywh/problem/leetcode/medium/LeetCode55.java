@@ -38,6 +38,8 @@ public class LeetCode55 {
         for (int i = 0, max = 0; i < nums.length; i++) {
             max = Math.max(max, i + nums[i]);
 
+            // 如果跳完落点在 (i, n - 1) 之外，则结果已经决定。
+
             // 如最远可达位置大于等于数组长度（末尾），直接返回 true。
             if (max >= nums.length - 1) {
                 return true;

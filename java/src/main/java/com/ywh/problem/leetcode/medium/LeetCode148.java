@@ -73,7 +73,7 @@ public class LeetCode148 {
         //      [3] -> [1] -> [4] -> [2] -> [ ]    =>    [3] -> [1] -> [2] -> [4] -> [ ]
         //                   left   right                             left          right
         ListNode l = start, r = start.next;
-        for (;r != end; r = r.next) {
+        for (; r != end; r = r.next) {
             if (r.val < start.val) {
                 l = l.next;
                 swap(l, r);
@@ -126,7 +126,7 @@ public class LeetCode148 {
         //                           fast
         //            slow
         ListNode slow = head, fast = head.next;
-        for (; fast.next != null && fast.next.next != null; fast = fast.next.next, slow = slow.next);
+        for (; fast != null && fast.next != null; fast = fast.next.next, slow = slow.next);
 
 
         // 3: 以 slow 为界，把链表切分两段（slow 在左边），先递归处理右边。

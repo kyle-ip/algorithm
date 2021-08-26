@@ -39,30 +39,28 @@ public class LeetCode76 {
         }
 
         // start、len 用于截取返回结果子串，requiredCnt 表示剩余需要寻找的字符总量。
-        int start = 0, len = Integer.MAX_VALUE, requiredCnt = t.length();
+        int start = 0, lenLen = Integer.MAX_VALUE, requiredCnt = t.length();
 
         for (int l = 0, r = 0; r < s.length(); r++) {
             // required 中的统计值大于 0，表示 s.charAt(r) 即为 t 中的字符，总需求个数 -1、该字符需求个数 -1。
-            if (required[s.charAt(r)] > 0) {
+            if (required[s.charAt(r)]-- > 0) {
                 requiredCnt--;
             }
-            required[s.charAt(r)]--;
 
             // 每当 requiredCnt 减到 0，表示 [l、r] 包含的子串已覆盖 t。
             for (; requiredCnt == 0; l++) {
                 // 找到更小的覆盖子串：记录起始位置、长度。
-                if (r - l + 1 < len) {
+                if (r - l + 1 < lenLen) {
                     start = l;
-                    len = r - l + 1;
+                    lenLen = r - l + 1;
                 }
                 // 收缩左边界，即 s 窗口中最左边的字符不能再用了（左边统计值 +1，需要的字符总量 +1）。
-                required[s.charAt(l)]++;
-                if (required[s.charAt(l)] > 0) {
+                if (++required[s.charAt(l)] > 0) {
                     requiredCnt++;
                 }
             }
         }
-        return len == Integer.MAX_VALUE ? "" : s.substring(start, start + len);
+        return lenLen == Integer.MAX_VALUE ? "" : s.substring(start, start + lenLen);
     }
 
 }

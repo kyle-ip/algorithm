@@ -176,10 +176,9 @@ public class LeetCode695 {
         int ret = 0;
         for (int r = 0; r < grid.length; r++) {
             for (int c = 0; c < grid[0].length; c++) {
-                if (grid[r][c] == 0) {
-                    continue;
+                if (grid[r][c] == 1) {
+                    ret = Math.max(ret, dfs(r, c, grid));
                 }
-                ret = Math.max(ret, dfs(r, c, grid));
             }
         }
         return ret;
@@ -198,11 +197,7 @@ public class LeetCode695 {
         }
         // 避免重复计算，grid 置为 0。
         grid[x][y] = 0;
-        return 1 +
-            dfs(x - 1, y, grid) +
-            dfs(x, y + 1, grid) +
-            dfs(x + 1, y, grid) +
-            dfs(x, y - 1, grid);
+        return 1 + dfs(x - 1, y, grid) + dfs(x, y + 1, grid) + dfs(x + 1, y, grid) + dfs(x, y - 1, grid);
     }
 
     /**

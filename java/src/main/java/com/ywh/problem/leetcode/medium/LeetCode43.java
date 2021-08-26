@@ -141,21 +141,22 @@ public class LeetCode43 {
      * @return
      */
     public String multiply2(String num1, String num2) {
-        int[] mul = new int[num1.length() + num2.length()];
-        for (int i = num1.length() - 1; i >= 0; i--) {
-            for (int j = num2.length() - 1; j >= 0; j--) {
+        int m = num1.length(), n = num2.length(), l = 0;
+        int[] mul = new int[m + n];
+        for (int i = m - 1; i >= 0; i--) {
+            for (int j = n - 1; j >= 0; j--) {
                 int sum = (num1.charAt(i) - '0') * (num2.charAt(j) - '0') + mul[i + j + 1];
                 mul[i + j + 1] = sum % 10;
 
-                // mul[i + j] 即 carry.
+                // mul[i + j] 即 carry。
                 mul[i + j] += sum / 10;
             }
         }
         // 去掉前面多余的 0。
         StringBuilder sb = new StringBuilder();
-        int i = 0;
-        for (; i < mul.length - 1 && mul[i] == 0; i++);
-        for (; i < mul.length; sb.append(mul[i++]));
+
+        for (; l < mul.length - 1 && mul[l] == 0; l++);
+        for (; l < mul.length; sb.append(mul[l++]));
         return sb.toString();
     }
 

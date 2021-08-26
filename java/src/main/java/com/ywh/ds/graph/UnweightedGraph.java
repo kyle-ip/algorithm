@@ -553,9 +553,6 @@ public class UnweightedGraph implements Graph, Cloneable {
                 }
             }
         }
-        for (int i : visited) {
-            System.out.println(i);
-        }
         return isBipartite;
     }
 
@@ -617,7 +614,6 @@ public class UnweightedGraph implements Graph, Cloneable {
                 }
             }
         }
-        System.out.println(order);
     }
 
     /**
@@ -873,7 +869,6 @@ public class UnweightedGraph implements Graph, Cloneable {
         if (!visited[dest]) {
             return ret;
         }
-        System.out.println(dis[dest]);
         int cur = dest;
         while (cur != src) {
             ret.addFirst(cur);

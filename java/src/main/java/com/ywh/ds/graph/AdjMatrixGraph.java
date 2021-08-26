@@ -160,7 +160,6 @@ public class AdjMatrixGraph {
                 // 此处可统计连通分量。
             }
         }
-        System.out.println(order);
     }
 
     /**

@@ -47,9 +47,8 @@ public class LeetCode424 {
             // l           r
             // max == 3，max + k == 4，r - l + 1 == 5
             // 此时 l 左移，同时 A 的计数 -1。
-            if (max + k < r - l + 1) {
-                hash[s.charAt(l) - 'A']--;
-                l++;
+            if (max + k <= r - l) {
+                hash[s.charAt(l++) - 'A']--;
             }
         }
         return r - l;
