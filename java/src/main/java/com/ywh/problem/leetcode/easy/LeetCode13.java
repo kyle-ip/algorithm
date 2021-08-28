@@ -67,7 +67,7 @@ public class LeetCode13 {
      */
     public int romanToInt(String s) {
 
-        // 如果数字从递增，则表示相减，否则相加
+        // 如果当前位置数字比其右边数字大，则加上，否则减去。
         // M, M, C, M, X, C, I, X
         int n = s.length();
         int ret = MAPPING[s.charAt(n - 1)];

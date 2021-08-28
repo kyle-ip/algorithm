@@ -52,14 +52,10 @@ public class LeetCode39 {
         if (target == 0) {
             ret.add(new ArrayList<>(elem));
         } else if (target > 0) {
-            for (int i = start; i < nums.length; i++) {
-
-                // 由于已排序，当前元素大于剩余目标值，剩余元素必然大于目标值，不需要继续拼凑。
-                if (nums[i] > target) {
-                    break;
-                }
+            // 由于已排序，当前元素大于剩余目标值，剩余元素必然大于目标值，不需要继续拼凑。
+            for (int i = start; i < nums.length && nums[i] <= target; i++) {
                 elem.add(nums[i]);
-                // 由于允许多次使用同一个元素，因此传递到下一层递归的“start”参数不需要 +1。
+                // 由于允许多次使用同一个元素，传递到下一层递归的 start 不需要 +1。
                 combSumSort(nums, target - nums[i], i, elem, ret);
                 elem.removeLast();
             }

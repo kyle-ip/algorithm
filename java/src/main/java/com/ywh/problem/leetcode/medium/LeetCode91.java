@@ -133,10 +133,10 @@ public class LeetCode91 {
      */
     public int numberOfDecodingsDPO1(String s) {
         //      [1]    [0]    [5]    [9]    [2]
-        //      c1     c2     cur
-        int c1 = 1, c2 = s.charAt(0) != '0' ? 1 : 0;
+        //      prev   cur    next
+        int prev = 1, cur = s.charAt(0) != '0' ? 1 : 0;
         for (int i = 2; i <= s.length(); ++i) {
-            int cur = 0;
+            int next = 0;
 
             //      [1]    [1]    [i]    [9]    [2]
             //     first  second third
@@ -144,14 +144,14 @@ public class LeetCode91 {
             //      [1]    [0]    [i]    [9]    [2]
             //     first  second third
             if (s.charAt(i - 1) != '0') {
-                cur += c2;
+                next += cur;
             }
             if (isValidTwoDigit(s.charAt(i - 2), s.charAt(i - 1))) {
-                cur += c1;
+                next += prev;
             }
-            c1 = c2;
-            c2 = cur;
+            prev = cur;
+            cur = next;
         }
-        return c2;
+        return cur;
     }
 }
