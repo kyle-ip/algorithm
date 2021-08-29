@@ -41,7 +41,7 @@ public class LeetCode61 {
         //  |                           |
         //  +---------------------------+
         ListNode end = head;
-        int n = 1;
+        int n = 0;
         for (; end.next != null; end = end.next, n++);
         end.next = head;
 
@@ -51,9 +51,9 @@ public class LeetCode61 {
         // [1] -> [2] -> [3] -> [4] -> [5]
         //  |                           |
         //  +---------------------------+
-        k %= n;
+        k %= n + 1;
         ListNode newEnd = head;
-        for (int i = 0; i < n - k - 1; i++, newEnd = newEnd.next);
+        for (int i = 0; i < n - k; i++, newEnd = newEnd.next);
         ListNode newHead = newEnd.next;
 
         // 最后把链表的尾指针置空，解环：
@@ -67,5 +67,4 @@ public class LeetCode61 {
         newEnd.next = null;
         return newHead;
     }
-
 }

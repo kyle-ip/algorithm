@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (350)
+## LeetCode (351)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -380,6 +380,7 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 1304 | [Find N Unique Integers Sum up to Zero](https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero) | 和为零的 N 个唯一整数 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1304.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_1304.py) | Easy | Array |
 | 1430 | [Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit) | 绝对差不超过限制的最长连续子数组 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode1430.java) | Medium | Array<br />Sliding Window |
 | 1480 | [Running Sum of 1d array](https://leetcode-cn.com/problems/running-sum-of-1d-array) | 一维数组的动态和 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1480.java) | Easy | Array<br />Prefix Sum |
+| 1588 | [Sum of all odd length subarrays](https://leetcode.com/problems/sum-of-all-odd-length-subarrays) | 所有奇数长度子数组的和 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1588.java) | Easy | Array<br />Prefix Sum<br />Math |
 
 
 
