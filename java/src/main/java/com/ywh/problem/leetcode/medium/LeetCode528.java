@@ -57,9 +57,9 @@ public class LeetCode528 {
     /**
      * 总和
      */
-    int sum = 0;
+    private int sum = 0;
 
-    Random rand = new Random();
+    private final Random rand = new Random();
 
     /**
      *
@@ -77,8 +77,7 @@ public class LeetCode528 {
      * @return
      */
     public int pickIndex() {
-        int target = rand.nextInt(sum);
-        int low = 0, high = prefixSum.size() - 1;
+        int target = rand.nextInt(sum), low = 0, high = prefixSum.size() - 1;
         while (low != high) {
             int mid = low + (high - low) / 2;
             if (target >= prefixSum.get(mid)) {
