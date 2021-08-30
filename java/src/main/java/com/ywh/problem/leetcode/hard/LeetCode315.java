@@ -60,7 +60,7 @@ public class LeetCode315 {
         if (l >= r) {
             return ret;
         }
-        int mid = (l + r) >> 1;
+        int mid = l + (r - l) / 2;
         mergeSort(nums, l, mid, index, ret);
         mergeSort(nums, mid + 1, r, index, ret);
 

@@ -39,13 +39,13 @@ public class LeetCode144 {
      * @param root
      * @param ret
      */
-    private void preorder(TreeNode root, List<Integer> ret) {
-        if (root == null) {
-            return;
+    private List<Integer> preorder(TreeNode root, List<Integer> ret) {
+        if (root != null) {
+            ret.add(root.val);
+            preorder(root.left, ret);
+            preorder(root.right, ret);
         }
-        ret.add(root.val);
-        preorder(root.left, ret);
-        preorder(root.right, ret);
+        return ret;
     }
 
     /**
@@ -55,9 +55,7 @@ public class LeetCode144 {
      * @return
      */
     public List<Integer> preorderTraversalRecursive(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
-        preorder(root, result);
-        return result;
+        return preorder(root, new ArrayList<>());
     }
 
     /**

@@ -79,6 +79,10 @@ public class LeetCode48 {
         // 1,   [2],  [3]      1, 4, 7
         // (4),  5,   [6]  =>  2, 5, 8
         // (7), (8),   9       3, 6, 9
+
+        // 0: (1), (2) <=> (4), (3) <=> (7)
+        // 1: (5), (6) <=> (8)
+        // 2: (9)
         for (int i = 0; i < n; i++) {
             for (int j = i; j < n; j++) {
                 int tmp = matrix[i][j];
@@ -98,6 +102,5 @@ public class LeetCode48 {
                 matrix[i][n - 1 - j] = tmp;
             }
         }
-
     }
 }

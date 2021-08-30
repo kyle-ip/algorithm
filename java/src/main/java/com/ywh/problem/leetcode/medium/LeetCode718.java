@@ -56,19 +56,17 @@ public class LeetCode718 {
      */
     public int findLengthSlidingWindow(int[] nums1, int[] nums2) {
         int m = nums1.length, n = nums2.length, ret = 0;
-        // 遍历 A，B 与之对齐。即
+        // 遍历 A，B 与之对齐，即：
         // A = [3, 6, 1, 2, 4]
         // B =    [7, 1, 2, 9]
         //            ↑  ↑
         //            i
         for (int i = 0; i < m; i++) {
-            int len = Math.min(n, m - i);
-            ret = Math.max(ret, maxLength(nums1, nums2, i, 0, len));
+            ret = Math.max(ret, maxLength(nums1, nums2, i, 0));
         }
         // 同理，遍历 B，A 与之对齐。
-        for (int i = 0; i < n; i++) {
-            int len = Math.min(m, n - i);
-            ret = Math.max(ret, maxLength(nums1, nums2, 0, i, len));
+        for (int j = 0; j < n; j++) {
+            ret = Math.max(ret, maxLength(nums1, nums2, 0, j));
         }
         return ret;
     }
@@ -78,21 +76,15 @@ public class LeetCode718 {
      *
      * @param nums1
      * @param nums2
-     * @param addA
-     * @param addB
-     * @param len
+     * @param startA
+     * @param startB
      * @return
      */
-    public int maxLength(int[] nums1, int[] nums2, int addA, int addB, int len) {
-        int ret = 0;
-        for (int i = 0, k = 0; i < len; i++) {
-            if (nums1[addA + i] == nums2[addB + i]) {
-                k++;
-            } else {
-                // 出现不同即重置。
-                k = 0;
-            }
-            ret = Math.max(ret, k);
+    public int maxLength(int[] nums1, int[] nums2, int startA, int startB) {
+        int ret = 0, m = nums1.length, n = nums2.length;
+        for (int i = 0, len = 0; startA + i < m && startB + i < n; i++) {
+            len = nums1[startA + i] == nums2[startB + i]? len + 1: 0;
+            ret = Math.max(ret, len);
         }
         return ret;
     }

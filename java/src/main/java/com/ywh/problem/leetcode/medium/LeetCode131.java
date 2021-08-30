@@ -39,27 +39,28 @@ public class LeetCode131 {
      * @param start
      * @param dp
      * @param ret
-     * @param elem
+     * @param substrings
      */
-    private void partition(String s, int start, boolean[][] dp, List<List<String>> ret, LinkedList<String> elem) {
-        if (start >= s.length()) {
-            ret.add(new LinkedList<>(elem));
-            return;
-        }
-        for (int i = start; i < s.length(); i++) {
-            if (!dp[start][i]) {
-                continue;
+    private List<List<String>> partition(String s, int start, boolean[][] dp, List<List<String>> ret, LinkedList<String> substrings) {
+        if (start == s.length()) {
+            ret.add(new LinkedList<>(substrings));
+        } else {
+            for (int i = start; i < s.length(); i++) {
+                if (!dp[start][i]) {
+                    continue;
+                }
+                // 从 start 到 i 是回文串，添加到 elem，并递归判断该子串的后续部分。
+                substrings.add(s.substring(start, i + 1));
+
+                // 比如 [a, b, a] (c, a, c)
+                //      s     i   i+1 ...
+                partition(s, i + 1, dp, ret, substrings);
+
+                // 回溯，退递归。
+                substrings.removeLast();
             }
-            // 从 start 到 i 是回文串，添加到 elem，并递归判断该子串的后续部分。
-            elem.add(s.substring(start, i + 1));
-
-            // 比如 [a, b, a,] (c, a, c)
-            //      s      e   e+1 ...
-            partition(s, i + 1, dp, ret, elem);
-
-            // 回溯，退递归。
-            elem.removeLast();
         }
+        return ret;
     }
 
     /**
@@ -76,7 +77,7 @@ public class LeetCode131 {
         }
         int n = s.length();
 
-        // d[i][j] 表示 i~j 的子串是否为回文串。
+        // d[i][j] 用于快速判断 i~j 的子串是否为回文串。
         boolean[][] dp = new boolean[n][n];
         for (int i = n - 1; i >= 0; i--) {
             for (int j = i; j < n; j++) {
@@ -90,8 +91,6 @@ public class LeetCode131 {
             }
         }
         // 至此 dp 数组填充完成，开始回溯分割回文串。
-        List<List<String>> ret = new ArrayList<>();
-        partition(s, 0, dp, ret, new LinkedList<>());
-        return ret;
+        return partition(s, 0, dp, new ArrayList<>(), new LinkedList<>());
     }
 }

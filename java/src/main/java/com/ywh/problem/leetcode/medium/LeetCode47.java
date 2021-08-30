@@ -31,16 +31,17 @@ public class LeetCode47 {
      * @param start
      * @param ret
      */
-    private void permuteRec(List<Integer> nums, int start, Set<List<Integer>> ret) {
+    private Set<List<Integer>> permuteRec(List<Integer> nums, int start, Set<List<Integer>> ret) {
         if (start == nums.size()) {
             ret.add(new ArrayList<>(nums));
-            return;
+        } else {
+            for (int i = start; i < nums.size(); i++) {
+                Collections.swap(nums, start, i);
+                permuteRec(nums, start + 1, ret);
+                Collections.swap(nums, start, i);
+            }
         }
-        for (int i = start; i < nums.size(); i++) {
-            Collections.swap(nums, start, i);
-            permuteRec(nums, start + 1, ret);
-            Collections.swap(nums, start, i);
-        }
+        return ret;
     }
 
     /**
@@ -56,9 +57,7 @@ public class LeetCode47 {
         for (int num : nums) {
             list.add(num);
         }
-        Set<List<Integer>> ret = new HashSet<>();
-        permuteRec(list, 0, ret);
-        return new ArrayList<>(ret);
+        return new ArrayList<>(permuteRec(list, 0, new HashSet<>()));
     }
 
     /**

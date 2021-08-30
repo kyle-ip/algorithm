@@ -23,6 +23,7 @@ import java.util.LinkedList;
  *      输入: num = "10", k = 2
  *      输出: "0"
  *      解释: 从原数字移除所有的数字，剩余为空就是 0。
+ *
  * @author ywh
  * @since 4/12/2021
  */
@@ -56,9 +57,7 @@ public class LeetCode402 {
         for (int i = 0; i < num.length(); ++i) {
             char digit = num.charAt(i);
             // 如果栈非空，且还没删够 k 个，且栈顶元素比当前数字大（出现递减），则把栈顶元素弹出。
-            for (; !stack.isEmpty() && k > 0 && stack.peek() > digit; k--) {
-                stack.pop();
-            }
+            for (; !stack.isEmpty() && k > 0 && stack.peek() > digit; stack.pop(), k--);
             // 把不递减的元素入栈。
             stack.push(digit);
         }
@@ -67,13 +66,11 @@ public class LeetCode402 {
             stack.pop();
         }
         // 处理前导 0。
-        for (; !stack.isEmpty() && stack.peekLast() == '0'; stack.pollLast()) { }
-        StringBuilder ret = new StringBuilder();
+        for (; !stack.isEmpty() && stack.peekLast() == '0'; stack.pollLast());
 
         // 收集结果。
-        while (!stack.isEmpty()) {
-            ret.append(stack.pollLast());
-        }
+        StringBuilder ret = new StringBuilder();
+        for (; !stack.isEmpty(); ret.append(stack.pollLast()));
         return ret.length() == 0 ? "0" : ret.toString();
     }
 }

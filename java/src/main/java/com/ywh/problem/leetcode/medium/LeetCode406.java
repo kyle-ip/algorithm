@@ -50,15 +50,15 @@ public class LeetCode406 {
 
         // 排队：
         int[][] ret = new int[people.length][];
-        for (int[] person : people) {
+        for (int[] p : people) {
             // person 的前面有 spaces = person[1]+1 个位置。
             // 遍历所有位置，如果 ret[i] 未有人进队，则 spaces--。
             // 如果 spaces== 0，表示 person 的前面没有位置了（这个位正是 person），把 person 排进去。
-            for (int spaces = person[1] + 1, i = 0; i < people.length; ++i) {
+            for (int spaces = p[1] + 1, i = 0; i < people.length; ++i) {
                 if (ret[i] == null) {
                     --spaces;
                     if (spaces == 0) {
-                        ret[i] = person;
+                        ret[i] = p;
                         break;
                     }
                 }
@@ -74,13 +74,13 @@ public class LeetCode406 {
      * @return
      */
     public int[][] reconstructQueueHighToLow(int[][] people) {
-        // 排序：如果两人身高不相等，则身高较高的排前面（第一维降序），否则“前面人较少”的排前面（第二维升序）。
+        // 排序：如果两人身高不相等，则较高的排前面（第一维降序），否则“前面人较少”的排前面（第二维升序）。
         Arrays.sort(people, (p1, p2) -> p1[0] != p2[0]? p2[0] - p1[0]: p1[1] - p2[1]);
         List<int[]> ret = new ArrayList<>();
 
-        // 排队：遍历每个人，前面有 person[1] 个人的，插到 person[1] 的位置去（如果人数相同，则插到身高更高则插到前面）。
-        for (int[] person : people) {
-            ret.add(person[1], person);
+        // 排队：从高到矮遍历，前面有 p[1] 个人则插到 p[1] 的位置；如果人数相同，则插到更高的人前面。
+        for (int[] p : people) {
+            ret.add(p[1], p);
         }
         return ret.toArray(new int[ret.size()][]);
     }

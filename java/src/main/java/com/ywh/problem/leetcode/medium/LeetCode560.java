@@ -1,5 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
+import com.ywh.problem.leetcode.easy.LeetCode1;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,7 +44,7 @@ public class LeetCode560 {
     }
 
     /**
-     * 参考 {@link LeetCode437}
+     * 参考 {@link LeetCode1}, {@link LeetCode437}
      *
      * 子数组之和转化为前缀和的差：
      *      sum(i~j) == sum(0~j) - sum(0~i-1) == k
@@ -59,7 +61,7 @@ public class LeetCode560 {
      */
     public int subarraySumPrefixSum(int[] nums, int k) {
 
-        // key 为前缀和，value 为前缀和出现的次数（初始设置前缀和为 0 出现 1 次，即一个元素都不要就能凑出一个 0）。
+        // key 为前缀和，value 为前缀和出现的次数（初始设置前缀和为 0 出现 1 次，即不需要任何元素就能凑出一个 0）。
         Map<Integer, Integer> map = new HashMap<>(nums.length);
         map.put(0, 1);
 

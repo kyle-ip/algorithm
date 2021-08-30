@@ -36,16 +36,13 @@ public class LeetCode234 {
     public boolean isPalindromeUsingStack(ListNode head) {
         ListNode p = head;
         Deque<Integer> stack = new LinkedList<>();
-        while (p != null) {
+        for (; p != null; p = p.next) {
             stack.push(p.val);
-            p = p.next;
         }
-        p = head;
-        while (!stack.isEmpty()) {
+        for (p = head; !stack.isEmpty(); p = p.next) {
             if (stack.pop() != p.val) {
                 return false;
             }
-            p = p.next;
         }
         return true;
     }
@@ -61,13 +58,13 @@ public class LeetCode234 {
      */
     public boolean isPalindromeReverseList(ListNode head) {
         int len = 0;
-        for (ListNode p = head; p != null; p = p.next, ++len);
+        for (ListNode p = head; p != null; p = p.next, len++);
 
-        ListNode pre = null, cur = head, next;
-        for (int i = 0; i < len / 2; i ++) {
-            next = cur.next;
-            cur.next = pre;
-            pre = cur;
+        ListNode prev = null, cur = head;
+        for (int i = 0; i < len / 2; i++) {
+            ListNode next = cur.next;
+            cur.next = prev;
+            prev = cur;
             cur = next;
         }
 
@@ -81,12 +78,8 @@ public class LeetCode234 {
         // 如果总长度是奇数，则跳过中间节点。从这一步起，pre 和 cur 分别指向断开的两个链表的头部：
         //        pre           cur                                        pre    cur
         // [1] <- [2] -> [3] -> [2] -> [1] -> [null]         [1] <- [2] <- [3] -> [3] -> [2] -> [1] -> [null]
-        if (len % 2 == 1) {
-            cur = cur.next;
-        }
-
-        for (; pre != null && cur != null; pre = pre.next, cur = cur.next) {
-            if (pre.val != cur.val) {
+        for (cur = len % 2 == 0? cur: cur.next; prev != null && cur != null; prev = prev.next, cur = cur.next) {
+            if (prev.val != cur.val) {
                 return false;
             }
         }
