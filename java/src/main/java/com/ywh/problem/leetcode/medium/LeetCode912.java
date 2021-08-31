@@ -26,25 +26,25 @@ public class LeetCode912 {
         nums[j] = tmp;
     }
 
-    private void hoareSort(int[] nums, int low, int high) {
+    private void quickSort(int[] nums, int low, int high) {
         if (low >= high) {
             return;
         }
-        int i = low, j = high, pivot = nums[i + (j - i) / 2];
-        for (;;) {
-            for (; nums[i] < pivot; i++) {}
-            for (; nums[j] > pivot; j--) {}
+        int i = low, j = high;
+        for (int pivot = nums[i + (j - i) / 2]; ;) {
+            for (; i < j && nums[i] < pivot; i++);
+            for (; i < j && nums[j] > pivot; j--);
             if (i >= j) {
                 break;
             }
             swap(nums, i++, j--);
         }
-        hoareSort(nums, low, j);
-        hoareSort(nums, j + 1, high);
+        quickSort(nums, low, j);
+        quickSort(nums, j + 1, high);
     }
 
     public int[] sortArray(int[] nums) {
-        hoareSort(nums, 0, nums.length - 1);
+        quickSort(nums, 0, nums.length - 1);
         return nums;
     }
 

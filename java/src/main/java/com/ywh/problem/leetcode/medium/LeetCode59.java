@@ -30,30 +30,29 @@ public class LeetCode59 {
             return null;
         }
         int [][]matrix = new int[n][n];
-        int left = 0, right = n - 1, top = 0, bottom = n - 1, cur = 0;
-        while (true) {
-            for (int i = left; i <= right; i++) {
-                matrix[top][i] = ++cur;
+        for (int l = 0, r = n - 1, t = 0, b = n - 1, cur = 0;;) {
+            for (int i = l; i <= r; i++) {
+                matrix[t][i] = ++cur;
             }
-            if (++top > bottom) {
+            if (++t > b) {
                 break;
             }
-            for (int i = top; i <= bottom; i++) {
-                matrix[i][right] = ++cur;
+            for (int i = t; i <= b; i++) {
+                matrix[i][r] = ++cur;
             }
-            if (--right < left) {
+            if (--r < l) {
                 break;
             }
-            for (int i = right; i >= left; i--) {
-                matrix[bottom][i] = ++cur;
+            for (int i = r; i >= l; i--) {
+                matrix[b][i] = ++cur;
             }
-            if (--bottom < top) {
+            if (--b < t) {
                 break;
             }
-            for (int i = bottom; i >= top; i--) {
-                matrix[i][left] = ++cur;
+            for (int i = b; i >= t; i--) {
+                matrix[i][l] = ++cur;
             }
-            if (++left > right) {
+            if (++l > r) {
                 break;
             }
         }

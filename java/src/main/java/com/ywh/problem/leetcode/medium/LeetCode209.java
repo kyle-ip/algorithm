@@ -39,9 +39,9 @@ public class LeetCode209 {
 
             // 判断是否已满足题目中 sum 大于等于 s 的条件，是则计算一次 cnt，并减去最左边的值（表示计算下一个连续子数组的和）。
             // 由于存在最右边的元素过大、导致算入 nums[r] 后超出 s 很多的情况（即减去 nums[l] 后仍然大于 s），因此要使用 while。
-            while (sum >= target) {
+            for (; sum >= target; l++) {
                 cnt = Math.min(cnt, r - l + 1);
-                sum -= nums[l++];
+                sum -= nums[l];
             }
         }
 
@@ -79,8 +79,7 @@ public class LeetCode209 {
      * @return
      */
     public int minSubArrayLen2(int s, int[] nums) {
-        int n = nums.length;
-        int ret = Integer.MAX_VALUE;
+        int n = nums.length, ret = Integer.MAX_VALUE;
         int[] prefixSum = new int[n + 1];
         // sum[i] 表示前 i 个元素之和。
         for (int i = 1; i <= n; i++) {

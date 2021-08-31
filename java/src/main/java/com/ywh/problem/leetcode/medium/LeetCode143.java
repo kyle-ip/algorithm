@@ -74,7 +74,7 @@ public class LeetCode143 {
     }
 
     public void reorderListRecursive(ListNode head) {
-        if (head == null || head.next == null || head.next.next == null) {
+        if (head == null || head.next == null) {
             return;
         }
         int len = 0;
@@ -119,7 +119,7 @@ public class LeetCode143 {
      * @param head
      */
     public void reorderListReverse(ListNode head) {
-        if (head == null || head.next == null || head.next.next == null) {
+        if (head == null || head.next == null) {
             return;
         }
         // 找中点，把链表断开成两个：

@@ -53,7 +53,6 @@ public class LeetCode140 {
      * @return
      */
     public List<String> wordBreak(String s, List<String> wordDict) {
-        List<String> ret = new ArrayList<>();
         int n = s.length();
         boolean[] dp = new boolean[n + 1];
         dp[0] = true;
@@ -66,10 +65,7 @@ public class LeetCode140 {
                 }
             }
         }
-        if (dp[n]) {
-            backtracking(s, 0, set, dp, new LinkedList<>(), ret);
-        }
-        return ret;
+        return dp[n]? backtracking(s, 0, set, dp, new LinkedList<>(), new ArrayList<>()): Collections.emptyList();
     }
 
     /**
@@ -81,18 +77,19 @@ public class LeetCode140 {
      * @param elem
      * @param ret
      */
-    private void backtracking(String s, int start, Set<String> set, boolean[] dp, LinkedList<String> elem, List<String> ret) {
+    private List<String> backtracking(String s, int start, Set<String> set, boolean[] dp, LinkedList<String> elem, List<String> ret) {
         if (start == s.length()) {
             ret.add(String.join( " ", elem));
-            return;
-        }
-        for (int i = start; i <= s.length(); i++) {
-            String substring = s.substring(start, i);
-            if (set.contains(substring) && dp[i]) {
-                elem.addLast(substring);
-                backtracking(s, i, set, dp, elem, ret);
-                elem.removeLast();
+        } else {
+            for (int i = start; i <= s.length(); i++) {
+                String substring = s.substring(start, i);
+                if (set.contains(substring) && dp[i]) {
+                    elem.addLast(substring);
+                    backtracking(s, i, set, dp, elem, ret);
+                    elem.removeLast();
+                }
             }
         }
+        return ret;
     }
 }

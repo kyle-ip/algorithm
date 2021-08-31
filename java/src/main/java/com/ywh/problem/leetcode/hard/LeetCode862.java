@@ -37,7 +37,7 @@ public class LeetCode862 {
 
         // 前缀和 p[i] 表示前 i 个元素之和。
         long[] prefixSum = new long[n + 1];
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < n; i++) {
             prefixSum[i + 1] = prefixSum[i] + (long) A[i];
         }
 

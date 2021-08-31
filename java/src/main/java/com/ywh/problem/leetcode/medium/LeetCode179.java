@@ -37,24 +37,19 @@ public class LeetCode179 {
      */
     public String largestNumber(int[] nums) {
 
-        // 整型数组转换为字符串数组
+        // 整型数组转换为字符串数组。
         String[] strs = new String[nums.length];
-        for (int i = 0; i < nums.length; i++) {
-            strs[i] = String.valueOf(nums[i]);
-        }
+        for (int i = 0; i < nums.length; strs[i] = String.valueOf(nums[i]), i++);
 
         // 对字符串数组按字典序排倒序：如比较 "12" 和 "8"，812 > 128，因此 8 排在 12 前面。
         Arrays.sort(strs, (o1, o2) -> {
             String o12 = o1 + o2, o21 = o2 + o1;
 
-            // 在 compare 函数中，对比 o12 和 o21 时 o12 较大，如希望 o1 排在 o2 前面，则需要返回负数，即 o21.compareTo(o12)
+            // 在 compare 函数中，对比 o12 和 o21 时 o12 较大，如希望 o1 排在 o2 前面，则需要返回负数，即 o21.compareTo(o12)。
             return o21.compareTo(o12);
         });
         // 排序结果最大的是 "0"，表示数组中的元素全部都为 0。
-        if ("0".equals(strs[0])) {
-            return "0";
-        }
-        return String.join("", strs);
+        return "0".equals(strs[0])? "0": String.join("", strs);
     }
 
     /**
@@ -65,9 +60,7 @@ public class LeetCode179 {
      */
     public String largestNumberFast(int[] nums) {
         String[] strs = new String[nums.length];
-        for (int i = 0; i < nums.length; i++) {
-            strs[i] = String.valueOf(nums[i]);
-        }
+        for (int i = 0; i < nums.length; strs[i] = String.valueOf(nums[i]), i++);
         Arrays.sort(strs, (o1, o2) -> {
             int n1 = o1.length(), n2 = o2.length();
             for (int i = 0; i < n1 + n2; i++) {
@@ -80,9 +73,6 @@ public class LeetCode179 {
             }
             return 0;
         });
-        if ("0".equals(strs[0])) {
-            return "0";
-        }
-        return String.join("", strs);
+        return "0".equals(strs[0])? "0": String.join("", strs);
     }
 }

@@ -31,13 +31,11 @@ public class LeetCode328 {
      * @return
      */
     public ListNode oddEvenList(ListNode head) {
-        if (head == null || head.next == null || head.next.next == null) {
+        if (head == null || head.next == null) {
             return head;
         }
         ListNode head2 = head.next, even = head2, odd = head;
         while (even != null && even.next != null) {
-
-
             //         +-------------+
             //         |             |
             //  +------+------+      |

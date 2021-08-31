@@ -54,23 +54,19 @@ public class LeetCode493 {
         if (low == high) {
             return 0;
         }
-        int mid = low + (high - low) / 2;
-        int ret = mergeSort(nums, low, mid) + mergeSort(nums, mid + 1, high);
+        int mid = low + (high - low) / 2, ret = mergeSort(nums, low, mid) + mergeSort(nums, mid + 1, high);
 
         // 统计下标对的数量。
         // [low, mid] 和 (mid, high] 分别是两个有序的数组。
         // 如果从前者中取出 i、后者取出 j，满足 nums[i] > 2 * nums[j]，则翻转对个数为 j-mid+1。
         for (int l = low, r = mid + 1; l <= mid; l++) {
-            while (r <= high && (long) nums[l] > 2 * (long) nums[r]) {
-                r++;
-            }
+            for (; r <= high && (long) nums[l] > 2 * (long) nums[r]; r++);
             ret += r - mid - 1;
         }
 
         // 合并两个排序数组。
         int[] sorted = new int[high - low + 1];
-        int l = low, r = mid + 1, p = 0;
-        for (; l <= mid || r <= high; p++) {
+        for (int l = low, r = mid + 1, p = 0; l <= mid || r <= high; p++) {
             if (l > mid) {
                 sorted[p] = nums[r++];
             } else if (r > high) {

@@ -31,19 +31,10 @@ public class LeetCode67 {
      */
     public String addBinary(String a, String b) {
         StringBuilder sb = new StringBuilder();
-        int idxA = a.length() - 1, idxB = b.length() - 1, carry = 0, sum;
-        while (idxA >= 0 || idxB >= 0 || carry != 0) {
-            sum = carry;
-            if (idxA >= 0) {
-                sum += a.charAt(idxA--) - '0';
-            }
-            if (idxB >= 0) {
-                sum += b.charAt(idxB--) - '0';
-            }
-            // sb.append(sum & 1);
-            sb.append(sum % 2);
-            // carry = sum >> 1;
-            carry = sum / 2;
+        for (int i = a.length() - 1, j = b.length() - 1, carry = 0, sum; i >= 0 || j >= 0 || carry != 0; carry >>= 2) {
+            carry += i >= 0? a.charAt(i--) - '0': 0;
+            carry += j >= 0? b.charAt(j--) - '0': 0;
+            sb.append(carry & 1);
         }
         return sb.reverse().toString();
     }

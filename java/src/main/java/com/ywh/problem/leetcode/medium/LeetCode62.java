@@ -98,8 +98,7 @@ public class LeetCode62 {
      * @return
      */
     public int uniquePathsMath(int m, int n) {
-        int small = Math.max(m - 1, n - 1);
-        int total = m + n - 2;
+        int small = Math.max(m - 1, n - 1), total = m + n - 2;
 
         // 避免乘法溢出
         long ret = 1;

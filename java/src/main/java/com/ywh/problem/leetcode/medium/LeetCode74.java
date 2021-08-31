@@ -37,14 +37,14 @@ public class LeetCode74 {
      * @return
      */
     public int[] binarySearchIn2DArray(int[][] matrix, int target) {
-        for (int m = matrix.length, n = matrix[0].length, l = 0, h = m * n - 1, mid; l <= h; ) {
-            mid = l + (h - l) / 2;
+        for (int m = matrix.length, n = matrix[0].length, l = 0, h = m * n - 1; l <= h; ) {
+            int mid = l + (h - l) / 2;
             // 除以列数得出行号，模列数得出列号。
-            int row = mid / n, col = mid % n;
-            if (matrix[row][col] == target) {
-                return new int[] {row, col};
+            int r = mid / n, c = mid % n;
+            if (matrix[r][c] == target) {
+                return new int[] {r, c};
             }
-            if (matrix[row][col] > target) {
+            if (matrix[r][c] > target) {
                 h = mid - 1;
             } else {
                 l = mid + 1;

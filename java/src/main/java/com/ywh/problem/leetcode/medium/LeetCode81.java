@@ -42,8 +42,7 @@ public class LeetCode81 {
         if (nums == null || nums.length == 0) {
             return false;
         }
-        int low = 0, high = nums.length - 1, mid;
-        while (low <= high) {
+        for (int low = 0, high = nums.length - 1, mid; low <= high; ) {
             mid = low + (high - low) / 2;
             if (nums[mid] == target) {
                 return true;

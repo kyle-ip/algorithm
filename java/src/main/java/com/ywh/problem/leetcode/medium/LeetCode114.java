@@ -50,8 +50,7 @@ public class LeetCode114 {
         //     3   4   6
         Deque<TreeNode> stack = new LinkedList<>();
         List<TreeNode> preorder = new ArrayList<>();
-        TreeNode cur = root;
-        while (cur != null || !stack.isEmpty()) {
+        for (TreeNode cur = root; cur != null || !stack.isEmpty(); ) {
             if (cur != null) {
                 preorder.add(cur);
                 stack.push(cur);

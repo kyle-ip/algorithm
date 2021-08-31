@@ -35,13 +35,10 @@ public class LeetCode50 {
      */
     public double powFast(double x, int n) {
         double ret = 1;
-        long N = Math.abs((long) n);
-        while (N != 0) {
+        for (long N = Math.abs((long) n); N != 0; x *= x, N >>= 1) {
             if ((N & 1) == 1) {
                 ret *= x;
             }
-            x *= x;
-            N >>= 1;
         }
         return n < 0 ? 1 / ret : ret;
     }

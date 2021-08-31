@@ -40,8 +40,9 @@ public class LeetCode263 {
         if (n <= 0) {
             return false;
         }
-        for(int i: new int[]{2, 3, 5})
+        for(int i: new int[]{2, 3, 5}) {
             for (; n % i == 0; n /= i);
+        }
         return n == 1;
     }
 

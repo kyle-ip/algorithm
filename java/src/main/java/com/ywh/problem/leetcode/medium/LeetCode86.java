@@ -30,13 +30,9 @@ public class LeetCode86 {
             return null;
         }
 
-        // 两个辅助链表，分别按顺序存放较小的元素和较大的元素（注意头部为辅助节点，不包含在最终结果中）
-        ListNode smaller = new ListNode(0), greater = new ListNode(0);
-
-        // 两个指针（最后返回需要对头部操作，所以不能直接用两个链表操作）
-        ListNode ps = smaller, pg = greater, p = head;
-
-        while (p != null) {
+        // 两个辅助链表，分别按顺序存放较小的元素和较大的元素（注意头部为辅助节点，不包含在最终结果中）。
+        ListNode smaller = new ListNode(0), greater = new ListNode(0), ps = smaller, pg = greater;
+        for (ListNode p = head; p != null; p = p.next) {
             if (p.val < x) {
                 ps.next = p;
                 ps = ps.next;
@@ -44,7 +40,6 @@ public class LeetCode86 {
                 pg.next = p;
                 pg = pg.next;
             }
-            p = p.next;
         }
 
         // 把小链表指向大链表的开头

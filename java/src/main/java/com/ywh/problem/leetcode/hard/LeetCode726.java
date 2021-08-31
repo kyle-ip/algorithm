@@ -84,11 +84,11 @@ public class LeetCode726 {
             } else {
                 int iStart = index[0]++;
                 // 取原子的名称。
-                for (; index[0] < n && Character.isLowerCase(formula.charAt(index[0])); index[0]++) {}
+                for (; index[0] < n && Character.isLowerCase(formula.charAt(index[0])); index[0]++);
                 String name = formula.substring(iStart, index[0]);
                 // 取原子的个数。
                 iStart = index[0];
-                for (; index[0] < n && Character.isDigit(formula.charAt(index[0])); index[0]++) {}
+                for (; index[0] < n && Character.isDigit(formula.charAt(index[0])); index[0]++);
                 int multiplicity = iStart < index[0] ? Integer.parseInt(formula.substring(iStart, index[0])) : 1;
                 // 算入 counter 中。
                 counter.put(name, counter.getOrDefault(name, 0) + multiplicity);
@@ -96,7 +96,7 @@ public class LeetCode726 {
         }
         //
         int iStart = ++index[0];
-        for (; index[0] < n && Character.isDigit(formula.charAt(index[0])); index[0]++) {}
+        for (; index[0] < n && Character.isDigit(formula.charAt(index[0])); index[0]++);
         if (iStart < index[0]) {
             int multiplicity = Integer.parseInt(formula.substring(iStart, index[0]));
             for (String key: counter.keySet()) {
@@ -123,7 +123,7 @@ public class LeetCode726 {
             } else if (formula.charAt(i) == ')') {
                 Map<String, Integer> top = stack.pop();
                 int iStart = ++i, multiplicity = 1;
-                for (; i < n && Character.isDigit(formula.charAt(i)); i++) {}
+                for (; i < n && Character.isDigit(formula.charAt(i)); i++);
                 if (i > iStart) {
                     multiplicity = Integer.parseInt(formula.substring(iStart, i));
                 }
@@ -133,10 +133,10 @@ public class LeetCode726 {
                 }
             } else {
                 int iStart = i++;
-                for (; i < n && Character.isLowerCase(formula.charAt(i)); i++) {}
+                for (; i < n && Character.isLowerCase(formula.charAt(i)); i++);
                 String name = formula.substring(iStart, i);
                 iStart = i;
-                for (; i < n && Character.isDigit(formula.charAt(i)); i++) {}
+                for (; i < n && Character.isDigit(formula.charAt(i)); i++);
                 int multiplicity = i > iStart ? Integer.parseInt(formula.substring(iStart, i)) : 1;
                 stack.peek().put(name, stack.peek().getOrDefault(name, 0) + multiplicity);
             }
