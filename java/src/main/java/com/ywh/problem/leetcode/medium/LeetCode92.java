@@ -99,26 +99,28 @@ public class LeetCode92 {
     }
 
     /**
-     *x`
+     * 反转 [m, n] 之间的链表，先定位到 m-1 的位置，节点记为 prev，再从 prev 开始，反转 n-m 个节点，
+     * 考虑到可能从头部开始反转，因此要引入 dummy 节点，最终返回 dummy.next。
+     *
      * @param head
-     * @param left
-     * @param right
+     * @param m
+     * @param n
      * @return
      */
-    public ListNode reverseBetween2(ListNode head, int left, int right) {
-        if (head == null || left >= right) {
+    public ListNode reverseBetween2(ListNode head, int m, int n) {
+        if (head == null || m >= n) {
             return head;
         }
         ListNode dummy = new ListNode(0, head), prev = dummy;
         // 找到第一个需要反转的节点的前一个节点 prev。
-        for (int i = 0; prev.next != null && i < left - 1; i++, prev = prev.next);
+        for (int i = 0; prev.next != null && i < m - 1; i++, prev = prev.next);
         // 不足 m 个，直接返回。
         if (prev.next == null) {
             return head;
         }
         // 从 prev 开始，依次把后面的节点用头插法插到 p 节点的后面。
         ListNode cur = prev.next;
-        for (int i = 0; i < right - left; i++) {
+        for (int i = 0; i < n - m; i++) {
             //                                                                 2
             //                                                   1    +-----------------+
             //                                              +---------|--------+        |

@@ -39,7 +39,7 @@ public class LeetCode51 {
      * @param board
      * @param visited   访问记录，第一维表示列、主对角线、副对角线三个方向。
      */
-    private List<List<String>> solve(int row, List<List<String>> ret, char[][] board, boolean[][] visited) {
+    private List<List<String>> backtracking(int row, List<List<String>> ret, char[][] board, boolean[][] visited) {
         int n = board.length;
         if (row == n) {
             List<String> list = new ArrayList<>();
@@ -47,22 +47,29 @@ public class LeetCode51 {
                 list.add(new String(r));
             }
             ret.add(list);
-            return ret;
-        }
-        for (int col = 0; col < n; col++) {
-            // 检查当前行、列是否与前面放置的皇后有冲突：
-            // row - col + n：经过 (row, col) 的主对角线（右下 -> 左上）已被占用。
-            // row + col：经过 (row, col) 的副对角线（左下 -> 右上）已被占用。
-            //         列                     主对角线                     副对角线
-            if (!visited[0][col] && !visited[1][row - col + n] && !visited[2][row + col]) {
-                // 放置皇后、标记。
-                board[row][col] = 'Q';
-                visited[0][col] = visited[1][row - col + n] = visited[2][row + col] = true;
-                // 判断下一行。
-                solve(row + 1, ret, board, visited);
-                // 退递归。
-                visited[0][col] = visited[1][row - col + n] = visited[2][row + col] = false;
-                board[row][col] = '.';
+        } else {
+            // 检查当前行的每列，是否与前面放置的皇后有冲突：
+            for (int col = 0; col < n; col++) {
+                // row - col + n：经过 (row, col) 的主对角线（右下 -> 左上）已被占用。
+                // row + col：经过 (row, col) 的副对角线（左下 -> 右上）已被占用。
+
+                //                 c==3
+                //  r-c+n==5 + . . . .
+                //           . + . . .
+                //           . . + . - r+c==6
+                //           . . . * .
+                //           . . . . .
+                //         列                     主对角线                     副对角线
+                if (!visited[0][col] && !visited[1][row - col + n] && !visited[2][row + col]) {
+                    // 放置皇后、标记。
+                    board[row][col] = 'Q';
+                    visited[0][col] = visited[1][row - col + n] = visited[2][row + col] = true;
+                    // 判断下一行。
+                    backtracking(row + 1, ret, board, visited);
+                    // 退递归。
+                    visited[0][col] = visited[1][row - col + n] = visited[2][row + col] = false;
+                    board[row][col] = '.';
+                }
             }
         }
         return ret;
@@ -78,11 +85,11 @@ public class LeetCode51 {
      * @return
      */
     public List<List<String>> solveNQueens(int n) {
-        // 构建棋盘。
+        // 初始化棋盘。
         char[][] board = new char[n][n];
         for (int i = 0; i < n; ++i) {
             Arrays.fill(board[i], '.');
         }
-        return solve(0, new ArrayList<>(), board, new boolean[3][2 * n]);
+        return backtracking(0, new ArrayList<>(), board, new boolean[3][2 * n]);
     }
 }

@@ -37,8 +37,25 @@ public class LeetCode224 {
         int sum = 0, op = 1, n = s.length();
         // 符号栈用于暂存一个子表达式值（括号内）的正负，子表达式结束后弹出。
         Deque<Integer> ops = new LinkedList<>();
-        ops.push(1);
-        for (int i = 0; i < n; ++i) {
+        ops.push(op);
+        for (int i = 0; i < n; i++) {
+            // 左括号：保存当前状态的 op，再在子表达式中置为 1。
+            if (s.charAt(i) == '(') {
+                ops.push(ops.peek() * op);
+                op = 1;
+            }
+            // 右括号，弹出。
+            if (s.charAt(i) == ')') {
+                ops.pop();
+            }
+            // 加号
+            if (s.charAt(i) == '+') {
+                op = 1;
+            }
+            // 减号
+            if (s.charAt(i) == '-') {
+                op = -1;
+            }
             // 数字
             if (Character.isDigit(s.charAt(i))) {
                 int num = s.charAt(i) - '0';
@@ -46,23 +63,6 @@ public class LeetCode224 {
                     num = num * 10 + s.charAt(i + 1) - '0';
                 }
                 sum += ops.peek() * op * num;
-            }
-            // 左括号
-            else if (s.charAt(i) == '(') {
-                ops.push(ops.peek() * op);
-                op = 1;
-            }
-            // 右括号
-            else if (s.charAt(i) == ')') {
-                ops.pop();
-            }
-            // 加号
-            else if (s.charAt(i) == '+') {
-                op = 1;
-            }
-            // 减号
-            else if (s.charAt(i) == '-') {
-                op = -1;
             }
         }
         return sum;

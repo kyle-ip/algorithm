@@ -76,7 +76,6 @@ public class LeetCode315 {
         //      index = [2, 4, 3, 0, 1]
         // 用一个数组 ret 来记录贡献。对某个元素计算贡献时，如果它对应的下标为 p，只需要在 ans[p] 上加上贡献即可。
 
-
         for (int i = l, j = mid + 1, p = l; i <= mid || j <= r; p++) {
             if (i > mid) {
                 temp[p] = nums[j];
@@ -84,14 +83,14 @@ public class LeetCode315 {
             } else if (j > r) {
                 temp[p] = nums[i];
                 tempIndex[p] = index[i];
-                ret[index[i++]] += (j - mid - 1);
+                ret[index[i++]] += j - mid - 1;
             } else if (nums[i] > nums[j]) {
                 temp[p] = nums[j];
                 tempIndex[p] = index[j++];
             } else {
                 temp[p] = nums[i];
                 tempIndex[p] = index[i];
-                ret[index[i++]] += (j - mid - 1);
+                ret[index[i++]] += j - mid - 1;
             }
         }
         for (int k = l; k <= r; ++k) {

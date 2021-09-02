@@ -1,5 +1,9 @@
 package com.ywh.problem.leetcode.hard;
 
+import com.ywh.problem.leetcode.medium.LeetCode153;
+import com.ywh.problem.leetcode.medium.LeetCode33;
+import com.ywh.problem.leetcode.medium.LeetCode81;
+
 /**
  * 寻找旋转排序数组中的最小值 II
  * [数组] [二分查找]
@@ -31,6 +35,8 @@ package com.ywh.problem.leetcode.hard;
 public class LeetCode154 {
 
     /**
+     * 参考 {@link LeetCode153}, {@link LeetCode33}, {@link LeetCode81}
+     *
      * Time: O(log(n)), Space: O(1)
      *
      * @param nums

@@ -60,16 +60,16 @@ public class LeetCode460 {
      * 哈希表 + 平衡二叉树
      * Time: get O(log(n)), put O(log(n)), Space: O(n)
      */
-    public class LFUCacheBST {
+    public static class LFUCacheBST {
 
         /**
          * 缓存容量，时间戳
          */
         int capacity, time;
 
-        Map<Integer, CacheNode> keyTable;
+        Map<Integer, Node> keyTable;
 
-        TreeSet<CacheNode> bst;
+        TreeSet<Node> bst;
 
         /**
          *
@@ -96,7 +96,7 @@ public class LeetCode460 {
                 return -1;
             }
             // 从哈希表中得到旧的缓存
-            CacheNode cache = keyTable.get(key);
+            Node cache = keyTable.get(key);
             // 从平衡二叉树中删除旧的缓存
             bst.remove(cache);
             // 将旧缓存更新
@@ -125,13 +125,13 @@ public class LeetCode460 {
                     bst.remove(bst.first());
                 }
                 // 创建新的缓存
-                CacheNode cache = new CacheNode(1, ++time, key, value);
+                Node cache = new Node(1, ++time, key, value);
                 // 将新缓存放入哈希表和平衡二叉树中
                 keyTable.put(key, cache);
                 bst.add(cache);
             } else {
                 // 这里和 get() 函数类似
-                CacheNode cache = keyTable.get(key);
+                Node cache = keyTable.get(key);
                 bst.remove(cache);
                 cache.cnt += 1;
                 cache.time = ++time;
@@ -141,7 +141,7 @@ public class LeetCode460 {
             }
         }
 
-        class CacheNode implements Comparable<CacheNode> {
+        class Node implements Comparable<Node> {
 
             /**
              *
@@ -155,7 +155,7 @@ public class LeetCode460 {
              * @param key
              * @param value
              */
-            CacheNode(int cnt, int time, int key, int value) {
+            Node(int cnt, int time, int key, int value) {
                 this.cnt = cnt;
                 this.time = time;
                 this.key = key;
@@ -172,8 +172,8 @@ public class LeetCode460 {
                 if (this == anObject) {
                     return true;
                 }
-                if (anObject instanceof CacheNode) {
-                    CacheNode rhs = (CacheNode) anObject;
+                if (anObject instanceof Node) {
+                    Node rhs = (Node) anObject;
                     return this.cnt == rhs.cnt && this.time == rhs.time;
                 }
                 return false;
@@ -185,7 +185,7 @@ public class LeetCode460 {
              * @return
              */
             @Override
-            public int compareTo(CacheNode rhs) {
+            public int compareTo(Node rhs) {
                 return cnt == rhs.cnt ? time - rhs.time : cnt - rhs.cnt;
             }
 
@@ -205,7 +205,7 @@ public class LeetCode460 {
      *
      * Time: O(1), Space: O(n)
      */
-    class LFUCache2Hash {
+    public static class LFUCache2Hash {
 
         /**
          * 最少使用的频率、容量。
@@ -215,14 +215,14 @@ public class LeetCode460 {
         /**
          * 键 -> 缓存节点（使 get 操作 O(1)）
          */
-        Map<Integer, CacheNode> keyTable;
+        Map<Integer, Node> keyTable;
 
         /**
          * 频率 -> 缓存节点链表（使 put 操作 O(1)）
          * freqTable/keyTable                1
          *          1           Node(key=1, value=1, freq=1)
          */
-        Map<Integer, LinkedList<CacheNode>> freqTable;
+        Map<Integer, LinkedList<Node>> freqTable;
 
         /**
          *
@@ -247,23 +247,22 @@ public class LeetCode460 {
                 return -1;
             }
             // 从 key 表中取出节点（得出值和使用频率）。
-            CacheNode node = keyTable.get(key);
+            Node node = keyTable.get(key);
             int val = node.val, freq = node.freq;
 
             // 更新 freq 表：
-            // 1. 从 freq 表中删除节点。
+            // 从 freq 表中删除节点，如删除后链表为空，需要在哈希表中删除并更新 minFreq。
             freqTable.get(freq).remove(node);
-            // 2. 如果当前链表为空，需要在哈希表中删除并更新 minFreq。
             if (freqTable.get(freq).size() == 0) {
                 freqTable.remove(freq);
                 if (minfreq == freq) {
                     minfreq += 1;
                 }
             }
-            // 3. 访问后频率 +1，重新插入到 freq 表和 key 表中。
+            // 访问后该 key 频率 +1，重新插入到 freq 表和 key 表中。
             node.freq += 1;
 
-            LinkedList<CacheNode> list = freqTable.getOrDefault(node.freq, new LinkedList<>());
+            LinkedList<Node> list = freqTable.getOrDefault(node.freq, new LinkedList<>());
             list.addFirst(node);
             freqTable.put(node.freq, list);
             keyTable.put(key, node);
@@ -280,7 +279,7 @@ public class LeetCode460 {
                 return;
             }
             int freq;
-            CacheNode node;
+            Node node;
             // key 表中不存在该节点。
             if (!keyTable.containsKey(key)) {
                 // 缓存已满，需要进行删除操作
@@ -311,8 +310,8 @@ public class LeetCode460 {
             }
 
             // 重新加入 key 表、freq 表。
-            node = new CacheNode(key, value, freq);
-            LinkedList<CacheNode> list = freqTable.getOrDefault(node.freq, new LinkedList<>());
+            node = new Node(key, value, freq);
+            LinkedList<Node> list = freqTable.getOrDefault(node.freq, new LinkedList<>());
             list.addFirst(node);
             freqTable.put(node.freq, list);
             keyTable.put(key, node);
@@ -321,9 +320,9 @@ public class LeetCode460 {
         /**
          *
          */
-        private class CacheNode {
+        private class Node {
             int key, val, freq;
-            CacheNode(int key, int val, int freq) {
+            Node(int key, int val, int freq) {
                 this.key = key;
                 this.val = val;
                 this.freq = freq;

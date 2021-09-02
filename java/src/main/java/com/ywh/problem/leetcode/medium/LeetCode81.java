@@ -1,5 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
+import com.ywh.problem.leetcode.hard.LeetCode154;
+
 /**
  * 搜索旋转排序数组 II
  * [数组] [二分查找]
@@ -32,7 +34,7 @@ package com.ywh.problem.leetcode.medium;
 public class LeetCode81 {
 
     /**
-     * 参考 {@link LeetCode33}，需要特殊处理相同元素。
+     * 参考 {@link LeetCode153}, {@link LeetCode33}, {@link LeetCode154}
      *
      * @param nums
      * @param target
@@ -42,8 +44,8 @@ public class LeetCode81 {
         if (nums == null || nums.length == 0) {
             return false;
         }
-        for (int low = 0, high = nums.length - 1, mid; low <= high; ) {
-            mid = low + (high - low) / 2;
+        for (int low = 0, high = nums.length - 1; low <= high; ) {
+            int mid = low + (high - low) / 2;
             if (nums[mid] == target) {
                 return true;
             }
@@ -52,7 +54,7 @@ public class LeetCode81 {
                 low++;
                 continue;
             }
-            // 0 ~ mid 递增：2, 2, 5, [6], 0, 0, 1
+            // [low, mid] 递增：2, 2, 5, [6], 0, 0, 1
             if (nums[mid] >= nums[low]) {
                 // target 落在 low 和 mid 之间，比如 target == 3：在前半部分查找。
                 if (nums[mid] > target && nums[low] <= target) {
@@ -63,7 +65,7 @@ public class LeetCode81 {
                     low = mid + 1;
                 }
             }
-            // mid + 1 ~ high 递增：5, 6, 0, [0], 1, 2, 2
+            // [low, mid] 断开：5, 6, 0, [0], 1, 2, 2
             else {
                 // target 落在 mid 和 high 之间，比如 target == 1：在后半部分查找。
                 if (nums[mid] < target && nums[high] >= target) {

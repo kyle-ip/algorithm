@@ -1,5 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
+import com.ywh.problem.leetcode.hard.LeetCode154;
+
 /**
  * 寻找旋转排序数组中的最小值
  * [数组] [二分查找]
@@ -47,6 +49,8 @@ public class LeetCode153 {
     }
 
     /**
+     * 参考 {@link LeetCode154}, {@link LeetCode33}, {@link LeetCode81}
+     *
      * Time: O(log(n)), Space: O(1)
      *
      * @param nums
@@ -65,10 +69,10 @@ public class LeetCode153 {
                 return nums[low];
             }
 
-            // 否则 low 与 high 之间还是分成两部分，继续二分查找。
+            // 否则 low 与 high 之间分成两部分，继续二分查找。
             int mid = low + (high - low) / 2;
 
-            // low 比 high 大、mid 比 high 大，表示旋转的位置在右边，且不可能是 mid 的位置。
+            // [mid, high] 断开，表示旋转的位置在右边，且不可能是 mid 的位置。
             if (nums[mid] > nums[high]) {
                 low = mid + 1;
             }

@@ -2,9 +2,8 @@ package com.ywh.problem.leetcode.hard;
 
 import com.ywh.ds.tree.TreeNode;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.LinkedList;
 
 /**
  * 二叉树的序列化与反序列化
@@ -41,21 +40,18 @@ public class LeetCode297 {
         /**
          *
          * @param root
-         * @param str
+         * @param sb
          * @return
          */
-        public String serialize(TreeNode root, String str) {
-            // 叶子节点。
+        public StringBuilder serialize(TreeNode root, StringBuilder sb) {
             if (root == null) {
-                str += "None,";
+                sb.append("_,");
+            } else {
+                sb.append(root.val + ",");
+                serialize(root.left, sb);
+                serialize(root.right, sb);
             }
-            // 根/中间节点。
-            else {
-                str += root.val + ",";
-                str = serialize(root.left, str);
-                str = serialize(root.right, str);
-            }
-            return str;
+            return sb;
         }
 
         /**
@@ -65,7 +61,7 @@ public class LeetCode297 {
          * @return
          */
         public String serialize(TreeNode root) {
-            return serialize(root, "");
+            return serialize(root, new StringBuilder()).toString();
         }
 
         /**
@@ -73,16 +69,12 @@ public class LeetCode297 {
          * @param list
          * @return
          */
-        public TreeNode deserialize(List<String> list) {
-            if ("None".equals(list.get(0))) {
-                list.remove(0);
+        public TreeNode deserialize(LinkedList<String> list) {
+            String s = list.removeFirst();
+            if ("_".equals(s)) {
                 return null;
             }
-            return new TreeNode(
-                Integer.parseInt(list.remove(0)),
-                deserialize(list),
-                deserialize(list)
-            );
+            return new TreeNode(Integer.parseInt(s), deserialize(list), deserialize(list));
         }
 
         /**
@@ -92,7 +84,10 @@ public class LeetCode297 {
          * @return
          */
         public TreeNode deserialize(String data) {
-            return deserialize(new ArrayList<>(Arrays.asList(data.split(","))));
+//            List<String> list = new ArrayList<>();
+//            Collections.addAll(list, data.split(","));
+//            return deserialize(list);
+            return deserialize(new LinkedList<>(Arrays.asList(data.split(","))));
         }
     }
 

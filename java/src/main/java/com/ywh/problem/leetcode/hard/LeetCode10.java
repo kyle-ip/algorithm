@@ -62,6 +62,7 @@ public class LeetCode10 {
         int m = s.length(), n = p.length();
         // dp[i][j] 表示字符串 s 的前 i 个字符和模式 p 的前 j 个字符是否匹配。
         // 由于下标从 0 开始，在此基础上坐标都要 -1。
+        // 已知 dp[1][0] 必然是 false，因此 j 从 1 开始。
         boolean[][] dp = new boolean[m + 1][n + 1];
         dp[0][0] = true;
         for (int i = 0; i <= m; ++i) {
@@ -92,6 +93,7 @@ public class LeetCode10 {
                 else {
                     dp[i][j] = matches(s, p, i, j) && dp[i - 1][j - 1];
                 }
+                // dp[i][j] = p.charAt(j - 1) == '*'? matches(s, p, i, j - 1) && dp[i - 1][j] || dp[i][j - 2]: matches(s, p, i, j) && dp[i - 1][j - 1];
             }
         }
         return dp[m][n];

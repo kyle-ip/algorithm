@@ -130,23 +130,23 @@ public class LeetCode207 {
      * @return
      */
     public boolean canFinishTopoSortAdjList(int numCourses, int[][] prerequisites) {
-        if (numCourses <= 1 || prerequisites == null || prerequisites.length == 0) {
+        if (numCourses == 1 || prerequisites.length == 0) {
             return true;
         }
 
-        // 生成图，并记录每个节点的入度。
-        int[] inDegree = new int[numCourses];
+        // 使用邻接表表示图，并记录每个节点的入度。
         List<List<Integer>> graph = new ArrayList<>();
         for (int i = 0; i < numCourses; i++) {
             graph.add(new LinkedList<>());
         }
+        int[] inDegree = new int[numCourses];
         for (int[] pair : prerequisites) {
             // pair[1] -> pair[0]
             graph.get(pair[1]).add(pair[0]);
             inDegree[pair[0]]++;
         }
 
-        // 使用一个队列存放入度为 0 的点：
+        // 使用队列存放入度为 0 的点：
         Queue<Integer> q = new LinkedList<>();
         for (int i = 0; i < inDegree.length; i++) {
             if (inDegree[i] == 0) {
@@ -154,7 +154,7 @@ public class LeetCode207 {
             }
         }
 
-        // 拓扑排序计数（每有一个入度为 0 的节点被处理则 +1，如最终所有节点都被处理，表示可生成拓扑排序）。
+        // 拓扑排序计数（每有入度为 0 的节点被处理则 +1，如最终所有节点都被处理，则可生成拓扑排序）。
         for (; !q.isEmpty(); numCourses--) {
             for (int i : graph.get(q.poll())) {
                 if (--inDegree[i] == 0) {

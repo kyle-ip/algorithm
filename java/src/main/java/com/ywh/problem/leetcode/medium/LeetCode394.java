@@ -43,9 +43,7 @@ public class LeetCode394 {
             // 获取数字并进栈
             if (Character.isDigit(cur)) {
                 StringBuilder ret = new StringBuilder();
-                while (Character.isDigit(s.charAt(p))) {
-                    ret.append(s.charAt(p++));
-                }
+                for (; Character.isDigit(s.charAt(p)); ret.append(s.charAt(p++)));
                 stack.add(ret.toString());
             }
             // 遇到字母 或 [，获取并入栈。

@@ -1,5 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
+import com.ywh.problem.leetcode.hard.LeetCode154;
+
 /**
  * 搜索旋转排序数组
  * [数组] [二分查找]
@@ -29,6 +31,8 @@ package com.ywh.problem.leetcode.medium;
 public class LeetCode33 {
 
     /**
+     * 参考 {@link LeetCode153}, {@link LeetCode154}, {@link LeetCode81}
+     *
      * 使用二分查找前需要区分前半数组是否单调
      *
      * Time: O(log(n)), Space: O(1)
@@ -43,7 +47,7 @@ public class LeetCode33 {
             if (nums[mid] == target) {
                 return mid;
             }
-            // low ~ mid 递增，如 3, 4, 5, [6], 7, 1, 2
+            // [low, mid] 递增，如 3, 4, 5, [6], 7, 1, 2
             if (nums[low] <= nums[mid]) {
                 // target 在 low 和 mid 之间，如 3, 4, {5}, [6], 7, 1, 2，则 => 3, 4, 5
                 if (nums[low] <= target && target < nums[mid]) {
@@ -52,7 +56,7 @@ public class LeetCode33 {
                     low = mid + 1;
                 }
             }
-            // mid ~ high 递增，如 6, 7, 1, [2], 3, 4, 5
+            // [low, mid] 断开，如 6, 7, 1, [2], 3, 4, 5
             else {
                 // target 在 mid 和 high 之间，如 6, 7, 1, [2], {3}, 4, 5，则 => 3, 4, 5
                 if (nums[mid] < target && target <= nums[high]) {

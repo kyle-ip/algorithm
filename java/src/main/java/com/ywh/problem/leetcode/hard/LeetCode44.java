@@ -60,9 +60,6 @@ public class LeetCode44 {
      * @return
      */
     public boolean isMatchDP(String s, String p) {
-        if (s == null || p == null) {
-            return false;
-        }
         int m = s.length(), n = p.length();
         // dp[i][j] 表示 s[0:i-1] 和 p[0:j-1] 是否匹配。
         boolean[][] dp = new boolean[m + 1][n + 1];
@@ -163,28 +160,24 @@ public class LeetCode44 {
      * @return
      */
     public boolean isMatchGreedy(String s, String p) {
-        if (s == null || p == null) {
-            return false;
-        }
         int m = s.length(), n = p.length();
         // sBegin 和 pBegin 用于记录 j 遇到“*”的位置，便于回退、确认“*”需要匹配多少个字符。
-        int i = 0, j = 0, sBegin = -1, pBegin = -1;
+        int i = 0, j = 0, sStart = -1, pStart = -1;
         while (i < m) {
             // 字符相同（或遇到 p 串遇到“?”），两个下标后移。
-            if (j < n && isEqual(s.charAt(i), p.charAt(j))) {
-                ++i;
-                ++j;
+            if (j < n && (s.charAt(i) == p.charAt(j) || p.charAt(j) == '?')) {
+                i++;
+                j++;
             }
-            // 字符不相同，但 p 串遇到“*”，则 j 移到“*”后一个位置、记录两个串开始模糊匹配的位置。
+            // 字符不相同，但 p 串遇到“*”，则 j 移到“*”后的字符、记录两个串开始模糊匹配的位置。
             else if (j < n && p.charAt(j) == '*') {
-                ++j;
-                sBegin = i;
-                pBegin = j;
+                sStart = i;
+                pStart = ++j;
             }
             // 字符不相同，且正在执行模糊匹配，则 i、j 还原（此时“*”用于匹配一个字符，因此 i 后移）。
-            else if (pBegin != -1) {
-                i = ++sBegin;
-                j = pBegin;
+            else if (pStart > -1) {
+                i = ++sStart;
+                j = pStart;
             }
             // 字符不相同，且不是模糊匹配，直接返回错误。
             else {
@@ -192,10 +185,10 @@ public class LeetCode44 {
             }
         }
 
-        // 对于 p 串比 s 串长的情况，如果 p 串后面还有“*”，则下标继续向后移动；如果下标能走到最后，表示“*”后没有其他字符，返回 true，否则 false。
-        while (j < n && p.charAt(j) == '*') {
-            ++j;
-        }
+        // 如果 p 比 s 长，且 p 后面还有“*”，则下标继续向后移动。
+        for (; j < n && p.charAt(j) == '*'; j++);
+
+        // 如果下标能走到最后，表示“*”后没有其他字符，返回 true，否则 false。
         return j == n;
     }
 

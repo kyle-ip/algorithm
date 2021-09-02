@@ -1,6 +1,5 @@
 package com.ywh.problem.leetcode.medium;
 
-import java.util.Deque;
 import java.util.LinkedList;
 
 /**
@@ -51,26 +50,26 @@ public class LeetCode402 {
      * @return
      */
     public static String removeKdigits(String num, int k) {
-        Deque<Character> stack = new LinkedList<>();
+        LinkedList<Character> list = new LinkedList<>();
 
-        // 遍历每个数字。
+        // 遍历每个数字，添加元素到表尾（保持递增）。
         for (int i = 0; i < num.length(); ++i) {
             char digit = num.charAt(i);
-            // 如果栈非空，且还没删够 k 个，且栈顶元素比当前数字大（出现递减），则把栈顶元素弹出。
-            for (; !stack.isEmpty() && k > 0 && stack.peek() > digit; stack.pop(), k--);
-            // 把不递减的元素入栈。
-            stack.push(digit);
+            // 如果表非空且还没删够 k 个，表尾元素比当前数字大（出现递减），则移除表尾元素。
+            for (; !list.isEmpty() && k > 0 && list.peekLast() > digit; list.removeLast(), k--);
+            // 插入元素到表尾。
+            list.add(digit);
         }
-        // 删除额外的 k−num.length() 个数字：如果遍历到最后还没删够 k 个（递减的元素不够），则从栈中弹出。
-        for (int i = 0; i < k; ++i) {
-            stack.pop();
+        // 删除额外的 k−num.length() 个数字：如果遍历到最后还没删够 k 个（递减的元素不够），则从表中移除。
+        for (int i = 0; i < k; i++) {
+            list.removeLast();
         }
-        // 处理前导 0。
-        for (; !stack.isEmpty() && stack.peekLast() == '0'; stack.pollLast());
+        // 处理前导 0，收集结果。
+        for (; !list.isEmpty() && list.peekFirst() == '0'; list.removeFirst());
 
         // 收集结果。
         StringBuilder ret = new StringBuilder();
-        for (; !stack.isEmpty(); ret.append(stack.pollLast()));
+        for (; !list.isEmpty(); ret.append(list.pollFirst()));
         return ret.length() == 0 ? "0" : ret.toString();
     }
 }

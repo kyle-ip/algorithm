@@ -25,55 +25,55 @@ public class Offer51 {
         if (n < 2) {
             return 0;
         }
-//        int[] copy = new int[len];
-//        System.arraycopy(nums, 0, copy, 0, len);
         return reversePairs(nums, 0, n - 1, new int[n]);
     }
 
     /**
      *
      * @param nums
-     * @param left
-     * @param right
+     * @param low
+     * @param high
      * @param temp
      * @return
      */
-    private int reversePairs(int[] nums, int left, int right, int[] temp) {
-        if (left == right) {
+    private int reversePairs(int[] nums, int low, int high, int[] temp) {
+        if (low == high) {
             return 0;
         }
-        int mid = left + (right - left) / 2;
-        int leftPairs = reversePairs(nums, left, mid, temp);
-        int rightPairs = reversePairs(nums, mid + 1, right, temp);
-        if (nums[mid] <= nums[mid + 1]) {
-            return leftPairs + rightPairs;
-        }
-        int crossPairs = mergeAndCount(nums, left, mid, right, temp);
-        return leftPairs + rightPairs + crossPairs;
+        int mid = low + (high - low) / 2;
+        int leftPairs = reversePairs(nums, low, mid, temp), rightPairs = reversePairs(nums, mid + 1, high, temp);
+        return leftPairs + rightPairs + mergeAndCount(nums, low, mid, high, temp);
     }
 
     /**
      *
      * @param nums
-     * @param left
+     * @param low
      * @param mid
-     * @param right
+     * @param high
      * @param temp
      * @return
      */
-    private int mergeAndCount(int[] nums, int left, int mid, int right, int[] temp) {
-        if (right + 1 - left >= 0) {
-            System.arraycopy(nums, left, temp, left, right + 1 - left);
+    private int mergeAndCount(int[] nums, int low, int mid, int high, int[] temp) {
+        if (high - low + 1 >= 0) {
+            System.arraycopy(nums, low, temp, low, high + 1 - low);
         }
         int count = 0;
-        for (int i = left, j = mid + 1, k = left; k <= right; k++) {
+        for (int i = low, j = mid + 1, k = low; k <= high; k++) {
+            // 左半已经遍历到尽头。
             if (i == mid + 1) {
                 nums[k] = temp[j++];
-            } else if (j == right + 1) {
+            }
+            // 右半已经遍历到尽头。
+            else if (j == high + 1) {
                 nums[k] = temp[i++];
-            } else if (temp[i] <= temp[j]) {
+            }
+            // 左边的小于等于右边。
+            else if (temp[i] <= temp[j]) {
                 nums[k] = temp[i++];
-            } else {
+            }
+            // 左边大于右边，[i, mid] 的元素与 j 构成逆序对。
+            else {
                 nums[k] = temp[j++];
                 count += mid - i + 1;
             }
