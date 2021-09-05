@@ -80,8 +80,6 @@ public class LeetCode124 {
         //   1    2
         //  / \
         // 4   8
-
-        // 叶子节点，返回 0。
         if (root == null) {
             return 0;
         }
@@ -108,7 +106,7 @@ public class LeetCode124 {
      */
     public int maxPathSumOn(TreeNode root) {
 
-        // 数组便于传参，由于节点值可能为负数，所以每次求值都需要把结果与 0 比较取较大者（表示不累计负值）。
+        // 数组便于传参，由于节点值可能为负数，所以每次求值都需要把结果与 0 比较取较大者（即不累计负值）。
         int[] ret = new int[]{Integer.MIN_VALUE};
         maxPathSumOn(root, ret);
         return ret[0];

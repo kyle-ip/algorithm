@@ -37,8 +37,7 @@ public class LeetCode209 {
             // 每轮循环把最右边的元素添加到 sum 中。
             sum += nums[r];
 
-            // 判断是否已满足题目中 sum 大于等于 s 的条件，是则计算一次 cnt，并减去最左边的值（表示计算下一个连续子数组的和）。
-            // 由于存在最右边的元素过大、导致算入 nums[r] 后超出 s 很多的情况（即减去 nums[l] 后仍然大于 s），因此要使用 while。
+            // 判断是否已满足题目中 sum 大于等于 s 的条件，是则计算一次 cnt，并从左边收缩区间（表示计算下一个连续子数组的和）。
             for (; sum >= target; l++) {
                 cnt = Math.min(cnt, r - l + 1);
                 sum -= nums[l];

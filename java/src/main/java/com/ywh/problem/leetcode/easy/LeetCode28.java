@@ -31,14 +31,9 @@ public class LeetCode28 {
      */
     public int strstr(String haystack, String needle) {
         for (int i = 0; i + needle.length() <= haystack.length(); i++) {
-            boolean flag = true;
-            for (int j = 0; j < needle.length(); j++) {
-                if (haystack.charAt(i + j) != needle.charAt(j)) {
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag) {
+            int j = 0;
+            for (; j < needle.length() && haystack.charAt(i + j) == needle.charAt(j); j++);
+            if (j == needle.length()) {
                 return i;
             }
         }

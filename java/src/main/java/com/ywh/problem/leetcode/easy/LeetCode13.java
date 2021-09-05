@@ -72,8 +72,7 @@ public class LeetCode13 {
         int n = s.length();
         int ret = MAPPING[s.charAt(n - 1)];
         for (int i = n - 2; i >= 0; i--) {
-            int cur = MAPPING[s.charAt(i)];
-            int right = MAPPING[s.charAt(i + 1)];
+            int cur = MAPPING[s.charAt(i)], right = MAPPING[s.charAt(i + 1)];
             if (cur >= right) {
                 ret += cur;
             } else {

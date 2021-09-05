@@ -22,8 +22,6 @@ public class LeetCode19 {
 
 
     /**
-     * 一趟扫描，不需要辅助空间。
-     *
      * 由于倒数第 n 位可能恰好是链表开头，因此引入辅助节点作为表头；
      * 快指针先向前走 n 步，如此时未走到结尾，表示链表长度 > n；
      * 此时慢指针从头部出发，快慢指针同步向前走，直到快指针走到结尾；
@@ -37,6 +35,10 @@ public class LeetCode19 {
      * @return
      */
     public ListNode removeNthFromEnd(ListNode head, int n) {
+
+        // when n == 4：
+        // step0:    slow      fast
+        //            dummy -> [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> null
         ListNode dummy = new ListNode(-1, head), fast = head, slow = dummy;
         for (; fast != null && n > 0; n--, fast = fast.next);
 
@@ -44,11 +46,6 @@ public class LeetCode19 {
         if (n > 0) {
             return head;
         }
-
-        // fast、slow 相隔 n 个节点，当 fast 定位最后一个节点，slow 定位到倒数第 n 个节点的前一个节点。
-        // when n == 4：
-        // step0:    slow/fast
-        //            dummy -> [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> [ ] -> null
 
         // n           4       3      2      1      0
         // step1:     slow                         fast
@@ -58,6 +55,7 @@ public class LeetCode19 {
         //           dummy -> [ ] -> [ ] -> [x] -> [ ] -> [ ] -> [ ] -> null
         for (; fast != null; fast = fast.next, slow = slow.next);
 
+        // fast、slow 相隔 n 个节点，当 fast 定位最后一个节点，slow 定位到倒数第 n 个节点的前一个节点。
         // step3:                    slow                        fast
         //           dummy -> [ ] -> [ ] -> [x] -> [ ] -> [ ] -> [ ] -> null
         //                            |             ↑

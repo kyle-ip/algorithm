@@ -42,13 +42,14 @@ public class LeetCode424 {
             max = Math.max(max, ++hash[s.charAt(r) - 'A']);
 
             // 当最大值加上 k，小于 l 和 r（窗口）的距离，表示即使把最多 max 个字符 c、再加上从其他字符替换为 c 的 k 个，仍然不足以填满从 l 到 r 的距离。
-            // 因此需要从左边对窗口进行收缩，比如 k == 1：
+            // 需要从左边对窗口进行收缩，比如 k == 1：
             // A, A, B, A, B, B, A
             // l           r
             // max == 3，max + k == 4，r - l + 1 == 5
-            // 此时 l 左移，同时 A 的计数 -1。
+            // 此时 l 计数 -1 并右移。
             if (max + k <= r - l) {
-                hash[s.charAt(l++) - 'A']--;
+                hash[s.charAt(l) - 'A']--;
+                l++;
             }
         }
         return r - l;

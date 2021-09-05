@@ -35,6 +35,7 @@ public class LeetCode83 {
         }
         for (ListNode cur = head; cur.next != null; ) {
 
+            // 删掉 cur.next：
             //  +-------------+
             //  |             |
             // cur            ↓

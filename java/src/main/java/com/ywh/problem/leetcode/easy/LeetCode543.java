@@ -35,11 +35,11 @@ public class LeetCode543 {
      * @param ret
      * @return
      */
-    private int maxDepth(TreeNode root, int[] ret) {
+    private int diameter(TreeNode root, int[] ret) {
         if (root == null) {
             return 0;
         }
-        int left = maxDepth(root.left, ret), right = maxDepth(root.right, ret);
+        int left = diameter(root.left, ret), right = diameter(root.right, ret);
         ret[0] = Math.max(ret[0], left + right);
 
         // 取其中一条路径的值（再加上当前节点的 1），返回上一层。
@@ -56,7 +56,7 @@ public class LeetCode543 {
      */
     public int diameterOfBinaryTreeRecursive(TreeNode root) {
         int[] ret = new int[1];
-        maxDepth(root, ret);
+        diameter(root, ret);
         return ret[0];
     }
 

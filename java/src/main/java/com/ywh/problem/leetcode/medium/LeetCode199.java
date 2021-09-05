@@ -41,7 +41,7 @@ public class LeetCode199 {
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
         while (!q.isEmpty()) {
-            // 取队列头部元素（即每层最右边的值），注意此时不要出队。
+            // 在队列中遍历每层都只取头部元素（即每层最右边的值），注意此时不要出队。
             ret.add(q.peek().val);
             int size = q.size();
             for (int i = 0; i < size; i++) {

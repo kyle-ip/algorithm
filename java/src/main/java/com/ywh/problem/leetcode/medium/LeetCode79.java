@@ -66,10 +66,8 @@ public class LeetCode79 {
         boolean[][] visited = new boolean[m][n];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (visited[i][j] || board[i][j] != word.charAt(0)) {
-                    continue;
-                }
-                if (exist(board, visited, i, j, word, 0)) {
+                // 未访问且矩阵的字符为单词首字符：
+                if (!visited[i][j] && board[i][j] == word.charAt(0) && exist(board, visited, i, j, word, 0)) {
                     return true;
                 }
             }

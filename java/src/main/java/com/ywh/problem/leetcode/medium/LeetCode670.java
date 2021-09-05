@@ -40,6 +40,7 @@ public class LeetCode670 {
         for (int i = 0; i < s.length() - 1; i++) {
             // 找最大，所以倒着找
             for (int d = 9; d > charArray[i] - '0'; d--) {
+                // 字符 d 在 i 右边，
                 if (last[d] > i) {
                     swap(charArray, i, last[d]);
                     // 只允许交换一次，因此直接返回。

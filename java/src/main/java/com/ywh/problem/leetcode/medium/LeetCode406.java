@@ -74,7 +74,7 @@ public class LeetCode406 {
      * @return
      */
     public int[][] reconstructQueueHighToLow(int[][] people) {
-        // 排序：如果两人身高不相等，则较高的排前面（第一维降序），否则“前面人较少”的排前面（第二维升序）。
+        // 排序：较高的排前面（第一维降序），身高相同则“前面人较少”的排前面（第二维升序）。
         Arrays.sort(people, (p1, p2) -> p1[0] != p2[0]? p2[0] - p1[0]: p1[1] - p2[1]);
         List<int[]> ret = new ArrayList<>();
 

@@ -115,6 +115,7 @@ public class LeetCode148 {
         if (head == null || head.next == null) {
             return head;
         }
+
         // 左右两个指针，分别移动到链表的中点和终点。
         // 1:
         //      [3] -> [1] -> [4] -> [2] -> null

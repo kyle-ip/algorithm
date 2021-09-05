@@ -109,8 +109,7 @@ public class LeetCode70 {
      * @return
      */
     public int climbStairsMath2(int n) {
-        double sqrt5 = Math.sqrt(5);
-        double fib = Math.pow((1 + sqrt5) / 2, n + 1) - Math.pow((1 - sqrt5) / 2, n + 1);
+        double sqrt5 = Math.sqrt(5), fib = Math.pow((1 + sqrt5) / 2, n + 1) - Math.pow((1 - sqrt5) / 2, n + 1);
         return (int) Math.round(fib / sqrt5);
     }
 }

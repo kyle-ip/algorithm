@@ -58,7 +58,7 @@ public class LeetCode226 {
      * @param root
      * @return
      */
-    public  TreeNode invertBinaryTreeIterative(TreeNode root) {
+    public TreeNode invertBinaryTreeIterative(TreeNode root) {
         if (root == null) {
             return null;
         }

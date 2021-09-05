@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
 import com.ywh.ds.tree.TreeNode;
+import com.ywh.problem.leetcode.easy.LeetCode112;
 
 import java.util.*;
 
@@ -34,31 +35,34 @@ public class LeetCode113 {
      *
      * @param root
      * @param targetSum
-     * @param elem
+     * @param path
      * @param ret
      */
-    private List<List<Integer>> path(TreeNode root, int targetSum, LinkedList<Integer> elem, List<List<Integer>> ret) {
+    private List<List<Integer>> pathSum(TreeNode root, int targetSum, LinkedList<Integer> path, List<List<Integer>> ret) {
         if (root == null) {
             return ret;
         }
+
         // 把当前节点加入当前路径。
-        elem.add(root.val);
+        path.add(root.val);
 
         // 路径和符合要求。
         if (root.left == null && root.right == null && root.val == targetSum) {
-            ret.add(new ArrayList<>(elem));
+            ret.add(new ArrayList<>(path));
         }
 
         // 递归调用左右子树。
-        path(root.left, targetSum - root.val, elem, ret);
-        path(root.right, targetSum - root.val, elem, ret);
+        pathSum(root.left, targetSum - root.val, path, ret);
+        pathSum(root.right, targetSum - root.val, path, ret);
 
         // 移除最后一个元素。
-        elem.removeLast();
+        path.removeLast();
         return ret;
     }
 
     /**
+     * 参考 {@link LeetCode112}，由于要记录路径，需要用回溯。
+     *
      * Time: O(n), Space: O(n)
      *
      * @param root
@@ -66,7 +70,7 @@ public class LeetCode113 {
      * @return
      */
     public List<List<Integer>> pathSumRecursive(TreeNode root, int targetSum) {
-        return path(root, targetSum, new LinkedList<>(), new ArrayList<>());
+        return pathSum(root, targetSum, new LinkedList<>(), new ArrayList<>());
     }
 
     /**

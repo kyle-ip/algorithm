@@ -153,9 +153,10 @@ public class LeetCode43 {
             }
         }
         // 去掉前面多余的 0。
-        StringBuilder sb = new StringBuilder();
-
         for (; l < mul.length - 1 && mul[l] == 0; l++);
+
+        // 收集结果。
+        StringBuilder sb = new StringBuilder();
         for (; l < mul.length; sb.append(mul[l++]));
         return sb.toString();
     }

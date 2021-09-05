@@ -23,9 +23,8 @@ import java.util.List;
 public class LeetCode22 {
 
     /**
-     * 辅助递归方法：
      *
-     * @param ret 保存所有合法排列的列表
+     * @param ret    保存所有合法排列的列表
      * @param str    当前排列
      * @param left   左括号剩余数量
      * @param right  右括号剩余数量

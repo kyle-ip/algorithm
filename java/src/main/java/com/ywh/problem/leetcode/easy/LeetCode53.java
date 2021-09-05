@@ -37,8 +37,6 @@ public class LeetCode53 {
             //      [1, -5, 3, 2]    此时 cur = -4，如果把前面算上则和为 1-5+3 == -1，从头开始算、加上后面的 2 则为 5，因此应该从 3 开始。
             //             num
             cur = num + Math.max(cur, 0);
-
-            // 每轮计算都把 cur 与 ret 比较，取较大者保存在 ret 可确保 ret 始终保持最大的累计和。
             ret = Math.max(cur, ret);
         }
         return ret;

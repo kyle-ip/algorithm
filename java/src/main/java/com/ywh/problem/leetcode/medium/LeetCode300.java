@@ -120,7 +120,7 @@ public class LeetCode300 {
                     break;
                 }
                 int mid = low + (high - low) / 2;
-                if (num == d[mid]) {
+                if (d[mid] == num) {
                     pos = mid;
                     break;
                 } else if (num < d[mid]) {

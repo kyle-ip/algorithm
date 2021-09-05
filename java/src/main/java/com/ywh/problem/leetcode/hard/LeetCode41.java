@@ -31,6 +31,9 @@ public class LeetCode41 {
     }
 
     /**
+     * 遍历数组，对于每个元素 a 都归位到对应的下标 a-1。
+     * 再次遍历数组时，元素的值不为下标 +1，即表示缺失该元素。
+     *
      * Time: O(n), Space: O(1)
      *
      * @param nums
@@ -73,10 +76,12 @@ public class LeetCode41 {
 
         //
         for (int i = 0; i < n; ) {
-            int num = nums[i] - 1;
-            // 设位置 i 的值为 num，如果 num 在 [1, n] 的范围内，且数组中第 num 个值不为 num，则把位置 i 的值与位置 num-1 的值交换（先减去 1 便于处理）。
-            if (num >= 0 && num < n && nums[num] != num + 1) {
-                swap(nums, num, i);
+            // 值转换成下标，比如当前位置的值为 5，则对应下标为 4。
+            int j = nums[i] - 1;
+            // 如果 j 在 [0, n) 范围内，且数组中对应的值不为 j+1，则交换 i、j 位置的值。
+            // 比如下标 4 的值不为 5，则与值为 5 的下标（i）交换。
+            if (j >= 0 && j < n && nums[j] != j + 1) {
+                swap(nums, j, i);
             }
             // 否则表示值已经正确归位，如 [1, -1, 3, ...]，处理下一个值。
             else {

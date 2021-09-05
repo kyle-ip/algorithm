@@ -116,18 +116,18 @@ public class LeetCode239 {
         int n = nums.length;
 
         // 结果数组，从左到右分组最大值，从右到左分组最大值。
-        int[] ret = new int[n - k + 1], leftMax = new int[n], rightMax = new int[n];
+        int[] ret = new int[n - k + 1], lMax = new int[n], rMax = new int[n];
 
         // 一轮循环，从左到右、从右到左求分组长度为 k 的阶段最大值。
         for (int i = 0, j = n - 1; i < n; i++, j--) {
 
             // 可以整除 k，表示分组内的第一个值，最大值为自身；否则与上一个最大值对比。
             // [0, 4, 4], [1, 1, 8], 2
-            leftMax[i] = i % k == 0? nums[i]: Math.max(leftMax[i - 1], nums[i]);
+            lMax[i] = i % k == 0? nums[i]: Math.max(lMax[i - 1], nums[i]);
 
             // 除以 k 余 k - 1，表示分组内最后一个值，最大值为自身；否则与上一个最大值对比。
             // [4, 4, 2], [8, 8, 8], 2
-            rightMax[j] = j % k == k - 1 || j == n - 1? nums[j]: Math.max(rightMax[j + 1], nums[j]);
+            rMax[j] = j == n - 1 || j % k == k - 1? nums[j]: Math.max(rMax[j + 1], nums[j]);
         }
 
         // [1, 2, 3, 4, 5, 6, 7]
@@ -135,7 +135,7 @@ public class LeetCode239 {
         //     ↑     ↑ ...
         //              ↑     ↑
         for (int i = 0; i < ret.length; i++) {
-            ret[i] = Math.max(leftMax[i], rightMax[i + k - 1]);
+            ret[i] = Math.max(lMax[i], rMax[i + k - 1]);
         }
         return ret;
     }

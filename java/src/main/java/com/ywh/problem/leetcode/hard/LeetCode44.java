@@ -151,7 +151,7 @@ public class LeetCode44 {
     }
 
     /**
-     * 贪心解法
+     * 贪心解法，处理四种情况：准确匹配，开始模糊匹配，结束模糊匹配，不匹配。
      *
      * Time: O(m*n), Space: O(1)
      *
@@ -161,6 +161,7 @@ public class LeetCode44 {
      */
     public boolean isMatchGreedy(String s, String p) {
         int m = s.length(), n = p.length();
+
         // sBegin 和 pBegin 用于记录 j 遇到“*”的位置，便于回退、确认“*”需要匹配多少个字符。
         int i = 0, j = 0, sStart = -1, pStart = -1;
         while (i < m) {

@@ -64,6 +64,8 @@ public class LeetCode39 {
     }
 
     /**
+     * 参考 {@link LeetCode39} 组合总和、 {@link LeetCode78} 子集、{@link LeetCode46} 全排列、{@link LeetCode47} 全排列 II、{@link LeetCode77} 组合
+     *
      * Time: O(n^(target/min)), Space: O(target/min)
      * 
      * @param candidates

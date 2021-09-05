@@ -44,15 +44,9 @@ public class LeetCode11 {
     public int maxArea(int[] height) {
         int ret = 0;
         for (int l = 0, r = height.length - 1; l < r; ) {
-            // 当前面积，高度（左右高度中的较小者） * 宽度（左右距离）。
-            ret = Math.max(ret, (r - l) * Math.min(height[l], height[r]));
-
             // 比较左右指针所指高度，固定较高的指针：宽度随指针移动变小，要使乘积变大必然要选取最大的高度。
-            if (height[l] < height[r]) {
-                l++;
-            } else {
-                r--;
-            }
+            // 当前面积，高度（左右高度中的较小者） * 宽度（左右距离）。
+            ret = Math.max(ret, height[l] < height[r]? (r - l) * height[l++]: (r - l) * height[r--]);
         }
         return ret;
     }

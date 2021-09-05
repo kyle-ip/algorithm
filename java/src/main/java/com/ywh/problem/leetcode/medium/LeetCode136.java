@@ -55,7 +55,7 @@ public class LeetCode136 {
     public int singleNumberWithSet(int[] nums) {
         Set<Integer> set = new HashSet<>();
 
-        // sum 为所有元素之和，uniqSum 为元素去重后的和
+        // sum 为所有元素之和，uniqSum 为元素去重后的和。
         int sum = 0, uniqSum = 0;
         for (int num : nums) {
             if (!set.contains(num)) {

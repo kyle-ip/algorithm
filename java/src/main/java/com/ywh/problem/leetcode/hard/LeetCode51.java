@@ -52,14 +52,12 @@ public class LeetCode51 {
             for (int col = 0; col < n; col++) {
                 // row - col + n：经过 (row, col) 的主对角线（右下 -> 左上）已被占用。
                 // row + col：经过 (row, col) 的副对角线（左下 -> 右上）已被占用。
-
                 //                 c==3
                 //  r-c+n==5 + . . . .
                 //           . + . . .
                 //           . . + . - r+c==6
                 //           . . . * .
                 //           . . . . .
-                //         列                     主对角线                     副对角线
                 if (!visited[0][col] && !visited[1][row - col + n] && !visited[2][row + col]) {
                     // 放置皇后、标记。
                     board[row][col] = 'Q';

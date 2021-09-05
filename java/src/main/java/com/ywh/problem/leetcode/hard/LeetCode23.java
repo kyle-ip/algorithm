@@ -133,19 +133,19 @@ public class LeetCode23 {
      */
     public ListNode mergeKSortedListsMinHeap(ListNode[] lists) {
 
-        // 最小堆（优先级队列）：每次从中获取最小元素，在这里表示头节点值最小的链表。
+        // 最小堆（优先级队列）：每次从中获取头节点最小的链表。
         Queue<ListNode> q = new PriorityQueue<>(Comparator.comparingInt(a -> a.val));
         for (ListNode list : lists) {
             if (list != null) {
                 q.add(list);
             }
         }
-        ListNode dummy = new ListNode(), p = dummy, min;
-        for (; !q.isEmpty(); p = p.next) {
-            min = q.poll();
-            p.next = min;
-            if (min.next != null) {
-                q.add(min.next);
+        ListNode dummy = new ListNode(), p = dummy;
+        while (!q.isEmpty()) {
+            p.next = q.poll();
+            p = p.next;
+            if (p.next != null) {
+                q.add(p.next);
             }
         }
         return dummy.next;

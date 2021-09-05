@@ -38,7 +38,7 @@ public class LeetCode88 {
             nums1[k--] = nums1[i] > nums2[j]? nums1[i--]: nums2[j--];
         }
         // 如果遍历到最后，nums2 的元素还未填充完，则把 nums2 的元素逐个复制到 nums1；
-        // 相反，nums1 还未遍历完，由于数据最终是存放在 nums1，所以不需要遍历剩下的。
+        // 否则是 nums1 还未遍历完，由于数据最终存放在 nums1，不需要遍历剩下的。
         while (j >= 0) {
             nums1[k--] = nums2[j--];
         }

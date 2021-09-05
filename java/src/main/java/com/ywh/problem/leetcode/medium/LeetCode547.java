@@ -58,10 +58,7 @@ public class LeetCode547 {
 
         // 遍历所有节点，如果已访问则跳过，未访问、且相连的则递归调用。
         for (int j = 0; j < isConnected.length; j++) {
-            if (visited[j]) {
-                continue;
-            }
-            if (isConnected[i][j] == 1) {
+            if (!visited[j] && isConnected[i][j] == 1) {
                 dfs(isConnected, visited, j);
             }
         }

@@ -34,7 +34,7 @@ public class LeetCode143 {
             return;
         }
 
-        // 使用数组缓存链表节点，随后可用下标访问。
+        // 使用数组缓存链表节点，以便用下标访问。
         List<ListNode> list = new ArrayList<>();
         for (; head != null; list.add(head), head = head.next);
         // 双指针，一头一尾取数组元素，头++ -> 尾，尾-- -> 头。

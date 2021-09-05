@@ -70,10 +70,9 @@ public class LeetCode329 {
         // memo 用于记录从当前位置出发的递增路径长度最大值，如果已经有值则直接返回。
         if (memo[x][y] == 0) {
             ++memo[x][y];
-            int m = matrix.length, n = matrix[0].length;
             for (int[] dir : dirs) {
                 int nextX = x + dir[0], nextY = y + dir[1];
-                if (nextX >= 0 && nextX < m && nextY >= 0 && nextY < n && matrix[nextX][nextY] > matrix[x][y]) {
+                if (nextX >= 0 && nextX < matrix.length && nextY >= 0 && nextY < matrix[0].length && matrix[nextX][nextY] > matrix[x][y]) {
                     memo[x][y] = Math.max(memo[x][y], dfs(matrix, nextX, nextY, memo) + 1);
                 }
             }

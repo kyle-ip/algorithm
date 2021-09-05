@@ -1,7 +1,6 @@
 package com.ywh.problem.leetcode.medium;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -72,9 +71,6 @@ public class LeetCode131 {
      * @return
      */
     public List<List<String>> partition(String s) {
-        if (s == null || s.length() == 0) {
-            return Collections.emptyList();
-        }
         int n = s.length();
 
         // d[i][j] 用于快速判断 i~j 的子串是否为回文串。

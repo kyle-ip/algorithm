@@ -110,7 +110,7 @@ public class LeetCode4 {
     }
 
     /**
-     * Time: O(m+n) Space: O(n)
+     * Time: O(m+n) Space: O(1)
      *
      * @param nums1
      * @param nums2
@@ -118,19 +118,19 @@ public class LeetCode4 {
      */
     public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
         // 填充最近两个值：两个指针都没有走到尽头，则较小者指针向后移动；其中一个指针已走到尽头，则取另一个指针并后移。
-        int cur = 0, prev = 0;
-        for (int i = 0, j = 0, k = 0; k < (nums1.length + nums2.length) / 2 + 1; k++) {
+        int cur = 0, prev = 0, m = nums1.length, n = nums2.length;
+        for (int i = 0, j = 0; i + j < (m + n) / 2 + 1; ) {
             prev = cur;
-            if (i < nums1.length && j < nums2.length) {
+            if (i < m && j < n) {
                 cur = nums1[i] < nums2[j] ? nums1[i++] : nums2[j++];
-            } else if (i < nums1.length) {
+            } else if (i < m) {
                 cur = nums1[i++];
-            } else if (j < nums2.length) {
+            } else if (j < n) {
                 cur = nums2[j++];
             }
         }
         // 两数组之和长度如果为奇数，返回最后一个元素；如果为偶数，则返回最后两个元素的平均数。
-        return (nums1.length + nums2.length) % 2 == 1? cur: (cur + prev) / 2.0;
+        return (m + n) % 2 == 1? cur: (cur + prev) / 2.0;
     }
 
     /**

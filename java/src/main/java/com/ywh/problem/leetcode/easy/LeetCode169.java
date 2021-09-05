@@ -59,18 +59,16 @@ public class LeetCode169 {
      * @return
      */
     public int getMajority(int[] nums) {
-        int cur = nums[0], count = 1;
+        int cur = nums[0], cnt = 1;
         for (int i = 1; i < nums.length; i++) {
-            // 如果与 cur 相同，则 count++。
+            // 如果与 cur 相同，则 cnt++。
             if (nums[i] == cur) {
-                count++;
+                cnt++;
             }
-            // 否则 count--，减到 0 则重置。
+            // 否则 cnt--，减到 0 则重置。
             else {
-                if (count > 0) {
-                    count--;
-                } else {
-                    count = 1;
+                if (--cnt == 0) {
+                    cnt = 1;
                     cur = nums[i];
                 }
             }

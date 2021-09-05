@@ -48,10 +48,6 @@ public class LeetCode160 {
      * @return
      */
     public ListNode getIntersectionNodeWithoutLen(ListNode headA, ListNode headB) {
-        if (headA == null || headB == null) {
-            return null;
-        }
-
         // 没有交点：
         // A: [2] -> [6] -> [4]
         // B: [1] -> [5]

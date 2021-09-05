@@ -34,7 +34,7 @@ public class LeetCode14 {
             return "";
         }
 
-        // 以第一个字符串为基准（最长公共前缀的长度不会超过它。），循环判断是否包含在其他字符串内。
+        // 以第一个字符串为基准（最长公共前缀的长度不会超过它），循环判断是否包含在其他字符串内。
         String first = strs[0];
 
         // first 的每个字符。
@@ -43,8 +43,6 @@ public class LeetCode14 {
             // strs 中的其他字符串。
             for (int j = 1; j < strs.length; j++) {
                 String s = strs[j];
-
-                // 取出第 i 个字符。
                 if (s.length() <= i || s.charAt(i) != first.charAt(i)) {
                     return first.substring(0, i);
                 }

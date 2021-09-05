@@ -59,14 +59,13 @@ public class LeetCode93 {
      * @param ret
      */
     private List<String> backtracking(String s, int start, LinkedList<String> segments, List<String> ret) {
-        // start + 3 不超过 s 的长度（三个“.”分隔符）。
-        for (int i = start; i < Math.min(s.length() - 1, start + 3); i++) {
+        // start + 3 不超过 s 的长度，三个“.”分隔符：Math.min(s.length() - 1, start + 3)。
+        for (int i = start; i < s.length() - 1; i++) {
             String segment = s.substring(start, i + 1);
             if (!isValid(segment)) {
                 continue;
             }
             segments.add(segment);
-
             // 单独处理最后一段。
             if (segments.size() == 3) {
                 String lastSegment = s.substring(i + 1);
@@ -76,7 +75,7 @@ public class LeetCode93 {
                     segments.removeLast();
                 }
             }
-            // 处理第二第三段。
+            // 递归处理第二第三段。
             else {
                 backtracking(s, i + 1, segments, ret);
             }

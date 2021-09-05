@@ -60,7 +60,7 @@ public class LeetCode402 {
             // 插入元素到表尾。
             list.add(digit);
         }
-        // 删除额外的 k−num.length() 个数字：如果遍历到最后还没删够 k 个（递减的元素不够），则从表中移除。
+        // 删除额外的 k−num.length() 个数字：如果遍历到最后还没删够 k 个（递减的元素不够），则从表中移除剩下的。
         for (int i = 0; i < k; i++) {
             list.removeLast();
         }

@@ -33,10 +33,9 @@ public class LeetCode16 {
         int ret = 0, min = Integer.MAX_VALUE;
         Arrays.sort(nums);
 
-        for (int k = nums.length - 1; k >= 2; --k) {
-
-            for (int i = 0, j = k - 1; i < j; ) {
-                int sum = nums[i] + nums[j] + nums[k];
+        for (int k = nums.length - 1; k >= 2; k--) {
+            for (int l = 0, r = k - 1; l < r; ) {
+                int sum = nums[l] + nums[r] + nums[k];
                 if (sum == target) {
                     return sum;
                 }
@@ -46,9 +45,9 @@ public class LeetCode16 {
                     min = diff;
                 }
                 if (sum < target) {
-                    ++i;
+                    l++;
                 } else {
-                    --j;
+                    r--;
                 }
             }
         }

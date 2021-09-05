@@ -35,8 +35,6 @@ public class LeetCode46 {
      * @param ret       全排列结果
      */
     private List<List<Integer>> permuteRec(List<Integer> nums, int start, List<List<Integer>> ret) {
-        // 每次调用处理从 start 到 nums.size() 的元素。
-
         // 当起始位置 == 排列长度，表示得到一个排列。
         if (start == nums.size()) {
             ret.add(new ArrayList<>(nums));
@@ -45,10 +43,10 @@ public class LeetCode46 {
             for (int i = start; i < nums.size(); i++) {
                 Collections.swap(nums, i, start);
 
-                // 递归地求从 start 开始的子数组的全排列。
+                // 在递归子结构中求从 start+1 开始的子数组的全排列。
                 permuteRec(nums, start + 1, ret);
 
-                // 回溯：每次递归结束都交换回来，开始新一轮的元素交换。
+                // 回溯：每次递归结束都交换回来，开始新一轮元素交换。
                 Collections.swap(nums, i, start);
             }
         }
@@ -56,7 +54,7 @@ public class LeetCode46 {
     }
 
     /**
-     * 参考 {@link LeetCode78} 子集、{@link LeetCode46} 全排列、{@link LeetCode47} 全排列 II、{@link LeetCode77} 组合
+     * 参考 {@link LeetCode39} 组合总和、 {@link LeetCode78} 子集、{@link LeetCode46} 全排列、{@link LeetCode47} 全排列 II、{@link LeetCode77} 组合
      *
      * Time: O(n*n!), Space: O(n)
      *

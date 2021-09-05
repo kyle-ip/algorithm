@@ -89,15 +89,14 @@ public class LeetCode34 {
             return new int[]{-1, -1};
         }
 
+        // 找到 target 的结束下标
         // [5, 7, 7, 8, 8, 10], target
         //              ↑
 
+        // 再找 target-1 的结束下标，再 +1 就是 target 的开始下标。
         // [5, 7, 7, 8, 8, 10], target-1
         //        ↑
-        int end = binarySearchLastOne(nums, target);
-
-        // target-1 的结束下标，再 +1 正好是 target 的开始下标。
-        int start = binarySearchLastOne(nums, target - 1) + 1;
+        int end = binarySearchLastOne(nums, target), start = binarySearchLastOne(nums, target - 1) + 1;
 
         // 找到两个不越界的值。
         if (start >= 0 && start <= end && end < nums.length) {

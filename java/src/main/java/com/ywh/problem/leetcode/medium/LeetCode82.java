@@ -12,6 +12,10 @@ import com.ywh.ds.list.ListNode;
  * 示例 2:
  *      输入: 1->1->1->2->3
  *      输出: 2->3
+ * 提示：
+ *      链表中节点数目在范围 [0, 300] 内
+ *      -100 <= Node.val <= 100
+ *      题目数据保证链表已经按升序排列
  *
  * @author ywh
  * @since 2/16/2019
@@ -34,7 +38,7 @@ public class LeetCode82 {
         ListNode dummy = new ListNode(-1, head);
 
         // l 指向最近一个非重复元素。
-        for (ListNode l = dummy, r = dummy; r != null; r = l.next) {
+        for (ListNode l = dummy, r = head; r != null; r = l.next) {
 
             // 右指针不断向右移动，直到与其下一个节点的值不同（跳过重复值）。
             for (; r.next != null && r.val == r.next.val; r = r.next);
@@ -61,7 +65,6 @@ public class LeetCode82 {
         if (head == null) {
             return head;
         }
-
         ListNode dummy = new ListNode(0, head), cur = dummy;
         while (cur.next != null && cur.next.next != null) {
             if (cur.next.val == cur.next.next.val) {
@@ -73,7 +76,6 @@ public class LeetCode82 {
                 cur = cur.next;
             }
         }
-
         return dummy.next;
     }
 }

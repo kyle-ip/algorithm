@@ -36,6 +36,7 @@ public class LeetCode154 {
 
     /**
      * 参考 {@link LeetCode153}, {@link LeetCode33}, {@link LeetCode81}
+     * 处理比较 nums[mid] 和 nums[high] 的三种情况，收缩区间时要注意不要排除可能的边界值。
      *
      * Time: O(log(n)), Space: O(1)
      *

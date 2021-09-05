@@ -36,13 +36,10 @@ public class LeetCode9 {
             return  false;
         }
         String s = String.valueOf(x);
-        int left = 0, right = s.length() - 1;
-        while (left < right) {
-            if (s.charAt(left) != s.charAt(right)) {
+        for (int l = 0, r = s.length() - 1; l < r; l++, r--) {
+            if (s.charAt(l) != s.charAt(r)) {
                 return false;
             }
-            left++;
-            right--;
         }
         return true;
     }

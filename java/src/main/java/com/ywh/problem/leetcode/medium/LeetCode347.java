@@ -121,13 +121,13 @@ public class LeetCode347 {
      */
     public int[] topKFrequentBucketSort(int[] nums, int k) {
 
-        // 统计每个元素出现频率。
+        // 统计每个元素出现频度。
         Map<Integer, Integer> counter = new HashMap<>();
         for (int num : nums) {
             counter.put(num, counter.getOrDefault(num, 0) + 1);
         }
 
-        // 创建一些桶，把数组的元素按出现的频率分配到对应下标的桶中：
+        // 创建一些桶，把数组的元素按出现的频度分配到对应下标的桶中（频度至少 0，最多为 nums.length，即所有元素都是相同的）：
         // 比如 [1, 1, 1, 2, 2, 2, 3]，1 出现 3 次放在 3 桶、2 出现 3 次放在 3 桶，3 出现 1 次放在 1 桶。
         // [
         //     [],

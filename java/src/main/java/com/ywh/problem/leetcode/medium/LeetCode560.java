@@ -71,8 +71,8 @@ public class LeetCode560 {
             sum += num;
 
             // cnt 加上 sum-k 在哈希表中出现的次数：
-            // 如果 sum-k 在哈希表中，表示之前已添加过前缀和，满足 sum新 - sum旧 表示的子数组之和等于 k。其出现次数为 value，添加到 cnt 上。
-            //
+            // 如果 sum-k 在哈希表中，表示之前已添加过前缀和，满足 sum新 - sum旧 表示的子数组之和等于 k。
+            // value为 其出现次数，添加到 cnt 上。
             // [     ...     ]  num     sum
             // |<-             ->|
             // |<-     ->|<-   ->|

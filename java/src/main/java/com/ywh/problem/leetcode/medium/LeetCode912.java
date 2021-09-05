@@ -32,8 +32,8 @@ public class LeetCode912 {
         }
         int i = low, j = high;
         for (int pivot = nums[i + (j - i) / 2]; ;) {
-            for (; i < j && nums[i] < pivot; i++);
-            for (; i < j && nums[j] > pivot; j--);
+            for (; nums[i] < pivot; i++);
+            for (; nums[j] > pivot; j--);
             if (i >= j) {
                 break;
             }
