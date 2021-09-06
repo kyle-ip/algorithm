@@ -31,11 +31,10 @@ public class LeetCode647 {
      * @return
      */
     public int countPalindromicSubstringsDP(String s) {
-
         if (s == null || s.length() == 0) {
             return 0;
         }
-        int count = 0, length = s.length();
+        int ret = 0, length = s.length();
 
         // 二位数组，dp[i][j] 记录 i~j 是否为回文子串
         boolean[][] dp = new boolean[length][length];
@@ -57,12 +56,10 @@ public class LeetCode647 {
                 else {
                     dp[i][j] = s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1];
                 }
-                if (dp[i][j]) {
-                    count++;
-                }
+                ret += dp[i][j]? 1: 0;
             }
         }
-        return count;
+        return ret;
     }
 
     /**
@@ -93,10 +90,10 @@ public class LeetCode647 {
         // 遍历字符串中的每个字符，并以当前字符为中心向两边扩展；
         // 每扩展 1 位表示发现一个以当前字符为中心的回文子串（奇数最小为单个字符），计数器+1；
         // 共有两种情况，以当前字符为中心（奇数回文串）或以当前字符与下一个字符为中心（偶数回文串）
-        int count = 0;
+        int ret = 0;
         for (int i = 0; i < s.length(); i++) {
-            count += expand(s, i, i + 1) + expand(s, i, i);
+            ret += expand(s, i, i + 1) + expand(s, i, i);
         }
-        return count;
+        return ret;
     }
 }

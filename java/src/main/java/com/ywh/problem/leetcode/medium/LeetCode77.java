@@ -35,25 +35,26 @@ public class LeetCode77 {
      * @param elem
      * @param ret
      */
-    private void combine(int n, int k, int start, LinkedList<Integer> elem, List<List<Integer>> ret) {
+    private List<List<Integer>> combine(int n, int k, int start, LinkedList<Integer> elem, List<List<Integer>> ret) {
         if (k == 0) {
             ret.add(new ArrayList<>(elem));
-            return;
-        }
 
-        // 从 start 开始，取 [1, n] 的后 k 个元素，所以边界条件为 [start, n-k+1]。
-        // 比如 [1, 2, 3, 4, 5]
-        //            |<----->|
-        //              k = 3
-        for (int i = start; i <= n - k + 1; i++) {
-            elem.add(i);
-            combine(n, k - 1, i + 1, elem, ret);
-            elem.removeLast();
+        } else {
+            // 从 start 开始，取 [1, n] 的后 k 个元素，所以边界条件为 [start, n-k+1]。
+            // 比如 [1, 2, 3, 4, 5]
+            //            |<----->|
+            //              k = 3
+            for (int i = start; i <= n - k + 1; i++) {
+                elem.add(i);
+                combine(n, k - 1, i + 1, elem, ret);
+                elem.removeLast();
+            }
         }
+        return ret;
     }
 
     /**
-     * 参考 {@link LeetCode39} 组合总和、 {@link LeetCode78} 子集、{@link LeetCode46} 全排列、{@link LeetCode47} 全排列 II、{@link LeetCode77} 组合
+     * 参考 {@link LeetCode40} 组合总和 II、{@link LeetCode39} 组合总和、 {@link LeetCode78} 子集、{@link LeetCode46} 全排列、{@link LeetCode47} 全排列 II、{@link LeetCode77} 组合
      *
      * Time: O(k*C(n, k)), Space: O(k)
      *
@@ -65,9 +66,7 @@ public class LeetCode77 {
         if (k > n) {
             return Collections.emptyList();
         }
-        List<List<Integer>> ret = new ArrayList<>();
-        combine(n, k, 1, new LinkedList<>(), ret);
-        return ret;
+        return combine(n, k, 1, new LinkedList<>(), new ArrayList<>());
     }
 
     /**

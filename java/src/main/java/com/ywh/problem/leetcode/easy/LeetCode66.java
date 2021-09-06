@@ -35,11 +35,11 @@ public class LeetCode66 {
      */
     public int[] plusOne(int[] digits) {
 
-        // 从最低位（最右）开始向左移动，所有 9 都置为 0。
+        // 从最低位（最右）开始向左移动，途径所有 9 都置为 0，直到没有 9。
         int p = digits.length - 1;
         for (; p >= 0 && digits[p] == 9; digits[p--] = 0);
 
-        // 如果已经越出最左，表示进位，返回新数组。
+        // 越出最左表示进位，返回新数组。
         if (p == -1) {
             int[] ret = new int[digits.length + 1];
             ret[0] = 1;

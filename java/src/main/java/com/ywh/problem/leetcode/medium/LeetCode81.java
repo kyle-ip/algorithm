@@ -34,16 +34,13 @@ import com.ywh.problem.leetcode.hard.LeetCode154;
 public class LeetCode81 {
 
     /**
-     * 参考 {@link LeetCode153}, {@link LeetCode33}, {@link LeetCode154}
+     * 参考 {@link LeetCode153}，{@link LeetCode154}, {@link LeetCode33}, {@link LeetCode81}
      *
      * @param nums
      * @param target
      * @return
      */
     public boolean search(int[] nums, int target) {
-        if (nums == null || nums.length == 0) {
-            return false;
-        }
         for (int low = 0, high = nums.length - 1; low <= high; ) {
             int mid = low + (high - low) / 2;
             if (nums[mid] == target) {

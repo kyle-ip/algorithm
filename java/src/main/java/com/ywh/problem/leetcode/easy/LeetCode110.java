@@ -50,10 +50,10 @@ public class LeetCode110 {
         if (root == null) {
             return true;
         }
-        TreeNode left = root.left, right = root.right;
-        return Math.abs(getHeight(left) - getHeight(right)) < 2
-            && isBalancedTreeTopDown(left)
-            && isBalancedTreeTopDown(right);
+        TreeNode l = root.left, r = root.right;
+        return Math.abs(getHeight(l) - getHeight(r)) < 2
+            && isBalancedTreeTopDown(l)
+            && isBalancedTreeTopDown(r);
     }
 
     /**
@@ -76,18 +76,15 @@ public class LeetCode110 {
         if (root == null) {
             return 0;
         }
-        int leftHeight = getHeightAndCheck(root.left);
-        if (leftHeight == -1) {
+        int l = getHeightAndCheck(root.left);
+        if (l == -1) {
             return -1;
         }
-        int rightHeight = getHeightAndCheck(root.right);
-        if (rightHeight == -1) {
+        int r = getHeightAndCheck(root.right);
+        if (r == -1) {
             return -1;
         }
-        if (Math.abs(leftHeight - rightHeight) > 1) {
-            return -1;
-        }
-        return Math.max(leftHeight, rightHeight) + 1;
+        return Math.abs(l - r) > 1? -1: Math.max(l, r) + 1;
     }
 
 }

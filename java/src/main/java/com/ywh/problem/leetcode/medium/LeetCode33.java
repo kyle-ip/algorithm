@@ -32,7 +32,7 @@ import com.ywh.problem.leetcode.hard.LeetCode154;
 public class LeetCode33 {
 
     /**
-     * 参考 {@link LeetCode153}, {@link LeetCode154}, {@link LeetCode81}
+     * 参考 {@link LeetCode153}，{@link LeetCode154}, {@link LeetCode33}, {@link LeetCode81}
      *
      * 使用二分查找前需要区分前半数组是否单调
      *

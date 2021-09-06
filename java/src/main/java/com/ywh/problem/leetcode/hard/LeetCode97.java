@@ -3,7 +3,28 @@ package com.ywh.problem.leetcode.hard;
 /**
  * 交错字符串
  * [字符串] [动态规划]
- *
+ * 
+ * 给定三个字符串 s1、s2、s3，请你帮忙验证 s3 是否是由 s1 和 s2 交错 组成的。
+ * 两个字符串 s 和 t 交错 的定义与过程如下，其中每个字符串都会被分割成若干 非空 子字符串：
+ * s = s1 + s2 + ... + sn
+ * t = t1 + t2 + ... + tm
+ * |n - m| <= 1
+ * 交错 是 s1 + t1 + s2 + t2 + s3 + t3 + ... 或者 t1 + s1 + t2 + s2 + t3 + s3 + ...
+ * 提示：a + b 意味着字符串 a 和 b 连接。
+ * 示例 1：
+ *      输入：s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac"
+ *      输出：true
+ * 示例 2：
+ *      输入：s1 = "aabcc", s2 = "dbbca", s3 = "aadbbbaccc"
+ *      输出：false
+ * 示例 3：
+ *      输入：s1 = "", s2 = "", s3 = ""
+ *      输出：true
+ * 提示：
+ *      0 <= s1.length, s2.length <= 100
+ *      0 <= s3.length <= 200
+ *      s1、s2、和 s3 都由小写英文字母组成
+ * 
  * @author ywh
  * @since 2020/10/23/023
  */
@@ -16,24 +37,24 @@ public class LeetCode97 {
      * @param j
      * @param s3
      * @param k
-     * @param cache
+     * @param memo
      * @return
      */
-    public static boolean backtracking(String s1, int i, String s2, int j, String s3, int k, int[][] cache) {
-        if (cache[i][j] != 0) {
-            return cache[i][j] == 1;
+    public static boolean backtracking(String s1, int i, String s2, int j, String s3, int k, int[][] memo) {
+        if (memo[i][j] != 0) {
+            return memo[i][j] == 1;
         }
         if (k == s3.length()) {
             return true;
         }
         boolean isValid = false;
         if (i < s1.length() && s1.charAt(i) == s3.charAt(k)) {
-            isValid = backtracking(s1, i + 1, s2, j, s3, k + 1, cache);
+            isValid = backtracking(s1, i + 1, s2, j, s3, k + 1, memo);
         }
         if (j < s2.length() && s2.charAt(j) == s3.charAt(k)) {
-            isValid = isValid || backtracking(s1, i, s2, j + 1, s3, k + 1, cache);
+            isValid = isValid || backtracking(s1, i, s2, j + 1, s3, k + 1, memo);
         }
-        cache[i][j] = isValid ? 1 : -1;
+        memo[i][j] = isValid ? 1 : -1;
         return isValid;
     }
 
@@ -54,8 +75,7 @@ public class LeetCode97 {
         if (s1.length() + s2.length() != s3.length()) {
             return false;
         }
-        int[][] cache = new int[s1.length() + 1][s2.length() + 1];
-        return backtracking(s1, 0, s2, 0, s3, 0, cache);
+        return backtracking(s1, 0, s2, 0, s3, 0, new int[s1.length() + 1][s2.length() + 1]);
     }
 
     /**
@@ -69,29 +89,29 @@ public class LeetCode97 {
      * @return
      */
     public boolean isInterleave(String s1, String s2, String s3) {
-        int n = s1.length(), m = s2.length(), t = s3.length();
-        if (n + m != t) {
+        int m = s1.length(), n = s2.length(), t = s3.length();
+        if (m + n != t) {
             return false;
         }
 
-        // dp[i][j] 表示 s1 的 第 i 个字符和 s2 的前 j 个字符能否交错组成 s3 的前 i+j 个字符。
-        // 如果 s1[i] == s3[i+j]，则 dp[i][j] 取决于 dp[i-1][j]。
-        // 同理 s2[j] == s3[i+j]，则 dp[i][j] 取决于 dp[i][j-1]。
-        boolean[][] dp = new boolean[n + 1][m + 1];
+        // dp[p1][p2] 表示 s1 的 第 p1 个字符和 s2 的前 p2 个字符能否交错组成 s3 的前 p1+p2 个字符。
+        // 如果 s1[p1] == s3[p1+p2]，则 dp[p1][p2] 取决于 dp[p1-1][p2]。
+        // 同理 s2[p2] == s3[p1+p2]，则 dp[p1][p2] 取决于 dp[p1][p2-1]。
+        boolean[][] dp = new boolean[m + 1][n + 1];
 
         dp[0][0] = true;
-        for (int i = 0; i <= n; ++i) {
-            for (int j = 0; j <= m; ++j) {
-                int p = i + j - 1;
-                if (i > 0) {
-                    dp[i][j] = dp[i][j] || (dp[i - 1][j] && s1.charAt(i - 1) == s3.charAt(p));
+        for (int p1 = 0; p1 <= m; p1++) {
+            for (int p2 = 0; p2 <= n; p2++) {
+                int p3 = p1 + p2 - 1;
+                if (p1 > 0) {
+                    dp[p1][p2] = dp[p1][p2] || (dp[p1 - 1][p2] && s1.charAt(p1 - 1) == s3.charAt(p3));
                 }
-                if (j > 0) {
-                    dp[i][j] = dp[i][j] || (dp[i][j - 1] && s2.charAt(j - 1) == s3.charAt(p));
+                if (p2 > 0) {
+                    dp[p1][p2] = dp[p1][p2] || (dp[p1][p2 - 1] && s2.charAt(p2 - 1) == s3.charAt(p3));
                 }
             }
         }
-        return dp[n][m];
+        return dp[m][n];
     }
 
     /**

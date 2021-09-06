@@ -55,7 +55,7 @@ public class LeetCode40 {
                     continue;
                 }
                 elem.add(nums[i]);
-                // candidates 中的每个数字在每个组合中只能使用一次，因此传递到下一层递归的“start”参数不需要 +1。
+                // candidates 中的每个数字在每个组合中只能使用一次，因此传递到下一层递归的“start”参数需要 +1。
                 combSum(nums, target - nums[i], i + 1, elem, ret);
                 elem.removeLast();
             }
@@ -64,6 +64,8 @@ public class LeetCode40 {
 
     /**
      * 类似 {@link LeetCode39}，需要先对数组排序、在每轮回溯中要对元素作判断（是否与上一个重复）。
+     *
+     * 参考 {@link LeetCode40} 组合总和 II、{@link LeetCode39} 组合总和、 {@link LeetCode78} 子集、{@link LeetCode46} 全排列、{@link LeetCode47} 全排列 II、{@link LeetCode77} 组合
      *
      * Time: O(n^(target/min)), Space: O(target/min)
      *

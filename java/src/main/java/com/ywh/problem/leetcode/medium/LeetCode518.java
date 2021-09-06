@@ -104,6 +104,7 @@ public class LeetCode518 {
 
     /**
      * 动态规划解法（优化存储空间）
+     * 参考 {@link LeetCode322}
      *
      * Time: O(n*sum), Space: O(sum)
      *
@@ -112,17 +113,17 @@ public class LeetCode518 {
      * @return
      */
     public int numberOfCoinCombinationDPOsum(int amount, int[] coins) {
-        int[] d = new int[amount + 1];
+        int[] dp = new int[amount + 1];
 
         // d[j] 表示凑成数值 j 的组合数量（其中 dp[0] 表示凑成 0 元的方法只有 1 种，即不取）。
-        d[0] = 1;
+        dp[0] = 1;
 
         // 尝试每个面值的硬币。
         for (int coin : coins) {
             // 使用面值为 [coin, sum] 的硬币凑 sum：
             // 比如现有 2 元硬币，凑成 10 - 2 == 8 元硬币的方法有 n 种，则凑成 10 元的硬币的方法也有 n 种。
-            for (int j = coin; j <= amount; d[j] += d[j - coin], j++);
+            for (int j = coin; j <= amount; dp[j] += dp[j - coin], j++);
         }
-        return d[amount];
+        return dp[amount];
     }
 }

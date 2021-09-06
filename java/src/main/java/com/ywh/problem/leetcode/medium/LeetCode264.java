@@ -33,7 +33,6 @@ public class LeetCode264 {
      * @return
      */
     public int nthUglyNumberMinHeap(int n) {
-        int[] factors = {2, 3, 5};
         Set<Long> seen = new HashSet<>();
         PriorityQueue<Long> heap = new PriorityQueue<>();
         seen.add(1L);
@@ -42,7 +41,7 @@ public class LeetCode264 {
         for (int i = 0; i < n; i++) {
             long curr = heap.poll();
             ugly = (int) curr;
-            for (int factor : factors) {
+            for (int factor : new int[]{2, 3, 5}) {
                 long next = curr * factor;
                 if (seen.add(next)) {
                     heap.offer(next);
@@ -64,11 +63,12 @@ public class LeetCode264 {
         dp[1] = 1;
         for (int i = 2, p2 = 1, p3 = 1, p5 = 1; i <= n; i++) {
             // p2、p3、p5 分别表示上一个质因数为 2、3、5 的丑数的下标。
+
             // 取上一个丑数 num2、num3、num5，三者之间的最小者为 dp[i]。
             int num2 = dp[p2] * 2, num3 = dp[p3] * 3, num5 = dp[p5] * 5;
             dp[i] = Math.min(Math.min(num2, num3), num5);
 
-            // 被选取的，其下标 +1。
+            // 被选取的其下标 +1。
             // 由于可能不止一个质因数（比如 10，其质因数为 2、5），因此不能用 else if。
             if (dp[i] == num2) {
                 p2++;

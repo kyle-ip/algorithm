@@ -47,22 +47,22 @@ public class LeetCode365 {
             visited.add(hash(stack.peek()));
 
             int[] state = stack.pop();
-            int remainX = state[0], remainY = state[1];
-            if (remainX == targetCapacity || remainY == targetCapacity || remainX + remainY == targetCapacity) {
+            int x = state[0], y = state[1];
+            if (x == targetCapacity || y == targetCapacity || x + y == targetCapacity) {
                 return true;
             }
             // 把 X 壶灌满。
-            stack.push(new int[]{jug1Capacity, remainY});
+            stack.push(new int[]{jug1Capacity, y});
             // 把 Y 壶灌满。
-            stack.push(new int[]{remainX, jug2Capacity});
+            stack.push(new int[]{x, jug2Capacity});
             // 把 X 壶倒空。
-            stack.push(new int[]{0, remainY});
+            stack.push(new int[]{0, y});
             // 把 Y 壶倒空。
-            stack.push(new int[]{remainX, 0});
+            stack.push(new int[]{x, 0});
             // 把 X 壶的水灌进 Y 壶，直至灌满或倒空。
-            stack.push(new int[]{remainX - Math.min(remainX, jug2Capacity - remainY), remainY + Math.min(remainX, jug2Capacity - remainY)});
+            stack.push(new int[]{x - Math.min(x, jug2Capacity - y), y + Math.min(x, jug2Capacity - y)});
             // 把 Y 壶的水灌进 X 壶，直至灌满或倒空。
-            stack.push(new int[]{remainX + Math.min(remainY, jug1Capacity - remainX), remainY - Math.min(remainY, jug1Capacity - remainX)});
+            stack.push(new int[]{x + Math.min(y, jug1Capacity - x), y - Math.min(y, jug1Capacity - x)});
         }
         return false;
     }

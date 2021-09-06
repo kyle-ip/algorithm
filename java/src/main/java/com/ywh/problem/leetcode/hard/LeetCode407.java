@@ -25,7 +25,7 @@ import java.util.PriorityQueue;
  */
 public class LeetCode407 {
 
-    int[][] dirs = new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+
 
     /**
      *
@@ -35,15 +35,19 @@ public class LeetCode407 {
     public int trapRainWater(int[][] heightMap) {
         int n = heightMap.length, m = heightMap[0].length;
         boolean[][] visited = new boolean[n][m];
+        int[][] dirs = new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+
         // 最小堆存放矩阵（比较的值为高度），每次返回高度最低的坐标，处理其四周。
         PriorityQueue<int[]> queue = new PriorityQueue<>(Comparator.comparingInt(o -> o[2]));
 
-        // 处理每行的第一列、最后一列；每列的第一行、最后一行。
+        // 处理第一列、最后一列。
         for (int i = 0; i < n; i++) {
             queue.add(new int[]{i, 0, heightMap[i][0]});
             queue.add(new int[]{i, m - 1, heightMap[i][m - 1]});
             visited[i][0] = visited[i][m - 1] = true;
         }
+
+        // 处理第一行、最后一行。
         for (int i = 0; i < m; i++) {
             queue.add(new int[]{0, i, heightMap[0][i]});
             queue.add(new int[]{n - 1, i, heightMap[n - 1][i]});
@@ -64,6 +68,8 @@ public class LeetCode407 {
                         ret += (elem[2] - heightMap[nextX][nextY]);
                     }
                     visited[nextX][nextY] = true;
+
+                    // 添加相邻节点、其高度取相邻两点高度中的较高者。
                     queue.add(new int[]{nextX, nextY, Math.max(elem[2], heightMap[nextX][nextY])});
                 }
             }

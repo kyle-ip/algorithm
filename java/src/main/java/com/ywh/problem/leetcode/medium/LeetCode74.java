@@ -36,13 +36,13 @@ public class LeetCode74 {
      * @param target
      * @return
      */
-    public int[] binarySearchIn2DArray(int[][] matrix, int target) {
+    public boolean binarySearchIn2DArray(int[][] matrix, int target) {
         for (int m = matrix.length, n = matrix[0].length, l = 0, h = m * n - 1; l <= h; ) {
             int mid = l + (h - l) / 2;
             // 除以列数得出行号，模列数得出列号。
             int r = mid / n, c = mid % n;
             if (matrix[r][c] == target) {
-                return new int[] {r, c};
+                return true;
             }
             if (matrix[r][c] > target) {
                 h = mid - 1;
@@ -50,7 +50,7 @@ public class LeetCode74 {
                 l = mid + 1;
             }
         }
-        return new int[]{-1, -1};
+        return false;
     }
 
 
@@ -62,16 +62,16 @@ public class LeetCode74 {
      * @param target
      * @return
      */
-    public int[] linearSearchIn2DArray(int[][] matrix, int target) {
+    public boolean linearSearchIn2DArray(int[][] matrix, int target) {
         for (int r = 0, c = matrix[0].length - 1; c >= 0 && r < matrix.length; ) {
             if (matrix[r][c] > target){
                 c--;
             } else if (matrix[r][c] < target) {
                 r++;
             } else {
-                return new int[]{r, c};
+                return true;
             }
         }
-        return new int[]{-1, -1};
+        return false;
     }
 }

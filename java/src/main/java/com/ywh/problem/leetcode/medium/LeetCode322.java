@@ -70,6 +70,8 @@ public class LeetCode322 {
     }
 
     /**
+     * 参考 {@link LeetCode518}
+     *
      * Time: O(n*amount), Space: O(amount)
      *
      * @param coins

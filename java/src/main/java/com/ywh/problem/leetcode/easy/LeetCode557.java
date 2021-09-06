@@ -30,19 +30,19 @@ public class LeetCode557 {
 
         // start、end 分别定位到每个单词的起始和结束（end 定位单词后的空格，每轮翻转都把 end 与 start 置于空格后第一位）
 
-        for (int start = 0, end = 0; start < c.length; ) {
-            for (; end < c.length && c[end] != ' '; end++);
+        for (int l = 0, r = 0; l < c.length; ) {
+            for (; r < c.length && c[r] != ' '; r++);
 
             // 与单指针的写法相比更推荐这种
-            for (int i = start, j = end - 1; i < j; i++, j--) {
+            for (int i = l, j = r - 1; i < j; i++, j--) {
                 char tmp = c[i];
                 c[i] = c[j];
                 c[j] = tmp;
             }
 
             // 跳过空格
-            start = end + 1;
-            end = start;
+            l = r + 1;
+            r = l;
         }
         return new String(c);
     }

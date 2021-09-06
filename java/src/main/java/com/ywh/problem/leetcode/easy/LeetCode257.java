@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.easy;
 
 import com.ywh.ds.tree.TreeNode;
+import com.ywh.problem.leetcode.medium.LeetCode113;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,7 @@ import java.util.List;
 public class LeetCode257 {
 
     /**
+     * 区别于 {@link LeetCode113} 选路，由于任意一条路径都符合要求，因此无需回溯。
      *
      * @param root
      * @param cur

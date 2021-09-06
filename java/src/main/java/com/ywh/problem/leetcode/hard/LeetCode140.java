@@ -53,19 +53,20 @@ public class LeetCode140 {
      * @return
      */
     public List<String> wordBreak(String s, List<String> wordDict) {
-        int n = s.length();
-        boolean[] dp = new boolean[n + 1];
-        dp[0] = true;
-        Set<String> set = new HashSet<>(wordDict);
-        for (int i = 1; i <= n; i++) {
-            for (int j = i; j >= 0; j--) {
-                if (dp[j] && set.contains(s.substring(j, i))) {
-                    dp[i] = true;
-                    break;
-                }
-            }
-        }
-        return dp[n]? backtracking(s, 0, set, dp, new LinkedList<>(), new ArrayList<>()): Collections.emptyList();
+//        int n = s.length();
+//        boolean[] dp = new boolean[n + 1];
+//        dp[0] = true;
+//        Set<String> set = new HashSet<>(wordDict);
+//        for (int i = 1; i <= n; i++) {
+//            for (int j = i; j >= 0; j--) {
+//                if (dp[j] && set.contains(s.substring(j, i))) {
+//                    dp[i] = true;
+//                    break;
+//                }
+//            }
+//        }
+//        return backtracking(s, 0, set, new LinkedList<>(), new ArrayList<>());
+        return backtracking(s, 0, new HashSet<>(wordDict), new LinkedList<>(), new ArrayList<>());
     }
 
     /**
@@ -73,19 +74,18 @@ public class LeetCode140 {
      * @param s
      * @param start
      * @param set
-     * @param dp
      * @param elem
      * @param ret
      */
-    private List<String> backtracking(String s, int start, Set<String> set, boolean[] dp, LinkedList<String> elem, List<String> ret) {
+    private List<String> backtracking(String s, int start, Set<String> set, LinkedList<String> elem, List<String> ret) {
         if (start == s.length()) {
-            ret.add(String.join( " ", elem));
+            ret.add(String.join(" ", elem));
         } else {
             for (int i = start; i <= s.length(); i++) {
                 String substring = s.substring(start, i);
-                if (set.contains(substring) && dp[i]) {
+                if (set.contains(substring)) {
                     elem.addLast(substring);
-                    backtracking(s, i, set, dp, elem, ret);
+                    backtracking(s, i, set, elem, ret);
                     elem.removeLast();
                 }
             }

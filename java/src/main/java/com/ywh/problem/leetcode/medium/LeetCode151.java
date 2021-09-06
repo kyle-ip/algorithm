@@ -65,27 +65,27 @@ public class LeetCode151 {
      */
     public String reverseWords(String s) {
         char[] str = s.toCharArray();
-        int p = 0, q = 0, end = str.length - 1;
+        int p = 0, q = 0, r = str.length - 1;
 
         // "  good example     "
         //              end
-        for (; end >= 0 && str[end] == ' '; end--);
-        while (q <= end) {
+        for (; r >= 0 && str[r] == ' '; r--);
+        while (q <= r) {
 
             // 跳过空格，取单词的开始位置。
             // "  good example     "
-            //    q         end
-            for (; q <= end && str[q] == ' '; q++);
+            //    q          l
+            for (; q <= r && str[q] == ' '; q++);
 
             // 取换位后单词应插入的开始位置 p（可能是空格），把一个单词从 q 复制到 p 并翻转它。
             // "  good example     "
-            //  p q         end
-            int start = p;
-            for (; q <= end && str[q] != ' '; str[p++] = str[q++]);
-            reverse(str, start, p - 1);
+            //  p q          l
+            int l = p;
+            for (; q <= r && str[q] != ' '; str[p++] = str[q++]);
+            reverse(str, l, p - 1);
 
             // 单词间补上空格。
-            if (q <= end) {
+            if (q <= r) {
                 str[p++] = ' ';
             }
         }
