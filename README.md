@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (353)
+## LeetCode (354)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -282,6 +282,7 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 440  | [K-th Smallest in Lexicographical Order](https://leetcode.com/problems/k-th-smallest-in-lexicographical-order) | 字典序的第 K 小数字 | Time: O(n^2)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode440.java)<br />[Go](go/src/problem/leetcode440/findKthNumber.go) | Hard | Tree |
 | 443  | [String Compression](https://leetcode.com/problems/string-compression) | 压缩字符串                         | Time: O(n^2)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode443.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_443.py) | Easy       | String<br />Two Pointers                                  |
 | 445  | [Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii) | 两数相加 II | Time: O(max(m,n))<br />Space: O(m+n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode445.java)<br />[Go](go/src/problem/leetcode445/addTwoNumbers.go) | Medium | Linked List |
+| 447  | [Number of Boomerangs](https://leetcode.com/problems/number-of-boomerangs/solution/hui-xuan-biao-de-shu-liang-by-leetcode-s-lft5) | 回旋镖的数量 | Time: O(n^2)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode447.java) | Medium | Math<br />Hash Table<br />Array |
 | 448  | [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array) | 找到所有数组中消失的数字                     | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode448.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_448.py) | Easy       | Array                                                  |
 | 449  | [Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst) | 序列化和反序列化二叉搜索树                     | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode449.java) | Medium       | Tree                                                  |
 | 450  | [Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst) | 二叉搜索树中删除节点               | Time: O(h)<br />Space: O(h) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode450.java) | Medium     | Tree                                                   |
