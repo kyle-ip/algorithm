@@ -37,9 +37,6 @@ public class MergeSort {
      * @param arr
      */
     public void sortRecursive(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
         mergeSort(arr, 0, arr.length - 1, new int[arr.length]);
     }
 
@@ -49,9 +46,6 @@ public class MergeSort {
      * @param arr
      */
     public void sortIterative(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
         int n = arr.length;
         int[] tmp = new int[n];
         for (int len = 1; len < n; len *= 2) {

@@ -55,9 +55,6 @@ public class HeapSort {
      * @param arr
      */
     public void sort(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
         buildMaxHeap(arr);
         for (int end = arr.length - 1; end > 0; end--) {
             // 每次把堆顶元素换到最后，再把交换后的堆顶元素下沉合适的位置

@@ -17,10 +17,6 @@ public class CountingSort {
      * @param arr
      */
     public void sortLeft2Right(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
-
         // 确定元素个数：[min, max]。
         int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE, k, start = 0;
         for (int num : arr) {
@@ -76,9 +72,6 @@ public class CountingSort {
      * @param arr
      */
     public void sort(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
         int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE, k, index = 0;
         for (int num : arr) {
             min = Math.min(num, min);
@@ -103,9 +96,6 @@ public class CountingSort {
      * @param arr
      */
     public void sortRight2Left(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
         int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE, k;
         for (int num : arr) {
             min = Math.min(num, min);

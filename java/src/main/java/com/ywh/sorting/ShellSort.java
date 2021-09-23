@@ -15,15 +15,11 @@ public class ShellSort {
      * @param arr
      */
     public void sort(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
-        for (int gap = arr.length >> 1; gap > 0; gap >>= 1) {
+        for (int gap = arr.length / 2; gap > 0; gap /= 2) {
             for (int i = gap; i < arr.length; i++) {
                 int j = i - gap, cur = arr[i];
-                while (j >= 0 && arr[j] > cur) {
+                for (; j >= 0 && arr[j] > cur; j -= gap) {
                     arr[j + gap] = arr[j];
-                    j -= gap;
                 }
                 arr[j + gap] = cur;
             }

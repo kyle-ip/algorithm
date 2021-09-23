@@ -57,9 +57,6 @@ public class QuickSort {
      * @param arr
      */
     public void lomutoSort(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
         lomutoSort(arr, 0, arr.length - 1);
     }
 
@@ -70,13 +67,13 @@ public class QuickSort {
         }
         // partition
         int i = low, j = high, pivot = nums[i + (j - i) / 2];
-        for (;;) {
+        for (; ; i++, j--) {
             for (; nums[i] < pivot; i++);
             for (; nums[j] > pivot; j--);
             if (i >= j) {
                 break;
             }
-            swap(nums, i++, j--);
+            swap(nums, i, j);
         }
         // 由于最后落点不是基准值，所以递归要包含 j。
         hoareSort(nums, low, j);
@@ -89,9 +86,6 @@ public class QuickSort {
      * @param arr
      */
     public void hoareSort(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
         hoareSort(arr, 0, arr.length - 1);
     }
 }

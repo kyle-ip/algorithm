@@ -21,10 +21,6 @@ public class CocktailShakerSort {
      * @param arr
      */
     public void sort(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
-
         // 控制左右边界，每轮排序向中间缩进
         int left = 0, right = arr.length - 1;
         while (left < right) {
@@ -49,9 +45,6 @@ public class CocktailShakerSort {
      * @param arr
      */
     public void sortEarlyReturn(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
         int left = 0, right = arr.length - 1;
         boolean swapped;
 
@@ -86,9 +79,6 @@ public class CocktailShakerSort {
      * @param arr
      */
     public void sortSkip(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
         int left = 0, right = arr.length - 1;
         int newLeft, newRight;
 

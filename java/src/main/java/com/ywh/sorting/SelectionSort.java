@@ -21,9 +21,6 @@ public class SelectionSort {
      * @param arr
      */
     public void sort(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
         for (int i = 0; i < arr.length; i++) {
             int minIdx = i;
             for (int j = i + 1; j < arr.length; j++) {
@@ -36,9 +33,6 @@ public class SelectionSort {
     }
 
     public void sortFromEnd(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
         for (int i = arr.length - 1; i > 0; --i) {
             int maxIdx = i;
             for (int j = 0; j < i; j++) {

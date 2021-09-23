@@ -41,9 +41,6 @@ public class RadixSort {
      * @param mask 掩码，每次右移 bits 个二进制位时，使用 mask 取出最低的 bits 位
      */
     private void sortInBucket(int[] arr, int bits, int mask) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
         int cnt = 32 / bits, bucketCount = 1 << bits, n = arr.length;
 
         List<List<Integer>> buckets = new ArrayList<>(bucketCount);
@@ -102,9 +99,6 @@ public class RadixSort {
      * @param mask 掩码，每次右移 bits 个二进制位时，使用 mask 取出最低的 bits 位
      */
     private void sortInCounting(int[] arr, int bits, int mask) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
 
         // 假设 int 类型十进制数用 32 位二进制数表示，则每次处理 bits 个二进制位，则处理次数为 32 / bits
         int n = arr.length, cnt = 32 / bits;

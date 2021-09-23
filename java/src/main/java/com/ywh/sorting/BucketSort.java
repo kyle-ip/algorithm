@@ -24,9 +24,6 @@ public class BucketSort {
      * @param arr
      */
     public void sort(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
 
         // 计算取值范围
         int max = arr[0], min = arr[0];

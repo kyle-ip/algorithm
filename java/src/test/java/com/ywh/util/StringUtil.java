@@ -58,9 +58,6 @@ public class StringUtil {
     }
 
     public static String intArrayToStr(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return "";
-        }
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < arr.length; i++) {
             sb.append(arr[i]);
@@ -72,9 +69,6 @@ public class StringUtil {
     }
 
     public static String intArrayToStr(int[] arr, int len) {
-        if (arr == null || arr.length == 0) {
-            return "";
-        }
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < len; i++) {
             sb.append(arr[i]);

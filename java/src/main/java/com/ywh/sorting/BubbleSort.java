@@ -29,9 +29,6 @@ public class BubbleSort {
      * @param arr
      */
     public void sort(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
         for (int end = arr.length - 1; end > 0; end--) {
             for (int i = 0; i < end; i++) {
                 if (arr[i] > arr[i + 1]) {
@@ -49,9 +46,6 @@ public class BubbleSort {
      * @param arr
      */
     public void sortEarlyReturn(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
         for (int end = arr.length - 1; end > 0; end--) {
 
             // 如果子循环中没有发生交换，表示排序已完成，直接返回
@@ -76,9 +70,6 @@ public class BubbleSort {
      * @param arr
      */
     public void sortSkip(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
         for (int end = arr.length - 1; end > 0; ) {
 
             // 记录最后一次发生交换的位置，下次子循环到达这个位置即可

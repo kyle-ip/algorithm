@@ -24,9 +24,6 @@ public class InsertionSort {
      * @param arr
      */
     public void sort(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
-        }
 
         // 对小数组排序效果非常好，当数组长度小于 47 时优于快速排序
         for (int i = 1; i < arr.length; i++) {
