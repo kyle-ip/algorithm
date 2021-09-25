@@ -28,20 +28,21 @@ public class LeetCode309 {
             return 0;
         }
 
-        // 第一天结束有三种情况：当天买入股票、当天卖出股票、不做任何操作。
-        int f0 = -prices[0], f1 = 0, f2 = 0;
+        // 第一天结束有三种情况：当天买入、当天卖出、当天不操作。
+        int buy = -prices[0], sell = 0, freeze = 0;
         for (int i = 1; i < prices.length; i++) {
-            int sell1 = f0 + prices[i], sell2 = Math.max(f1, f2);
+            int tmp1 = buy + prices[i], tmp2 = Math.max(sell, freeze);
 
-            // 当天买入股票的最大收益：第 i 天持有股票，可能是今天刚买入（f2 - price[i]）或是前一天已经持有股票（f0），即取买或不买（之前买）的较大者。
-            f0 = Math.max(f0, f2 - prices[i]);
+            // 今天买入：之前为冷冻期的最大收益 - 今天股价（表示冷冻期过后才允许再买入）
+            buy = Math.max(buy, freeze - prices[i]);
 
-            // 当天卖出股票的最大收益：第 i 天不持有股票且在冷冻期，即前一天还持有的股票在今天卖出（f0+prices[i]）。
-            f1 = sell1;
+            // 今天卖出：买入后最大收益 + 今天股价。
+            sell = tmp1;
 
-            // 不做任何操作的最大收益：可能是前一天刚卖出、还处于冷冻期（f1）或是前一天和今天一样（f2）。
-            f2 = sell2;
+            // 不操作：对比两个旧状态来更新，之前已卖出，或之前是冷冻期。
+            freeze = tmp2;
         }
-        return Math.max(f1, f2);
+        // 最后必然是没有持有股票，可能是刚卖出，也可能是之前就卖出、现在冷冻。
+        return Math.max(sell, freeze);
     }
 }

@@ -16,7 +16,7 @@ package com.ywh.problem.leetcode.hard;
  *      输入：nums = [7,8,9,11,12]
  *      输出：1
  * 提示：
- *      0 <= nums.length <= 300
+ *      1 <= nums.length <= 5 * 10^5
  *      -2^31 <= nums[i] <= 2^31 - 1
  *
  * @author ywh
@@ -40,9 +40,6 @@ public class LeetCode41 {
      * @return
      */
     public int firstMissingPositiveSwap(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 1;
-        }
         int n = nums.length;
 
         // 2, -1, 4, 1, 8
@@ -73,8 +70,6 @@ public class LeetCode41 {
 
         // 8 > n, skip
         // 1, 2, -1, 4, [8]
-
-        //
         for (int i = 0; i < n; ) {
             // 值转换成下标，比如当前位置的值为 5，则对应下标为 4。
             int j = nums[i] - 1;
@@ -112,9 +107,6 @@ public class LeetCode41 {
      * @return
      */
     public int firstMissingPositiveFlipSign(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 1;
-        }
         int n = nums.length;
         // 2, [-1], 4, 1, 8       =>      2, [6], 4, 1, 8
         for (int i = 0; i < n; ++i) {

@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.medium;
 
 import com.ywh.ds.list.ListNode;
+import com.ywh.problem.leetcode.easy.LeetCode83;
 
 /**
  * 删除排序链表中的重复元素 II
@@ -23,6 +24,8 @@ import com.ywh.ds.list.ListNode;
 public class LeetCode82 {
 
     /**
+     * 区别于 {@link LeetCode83}，出现重复的值全部都不要。
+     *
      * 需要兼容以下情况：
      * 1 1 2 4
      * 1 2 2 4
@@ -43,15 +46,15 @@ public class LeetCode82 {
             // 右指针不断向右移动，直到与其下一个节点的值不同（跳过重复值）。
             for (; r.next != null && r.val == r.next.val; r = r.next);
 
-            // 左指针的 next 域不是右指针，表示（相隔至少 1 个节点）此时 [left, right] 都是重复值，保留一个 left 即可。
+            // 左指针的 next 域不是右指针，表示（相隔至少 1 个节点）此时 [left.next, right] 是重复值，全部都不要。
             //  +--------------------+
             //  |                    ↓
-            // [1] -> [1] -> [1] -> [2] -> ...
+            // [0] -> [1] -> [1] -> [2] -> ...
             // left          right
             if (l.next != r) {
                 l.next = r.next;
             }
-            // 左指针的 next 域是右指针，则向前移动一位。
+            // 左指针的 next 域是右指针，则移动一位。
             // [1] -> [2] -> [3] -> [3] -> ...
             //      left/right
             else {

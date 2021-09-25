@@ -38,6 +38,8 @@ public class LeetCode224 {
         // 符号栈用于暂存一个子表达式值（括号内）的正负，子表达式结束后弹出。
         Deque<Integer> ops = new LinkedList<>();
         ops.push(op);
+
+        // 由于是逐个判断，不需要 else if。
         for (int i = 0; i < n; i++) {
             // 左括号：保存当前状态的 op，再在子表达式中置为 1。
             if (s.charAt(i) == '(') {

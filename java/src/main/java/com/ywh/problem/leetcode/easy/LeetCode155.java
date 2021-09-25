@@ -82,18 +82,20 @@ public class LeetCode155 {
             return min;
         }
 
-        /**
-         * 出栈时，如果栈顶元素等于当前最小值，则把最小值设为栈顶元素的下一个元素（即“次小值”）、跳过两个元素即可（栈顶元素、上次最小值）；
-         * 否则，栈顶元素出栈即可
-         */
         public void pop() {
             if (stack.isEmpty()) {
                 return;
             }
+            // 如果栈顶元素等于当前最小值
             if (stack.peek() == min) {
+                // 弹出实际的栈顶元素。
                 stack.pop();
+
+                // 取上一次的最小值。
                 min = stack.peek();
             }
+
+            // 弹出实际元素或旧的最小值。
             stack.pop();
         }
 

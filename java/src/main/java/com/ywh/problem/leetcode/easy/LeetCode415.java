@@ -26,10 +26,10 @@ public class LeetCode415 {
     public static String addStrings(String num1, String num2) {
         int m = num1.length(), n = num2.length(), k = Math.max(m, n);
         char[] ret = new char[k + 1];
-        for (int carry = 0, i = m - 1, j = n - 1; i >= 0 || j >= 0 || carry > 0; carry /= 10) {
+        for (int carry = 0, i = m - 1, j = n - 1; i >= 0 || j >= 0 || carry > 0; carry /= 10, k--) {
             carry += i >= 0? num1.charAt(i--) - '0': 0;
             carry += j >= 0? num2.charAt(j--) - '0': 0;
-            ret[k--] = (char) (carry % 10 + '0');
+            ret[k] = (char) (carry % 10 + '0');
         }
         return String.valueOf(ret).trim();
     }

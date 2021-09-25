@@ -49,8 +49,10 @@ public class LeetCode25 {
                 return head;
             }
         }
-        // 反转 head 与 tail 之间的一段，作为新头指针。
+        // 反转 head 与 tail 之间的一段，得到新的头指针。
         ListNode newHead = reverse(head, tail);
+
+        // 递归反转剩余的部分，作为原头指针的 next。
         head.next = reverseKGroup(tail, k);
 
         // 最后返回新头指针。

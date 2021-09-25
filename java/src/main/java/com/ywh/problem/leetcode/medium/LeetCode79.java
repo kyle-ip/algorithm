@@ -5,7 +5,8 @@ package com.ywh.problem.leetcode.medium;
  * [数组] [回溯] [深度优先搜索]
  *
  * 给定一个二维网格和一个单词，找出该单词是否存在于网格中。
- * 单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。
+ * 单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。
+ * 同一个单元格内的字母不允许被重复使用。
  * 示例:
  *      board =
  *      [
@@ -43,7 +44,6 @@ public class LeetCode79 {
         if (x < 0 || x >= board.length || y < 0 || y >= board[0].length || visited[x][y] || board[x][y] != word.charAt(idx)) {
             return false;
         }
-
         visited[x][y] = true;
         boolean existed = exist(board, visited, x - 1, y, word, idx + 1)
             || exist(board, visited, x + 1, y, word, idx + 1)

@@ -23,6 +23,10 @@ import java.util.List;
  *             [1,2],
  *             []
  *           ]
+ * 提示：
+ *      1 <= nums.length <= 10
+ *      -10 <= nums[i] <= 10
+ *      nums 中的所有元素 互不相同
  *
  * @author ywh
  * @since 23/11/2019
@@ -36,7 +40,7 @@ public class LeetCode78 {
      * @param subset
      * @param ret
      */
-    private List<List<Integer>>  subsets(int[] nums, int start, LinkedList<Integer> subset, List<List<Integer>> ret) {
+    private List<List<Integer>> subsets(int[] nums, int start, LinkedList<Integer> subset, List<List<Integer>> ret) {
         // 此处添加子集（第一次调用 elem 为空，添加的是空集）。
         ret.add(new LinkedList<>(subset));
         for (int i = start; i < nums.length; i++) {

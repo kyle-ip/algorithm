@@ -38,7 +38,6 @@ public class LeetCode77 {
     private List<List<Integer>> combine(int n, int k, int start, LinkedList<Integer> elem, List<List<Integer>> ret) {
         if (k == 0) {
             ret.add(new ArrayList<>(elem));
-
         } else {
             // 从 start 开始，取 [1, n] 的后 k 个元素，所以边界条件为 [start, n-k+1]。
             // 比如 [1, 2, 3, 4, 5]

@@ -23,6 +23,9 @@ import com.ywh.ds.tree.TreeNode;
  *          /  \
  *         15   7
  *      输出：42
+ * 提示：
+ *      树中节点数目范围是 [1, 3 * 10^4]
+ *      -1000 <= Node.val <= 1000
  *
  * @author ywh
  * @since 2020/9/16/016
@@ -87,7 +90,7 @@ public class LeetCode124 {
         // 递归计算左右子节点的最大贡献值（不含 root.val），在最大贡献值大于 0 时才会选取对应子节点。
         int leftMax = Math.max(maxPathSumOn(root.left, ret), 0), rightMax = Math.max(maxPathSumOn(root.right, ret), 0);
 
-        // 更新答案：root 的最大路径和为 root.val 与其左右子节点最大路径和之和。
+        // 更新结果：root 的最大路径和为 root.val 与其左右子节点最大路径和之和。
         ret[0] = Math.max(ret[0], root.val + leftMax + rightMax);
 
         // 返回节点的最大贡献值：取左右路径中和更大的一条路径，加上当前节点值，退递归。

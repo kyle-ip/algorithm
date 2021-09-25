@@ -81,6 +81,9 @@ public class LeetCode322 {
     public int minCoinCombinationOsum(int[] coins, int amount) {
         // dp[i] 表示凑成 i 元的最小硬币数，其中 dp[0] == 0 表示凑成 0 元的最小硬币数为 0，其余先则初始化为 Integer.MAX_VALUE - 1。
         int[] dp = new int[amount + 1];
+//        for (int i = 1; i < dp.length; i++) {
+//            dp[i] = Integer.MAX_VALUE - 1;
+//        }
         Arrays.fill(dp, 1, amount + 1, Integer.MAX_VALUE - 1);
         for (int coin : coins) {
             // 遍历每种面值的硬币，用来凑 [coin, amount] 元。

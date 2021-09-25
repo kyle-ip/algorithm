@@ -41,8 +41,7 @@ public class Offer51 {
             return 0;
         }
         int mid = low + (high - low) / 2;
-        int leftPairs = reversePairs(nums, low, mid, temp), rightPairs = reversePairs(nums, mid + 1, high, temp);
-        return leftPairs + rightPairs + mergeAndCount(nums, low, mid, high, temp);
+        return reversePairs(nums, low, mid, temp) + reversePairs(nums, mid + 1, high, temp) + mergeAndCount(nums, low, mid, high, temp);
     }
 
     /**
@@ -55,8 +54,8 @@ public class Offer51 {
      * @return
      */
     private int mergeAndCount(int[] nums, int low, int mid, int high, int[] temp) {
-        if (high - low + 1 >= 0) {
-            System.arraycopy(nums, low, temp, low, high + 1 - low);
+        for (int i = low; i <= high; i++) {
+            temp[i] = nums[i];
         }
         int count = 0;
         for (int i = low, j = mid + 1, k = low; k <= high; k++) {

@@ -21,7 +21,15 @@ import java.util.Map;
  *        9  20
  *          /  \
  *         15   7
- *
+ * 提示:
+ *      1 <= preorder.length <= 3000
+ *      inorder.length == preorder.length
+ *      -3000 <= preorder[i], inorder[i] <= 3000
+ *      preorder 和 inorder 均无重复元素
+ *      inorder 均出现在 preorder
+ *      preorder 保证为二叉树的前序遍历序列
+ *      inorder 保证为二叉树的中序遍历序列
+ * 
  * @author ywh
  * @since 03/11/2019
  */

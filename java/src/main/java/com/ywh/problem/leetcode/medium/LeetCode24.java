@@ -77,8 +77,10 @@ public class LeetCode24 {
             //                     2
             //           1  +-------------+
             //       +------|------+      |      =>
-            //       |      |   3  ↓      ↓
-            //      [ ]    [ ] <- [ ]    [ ] ->       [ ] -> [ ] -> [ ] -> [ ]
+            //       |      |      ↓      ↓
+            //      [ ]    [ ]    [ ]    [ ] ->       [ ] -> [ ] -> [ ] -> [ ]
+            //              ↑      |
+            //              +------+ 3
             //      prev  first  second                    second first/prev
             ListNode first = prev.next, second = prev.next.next;
             prev.next = second;

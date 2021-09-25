@@ -1,6 +1,7 @@
 package com.ywh.problem.leetcode.easy;
 
 import com.ywh.ds.list.ListNode;
+import com.ywh.problem.leetcode.medium.LeetCode82;
 
 /**
  * 删除排序链表中的重复元素
@@ -24,6 +25,8 @@ import com.ywh.ds.list.ListNode;
 public class LeetCode83 {
 
     /**
+     * 区别于 {@link LeetCode82}，出现重复的值只保留一个。
+     *
      * Time: O(n), Space: O(1)
      *
      * @param head

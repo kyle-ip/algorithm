@@ -73,7 +73,6 @@ public class LeetCode32 {
             return 0;
         }
 
-
         int n = s.length(), top = 0, max = 0;
         int[] stack = new int[n + 1];
         stack[top] = -1;

@@ -90,10 +90,12 @@ public class LeetCode215 {
             int pivot = nums[low], l = low, r = high;
             while (l < r) {
                 for (; l < r && nums[r] < pivot; r--);
+                // nums[r] >= pivot，换到左边去。
                 if (l < r) {
                     swap(nums, l, r);
                 }
                 for (; l < r && nums[l] >= pivot; l++);
+                // nums[l] < pivot，换到右边去。
                 if (l < r) {
                     swap(nums, l, r);
                 }

@@ -20,7 +20,6 @@ import com.ywh.ds.list.ListNode;
  */
 public class LeetCode19 {
 
-
     /**
      * 由于倒数第 n 位可能恰好是链表开头，因此引入辅助节点作为表头；
      * 快指针先向前走 n 步，如此时未走到结尾，表示链表长度 > n；
