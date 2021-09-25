@@ -21,6 +21,9 @@ package com.ywh.problem.leetcode.medium;
  *      输出: 2
  * 进阶：
  *      你能否用 O(n) 时间复杂度完成此题?
+ * 提示：
+ *      1 <= nums.length <= 1000
+ *      0 <= nums[i] <= 1000
  *
  * @author ywh
  * @since 16/05/2020
@@ -34,9 +37,6 @@ public class LeetCode376 {
      * @return
      */
     public int wiggleMaxLengthGreedy(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
         int n = nums.length, i = 1, len = 1;
 
         // 跳过相同元素
@@ -71,9 +71,6 @@ public class LeetCode376 {
      * @return
      */
     public int wiggleMaxLengthDP(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
         int n = nums.length;
         int[] up = new int[n], down = new int[n];
         up[0] = 1;
@@ -100,10 +97,6 @@ public class LeetCode376 {
      * @return
      */
     public int wiggleMaxLengthDPO1(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
-
         // up、down 表示以上/下摆结尾的最长摆动子序列长度（每换一次方向，取值为对方的值 +1）。
         // 比如 [1, 3, 3, 4, 2]：
         //      1 -> 3: up = down + 1 = 2

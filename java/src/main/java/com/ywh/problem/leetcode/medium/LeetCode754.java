@@ -52,12 +52,10 @@ public class LeetCode754 {
         if (target % 2 == 0) {
             return k;
         }
-        // 如果最后一步走的是偶数：
+        // 最后一步走偶数/奇数。
         if (k % 2 == 0) {
             return k + 1;
-        }
-        // 如果最后一步走的是奇数：
-        else {
+        } else {
             return k + 2;
         }
     }

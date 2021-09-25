@@ -37,14 +37,12 @@ public class LeetCode257 {
      */
     private List<String> dfs(TreeNode root, String cur, List<String> ret) {
         if (root == null) {
-            return ret;
+        } else if (root.left == null && root.right == null) {
+            ret.add(cur + root.val);
+        } else {
+            dfs(root.left, cur + root.val + "->", ret);
+            dfs(root.right, cur + root.val + "->", ret);
         }
-        cur += root.val;
-        if (root.left == null && root.right == null) {
-            ret.add(cur);
-        }
-        dfs(root.left, cur + "->", ret);
-        dfs(root.right, cur + "->", ret);
         return ret;
     }
 

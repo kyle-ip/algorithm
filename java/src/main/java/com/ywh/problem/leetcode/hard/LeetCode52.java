@@ -37,18 +37,27 @@ public class LeetCode52 {
      * @param ret
      * @param visited
      */
-    private void solve(int row, int n, int[] ret, boolean[][] visited) {
+    private int[] solve(int row, int n, int[] ret, boolean[][] visited) {
         if (row == n) {
             ++ret[0];
-            return;
-        }
-        for (int col = 0; col < n; col++) {
-            if (!visited[0][col] && !visited[1][row - col + n] && !visited[2][row + col]) {
-                visited[0][col] = visited[1][row - col + n] = visited[2][row + col] = true;
-                solve(row + 1, n, ret, visited);
-                visited[0][col] = visited[1][row - col + n] = visited[2][row + col] = false;
+        } else {
+            for (int col = 0; col < n; col++) {
+                // row - col + n：经过 (row, col) 的主对角线（右下 -> 左上）已被占用。
+                // row + col：经过 (row, col) 的副对角线（左下 -> 右上）已被占用。
+                //                 c==3
+                //  r-c+n==5 + . . . .
+                //           . + . . .
+                //           . . + . - r+c==6
+                //           . . . * .
+                //           . . . . .
+                if (!visited[0][col] && !visited[1][row - col + n] && !visited[2][row + col]) {
+                    visited[0][col] = visited[1][row - col + n] = visited[2][row + col] = true;
+                    solve(row + 1, n, ret, visited);
+                    visited[0][col] = visited[1][row - col + n] = visited[2][row + col] = false;
+                }
             }
         }
+        return ret;
     }
 
     /**
@@ -60,10 +69,7 @@ public class LeetCode52 {
      * @return
      */
     public int totalNQueens(int n) {
-        int[] ret = new int[]{0};
-        boolean[][] visited = new boolean[3][2 * n];
-        solve(0, n, ret, visited);
-        return ret[0];
+        return solve(0, n, new int[]{0}, new boolean[3][2 * n])[0];
     }
 
 }
