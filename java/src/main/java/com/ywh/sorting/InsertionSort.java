@@ -27,6 +27,8 @@ public class InsertionSort {
 
         // 对小数组排序效果非常好，当数组长度小于 47 时优于快速排序
         for (int i = 1; i < arr.length; i++) {
+            // ... [j] [i]
+            //         cur
             int j = i - 1, cur = arr[i];
             for (; j >= 0 && arr[j] > cur; j--) {
                 arr[j + 1] = arr[j];

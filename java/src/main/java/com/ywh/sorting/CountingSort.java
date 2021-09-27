@@ -18,7 +18,7 @@ public class CountingSort {
      */
     public void sortLeft2Right(int[] arr) {
         // 确定元素个数：[min, max]。
-        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE, k, start = 0;
+        int min = arr[0], max = arr[0], k, start = 0;
         for (int num : arr) {
             min = Math.min(num, min);
             max = Math.max(num, max);

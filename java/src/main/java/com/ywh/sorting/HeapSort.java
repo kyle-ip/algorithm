@@ -24,28 +24,15 @@ public class HeapSort {
      * @param end
      */
     private void siftDown(int[] arr, int i, int end) {
-        int parent = i, child = 2 * parent + 1;
-        while (child <= end) {
-            if (child + 1 <= end && arr[child + 1] > arr[child]) {
-                child++;
+        for (int p = i, c = 2 * p + 1; c <= end; p = c, c = 2 * p + 1) {
+            if (c + 1 <= end && arr[c + 1] > arr[c]) {
+                c++;
             }
-            if (arr[parent] >= arr[child]) {
+            // i 已经下沉到合适的位置。
+            if (arr[p] >= arr[c]) {
                 break;
             }
-            swap(arr, parent, child);
-            parent = child;
-            child = 2 * parent + 1;
-        }
-    }
-
-    /**
-     * 构造大顶堆
-     *
-     * @param arr
-     */
-    private void buildMaxHeap(int[] arr) {
-        for (int i = (arr.length - 1) / 2; i >= 0; i--) {
-            siftDown(arr, i, arr.length - 1);
+            swap(arr, p, c);
         }
     }
 
@@ -55,7 +42,10 @@ public class HeapSort {
      * @param arr
      */
     public void sort(int[] arr) {
-        buildMaxHeap(arr);
+        // 构建大顶堆：数组的前一半下沉。
+        for (int i = (arr.length - 1) / 2; i >= 0; i--) {
+            siftDown(arr, i, arr.length - 1);
+        }
         for (int end = arr.length - 1; end > 0; end--) {
             // 每次把堆顶元素换到最后，再把交换后的堆顶元素下沉合适的位置
             swap(arr, 0, end);

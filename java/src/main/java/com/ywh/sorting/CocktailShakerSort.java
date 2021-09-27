@@ -22,20 +22,20 @@ public class CocktailShakerSort {
      */
     public void sort(int[] arr) {
         // 控制左右边界，每轮排序向中间缩进
-        int left = 0, right = arr.length - 1;
-        while (left < right) {
-            for (int i = left; i < right; i++) {
+        int l = 0, r = arr.length - 1;
+        while (l < r) {
+            for (int i = l; i < r; i++) {
                 if (arr[i] > arr[i + 1]) {
                     swap(arr, i, i + 1);
                 }
             }
-            --right;
-            for (int i = right; i > left; i--) {
+            --r;
+            for (int i = r; i > l; i--) {
                 if (arr[i - 1] > arr[i]) {
                     swap(arr, i - 1, i);
                 }
             }
-            ++left;
+            ++l;
         }
     }
 
@@ -45,27 +45,23 @@ public class CocktailShakerSort {
      * @param arr
      */
     public void sortEarlyReturn(int[] arr) {
-        int left = 0, right = arr.length - 1;
-        boolean swapped;
-
-        while (left < right) {
-            swapped = false;
-
-            for (int i = left; i < right; ++i) {
+        for (int l = 0, r = arr.length - 1; l < r; ) {
+            boolean swapped = false;
+            for (int i = l; i < r; ++i) {
                 if (arr[i] > arr[i + 1]) {
                     swap(arr, i, i + 1);
                     swapped = true;
                 }
             }
-            --right;
+            --r;
 
-            for (int i = right; i > left; --i) {
+            for (int i = r; i > l; --i) {
                 if (arr[i - 1] > arr[i]) {
                     swap(arr, i - 1, i);
                     swapped = true;
                 }
             }
-            ++left;
+            ++l;
 
             if (!swapped) {
                 return;
@@ -79,27 +75,24 @@ public class CocktailShakerSort {
      * @param arr
      */
     public void sortSkip(int[] arr) {
-        int left = 0, right = arr.length - 1;
-        int newLeft, newRight;
-
-        while (left < right) {
-            newRight = left;
-            for (int i = left; i < right; ++i) {
+        for (int l = 0, r = arr.length - 1; l < r; ) {
+            int newR = l;
+            for (int i = l; i < r; ++i) {
                 if (arr[i] > arr[i + 1]) {
                     swap(arr, i, i + 1);
-                    newRight = i;
+                    newR = i;
                 }
             }
-            right = newRight;
+            r = newR;
 
-            newLeft = right;
-            for (int i = right; i > left; --i) {
+            int newL = r;
+            for (int i = r; i > l; --i) {
                 if (arr[i - 1] > arr[i]) {
                     swap(arr, i - 1, i);
-                    newLeft = i;
+                    newL = i;
                 }
             }
-            left = newLeft;
+            l = newL;
         }
     }
 }

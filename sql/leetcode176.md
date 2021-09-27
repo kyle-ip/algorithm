@@ -1,8 +1,6 @@
-# [第二高的薪水](https://leetcode-cn.com/problems/second-highest-salary)
+# 第二高的薪水
 
-#### [Second Highest Salary](https://leetcode-cn.com/problems/second-highest-salary/)
-
-SQL架构
+SQL 架构
 
 ```sql
 Create table If Not Exists Employee (Id int, Salary int)
@@ -12,8 +10,7 @@ insert into Employee (Id, Salary) values ('2', '200')
 insert into Employee (Id, Salary) values ('3', '300')
 ```
 
-Write a SQL query to get the second highest salary from the `Employee` table.
-
+编写一个 SQL 查询，获取 `Employee` 表中第二高的薪水（Salary） 。
 ```
 +----+--------+
 | Id | Salary |
@@ -24,8 +21,7 @@ Write a SQL query to get the second highest salary from the `Employee` table.
 +----+--------+
 ```
 
-For example, given the above Employee table, the query should return `200` as the second highest salary. If there is no second highest salary, then the query should return `null`.
-
+例如上述 `Employee` 表，SQL查询应该返回 `200` 作为第二高的薪水。如果不存在第二高的薪水，那么查询应返回 `null`。
 ```
 +---------------------+
 | SecondHighestSalary |
@@ -34,24 +30,22 @@ For example, given the above Employee table, the query should return `200` as th
 +---------------------+
 ```
 
+Solution1:
 ```sql
 SELECT (
-    SELECT
-        DISTINCT Salary
-    FROM
-        Employee
-    ORDER BY
-        Salary DESC
-    LIMIT 1 OFFSET 1
-) AS SecondHighestSalary;
+    SELECT DISTINCT Salary
+    FROM Employee
+    ORDER BY Salary DESC
+    LIMIT 1, 1 
+) AS SecondHighestSalary
 ```
 
+Solution2:
 ```sql
-SELECT
-    IFNULL((
-        SELECT DISTINCT Salary
-        FROM Employee
-        ORDER BY Salary DESC
-        LIMIT 1 OFFSET 1
-    ),NULL) AS SecondHighestSalary
+SELECT MAX(Salary) AS SecondHighestSalary
+FROM Employee
+WHERE Salary < (
+    SELECT MAX(Salary)
+    FROM Employee
+)
 ```

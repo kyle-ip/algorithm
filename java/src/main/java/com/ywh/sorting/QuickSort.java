@@ -67,13 +67,15 @@ public class QuickSort {
         }
         // partition
         int i = low, j = high, pivot = nums[i + (j - i) / 2];
-        for (; ; i++, j--) {
+        while (true){
             for (; nums[i] < pivot; i++);
             for (; nums[j] > pivot; j--);
             if (i >= j) {
                 break;
             }
-            swap(nums, i, j);
+            // < pivot     > pivot
+            // ... [i] ... [j] ...
+            swap(nums, i++, j--);
         }
         // 由于最后落点不是基准值，所以递归要包含 j。
         hoareSort(nums, low, j);

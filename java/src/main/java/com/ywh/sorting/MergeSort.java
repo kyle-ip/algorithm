@@ -16,17 +16,17 @@ public class MergeSort {
         int mid = low + (high - low) / 2;
         mergeSort(arr, low, mid, tmp);
         mergeSort(arr, mid + 1, high, tmp);
-        System.arraycopy(arr, low, tmp, low, high - low + 1);
-        int i = low, j = mid + 1;
-        for (int k = low; k <= high; k++) {
-            if (i > mid) {
-                arr[k] = tmp[j++];
-            } else if (j > high) {
-                arr[k] = tmp[i++];
-            } else if (tmp[i] < tmp[j]) {
-                arr[k] = tmp[i++];
+        // System.arraycopy(arr, low, tmp, low, high - low + 1);
+        for (int i = low; i <= high; tmp[i] = arr[i++]);
+        for (int l = low, r = mid + 1, k = low; k <= high; k++) {
+            if (l > mid) {
+                arr[k] = tmp[r++];
+            } else if (r > high) {
+                arr[k] = tmp[l++];
+            } else if (tmp[l] < tmp[r]) {
+                arr[k] = tmp[l++];
             } else {
-                arr[k] = tmp[j++];
+                arr[k] = tmp[r++];
             }
         }
     }
