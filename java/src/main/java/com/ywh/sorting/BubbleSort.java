@@ -82,7 +82,6 @@ public class BubbleSort {
             }
             end = newEnd;
         }
-
     }
 
 }
