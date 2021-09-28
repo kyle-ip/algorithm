@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (354)
+## LeetCode (364)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -26,7 +26,7 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | Greedy              | Line Sweep       | Stack               | Union Find         |
 | Binary Indexed Tree | Segment Tree     | Minimax             | Brainteaser        |
 | Geometry            | Sliding Window   | Topological Sort    | Memoization        |
-| Concurrency         | Quick Select     | Prefix Sum          |                    |
+| Concurrency         | Quick Select     | Prefix Sum          | Database           |
 
 | No.  | Title                                                        | Desc                               | Complexity                                           | Solution                                                     | Difficulty | Tags                                                     |
 | ---- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ | ---------- | -------------------------------------------------------- | -------------------------------------------------------- |
@@ -179,7 +179,17 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 171  | [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number) | Excel 表格的列编号                 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode171.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_171.py) | Easy       | Math                                                   |
 | 172  | [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes) | 阶乘末尾 0 的个数                  | Time: O(log5(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode172.java) [Python](python/src/problem/leetcode/easy/leetcode_172.py) | Easy       | Math                                                   |
 | 173  | [Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator) | 二叉搜索树迭代器 | Time(avg): O(1)<br />Space(avg): O(h) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode173.java) | Medium | Tree<br />Stack<br />Design |
-| 179  | [Largest Number](https://leetcode.com/problems/largest-number/submissions/) | 最大数 | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode179.java)<br />[Python](python/src/problem/leetcode/medium/leetcode_179.py) | Medium | Sort |
+| 175  | [Combine Two Tables](https://leetcode-cn.com/problems/combine-two-tables) | 合并两个表 |  | [SQL](sql/easy/LeetCode175.md) | Easy | Database |
+| 176  | [Second Highest Salary](https://leetcode.com/problems/second-highest-salary) | 第二高的薪水 |  | [SQL](sql/medium/LeetCode176.md) | Medium | Database |
+| 177  | [Nth Highest Salary](https://leetcode.com/problems/nth-highest-salary) | 第 N 高的薪水 |  | [SQL](sql/medium/LeetCode177.md) | Medium | Database |
+| 178  | [Rank Scores](https://leetcode.com/problems/rank-scores) | 分数排名 |  | [SQL](sql/medium/LeetCode178.md) | Medium | Database |
+| 179  | [Largest Number](https://leetcode.com/problems/largest-number/submissions) | 最大数 | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode179.java)<br />[Python](python/src/problem/leetcode/medium/leetcode_179.py) | Medium | Sort |
+| 180  | [Consecutive Numbers](https://leetcode.com/problems/consecutive-numbers) | 连续出现的数字 |  | [SQL](sql/medium/LeetCode180.md) | Medium | Database |
+| 181  | [Employees Earning More Than Their Managers](https://leetcode.com/problems/employees-earning-more-than-their-managers) | 超过经理收入的员工 |  | [SQL](sql/easy/LeetCode181.md) | Easy | Database |
+| 182  | [Duplicate Emails](https://leetcode.com/problems/duplicate-emails) | 查找重复的电子邮箱 |  | [SQL](sql/easy/LeetCode182.md) | Easy | Database |
+| 183  | [Customers Who Never Order](https://leetcode.com/problems/customers-who-never-order) | 从不订购的客户 |  | [SQL](sql/easy/LeetCode183.md) | Easy | Database |
+| 184  | [Department Highest Salary](https://leetcode.com/problems/department-highest-salary) | 部门工资最高的员工 |  | [SQL](sql/easy/LeetCode181.md) | Easy | Database |
+| 185  | [Department Top Three Salaries](https://leetcode.com/problems/department-top-three-salaries) | 部门工资前三高的所有员工 |  | [SQL](sql/hard/LeetCode185.md) | Easy | Database |
 | 188  | [Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv) | 买卖股票的最佳时机 IV | Time: O(n^2)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode188.java) | Hard | Dynamic Programming |
 | 189  | [Rotate Array](https://leetcode.com/problems/rotate-array/)  | 旋转数组                           | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode189.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_189.py) | Easy       | Array                                                  |
 | 190  | [Reverse Bits](https://leetcode.com/problems/reverse-bits/) | 翻转整数的二进制位 | Time: O(1)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode190.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_190.py) | Easy | Bit Manipulation |
