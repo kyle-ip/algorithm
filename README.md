@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (365)
+## LeetCode (366)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -189,12 +189,13 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 182  | [Duplicate Emails](https://leetcode.com/problems/duplicate-emails) | 查找重复的电子邮箱 |  | [SQL](sql/easy/LeetCode182.md) | Easy | Database |
 | 183  | [Customers Who Never Order](https://leetcode.com/problems/customers-who-never-order) | 从不订购的客户 |  | [SQL](sql/easy/LeetCode183.md) | Easy | Database |
 | 184  | [Department Highest Salary](https://leetcode.com/problems/department-highest-salary) | 部门工资最高的员工 |  | [SQL](sql/easy/LeetCode181.md) | Easy | Database |
-| 185  | [Department Top Three Salaries](https://leetcode.com/problems/department-top-three-salaries) | 部门工资前三高的所有员工 |  | [SQL](sql/hard/LeetCode185.md) | Easy | Database |
+| 185  | [Department Top Three Salaries](https://leetcode.com/problems/department-top-three-salaries) | 部门工资前三高的所有员工 |  | [SQL](sql/hard/LeetCode185.md) | Hard | Database |
 | 188  | [Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv) | 买卖股票的最佳时机 IV | Time: O(n^2)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode188.java) | Hard | Dynamic Programming |
 | 189  | [Rotate Array](https://leetcode.com/problems/rotate-array)  | 旋转数组                           | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode189.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_189.py) | Easy       | Array                                                  |
 | 190  | [Reverse Bits](https://leetcode.com/problems/reverse-bits) | 翻转整数的二进制位 | Time: O(1)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode190.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_190.py) | Easy | Bit Manipulation |
 | 191  | [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits) | 二进制中 1 的个数                  | Time: O(m)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode191.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_191.py) | Easy       | Bit Manipulation                                       |
 | 196  | [Delete Duplicate Emails](https://leetcode.com/problems/delete-duplicate-emails) | 删除重复的电子邮箱                  |  | [SQL](sql/easy/LeetCode196.md) | Easy       | Database                                       |
+| 197  | [Rising Temperature](https://leetcode.com/problems/rising-temperature) | 上升的温度                  |  | [SQL](sql/easy/LeetCode197.md) | Easy       | Database                                       |
 | 198  | [House Robber](https://leetcode.com/problems/house-robber)  | 打家劫舍                       | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode198.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_198.py)<br />[Go](go/src/problem/leetcode198/rob.go) | Easy       | Dynamic Programming                                    |
 | 199  | [Binary Tree Right Side View](https://leetcode.com/problems/binabinary-tree-right-side-viewry-tree-right-side-view/submissions) | 二叉树的右视图 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode199.java)<br />[Python](python/src/problem/leetcode/medium/leetcode_199.py) | Medium | Tree<br />BFS<br />DFS |
 | 200  | [Number of Islands](https://leetcode.com/problems/number-of-islands) | 岛屿数量                           | Time: O(m\*n)<br />Space: O(m\*n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode200.java)<br />[Go](go/src/problem/leetcode200/numIslands.go) | Medium     | DFS<br />BFS                                              |
