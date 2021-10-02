@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (367)
+## LeetCode (369)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -307,6 +307,8 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 486  | [Predict the Winner](https://leetcode.com/problems/predict-the-winner) | 预测赢家                           | Time: O(n^2)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode486.java) | Medium     | Minimax<br />Dynamic Programming                          |
 | 493  | [Reverse Pairs](https://leetcode.com/problems/reverse-pairs) | 翻转对 | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode493.java) | Hard | Binary Search<br />Divided and Conquer<br />Sort<br />Binary Indexed Tree<br />Segment Tree |
 | 509  | [Fibonacci Number](https://leetcode.com/problems/fibonacci-number) | 斐波那契数                  | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode509.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_509.py) | Easy       | Array<br />Dynamic Programming                            |
+| 511  | [Game Play Analysis I](https://leetcode.com/problems/game-play-analysis-i) | 游戏玩法分析 I                  |  | [SQL](sql/easy/LeetCode511) | Easy       | Database                            |
+| 512  | [Game Play Analysis II](https://leetcode.com/problems/game-play-analysis-ii) | 游戏玩法分析 II                  |  | [SQL](sql/easy/LeetCode512) | Easy       | Database                            |
 | 518  | [Coin Change 2](https://leetcode.com/problems/coin-change-2) | 零钱兑换 II            | Time: O(n\*sum)<br />Space: O(sum) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode518.java) | Medium     | Dynamic Programming                                    |
 | 523  | [Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum) | 连续的子数组和 | Time: O(n)<br />Space: O(k) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode523.java)<br />[Python](python/src/problem/leetcode/medium/leetcode_523.py) | Medium | Math |
 | 528  | [Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight) | 按权重随机选择 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode528.java) | Medium | Prefix Sum<br />Binary Search<br />Prefix Sum |
