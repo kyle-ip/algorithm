@@ -39,23 +39,15 @@ public class HeapSort {
     }
 
     /**
-     * 构造大顶堆
-     *
-     * @param arr
-     */
-    private void buildMaxHeap(int[] arr) {
-        for (int i = (arr.length - 1) / 2; i >= 0; i--) {
-            siftDown(arr, i, arr.length - 1);
-        }
-    }
-
-    /**
      * Time: O(n*log(n)), Space: O(1)
      *
      * @param arr
      */
     public void sort(int[] arr) {
-        buildMaxHeap(arr);
+        // 构造大顶堆。
+        for (int i = (arr.length - 1) / 2; i >= 0; i--) {
+            siftDown(arr, i, arr.length - 1);
+        }
         for (int end = arr.length - 1; end > 0; end--) {
             // 每次把堆顶元素换到最后，再把交换后的堆顶元素下沉合适的位置
             swap(arr, 0, end);
