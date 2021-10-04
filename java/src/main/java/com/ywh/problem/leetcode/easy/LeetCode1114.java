@@ -40,11 +40,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class LeetCode1114 {
 
-    class Foo {
+    static class Foo {
 
-        private AtomicInteger firstJobDone = new AtomicInteger(0);
+        private final AtomicInteger firstJobDone = new AtomicInteger(0);
 
-        private AtomicInteger secondJobDone = new AtomicInteger(0);
+        private final AtomicInteger secondJobDone = new AtomicInteger(0);
 
         public Foo() {}
 

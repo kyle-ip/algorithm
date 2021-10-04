@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (371)
+## LeetCode (372)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -393,7 +393,8 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 1046 | [Last Stone Weight](https://leetcode.com/problems/last-stone-weight) | 最后一块石头的重量 | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1046.java) | Easy | Greedy<br />Heap |
 | 1047 | [Remove All Adjacent Duplicates In String](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string) | 删除字符串中的所有相邻重复项 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1047.java) | Easy | Stack |
 | 1091 | [Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix) | 二进制矩阵中的最短路径 | Time: O(R\*C)<br />Space: O(R\*C) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode1091.java) | Medium | BFS |
-| 1114 | [Print in Order](https://leetcode.com/problems/print-in-order) | 按序打印 |  | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode1091.java) | Easy | Concurrency |
+| 1114 | [Print in Order](https://leetcode.com/problems/print-in-order) | 按序打印 |  | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1114.java) | Easy | Concurrency |
+| 1116 | [Print Zero Even Odd](https://leetcode.com/problems/print-zero-even-odd) | 打印零与奇偶数 |  | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode1116.java) | Medium | Concurrency |
 | 1143 | [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence) | 最长公共子序列 |  | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode1143.java) | Medium | Dynamic Programming |
 | 1179 | [Reformat Department Table](https://leetcode.com/problems/reformat-department-table) | 重新格式化部门表 |  | [SQL](sql/easy/LeetCode1179.md) | Easy | Database |
 | 1232 | [Check If It Is a Straight Line](https://leetcode.com/problems/check-if-it-is-a-straight-line) | 缀点成线 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1232.java) | Easy | Math<br />Geometry<br />Array |

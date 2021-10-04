@@ -1,6 +1,5 @@
 package com.ywh.problem.leetcode.easy;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,37 +58,6 @@ public class LeetCode1 {
             }
             // 不存在则以当前元素为 Key、下标为 Value 存入 Map。
             cache.put(nums[i], i);
-        }
-        return new int[]{-1, -1};
-    }
-
-    /**
-     * 先排序，再用双指针法求解。
-     * 这种解法会乱序，忽略。
-     *
-     * Time: O(nlog(n)), Space: O(1)
-     *
-     * @param nums
-     * @param target
-     * @return
-     */
-    public int[] getTwoSumToTarget3(int[] nums, int target) {
-
-        // O(nlog(n))
-        Arrays.sort(nums);
-        int left = 0, right = nums.length - 1, sum;
-
-        // O(n)
-        while (left < right) {
-            sum = nums[left] + nums[right];
-            if (sum == target) {
-                return new int[]{left, right};
-            }
-            if (sum < target) {
-                left++;
-            } else {
-                right--;
-            }
         }
         return new int[]{-1, -1};
     }

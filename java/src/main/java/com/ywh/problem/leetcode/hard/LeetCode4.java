@@ -135,19 +135,17 @@ public class LeetCode4 {
 
     /**
      * 划分数组：
-     *
-     * 在位置 i 为把长度为 m 的数组 A 分成两个部分，共有 m + 1 种划分方法。
+     * 在位置 i 为把长度为 m 的数组 A 分成两个部分，共有 m+1 种划分方法。
      *      leftA: A[0:i-1], rightA: A[i:m-1]
-     *
-     * 同理可以划分长度为 n 的数组 B 为 leftB 和 rightB，把 leftA、leftB 放在一起，rightA、rightB 放在一起。
+     * 划分 A、B 两个数组，并把 leftA、leftB 放在一起，rightA、rightB 放在一起。
      *           left_part          |         right_part
      *     A[0], A[1], ..., A[i-1]  |  A[i], A[i+1], ..., A[m-1]
      *     B[0], B[1], ..., B[j-1]  |  B[j], B[j+1], ..., B[n-1]
      *
-     * 如果 (n + m) % 2 == 0，则可以把 left_part 和 right_part 等分成两部分，而且有 max(left_part) <= min(right_part)
-     * 中位数即 (max(left_part) + min(right_part)) / 2
-     * 如果 (n + m) % 2 == 1，假设 len(left_part) == len(right_part) + 1，而且有 max(left_part) <= min(right_part)
-     * 中位数即 max(left_part)
+     * 如果 (n + m) % 2 == 0，则可以把 left_part 和 right_part 等分成两部分，且有 max(left_part) <= min(right_part)
+     * 中位数 (max(left_part) + min(right_part)) / 2
+     * 如果 (n + m) % 2 == 1，假设 len(left_part) == len(right_part) + 1，且有 max(left_part) <= min(right_part)
+     * 中位数 max(left_part)
      *
      * 已知：
      *      i + j == m - i + n - j           m + n 为偶数
@@ -177,7 +175,7 @@ public class LeetCode4 {
      */
     public double findMedianSortedArrays3(int[] nums1, int[] nums2) {
 
-        // 如果 nums1 长度大于 nums2，则交换调用。
+        // 如果 nums1 长度大于 nums2，则交换调用，确保 nums1 较长。
         if (nums1.length > nums2.length) {
             return findMedianSortedArrays3(nums2, nums1);
         }
