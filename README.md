@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (369)
+## LeetCode (371)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -313,10 +313,12 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 523  | [Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum) | 连续的子数组和 | Time: O(n)<br />Space: O(k) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode523.java)<br />[Python](python/src/problem/leetcode/medium/leetcode_523.py) | Medium | Math |
 | 528  | [Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight) | 按权重随机选择 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode528.java) | Medium | Prefix Sum<br />Binary Search<br />Prefix Sum |
 | 530  | [Minimum Absolute Difference in BST](https://leetcode.com/problems/convert-bst-to-greater-tree) | 二叉搜索树的最小绝对差             | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode530.java) | Easy       | Tree                                                   |
+| 534  | [Game Play Analysis III](https://leetcode.com/problems/game-play-analysis-iii) | 游戏玩法分析 III                  |  | [SQL](sql/medium/LeetCode534) | Medium       | Database                            |
 | 538  | [Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree) | 把二叉搜索树转换为累加树             | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode538.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_538.py) | Easy       | Tree                                                   |
 | 540  | [Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array) | 有序数组中的单身数字               | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode540.java) | Medium     | Bit Manipulation<br />Binary Search                       |
 | 543  | [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree) | 二叉树的直径                       | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode543.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_543.py)<br />[Go](go/src/problem/leetcode543/diameterOfBinaryTree.go) | Easy       | Tree                                                   |
 | 547  | [Number of Provinces](https://leetcode.com/problems/number-of-provinces) | 省份数量 | Time: O(n^2)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode547.java) | Medium | DFS<br />Union Find |
+| 550  | [Game Play Analysis IV](https://leetcode.com/problems/game-play-analysis-iv) | 游戏玩法分析 IV                  |  | [SQL](sql/medium/LeetCode550) | Medium       | Database                            |
 | 554  | [Brick Wall](https://leetcode-cn.com/problems/brick-wall) | 砖墙                           | Time: O(m\*n)<br />Space: O(m\*n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode554.java) | Medium       | Hash Table                                                 |
 | 556  | [Next Greater Element III](https://leetcode.com/problems/next-greater-element-iii) | 下一个更大元素 III                           | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode556.java) | Medium       | String                                                 |
 | 557  | [Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii) | 反转字符串中的单词 III                           | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode557.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_557.py) | Easy       | String                                                 |
