@@ -19,7 +19,7 @@ import java.util.List;
  *      输入：nums = [], target = 0
  *      输出：[]
  * 提示：
- *      0 <= nums.length <= 200
+ *      1 <= nums.length <= 200
  *      -10^9 <= nums[i] <= 10^9
  *      -10^9 <= target <= 10^9
  *
@@ -37,9 +37,6 @@ public class LeetCode18 {
      */
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> ret = new ArrayList<>();
-        if (nums == null || nums.length < 4) {
-            return ret;
-        }
         Arrays.sort(nums);
 
         // 第 1 个数
@@ -59,15 +56,14 @@ public class LeetCode18 {
                 }
 
                 // 在最内层循环中使用双指针寻找第 3 和第 4 个数
-                int l = 0, r = k - 1, newTarget = target - nums[k] - nums[p];
-                while (l < r) {
-                    if (nums[l] + nums[r] == newTarget) {
+                for (int l = 0, r = k - 1; l < r;) {
+                    if (nums[l] + nums[r] + nums[k] + nums[p] == target) {
                         ret.add(Arrays.asList(nums[l], nums[r], nums[k], nums[p]));
                         for (; l < r && nums[l + 1] == nums[l]; l++);
                         l++;
                         for (; l < r && nums[r - 1] == nums[r]; r--);
                         r--;
-                    } else if (nums[l] + nums[r] < newTarget) {
+                    } else if (nums[l] + nums[r] + nums[k] + nums[p] < target) {
                         l++;
                     } else {
                         r--;

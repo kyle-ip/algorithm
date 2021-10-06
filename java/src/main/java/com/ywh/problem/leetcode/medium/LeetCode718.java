@@ -81,8 +81,8 @@ public class LeetCode718 {
      * @return
      */
     public int maxLength(int[] nums1, int[] nums2, int startA, int startB) {
-        int ret = 0, m = nums1.length, n = nums2.length;
-        for (int i = 0, len = 0; startA + i < m && startB + i < n; i++) {
+        int ret = 0;
+        for (int i = 0, len = 0; startA + i < nums1.length && startB + i < nums2.length; i++) {
             len = nums1[startA + i] == nums2[startB + i]? len + 1: 0;
             ret = Math.max(ret, len);
         }

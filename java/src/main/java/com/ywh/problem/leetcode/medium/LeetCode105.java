@@ -51,7 +51,6 @@ public class LeetCode105 {
         //     2   4
         //        / \       前序遍历：1, 2, 4, 8, 16
         //       8   16     中序遍历：2, 1, 8, 4, 16
-
         if (preStartIdx > preEndIdx) {
             return null;
         }

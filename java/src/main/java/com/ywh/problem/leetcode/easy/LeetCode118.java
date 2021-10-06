@@ -13,12 +13,13 @@ import java.util.*;
  *      输出:
  *      [
  *           [1],
- *          [1,1],
- *         [1,2,1],
- *        [1,3,3,1],
- *       [1,4,6,4,1]
+ *           [1,1],
+ *           [1,2,1],
+ *           [1,3,3,1],
+ *           [1,4,6,4,1]
  *      ]
- *
+ * 提示:
+ *      1 <= numRows <= 30
  * @author ywh
  * @since 2/22/2019
  */
@@ -32,9 +33,6 @@ public class LeetCode118 {
      */
     public List<List<Integer>> generatePascalTriangle(int numRows) {
         List<List<Integer>> ret = new ArrayList<>();
-        if (numRows < 1) {
-            return ret;
-        }
         // 一共 n 层。
         for (int i = 0; i < numRows; i++) {
             // 每层数组的值初始化为 0，长度为 i+1。

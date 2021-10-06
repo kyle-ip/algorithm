@@ -42,19 +42,20 @@ public class LeetCode862 {
         }
 
         // 找到 l 与 r，使得 P[r] - P[l] >= K，即 l 与 r 之间的和至少为 K。
+
         int ret = n + 1;
         // opt(y) candidates, as indices of P
 
-        // 使用队列存放左下标（模拟滑动窗口的左边界）
+        // 使用队列存放右边下标（模拟滑动窗口的右边界）
         Deque<Integer> deque = new LinkedList<>();
 
         for (int r = 0; r < prefixSum.length; ++r) {
-            // Want opt(y) = largest x with P[x] <= P[y] - K;
-            // 右判断条件：队列非空，且 r 的前缀和小于等于队尾值的前缀和，则移除队尾值。
+            // 队列非空，且 r 的前缀和小于等于队尾值的前缀和，则移除队尾值。
+            // 表示队尾和 r 之间的下标范围内的数有负值，移除。
             while (!deque.isEmpty() && prefixSum[r] <= prefixSum[deque.getLast()]) {
                 deque.removeLast();
             }
-            // 左判断条件：队列非空，且 r 的前缀和大于等于队首值的前缀和 + K，则更新结果值，并移除队首值。
+            // 队列非空，且 r 的前缀和大于等于队首值的前缀和 + K，则更新结果值，并移除队首值。
             while (!deque.isEmpty() && prefixSum[r] >= prefixSum[deque.getFirst()] + K) {
                 ret = Math.min(ret, r - deque.removeFirst());
             }

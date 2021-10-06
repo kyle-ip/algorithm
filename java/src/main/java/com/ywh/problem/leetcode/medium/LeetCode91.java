@@ -135,18 +135,18 @@ public class LeetCode91 {
         //      [1]    [0]    [5]    [9]    [2]
         //      prev   cur    next
         int prev = 1, cur = s.charAt(0) != '0' ? 1 : 0;
-        for (int i = 2; i <= s.length(); ++i) {
+        for (int i = 1; i < s.length(); ++i) {
             int next = 0;
 
             //      [1]    [1]    [i]    [9]    [2]
-            //     first  second third
+            //      prev   cur    next
 
             //      [1]    [0]    [i]    [9]    [2]
-            //     first  second third
-            if (s.charAt(i - 1) != '0') {
+            //      prev   cur    next
+            if (s.charAt(i) != '0') {
                 next += cur;
             }
-            if (isValidTwoDigit(s.charAt(i - 2), s.charAt(i - 1))) {
+            if (isValidTwoDigit(s.charAt(i - 1), s.charAt(i))) {
                 next += prev;
             }
             prev = cur;

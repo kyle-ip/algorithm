@@ -112,9 +112,8 @@ public class LeetCode92 {
             return head;
         }
         ListNode dummy = new ListNode(0, head), prev = dummy;
-        // 找到第一个需要反转的节点的前一个节点 prev。
+        // 找到第一个需要反转的节点的前一个节点 prev，不足 m 个，直接返回。
         for (int i = 0; prev.next != null && i < m - 1; i++, prev = prev.next);
-        // 不足 m 个，直接返回。
         if (prev.next == null) {
             return head;
         }

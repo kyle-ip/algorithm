@@ -20,17 +20,17 @@ public class LeetCode386 {
      *
      * @param ret
      * @param num
-     * @param max
+     * @param n
      */
-    private List<Integer> lexicalOrderRecursive(List<Integer> ret, int num, int max) {
+    private List<Integer> lexicalOrderRecursive(List<Integer> ret, int num, int n) {
         if (num > 0) {
             ret.add(num);
         }
         // 循环中递归，相当于把当前循环执行到底再执行下一轮循环（比如当前循环为 1，则不断 n * 10 + 1 到底再返回）
-        for (int i = 0; i <= 9 && num * 10 + i <= max; i++) {
+        for (int i = 0; i <= 9 && num * 10 + i <= n; i++) {
             // 跳过 0 * 10 + 0，即至少从 1、10 ... 开始。
             if (num != 0 || i != 0) {
-                lexicalOrderRecursive(ret, num * 10 + i, max);
+                lexicalOrderRecursive(ret, num * 10 + i, n);
             }
         }
         return  ret;

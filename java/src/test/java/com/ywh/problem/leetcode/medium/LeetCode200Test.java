@@ -29,7 +29,7 @@ class LeetCode200Test {
             {'0', '0', '0'},
             {'0', '0', '0'}
         };
-        assertEquals(0, solution.numberOfIslands(grid));
+        assertEquals(0, solution.numIslands(grid));
     }
 
     @Test
@@ -40,7 +40,7 @@ class LeetCode200Test {
             {'0', '0', '1', '0', '0'},
             {'0', '0', '0', '0', '0'}
         };
-        assertEquals(1, solution.numberOfIslands(grid));
+        assertEquals(1, solution.numIslands(grid));
     }
 
     @Test
@@ -52,7 +52,7 @@ class LeetCode200Test {
             {'0', '0', '1', '0', '0'},
             {'0', '0', '0', '1', '1'}
         };
-        assertEquals(3, solution.numberOfIslands(grid));
+        assertEquals(3, solution.numIslands(grid));
     }
 
 }

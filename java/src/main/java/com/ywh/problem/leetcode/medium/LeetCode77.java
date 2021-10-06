@@ -21,6 +21,9 @@ import java.util.List;
  *            [1,3],
  *            [1,4],
  *          ]
+ * 提示：
+ *      1 <= n <= 20
+ *      1 <= k <= n
  *
  * @author ywh
  * @since 07/04/2020
@@ -62,9 +65,6 @@ public class LeetCode77 {
      * @return
      */
     public List<List<Integer>> combineRecursive(int n, int k) {
-        if (k > n) {
-            return Collections.emptyList();
-        }
         return combine(n, k, 1, new LinkedList<>(), new ArrayList<>());
     }
 

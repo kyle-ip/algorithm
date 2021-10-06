@@ -39,24 +39,22 @@ public class LeetCode113 {
      * @param ret
      */
     private List<List<Integer>> pathSum(TreeNode root, int targetSum, LinkedList<Integer> path, List<List<Integer>> ret) {
-        if (root == null) {
-            return ret;
+        if (root != null) {
+            // 把当前节点加入当前路径。
+            path.add(root.val);
+
+            // 路径和符合要求。
+            if (root.left == null && root.right == null && root.val == targetSum) {
+                ret.add(new ArrayList<>(path));
+            }
+
+            // 递归调用左右子树。
+            pathSum(root.left, targetSum - root.val, path, ret);
+            pathSum(root.right, targetSum - root.val, path, ret);
+
+            // 移除最后一个元素。
+            path.removeLast();
         }
-
-        // 把当前节点加入当前路径。
-        path.add(root.val);
-
-        // 路径和符合要求。
-        if (root.left == null && root.right == null && root.val == targetSum) {
-            ret.add(new ArrayList<>(path));
-        }
-
-        // 递归调用左右子树。
-        pathSum(root.left, targetSum - root.val, path, ret);
-        pathSum(root.right, targetSum - root.val, path, ret);
-
-        // 移除最后一个元素。
-        path.removeLast();
         return ret;
     }
 

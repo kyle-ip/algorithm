@@ -45,7 +45,7 @@ public class LeetCode40 {
      * @param elem
      * @param ret
      */
-    private void combSum(int[] nums, int target, int start, LinkedList<Integer> elem, List<List<Integer>> ret) {
+    private List<List<Integer>> combSum(int[] nums, int target, int start, LinkedList<Integer> elem, List<List<Integer>> ret) {
         if (target == 0) {
             ret.add(new ArrayList<>(elem));
         } else if (target > 0) {
@@ -60,6 +60,7 @@ public class LeetCode40 {
                 elem.removeLast();
             }
         }
+        return ret;
     }
 
     /**
@@ -76,8 +77,7 @@ public class LeetCode40 {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> ret = new ArrayList<>();
         Arrays.sort(candidates);
-        combSum(candidates, target, 0, new LinkedList<>(), ret);
-        return ret;
+        return combSum(candidates, target, 0, new LinkedList<>(), ret);
     }
 
 }

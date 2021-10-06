@@ -21,6 +21,10 @@ package com.ywh.problem.leetcode.easy;
  * 说明:
  *      尽可能想出更多的解决方案，至少有三种不同的方法可以解决这个问题。
  *      要求使用空间复杂度为 O(1) 的 原地 算法。
+ * 提示：
+ *      1 <= nums.length <= 2 * 10^4
+ *      -2^31 <= nums[i] <= 2^31 - 1
+ *      0 <= k <= 10^5
  *
  * @author ywh
  * @since 2/17/2019
@@ -35,9 +39,6 @@ public class LeetCode189 {
      * @param k
      */
     public void rotateByCopy(int[] nums, int k) {
-        if (nums == null || nums.length == 0 || k <= 0) {
-            return;
-        }
 
         int n = nums.length, m = k % n, i = 0;
 
@@ -53,9 +54,7 @@ public class LeetCode189 {
         }
 
         // 把辅助数组的所有元素复制到原数组
-        for (int j = 0; j < n; j++) {
-            nums[j] = tmp[j];
-        }
+        System.arraycopy(tmp, 0, nums, 0, n);
     }
 
     /**
@@ -81,10 +80,6 @@ public class LeetCode189 {
      * @param k
      */
     public void rotateBySwap(int[] nums, int k) {
-
-        if (nums == null || nums.length == 0 || k <= 0) {
-            return;
-        }
 
         int n = nums.length, m = k % n;
 

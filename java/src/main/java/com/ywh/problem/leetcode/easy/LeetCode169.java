@@ -17,6 +17,7 @@ import java.util.Map;
  *      输出: 2
  * 进阶：
  *      尝试设计时间复杂度为 O(n)、空间复杂度为 O(1) 的算法解决此问题。
+ *
  * @author ywh
  * @since 2/17/2019
  */
@@ -66,11 +67,9 @@ public class LeetCode169 {
                 cnt++;
             }
             // 否则 cnt--，减到 0 则重置。
-            else {
-                if (--cnt == 0) {
-                    cnt = 1;
-                    cur = nums[i];
-                }
+            else if (--cnt == 0) {
+                cnt = 1;
+                cur = nums[i];
             }
         }
         return cur;

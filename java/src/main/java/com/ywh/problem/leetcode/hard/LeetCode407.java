@@ -2,6 +2,7 @@ package com.ywh.problem.leetcode.hard;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 /**
  * 接雨水 II
@@ -38,7 +39,7 @@ public class LeetCode407 {
         int[][] dirs = new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
         // 最小堆存放矩阵（比较的值为高度），每次返回高度最低的坐标，处理其四周。
-        PriorityQueue<int[]> queue = new PriorityQueue<>(Comparator.comparingInt(o -> o[2]));
+        Queue<int[]> queue = new PriorityQueue<>(Comparator.comparingInt(o -> o[2]));
 
         // 处理第一列、最后一列。
         for (int i = 0; i < n; i++) {
@@ -65,7 +66,7 @@ public class LeetCode407 {
 
                     // 下一个坐标高度比当前坐标小，可积水。
                     if (elem[2] > heightMap[nextX][nextY]) {
-                        ret += (elem[2] - heightMap[nextX][nextY]);
+                        ret += elem[2] - heightMap[nextX][nextY];
                     }
                     visited[nextX][nextY] = true;
 

@@ -16,6 +16,9 @@ import java.util.List;
  *      给定链表 1->2->3->4, 重新排列为 1->4->2->3.
  * 示例 2:
  *      给定链表 1->2->3->4->5, 重新排列为 1->5->2->4->3.
+ * 提示：
+ *      链表的长度范围为 [1, 5 * 10^4]
+ *      1 <= node.val <= 1000
  *
  * @author ywh
  * @since 2020/10/15/015
@@ -30,9 +33,6 @@ public class LeetCode143 {
      * @param head
      */
     public void reorderListWithArray(ListNode head) {
-        if (head == null || head.next == null) {
-            return;
-        }
 
         // 使用数组缓存链表节点，以便用下标访问。
         List<ListNode> list = new ArrayList<>();
@@ -119,9 +119,6 @@ public class LeetCode143 {
      * @param head
      */
     public void reorderListReverse(ListNode head) {
-        if (head == null || head.next == null) {
-            return;
-        }
         // 找中点，把链表断开成两个：
         // [1] -> [2] -> [3] -> [4]    =>    [1] -> [2]    [3] -> [4]
         //       slow   fast                       slow   newHead

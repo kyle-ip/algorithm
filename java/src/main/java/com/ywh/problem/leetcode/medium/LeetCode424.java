@@ -33,13 +33,13 @@ public class LeetCode424 {
      * @return
      */
     public int characterReplacement(String s, int k) {
-        int max = 0, l = 0, r = 0;
+        int maxCnt = 0, l = 0, r = 0;
         int[] hash = new int[26];
 
         // 右指针向后移动，统计该字符出现次数，保存字符出现频率的最大值。
         for (; r < s.length(); r++) {
             // max 为出现次数最多的字符的出现次数。
-            max = Math.max(max, ++hash[s.charAt(r) - 'A']);
+            maxCnt = Math.max(maxCnt, ++hash[s.charAt(r) - 'A']);
 
             // 当最大值加上 k，小于 l 和 r（窗口）的距离，表示即使把最多 max 个字符 c、再加上从其他字符替换为 c 的 k 个，仍然不足以填满从 l 到 r 的距离。
             // 需要从左边对窗口进行收缩，比如 k == 1：
@@ -47,7 +47,7 @@ public class LeetCode424 {
             // l           r
             // max == 3，max + k == 4，r - l + 1 == 5
             // 此时 l 计数 -1 并右移。
-            if (max + k <= r - l) {
+            if (maxCnt + k <= r - l) {
                 hash[s.charAt(l) - 'A']--;
                 l++;
             }

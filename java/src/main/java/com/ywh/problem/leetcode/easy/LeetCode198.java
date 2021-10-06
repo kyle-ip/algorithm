@@ -17,7 +17,7 @@ package com.ywh.problem.leetcode.easy;
  *      解释：偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。
  *           偷窃到的最高金额 = 2 + 9 + 1 = 12 。
  * 提示：
- *      0 <= nums.length <= 100
+ *      1 <= nums.length <= 100
  *      0 <= nums[i] <= 400
  *
  * @author ywh
@@ -32,9 +32,6 @@ public class LeetCode198 {
      * @return
      */
     public int rob(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
         if (nums.length == 1) {
             return nums[0];
         }

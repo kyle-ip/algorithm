@@ -18,7 +18,13 @@ package com.ywh.problem.leetcode.easy;
  * 示例 4:
  *      输入: [1,3,5,6], 0
  *      输出: 0
- * 
+ * 提示:
+ *
+ *      1 <= nums.length <= 10^4
+ *      -10^4 <= nums[i] <= 10^4
+ *      nums 为无重复元素的升序排列数组
+ *      -10^4 <= target <= 10^4
+ *
  * @author ywh
  * @since 2/17/2019
  */
@@ -32,9 +38,6 @@ public class LeetCode35 {
      * @return
      */
     public int binarySearchInsertPosition(int[] nums, int target) {
-        if (nums.length <= 0) {
-            return -1;
-        }
         int low = 0, high = nums.length - 1;
 
         while (low <= high) {

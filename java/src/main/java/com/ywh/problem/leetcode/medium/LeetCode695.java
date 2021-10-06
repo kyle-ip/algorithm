@@ -28,7 +28,11 @@ import java.util.LinkedList;
  *      [[0,0,0,0,0,0,0,0]]
  *      对于上面这个给定的矩阵, 返回 0。
  * 注意: 给定的矩阵grid 的长度和宽度都不超过 50。
- *
+ * 提示：
+ *      m == grid.length
+ *      n == grid[i].length
+ *      1 <= m, n <= 50
+ *      grid[i][j] 为 0 或 1
  * @author ywh
  * @since 2020/11/12/012
  */
@@ -43,9 +47,6 @@ public class LeetCode695 {
      * @return
      */
     public int maxAreaOfIsland(int[][] grid) {
-        if (grid == null || grid.length == 0 || grid[0] == null || grid[0].length == 0) {
-            return 0;
-        }
         int row = grid.length, col = grid[0].length;
 
         // 以邻接表降维存储图的节点和边的关系。
@@ -131,9 +132,6 @@ public class LeetCode695 {
      * @return
      */
     public int maxAreaOfIsland2(int[][] grid) {
-        if (grid == null || grid.length == 0 || grid[0] == null || grid[0].length == 0) {
-            return 0;
-        }
         int row = grid.length, col = grid[0].length, ret = 0;
         boolean[][] visited = new boolean[row][col];
         int[][] dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
@@ -170,9 +168,6 @@ public class LeetCode695 {
      * @return
      */
     public int maxAreaOfIsland3(int[][] grid) {
-        if (grid == null || grid.length == 0 || grid[0] == null || grid[0].length == 0) {
-            return 0;
-        }
         int ret = 0;
         for (int r = 0; r < grid.length; r++) {
             for (int c = 0; c < grid[0].length; c++) {
@@ -227,9 +222,6 @@ public class LeetCode695 {
      * @return
      */
     public int maxAreaOfIsland4(int[][] grid) {
-        if (grid == null || grid.length == 0 || grid[0] == null || grid[0].length == 0) {
-            return 0;
-        }
         int row = grid.length, col = grid[0].length;
         int[][] dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
         UnionFind uf = new UnionFind(row * col);
