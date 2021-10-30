@@ -15,7 +15,7 @@ insert into Address (AddressId, PersonId, City, State) values ('2', '3', 'Leetco
 表1: `Person`
 ```
 +-------------+---------+
-| 列名         | 类型     |
+| 列名         | 类型    |
 +-------------+---------+
 | PersonId    | int     |
 | FirstName   | varchar |
