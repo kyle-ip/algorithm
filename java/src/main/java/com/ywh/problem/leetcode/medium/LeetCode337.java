@@ -56,7 +56,7 @@ public class LeetCode337 {
         }
         int[] left = dfs(root.left), right = dfs(root.right);
 
-        // 当前节点没有被打劫（其左右两个分支都可以取，取其两个分支两种情况较大者之和和）、当前节点被打劫（取当前节点，以及左右节点此前未取的状态）。
+        // 当前节点没有被打劫（取其两个分支两种情况较大者之和）、当前节点被打劫（取当前节点，以及左右节点此前未取的状态）。
         int x0 = Math.max(left[0], left[1]) + Math.max(right[0], right[1]), x1 = root.val + left[0] + right[0];
 
         return new int[]{x0, x1};

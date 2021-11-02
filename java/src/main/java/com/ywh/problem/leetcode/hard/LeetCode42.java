@@ -24,7 +24,7 @@ import com.ywh.problem.leetcode.medium.LeetCode11;
  *      输出：9
  * 提示：
  *      n == height.length
- *      0 <= n <= 3 * 10^4
+ *      1 <= n <= 3 * 10^4
  *      0 <= height[i] <= 10^5
  *
  * @author ywh
@@ -41,9 +41,6 @@ public class LeetCode42 {
      * @return
      */
     public int waterCanBeTrap(int[] height) {
-        if (height == null || height.length == 0) {
-            return 0;
-        }
         int n = height.length, leftMax = -1, rightMax = -1, water = 0;
         int[] dp = new int[n];
         // 从左到右求最大高度值，dp 记录截至当前位置，所遇到的高度最大值。
