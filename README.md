@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (373)
+## LeetCode (374)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -332,6 +332,7 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 700  | [Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree) | 二叉搜索树中查找数字               | Time: O(h)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode700.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_700.py) | Easy       | Tree                                                   |
 | 703  | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream) | 数据流中第 K 大的元素              | Time: O(n\*log(k))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode703.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_703.py) | Easy       | Heap                                                   |
 | 704  | [Binary Search](https://leetcode.com/problems/binary-search) | 二分搜索                           | Time: O(log(n))<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode704.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_704.py) | Easy       | Binary Search                                          |
+| 706  | [Design HashMap](https://leetcode-cn.com/problems/design-hashmap) | 设计哈希映射                           | Time: O(n/b)<br />Space: O(n+b) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode706.java) | Easy       | Hash Table<br />Linked List<br />Design                                          |
 | 714  | [Best Time to Buy and Sell Stock with Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee) | 买卖股票的最佳时机含手续费 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode714.java) | Medium | Greedy<br />Array<br />Dynamic Programming |
 | 718  | [Maximum Length of Repeated Subarray](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray) | 最长重复子数组 | Time: O((M+N)\*log(min(M,N)))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode718.java) | Medium | Binary Search<br />Hash Table<br />Array<br />Dynamic Programming |
 | 719  | [Find K-th Smallest Pair Distance](https://leetcode.com/problems/find-k-th-smallest-pair-distance) | 找出第 k 小的距离对 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/hard/LeetCode719.java) | Hard | Heap<br />Array<br />Binary Search |

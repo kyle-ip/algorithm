@@ -44,11 +44,6 @@ public class LeetCode448 {
             // existed[num - 1] = true;
             existed.add(num);
         }
-//        for (int i = 0; i < existed.length; i++) {
-//            if (!existed[i]) {
-//                ret.add(i + 1);
-//            }
-//        }
         for (int i = 0; i < nums.length; i++) {
             if (!existed.contains(i + 1)) {
                 ret.add(i + 1);

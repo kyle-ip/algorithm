@@ -21,43 +21,13 @@ package com.ywh.problem.leetcode.easy;
 public class LeetCode125 {
 
     /**
-     * 判断是否大写字母
-     *
-     * @param c 字符
-     * @return 判断结果
-     */
-    private boolean isUppercase(char c) {
-        return c >= 'A' && c <= 'Z';
-    }
-
-    /**
-     * 判断是否字母
-     *
-     * @param c 字符
-     * @return 判断结果
-     */
-    private boolean isAlphabet(char c) {
-        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
-    }
-
-    /**
-     * 判断是否数字
-     *
-     * @param c
-     * @return
-     */
-    private boolean isNumber(char c) {
-        return c >= '0' && c <= '9';
-    }
-
-    /**
      * 判断是否字母或数字
      *
      * @param c 字符
      * @return 判断结果
      */
     private boolean isAlphanumeric(char c) {
-        return isNumber(c) || isAlphabet(c);
+        return Character.isDigit(c) || Character.isAlphabetic(c);
     }
 
     /**
@@ -71,10 +41,11 @@ public class LeetCode125 {
         if (!isAlphanumeric(a) || !isAlphanumeric(b)) {
             return false;
         }
-        if (isUppercase(a)) {
+
+        if (Character.isUpperCase(a)) {
             a += 32;
         }
-        if (isUppercase(b)) {
+        if (Character.isUpperCase(b)) {
             b += 32;
         }
         return a == b;

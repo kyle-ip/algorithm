@@ -96,7 +96,7 @@ public class LeetCode449 {
          * @param nums
          * @return
          */
-        public TreeNode helper(Integer lower, Integer upper, ArrayDeque<Integer> nums) {
+        public TreeNode deserialize(Integer lower, Integer upper, ArrayDeque<Integer> nums) {
             if (nums.isEmpty()) {
                 return null;
             }
@@ -106,8 +106,8 @@ public class LeetCode449 {
             }
             nums.removeLast();
             TreeNode root = new TreeNode(val);
-            root.right = helper(val, upper, nums);
-            root.left = helper(lower, val, nums);
+            root.right = deserialize(val, upper, nums);
+            root.left = deserialize(lower, val, nums);
             return root;
         }
 
@@ -127,7 +127,7 @@ public class LeetCode449 {
             for (String s : data.split("-")) {
                 nums.add(Integer.valueOf(s));
             }
-            return helper(Integer.MIN_VALUE, Integer.MAX_VALUE, nums);
+            return deserialize(Integer.MIN_VALUE, Integer.MAX_VALUE, nums);
         }
     }
 }

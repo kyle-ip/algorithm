@@ -57,17 +57,17 @@ Result table:
 Solution:
 ```sql
 SELECT ROUND((
-        SELECT COUNT(DISTINCT a.player_id)
-        FROM Activity a, Activity b
-        WHERE a.event_date = DATE_SUB(b.event_date, INTERVAL 1 DAY)
-        AND a.player_id = b.player_id
-        AND (a.player_id, a.event_date) IN (
-            SELECT player_id, MIN(event_date) 
-            FROM Activity 
-            GROUP BY player_id
-        )
-    ) / (
-        SELECT COUNT(DISTINCT player_id) 
-        FROM Activity
-    ), 2) AS fraction
+    SELECT COUNT(DISTINCT a.player_id)
+    FROM Activity a, Activity b
+    WHERE a.event_date = DATE_SUB(b.event_date, INTERVAL 1 DAY)
+    AND a.player_id = b.player_id
+    AND (a.player_id, a.event_date) IN (
+        SELECT player_id, MIN(event_date) 
+        FROM Activity 
+        GROUP BY player_id
+    )
+) / (
+    SELECT COUNT(DISTINCT player_id) 
+    FROM Activity
+), 2) AS fraction
 ```
