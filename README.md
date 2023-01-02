@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (374)
+## LeetCode (375)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -387,6 +387,7 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 1430 | [Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit) | 绝对差不超过限制的最长连续子数组 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode1430.java) | Medium | Array<br />Sliding Window |
 | 1480 | [Running Sum of 1d array](https://leetcode-cn.com/problems/running-sum-of-1d-array) | 一维数组的动态和 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1480.java) | Easy | Array<br />Prefix Sum |
 | 1588 | [Sum of all odd length subarrays](https://leetcode.com/problems/sum-of-all-odd-length-subarrays) | 所有奇数长度子数组的和 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1588.java) | Easy | Array<br />Prefix Sum<br />Math |
+| 2351 | [First letter to appear twice](https://leetcode/problems/first-letter-to-appear-twice) | 第一个出现两次的字母 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode2351.java) | Easy | Hash Table<br />String |
 
 | No.  | Title                                                        | Desc                               | Complexity                                           | Solution                                                     | Difficulty | Tags                                                     |
 | ---- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ | ---------- | -------------------------------------------------------- | -------------------------------------------------------- |
