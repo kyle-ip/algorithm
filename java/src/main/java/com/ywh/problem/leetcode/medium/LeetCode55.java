@@ -33,6 +33,9 @@ public class LeetCode55 {
      * @return
      */
     public boolean canJumpToLast(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return false;
+        }
 
         // max 记录从当前位置下最远可达位置，可能为当前下标 + 步数（2, [4], 0, 1），或前面累计的最大值（4, [2], 0, 0, 0, 1）。
         for (int i = 0, max = 0; i < nums.length; i++) {

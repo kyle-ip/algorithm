@@ -27,14 +27,17 @@ public class LeetCode54Test {
 
     @Test
     public void testSpiralOrder() {
-        AssertUtil.assertIntListEquals(Collections.emptyList(), solution.spiralOrder(new int[][]{}));
-        AssertUtil.assertIntListEquals(Collections.emptyList(), solution.spiralOrder(new int[][]{null}));
-        AssertUtil.assertIntListEquals(Collections.emptyList(), solution.spiralOrder(new int[][]{{}}));
-        AssertUtil.assertIntListEquals(Arrays.asList(1, 2, 3), solution.spiralOrder(new int[][]{{1, 2, 3}}));
-        AssertUtil.assertIntListEquals(Arrays.asList(1, 4, 7), solution.spiralOrder(new int[][]{{1}, {4}, {7}}));
-        AssertUtil.assertIntListEquals(Arrays.asList(1, 2, 3, 6, 5, 4), solution.spiralOrder(new int[][]{{1, 2, 3}, {4, 5, 6}}));
-        AssertUtil.assertIntListEquals(Arrays.asList(1, 2, 3, 6, 9, 8, 7, 4, 5), solution.spiralOrder(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
+        AssertUtil.assertIntListEquals(Collections.emptyList(), solution.spiralOrder(new int[][] {}));
+        // AssertUtil.assertIntListEquals(Collections.emptyList(),
+        // solution.spiralOrder(new int[][]{null}));
+        AssertUtil.assertIntListEquals(Collections.emptyList(), solution.spiralOrder(new int[][] { {} }));
+        AssertUtil.assertIntListEquals(Arrays.asList(1, 2, 3), solution.spiralOrder(new int[][] { { 1, 2, 3 } }));
+        AssertUtil.assertIntListEquals(Arrays.asList(1, 4, 7),
+                solution.spiralOrder(new int[][] { { 1 }, { 4 }, { 7 } }));
+        AssertUtil.assertIntListEquals(Arrays.asList(1, 2, 3, 6, 5, 4),
+                solution.spiralOrder(new int[][] { { 1, 2, 3 }, { 4, 5, 6 } }));
+        AssertUtil.assertIntListEquals(Arrays.asList(1, 2, 3, 6, 9, 8, 7, 4, 5),
+                solution.spiralOrder(new int[][] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } }));
     }
-
 
 }

@@ -18,23 +18,23 @@ public class LeetCode221Test {
 
     private static LeetCode221 solution;
 
-    private final char[][] matrix0 = new char[][]{};
-    private final char[][] matrix1 = new char[][]{
-        {'1','0','1','0','0'},
-        {'1','0','1','1','1'},
-        {'1','1','1','1','1'},
-        {'1','0','0','1','0'}
+    private final char[][] matrix0 = new char[][] {};
+    private final char[][] matrix1 = new char[][] {
+            { '1', '0', '1', '0', '0' },
+            { '1', '0', '1', '1', '1' },
+            { '1', '1', '1', '1', '1' },
+            { '1', '0', '0', '1', '0' }
     };
-    private final char[][] matrix2 = new char[][]{
-        {'1','0','1','1','1'},
-        {'1','1','1','1','1'},
-        {'1','1','1','1','1'},
-        {'1','0','0','1','0'}
+    private final char[][] matrix2 = new char[][] {
+            { '1', '0', '1', '1', '1' },
+            { '1', '1', '1', '1', '1' },
+            { '1', '1', '1', '1', '1' },
+            { '1', '0', '0', '1', '0' }
     };
-    private final char[][] matrix3 = new char[][]{
-        {'1','0','1','0','0'},
-        {'1','1','1','1','1'},
-        {'0','0','0','1','1'},
+    private final char[][] matrix3 = new char[][] {
+            { '1', '0', '1', '0', '0' },
+            { '1', '1', '1', '1', '1' },
+            { '0', '0', '0', '1', '1' },
     };
 
     @BeforeAll

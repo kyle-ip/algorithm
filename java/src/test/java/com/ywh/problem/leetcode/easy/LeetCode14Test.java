@@ -1,4 +1,4 @@
-package com.ywh.problem.leetcode.medium;
+package com.ywh.problem.leetcode.easy;
 
 import com.ywh.problem.leetcode.easy.LeetCode14;
 import com.ywh.util.StringUtil;
@@ -29,11 +29,11 @@ public class LeetCode14Test {
 
     @ParameterizedTest
     @CsvSource({
-        "'car/cat/care', 'ca'",
-        "'car/care', 'car'",
-        "'car/bus', ''",
-        "'', ''",
-        "'null', ''"
+            "'car/cat/care', 'ca'",
+            "'car/care', 'car'",
+            "'car/bus', ''",
+            "'', ''",
+            "'null', ''"
     })
     void testLongestCommonPrefix(ArgumentsAccessor arguments) {
         String[] strs = StringUtil.strToStrArray(arguments.getString(0));

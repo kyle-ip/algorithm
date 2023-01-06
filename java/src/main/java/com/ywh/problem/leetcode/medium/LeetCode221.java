@@ -8,27 +8,27 @@ import com.ywh.problem.leetcode.hard.LeetCode85;
  *
  * 在一个由 '0' 和 '1' 组成的二维矩阵内，找到只包含 '1' 的最大正方形，并返回其面积。
  * 示例 1：
- *      输入：matrix = [
- *              ["1","0","1","0","0"],
- *              ["1","0","1","1","1"],
- *              ["1","1","1","1","1"],
- *              ["1","0","0","1","0"]
- *           ]
- *      输出：4
+ * 输入：matrix = [
+ * ["1","0","1","0","0"],
+ * ["1","0","1","1","1"],
+ * ["1","1","1","1","1"],
+ * ["1","0","0","1","0"]
+ * ]
+ * 输出：4
  * 示例 2：
- *      输入：matrix = [
- *              ["0","1"],
- *              ["1","0"]
- *           ]
- *      输出：1
+ * 输入：matrix = [
+ * ["0","1"],
+ * ["1","0"]
+ * ]
+ * 输出：1
  * 示例 3：
- *      输入：matrix = [["0"]]
- *      输出：0
+ * 输入：matrix = [["0"]]
+ * 输出：0
  * 提示：
- *      m == matrix.length
- *      n == matrix[i].length
- *      1 <= m, n <= 300
- *      matrix[i][j] 为 '0' 或 '1'
+ * m == matrix.length
+ * n == matrix[i].length
+ * 1 <= m, n <= 300
+ * matrix[i][j] 为 '0' 或 '1'
  *
  * @author ywh
  * @since 16/11/2019
@@ -45,8 +45,10 @@ public class LeetCode221 {
         int max = 0, n = heights.length;
         for (int i = 0; i < n; i++) {
             int l = i, r = i;
-            for (; l >= 0 && heights[l] >= heights[i]; l--);
-            for (; r < n && heights[r] >= heights[i]; r++);
+            for (; l >= 0 && heights[l] >= heights[i]; l--)
+                ;
+            for (; r < n && heights[r] >= heights[i]; r++)
+                ;
             int len = Math.min(l - r - 1, heights[i]);
             max = Math.max(max, len * len);
         }
@@ -62,6 +64,9 @@ public class LeetCode221 {
      * @return
      */
     public int maximalSquareHistogram(char[][] matrix) {
+        if (matrix == null || matrix.length == 0) {
+            return 0;
+        }
         int n = matrix[0].length;
         int[] heights = new int[n];
         int max = 0;
@@ -69,7 +74,7 @@ public class LeetCode221 {
             for (int j = 0; j < n; ++j) {
                 heights[j] = chars[j] == '1' ? heights[j] + 1 : 0;
             }
-            max = Math.max(max, largestSquareLengthInHistogram2(heights));
+            max = Math.max(max, largestSquareLengthInHistogram(heights));
         }
         return max;
     }
@@ -118,6 +123,9 @@ public class LeetCode221 {
      * @return
      */
     public int maximalSquareDP(char[][] matrix) {
+        if (matrix == null || matrix.length == 0) {
+            return 0;
+        }
 
         // 状态 d[i][j] 表示只包含字符 1 并且右下角在 (i, j) 的最大正方形对应的边长。
         int m = matrix.length, n = matrix[0].length, maxLen = 0;
@@ -147,6 +155,10 @@ public class LeetCode221 {
      * @return
      */
     public int maximalSquareDPOn(char[][] matrix) {
+        if (matrix == null || matrix.length == 0) {
+            return 0;
+        }
+
         // 用 pre 记录更新前的 d[i][j] 代替 d[i - 1][j - 1] 的值实现降维
         // 另外 d[i - 1][j] => d[j]、d[i][j - 1] => d[j - 1]
         int m = matrix.length, n = matrix[0].length, maxLen = 0, pre = 0, tmp;

@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @since 20/11/2019
  */
 @DisplayName("测试快乐数")
-class LeetCode202Test {
+public class LeetCode202Test {
 
     private final int ONE_MILLION = 1_000_000;
 
@@ -26,22 +26,22 @@ class LeetCode202Test {
     private static LeetCode202 solution;
 
     @BeforeAll
-    static void init() {
+    public static void init() {
         solution = new LeetCode202();
     }
 
     @ParameterizedTest
     @DisplayName("测试哈希表解法")
     @CsvSource({
-        "1, true",
-        "7, true",
-        "10, true",
-        "28, true",
-        "2, false",
-        "4, false",
-        "12, false",
-        "16, false",
-        "15999, false"
+            "1, true",
+            "7, true",
+            "10, true",
+            "28, true",
+            "2, false",
+            "4, false",
+            "12, false",
+            "16, false",
+            "15999, false"
     })
     void testIsHappyHashSet(ArgumentsAccessor arguments) {
         int num = arguments.getInteger(0);
@@ -52,15 +52,15 @@ class LeetCode202Test {
     @ParameterizedTest
     @DisplayName("测试数学解法")
     @CsvSource({
-        "1, true",
-        "7, true",
-        "10, true",
-        "28, true",
-        "2, false",
-        "4, false",
-        "12, false",
-        "16, false",
-        "15999, false"
+            "1, true",
+            "7, true",
+            "10, true",
+            "28, true",
+            "2, false",
+            "4, false",
+            "12, false",
+            "16, false",
+            "15999, false"
     })
     void testIsHappyMath(ArgumentsAccessor arguments) {
         int num = arguments.getInteger(0);
@@ -71,15 +71,15 @@ class LeetCode202Test {
     @ParameterizedTest
     @DisplayName("测试双指针解法")
     @CsvSource({
-        "1, true",
-        "7, true",
-        "10, true",
-        "28, true",
-        "2, false",
-        "4, false",
-        "12, false",
-        "16, false",
-        "15999, false"
+            "1, true",
+            "7, true",
+            "10, true",
+            "28, true",
+            "2, false",
+            "4, false",
+            "12, false",
+            "16, false",
+            "15999, false"
     })
     void testIsHappyTwoPointer(ArgumentsAccessor arguments) {
         int num = arguments.getInteger(0);
@@ -88,21 +88,24 @@ class LeetCode202Test {
     }
 
     @Test
-    void testCrossValidation() {
+    public void testCrossValidation() {
+
+        solution = new LeetCode202();
+
         for (int i = 0; i <= ONE_MILLION; ++i) {
             assertEquals(
-                solution.isHappyHashSet(i),
-                solution.isHappyTwoPointer(i)
-            );
+                    solution.isHappyHashSet(i),
+                    solution.isHappyTwoPointer(i));
             assertEquals(
-                solution.isHappyHashSet(i),
-                solution.isHappyMath(i)
-            );
+                    solution.isHappyHashSet(i),
+                    solution.isHappyMath(i));
         }
     }
 
     @Test
     public void testTransformationCount() {
+        solution = new LeetCode202();
+
         int max = -1;
         // running about 9~10 min
         // int bound = Integer.MAX_VALUE;
@@ -137,6 +140,8 @@ class LeetCode202Test {
 
     @Test
     public void benchmark() {
+
+        solution = new LeetCode202();
 
         // warm up
         for (int i = 1; i <= 1000; ++i) {

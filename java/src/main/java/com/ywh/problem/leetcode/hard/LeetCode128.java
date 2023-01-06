@@ -11,15 +11,15 @@ import java.util.Set;
  * 给定一个未排序的整数数组 nums ，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。
  * 进阶：你可以设计并实现时间复杂度为 O(n) 的解决方案吗？
  * 示例 1：
- *      输入：nums = [100,4,200,1,3,2]
- *      输出：4
- *      解释：最长数字连续序列是 [1, 2, 3, 4]。它的长度为 4。
+ * 输入：nums = [100,4,200,1,3,2]
+ * 输出：4
+ * 解释：最长数字连续序列是 [1, 2, 3, 4]。它的长度为 4。
  * 示例 2：
- *      输入：nums = [0,3,7,2,5,8,4,6,0,1]
- *      输出：9
+ * 输入：nums = [0,3,7,2,5,8,4,6,0,1]
+ * 输出：9
  * 提示：
- *      0 <= nums.length <= 10^4
- *      -10^9 <= nums[i] <= 10^9
+ * 0 <= nums.length <= 10^4
+ * -10^9 <= nums[i] <= 10^9
  *
  * @author ywh
  * @since 2019/11/12/012
@@ -64,6 +64,11 @@ public class LeetCode128 {
      * @return
      */
     public int lengthOfLongestConsecutiveSequenceSet1(int[] nums) {
+
+        if (nums == null) {
+            return 0;
+        }
+
         // 把所有元素添加到哈希表：8, 4, 2, 1, 2, 3, 6
         Set<Integer> set = new HashSet<>();
         for (int num : nums) {
@@ -79,8 +84,10 @@ public class LeetCode128 {
 
             // 一边向两边扩展，一边从 set 中移除元素。
             int l = nums[i], r = nums[i];
-            for (; set.contains(--l); set.remove(l));
-            for (; set.contains(++r); set.remove(r));
+            for (; set.contains(--l); set.remove(l))
+                ;
+            for (; set.contains(++r); set.remove(r))
+                ;
 
             // 跳出上面的循环时，l、r 表示为开区间，因此统计区间长度需要减去 1（如 5 与 2 之间有 3、4，所以 5-2-1 == 2）。
             ret = Math.max(ret, r - l - 1);
@@ -106,7 +113,8 @@ public class LeetCode128 {
             if (!set.contains(num - 1)) {
                 int len = 1;
                 // 从起始值开始，判断紧随其后的每个数是否存在与哈希表中，存在的更新长度。
-                for (; set.contains(num + 1); num++, len++);
+                for (; set.contains(num + 1); num++, len++)
+                    ;
                 ret = Math.max(ret, len);
             }
         }

@@ -30,12 +30,12 @@ class LeetCode338Test {
 
     @ParameterizedTest
     @CsvSource({
-        "0, '0'",
-        "1, '0,1'",
-        "2, '0,1,1'",
-        "3, '0,1,1,2'",
-        "4, '0,1,1,2,1'",
-        "5, '0,1,1,2,1,2'"
+            "0, '0'",
+            "1, '0,1'",
+            "2, '0,1,1'",
+            "3, '0,1,1,2'",
+            "4, '0,1,1,2,1'",
+            "5, '0,1,1,2,1,2'"
     })
     void testCountBits(ArgumentsAccessor arguments) {
         int num = arguments.getInteger(0);
@@ -45,12 +45,12 @@ class LeetCode338Test {
 
     @ParameterizedTest
     @CsvSource({
-        "0, '0'",
-        "1, '0,1'",
-        "2, '0,1,1'",
-        "3, '0,1,1,2'",
-        "4, '0,1,1,2,1'",
-        "5, '0,1,1,2,1,2'"
+            "0, '0'",
+            "1, '0,1'",
+            "2, '0,1,1'",
+            "3, '0,1,1,2'",
+            "4, '0,1,1,2,1'",
+            "5, '0,1,1,2,1,2'"
     })
     void testCountBitsOn(ArgumentsAccessor arguments) {
         int num = arguments.getInteger(0);
@@ -59,7 +59,7 @@ class LeetCode338Test {
     }
 
     @Test
-    void testCross() {
+    public void testCross() {
         for (int i = 0; i < 100; ++i) {
             Assert.assertArrayEquals(solution.countBits(i), solution.countBitsOn(i));
         }

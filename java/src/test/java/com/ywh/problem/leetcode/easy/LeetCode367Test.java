@@ -1,4 +1,4 @@
-package com.ywh.problem.leetcode.medium;
+package com.ywh.problem.leetcode.easy;
 
 import com.ywh.problem.leetcode.easy.LeetCode367;
 import org.junit.jupiter.api.BeforeAll;
@@ -29,11 +29,11 @@ public class LeetCode367Test {
     @ParameterizedTest
     @DisplayName("测试牛顿法")
     @CsvSource({
-        "0, true",
-        "1, true",
-        "2, false",
-        "99, false",
-        "144, true"
+            "0, true",
+            "1, true",
+            "2, false",
+            "99, false",
+            "144, true"
     })
     void testIsPerfectSquareNewton(ArgumentsAccessor arguments) {
         int num = arguments.getInteger(0);
@@ -44,11 +44,11 @@ public class LeetCode367Test {
     @ParameterizedTest
     @DisplayName("测试二分法")
     @CsvSource({
-        "0, true",
-        "1, true",
-        "2, false",
-        "99, false",
-        "144, true"
+            "0, true",
+            "1, true",
+            "2, false",
+            "99, false",
+            "144, true"
     })
     void testIsPerfectSquareBinarySearch(ArgumentsAccessor arguments) {
         int num = arguments.getInteger(0);

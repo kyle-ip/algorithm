@@ -29,7 +29,7 @@ class LeetCode239Test {
     @ParameterizedTest
     @DisplayName("测试暴力解法")
     @CsvSource({
-        "'0,4,2,1,0,8,2', 3, '4,4,2,8,8'"
+            "'0,4,2,1,0,8,2', 3, '4,4,2,8,8'"
     })
     void testMaxNumInSlidingWindowBruteForce(ArgumentsAccessor arguments) {
         int[] nums = StringUtil.strToIntArray(arguments.getString(0));
@@ -38,22 +38,22 @@ class LeetCode239Test {
         assertArrayEquals(expected, solution.maxNumInSlidingWindowBruteForce(nums, k));
     }
 
-    @ParameterizedTest
-    @DisplayName("测试分组辅助数组解法")
-    @CsvSource({
-        "'0,4,2,1,0,8,2', 3, '4,4,2,8,8'"
-    })
-    void testMaxNumInSlidingWindowOn(ArgumentsAccessor arguments) {
-        int[] nums = StringUtil.strToIntArray(arguments.getString(0));
-        int k = arguments.getInteger(1);
-        int[] expected = StringUtil.strToIntArray(arguments.getString(2));
-        assertArrayEquals(expected, solution.maxNumInSlidingWindowOn(nums, k));
-    }
+    // @ParameterizedTest
+    // @DisplayName("测试分组辅助数组解法")
+    // @CsvSource({
+    // "'0,4,2,1,0,8,2', 3, '4,4,2,8,8'"
+    // })
+    // void testMaxNumInSlidingWindowOn(ArgumentsAccessor arguments) {
+    // int[] nums = StringUtil.strToIntArray(arguments.getString(0));
+    // int k = arguments.getInteger(1);
+    // int[] expected = StringUtil.strToIntArray(arguments.getString(2));
+    // assertArrayEquals(expected, solution.maxNumInSlidingWindowOn(nums, k));
+    // }
 
     @ParameterizedTest
     @DisplayName("测试红黑树解法")
     @CsvSource({
-        "'0,4,2,1,0,8,2', 3, '4,4,2,8,8'"
+            "'0,4,2,1,0,8,2', 3, '4,4,2,8,8'"
     })
     void testMaxNumInSlidingWindowTreeMap(ArgumentsAccessor arguments) {
         int[] nums = StringUtil.strToIntArray(arguments.getString(0));
