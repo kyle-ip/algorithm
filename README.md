@@ -14,7 +14,7 @@ Mind Map: https://www.processon.com/view/link/5f9193b81e085307a09e598b
 
 Data Structure implemented in Java: https://github.com/FreetechRevise/data-structure
 
-## LeetCode (375)
+## LeetCode (376)
 
 | Tags                |                  |                     |                    |
 | ------------------- | ---------------- | ------------------- | ------------------ |
@@ -375,7 +375,8 @@ Data Structure implemented in Java: https://github.com/FreetechRevise/data-struc
 | 1004 | [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii) | 最大连续1的个数 III | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode1004.java)<br />[Go](go/src/problem/leetcode1004/longestOnes.go) | Medium | Two Pointers<br />Sliding Window |
 | 1006 | [Clumsy Factorial](https://leetcode.com/problems/clumsy-factorial) | 笨阶乘 | Time: O(1)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode1006.java) | Medium | Stack<br />Math |
 | 1018 | [Binary Prefix Divisible By 5](https://leetcode.com/problems/binary-prefix-divisible-by-5) | 可被 5 整除的二进制前缀 | Time: O(n)<br />Space: O(1) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1018.java) | Easy | Array |
-| 1029 | [Two City Scheduling](https://leetcode.com/problems/two-city-scheduling) | 两地调度                           | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1029.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_1029.py) | Easy       | Greedy                                                 |
+| 1029 | [Two City Scheduling](https://leetcode.com/problems/two-city-scheduling) | 两地调度 | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1029.java)<br />[Python](python/src/problem/leetcode/easy/leetcode_1029.py) | Easy       | Greedy                                                 |
+| 1033 | [Moving Stones Until Consecutive](https://leetcode.com/problems/moving-stones-until-consecutive) | 移动石子直到连续 | Time: O(1))<br />Space: O(1n) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode1033.java) | Medium| Math |
 | 1046 | [Last Stone Weight](https://leetcode.com/problems/last-stone-weight) | 最后一块石头的重量 | Time: O(n\*log(n))<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1046.java) | Easy | Greedy<br />Heap |
 | 1047 | [Remove All Adjacent Duplicates In String](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string) | 删除字符串中的所有相邻重复项 | Time: O(n)<br />Space: O(n) | [Java](java/src/main/java/com/ywh/problem/leetcode/easy/LeetCode1047.java) | Easy | Stack |
 | 1091 | [Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix) | 二进制矩阵中的最短路径 | Time: O(R\*C)<br />Space: O(R\*C) | [Java](java/src/main/java/com/ywh/problem/leetcode/medium/LeetCode1091.java) | Medium | BFS |
